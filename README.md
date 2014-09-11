@@ -1,5 +1,5 @@
 #Predix Seed
-Clone or fork this project to start your own Predictivity application. Documentation and more info can be found at predix.sw.ge.com
+Clone or fork this project to start your own Predictivity application. Documentation and more info can be found at [predix.sw.ge.com](http://predix.sw.ge.com)
 
 
 Copyright &copy; 2014 GE Global Research. All rights reserved.
