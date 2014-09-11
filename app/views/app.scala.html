@@ -1,0 +1,65 @@
+
+@import com.ge.dsv.common.util._
+@import play._
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>@Language.message("Application.name")</title>
+	
+    <base href="@Play.application().configuration().getString("application.context", "/")"/>
+    
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="@routes.Assets.at("/public/bower_components", "iids/dist/iidx/css/iids.min.css")"/>
+    <link rel="stylesheet" href="@routes.Assets.at("/public/bower_components", "iids/dist/iidx/css/responsive.min.css")"/>
+    <link rel="stylesheet" href="@routes.Assets.at("/public/stylesheets", "app.css")"/>
+    
+    <!-- Enables internationalization -->
+    <script type="text/javascript" src="@com.ge.dsv.controllers.routes.MessageController.getMessages()"></script>
+
+  </head>
+  
+  <body class="app" data-ng-controller="MainCtrl">
+  
+    <div class="navbar navbar-static-top templatecontainer">
+    
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">
+            <span class="ge-logo"></span>
+            <span id="a7749d78-d720-455c-886a-00fff4022ee7_brand">@Language.message("Application.name")
+              <small><i>@Language.message("packager.page.gelogo")</i> @Language.message("packager.page.gebusiness")</small>
+            </span>
+          </a>
+          <div class="notifications">
+            <!-- Signout link for authentication -->
+              <a class="brand" id="a8db91fa-23f6-427f-acf5-6f52f025519d_signoutapplink" ng-href='#' ng-click='logout($event)'><font size="2"><u>Logout, @session.get("loginUserName")</u></font></a>
+              
+          </div>
+        </div>
+      </div>
+		
+      <div class="navmodule primary-navbar navbar-collapse">
+        <div class="container">
+          <ul class="nav" data-ng-cloak="">
+            <li ui-sref-active="active" data-ng-repeat="tab in App.tabs" tab="tab">
+              <a ui-sref="{{tab.state}}">{{tab.label}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+		
+    </div>
+    
+    <!-- MAIN CONTENT -->
+    <div class="content container" ui-view="">
+      <!-- This is the container where the tabs will render -->
+    </div>
+      <script data-main="@routes.Assets.at("/public/scripts","bootstrapper.js")" src="@routes.Assets.at("/public/bower_components", "iids/dist/iidx/components/requirejs/require.js")"></script>
+  </body>
+</html>

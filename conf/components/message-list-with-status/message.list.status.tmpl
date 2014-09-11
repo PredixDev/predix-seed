@@ -1,0 +1,15 @@
+<ul class="module-notifications structured message-list">
+  <!-- ko foreach: alerts -->
+  <li class="message-item">
+    <a href="#" data-bind="attr: { href: action }" target="_blank">
+      <span class="label pull-left" data-bind="css: labelType, text: label">Urgent</span>
+      <h4 class="message-title" data-bind="text: title">Alert Type and Title</h4>
+      <p>
+        <!--ko text: body-->This is a brief description or summary of the associated event that occured<!--/ko-->
+        <br>
+        <time class="message-time" datetime="MM:DD:YYTHH:MM:SS" data-bind="text: timestamp">MM/DD/YY 12:05</time>
+      </p>
+    </a>
+  </li>
+  <!-- /ko -->
+</ul>

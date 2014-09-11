@@ -1,0 +1,1 @@
+window.Messages=(function(u){var ms={};return function(k){if(typeof k == "object"){for(var i=0;i<k.length&&ms[k[i]]!==u;i++);var m=ms[k[i]]||k[0]}else{m=((ms[k]!==u)?ms[k]:k)}for(i=1;i<arguments.length;i++){m=m.replace('{'+(i-1)+'}',arguments[i])}return m}})()

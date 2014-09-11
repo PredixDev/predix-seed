@@ -1,0 +1,39 @@
+{
+  "name": "Paragraph",
+  "icon": "paragraph-icon.png",
+  "overlay": "paragraph-overlay.png",
+  "type": "Paragraph",
+  "category": "Industrial",
+  "description": "Standard container for body copy.",
+  "properties": {
+    "text": {
+      "type": "textarea"	,
+      "default": "Sample text...",
+      "required": true
+    },
+    "voice": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "voice-brand",
+        "voice-human",
+        "voice-data"
+      ]
+    },
+    "events": {
+      "mixin": [
+        "keyboard.events.schema.json",
+        "mouse.events.schema.json",
+        "touch.events.schema.json"
+      ]
+    },
+    "methods": {
+      "mixin": [
+        "HTMLElement.methods.schema.json"
+      ]
+    }
+  },
+  "templates": [
+    "paragraph.tmpl"
+  ]
+}

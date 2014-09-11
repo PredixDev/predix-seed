@@ -1,0 +1,55 @@
+{
+  "name": "Message List",
+  "icon": "message.list.status-icon.png",
+  "overlay": "message.list.status-overlay.png",
+  "type": "Lists",
+  "category": "Industrial",
+  "description": "Message List with Status.",
+  "properties": {
+    "alerts": {
+      "type": "array",
+      "required": true,
+      "default":[
+		    {
+		        "timestamp": "10/25/2013 11:13am",
+		        "body": "Lorem ipsum dolor sit adipiscing consecteurest comodo amet prota.",
+		        "title": "Sample Message 1",
+		        "labelType": "label-important",
+		        "action": "",
+		        "label": "Urgent"
+		    },
+		    {
+			      "timestamp": "10/25/2013 11:13am",
+			      "body": "Lorem ipsum dolor sit adipiscing consecteurest comodo amet prota.",
+			      "title": "Sample Message 2",
+		        "labelType": "label-warning",
+		        "action": "",
+		        "label": "Moderate"
+		    },
+		    {
+			      "timestamp": "10/25/2013 11:13am",
+			      "body": "Lorem ipsum dolor sit adipiscing consecteurest comodo amet prota.",
+			      "title": "Sample Message 3",
+		        "labelType": "",
+		        "action": "",
+		        "label": ""
+		    }
+		]
+    },
+    "events":	 {
+      "mixin": [
+        "keyboard.schema.json",
+        "mouse.schema.json",
+        "touch.schema.json"
+      ]
+    },
+    "methods": {
+      "mixin": [
+        "HTMLElement.schema.json"
+      ]
+    }
+  },
+  "templates": [
+    "message.list.status.tmpl"
+  ]
+}

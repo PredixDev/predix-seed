@@ -1,0 +1,45 @@
+{
+    "name": "Datagrid",
+    "type": "IIDS",
+    "icon": "datagrid-icon.png",
+    "overlay": "datagrid-overlay.png",
+    "category": "Industrial",
+    "description": "A datagrid component from IIDS",
+    "templates": [
+        "datagrid.tmpl"
+    ],
+    "properties": {
+        "tableName": {
+            "type": "string",
+            "default": "Snowboarding Olympic Medals",
+            "required": true
+        },
+        "showSearchField": {
+            "type": "enum",
+            "default": "true",
+            "enum": ["true", "false"],
+            "required": true
+        },
+        "paginate": {
+            "type": "enum",
+            "default": "true",
+            "enum": ["true", "false"],
+            "required": true
+        },
+        "columnNames": {
+            "type": "array",
+            "default": ["Country", "Total", "Best Year"],
+            "required": true
+        },
+        "columnKeys": {
+            "type": "array",
+            "default": ["country", "total", "bestYear"],
+            "required": true
+        },
+        "data": {
+            "type": "array",
+            "default": [{"country": "United States", "total": "19", "bestYear": "2006 (7)"}, {"country": "Switzerland", "total": "9", "bestYear": "2006 (4)"}, {"country": "France", "total": "8", "bestYear": "2002/2010 (3)"}, {"country": "Canada", "total": "5", "bestYear": "2010 (3)"}, {"country": "Austria", "total": "4", "bestYear": "2010 (4)"}, {"country": "Germany", "total": "3", "bestYear": "1998 (2)"}, {"country": "Norway", "total": "3", "bestYear": "1998 (2)"}, {"country": "Finland", "total": "2", "bestYear": "2006/2010 (1)"}, {"country": "Italy", "total": "2", "bestYear": "1998/2002 (1)"}, {"country": "Australia", "total": "1", "bestYear": "2010 (1)"}, {"country": "Netherlands", "total": "1", "bestYear": "2010 (1)"}, {"country": "Russia", "total": "1", "bestYear": "2010 (1)"}, {"country": "Slovakia", "total": "1", "bestYear": "2006 (1)"}, {"country": "Sweden", "total": "1", "bestYear": "2002 (1)"}],
+            "required": true
+        }
+    }
+}

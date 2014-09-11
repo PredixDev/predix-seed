@@ -1,0 +1,417 @@
+
+<!doctype html>
+<html>
+  
+  <head>
+    <title>Predix Experience Tutorial</title>
+    <meta name="viewport" content="width=device-width">
+
+  </head>
+  
+  <body class="container">
+
+  <!-- Section -->
+<div id="overview">
+
+  <h2>Overview</h2>
+
+  <p>The Predix Experience application gives you a great starting point right out of the box, which includes the following:</p>
+
+  <ul>
+	  <li>Session Management</li>
+	  <li>User Authentication</li>
+	  <li>Proxy Web Service</li>
+	  <li>Internationalization Support</li>
+	  <li>Distributed Caching</li>
+	  <li>JavaScript minification</li>
+  </ul>
+  
+  <h3>Help</h3>
+  <p>For more information on using Predix Workbench or extending the packaged application use the following resources:</p>
+  <ul>
+  	<li>Ask questions on <a class="" target="_blank" href="http://answers.sw.ge.com/spaces/21/index.html">GE Answers</a></li>
+  </ul>
+	<p>Thank you for using Predix Workbench!</p>
+</div>
+  
+<!-- Section -->
+<div id="configuration">
+
+  <h2>Play Configuration</h2>
+
+  <p>The <a class="shortcut" href="#code/conf">conf</a> directory contains the following application configuration files:</p>
+
+  <ol>
+  <li><p>The <a class="shortcut" href="#code/conf/app.conf">app.conf</a> file contains all of the application's runtime settings.</p></li>
+  <li><p>The <a class="shortcut" href="#code/conf/routes">routes</a> file contains HTTP request verbs and paths mapped to controller methods.</p></li>
+  <li><p>The <a class="shortcut" href="#code/conf/messages.en">messages.en</a> file is used to externalize all application strings.</p></li>
+  <li><p>The <a class="shortcut" href="#code/project">project</a> directory contains Play build files and output.</p></li>
+  </ol>
+
+
+  <blockquote><p>Include the application's dependencies in the Build.scala file.</p>
+
+  <p>Visit the <a class="" target="_blank" href="http://www.scala-sbt.org/">SBT Documentation</a> website for more information.</p></blockquote>
+</div>
+  
+  
+<!-- Section -->
+<div id="java-controllers">
+
+  <h2>Java Controllers</h2>
+
+  <p>The <a class="shortcut" href="#code/app/controllers">app/controllers</a> directory contains the application's business logic, which includes the following controllers by default:</p>
+
+  <ol>
+  <li><p><a class="shortcut" href="#code/app/controllers/Authentication.java">Authentication.java</a> is used by the Visualization code for authentication and session management (if authentication is enabled).</p></li>
+  <li><p><a class="shortcut" href="#code/app/controllers/ApplicationController.java">ApplicationController.java</a> is used by the Visualization code for widget rendering and the proxy web service.  Check out the upload method for an example of how to do a file upload.</p></li>
+  </ol>
+
+
+  <h3>Authentication</h3>
+
+  <p>To enable authentication on controllers, add the following annotations at the top of the controller declaration:</p>
+
+  <pre><code>@With(SessionManager.class)
+  @Security.Authenticated(Secured.class)
+  </code></pre>
+
+</div>
+  
+
+
+
+
+
+<!-- Section -->
+<div id="scala-views">
+
+  <h2>Scala Views</h2>
+
+  <p>The <a class="shortcut" href="#code/app/views">app/views</a> directory contains the main entry points to the application, which include:</p>
+
+  <ol>
+  <li><a class="shortcut" href="#code/app/views/app.scala.html">app.scala.html</a> - This file is the main view that includes all application client-side dependencies. (styles, scripts, etc.)</li>
+  <li><a class="shortcut" href="#code/app/views/loginapp.scala.html">loginapp.scala.html</a> - This file is login view that is used when authentication is enabled.</li>
+  </ol>
+
+</div>
+
+
+
+
+<!-- Section -->
+<div id="angular-configuration">
+
+  <h2>Angular Configuration</h2>
+
+  <p>Predix Visualization projects uses the AngularJS framework with RequireJS which allows Play to load, minify and concatenate all JavaScript files without using any extra tools.</p>
+
+  <p><a class="" target="_blank" href="http://requirejs.org/">RequireJS</a> is used to load the Angular files which are a modified version of the files created by the Yeoman Angular community generator.</p>
+
+  <p>The <a class="shortcut" href="#code/public/scripts/app.js">public/scripts/app.js</a> file is the main entry point to the AngularJS application, which does the following:</p>
+
+  <ol>
+  <li>Dynamically injects all AngularJS modules using RequireJS.</li>
+  <li>Defines client-side routing for the application.</li>
+  <li>Defines the MainCtrl and TabsCtrl controllers.</li>
+  <li>Defines all datasources for the application.</li>
+  </ol>
+
+</div>
+
+
+
+
+
+<!-- Section -->
+<div id="angular-views">
+
+  <h2>Angular Views and Controllers</h2>
+
+  <p>Each page in the application has a controller and view with a one-to-one relationship that handle the visual representation of the application's model and its business logic.</p>
+
+  <h3>Views</h3>
+
+  <p>Here are the views of the application.</p>
+
+  <ol>
+  <li>The views for the application are located in the <a href="#code/public/views/" class="shortcut">public/views</a> directory.</li>
+  <li>The templates are injected into the <code>ng-view</code> directive located in <a href="#code/app/views/app.scala.html" class="shortcut">app.scala.html</a> file.</li>
+  </ol>
+
+
+  <h3>Controllers</h3>
+
+  <p>The Angular controllers for the application are located in the <a href="#code/public/scripts/controllers/" class="shortcut">public/scripts/controllers</a> directory and are in the form of RequireJS modules.</p>
+
+  <p>The controllers retrieve the datasources used on the page, create the widgets, kick off the widget lifecycle, and fetch the data from the datasources.</p>
+
+  <p>Here are the views and controllers for your application</p>
+
+  <ol>
+    
+     <li><a href="#code/public/scripts/controllers/static-data-1.js" class="shortcut">static-data-1.js</a> and the view it controls: <a href="#code/public/views/static-data-1.html" class="shortcut">static-data-1.html</a></li>
+    
+     <li><a href="#code/public/scripts/controllers/static-data-2.js" class="shortcut">static-data-2.js</a> and the view it controls: <a href="#code/public/views/static-data-2.html" class="shortcut">static-data-2.html</a></li>
+    
+     <li><a href="#code/public/scripts/controllers/service-data-1.js" class="shortcut">service-data-1.js</a> and the view it controls: <a href="#code/public/views/service-data-1.html" class="shortcut">service-data-1.html</a></li>
+    
+     <li><a href="#code/public/scripts/controllers/service-data-2.js" class="shortcut">service-data-2.js</a> and the view it controls: <a href="#code/public/views/service-data-2.html" class="shortcut">service-data-2.html</a></li>
+    
+     <li><a href="#code/public/scripts/controllers/widget-to-widget.js" class="shortcut">widget-to-widget.js</a> and the view it controls: <a href="#code/public/views/widget-to-widget.html" class="shortcut">widget-to-widget.html</a></li>
+    
+     <li><a href="#code/public/scripts/controllers/websocket.js" class="shortcut">websocket.js</a> and the view it controls: <a href="#code/public/views/websocket.html" class="shortcut">websocket.html</a></li>
+    
+  </ol>
+
+ 
+ </div>  
+    
+  <!-- Section -->
+  <div id="pages">
+  <h2>Adding a Page</h2>
+  <p>To add a new page to the application use the following steps:</p>
+  <ol>
+  <li>Add a new controller file into the <a class="shortcut" href="#code/public/scripts/controllers/">public/scripts/controllers</a> directory.</li>
+  <li>Add the new controller file reference to the controller directory's <a class="shortcut" href="#code/public/scripts/controllers/main.js">main.js</a>.</li>
+  <li>Add a new view file into the <a class="shortcut" href="#code/public/views/">public/views</a> directory.</li>
+  <li>Add the new page to the routeProvider in <a class="shortcut" href="#code/public/scripts/app.js">app.js</a>.</li>
+  <li>Add the new page to the TabsCtrl in <a class="shortcut" href="#code/public/scripts/app.js">app.js</a>.</li>
+  </ol>
+</div>
+
+
+
+
+
+
+<!-- Section -->
+<div id="directives">
+
+  <h2>Angular Directives</h2>
+
+  <p>The Angular directives are located in the <a class="shortcut" href="#code/public/scripts/directives">public/scripts/directives</a> folder. You can add your directive code to the <a class="shortcut" href="#code/public/scripts/directives/sample-directive.js">sample-directive.js</a> file which is already configured to load.</p>
+
+  <p>Suppose you wanted a simple way to add nice form elements to a form. Instead of having to create the elements with the proper classes, you could instead create one directive. Using that directive allows you to make changes to one file and have those changes reflected everywhere.</p>
+
+  <p>Create a file named <code>formitem-directive.js</code> in the <a class="shortcut" href="#code/public/scripts/directives">public/scripts/directives</a> folder</p>
+
+  <p><strong>For example: </strong></p>
+
+  <pre><code>define(["angular"], function(angular) {
+  angular.module("directives").directive("formitem", function() {
+      var postLink;
+      return {
+        restrict: "E",
+        replace: true,
+        transclude: true,
+        scope: {
+          title: "@",
+          name: "@",
+          help: "@",
+          placeholder: "@"
+        },
+        link: postLink = function(scope, element, attrs) {
+          var input;
+          input = element.find('input');
+          input.attr('name', attrs.name);
+          input.attr('placeholder', attrs.placeholder);
+          return input.addClass('input-medium');
+        },
+        template: ''
+            +'&lt;div class="control-group"&gt;'
+            +'  &lt;div class="control-label"&gt;'
+            +'      &lt;label for="{{name}}" id="{{name | lowercase}}"&gt;{{title}}&lt;/label&gt;'
+            +'  &lt;/div&gt;'
+            +'  &lt;div class="controls"&gt;'
+            +'      &lt;span ng-transclude&gt;&lt;/span&gt;'
+            +'      &lt;span class="help-inline"&gt;{{help}}&lt;/span&gt;'
+            +'  &lt;/div&gt;'
+            +'&lt;/div&gt;'
+      };
+    });
+  });
+  </code></pre>
+
+  <p>Now you must add the file to the directive package <a class="shortcut" href="#code/public/scripts/directives/main.js">main.js</a>.</p>
+
+  <p><strong>For example: </strong></p>
+
+  <pre><code>define([
+      "./sample-directive", //sample-directive.js file 
+      "./formitem-directive" //formitem-directive.js file
+  ], function() {
+      //Empty
+  });
+  </code></pre>
+
+  <p>Then to use this directive all that is required is to add the markup to the view template.</p>
+
+  <p><strong>For example: </strong></p>
+
+  <pre><code>&lt;form class="form-horizontal"&gt;
+      &lt;formitem  name="user_name" title="Username:"  placeholder="joeuser" help="Enter valid username"&gt;
+          &lt;input ng-model="user.name" type="text" /&gt;
+      &lt;/formitem&gt;
+      &lt;formitem  name="user_email" title="Email:"  placeholder="joeuser@email.com" help="Enter a valid email address"&gt;
+          &lt;input ng-model="user.email" type="text" /&gt;
+      &lt;/formitem&gt;
+  &lt;/form&gt;
+  </code></pre>
+</div>
+  
+  
+
+<div id="filters">
+
+  <!-- Section -->
+  <h2>Angular Filters</h2>
+
+  <p>The Angular filters are located in the <a class="shortcut" href="#code/public/scripts/filters">public/scripts/filters</a> folder. You can add your filters code to the <a class="shortcut" href="#code/public/scripts/filters/sample-filter.js">sample-filter.js</a> file which is already configured to load, or create new a file and then include that file in the filters package <a class="shortcut" href="#code/public/scripts/filters/main.js">main.js</a>.</p>
+
+  <p>Suppose you wanted to create a filter that removes any whitespace character (spaces, tabs, line breaks) from a string before displaying it.</p>
+
+  <p>Create a file named <code>slugify-filter.js</code> in the <a class="shortcut" href="#code/public/scripts/filters">public/scripts/filters</a> folder</p>
+
+  <p><strong>For example:</strong></p>
+
+  <pre><code>'use strict';
+  define(["angular"], function(angular) {
+    angular.module("filters").filter("slugify", function() {
+      return function(input, lowercase) {
+        var out;
+        out = "";
+        out = input.replace(/\s/g, "-");
+        if (lowercase) {
+          out = out.toLowerCase();
+        }
+        return out;
+      };
+    });
+  });
+  </code></pre>
+
+  <p>Now you must add the file to the filters package <a class="shortcut" href="#code/public/scripts/filters/main.js">main.js</a>.</p>
+
+  <p><strong>For example:</strong></p>
+
+  <pre><code>define([
+      "./sample-filter", //sample-filter.js file 
+      "./slugify-filter" //slugify-filter.js file
+  ], function() {
+      //Empty
+  });
+  </code></pre>
+
+  <p>Then to use this filter in a view add the expression to the view template.</p>
+
+  <p><strong>For example:</strong></p>
+
+  <pre><code>{{ text | slugify }}
+  </code></pre>
+
+  <p>Or to use this filter in a controller add the name of the filter in the dependencies of the controller and invoke the filter passing the first argument as the input and the second argument as the parameter option.</p>
+
+  <p><strong>For example:</strong></p>
+
+  <pre><code>define(['angular'], function(angular) {
+    angular.module('controllers').controller('MainCtrl', ['$scope', 'slugifyFilter', 
+      function($scope, slugifyFilter) {
+        var text = 'This is an example string that will have all spaces removed';
+        $scope.text = slugifyFilter(text, true);
+      }
+    ]);
+  });
+  </code></pre>
+</div>
+  
+  
+
+
+
+
+
+
+
+
+<!-- Section -->
+<div id="services">
+  <h2>Angular Services</h2>
+
+  <p>The Angular services are located in the <a class="shortcut" href="#code/public/scripts/services">public/scripts/services</a> folder. You can add your services code to the <a class="shortcut" href="#code/public/scripts/services/sample-service.js">sample-service.js</a> file which is already configured to load.</p>
+
+  <p>Suppose you wanted to create a service that makes a JSONP HTTP request to gather some data and parse that data accordingly. You would want to create a service that you can use in a controller, directive, filter, factory or another service.</p>
+
+  <p>Create a file named <code>messages-service.js</code> in the <a class="shortcut" href="#code/public/scripts/services">public/scripts/services</a> folder</p>
+
+  <p><strong>For example:</strong></p>
+
+  <pre><code>angular.module('services').service('MessagesService', ['$http', '$q', function($http, $q) {
+      var MessagesService, defer, url;
+      defer = $q.defer();
+      url = 'http://goo.gl/wRegjW';
+      return MessagesService = {
+        fetch: function() {
+          var options;
+          options = {
+            params: {
+              callback: 'JSON_CALLBACK'
+            }
+          };
+          $http.jsonp(url, options).success(function(data) {
+            return defer.resolve(data);
+          }).error(function(err) {
+            return defer.reject(err);
+          });
+          return defer.promise;
+        }
+      };
+    }
+  ]);
+  </code></pre>
+
+  <p>Now you must add the file to the services package <a class="shortcut" href="#code/public/scripts/services/main.js">main.js</a>.</p>
+
+  <p><strong>For example:</strong></p>
+
+  <pre><code>define([
+      "./sample-service", //sample-service.js file 
+      "./messages-service" //messages-service.js file
+  ], function() {
+      //Empty
+  });
+  </code></pre>
+
+  <p>Then to use this service, add the service to the dependency array and invoke methods on that service.</p>
+
+  <p><strong>For example:</strong></p>
+
+  <pre><code>define(['angular'], function(angular) {
+    angular.module('controllers').controller('MainCtrl', ['$scope', 'MessagesService', function($scope, MessagesService) {
+        $scope.debug = {};
+        MessagesService.fetch().then(function(data) {
+          $scope.debug = data;
+        }, function(err) {
+          alert(err);
+        });
+      }
+    ]);
+  });
+  </code></pre>
+</div>
+  
+  
+<!-- Section -->
+<div id="requirejs">
+  <h2>RequireJS Configuration and Optimization</h2>
+  <p>The configuration <a href="http://requirejs.org/">RequireJS</a> uses during development mode to load your scripts is in the <a class="shortcut" href="#code/public/scripts/config.js">config.js</a> file.</p>
+
+  <h3>Optimizer</h3>
+  <p>The configuration that Play uses to compress and run your scripts during production mode thru the <a class="" target="_blank" href="http://requirejs.org/docs/optimization.html#basics">r.js optimizer</a> is located in the <a class="shortcut" href="#code/public/scripts/build.js">build.js</a> file.</p>
+  <p>To create a dist build run the following command from inside of your projects root directory:</p>
+
+  <pre><code>$ play dist</code></pre>
+</div>
+</body>
+</html>

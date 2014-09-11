@@ -1,0 +1,50 @@
+{
+  "name": "Bar",
+  "icon": "bar-icon.png",
+  "overlay": "bar-overlay.png",
+  "type": "Declarative Visualization",
+  "category": "Industrial",
+  "description": "A bar visualization.",
+  "properties": {
+    "value": {
+      "type": "number",
+      "default": 3965.20,
+      "required": true
+    },
+    "min": {
+      "type": "number",
+      "default": 0,
+      "required": true
+    },
+    "max": {
+      "type": "number",
+      "default": 5000,
+      "required": true
+    },
+    "threshold": {
+      "type": "number",
+      "default": 1000,
+      "required": true
+    },
+    "events": {
+      "mixin": [
+        "keyboard.schema.json",
+        "mouse.schema.json",
+        "touch.schema.json"
+      ]
+    },
+    "methods": {
+      "mixin": [
+        "HTMLElement.schema.json"
+      ]
+    }
+  },
+  "main": "bar",
+  "update": "update",
+  "templates": [
+    "bar.tmpl"
+  ],
+  "scripts": [
+    "declarative-visualizations"
+  ]
+}

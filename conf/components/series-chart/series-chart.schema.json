@@ -1,0 +1,81 @@
+{
+  "name": "Series Chart",
+  "icon": "line-icon.png", 
+  "overlay": "bar-overlay.png",
+  "type": "High Charts",
+  "category": "Industrial",
+  "description": "series-chart",
+  "templates": [
+    "series-chart.tmpl"
+  ],
+  "properties": {
+    "chartType": {
+	  "type": "enum",
+	  "default": "",
+	  "enum": ["Line","Spline","Horizontal Bar","Vertical Bar","Area"],
+	  "required": true
+    },
+    "title": {
+      "type": "string",
+      "default": "Title",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Subtitle",
+      "required": true
+    },
+    "xAxisTitle": {
+      "type": "string",
+      "default": "X Axis Title",
+      "required": true
+    },
+    "yAxisTitle": {
+      "type": "string",
+      "default": "Y Axis Title",
+      "required": true
+    },
+    "dataPadding": {
+      "type": "enum",
+      "default": "None",
+      "enum": ["None", "Zeros", "Nulls"],
+      "required": true
+    },
+    "xAxisKey": {
+      "type": "string",
+      "default": "MON",
+      "required": true
+    },
+    "yAxisKey": {
+      "type": "string",
+      "default": "NUM_OF_ISSUES",
+      "required": true
+    },
+    "seriesKey": {
+      "type": "string",
+      "default": "PART",
+      "required": true
+    },
+    "data":{
+      "type": "array",
+      "required": true,
+      "default": [
+      	{"NUM_OF_ISSUES":10, "MON":"Monday","PART": "ProjectA"},
+      	{"NUM_OF_ISSUES":7,"MON": "Tuesday" ,"PART":"ProjectA"},
+      	{"NUM_OF_ISSUES":5 ,"MON":"Wednesday","PART":"ProjectA"},
+      	{"NUM_OF_ISSUES":9 ,"MON":"Thursday","PART":"ProjectA"},
+      	{"NUM_OF_ISSUES":5 ,"MON":"Friday","PART":"ProjectA"},
+      	{"NUM_OF_ISSUES":18, "MON":"Monday","PART": "ProjectB"},
+      	{"NUM_OF_ISSUES":27,"MON": "Tuesday" ,"PART":"ProjectB"},
+      	{"NUM_OF_ISSUES":25 ,"MON":"Wednesday","PART":"ProjectB"},
+      	{"NUM_OF_ISSUES":19 ,"MON":"Thursday","PART":"ProjectB"},
+      	{"NUM_OF_ISSUES":15 ,"MON":"Friday","PART":"ProjectB"},
+      	{"NUM_OF_ISSUES":1, "MON":"Monday","PART": "ProjectC"},
+      	{"NUM_OF_ISSUES":7,"MON": "Tuesday" ,"PART":"ProjectC"},
+      	{"NUM_OF_ISSUES":15 ,"MON":"Wednesday","PART":"ProjectC"},
+      	{"NUM_OF_ISSUES":19 ,"MON":"Thursday","PART":"ProjectC"},
+      	{"NUM_OF_ISSUES":15 ,"MON":"Friday","PART":"ProjectC"}
+      ]          
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "my-application",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests",
+    "target",
+    "test-target"
+  ],
+  "dependencies": {
+    "requirejs-plugins": "1.0.2",
+    "require-css": "0.1.1",
+    "angular": "1.2.14",
+    "angular-route": "1.2.14",
+    "angular-resource": "1.2.14",
+    "angular-mocks": "1.2.14",
+    "angular-ui-router": "0.2.10",
+    "lodash": "2.4.1"
+  }
+}
+

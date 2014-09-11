@@ -1,0 +1,64 @@
+
+# Message file for locale en.
+# All the static texts/strings in your application source code can be configured as key/value pairs.
+# Based on the user's locale, respective language message will be displayed.
+
+Application.name=My Application
+
+Application.test = test
+
+application.logout.label=Logout
+page.title=DSP Visual Designer
+packager.page.title=My Application
+packager.page.gelogo = powered by
+packager.page.gebusiness = GE Business
+
+#Widget Rendering related error messages
+DataServiceManagerImpl.webservice.exception=Error occurred while accessing web service
+DataServiceManagerImpl.webservice.exception.statuscode = Error occurred while accessing web service. Web service returned status code {0}.
+DataServiceManagerImpl.custom.class.exception=Error occurred while accessing custom data provider
+WidgetResponse.build.response.exception=Error occurred while building response JSON
+AbstractBaseChart.metadata.invalid.json=Invalid JSON format
+component.metadata.generic.error=Error rendering component
+
+# Login page messages
+login.page.usernameLabel=Username
+login.page.passwordLabel=Password
+login.page.loginOptionLabel=Keep me logged in
+login.page.loginButtonLabel=Sign in
+login.page.invalid=Invalid Username or Password
+login.page.success=Login Success
+
+# Logger messages
+logger.authentication.rememberMe=Remember me in authentication
+logger.authentication.encryption.error=Exception raised during username, password encryption and storing into session
+logger.unautherized=Unauthorized Acceess
+logger.cache.null=cache is null, hence clearing the session
+logger.catalogProvider.notNull=Model providers list is not null, hence returning..
+logger.modelProvider.notNull=defalut ebean model provider is not null, hence returning..
+logger.catalogProviderFactory.classNotFoundException=Exception in CatalogProviderFactory.getCatalogProviders(): ClassNotFoundException
+logger.catalogProviderFactory.instantiationException=Exception in CatalogProviderFactory.getCatalogProviders(): InstantiationException
+logger.catalogProviderFactory.illegalAccessException=Exception in CatalogProviderFactory.getCatalogProviders(): IllegalAccessException
+logger.defaultModelProviderFactory.classNotFoundException=Exception in ModelProviderFactory.getDefaultModelProvider(): ClassNotFoundException
+logger.defaultModelProviderFactory.instantiationException=Exception in ModelProviderFactory.getDefaultModelProvider(): InstantiationException
+logger.defaultModelProviderFactory.illegalAccessException=Exception in ModelProviderFactory.getDefaultModelProvider(): IllegalAccessException
+logger.modelProviderFactory.classNotFoundException=Exception in ModelProviderFactory.getModelProviders(): ClassNotFoundException
+logger.modelProviderFactory.instantiationException=Exception in ModelProviderFactory.getModelProviders(): InstantiationException
+logger.modelProviderFactory.illegalAccessException=Exception in ModelProviderFactory.getModelProviders(): IllegalAccessException
+
+#Data Controller server messages
+dataController.proxy.missing.service.endpoint=Missing header "Service-End-Point"
+dataController.proxy.initializing=initializing...
+dataController.proxy.applying.results=applying results...
+dataController.proxy.error.processing=error processing
+dataController.proxy.path.not.found=path not found
+dataController.proxy.invalid.json=invalid json
+dataController.proxy.contenttype.not.supported=Content-Type not 
+dataController.result.typereceived=ContentType received: {0}
+dataController.result.attempttosend=Attempting to send response as is
+dataController.result.response.astext=Sending response as text
+
+# Error messages
+errors.onError=onError Happened
+errors.invalid.url=Missing service url
+errors.invalid.data=Missing service data

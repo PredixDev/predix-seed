@@ -1,0 +1,37 @@
+<section class="module draggable span{{moduleSize}}"
+         data-id="module-{{$id}}"
+         data-title="{{moduleTitle}}"
+         data-index="{{moduleIndex}}"
+         data-size="{{moduleSize}}"
+         data-module="module-{{$id}}">
+	<header class="module-header module-contextmenu">
+		<h3 class="voice voice-brand pull-left">{{moduleTitle}}</h3>
+
+		<div class="module-widget-controls pull-right">
+			<div class="btn-group pull-right module-controls"
+			     data-ng-show="editable">
+				<button class="btn dropdown-toggle btn-mini"
+				        data-toggle="dropdown">
+					<i class="icon-chevron-down"></i>
+				</button>
+				<ul class="dropdown-menu actions">
+					<li class="action" data-ng-repeat="action in moduleActions">
+						<a href="" class="action-link"
+						   data-moduleid="module-{{$id}}"
+						   data-moduleindex="{{moduleIndex}}"
+						   data-action="{{action.name}}">{{action.label}}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<div class="module-body" name="placeholder-{{$index}}"
+	     data-uuid="{{uuid}}"
+	     data-widgettype="{{moduleWidget.type}}"
+	     data-widgetid="{{moduleWidget.id}}"
+	     data-widgetuuid="{{moduleWidget.uuid}}">
+		<div class="module-content"
+		     data-ng-transclude></div>
+	</div>
+	<footer class="module-footer"></footer>
+</section>

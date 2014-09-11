@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<infinispan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="urn:infinispan:config:6.0"
+            xsi:schemaLocation="urn:infinispan:config:6.0 http://www.infinispan.org/schemas/infinispan-config-6.0.xsd">
+   <global>
+      <transport
+         transportClass="org.infinispan.remoting.transport.jgroups.JGroupsTransport"
+         clusterName="jcache-cluster">
+         <properties>
+            <property name="configurationFile" value="./conf/jgroups-tcp.xml" />
+         </properties>
+      </transport>
+      <globalJmxStatistics enabled="false" allowDuplicateDomains="true"/>
+   </global>
+ 
+   <default />
+ 
+   <namedCache name="namedCache">
+      <clustering mode="replication">
+      	<sync/>
+      </clustering>
+   </namedCache>
+   
+   <!-- Examples of named cache with different eviction and expiration policies -->
+   <!--
+    <namedCache name="namedCacheLIRS">
+      <eviction
+         maxEntries="4"
+         strategy="LIRS"
+      />
+      <expiration
+         lifespan="120000000"
+         maxIdle="600000000"
+      />
+      <clustering mode="replication">
+        <sync/>
+      </clustering>
+   </namedCache>
+
+  <namedCache name="namedCacheLRU">
+      <eviction
+         maxEntries="4"
+         strategy="LRU"
+      />
+      <expiration
+         lifespan="1200000000"
+         maxIdle="6000000000"
+      />
+      <clustering mode="replication">
+        <sync/>
+      </clustering>
+   </namedCache>
+   -->
+
+ 
+</infinispan>

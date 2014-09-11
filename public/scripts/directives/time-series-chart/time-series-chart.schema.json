@@ -1,0 +1,68 @@
+{
+  "name": "Time Series Chart",
+  "icon": "time-series-chart-icon.png",
+  "overlay": "time-series-chart-overlay.png",
+  "type": "High Charts",
+  "category": "Industrial",
+  "description": "A spline chart that accepts new time series data and appends it on to its data set",
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "Time Series Data",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Subtitle",
+      "required": false
+    },
+    "xAxisTitle": {
+      "type": "string",
+      "default": "Time",
+      "required": false
+    },
+    "yAxisTitle": {
+      "type": "string",
+      "default": "Data",
+      "required": false
+    },
+    "xAxisKey": {
+      "type": "string",
+      "default": "time",
+      "required": true
+    },
+    "yAxisKey": {
+      "type": "string",
+      "default": "data",
+      "required": true
+    },
+    "seriesKey": {
+      "type": "string",
+      "default": "series",
+      "required": true
+    },
+    "maxNumPoints": {
+      "type": "number",
+      "default": "5",
+      "required": true
+    },
+    "data":{
+      "type": "array",
+      "required": true,
+      "default": [
+      	{"time":1398961986000, "data":55, "series":"A"},
+      	{"time":1398961987000, "data":57, "series":"A"},
+      	{"time":1398961988000, "data":61, "series":"A"},
+      	{"time":1398961989000, "data":65, "series":"A"},
+      	{"time":1398961986000, "data":45, "series":"B"},
+      	{"time":1398961987000, "data":40, "series":"B"},
+      	{"time":1398961988000, "data":44, "series":"B"},
+      	{"time":1398961989000, "data":46, "series":"B"},
+	   	{"time":1398961986000, "data":51, "series":"C"},
+      	{"time":1398961987000, "data":40, "series":"C"},
+      	{"time":1398961988000, "data":39, "series":"C"},
+      	{"time":1398961989000, "data":42, "series":"C"}
+      ]          
+    }
+  }
+}

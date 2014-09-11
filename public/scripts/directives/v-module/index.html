@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<script src="/bower_components/iids/dist/iidx/components/prettify/prettify.js"></script>
+	<script src="/bower_components/iids/dist/iidx/components/jquery/jquery.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.js"></script>
+
+	<!-- TODO Jasmine + Code Coverage (add data-cover to any scripts you want covered) -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/jasmine/1.3.1/jasmine.css"/>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/json2/20121008/json2.js"></script>
+	<script src="//cdn.jsdelivr.net/jasmine/1.3.1/jasmine.js"></script>
+	<script src="//cdn.jsdelivr.net/jasmine/1.3.1/jasmine-html.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/blanket.js/1.1.4/blanket_jasmine.min.js"></script>
+
+
+	<!-- TODO Styles -->
+	<link href="/bower_components/iids/dist/iidx/css/iids.min.css" rel="stylesheet" type="text/css"/>
+	<link href="/bower_components/iids/dist/iidx/css/responsive.min.css" rel="stylesheet" type="text/css"/>
+	<link href="/bower_components/iids/dist/iidx/components/prettify/prettify.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/css/base/jquery-ui.css"/>
+	<link rel="stylesheet" href="style.css"/>
+
+	<!-- TODO: Using CDN for Chrome Angular Extension -->
+	<script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+	<script src="http://code.angularjs.org/1.2.13/angular-mocks.js"></script>
+
+
+	<!-- vRuntime Module -->
+	<script src="../v-runtime.module.js"></script>
+
+	<!-- TODO Module code -->
+	<script src="v-module.js" data-cover></script>
+
+	<!-- TODO Module spec
+	<script src="spec.js"></script>
+ -->
+	<!-- TODO Run Tests -->
+	<script src="../jasmineBootstrapper.js"></script>
+
+	<script>
+		angular.module('demo', ['directives']);
+
+		angular.module('demo').controller('MainCtrl', function ($scope) {
+			$scope.name = 'vModule';
+			$scope.title = 'vModule Directive Demo';
+
+		});
+	</script>
+
+
+</head>
+
+<body ng-app="demo" ng-controller="MainCtrl">
+<div class="navbar navbar-static-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="brand" href="#"><span class="ge-logo"></span> <span>{{title}} <small><i>powered by</i> Predix
+				Runtime
+			</small></span></a>
+
+			<div class="pull-right">
+
+				<button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<i class="icon-bar"></i>
+					<i class="icon-bar"></i>
+					<i class="icon-bar"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="primary-navbar nav-collapse">
+		<div class="container">
+			<ul class="nav">
+
+				<li class="">
+					<a href="#" class="btn-layout" data-layout="dashboard">Dashboard</a>
+				</li>
+				<li>
+					<a href="#" class="btn-layout" data-layout="content">Content</a>
+				</li>
+				<li>
+					<a href="#" class="btn-layout" data-layout="mixedmodule">Mixed Module</a>
+				</li>
+
+			</ul>
+
+		</div>
+	</div>
+
+</div>
+<div id="container-content" class="container content">
+
+	<div class="page-header voice voice-brand">
+		<h1 class="pull-left">Modules</h1>
+
+	</div>
+
+
+	<div class="row">
+		<v-module title="Module 1" data-size="4">
+			Content
+		</v-module>
+		<v-module title="Module 2" data-size="8">
+			Content
+		</v-module>
+		<v-module title="Module 3" data-size="12">
+			Content
+		</v-module>
+	</div>
+
+
+	<pre>{{modules | json}}</pre>
+</div>
+
+</body>
+
+</html>

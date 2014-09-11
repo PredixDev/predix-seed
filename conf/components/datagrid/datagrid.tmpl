@@ -1,0 +1,10 @@
+<div class="datagrid-widget">
+    <h3 class="pull-left datagrid-widget-name" data-bind="text: tableName"></h3>
+    <form class="form-search pull-right datagrid-widget-filter" data-bind="visible: koShowSearchField">
+        <div class="input-append">
+            <input type="text" class="input-medium search-query" data-bind="attr: {'data-filter-table': tableName}"><span class="btn btn-icon"><i class="icon-search"></i></span>
+        </div>
+    </form>
+    <table class="table table-bordered" data-bind="attr: {'data-table-name': tableName}">
+    </table>
+</div>

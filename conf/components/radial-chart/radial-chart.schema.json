@@ -1,0 +1,46 @@
+{
+  "name": "Radial Chart",
+  "type": "High Charts",
+  "icon": "radial-chart-icon.png",
+  "overlay": "radial-chart-overlay.png",
+  "category": "Industrial",
+  "description": "A radial chart visualization",
+  "templates": [
+    "radial-chart.tmpl"
+  ],
+  "properties": {
+    "chartType": {
+	  "type": "enum",
+	  "default": "Pie",
+	  "enum": ["Pie", "Donut"],
+	  "required": true
+    },
+    "showLabels": {
+      "type": "enum",
+      "default": "true",
+      "enum": ["true", "false"],
+      "required": true
+    },
+    "dataLabelPlacement": {
+      "type": "enum",
+      "default": "outside",
+      "enum": ["outside", "inside"],
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "default": "Title",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Subtitle",
+      "required": true
+    },
+    "data":{
+        "type": "array",
+        "default": [["Bananas", 15], ["Oranges", 2], ["Apples", 18]],
+        "required": true
+    }
+  }
+}

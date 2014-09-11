@@ -1,0 +1,60 @@
+{
+  "name": "Gauge",
+  "icon": "gauge-icon.png",
+  "overlay": "gauge-overlay.png",
+  "type": "Declarative Visualization",
+  "category": "Industrial",
+  "description": "A gauge visualization.",
+  "properties": {
+    "value": {
+      "type": "number",
+      "default": 23,
+      "required": true
+    },
+    "min": {
+      "type": "number",
+      "default": 0,
+      "required": true
+    },
+    "max": {
+      "type": "number",
+      "default": 100,
+      "required": true
+    },
+    "threshold": {
+      "type": "number",
+      "default": 50,
+      "required": true
+    },
+    "labelMin": {
+      "type": "string",
+      "default": "0mm",
+      "required": true
+    },
+    "labelMax": {
+      "type": "string",
+      "default": "16mm",
+      "required": true
+    },
+    "events": {
+      "mixin": [
+        "keyboard.schema.json",
+        "mouse.schema.json",
+        "touch.schema.json"
+      ]
+    },
+    "methods": {
+      "mixin": [
+        "HTMLElement.schema.json"
+      ]
+    }
+  },
+  "main": "gauge",
+  "update": "update",
+  "templates": [
+    "gauge.tmpl"
+  ],
+  "scripts": [
+    "declarative-visualizations"
+  ]
+}
