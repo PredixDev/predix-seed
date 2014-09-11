@@ -1,7 +1,16 @@
 #Predix Seed
 Clone or fork this project to start your own Predictivity application. Documentation and more info can be found at [predix.sw.ge.com](http://predix.sw.ge.com)
 
+## To Run
+In the root directory, run:
+```
+bower install
+npm install
+grunt update
+activator run
+```
 
+# Copyright
 Copyright &copy; 2014 GE Global Research. All rights reserved.
 
 The copyright to the computer software herein is the property of
