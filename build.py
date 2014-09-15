@@ -58,11 +58,7 @@ def function_check_play_exists():
     global play_command
     print ("Checking existance of Play framework...")
     # First see if Play intalled with Predix is available. The installer will insert the path here.
-    play_path_from_installer = r"/Users/204054399/Downloads/predix-core-14.2.19/predix-experience/3rdparty/play-2.2.3"
-    if os.path.isdir(play_path_from_installer):
-        play_command = '"' + os.path.join(play_path_from_installer,"play") + '"'
-    else:
-        play_command = "activator"
+    play_command = "play" # TODO - change this to activator
     fnull = open(os.devnull, 'w')
     retcode=subprocess.call (play_command + " help", shell=True, stdout=fnull, stderr=fnull)
     fnull.close()
