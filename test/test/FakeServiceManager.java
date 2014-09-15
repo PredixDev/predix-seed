@@ -23,7 +23,7 @@ import play.Logger;
 import play.libs.F.Function0;
 import play.libs.F.Promise;
 import play.libs.Json;
-import play.libs.WS;
+import play.libs.ws.WSResponse;
 import play.mvc.WebSocket;
 
 import com.ge.dsv.api.service.IServiceInterceptor;
@@ -39,9 +39,9 @@ public class FakeServiceManager
         implements IServiceManager
 {
     @Override
-    public Promise<WS.Response> fetchDataFromWebService(ServiceContext context)
+    public Promise<WSResponse> fetchDataFromWebService(ServiceContext context)
     {
-        final WS.Response responseMock = mock(WS.Response.class);
+        final WSResponse responseMock = mock(WSResponse.class);
 
         String xml = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>" + "<note>" + "<to>Tove</to>"
                 + "<from>Jani</from>" + "<heading>Reminder</heading>" + "<body>Don't forget me this weekend!</body>"
@@ -119,10 +119,10 @@ public class FakeServiceManager
 
         context.setResponse(responseMock);
 
-        Promise<WS.Response> promiseOfString = Promise.promise(new Function0<WS.Response>()
+        Promise<WSResponse> promiseOfString = Promise.promise(new Function0<WSResponse>()
         {
             @Override
-            public WS.Response apply()
+            public WSResponse apply()
             {
                 Logger.info("Returning fake response.");
                 return responseMock;
