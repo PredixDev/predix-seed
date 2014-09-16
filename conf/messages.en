@@ -5,17 +5,9 @@
 
 Application.name=Predix Seed
 
-Application.Static_Data_1 = Static Data 1
-
-Application.Static_Data_2 = Static Data 2
-
-Application.Service_Data_1 = Service Data 1
-
-Application.Service_Data_2 = Service Data 2
-
-Application.Widget_to_Widget = Widget to Widget
-
-Application.websocket = websocket
+Application.Page_1 = Page 1
+Application.Page_2 = Page 2
+Application.Page_3 = Page 3
 
 application.logout.label=Logout
 page.title=DSP Visual Designer

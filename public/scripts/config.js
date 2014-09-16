@@ -35,7 +35,7 @@ require.config({
         //VRuntime Paths
         widgets: '/resources/com.ge.dsv.component.catalog.ComponentCatalogResourceManager',
         directives : './directives',
-        vruntime: '../bower_components/vruntime/dist/vruntime-min',
+        vruntime: '../bower_components/vruntime/dist/vruntime',
 
         // Named References
         config: './config',
