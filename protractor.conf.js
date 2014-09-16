@@ -2,9 +2,12 @@
  * Protractor Configuration file
  */
 exports.config = {
-	baseUrl: 'http://localhost:9999',
+	baseUrl: 'http://localhost:9000',
 	seleniumAddress: 'http://localhost:4444/wd/hub',
-	//seleniumServerJar: 'test/selenium/selenium-server-standalone-2.37.0.jar',
+    seleniumServerJar: '/usr/local/lib/node_modules/protractor/selenium/selenium-server-standalone-2.42.2.jar',
+    chromeDriver: '/usr/local/lib/node_modules/protractor/selenium/chromedriver',
+    seleniumArgs: ['-Dwebdriver.chrome.driver="/usr/local/lib/node_modules/protractor/selenium/chromedriver"'],
+    	//seleniumServerJar: 'test/selenium/selenium-server-standalone-2.37.0.jar',
 	//chromeDriver: 'test/selenium/chromedriver',
 	// Spec patterns are relative to the location of the spec file. They may include glob patterns.
 	specs: [ 'test/e2e/*.js' ],

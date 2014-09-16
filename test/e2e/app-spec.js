@@ -1,5 +1,5 @@
 //Location of angular app.
-var baseUrl = "http://localhost:9999";
+var baseUrl = "http://localhost:9000";
 
 //Handle creating screenshots.
 var fs = require('fs');
