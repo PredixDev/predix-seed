@@ -39,7 +39,7 @@ var CommonTests = (function(){
 
             describe('When user enter application', function(){
                 it('should contain application name', function() {
-                    expect(element.all(by.css('.brand span')).get(1).getText()).toMatch(/runtimetest/);
+                    expect(element.all(by.css('.brand span')).get(1).getText()).toMatch(/Predix Seed/);
                 });
 
                 it('should contains navigation menu', function(){
