@@ -3,6 +3,11 @@
 var NavigationBar = require('../models/navigation-bar');
 var navigationBar = new NavigationBar();
 
+var LoginPage = require('../models/login-page');
+var loginPage = new LoginPage();
+
+loginPage.login();
+
 describe('The page navigation bar', function() {
 
     beforeEach(function() {
