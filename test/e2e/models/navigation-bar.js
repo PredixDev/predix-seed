@@ -8,6 +8,9 @@ var NavigationBar = (function() {
     NavigationBar.prototype.clickPage = function(pageName) {
         var pageButton = element(by.linkText(pageName));
         pageButton.click();
+        browser.driver.wait(function() {
+            return element(by.id(pageName.toLowerCase().replace(' ', '-') + '-title')).isPresent();
+        }, 3000);
     };
 
     NavigationBar.prototype.getActivePageName = function() {
@@ -24,6 +27,5 @@ var NavigationBar = (function() {
 
     return NavigationBar;
 })();
-
 
 module.exports = NavigationBar;

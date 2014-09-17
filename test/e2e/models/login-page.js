@@ -5,7 +5,7 @@ var LoginPage = (function() {
 
     };
 
-    LoginPage.prototype.login = function(pageName) {
+    LoginPage.prototype.login = function() {
         browser.driver.findElement(by.id('username')).sendKeys('demo');
         browser.driver.findElement(by.id('password')).sendKeys('demo');
         browser.driver.findElement(by.id('loginButton')).click();
