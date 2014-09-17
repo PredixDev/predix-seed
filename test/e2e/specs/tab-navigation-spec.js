@@ -1,10 +1,7 @@
 'use strict';
 
-var NavigationBar = require('../models/navigation-bar');
-var navigationBar = new NavigationBar();
-
-var LoginPage = require('../models/login-page');
-var loginPage = new LoginPage();
+var navigationBar = require('../models/navigation-bar');
+var loginPage = require('../models/login-page');
 
 loginPage.login();
 

@@ -1,11 +1,7 @@
 'use strict';
 
-var LoginPage = (function() {
-    var LoginPage = function() {
-
-    };
-
-    LoginPage.prototype.login = function() {
+var LoginPage = function() {
+    this.login = function() {
         browser.driver.findElement(by.id('username')).sendKeys('demo');
         browser.driver.findElement(by.id('password')).sendKeys('demo');
         browser.driver.findElement(by.id('loginButton')).click();
@@ -16,9 +12,6 @@ var LoginPage = (function() {
             });
         }, 3000);
     };
+};
 
-    return LoginPage;
-})();
-
-
-module.exports = LoginPage;
+module.exports = new LoginPage();

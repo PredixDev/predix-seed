@@ -1,11 +1,7 @@
 'use strict';
 
-var NavigationBar = (function() {
-    var NavigationBar = function() {
-
-    };
-
-    NavigationBar.prototype.clickPage = function(pageName) {
+var NavigationBar = function() {
+    this.clickPage = function(pageName) {
         var pageButton = element(by.linkText(pageName));
         pageButton.click();
         browser.driver.wait(function() {
@@ -13,19 +9,18 @@ var NavigationBar = (function() {
         }, 3000);
     };
 
-    NavigationBar.prototype.getActivePageName = function() {
+    this.getActivePageName = function() {
         var activePage = element(by.css('li.active'));
         return activePage.getText();
     };
 
-    NavigationBar.prototype.isPageActive = function(pageName) {
-        return NavigationBar.prototype.getActivePageName()
+    this.isPageActive = function(pageName) {
+        return this.getActivePageName()
             .then(function(activePageName) {
                 return activePageName === pageName;
             });
     };
+};
 
-    return NavigationBar;
-})();
 
-module.exports = NavigationBar;
+module.exports = new NavigationBar();
