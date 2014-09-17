@@ -3,8 +3,6 @@
 var NavigationBar = require('../models/navigation-bar');
 var navigationBar = new NavigationBar();
 
-browser.get('http://localhost:9000');
-
 describe('The page navigation bar', function() {
 
     beforeEach(function() {
@@ -16,10 +14,10 @@ describe('The page navigation bar', function() {
     });
 
     it('shows the selected page', function() {
-        expect(element(by.className('page-title')).getText()).toBe('Page 2');
+        expect(navigationBar.getActivePageName()).toBe('Page 2');
     });
 
     it('highlights the page\'s tab that is currently being viewed', function() {
-        expect(element(by.className('active')).getText()).toBe('Page 2');
+        expect(navigationBar.isPageActive('Page 2')).toBeTruthy();
     });
 });
