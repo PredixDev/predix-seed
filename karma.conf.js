@@ -31,7 +31,7 @@ module.exports = function (config) {
 			{pattern: 'public/views/**/*.*', included: false},
 
 			//App specs
-			{pattern: 'test/**/*-spec.js', included: false}
+			{pattern: 'test/spec/*-spec.js', included: false}
 		],
 
 		// list of files / patterns to exclude

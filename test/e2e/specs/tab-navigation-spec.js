@@ -1,26 +1,25 @@
 'use strict';
 
-var NavigationBar = require('../pages/navigation-bar');
-var LoginPage = require('../pages/login-page.js');
-
+var NavigationBar = require('./navigation-bar');
 var navigationBar = new NavigationBar();
-var loginPage = new LoginPage();
-
-console.log('##################bill wuz here');
 
 browser.get('http://localhost:9000');
 
-console.log('logging in');
-loginPage.login();
-console.log('clicked log in button');
-
 describe('The page navigation bar', function() {
 
-    it('navigates to the clicked tab', function() {
+    beforeEach(function() {
         navigationBar.clickPage('Page 2');
     });
 
-    it('highlights the page that is currently being viewed', function() {
+    it('navigates to the appropriate url', function() {
+        expect(browser.getLocationAbsUrl()).toContain('page-2');
+    });
 
+    it('shows the selected page', function() {
+        expect(element(by.className('page-title')).getText()).toBe('Page 2');
+    });
+
+    it('highlights the page\'s tab that is currently being viewed', function() {
+        expect(element(by.className('active')).getText()).toBe('Page 2');
     });
 });
