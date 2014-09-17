@@ -38,16 +38,11 @@ define([
          
         // Application DataSources are defined here
         vRuntime.datasource.create("ScatterChart", "http://sjc1dsppf09.crd.ge.com:9090/service/dummydata/line", {});
-        vRuntime.datasource.create("SeriesChart", "http://sjc1dsppf09.crd.ge.com:9090/service/dummydata/line", {});
+        vRuntime.datasource.create("timeseries", "http://sjc1dsppf09.crd.ge.com:9090/service/dummydata/line", {});
         vRuntime.datasource.create("DataGrid", "http://sjc1dsppf09.crd.ge.com:9090/service/dummydata/datagridlarge", {});
-        vRuntime.datasource.create("RadialChart", "http://sjc1dsppf09.crd.ge.com:9090/service/dummydata/donut", {});
-        vRuntime.datasource.create("Gauge", "http://sjc1dsppf09.crd.ge.com:9090/service/dummydata/gauge", {});
         vRuntime.datasource.create("Bar", "http://sjc1dsppf09.crd.ge.com:9090/service/dummydata/bar", {});
-        vRuntime.datasource.create("messagelist", "http://sjc1dsppf09.crd.ge.com:9090/service/dummydata/msglist", {});
-        vRuntime.datasource.create("Paragraph", "http://sjc1dsppf09.crd.ge.com:9090/service/dummydata/para", {});
         vRuntime.datasource.create("realtimegauge", "ws://sjc1dsppf09.crd.ge.com:3001", {});
-        vRuntime.datasource.create("realtimespline", "ws://sjc1dsppf09.crd.ge.com:3001", {}); 
-            
+
     }]);
 	
 
@@ -65,12 +60,9 @@ define([
             name: 'Predix Seed',
             session: {},
             tabs: [
-		        {state: 'static-data-1', label: vRuntime.messages('Application.Static_Data_1')},
-		        {state: 'static-data-2', label: vRuntime.messages('Application.Static_Data_2')},
-		        {state: 'service-data-1', label: vRuntime.messages('Application.Service_Data_1')},
-		        {state: 'service-data-2', label: vRuntime.messages('Application.Service_Data_2')},
-		        {state: 'widget-to-widget', label: vRuntime.messages('Application.Widget_to_Widget')},
-		        {state: 'websocket', label: vRuntime.messages('Application.websocket')} 
+		        {state: 'page-1', label: vRuntime.messages('Application.Page_1')},
+		        {state: 'page-2', label: vRuntime.messages('Application.Page_2')},
+		        {state: 'page-3', label: vRuntime.messages('Application.Page_3')}
             ]
         };
 

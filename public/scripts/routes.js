@@ -16,14 +16,11 @@ define([ 'angular', 'controllers/main', 'angular-ui-router' ], function (angular
            * This is where the name of the route is matched to the controller and view template.
            */
           $stateProvider
-              .state('static-data-1', {url: '/static-data-1', templateUrl: 'assets/views/static-data-1.html', controller: 'StaticData1Ctrl'})
-              .state('static-data-2', {url: '/static-data-2', templateUrl: 'assets/views/static-data-2.html', controller: 'StaticData2Ctrl'})
-              .state('service-data-1', {url: '/service-data-1', templateUrl: 'assets/views/service-data-1.html', controller: 'ServiceData1Ctrl'})
-              .state('service-data-2', {url: '/service-data-2', templateUrl: 'assets/views/service-data-2.html', controller: 'ServiceData2Ctrl'})
-              .state('widget-to-widget', {url: '/widget-to-widget', templateUrl: 'assets/views/widget-to-widget.html', controller: 'WidgetToWidgetCtrl'})
-              .state('websocket', {url: '/websocket', templateUrl: 'assets/views/websocket.html', controller: 'WebsocketCtrl'});
+              .state('page-1', {url: '/page-1', templateUrl: 'assets/views/page-1.html', controller: 'Page1Ctrl'})
+              .state('page-2', {url: '/page-2', templateUrl: 'assets/views/page-2.html', controller: 'Page2Ctrl'})
+              .state('page-3', {url: '/page-3', templateUrl: 'assets/views/page-3.html', controller: 'Page3Ctrl'});
 
           $urlRouterProvider
-              .otherwise('static-data-1');
+              .otherwise('page-1');
     } ]);
 });
