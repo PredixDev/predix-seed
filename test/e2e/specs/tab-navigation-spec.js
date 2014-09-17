@@ -1,6 +1,6 @@
 'use strict';
 
-var NavigationBar = require('./navigation-bar');
+var NavigationBar = require('../models/navigation-bar');
 var navigationBar = new NavigationBar();
 
 browser.get('http://localhost:9000');
