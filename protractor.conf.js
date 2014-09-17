@@ -1,17 +1,10 @@
 exports.config = {
     baseUrl: 'http://localhost:9000',
     seleniumAddress: 'http://localhost:4444/wd/hub',
-//    seleniumServerJar: '/usr/local/lib/node_modules/protractor/selenium/selenium-server-standalone-2.42.2.jar',
-//    chromeDriver: '/usr/local/lib/node_modules/protractor/selenium/chromedriver',
-//    seleniumArgs: ['-Dwebdriver.chrome.driver="/usr/local/lib/node_modules/protractor/selenium/chromedriver"'],
-
-    // Spec patterns are relative to the location of the spec file. They may include glob patterns.
     specs: [ 'test/e2e/specs/*.js' ],
-
     capabilities: {
         'browserName': 'chrome'
     },
-
     jasmineNodeOpts: {
         isVerbose: true,
         showColors: true,
