@@ -1,14 +1,8 @@
-console.log('loaded test-config.js');
 var allTestFiles = [];
 var TEST_REGEXP = /(-spec).js/;
-var pathToModule = function (path) {
-	return path;
-};
 Object.keys(window.__karma__.files).forEach(function (file) {
-	//console.log('indexed - ' + file);
 	if (TEST_REGEXP.test(file)) {
-		console.log('test', pathToModule(file));
-		allTestFiles.push(pathToModule(file));
+		allTestFiles.push(file);
 	}
 });
 require.config({
