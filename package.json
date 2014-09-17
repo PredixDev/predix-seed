@@ -1,6 +1,6 @@
 {
   "name": "predix-packaged-app",
-  "version": "14.3.s1",
+  "version": "14.3.1",
   "description": "This is a Predix Packaged Application.",
   "main": "Gruntfile.js",
   "directories": {
