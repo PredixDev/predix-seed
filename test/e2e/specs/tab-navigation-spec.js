@@ -1,9 +1,6 @@
 'use strict';
 
 var navigationBar = require('../models/navigation-bar');
-var loginPage = require('../models/login-page');
-
-loginPage.login();
 
 describe('The page navigation bar', function() {
 

@@ -13,6 +13,7 @@ exports.config = {
     },
     onPrepare: function() {
         browser.driver.get('http://localhost:9000');
+        require('./test/e2e/models/login-page').login();
     },
     onComplete: function() {
         browser.driver.quit();
