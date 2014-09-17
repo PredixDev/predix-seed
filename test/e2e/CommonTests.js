@@ -8,7 +8,7 @@ var CommonTests = (function(){
     };
 
     CommonTests.prototype.navigate = function(){
-        browser.get('#/' + this.pageHash);
+        browser.get('/' + this.pageHash);
         browser.sleep(browser.params.wait);
     }
 
@@ -38,13 +38,27 @@ var CommonTests = (function(){
         describe('Application Name and Nav Tests', function() {
 
             describe('When user enter application', function(){
+
                 it('should contain application name', function() {
                     expect(element.all(by.css('.brand span')).get(1).getText()).toMatch(/Predix Seed/);
                 });
 
-                it('should contains navigation menu', function(){
-                    expect(element.all(by.css('.nav li')).count()).toBe(browser.params.applicationObjectModel.length);
+                describe('the navigation menu', function() {
+
+                    it('should have 3 elements', function(){
+                        expect(element.all(by.css('.nav li')).count()).toBe(3);
+                    });
+
+                    it('should have correctly labeled tabs', function(){
+                        element.all(by.css('.nav li')).then(function(elements) {
+                            expect(elements[0].getText()).toBe("Page 1");
+                            expect(elements[1].getText()).toBe("Page 2");
+                            expect(elements[2].getText()).toBe("Page 3");
+                        });
+                    });
+
                 });
+
             });
 
         });
