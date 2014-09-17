@@ -1,4 +1,4 @@
-#Predix Seed
+#Predix Visualization 14.2E Seed
 Clone or fork this project to start your own Predictivity application. Documentation and more info can be found at [predix.sw.ge.com](http://predix.sw.ge.com)
 
 ## To Run
