@@ -1,21 +1,16 @@
 'use strict';
 
-/* https://github.com/angular/protractor/blob/master/docs/getting-started.md */
 describe('A Predix App', function() {
 
-    var CommonTests = require('./CommonTests');
+    var CommonTests = require('./../pages/CommonTests');
     var commonTests = new CommonTests('static-data-1', 'Static Data 1');
 
     //navigate to the target page
     beforeEach(function () {
-        commonTests.navigate();
+        //commonTests.navigate();
     });
 
-    //do common tests
-    commonTests.applicationNameAndNavTests();
-    commonTests.pageNameAndNavTests();
-
-    describe('should contains static pie chart', function () {
+    xdescribe('should contains static pie chart', function () {
         it('should contains title and Subtitle', function () {
             var titleElements = element.all(by.css('#module-0 .module-body text'));
             expect(titleElements.get(0).getText()).toEqual('Title');

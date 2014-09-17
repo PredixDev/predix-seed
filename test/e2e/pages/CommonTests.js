@@ -1,6 +1,5 @@
 'use strict';
 
-//page common test module
 var CommonTests = (function(){
     var CommonTests = function(pageHash, pageTitle){
         this.pageHash = pageHash;
