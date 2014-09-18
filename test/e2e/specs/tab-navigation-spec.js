@@ -1,7 +1,6 @@
 'use strict';
 
-var NavigationBar = require('../models/navigation-bar');
-var navigationBar = new NavigationBar();
+var navigationBar = require('../models/navigation-bar');
 
 describe('The page navigation bar', function() {
 

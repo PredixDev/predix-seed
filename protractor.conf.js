@@ -12,22 +12,10 @@ exports.config = {
         defaultTimeoutInterval: 30000
     },
     onPrepare: function() {
-        testBoostrapper();
+        browser.driver.get('http://localhost:9000');
+        require('./test/e2e/models/login-page').login();
+    },
+    onComplete: function() {
+        browser.driver.quit();
     }
-};
-
-var testBoostrapper = function() {
-    browser.driver.get('http://localhost:9000');
-
-    browser.driver.findElement(by.id('username')).sendKeys('demo');
-    browser.driver.findElement(by.id('password')).sendKeys('demo');
-    browser.driver.findElement(by.id('loginButton')).click();
-
-    browser.driver.sleep(browser.params.wait);
-    browser.driver.wait(function() {
-        return browser.driver.getCurrentUrl().then(function(url) {
-            return /page-1/.test(url);
-        });
-    }, 3000);
-
 };
