@@ -122,7 +122,7 @@ build.js file.
 
 To create a dist build run the following command from inside of your projects root directory:
 ```
-play dist
+activator dist
 ```
 
 ## Questions?
