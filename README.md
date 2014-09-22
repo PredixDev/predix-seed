@@ -2,12 +2,23 @@
 Clone or fork this project to start your own Predictivity application. Documentation and more info can be found at [predix.sw.ge.com](http://predix.sw.ge.com)
   	  
 ## To Run
+### Setup your proxy settings
+In `~/.activator/activatorconfig.txt` (NOTE: you may need to create this file), add the following:
+```
+-Dhttp.proxyHost=proxy-src.research.ge.com
+-Dhttp.proxyPort=8080
+-Dhttps.proxyHost=proxy-src.research.ge.com
+-Dhttps.proxyPort=8080
+-Dhttp.nonProxyHosts=devcloud.swcoe.ge.com
+```
+
+### Running the app
 In the root directory, run:
 ```
 npm install
 bower install
 grunt update
-activator run (play run for now due to activator bug)
+activator run
 ```
 Then use the credentials **demo/demo** to log in.
 
