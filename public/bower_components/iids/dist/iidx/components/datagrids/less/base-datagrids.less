@@ -1,0 +1,210 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "ge-bootstrap/less/ge-bootstrap.less";
+@import "modules/less/modules.less";
+@import "datatables.less";
+@import "col-reorder.less";
+@import "col-vis.less";
+@import "row-grouping.less";
+@import "variables.less";
+
+
+// Styles
+// --------------------------------------------------
+
+// Overrides
+table.dataTable {
+  border-bottom-width: 1px;
+  margin-bottom: 20px;
+
+  thead {
+    th {
+      border-bottom-width: 0;
+      font-weight: normal;
+      &.sorting {
+        &:hover {
+          cursor: pointer;
+          *cursor: hand;
+        }
+        &_asc,
+        &_desc {
+          background-color: @linkColor;
+          // Can't use icon font arrows here...
+          // Using :after breaks datatables when scrollY is enabled.
+          // You could probably patch this up with JavaScript but then you're mixing
+          // styles and logic in a tricky way. Rather solve it with CSS if possible.
+          // Created up and down arrows from Font Awesome vectors and used those as
+          // css images --rd
+          // http://datatables.net/forums/discussion/5746/extra-header-row-on-scrollable-table-why/p1
+
+          // &:after {
+          //  float: right;
+          //  font-family: FontAwesome;
+          //  font-weight: normal;
+          //  font-style: normal;
+          //  position: relative;
+          //  top: 1px;
+          // }
+        }
+        // &_asc:after {
+        //  content: "\f063";
+        // }
+        // &_desc:after {
+        //  content: "\f062";
+        // }
+        &_asc {
+          background: url('@{componentsPath}/datagrids/img/sort_asc_override.png') @linkColor no-repeat 98% 50%;
+        }
+        &_desc {
+          background: url('@{componentsPath}/datagrids/img/sort_desc_override.png') @linkColor no-repeat 98% 50%;
+        }
+      }
+      &:active {
+        outline: none;
+      }
+    }
+    tr.filter-row td {
+      background-color: #c9cccf;
+      border-color: #c9cccf;
+      input {
+        width: 95%;
+        margin:0;
+      }
+    }
+  }
+  th,
+  td {
+    // .box-sizing(~"border-box");
+    height: 40px;
+    padding: 0 10px;
+    vertical-align: middle;
+    &.voice-data {
+      text-align: right;
+      padding-right: 32px;
+    }
+    &.visualization {
+      padding-right: 32px;
+    }
+    svg.visualization-bar {
+      position: relative;
+      top: 3px;
+    }
+  }
+  .selector {
+    border-left: 0;
+    padding: 0;
+    text-align: center;
+  }
+  th.selector {
+    border-left: 1px solid @grayDarker;
+  }
+  td.selector:hover {
+    cursor: pointer;
+    *cursor: hand;
+  }
+  tr.odd td.outlier,
+  tr.even td.outlier {
+    background-color: @btnDangerBackground;
+    color: @white;
+    font-weight: bold;
+  }
+  tr.row_selected.odd td,
+  tr.row_selected.even td {
+    color: @white;
+    background-color: #749BCD;
+    &.outlier {
+      background-color: mix(@blue, @btnDangerBackground, 30%);
+      color: @white;
+    }
+    a {
+      color: @blueDark;
+    }
+  }
+  tr:hover {
+    background: #B7CBE5;
+    td.outlier {
+      background-color: mix(@blueLight, @btnDangerBackground);
+    }
+  }
+}
+
+// Position the floater that appears when you rollover
+// a table cell
+.dataTables_wrapper > .btn-datatables-floater {
+  display: none;
+  position: absolute;
+}
+.dataTables_wrapper .dropdown-menu {
+  margin-top: -5px;
+  right: 0 !important;
+}
+.table-controls {
+  margin: 0 15px;
+  line-height: 1;
+}
+
+.dataTables_length,
+.dataTables_info,
+.dataTables_paginate {
+  clear: none;
+  display: inline-block;
+  font-size: 0;
+  float: none;
+  height: auto;
+  margin: 0;
+  text-align: left;
+}
+.dataTables_paginate {
+  height: 30px;
+}
+.dataTables_info {
+  font-size: 12px;
+  line-height: 20px;
+  margin-right: 10px;
+  position: relative;
+  top: -10px;
+}
+.dataTables_length label {
+  font-size: 12px;
+  line-height: 20px;
+  position: relative;
+  top: 4px;
+}
+.dataTables_length select {
+  margin: -2px 4px 0;
+  width: 60px;
+}
+
+.dataTables_scrollHead {
+  .dataTables_scrollHeadInner {
+    background-color: @grayDarker;
+  }
+  table.dataTable {
+    margin-bottom:0;
+    border-bottom-width: 0;
+  }
+}
+
+// override Bootstrap/GE Bootstrap pagination :hover color scheme for touch devices; restore for non-touch situations
+.pagination ul > li > a:hover {
+  background-color: @paginationBackground;
+  border-color: @paginationBorder;
+  color: @grayDark;
+}
+
+.no-touch .pagination ul > li > a:hover,
+.pagination ul > .active > a,
+.pagination ul > .active > a:hover,
+.pagination ul > .active > span {
+  background-color: @paginationActiveBackground;
+  border-color: @paginationActiveBackground;
+  color: @grayLight;
+}
+
+.no-touch .pagination ul > li > a:hover,
+.no-touch .pagination ul > .active > a,
+.no-touch .pagination ul > .active > span {
+  color: @white;
+}
+

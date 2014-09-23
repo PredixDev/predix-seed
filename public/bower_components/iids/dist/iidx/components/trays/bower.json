@@ -1,0 +1,24 @@
+{
+  "name": "trays",
+  "description": "Collapsible tray variants for use within IIDS.",
+  "version": "0.5.3",
+  "main": [
+    "js/trays.js",
+    "less/trays.less",
+    "less/responsive.less"
+  ],
+  "ignore": [
+    "components",
+    "css",
+    "node_modules",
+    "test",
+    ".*",
+    "Gruntfile.js",
+    "js/require.config.js"
+  ],
+  "dependencies": {
+    "ge-bootstrap": "git+https://devcloud.sw.ge.com/source/scm/dxc/ge-bootstrap#~1.1",
+    "requirejs": "https://github.com/jrburke/requirejs-bower.git#~2.1.11",
+    "jquery": "https://github.com/components/jquery.git#~1.10.2"
+  }
+}

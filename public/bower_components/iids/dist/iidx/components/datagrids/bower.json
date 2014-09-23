@@ -1,0 +1,29 @@
+{
+  "name": "datagrids",
+  "description": "Customized implementation of DataTables for GE DS.",
+  "version": "0.12.0",
+  "main": [
+    "js/datagrids.js",
+    "less/datagrids.less",
+    "less/datagrids-responsive.less"
+  ],
+  "ignore": [
+    "components",
+    "css",
+    "node_modules",
+    "test",
+    ".*",
+    "js/require.config.js",
+    "Gruntfile.js"
+  ],
+  "dependencies": {
+    "datatables-col-reorder": "https://raw.githubusercontent.com/DataTables/ColReorder/1.1.1/js/dataTables.colReorder.js",
+    "datatables-scroller": "https://raw.github.com/DataTables/Scroller/1.2.1/js/dataTables.scroller.js",
+    "datatables": "https://devcloud.sw.ge.com/source/scm/dxc/shim-data-tables.git#1.10.0",
+    "ge-bootstrap": "git://devcloud.sw.ge.com/source/scm/dxc/ge-bootstrap#~1.1.7",
+    "modules": "git://devcloud.sw.ge.com/source/scm/dxc/modules#~0.7.4",
+    "responsive-emitter": "git://devcloud.sw.ge.com/source/scm/dxc/responsive-emitter#~0.8.1",
+    "requirejs": "https://github.com/jrburke/requirejs-bower.git#~2.1.11",
+    "jquery": "https://github.com/components/jquery.git#~1.10.2"
+  }
+}

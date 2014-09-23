@@ -1,0 +1,25 @@
+{
+  "name": "modules",
+  "description": "Collection of module types for use with ge-bootstrap.",
+  "version": "0.7.4",
+  "main": [
+    "less/modules.less",
+    "less/modules-responsive.less",
+    "js/modules.js"
+  ],
+  "ignore": [
+    "components",
+    "css",
+    "node_modules",
+    "test",
+    ".*",
+    "Gruntfile.js",
+    "js/require.config.js"
+  ],
+  "dependencies": {
+    "requirejs": "https://github.com/jrburke/requirejs-bower.git#~2.1.6",
+    "jquery": "~1.10.2",
+    "ge-bootstrap": "git+https://devcloud.sw.ge.com/source/scm/dxc/ge-bootstrap#~1.1.7",
+    "jqueryui-sortable-amd": "git+https://devcloud.sw.ge.com/source/scm/dxc/jqueryui-sortable-amd#~1.10.2"
+  }
+}

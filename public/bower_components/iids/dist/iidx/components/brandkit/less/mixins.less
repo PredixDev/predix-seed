@@ -1,0 +1,103 @@
+// Voice
+#voice {
+  // Helper mixins for generating "voice" rules.
+  #family {
+    .brand() {
+      font-family: @brandFontFamily;
+    }
+    .data() {
+      font-family: @monoFontFamily;
+    }
+    .human() {
+      font-family: @serifFontFamily;
+    }
+    .ui() {
+      font-family: @sansFontFamily;
+    }
+  }
+  .shorthand(@size: @baseFontSize, @weight: normal, @lineHeight: @baseLineHeight) {
+    font-size: @size;
+    font-weight: @weight;
+    line-height: @lineHeight;
+  }
+  .brand(@size: @baseFontSize, @weight: normal, @lineHeight: @baseLineHeight) {
+    #voice > #family > .brand;
+    #voice > .shorthand(@size, @weight, @lineHeight);
+  }
+  .data(@size: @baseFontSize, @weight: normal, @lineHeight: @baseLineHeight) {
+    #voice > #family > .data;
+    #voice > .shorthand(@size, @weight, @lineHeight);
+  }
+  .human(@size: @baseFontSize, @weight: normal, @lineHeight: @baseLineHeight) {
+    #voice > #family > .human;
+    #voice > .shorthand(@size, @weight, @lineHeight);
+  }
+  .ui(@size: @baseFontSize, @weight: normal, @lineHeight: @baseLineHeight) {
+    #voice > #family > .ui;
+    #voice > .shorthand(@size, @weight, @lineHeight);
+  }
+}
+
+.voice {
+  &-brand {
+    #voice > #family > .brand;
+  }
+  &-data {
+    #voice > #family > .data;
+  }
+  &-human {
+    #voice > #family > .human;
+  }
+  &-ui {
+    #voice > #family > .ui;
+  }
+}
+
+.color {
+  &-black {
+    color: @black;
+  }
+  &-green {
+    color: @green;
+  }
+  &-cyan {
+    color: @cyan;
+  }
+  &-orange {
+    color: @orange;
+  }
+  &-red {
+    color: @red;
+  }
+  &-purple {
+    color: @purple;
+  }
+  &-white {
+    color: @white;
+  }
+}
+
+.ge-logo {
+  background: transparent url("@{componentsPath}/brandkit/img/ge-monogram-athensgray.svg") no-repeat;
+  background-size: contain; //The GE Monogram has slightly different width/height dimensions
+  border: 0;
+  color: transparent;
+  float: left;
+  font: 0/0 a;
+  height: 38px;
+  margin: -8px 9px -10px -3px;
+  width: 37px;
+}
+
+#gradient {
+  .vertical-image(@startColor: #555, @endColor: #333, @image) {
+    background-color: mix(@startColor, @endColor, 60%);
+    background-image: @image;
+    background-image: @image, -moz-linear-gradient(top, @startColor, @endColor); // FF 3.6+
+    background-image: @image, -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
+    background-image: @image, -webkit-linear-gradient(top, @startColor, @endColor); // Safari 5.1+, Chrome 10+
+    background-image: @image, -o-linear-gradient(top, @startColor, @endColor); // Opera 11.10
+    background-image: @image, linear-gradient(to bottom, @startColor, @endColor); // Standard, IE10
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@startColor),argb(@endColor))); // IE9 and down
+  }
+}

@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2013 GE Global Research. All rights reserved.
+ *
+ * The copyright to the computer software herein is the property of
+ * GE Global Research. The software may be used and/or copied only
+ * with the written permission of GE Global Research or in accordance
+ * with the terms and conditions stipulated in the agreement/contract
+ * under which the software has been supplied.
+ */
+.ge-logo {
+  background-image: url("../components/brandkit/img/ge-monogram.png");
+}
+.table-bordered th:first-child[rowspan],
+.table-bordered td:first-child[rowspan] {
+  right: 0;
+  border-right-width: 0;
+}

@@ -1,0 +1,39 @@
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 29px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media (max-width: 767px) {
+  .two-pane .page-header .pull-right {
+    clear: none;
+  }
+  .two-pane .message-pane {
+    border-top: 1px solid #d4d4d4;
+    padding-left: 20px;
+  }
+  .two-pane .module.draggable {
+    height: 177px;
+  }
+}

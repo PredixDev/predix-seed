@@ -1,0 +1,13 @@
+// Landscape phone, small desktop and portait tablet
+@media (max-width: 767px) {
+  .module-snapshot {
+    max-height: 580px;
+    .module:first-child + .module {
+      margin-left: 10px;
+      font-size: 14px;
+    }
+  }
+  .module-snapshot .module:first-child {
+    .border-radius(@baseBorderRadius @baseBorderRadius 0 0 );
+  }
+}

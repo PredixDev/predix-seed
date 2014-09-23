@@ -1,0 +1,76 @@
+// Dependencies
+// --------------------------------------------------
+
+
+// Styles
+// --------------------------------------------------
+
+[data-visualization="meter"] {
+  float: left;
+  width: 50px;
+  height: 250px;
+
+  .label {
+    font-size:10px;
+    font-weight: normal;
+  }
+
+  .value {
+    font-size: 17px;
+  }
+
+  .unit {
+    font-size: 13px;
+  }
+
+  rect.bg {
+    fill: @meterBgGray;
+  }
+
+  .gradient-color-1 {
+    stop-color: @blue1;
+  }
+  .gradient-color-2 {
+    stop-color: @blue2;
+  }
+
+  &.notice {
+    .gradient-color-1 {
+      stop-color: @yellow1;
+    }
+    .gradient-color-2 {
+      stop-color: @yellow2;
+    }
+  }
+
+  &.warning {
+    .gradient-color-1 {
+      stop-color: @orange1;
+    }
+    .gradient-color-2 {
+      stop-color: @orange2;
+    }
+  }
+
+  &.danger {
+    .gradient-color-1 {
+      stop-color: @red1;
+    }
+    .gradient-color-2 {
+      stop-color: @red2;
+    }
+  }
+
+  .axis path {
+    stroke: @black;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+    fill: none;
+  }
+
+  .tick line {
+    stroke: @black;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+  }
+}

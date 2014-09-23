@@ -1,0 +1,1712 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 0,
+        "Leader": "Michael Tasker",
+        "Type": "Investigation",
+        "Status": "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19806,42.60412]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 1,
+        "Leader" : "Micheal Tasker",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19806,42.60412]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 2,
+        "Leader" : "Lenroy Quinlin",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1753,42.59836]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 3,
+        "Leader" : "Dorin Carni",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17557,42.60224]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 4,
+        "Leader" : "Praveen Mcdonald",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1991,42.59773]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 5,
+        "Leader" : "Cherisse Randall",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1825,42.59963]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 6,
+        "Leader" : "Tatyana Mansfield",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18609,42.60057]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 7,
+        "Leader" : "Schilling Kirkland",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.16736,42.60062]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 8,
+        "Leader" : "Gert Waxman",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19149,42.60169]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 9,
+        "Leader" : "Jaqueline Sybert",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19733,42.60614]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 10,
+        "Leader" : "Astou Sieg",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19278,42.6027]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 11,
+        "Leader" : "Michele Gest",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19299,42.60531]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 12,
+        "Leader" : "Quay Volosov",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17474,42.59949]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 13,
+        "Leader" : "Lenroy Roose",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19468,42.60582]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 14,
+        "Leader" : "Dorin Esparza-barron",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18771,42.60193]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 15,
+        "Leader" : "Praveen Mckinney",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19736,42.50944]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 16,
+        "Leader" : "Tatyana Chesley",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19463,42.60503]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 17,
+        "Leader" : "Schilling Frazier",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1952,42.6036]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 18,
+        "Leader" : "Jaunice Hussein",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18381,42.60069]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 19,
+        "Leader" : "Cherisse Speakes",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18594,42.60194]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 20,
+        "Leader" : "Wardell Women-na-amat",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18266,42.60298]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 21,
+        "Leader" : "Gert Zapinsky",
+        "Type" : "Investigation",
+        "Status" : "Off Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17243,42.60208]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 22,
+        "Leader" : "Quay Slavin",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.16107,42.67674]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 23,
+        "Leader" : "Asuman Fontana",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19882,42.60409]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 24,
+        "Leader" : "Jaunice Owens",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19315,42.60747]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 25,
+        "Leader" : "Michele Head",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19607,42.60354]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 26,
+        "Leader" : "Lensler Andrea",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17944,42.60371]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 27,
+        "Leader" : "Dorin Mateer",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17802,42.60173]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 28,
+        "Leader" : "Schilling Birch",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.16835,42.60156]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 29,
+        "Leader" : "Praveen Toppin",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.02711,42.71193]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 30,
+        "Leader" : "Wardell Peardon",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.20544,42.60052]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 31,
+        "Leader" : "Quay Ryer",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.20208,42.60498]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 32,
+        "Leader" : "Cherisse Spelman",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.86095,42.77866]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 33,
+        "Leader" : "Gertie Giler",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.16676,42.59978]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 34,
+        "Leader" : "Asuman Kenney",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18427,42.60152]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 35,
+        "Leader" : "Jaunice Shear",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17471,42.60032]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 36,
+        "Leader" : "Teandra Biological",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1145,42.64747]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 37,
+        "Leader" : "Michele Littig",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18402,42.60443]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 38,
+        "Leader" : "Micheal Tasker",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1996,42.60336]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 39,
+        "Leader" : "Lenroy Quinlin",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19187,42.6067]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 40,
+        "Leader" : "Praveen Mcdonald",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18463,42.59912]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 41,
+        "Leader" : "Gert Waxman",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1916,42.60326]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 42,
+        "Leader" : "Astou Sieg",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19614,42.60353]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 43,
+        "Leader" : "Quay Volosov",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17268,42.60207]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 44,
+        "Leader" : "Lenroy Roose",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1958,42.60593]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 45,
+        "Leader" : "Praveen Mckinney",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17783,42.59872]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 46,
+        "Leader" : "Jaunice Hussein",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.97004,42.68869]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 47,
+        "Leader" : "Cherisse Speakes",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.16674,42.59942]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 48,
+        "Leader" : "Gert Zapinsky",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.16558,42.59828]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 49,
+        "Leader" : "Quay Slavin",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17393,42.59952]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 50,
+        "Leader" : "Asuman Fontana",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.16968,42.5981]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 51,
+        "Leader" : "Lensler Andrea",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1979,42.60413]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 52,
+        "Leader" : "Dorin Mateer",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19461,42.60478]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 53,
+        "Leader" : "Praveen Toppin",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17944,42.60381]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 54,
+        "Leader" : "Wardell Peardon",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.16754,42.59975]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 55,
+        "Leader" : "Quay Ryer",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.16727,42.59721]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 56,
+        "Leader" : "Gertie Giler",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19588,42.60716]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 57,
+        "Leader" : "Asuman Kenney",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17227,42.60271]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 58,
+        "Leader" : "Lensler Ford",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19339,42.60363]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 59,
+        "Leader" : "Wardell Eck",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.15737,42.59926]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 60,
+        "Leader" : "Gertie Gochnauer",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1857,42.60487]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 61,
+        "Leader" : "Aswan Transit",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18715,42.6042]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 62,
+        "Leader" : "Javad Gamper",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17638,42.60026]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 63,
+        "Leader" : "Lensler Jane",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17582,42.65034]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 64,
+        "Leader" : "Gertie Mondanipour",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19009,42.60272]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 65,
+        "Leader" : "Janene Grinina",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1667,42.59871]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 66,
+        "Leader" : "Tasman Lyss",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17314,42.59796]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 67,
+        "Leader" : "Ward Shah",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1723,42.60322]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 68,
+        "Leader" : "Athol Insel",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1947,42.60616]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 69,
+        "Leader" : "Javad Rankin",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1575,42.59982]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 70,
+        "Leader" : "Lenwood Batty",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1609,42.60085]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 71,
+        "Leader" : "Schaja Sturm",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.16202,42.60083]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 72,
+        "Leader" : "Ward Hawker",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18378,42.60036]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 73,
+        "Leader" : "Q. Quaranta",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18606,42.59977]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 74,
+        "Leader" : "Jarad Conrad",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.15486,42.77645]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 75,
+        "Leader" : "Javay Norwood",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1756,42.60268]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 76,
+        "Leader" : "Lenwood Logan",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.16137,42.59742]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 77,
+        "Leader" : "Ward Fostel",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17423,42.60116]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 78,
+        "Leader" : "Doris Simmons",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.15994,42.59695]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 79,
+        "Leader" : "Cherlyn Matties",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.16837,42.59727]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 80,
+        "Leader" : "Gertsel Janc",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19184,42.60639]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 81,
+        "Leader" : "Atina Gabbin",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17833,42.602]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 82,
+        "Leader" : "Javid Canada",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19314,42.60736]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 83,
+        "Leader" : "Tasman Aquirre",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18525,42.60375]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 84,
+        "Leader" : "Mick Brik",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18715,42.60282]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 85,
+        "Leader" : "Lenwood Shofer",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17483,42.60114]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 86,
+        "Leader" : "Dorithia Spriggs",
+        "Type" : "Investigation",
+        "Status" : "Off Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18593,42.60282]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 87,
+        "Leader" : "Cherlynn Ford",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18278,42.60382]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 88,
+        "Leader" : "Tasman Abbott",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17356,42.59768]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 89,
+        "Leader" : "Jarad Philpot",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18421,42.60196]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 90,
+        "Leader" : "Atina Tuggle",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18755,42.60193]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 91,
+        "Leader" : "Mick Gillmore",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18322,42.60205]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 92,
+        "Leader" : "Q. Lefkovitz",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.24464,42.84254]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 93,
+        "Leader" : "Leo Brazerol",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19275,42.60206]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 94,
+        "Leader" : "Dorothea Samlinco",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.12959,42.67235]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 95,
+        "Leader" : "Premier Bustillos",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17559,42.60245]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 96,
+        "Leader" : "Ward Crosby",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19407,42.6029]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 97,
+        "Leader" : "Javid Guan",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19571,42.60461]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 98,
+        "Leader" : "Mick Zollicoffer",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1661,42.60067]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 99,
+        "Leader" : "Leobardo Fromberg",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19581,42.60603]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 100,
+        "Leader" : "Presby Cooley",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.07921,42.58994]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 101,
+        "Leader" : "Ward Bainder",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18793,42.60415]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 102,
+        "Leader" : "Kelvin Castro",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19305,42.6061]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 103,
+        "Leader" : "Jody Schecter",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17186,42.6021]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 104,
+        "Leader" : "Javid Kosko",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.02525,42.74188]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 105,
+        "Leader" : "Teodor Wingate",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18756,42.6033]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 106,
+        "Leader" : "Mickey Meiller",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18362,42.60739]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 107,
+        "Leader" : "Leobardo Hooks",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.1753,42.59843]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 108,
+        "Leader" : "Wang Woodyard",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17043,42.59807]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 109,
+        "Leader" : "Javid Mostovoy",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.20994,42.602]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 110,
+        "Leader" : "Mickey Woods",
+        "Type" : "Investigation",
+        "Status" : "Off Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.183,42.60207]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 111,
+        "Leader" : "Jarad Willett",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18195,42.60459]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 112,
+        "Leader" : "Midas Luck",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.12196,42.74953]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 113,
+        "Leader" : "Q Baumer",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17615,42.60418]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 114,
+        "Leader" : "Pzadik Whatley",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.16735,42.5975]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 115,
+        "Leader" : "Javid Reitze",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.13398,42.73226]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 116,
+        "Leader" : "Miguel Blumenfeld",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18668,42.60115]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 117,
+        "Leader" : "Leolia Biegacz",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19546,42.60242]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 118,
+        "Leader" : "Dorothy Tongue",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.17791,42.59977]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 119,
+        "Leader" : "Scarlette Hardie",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18132,42.6078]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 120,
+        "Leader" : "Pzadik Kestenbaum",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.19668,42.60306]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "Number" : 121,
+        "Leader" : "Jarboe Salawitch",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.18109,42.6031]
+      }
+    }
+  ]
+}

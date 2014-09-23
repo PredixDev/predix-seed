@@ -1,0 +1,25 @@
+{
+  "name": "responsive-tables",
+  "version": "0.4.2",
+  "main": [
+    "js/responsive-tables.js",
+    "less/responsive.less"
+  ],
+  "ignore": [
+    ".*",
+    "npm-debug.log",
+    "Gruntfile.js",
+    "package.json",
+    "components",
+    "css",
+    "node_modules",
+    "test",
+    "js/require.config.js"
+  ],
+  "dependencies": {
+    "ge-bootstrap": "git@github.sw.ge.com:DXC/ge-bootstrap#~1.7.5",
+    "requirejs": "https://github.com/jrburke/requirejs-bower.git#~2.1.11",
+    "jquery": "https://github.com/components/jquery.git#~1.10.2",
+    "respond": "https://github.com/GeneralElectric/Respond.git#~1.2.1"
+  }
+}

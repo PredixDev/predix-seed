@@ -1,0 +1,23 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "speedometer.less";
+
+
+// Styles
+// --------------------------------------------------
+
+[data-visualization="speedometer"] {
+  margin-bottom: 20px;
+  width: 250px;
+  height:120px;
+  &.warning {
+    .gradient-color-1 {
+      stop-color: @orange;
+    }
+    .gradient-color-2 {
+      stop-color: @orange2;
+    }
+  }
+}
+

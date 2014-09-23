@@ -1,0 +1,19 @@
+{"type":"FeatureCollection",
+    "features":[
+        {"type":"Feature",
+            "properties":{"title":"Dispatch Hub: Essen","speed":"43","address1":"Fasanenstraße 10","address2":"45134 Essen, Germany","phone":"0176 1245928"},
+            "geometry":{"type":"Point","coordinates":[-121.975193,37.777120]},
+            "metadata":{"type":"default","state":"default","icon":"\uf0d1", "iconPos": {"x":-7,"y": 5},"size":"normal"},
+            "id":"uniqueId_1"},
+        {"type":"Feature",
+            "properties":{"title":"Dispatch Hub: Essen","speed":"27","address1":"Fasanenstraße 10","address2":"45134 Essen, Germany","phone":"0176 1245928"},
+            "geometry":{"type":"Point","coordinates":[-121.964421,37.781428]},
+            "metadata":{"type":"default","state":"warning","icon":"\uf0d1", "iconPos": {"x":-7,"y": 5},"size":"mini"},
+            "id":"uniqueId_2"},
+        {"type":"Feature",
+            "properties":{"title":"Dispatch Hub: Essen","speed":"41","address1":"Fasanenstraße 10","address2":"45134 Essen, Germany","phone":"0176 1245928"},
+            "geometry":{"type":"Point","coordinates":[-121.984806,37.778816]},
+            "metadata":{"type":"default","state":"important","icon":"\uf0d1", "iconPos": {"x":-7,"y": 5},"size":"normal"},
+            "id":"uniqueId_3"}
+    ]
+}

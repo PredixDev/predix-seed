@@ -1,0 +1,221 @@
+@import "components/ge-bootstrap/less/ge-bootstrap.less";
+@import "components/brandkit/less/variables.less";
+@import "components/map-core/less/mixins.less";
+
+// Shared content styles for popover and fixed panels
+
+.map .popover,
+.panel-container section.panel[class*="span"] {
+  .border-radius(@baseBorderRadius);
+  .box-shadow-map(0 1px 2px rgba(0, 0, 0, 0.2));
+
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  background: @white;
+
+  .panel-header, .panel-title {
+    .border-radius((@baseBorderRadius - 1) (@baseBorderRadius - 1) 0 0);
+  }
+
+  .panel-header {
+    .box-sizing(border-box);
+
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+    background: @blue;
+    font-size: 20px;
+
+    .left, .panel-title, .right {
+      .box-sizing(border-box);
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+
+      height: 50px;
+      float: left;
+      vertical-align: top;
+      background: @blue;
+    }
+
+    .left, .right {
+      width: 50px;
+      left: 0;
+      border-style: solid;
+      border-color: rgba(255, 255, 255, 0.25);
+      border-width: 0 1px 0 0;
+      overflow: hidden;
+      color: @white;
+
+      text-align: center;
+      font-size: 28px;
+      line-height: 50px;
+
+      p, small { font-weight: bold; }
+
+      p {
+        margin-bottom: 0;
+        white-space: nowrap;
+      }
+
+      small { font-size: 12px; }
+
+      &.twoline {
+        padding-top: 13px;
+        line-height: 12px;
+
+        p { line-height: 12px; }
+      }
+    }
+
+    .right {
+      right: 0;
+      left: auto;
+      clear: both;
+      border-width: 0 0 0 1px;
+      z-index: 2;
+    }
+
+    .panel-title {
+      .text-ellipsis;
+      .box-sizing(border-box);
+
+      padding: 10px 9px;
+      z-index: 1;
+      background: @blue;
+      color: @white;
+
+      h3, h4, h5, h6, p { .text-ellipsis; }
+
+      &.twoline {
+        padding-top: 6px;
+        padding-bottom: 6px;
+
+        h3, h4, h5, h6 { line-height: 22px; }
+
+        p {
+          margin-bottom: 0;
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 15px;
+        }
+      }
+    }
+
+    [class^="icon-"], [class*=" icon-"] { color: @white; }
+
+    // Adjust title width with and w/o left/right:
+
+    // without .left and .right
+    .panel-title:last-child {
+      max-width: 100%;
+    }
+
+    // without .left but with .right
+    .panel-title {
+      max-width: calc(~'100% - 50px');
+    }
+
+    // with .left and .right
+    .left + .panel-title {
+      left: 50px;
+      max-width: calc(~'100% - 100px');
+    }
+
+    // with .left and without .right
+    .left + .panel-title:last-child {
+      left: 50px;
+      max-width: calc(~'100% - 50px');
+    }
+
+
+    // Colors
+    &.default {
+      &, .left, .panel-title, .right {
+        background: @blue;
+      }
+    }
+    &.highlight {
+      &, .left, .panel-title, .right {
+        background: @purple;
+      }
+    }
+    &.info {
+      &, .left, .panel-title, .right {
+        background: @btnInfoBackground;
+      }
+    }
+    &.success {
+      &, .left, .panel-title, .right {
+        background: @btnSuccessBackground;
+      }
+    }
+    &.warning {
+      &, .left, .panel-title, .right {
+        background: @btnWarningBackground;
+      }
+    }
+    &.danger,&.important {
+      &, .left, .panel-title, .right {
+        background: @btnDangerBackground;
+      }
+    }
+
+    &.info, &.success, &.warning, &.danger {
+      border-bottom: 0;
+
+      &, .left, .panel-title, .right {
+        border-color: rgba(255, 255, 255, 0.25);
+        color: @white;
+      }
+
+      [class^="icon-"], [class*=" icon-"] { color: @white; }
+    }
+  }
+
+  .panel-content {
+    padding: 0;
+    font-size: 12px;
+
+    > * { padding: 7px 10px; }
+
+    .table {
+      margin-bottom: 0;
+      padding: 0;
+    }
+
+    .row-fluid { .box-sizing(border-box); }
+  }
+
+  .panel-footer {
+    .box-sizing(border-box);
+    .border-radius(0 0 (@baseBorderRadius - 1) (@baseBorderRadius - 1));
+
+    padding: 0 10px 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: @grayLighter;
+
+    .secondary, .primary { white-space: nowrap; }
+
+    .secondary { float: left; }
+    .primary { float: right; }
+
+    .btn {
+      margin-top: 10px;
+      padding-left: 6px;
+      padding-right: 6px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+
+      &.btn-map { .no-shadow; }
+
+      &, i { color: @grayDark; }
+
+      // All icon buttons with the same max. width
+      i {
+        width: 21px;
+        display: inline-block;
+      }
+    }
+  }
+}

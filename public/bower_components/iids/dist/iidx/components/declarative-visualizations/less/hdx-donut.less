@@ -1,0 +1,18 @@
+// Dependencies
+// --------------------------------------------------
+@import "donut.less";
+
+
+// Styles
+// --------------------------------------------------
+
+[data-visualization="donut"] {
+  #voice > .ui(@baseFontSize, normal);
+
+  .legend {
+    .success { background: @greenLight }
+    .warning { background: @orange2 }
+    .gray { background: @grayLighter }
+    .danger { background: @redLight }
+  }
+}

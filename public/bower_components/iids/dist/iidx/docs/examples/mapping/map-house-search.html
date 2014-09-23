@@ -1,0 +1,274 @@
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>House search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../components/brandkit/favicon/favicon-144px.png">
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../components/brandkit/favicon/favicon-114px.png">
+
+    <!-- For first- and second-generation iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../components/brandkit/favicon/favicon-72px.png">
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon-precomposed" href="../../../components/brandkit/favicon/favicon.png">
+
+    <link rel="icon" href="../../../components/brandkit/favicon/favicon.ico">
+    <link href="../../../css/iids.css" rel="stylesheet" type="text/css">
+    <link href="../../../css/responsive.css" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]>
+      <link id="theme-ie" href="../../../css/ie.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+
+    
+
+    <script src="../../../components/modernizr/modernizr.js"></script>
+  </head>
+  <body>
+
+<div class="navbar navbar-static-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="ge-logo"></span> <span>My Application <small><i>powered by</i> GE Business</small></span></a>
+      <div class="pull-right">
+        <div class="btn-toolbar pull-left">
+          <div class="btn-group">
+            <button class="btn btn-danger dropdown-toggle" rel="tooltip" data-title="Alerts" data-placement="bottom" data-toggle="dropdown"><i class="icon-warning-sign"></i> 5</button>
+            <ul class="dropdown-menu pull-right message-list">
+              <li class="message-item">
+                <a href="#">
+                  <span class="label label-important pull-left">Urgent</span>
+                  <h4 class="message-title">Alert Type and Title</h4>
+                  <p>This is a brief description or summary of the associated event that occured&hellip;<br><time datetime="MM:DD:YYTHH:MM:SS" class="message-time">MM/DD/YY 12:05</time></p>
+                </a>
+              </li>
+              <li class="message-item">
+                <a href="#">
+                  <span class="label label-warning pull-left">Moderate</span>
+                  <h4 class="message-title">Alert Type and Title</h4>
+                  <p>This is a brief description or summary of the associated event that occured&hellip;<br><time datetime="MM:DD:YYTHH:MM:SS" class="message-time">MM/DD/YY 12:05</time></p>
+                </a>
+              </li>
+              <li class="message-item"><a href="#">View all alerts</a></li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-inverse dropdown-toggle" rel="tooltip" data-title="Messages" data-placement="bottom" data-toggle="dropdown"><i class="icon-envelope-alt"></i></button>
+            <ul class="dropdown-menu pull-right message-list">
+              <li class="message-item empty">No unread messages</li>
+              <li class="message-item"><a href="#">View all messages</a></li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i><span class="user-name">Tom Edison</span> <i class="icon-chevron-down"></i></button>
+            <ul class="dropdown-menu pull-right">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </div>
+        </div>
+        <form class="navbar-search pull-left">
+          <div class="input-append">
+              <input type="search" class="input-medium search-query" data-toggle="dropdown" data-target=".navbar-search"><button type="submit" class="btn btn-icon"><i class="icon-search"></i></button>
+          </div>
+          <div class="typeahead typeahead-faceted dropdown-menu pull-right">
+            <ul class="unstyled">
+              <li class="facet">
+                <div class="facet-name">Top Result</div>
+                <ul class="facet-results unstyled">
+                  <li><a href="#"><strong>Ma</strong>ine</a></li>
+                </ul>
+              </li>
+              <li class="facet">
+                <div class="facet-name">States</div>
+                <ul class="facet-results unstyled">
+                  <li><a href="#"><strong>Ma</strong>ine</a></li>
+                  <li><a href="#"><strong>Ma</strong>ryland</a></li>
+                  <li><a href="#"><strong>Ma</strong>ssachusetts</a></li>
+                  <li><a href="#">Alaba<strong>ma</strong></a></li>
+                </ul>
+              </li>
+              <li class="facet">
+                <div class="facet-name">Cities</div>
+                <ul class="facet-results unstyled">
+                  <li><a href="#"><strong>Ma</strong>bleton, GA</a></li>
+                  <li><a href="#"><strong>Ma</strong>cedon, NY</a></li>
+                  <li><a href="#"><strong>Ma</strong>cedonia, OH</a></li>
+                  <li><a href="#"><strong>Ma</strong>chesney Park, IL</a></li>
+                  <li><a href="#"><strong>Ma</strong>comb, IL</a></li>
+                </ul>
+              </li>
+              <li class="last"><a href="#">View All Results</a></li>
+            </ul>
+          </div>
+        </form>
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <i class="icon-bar"></i>
+          <i class="icon-bar"></i>
+          <i class="icon-bar"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="primary-navbar nav-collapse">
+    <div class="container">
+      <ul class="nav">
+
+      </ul>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class="container content">
+  <div class="page-header voice voice-brand">
+    <h1 class="pull-left">Page header for synchronized map and Google Street View</h1>
+  </div>
+
+  <div class="row">
+    <section class="module span6">
+      <header class="module-header">
+        <h3 class="voice voice-brand pull-left">Map title</h3>
+      </header>
+      <div class="module-body" style="height:350px;">
+        <div class="map" data-toggle="geolocate" data-map-name="default" data-map-zoom-control="hide">
+          <div class="map-toolbar">
+            <div class="btn-group clickable pull-left">
+              <form class="form-search form-inline" onsubmit="return false;" data-facet-index="0">
+                <div class="input-prepend">
+                  <button id="searchSubmitBtn" type="submit" class="btn btn-icon"><i class="icon-search"></i></button>
+                  <input id="query" type="text" class="input-medium search-query" autocomplete="off" placeholder="Address search" />
+                </div>
+              </form>
+              <button class="btn btn-remove" rel="tooltip" data-locate-map="default" data-placement="bottom" title="Centre map on your current location" data-animation="false" >
+                <i class="icon-screenshot active"></i>
+              </button>
+            </div>
+            <div class="btn-group clickable pull-right">
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="module-footer">
+      </footer>
+    </section>
+
+    <section class="module span6">
+      <header class="module-header">
+        <h3 class="voice voice-brand pull-left">Street View title</h3>
+      </header>
+      <div class="module-body" style="height:350px">
+        <div class="streetviewtest" data-map-source="default" style="height:350px"></div>
+      </div>
+      <footer class="module-footer">
+      </footer>
+    </section>
+  </div>
+</div>
+
+</body>
+
+<script src="../../../components/requirejs/require.js"></script>
+<script src="../../../js/require.config.js"></script>
+  <script>
+    // Load common code that includes config,
+    // then load the app logic for this page.
+  require(['../../../js/require.config.js'], function () {
+        require.config({
+        baseUrl: '../../../',
+        config: { 'map-loader': {
+              configFileName: '../../data/map-config.json'
+          }
+        }
+      });
+
+
+      require(['jquery', 'map-markers', 'map-core', 'map-search', 'map-street-view', 'map-geolocate'], function($, markers, Mapping, search, streetView){
+
+
+      require(['map-markers'], function(markers){
+
+          var $mapSelector = $('div.map[data-map-name="default"]'),
+              map = $mapSelector.initializeMap()[0].map,
+              olMap = map.olMap(),
+              $streetViewSelector = $('div.streetviewtest[data-map-source="default"]'),
+              streetViewSync = streetView.init("default", olMap, $streetViewSelector);
+
+          //set streetview to centre of map
+          streetViewSync.searchForPanorama(olMap.center,50);
+
+          streetViewSync.show();
+
+          var mapListener = function mapListener(evt) {
+            //do not remove street view listener so the map will recenter on the found panorama
+            streetViewSync.searchForPanorama(evt.object.center,50);
+          };
+
+          var createGeoJSONFeatureCollection = function(lat, lon){
+            return {
+                      "type": "FeatureCollection",
+                      "features": [
+                      {
+                        "type": "Feature",
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [lon, lat]
+                        },
+                        "metadata":{"type":"myposition"},
+                        "id":"uniqueId_Position_1"
+                      }
+                    ]
+            };
+          };
+          var layer;
+          var streetViewListener = function streetViewListener() {
+            //remove listener on map move to avoid circular event firing
+            olMap.events.remove('moveend');
+            var pos = streetViewSync.getPanorama().getPosition(),
+                transformedPos =  map.googleToOLPosition(pos);
+            olMap.setCenter(transformedPos);
+            //re add map move listener
+
+            if (layer){
+              layer.updateLayerData(createGeoJSONFeatureCollection(pos.lat(), pos.lng()));
+            }
+            else{
+              layer = markers.addMarkers(createGeoJSONFeatureCollection(pos.lat(), pos.lng()), olMap, {popovers:false}, 'centre point' );
+            }
+            olMap.events.register('moveend', olMap, mapListener);
+          };
+
+          //bind map move to street view
+          olMap.events.register('moveend', olMap, mapListener);
+
+          //bind street view move to map
+          google.maps.event.addListener(streetViewSync.getPanorama(), 'position_changed', streetViewListener);
+
+          $('#query').assetOrAddressSearch({positionElementID: 'searchSubmitBtn', type: 'address'});
+
+      });
+    });
+    });
+  </script>
+    <script src="../../../components/respond/respond.src.js"></script>
+  </body>
+</html>
+

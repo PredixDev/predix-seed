@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Datatable + Tray</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../components/brandkit/favicon/favicon-144px.png">
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../components/brandkit/favicon/favicon-114px.png">
+
+    <!-- For first- and second-generation iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../components/brandkit/favicon/favicon-72px.png">
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon-precomposed" href="../../../components/brandkit/favicon/favicon.png">
+
+    <link rel="icon" href="../../../components/brandkit/favicon/favicon.ico">
+    <link href="../../../css/iids.css" rel="stylesheet" type="text/css">
+    <link href="../../../css/responsive.css" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]>
+      <link id="theme-ie" href="../../../css/ie.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+
+
+    <script src="../../../components/jquery/jquery.js"></script>
+    <script src="../../../components/modernizr/modernizr.js"></script>
+    <script src="../../../components/requirejs/require.js"></script>
+    <script src="../../../js/require.config.js"></script>
+    <script type="text/javascript">
+      require.config({ baseUrl: '../../../' });
+    </script>
+
+    
+    
+</head>
+<body>
+
+
+<div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="../index.html"><span class="ge-logo"></span> <span>IIDS Datagrids + filter tray</span></a>
+        </div>
+    </div>
+</div>
+
+<div class="container content">
+<div class="module">
+    <div class="module-body" >
+
+
+    <!-- module content-->
+    <div class="tray collapse">
+  <div class="tray-inner">
+    <div class="filter-tray clearfix">
+      <div class="group-filter-rules">
+      </div>
+ 
+      
+      <script type="text/template" id="filter-rule-template">
+      <div class="filter-rule span9 offset2">
+ 
+      <select class="span2">
+      <option value="show">Show Only</option>
+      <option value="hide">Hide</option>
+      <option value="highlight">Highlight</option>
+      </select>
+ 
+      <select class="span2">
+      <option value="siteName">Site Name</option>
+      <option value="turbineSN">Turbine SN</option>
+      <option value="average">Average</option>
+      <option value="median">Median</option>
+      <option value="standardDeviation">Standard Deviation</option>
+      <option value="percentile">Percentile</option>
+      </select>
+ 
+      <select class="span1">
+      <option value="=">=</option>
+      <option value=">">></option>
+      <option value=">=">>=</option>
+      <option value="<"><</option>
+      <option value="<="><=</option>
+      <option value="startsWidth">starts with</option>
+      <option value="endsWith">ends width</option>
+      <option value="contains">contains</option>
+      <option value="doesNotContain">does not contain</option>
+      </select>
+ 
+      <input type="text" value="sample" class="span3"></input>
+ 
+      <a class="remove-filter-rule"><i class="icon-remove-sign"></i></a>
+      </div>
+      </script>
+      
+      <div class="filter-actions span8 offset2">
+        <a href="#add-filter-rule" class="span2 add-filter-rule"><i class="icon-plus-sign"></i> Add Condition</a>
+        <div class="action-button-group span6">
+          <button class="btn">Cancel</button>
+          <button class="btn btn-primary">Apply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="arrow"></div>
+</div>
+ 
+<div class="filter-controls">
+  <div class="btn-group">
+    <button class="btn btn-primary tray-toggle" data-toggle="collapse" data-target=".tray">Filter</button>
+    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#"><strong>Items</strong></a></li>
+      <li><a href="#">Item 1</a></li>
+      <li><a href="#">Item 2</a></li>
+    </ul>
+  </div>
+</div>
+<div class="btn-group btn-filter">
+  <a href="#" class="btn"><i class="icon-star color-danger"></i> Filter 001</a>
+  <a href="#" class="btn btn-remove"><i class="icon-remove"></i></a>
+</div>
+    
+    <!-- data grid-->
+    <form class="form-search pull-right">
+        <div class="input-append">
+            <input type="text" class="input-medium search-query" data-filter-table="dt-array"><button class="btn btn-icon"><i class="icon-search"></i></button>
+        </div>
+    </form>
+
+    <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered" data-table-name="dt-array"></table>
+
+        </div>
+    </div>
+</div>   
+
+   <script>   
+
+    require([
+        'jquery',
+        'bootstrap',
+        'trays',
+        'datagrids'
+    ], function($){
+        init();
+    } );              
+
+    function init()
+    {
+        initTrays();
+        initDatagrid(); 
+    }
+
+    function initTrays()
+    {
+        $('.tray').iidsFilterTray();
+    }
+
+    function initDatagrid()
+    {
+        // JavaScript array and columns
+        $('table[data-table-name="dt-array"]').iidsBasicDataGrid({
+         'aoColumns': [
+            { 'sTitle': 'Rendering engine', 'mData': 'engine', 'sClass': 'essential' },
+            { 'sTitle': 'Browser', 'mData': 'browser', 'sClass': 'essential' },
+            { 'sTitle': 'Platform(s)', 'mData': 'platform', 'sClass': 'optional' },
+            { 'sTitle': 'Engine version', 'mData': 'version' },
+            { 'sTitle': 'CSS grade', 'mData': 'grade', 'sClass': 'essential' }
+        ],
+        'sAjaxSource': './spoof-data-0.json',
+        'isResponsive': true
+        });
+    }
+</script>
+</body>
+
+</html>

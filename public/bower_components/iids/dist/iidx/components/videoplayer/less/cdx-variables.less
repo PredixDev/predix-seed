@@ -1,0 +1,90 @@
+// Dependencies
+// --------------------------------------------------
+
+
+// Overrides
+// --------------------------------------------------
+
+// Paths
+@componentsPath:  "../components";
+@fontsPath:       "@{componentsPath}/brandkit/fonts";
+@FontAwesomePath: "@{componentsPath}/font-awesome/font";
+
+@videoPlayerIconFont: "ge-iconography-webfont";
+@videoPlayerIconFontColor: none;
+@videoPlayerFont: @brandFontFamily;
+
+@controlBarHeight: 40px;
+
+// To customize the player skin, change the values of the variables or edit the
+// CSS below.
+// (This file uses LESS. Learn more at http://lesscss.org/)
+
+// The base font size controls the size of everything, not just text. All
+// diminensions use em-based sizes so that the scale along with the font size.
+// Try increasing it to 20px and see what happens.
+@vjs-base-font-size: 10px;
+@vjs-touch-device-font-size: 15px;
+
+// The main font color controls the color of the text and the icons (font icons)
+@vjs-main-font-color: #CCCCCC; // e.g. rgb(255, 255, 255) or #ffffff
+
+// The default color of control backgrounds is mostly black but with a little
+// bit of blue so it can still be seen on all black video frames, which are
+// common.
+@vjs-control-bg-color: #07141E; // e.g. rgb(255, 255, 255) or #ffffff
+@vjs-control-bg-alpha: 0.7; // 1.0 = 100% opacity, 0.0 = 0% opacity
+
+// The slider bar color is used for the progress bar and the volume bar
+@vjs-slider-bar-color: #66A8CC; // e.g. rgb(255, 255, 255) or #ffffff
+// The background of the progress bar and volume bar have a lined pattern that
+// is created from a base64 encoded image. You can generate your own pattern at
+// http://www.patternify.com/ then replace the value in the quotes with your own
+@vjs-slider-bar-pattern: ~'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAP0lEQVQIHWWMAQoAIAgDR/QJ/Ub//04+w7ZICBwcOg5FZi5iBB82AGzixEglJrd4TVK5XUJpskSTEvpdFzX9AB2pGziSQcvAAAAAAElFTkSuQmCC';
+// The color of the slider background
+@vjs-slider-background-color: #333333;
+@vjs-slider-background-alpha: 0.9; // 1.0 = 100% opacity, 0.0 = 0% opacity
+
+// The "Big Play Button" is the play button that shows before the video plays.
+// To center it set the align values to center and middle. The typical location
+// of the button is the center, but there is trend towards moving it to a corner
+// where it gets out of the way of valuable content in the poster image.
+@vjs-big-play-align: left; // left, center, or right
+@vjs-big-play-vertical-align: bottom; // top, middle, or bottom
+// The button colors match the control colors by default but you can customize
+// them by replace the variables (@control-bg-color) with your own color values.
+@vjs-big-play-bg-color: @vjs-control-bg-color;
+@vjs-big-play-bg-alpha: @vjs-control-bg-alpha;
+// The font size is what makes the big play button, big. All width/height values
+// use ems, which are a multiple of the font size.
+// If the @base-font-size is 10px, then 3em equals 30px.
+@vjs-big-play-font-size: 3em;
+// Now that font size is set, the following em values will be a multiple of the
+// new font size. If @big-play-font-size is 3em (30px), then setting the any of
+// the following values to 2em would equal 60px. 2 * font-size
+@vjs-big-play-margin: 0.5em;
+@vjs-big-play-width: 4em;
+@vjs-big-play-height: 2.6em;
+@vjs-big-play-border-radius: 0.8em;
+@vjs-big-play-border-width: 0.1em;
+@vjs-big-play-border-color: #3b4249;
+
+/* Custom Icon Font
+--------------------------------------------------------------------------------
+The control icons are from a custom font. Each icon corresponds to a character
+(e.g. "\e001"). Font icons allow for easy scaling and coloring of icons.
+*/
+
+// Icon font character values
+@vjs-play-icon: "\f2a9";
+@vjs-pause-icon: "\f299";
+@vjs-volume-muted-icon: "\f3a2";
+@vjs-volume-low-icon: "\f36c";
+@vjs-volume-mid-icon: "\f36c";
+@vjs-volume-high-icon: "\f36c";
+@vjs-fullscreen-enter-icon: "\f1e7";
+@vjs-fullscreen-exit-icon: "\f36c";
+@vjs-square-icon: "\e009";
+@vjs-spinner-icon: "\f322";
+@vjs-subtitles-icon: "\e00c";
+@vjs-captions-icon: "\e008";

@@ -1,0 +1,37 @@
+// Dependencies
+// --------------------------------------------------
+@import "ge-bootstrap/less/hdx-bootstrap-lights-off.less";
+
+@import "hdx-variables.less";
+@import "declarative-visualizations.less";
+@import "hdx-donut-lights-off.less";
+@import "hdx-meter-lights-off.less";
+@import "hdx-speedometer-lights-off.less";
+@import "hdx-pill-lights-off.less";
+
+@import "hdx-bar-lights-off.less";
+@import "hdx-gauge-lights-off.less";
+
+@fontsPath:   "@{componentsPath}/brandkit/fonts";
+@imagesPath:  "../img";
+
+//
+// data visualization styles
+//
+
+svg {
+  path, rect, arc {
+    &.success { fill: @green; stroke: none }
+    &.warning { fill: @orange; stroke: none }
+    &.gray    { fill: @gray; stroke: none }
+    &.danger  { fill: @red; stroke: none }
+  }
+  text {
+    &.num { fill: @grayLightest }
+    &.label { fill: @grayLightest }
+    &.success { fill: @green }
+    &.warning { fill: @orange }
+    &.gray    { fill: @gray }
+    &.danger  { fill: @red }
+  }
+}

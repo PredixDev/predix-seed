@@ -1,0 +1,36 @@
+{
+    "Layers": {
+        "Google": [
+            {
+                "ExternalLayerName" : "Google Streets",
+                "Type" : "roadmap"
+            },
+            {
+                "ExternalLayerName" : "Google Satellite",
+                "Type" : "satellite"
+            },
+            {
+                "ExternalLayerName" : "Google Hybrid",
+                "Type" : "hybrid"
+            }
+        ],
+        "CSV": [
+          {
+            "ExternalLayerName" : "CSV Crews",
+            "URL" : "../../data/crews.csv",
+            "LatitudeFieldName" : "latitude",
+            "LongitudeFieldName" : "longitude"
+          }
+        ]
+    },
+    "MapOptions": {
+        "CentreLat": 42.60,
+        "CentreLong": -76.19,
+        "DefaultZoom": 10,
+        "ZoomLevels": 21
+    },
+    "Google": {
+        "googleClientID": "",
+        "googleChannelID": ""
+    }
+}

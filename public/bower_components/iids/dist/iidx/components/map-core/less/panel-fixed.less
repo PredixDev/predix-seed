@@ -1,0 +1,41 @@
+@import "components/ge-bootstrap/less/ge-bootstrap.less";
+@import "components/brandkit/less/variables.less";
+@import "components/map-core/less/mixins.less";
+
+@panelWidth: 290px;
+
+.panel-container {
+  .box-sizing(border-box);
+
+  position: absolute;
+  top: 64px; // height of the .map-toolbar
+  right: 20px;
+  width: @panelWidth;
+  z-index: @zindexDropdown;
+
+  background: transparent;
+
+  section.panel[class*="span"] {
+    .box-sizing(border-box);
+
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 15px;
+
+    &:last-child { margin-bottom: 0; }
+
+    .panel-header {
+      border-bottom: 1px solid @grayLighter;
+
+      &, .left, .panel-title, .right {
+        border-color: @grayLighter;
+        background: @white;
+        color: inherit;
+      }
+
+      [class^="icon-"], [class*=" icon-"] { color: inherit; }
+    }
+
+    .panel-content p { margin-bottom: 0; }
+  }
+}

@@ -1,0 +1,111 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "bootstrap/less/navs.less";
+
+
+// Bootstrap Overrides
+// --------------------------------------------------
+
+// Pills
+.nav-pills {
+	> li > a {
+		background-color: @white;
+		.border-radius(0);
+		color: @textColor;
+		font-size: @baseFontSize - 2;
+		line-height: 27px;
+		margin: 0 1px 0 0;
+		padding: 4px 10px;
+		[class^="icon-"],
+		[class*=" icon-"] {
+			color: @grayDark;
+		}
+		&:hover {
+			background-color: @grayLightest;
+			[class^="icon-"],
+			[class*=" icon-"] {
+				color: @grayDarker;
+			}
+		}
+	}
+	> li:first-child > a {
+		.border-radius(@btnBorderRadius 0 0 @btnBorderRadius);
+	}
+	> li:last-child > a {
+		.border-radius(0 @btnBorderRadius @btnBorderRadius 0);
+	}
+	&.nav-stacked > li:first-child > a {
+		.border-radius( @btnBorderRadius @btnBorderRadius 0 0 );
+	}
+	&.nav-stacked > li:last-child > a {
+		.border-radius( 0 0 @btnBorderRadius @btnBorderRadius );
+	}
+}
+.nav-pills .dropdown-menu {
+	.border-radius(@btnBorderRadius);
+}
+.nav-pills.nav-stacked > li > a {
+	margin-bottom: 1px;
+}
+
+// Tabs
+.nav-tabs {
+	> li > a {
+		color: @textColor;
+		font-size: @baseFontSize - 2;
+		line-height: 26px;
+		padding: 4px 10px;
+    outline: none;
+		[class^="icon-"],
+		[class*=" icon-"] {
+			color: @grayDark;
+		}
+		&:hover {
+			background-color: @grayLightest;
+			[class^="icon-"],
+			[class*=" icon-"] {
+				color: @grayDarker;
+			}
+		}
+	}
+	> li.active > a,
+	> li.active > a:hover {
+		color: @linkColor;
+		background: @white;
+	}
+}
+.nav-pills > li.open > a,
+.nav-tabs > li.open > a {
+	background-color: @grayLightest;
+	color: @textColor;
+	[class^="icon-"],
+	[class*=" icon-"] {
+		color: @textColor;
+	}
+}
+
+// List
+.nav-list {
+	background-color: @grayLightest;
+	a {
+		color: @textColor;
+		font-size: @baseFontSize - 2;
+		text-shadow: none;
+		&:hover {
+			background-color: @grayLightest;
+		}
+	}
+	.divider {
+		height: 0;
+		margin: 9px -15px;
+	}
+	.nav-header {
+		text-shadow: none;
+		white-space: nowrap;
+	}
+}
+.nav-header,
+.nav .nav-header {
+	text-shadow: none;
+}

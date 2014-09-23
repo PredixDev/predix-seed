@@ -1,0 +1,52 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "brandkit/less/brandkit.less";
+@import "variables.less";
+
+
+// Styles
+// --------------------------------------------------
+
+.histogram {
+  font-family: @monoFontFamily;
+
+  .brush .extent {
+    stroke: @grayDarker;
+    fill-opacity: 0;
+    shape-rendering: crispEdges;
+  }
+
+  .axis text {
+    font-family: @monoFontFamily;
+    font-size: 12px;
+    fill: @grayDarkest
+  }
+
+  .bar rect {
+	  shape-rendering: crispEdges;
+   }
+   
+  .bar rect.selected {
+    stroke: #000;
+    stroke-width: 2px;
+  }
+
+  .bar rect.highlighted {
+    stroke: @grayDarkest;
+    stroke-width: 2px;
+  }
+   
+   .bar text {
+     fill: #fff;
+     font-family: @monoFontFamily;
+     font-size: 12px;
+   }
+	
+   .axis path, .axis line {
+	  fill: none;
+	  stroke: #000;
+	  shape-rendering: crispEdges;
+   }
+  
+}

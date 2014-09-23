@@ -1,0 +1,31 @@
+// Dependencies
+// --------------------------------------------------
+
+
+// Styles
+// --------------------------------------------------
+
+
+[data-visualization="bar"] {
+  height: 120px;
+  font-family: @sansFontFamily;
+  svg.visualization-bar {
+    rect {
+      &.fg {
+        fill: @orange;
+      }
+      &.bg{
+        fill: @grayLighter;
+      }
+    }
+    .tick {
+      fill: @white;
+    }
+    text.num {
+      #voice > .brand(@baseFontSize * 5.35, normal, 1.5);
+    }
+  }
+  .legend {
+    font-family: @sansFontFamily !important;
+  }
+}

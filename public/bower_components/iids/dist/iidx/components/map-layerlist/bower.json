@@ -1,0 +1,13 @@
+{
+  "name": "map-layerlist",
+  "version": "0.1.0",
+  "main": "js/map-layer-list.js",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,113 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "ge-bootstrap/less/ge-bootstrap.less";
+@import "variables.less";
+
+
+// Styles
+// --------------------------------------------------
+@lightWeightFont: 300;
+@heavyWeightFont: 500;
+@standardMargin: 10px;
+@listBuffer: 5px;
+
+// Breadcrumb Navigation
+// --------------------------------------------------
+.cascading-list-breadcrumb {
+  display:none;
+  color:@white;
+  font-weight: @lightWeightFont;
+  margin-left: 30px;
+  margin-bottom: 15px;
+}
+
+// Container Style
+// --------------------------------------------------
+.cascading-list {
+  ul {
+    margin-left: 0px;
+    margin-bottom: @listBuffer;
+  }
+  li {
+    list-style: none;
+    a {
+      font-weight: @lightWeightFont;
+      line-height: 30px;
+      margin-left: 15px;
+      color: @grayDarkest;
+    }
+  }
+  .cascading-list-content{
+    margin-top:15px;
+  }
+  .cascading-list-sublist {
+    margin: 0px;
+    background-color: @white;
+    border-left: 1px solid @grayLighter;
+    ul {
+      height: 180px;
+      display: block;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    &:first-child{
+      .border-top-left-radius(@baseBorderRadius);
+      .border-bottom-left-radius(@baseBorderRadius);
+      border-left: 0px;
+      margin-left: 15px;
+    }
+    &:last-child{
+      .border-top-right-radius(@baseBorderRadius);
+      .border-bottom-right-radius(@baseBorderRadius);
+    }
+  }
+
+  /* Refactor some of these rules */
+  .cascading-list-leaf {
+    .border-radius(@baseBorderRadius);
+    margin-left: 20px;
+    background-color: @white;
+    border: 1px solid @grayLighter;
+  }
+  .cascading-leaf-body {
+      height: 178px;
+      display: block;
+      overflow-x: hidden;
+      overflow-y: auto;
+      font-weight: @lightWeightFont;
+      margin: 0 @standardMargin 0 15px;
+      color: @grayDarkest;
+  }
+}
+
+
+
+/*.border-radius(@baseBorderRadius);*/
+
+
+// Hover/Active state
+// -----------
+.cascading-list-sublist > ul > li:hover,
+.cascading-list-sublist > ul > li:active {
+  a {
+    text-decoration: none;
+    color: @dropdownLinkColorHover;
+    margin-left: @standardMargin;
+    padding-left: @listBuffer;
+  }
+  #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
+}
+
+.cascading-list-header {
+  font-size: 18px;
+  font-weight: @heavyWeightFont;
+  margin-bottom: 5px;
+  margin-left: 15px;
+  margin-top: @standardMargin;
+}
+
+.btn-container{
+  .clearfix();
+  padding:15px;
+}

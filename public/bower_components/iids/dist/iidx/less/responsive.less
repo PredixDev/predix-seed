@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) 2013 GE Global Research. All rights reserved.
+ *
+ * The copyright to the computer software herein is the property of
+ * GE Global Research. The software may be used and/or copied only
+ * with the written permission of GE Global Research or in accordance
+ * with the terms and conditions stipulated in the agreement/contract
+ * under which the software has been supplied.
+ */
+
+
+// IE10 Metro responsive
+// Required for Windows 8 Metro split-screen snapping with IE10
+// Source: http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
+@-ms-viewport{
+  width: device-width;
+}
+
+// Dependencies
+// --------------------------------------------------
+
+@import "brandkit/less/variables.less";
+@import "ge-bootstrap/less/mixins.less";
+
+
+// Responsive Imports
+// --------------------------------------------------
+
+@import "ge-bootstrap/less/responsive-utilities.less";
+@import "ge-bootstrap/less/responsive-1200px-min.less";
+@import "ge-bootstrap/less/responsive-768px-979px.less";
+@import "ge-bootstrap/less/responsive-767px-max.less";
+@import "iids-navbar/less/responsive.less";
+@import "footer/less/responsive.less";
+@import "dashboard-widgets/less/responsive.less";
+@import "modules/less/responsive.less";
+@import "declarative-visualizations/less/responsive.less";
+@import "datagrids/less/responsive.less";
+@import "responsive-tables/less/responsive.less";
+
+// Locals
+// --------------------------------------------------
+
+@import "variables.less";

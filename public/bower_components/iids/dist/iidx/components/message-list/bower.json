@@ -1,0 +1,24 @@
+{
+  "name": "message-list",
+  "description": "Custom Bootstrap list to display messages with labels and status.",
+  "version": "0.7.4",
+  "main": [
+    "less/message-list.less",
+    "less/hdx-message-list.less",
+    "less/hdx-message-list-lights-off.less"
+  ],
+  "ignore": [
+    "components",
+    "css",
+    "node_modules",
+    "test",
+    ".*",
+    "Gruntfile.js",
+    "js/require.config.js"
+  ],
+  "dependencies": {
+    "ge-bootstrap": "git@github.sw.ge.com:DXC/ge-bootstrap#~1.7.5",
+    "requirejs": "https://github.com/jrburke/requirejs-bower.git#~2.1.11",
+    "jquery": "https://github.com/components/jquery.git#~1.10.2"
+  }
+}

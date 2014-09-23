@@ -1,0 +1,46 @@
+//
+// Responsive: Landscape phone to desktop/tablet
+// --------------------------------------------------
+
+
+@media (max-width: 767px) {
+
+}
+
+//
+// Responsive: Portrait phone
+// --------------------------------------------------
+
+@media (max-width: 480px) {
+  .module.draggable {
+    .box-sizing(border-box);
+    height: auto;
+    padding: 15px;
+    .module-header {
+      padding: 0;
+      margin-bottom: 15px;
+      &:hover {
+        cursor: default;
+      }
+      &:active {
+        background-color: transparent;
+      }
+    }
+    .module-body {
+      // This is a table-row because we need the child cell to fill the dimensions.
+      display: block;
+      height: auto;
+      width: auto;
+      > div:first-child {
+        // The table-cell allows us to center content vertically in the space.
+        display: block;
+        padding: 0;
+        width: auto;
+      }
+    }
+  }
+  .module.scrollable .module-body {
+    height: auto;
+    overflow: auto;
+  }
+}

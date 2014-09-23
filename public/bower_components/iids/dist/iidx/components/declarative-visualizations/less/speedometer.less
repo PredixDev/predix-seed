@@ -1,0 +1,46 @@
+// Dependencies
+// --------------------------------------------------
+
+
+// Styles
+// --------------------------------------------------
+
+[data-visualization="speedometer"] {
+  height: 120px;
+  margin-bottom: 20px;
+  width: 100%;
+  path.bg {
+    fill: @meterBgGray;
+  }
+  .gradient-color-1 {
+    stop-color: @blue1;
+  }
+  .gradient-color-2 {
+    stop-color: @blue2;
+  }
+  &.notice {
+    .gradient-color-1 {
+      stop-color: @yellow1;
+    }
+    .gradient-color-2 {
+      stop-color: @yellow2;
+    }
+  }
+  &.warning {
+    .gradient-color-1 {
+      stop-color: @orange1;
+    }
+    .gradient-color-2 {
+      stop-color: @orange2;
+    }
+  }
+  &.danger {
+    .gradient-color-1 {
+      stop-color: @red1;
+    }
+    .gradient-color-2 {
+      stop-color: @red2;
+    }
+  }
+}
+

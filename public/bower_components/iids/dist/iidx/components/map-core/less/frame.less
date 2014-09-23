@@ -1,0 +1,118 @@
+@import "components/ge-bootstrap/less/ge-bootstrap.less";
+@import "components/brandkit/less/variables.less";
+@import "components/map-core/less/mixins.less";
+
+@frameWidth: 250px;
+
+.frame-container {
+  position: relative;
+}
+
+.frame {
+  .box-sizing(border-box);
+  .box-shadow-map(0 0 2px rgba(0, 0, 0, 0.667));
+
+  position: fixed;
+  width: @frameWidth;
+  height: 100%;
+  padding: 0 20px;
+  overflow: auto;
+  z-index: @zindexDropdown;
+
+  background: @grayLighter;
+
+  h2 { margin: 10px 0; }
+
+  .frame-content{
+    //Hide on load until height measurement is complete
+    -webit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+
+    &.hide-on-load{
+        opacity: 0;
+    }
+  }
+
+  section.module[class*="span"] {
+    .box-sizing(border-box);
+
+    height: 100%;
+    min-height: 193px;
+    position: relative;
+    margin-left: 0;
+    padding: 0;
+    padding-bottom: 20px;
+    border: 0;
+    background: transparent;
+
+    &.half { height: 50%; }
+    &.large { height: 66.66%; }
+    &.small { height: 33.33%; }
+
+    h4 {
+      .text-ellipsis;
+
+      &.voice.voice-brand { font-size: 16px; }
+    }
+
+    .module-header, .module-body, .module-footer {
+      background: @white;
+    }
+
+    .module-header {
+      .border-radius(@baseBorderRadius @baseBorderRadius 0 0);
+      margin-bottom: 15px;
+      padding: 15px;
+      padding-bottom: 10px;
+    }
+
+    &.draggable{
+        .module-header {
+          &:active, &:focus { background: @grayLightest; }
+        }
+    }
+
+    &.ui-sortable-helper{
+        .module-header{
+            background: @grayLightest;
+        }
+    }
+
+    .module-body {
+      .box-sizing(border-box);
+
+      width: 100%;
+      height: auto;
+      display: block;
+      padding: 0 15px 15px;
+      position: absolute;
+      top: 45px;
+      right: 0;
+      bottom: 40px;
+      left: 0;
+      overflow: auto;
+    }
+
+    .module-footer {
+      .box-sizing(border-box);
+      .border-radius(0 0 @baseBorderRadius @baseBorderRadius);
+
+      padding-left: 15px;
+      padding-right: 15px;
+      display: block;
+      height: 20px;
+      width: 100%;
+      position: absolute;
+      bottom: 20px;
+    }
+  }
+}
+
+.main {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: @frameWidth;
+}

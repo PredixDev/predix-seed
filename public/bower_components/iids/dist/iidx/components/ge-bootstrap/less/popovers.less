@@ -1,0 +1,56 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "bootstrap/less/popovers.less";
+
+
+// Bootstrap Overrides
+// --------------------------------------------------
+
+.popover {
+	.border-radius(@baseBorderRadius);
+	padding: 0;
+	width: 280px;
+	.popover-content p {
+		// padding: 9px 14px;
+	}
+	.divider {
+		border-bottom: 1px solid @hrBorder;
+		margin-bottom: 9px;
+	}
+	[class*="icon-"] {
+		color: @gray;
+	}
+	.rich-title {
+		background-color: @blue;
+		color: @tooltipColor;
+		margin-bottom: 9px;
+		border-radius: @baseBorderRadius @baseBorderRadius 0 0;
+		ul {
+			li {
+				padding: 8px 14px;
+				&.vertical-divider {
+					border-right: 1px solid @hrBorder;
+					width: 65%;
+				}
+			}
+		}
+	}
+	.rich-title-success {
+		background-color: @successBackground;
+	}
+	.rich-title-info {
+		background-color: @infoBackground;
+	}
+	.rich-title-warning {
+		background-color: @warningBackground;
+	}
+	.rich-title-danger {
+		background-color: @errorBackground;
+	}
+}
+.popover-title {
+	.border-radius(@baseBorderRadius @baseBorderRadius 0 0);
+	border-width: 0;
+	#voice > .brand(@baseFontSize + 4, bold, 1);
+}

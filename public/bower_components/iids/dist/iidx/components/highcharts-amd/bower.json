@@ -1,0 +1,34 @@
+{
+  "name": "highcharts",
+  "version": "v3.0.10",
+  "main": [
+    "js/highcharts.src.js",
+    "js/highcharts-more.src.js",
+    "js/modules/exporting.src.js"
+  ],  
+  "ignore": [
+    "errors",
+    "exporting-server",
+    "gfx",
+    "lib",
+    "samples",
+    "studies",
+    "test",
+    "tools",
+    "utils",
+    "ant",
+    "build.md",
+    "build.properties",
+    "build.xml",
+    "invalidations.txt",
+    "whats-new.htm",
+    "parts.js",
+    "parts",
+    "parts-more",
+    "*.debug.js",
+    "debug.php"
+  ],
+  "dependencies": {
+    "jquery": "https://github.com/components/jquery.git#~1.10.2"
+  }
+}

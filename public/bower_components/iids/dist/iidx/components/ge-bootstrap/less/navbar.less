@@ -1,0 +1,86 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "bootstrap/less/navbar.less";
+
+
+// Bootstrap Overrides
+// --------------------------------------------------
+
+.navbar-fixed-top .navbar-inner,
+.navbar-static-top .navbar-inner,
+.navbar-inner {
+  border-width: 0;
+  .border-radius(0);
+}
+
+
+.navbar-fixed-top, .navbar-fixed-bottom {
+    z-index: @zindexFixedNavbar + 25;
+}
+
+.navbar .brand {
+  #voice > .brand(@baseFontSize + 4, normal, 1);
+  line-height: @baseLineHeight;
+  padding-top: 19px;
+  padding-bottom: 18px;
+  text-shadow: none;
+  small {
+    color: @navbarText;
+    font-size: @baseFontSize - 1;
+    margin-left: 5px;
+  }
+}
+
+.navbar .nav > li {
+  font-size: @baseFontSize - 2;
+  > a {
+    text-shadow: none;
+  }
+  // Add spacing to compensate for chevron vs caret.
+  > .dropdown-menu.pull-right {
+    right: 3px;
+  }
+}
+
+.navbar .btn,
+.navbar .btn-group {
+  margin-top: 0;
+}
+.navbar .btn-toolbar {
+  margin: ((@navbarHeight - 26) / 2) 0;
+  .btn-group {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+}
+
+.navbar-search {
+  margin: ((@navbarHeight - 26) / 2) 0;
+  .search-query {
+    .border-radius(0);
+    padding: 2px 4px;
+    &:focus,
+    &:focus + .btn {
+      background-color: @white;
+      border-color: @white;
+      color: @grayDarker;
+    }
+  }
+  .input-append {
+    margin-bottom: 0;
+    .search-query {
+      .border-radius(@baseBorderRadius 0 0 @baseBorderRadius);
+    }
+    .btn {
+      .border-radius(0 @baseBorderRadius @baseBorderRadius 0);
+    }
+  }
+  .search-query,
+  .btn {
+    background-color: @navbarSearchBackground;
+    border-color: @navbarSearchBorder;
+    color: @grayLight;
+    .transition(~"background linear .2s, border linear .2s");
+  }
+}

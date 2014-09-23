@@ -1,0 +1,52 @@
+@media (max-width: 767px) {
+  .responsive-elements {
+    margin: 0 10px 10px;
+  }
+
+  .responsive-elements .open > .dropdown-menu {
+    display: none;
+  }
+
+  // Fighting a specificity battle with ge-bootstrap's navbar
+  .btn.btn-inverse.dropdown-toggle .icon-user {
+    margin: 0;
+  }
+  .dropdown-toggle .user-name {
+    display: none;
+  }
+  .dropdown-toggle .user-name + .icon-chevron-down {
+    display: none;
+  }
+
+  .navbar {
+    .brand {
+      max-width: 75%;
+    }
+  }
+
+  .navbar-search .search-query {
+    width: 100px;
+    background: @grayDark;
+    border: none;
+  }
+
+  .navbar-search .input-append .btn {
+    background: @grayDark;
+    border: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .primary-navbar .nav {
+    > li {
+      float: none;
+      > a {
+        padding: 5px 10px;
+      }
+    }
+  }
+
+  .navbar-search .search-query {
+    width: 40px;
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "Layers": {
+        "Image": [
+            {
+                "Name" : "Hospital",
+                "FileName" : "data/hosp.jpg",
+                "width" : 3744,
+                "height" : 2562
+            }
+        ]
+    },
+    "MapOptions": {
+        "CentreLat": 0,
+        "CentreLong": 0,
+        "DefaultZoom": 0,
+        "ZoomLevels": 16
+    },
+    "Google": {
+        "googleClientID": "",
+        "googleChannelID": ""
+    }
+}

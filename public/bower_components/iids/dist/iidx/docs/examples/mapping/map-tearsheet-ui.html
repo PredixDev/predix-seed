@@ -1,0 +1,786 @@
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>UI Elements</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../components/brandkit/favicon/favicon-144px.png">
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../components/brandkit/favicon/favicon-114px.png">
+
+    <!-- For first- and second-generation iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../components/brandkit/favicon/favicon-72px.png">
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon-precomposed" href="../../../components/brandkit/favicon/favicon.png">
+
+    <link rel="icon" href="../../../components/brandkit/favicon/favicon.ico">
+    <link href="../../../components/prettify/prettify.css" rel="stylesheet">
+    <link href="../../assets/css/documentation.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/documentation-responsive.css" rel="stylesheet" type="text/css">
+    <link href="../../../css/iids.css" rel="stylesheet" type="text/css">
+    <link href="../../../css/responsive.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/declarative-visualizations.css" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]>
+      <link id="theme-ie" href="../../css/ie.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+
+    <script src="../../../components/modernizr/modernizr.js"></script>
+    <script src="../../../components/requirejs/require.js"></script>
+    <script src="../../../js/require.config.js"></script>
+    <script type="text/javascript">
+      require.config({ baseUrl: '../../../' });
+    </script>
+    <!-- <script src="http://localhost:8080/target/target-script-min.js"></script>
+ -->
+  </head>
+
+  <!--
+  The background color is set to white in this fashion so the SDH website can load
+  individual pieces of the documentation as iframes. When viewing the docs in the IIDX
+  folder, we want the components.html and ui.html pages to have grey backgrounds instead
+  of white ones. As a result components.ejs and ui.ejs will override this style at the
+  top of their .ejs files.
+   -->
+  
+  <body>
+
+<!--
+  This style hack is to help the bootstrap fixed navbar work.
+  http://twitter.github.io/bootstrap/components.html#navbar
+-->
+<style type="text/css">
+  body {
+    padding-top: 120px !important;
+  }
+  .anchor {
+    margin-top: -120px;
+    height: 120px;
+    visibility: hidden;
+    display: block;
+  }
+
+  @media (max-width: 979px) {
+    body {
+      padding-top: 0 !important;
+    }
+  }
+</style>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <a class="brand" href="../../index.html"><span class="ge-logo"></span> <span>IIDX - Map UI Elements<small><i>powered by</i> Bootstrap</small></span></a>
+    </div>
+  </div>
+  <div class="primary-navbar nav-collapse collapse">
+    <div class="container">
+      <ul class="nav">
+        <li><a href="#buttons">Buttons</a></li>
+        <li><a href="#markers">Markers</a></li>
+        <li><a href="#clusters">Clusters</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="page-header voice-brand">
+    <h1>Mapping UI Elements </h1>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+
+      <div class="module">
+        <div class="sdh-wrapper module-body">
+          <h2 class="voice voice-brand" id="buttons">Buttons</h2>
+<table class="documentation">
+    <thead>
+        <tr>
+            <th>Example</th>
+            <th>Description</th>
+            <th>Usage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="example">
+                <div class="map buttons_map" style="height:300px; width: 100%;">
+                    <div style="position: absolute; left: 20px; top: 40px; z-index: 1001">
+                        <p><button class="btn btn-map">Default</button> <button class="btn btn-map btn-map-icon"><i class="icon-share"></i></button></p>
+                        <p><button class="btn btn-primary btn-map">Primary</button></p>
+                        <p><button class="btn btn-info btn-map">Info</button></p>
+                        <p><button class="btn btn-success btn-map">Success</button></p>
+                        <p><button class="btn btn-warning btn-map">Warning</button></p>
+                        <p><button class="btn btn-danger btn-map">Danger</button></p>
+                        <p><button class="btn btn-inverse btn-map">Inverse</button></p>
+                    </div>
+                </div>
+                <p class="note"><a href="map-search-and-evaluate.html">View in context</a></p>
+            </td>
+            <td class="description">Map Buttons</td>
+            <td class="usage">
+                <p>When buttons are positioned directly over a map, the class <code>btn-map</code> should be added in addition to the desired Bootstrap classes. The <code>btn-map</code> adds a subtle drop shadow to the button to make it stand out on the map.</p>
+                <p>Buttons that contain only an icon should be rendered square. To achieve this include the class <code>btn-map-icon</code></p>
+                <p class="note">Do not apply this class to buttons that are displayed within another UI element that is on the map. E.g. Do not add it to buttons that are inside a pop-over.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;a class="btn btn-map" href=""&gt;Link&lt;/a&gt;
+&lt;button class="btn btn-map" type="submit"&gt;Button&lt;/button&gt;
+</pre>
+                <p class="note">Follow the standard <a href="../../tearsheets/ui.html#buttons">button guidelines</a> for when to use buttons and the usage of the supplementary classes.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="example">
+                <div class="map buttons_map" style="height:300px; width: 100%;">
+                    <div style="position: absolute; left: 20px; top: 40px; z-index: 1001">
+                        <div class="btn-group btn-map">
+                          <button class="btn">Left</button>
+                          <button class="btn">Middle</button>
+                          <button class="btn">Right</button>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td class="description">Map Button Groups</td>
+            <td class="usage">
+                <p>As with individual buttons, button groups that are placed directly over the map should have the class <code>btn-map</code> added. It will add a subtle shadow to make the button group more visible over the map.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div class="btn-group btn-map"&gt;
+  &lt;button class="btn"&gt;Left&lt;/button&gt;
+  &lt;button class="btn"&gt;Middle&lt;/button&gt;
+  &lt;button class="btn"&gt;Right&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+                <p class="note">Only add the <code>btn-map</code> class to the <code>btn-group</code> container, not to every button in the group.</p>
+            </td>
+        </tr>
+    </tbody>
+    <script src="../../../components/requirejs/require.js"></script>
+    <script src="../../../js/require.config.js"></script>
+    <script type="text/javascript">
+        require.config({
+            baseUrl: '../../../',
+            config: {
+                'map-loader': {
+                    configFileName: '../../data/map-config.json'
+                }
+            }
+        });
+        require(['map-core'], function(Mapping){
+            $(".buttons_map").initializeMap();
+        });
+    </script>
+</table>
+
+          <a class="anchor" id="markers"></a>
+          <h2 class="voice voice-brand">Markers </h2>
+<table class="documentation">
+    <thead>
+        <tr>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <td class="example">
+
+<table class="usage">
+  <thead>
+    <tr>
+      <th width="270">&nbsp;</th>
+      <th><strong>&nbsp;Normal&nbsp;</strong></th>
+      <th><strong>&nbsp;Small&nbsp;</strong></th>
+      <th><strong>With&nbsp;icon</strong></th>
+      <th><strong>&nbsp;Alert&nbsp;</strong></th>
+      <th><strong>&nbsp;&nbsp;&nbsp;Ok&nbsp;&nbsp;&nbsp;</strong></th>
+      <th><strong>Warning</strong></th>
+      <th><strong>Highlight </strong></th>
+      <th><strong>&nbsp;Hover&nbsp;</strong></th>
+      <th><strong>Selected </strong></th>
+    </tr>
+  </thead>
+  <tr>
+    <th>&nbsp;</th>
+    <th colspan="3" class="secondary-header">Basic</th>
+    <th colspan="3" class="secondary-header">Application States</th>
+    <th colspan="3" class="secondary-header">UI States</th>
+  </tr>
+  <tr>
+    <th><strong>Default</strong><br>
+    Basic, reusable marker type for the primary POIs in an application.<br>
+    E.g. asset, train.</th>
+    <td><div class="map"><div class="marker normal default"></div></div></td>
+    <td><div class="map"><div class="marker normal-mini default"></div></div></td>
+    <td><div class="map"><div class="marker normal default icon"></div></div></td>
+    <td class="alt"><div class="map"><div class="marker normal important icon"></div></div></td>
+    <td class="alt"><div class="map"><div class="marker normal success icon"></div></div></td>
+    <td class="alt"><div class="map"><div class="marker normal warning icon"></div></div></td>
+    <td><div class="map"><div class="marker normal highlight icon"></div></div></td>
+    <td><div class="map"><div class="marker normal active icon"></div></div></td>
+    <td><div class="map"><div class="marker normal default selected icon"></div></div></td>
+  </tr>
+  <tr>
+    <th><strong>Moving</strong><br>
+    Used for items that are moving.<br>
+    E.g. ship in transit.</th>
+    <td><div class="map"><div class="marker moving default"></div></div></td>
+    <td><div class="map"><div class="marker moving-mini default"></div></div></td>
+    <td><div class="map"><div class="marker moving default icon"></div></div></td>
+    <td class="alt"><div class="map"><div class="marker moving important icon"></div></div></td>
+    <td class="alt"><div class="map"><div class="marker moving success icon"></div></div></td>
+    <td class="alt"><div class="map"><div class="marker moving warning icon"></div></div></td>
+    <td><div class="map"><div class="marker moving highlight icon"></div></div></td>
+    <td><div class="map"><div class="marker moving active icon"></div></div></td>
+    <td><div class="map"><div class="marker moving selected icon"></div></div></td>
+  </tr>
+  <tr>
+    <th><strong>Info</strong><br>
+    Used for data and information.<br>
+    E.g. Buildings, and other items which are secondary in the app.</th>
+    <td><div class="map"><div class="marker info default text-icon"></div></div></td>
+    <td><div class="map"><div class="marker info-mini default"></div></div></td>
+    <td><div class="map"><div class="marker info default text-icon"></div></div></td>
+    <td class="alt"><div class="map"><div class="marker info important text-icon"></div></div></td>
+    <td class="alt"><div class="map"><div class="marker info success text-icon"></div></div></td>
+    <td class="alt"><div class="map"><div class="marker info warning text-icon"></div></div></td>
+    <td><div class="map"><div class="marker info highlight text-icon"></div></div></td>
+    <td><div class="map"><div class="marker info active text-icon"></div></div></td>
+    <td><div class="map"><div class="marker info selected text-icon"></div></div></td>
+  </tr>
+  <tr>
+    <th><strong>Virtual/Temporary</strong><br>
+    Used for items that are  transient or temporary.<br>
+    E.g. search result, route start or end point.</th>
+    <td><div class="map"><div class="marker virtual default"></div></div></td>
+    <td><div class="map"><div class="marker virtual-mini default"></div></div></td>
+    <td><div class="map"><div class="marker virtual default icon"></div></div></td>
+    <td class="alt"><div class="map"><div class="marker virtual important icon"></div></div></td>
+    <td class="alt"><div class="map"><div class="marker virtual success icon"></div></div></td>
+    <td class="alt"><div class="map"><div class="marker virtual warning icon"></div></div></td>
+    <td><div class="map"><div class="marker virtual highlight icon"></div></div></td>
+    <td><div class="map"><div class="marker virtual active icon"></div></div></td>
+    <td><div class="map"><div class="marker virtual selected icon"></div></div></td>
+  </tr>
+  <tr>
+    <th><strong>Notification</strong><br>
+    Used for notifications about things that do not normally have a marker.<br>
+    E.g. showing a break in a water line.</th>
+    <td><div class="map"><div class="marker notification default"></div></div></td>
+    <td><div class="map"><div class="marker notification-mini default"></div></div></td>
+    <td><div class="map"><div class="marker notification default icon"></div></div></td>
+    <td class="alt"><div class="map"><div class="marker notification important icon"></div></div></td>
+    <td class="alt"><div class="map"><div class="marker notification success icon"></div></div></td>
+    <td class="alt"><div class="map"><div class="marker notification warning icon"></div></div></td>
+    <td><div class="map"><div class="marker notification highlight icon"></div></div></td>
+    <td><div class="map"><div class="marker notification active icon"></div></div></td>
+    <td><div class="map"><div class="marker notification selected icon"></div></div></td>
+  </tr>
+</table>
+
+    <script>
+
+        require(['d3-amd'], function(d3){
+
+          var getSvg = function getSvg(filename, classname) {
+            d3.xml("../../../components/map-markers/svg/marker_"+filename+".svg", "image/svg+xml", function(xml) {
+              d3.selectAll(".map .marker."+classname).each(function(){this.appendChild(document.importNode(xml.documentElement, true))});
+              addIcon(classname);
+            });
+          };
+
+          var addIcon = function addIcon(classname) {
+            var x,y;
+
+            switch(classname) {
+              case "normal":
+                x = 12.5;
+                y = 24;
+                break;
+              case "moving":
+                x = 20;
+                y = 24;
+                break;
+              case "notification":
+                x = 13;
+                y = 25;
+                break;
+              case "info":
+                x = 13;
+                y = 24;
+                break;
+              case "virtual":
+                x = 12.5;
+                y = 36;
+                break;
+
+            };
+
+            d3.selectAll(".map .marker."+classname+".icon g")
+              .append('text')
+                .style('font-family', 'FontAwesome')
+                .style('font-size', '14px')
+                .attr('x', x)
+                .attr('y', y)
+                .attr('fill', 'white')
+                .text('\uf0d1');
+
+            d3.selectAll(".map .marker."+classname+".text-icon g")
+              .append('text')
+                .style('font-size', '14px')
+                .style('font-family','ge-inspira')
+                .attr('class', 'voice voice-brand')
+                .attr('font-weight', 'bold')
+                .attr('x', 11)
+                .attr('y', 20)
+                .attr('fill', 'white')
+                .text('30');
+
+            d3.selectAll(".map .marker."+classname+".text-icon g")
+              .append('text')
+                .style('font-family','ge-inspira')
+                .attr('class', 'voice voice-brand')
+                .style('font-size','10px')
+                .attr('x',11)
+                .attr('y',28)
+                .attr('fill', 'white')
+                .text('mpg');
+
+          }
+
+          getSvg('normal','normal');
+          getSvg('normal_mini','normal-mini');
+          getSvg('moving','moving');
+          getSvg('moving_mini','moving-mini');
+          getSvg('virtual','virtual');
+          getSvg('virtual_mini','virtual-mini');
+          getSvg('info','info');
+          getSvg('info_mini','info-mini');
+          getSvg('notification','notification');
+          getSvg('notification_mini','notification-mini');
+
+        });
+    </script>
+
+
+            <p class="note"><a href="map-based-asset-monitoring.html">View default marker with icon in context</a></p>
+            <p class="note"><a href="map-search-and-evaluate.html">View more example markers on the map</a></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="description">Stateful Markers for indicating points of interest on the map</td>
+      </tr>
+      <tr>
+        <td class="usage">
+            <p>Markers are used to display geolocation points on the map. This is an initial implementation of the Marker component which will continue to grow in the number of implemented marker types and functionality.</p>
+            <p>At a minimum, the  <code>map-core</code> and <code>map-marker</code> components are required to show markers on the map. Unlike basic markers on consumer maps the focus is on binding a set of data rather than creating and managing individual markers. Once the map is initialised a set of GeoJSON data can be bound to the marker component. The API to the marker component is <code>markers.addMarkers(data, map, popoverOptions,layerName, indexOptions);</code>. Only the first two parameters are required.</p>
+            <p class="note">Note: see <a href="map-tearsheet-components.html#popover_object">Map Popovers</a> for details on how to use the popoverOptions parameter to attach popovers to map markers.</p>
+            <p>Script:</p>
+<pre class="prettyprint linenums lang-js">
+require(['jquery', 'map-core', 'map-markers'], function($,Mapping,markers){
+
+  $.subscribe('mapInitialised', function(mapName, map){
+    $.ajax({
+      url : '../../data/basic-marker-example.json',
+      async : true, dataType: "json"
+    })
+    .done(function(data) {
+      markers.addMarkers(data,map);
+    });
+  });
+
+  $(".map").initializeMap();
+
+});
+</pre>
+            <p>The Marker component uses the <a href="https://github.com/mbostock/d3/wiki/Geo-Paths">D3 Geo Paths</a> to bind to and render the markers and so the data needs to be in <a href="http://geojson.org/geojson-spec.html">GeoJSON</a> format. Currently the Marker component only handles <code>Point</code> features. A <code>metadata</code> object may be provided to define the marker appearance, and a <code>properties</code> object can be used to contain attribute data. A unique feature Id <code>id</code> may be provided but is not required.</p>
+            <p class="note">Note: The Id is used for indexing the data and as an identifier for the DOM element, so if it is supplied it must be unique.</p>
+            <p class="note">Note: There are four optional metadata properties that control how the markers are rendered. See table below and the sample GeoJSON.</p>
+            <p>Metadata Properties:</p>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>type</th>
+                        <th>default</th>
+                        <th>description</th>
+                    </tr>
+                    <tr>
+                        <td>type</td>
+                        <td>string</td>
+                        <td>"default"</td>
+                        <td>This determines the shape of the marker. Options are: <code>default</code>, <code>virtual</code>, <code>moving</code>, <code>info</code>, <code>notification</code>, <code>myposition</code>. The <code>-mini</code> suffix can be added to show a smaller version of the marker without an icon.</td>
+                    </tr>
+                    <tr>
+                        <td>state</td>
+                        <td>css class</td>
+                        <td>""</td>
+                        <td>The state class determines the color of the marker following the same approach as IIDX labels and buttons; <code>default</code>, <code>warning</code>, <code>important</code>, <code>success</code>, <code>highlight</code>.</td>
+                    </tr>
+                    <tr>
+                        <td>icon</td>
+                        <td>font-awesome Unicode character</td>
+                        <td>""</td>
+                        <td>It is possible to place a Font-awesome icon inside a large marker by passing in the icon's unicode character, e.g. <code>"\uf0d1"</code> shows a truck icon.</td>
+                    </tr>
+                    <tr>
+                        <td>iconPos</td>
+                        <td>{x,y} coordinate object</td>
+                        <td>{}</td>
+                        <td>A pixel offset coordinate for the icon, used to centre it in the marker.</td>
+                    </tr>
+                </table>
+                <p>GeoJSON example:</p>
+<pre class="prettyprint linenums lang-json">
+{"type":"FeatureCollection",
+  "features":[
+    {"type":"Feature",
+      "properties":{"addressLine1":"1050 Crow Canyon Road","addressLine2":"San Ramon (CA)","zip":"12346", "tel": "(0123) 45678"},
+      "geometry":{"type":"Point","coordinates":[-121.975193,37.777120]},
+      "metadata":{"type":"virtual","state":"default", "icon":"\uf05a", "iconPos":{"x":-6.5, "y": -18.5}}},
+    {"type":"Feature",
+      "properties":{"addressLine1":"1 Alcosta Blvd","addressLine2":"San Ramon (CA)","zip":"12345", "tel": "(0123) 45678"},
+      "geometry":{"type":"Point","coordinates":[-121.964421,37.781428]},
+      "metadata":{"type":"virtual-mini", "state": "warning"}},
+    {"type":"Feature",
+      "properties":{"addressLine1":"105 Deerwood Road","addressLine2":"San Ramon (CA)","zip":"12347", "tel": "(0123) 45678"},
+      "geometry":{"type":"Point","coordinates":[-121.984806,37.778816]},
+      "metadata":{"type":"myposition"}, "icon":"\uf0d1", "iconPos":{"x":-7.25, "y": 4.5}},
+  ]
+}
+</pre>
+
+        <div class="alert alert-info">
+          <strong>Script Requirements:</strong>
+          <ul>
+            <li>map-markers</li>
+          </ul>
+        </div>
+      </tr>
+
+      <tr>
+        <td class="description">Indexing asset data using the marker component</td>
+      </tr>
+      <tr>
+        <td class="usage">
+            <p>Asset data in the <code>properties</code> object may be indexed for search by providing the <code>indexOptions</code> parameter to the marker component. See <a href="map-tearsheet-components.html#search">Object Search</a> for more information</p>
+             <p>Script:</p>
+            <p class="note">Note: use of the <code>popoverOptions</code> parameter is described in <a href="map-tearsheet-components.html#popover_object">Map Popovers</a>.</p>
+            <p class="note">Note: the <code>layerName</code> parameter determines the name of the layer shown in the Layer Control.</p>
+<pre class="prettyprint linenums lang-js">
+var indexOptions =  { indexAttribs : [ "Leader" ],
+                      secondaryAttribs : [ "Type", "Number" ],
+                      facet : "Status" };
+
+markers.addMarkers(data, olMap, popoverOptions, 'Crews', indexOptions);
+</pre>
+                <p>GeoJSON example:</p>
+<pre class="prettyprint linenums lang-json">
+{
+  "type": "FeatureCollection",
+      "features": [
+          {"type": "Feature",
+              "properties": {"Number" : 0,"Leader": "Michael Tasker","Type": "Investigation","Status": "On Duty"},
+              "geometry": {"type": "Point","coordinates": [-76.19806,42.60412]}},
+          {"type": "Feature",
+              "properties": {"Number" : 1,"Leader" : "Micheal Tasker","Type" : "Investigation","Status" : "On Duty"},
+              "geometry": {"type": "Point","coordinates": [-76.19806,42.60412]}}
+      ]
+}
+</pre>            <p>The following table describes the attributes of the <code>indexOptions</code> object.</p>
+            <p>Options:</p>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>type</th>
+                        <th>default</th>
+                        <th>description</th>
+                    </tr>
+                    <tr>
+                        <td>indexAttribs</td>
+                        <td>string array</td>
+                        <td>null</td>
+                        <td>This is the only required attribute for indexing. It defines which fields in the GeoJSON <code>properties</code> object will be added to the index. If more than one is defined, the field values will be concatenated to provide the typeahead results when using the Asset Search component.</td>
+                    </tr>
+                    <tr>
+                        <td>secondaryAttribs</td>
+                        <td>string array</td>
+                        <td>null</td>
+                        <td>This attribute determines which field values will be shown as secondary attributes in the faceted search typeahed results. It will have no effect for non-faceted search. As with <code>indexAttribs</code>, multiple field values will be concatenated for diplay in the result typeahead.</td>
+                    </tr>
+                    <tr>
+                        <td>facet</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>This determines which field will be used as the facet subdivision in faceted search typeahead results. It will have no effect for non-faceted search.</td>
+                    </tr>
+                </table>
+
+            <p class="note"><a href="map-based-asset-monitoring.html">View a faceted asset search example, combined with Google address search</a></p>
+            <p class="note"><a href="map-search-and-evaluate.html">View a non-faceted asset search example</a></p>
+        </td>
+    </tbody>
+</table>
+
+
+          <a class="anchor" id="cluster"></a>
+          <h2 class="voice voice-brand">Clusters </h2>
+<table class="documentation">
+  <thead>
+    <tr>
+      <th>Example</th>
+      <th>Description</th>
+      <th>Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="example"><a href="map-fullscreen-cluster.html">View simple clustering in context</a></td>
+      <td class="description">Simple Marker Clustering</td>
+      <td class="usage">
+        <p>OpenLayers provides a simple clustering API to support the visualization of many markers that may overlap on the map. As users zoom in and out of the map, clusters will recalculate and disperse into markers when there is adequate space between them.</p>
+        <p>Markup: </p>
+<pre class="prettyprint linenums lang-html">
+&lt;div class="map" data-map-name="default">
+</pre>
+        <p>Script: </p>
+<pre class="prettyprint linenums lang-js">
+require(['jquery', 'map-core', 'map-cluster'], function($, Mapping, cluster){
+  $.subscribe('mapInitialised', function(mapName, olMap){
+    $.ajax({
+      url : '../../data/GeoJSON_example.json',
+      async : true, dataType: "json"
+    }).done(function(data) {
+      cluster.addClusters(data,olMap);
+    });
+  });
+  $(".map").initializeMap();
+});
+</pre>
+        <p></p>
+        <div class="alert alert-info">
+          <strong>Script Requirements:</strong>
+          <ul>
+            <li>map-cluster</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+	<style>
+	.sdh-wrapper > h2     { border-top: 5px solid #13161a; font-size: 36px; font-weight: normal; margin-top: 30px; margin-bottom: 30px; padding-top: 20px; }
+	.sdh-wrapper > h2:first-child { border-top: 0; margin-top: 0; padding-top: 0; }
+	.sdh-wrapper > h3     { border-top: 2px solid #bfc2c5; font-size: 24px; font-weight: normal; padding-top: 25px; margin-bottom: 30px; margin-top: 30px; }
+	.sdh-wrapper > h3:before { background-color: #08a5e1; content: '.'; border-radius: 16px; display: inline-block; height: 16px; margin-right: 8px; position: relative; text-indent: -9999px; vertical-align: baseline; width: 16px; line-height: 16px; }
+	.sdh-wrapper > h2 + h3 { border-top: 0; margin-top: 0; padding-top: 0; }
+	.sdh-wrapper > p      { color: #5C5F63; font-size: 12px; margin-bottom: 30px; margin-top: -10px; }
+  .contextmenu.test {background-color: #999; text-align: center; vertical-align: middle; padding: 12px; }
+  </style>
+
+<script>
+            // Increase load time for IE8
+            requirejs.config({
+                waitSeconds: 30
+            });
+
+            // Preload JS libraries and exec page scripts
+            require([
+                    'require',
+                    'jquery',
+                    'ge-bootstrap',
+                    'prettify',
+                    'spinner',
+                    'iids',
+                    'responsive-tables',
+                    'collapsible-list',
+                    'datepicker',
+                    'contextmenu',
+                    'multi-step-navigation',
+                    'toggle-switch',
+                    'slider'
+                ],
+                function(require, $, bootstrap, prettify, spinner) {
+                    $(
+                        function() {
+                            // -------------------
+                            // DOCUMENTATION SETUP
+                            // -------------------
+
+                            // Make code lovely using Google Prettify.
+                            window.prettyPrint && prettyPrint();
+
+                            // Enable ScrollSpy for dynamic navigation highlighting.
+                            $('body').scrollspy({
+                                offset: 120,
+                                target: '.primary-navbar'
+                            });
+
+                            // Extend jQuery with a better easing function, so we can make
+                            // some pretty scrolling animations.
+                            $.extend(
+                                $.easing,
+                                {
+                                    def: 'easeInOutCubic',
+                                    easeInOutCubic: function (x, t, b, c, d) {
+                                        if ((t/=d/2) < 1) return c/2*t*t*t + b;
+                                        return c/2*((t-=2)*t*t + 2) + b;
+                                    }
+                                }
+                                // This easing function is from:
+                                // jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
+                                // Open source under the BSD License.
+                                // Copyright © 2008 George McGinley Smith
+                                // All rights reserved.
+                            );
+
+                            // Finally, add some smooth scrolling to our body when one of the
+                            // primary-navbar links are clicked (even though this isn't in
+                            // Bootstrap, which everyone said it was... we'll rebuild anyway).
+                            $('.primary-navbar a').click(
+                                function( event ) {
+                                    event.preventDefault();
+                                    var offset = $( $(this).attr('href') ).offset();
+                                    if (offset) {
+                                      $( 'html, body' ).animate( { scrollTop: offset.top }, 1000, 'easeInOutCubic' );
+                                    }
+                                }
+                            );
+
+                            // Now, on to...
+
+                            // ---------------------------
+                            // DOCUMENTATION FUNCTIONALITY
+                            // ---------------------------
+
+                            // Enable stateful buttons
+                            $('[rel=stateful]').click(
+                                function(){
+                                    var $self = $(this);
+                                    $self.button('loading');
+                                    setTimeout(
+                                        function() {
+                                            $self.button('reset');
+                                        },
+                                        3000
+                                    );
+                                }
+                            );
+
+                            // Enable spinners
+                            $('[rel=spinner]').spin();
+
+                            // Enable tabs (with dropdowns, mainly)
+                            $('.nav-tabs > li > a').click(
+                                function(event) {
+                                    event.preventDefault();
+                                    $(this).tab('show');
+                                }
+                            );
+
+                            // Make accordion carets animate!
+                            $('.accordion .collapse')
+                                .on('show',
+                                    function() {
+                                        $(this).prev('.accordion-heading').find('.accordion-toggle').addClass('in');
+                                    }
+                                )
+                                .on('hide',
+                                    function() {
+                                        $(this).prev('.accordion-heading').find('.accordion-toggle').removeClass('in');
+                                    }
+                                );
+
+                            // Enable context menu
+                            $.contextMenu({
+                              selector: ".contextmenu",
+                              items: {
+                                "action1": {"name": "Action"},
+                                "action2": {"name": "Another action"},
+                                "action3": {"name": "Something else here"},
+                                "sep1": "---------",
+                                "fold1": {
+                                    "name": "Separated link",
+                                    "items": {
+                                        "fold1-key1": {"name": "Action"},
+                                        "fold1-key3": {"name": "Another Action"}
+                                    }
+                                }
+                              }
+                            });
+
+                            // Enable multi-step-navigator
+                            $('.multi-step-nav').multiStepNavigation();
+
+                            // Enable rich popovers
+                            $('#popover1').popover({
+                              html: true,
+                              title: 'A Title',
+                              content: function() {
+                                return $('#popover1-content-wrapper').html();
+                              }
+                            }).on('click', function(e) {
+                              e.preventDefault();
+                            });
+
+                            $('#popover2').popover({
+                              html: true,
+                              placement: 'top',
+                              content: function() {
+                                return $('#popover2-content-wrapper').html();
+                              }
+                            }).on('click', function(e) {
+                              e.preventDefault();
+                            });
+
+                            // Conditionally load D3/Declarative Viz if SVG is supported.
+                            // This should prevent errors from being thrown in IE8
+                            if (Modernizr.svg) {
+
+                              require(['declarative-visualizations'], function(visualizations) {
+
+                                var components = [];
+
+                                $('div[data-visualization]').each(function(i, element) {
+                                  var viz = $(element).attr('data-visualization');
+                                  components.push( visualizations[viz](element) );
+                                });
+
+                            });
+                          // If SVG isn't supported alert the user that some elements won't be loaded
+                          } else {
+                            alert('Your browser does not support SVG.\nAny element using D3.js will be omitted.');
+                          }
+                        }
+                    );
+                }
+            );
+        </script>
+        <script src="../../../components/respond/respond.src.js"></script>
+    </body>
+</html>
+

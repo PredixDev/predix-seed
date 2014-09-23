@@ -1,0 +1,36 @@
+{
+    "Layers": {
+        "Google": [
+            {
+                "ExternalLayerName" : "Google Streets",
+                "Type" : "roadmap"
+            },
+            {
+                "ExternalLayerName" : "Google Satellite",
+                "Type" : "satellite"
+            },
+            {
+                "ExternalLayerName" : "Google Hybrid",
+                "Type" : "hybrid"
+            }
+        ],
+        "GeoJSON": [
+          {
+            "ExternalLayerName" : "GeoJSON Crews",
+            "URL" : "data/GeoJSON_example.json"
+
+
+          }
+        ]
+    },
+    "MapOptions": {
+        "CentreLat": 42.60,
+        "CentreLong": -76.19,
+        "DefaultZoom": 14,
+        "ZoomLevels": 21
+    },
+    "Google": {
+        "googleClientID": "",
+        "googleChannelID": ""
+    }
+}

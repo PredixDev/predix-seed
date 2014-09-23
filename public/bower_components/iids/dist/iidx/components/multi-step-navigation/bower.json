@@ -1,0 +1,29 @@
+{
+  "name": "multi-step-navigation",
+  "version": "0.3.0",
+  "main": [
+    "js/multi-step-navigation.js",
+    "less/multi-step-navigation.less",
+    "less/multi-step-navigation-responsive.less"
+  ],
+  "ignore": [
+    ".*",
+    "npm-debug.log",
+    "Gruntfile.js",
+    "package.json",
+    "components",
+    "css",
+    "node_modules",
+    "test",
+    "js/require.config.js"
+  ],
+  "dependencies": {
+    "twitter-bootstrap-wizard": "git+https://devcloud.sw.ge.com/source/scm/dxc/twitter-bootstrap-wizard#~1.0.1",
+    "ge-bootstrap": "git+https://devcloud.sw.ge.com/source/scm/dxc/ge-bootstrap#~1.1",
+    "requirejs": "~2.1.6",
+    "jquery": "~1.10.0"
+  },
+  "devDependencies": {
+    "jasmine": "~1.3.1"
+  }
+}

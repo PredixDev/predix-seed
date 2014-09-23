@@ -1,0 +1,29 @@
+
+// IE10 Metro responsive
+// Required for Windows 8 Metro split-screen snapping with IE10
+// Source: http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
+
+@-ms-viewport{
+  width: device-width;
+}
+
+// Dependencies
+// --------------------------------------------------
+
+// @import "path/to/component/mixins.less";
+// @import "path/to/component/variables.less";
+@import "variables.less";
+// @import "path/to/component/responsive.less";
+
+
+// MEDIA QUERIES
+// ------------------
+
+// Large desktops
+@import "responsive-1200px-min.less";
+
+// Tablets to regular desktops
+@import "responsive-768px-979px.less";
+
+// Phones to portrait tablets and narrow desktops
+@import "responsive-767px-max.less";

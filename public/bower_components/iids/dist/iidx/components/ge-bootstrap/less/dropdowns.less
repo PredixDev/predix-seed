@@ -1,0 +1,67 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "bootstrap/less/dropdowns.less";
+
+
+// Bootstrap Overrides
+// --------------------------------------------------
+
+.dropdown-menu {
+  .border-radius(@baseBorderRadius);
+  min-width: 0;
+  .divider {
+    margin-bottom: 3px;
+    margin-top: 3px;
+  }
+
+  // Links within the dropdown menu
+  li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: @baseLineHeight;
+    color: @dropdownLinkColor;
+    white-space: nowrap;
+  }
+
+  // images within the dropdown menu
+  li img {
+      margin-right: 15px;
+  }
+}
+
+// Hover state
+// -----------
+.dropdown-menu li > a:hover,
+.dropdown-menu li > a:focus,
+.dropdown-submenu:hover > a {
+  text-decoration: none;
+  color: @dropdownLinkColorHover;
+  #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
+}
+
+.dropdown-toggle {
+  &.btn [class*="icon-chevron"] {
+    font-size: @baseFontSize - 2;
+  }
+  &.btn-mini [class*="icon-chevron"] {
+    font-size: @fontSizeMini;
+  }
+  &.btn-small [class*="icon-chevron"] {
+    font-size: @fontSizeSmall;
+  }
+  &.btn-large [class*="icon-chevron"] {
+    font-size: @fontSizeLarge;
+  }
+}
+
+.btn[rel=tooltip] + .dropdown-menu {
+  z-index: @zindexTooltip + 5;
+}
+
+.typeahead a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

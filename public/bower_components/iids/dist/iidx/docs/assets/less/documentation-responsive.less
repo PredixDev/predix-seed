@@ -1,0 +1,101 @@
+//------------------------------
+// IIDX DOCUMENTATION RESPONSIVE
+//------------------------------
+//
+// What's happening here?
+//
+// These are responsive breakpoints and overrides to make the IIDS
+// documentation look nice on mobile.
+//
+
+// IMPORTS
+// -------
+
+// Core Theme CSS
+@import "brandkit/less/variables.less";
+@import "brandkit/less/mixins.less";
+@import "ge-bootstrap/less/mixins.less";
+
+// STYLES
+// ------
+
+
+@media (max-width: 767px) {
+// Treat tables in documentation, not all IIDS.
+// cf. http://css-tricks.com/responsive-data-tables/
+  table.documentation {
+    display: block;
+
+    > thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    > tbody {
+      display: block;
+    }
+
+    > tbody > tr {
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      -webkit-box-orient: vertical;
+      -moz-box-orient: vertical;
+      box-orient: vertical;
+
+      td.description {
+        -webkit-box-ordinal-group: 1;
+        -moz-box-ordinal-group: 1;
+        box-ordinal-group: 1;
+        font-size: @baseFontSize;
+        width: 100% !important;
+        display: block;
+      }
+
+      td.example {
+        -webkit-box-ordinal-group: 2;
+        -moz-box-ordinal-group: 2;
+        box-ordinal-group: 2;
+        width: 100% !important;
+        display: block;
+      }
+
+      td.usage {
+        -webkit-box-ordinal-group: 3;
+        -moz-box-ordinal-group: 3;
+        box-ordinal-group: 3;
+        display: none;
+      }
+    }
+  }
+
+  dl.documentation {
+    > dt,
+    > dd.description,
+    > dd.usage  {
+      display: none;
+    }
+
+    > .example {
+    border-top: 1px solid @grayLighter;
+    padding-top: 20px;
+    }
+    > .show,
+    > dd.show {
+      display: block;
+      &.description {
+      font-size: @baseFontSize;
+      }
+    }
+  }
+
+// faceted search results clipped on small screens if left at full width
+  .example {
+    .typeahead.typeahead-faceted.dropdown-menu {
+      width: 97% !important;
+    }
+  }
+}
+
+

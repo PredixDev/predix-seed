@@ -1,0 +1,23 @@
+{
+  "name": "oo-utils",
+  "version": "1.0.0",
+  "main": [
+    "src/js/oo-utils.js"
+  ],
+  "ignore": [
+    ".*",
+    "npm-debug.log",
+    "Gruntfile.js",
+    "package.json",
+    "lib",
+    "node_modules",
+    "test",
+    "src/js/require.config.js"
+  ],
+  "dependencies": {
+    "jquery": "~1.10.2"
+  },
+  "devDependencies": {
+      "requirejs": "~2.1.6"
+  }
+}

@@ -1,0 +1,104 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "variables.less";
+@import "ge-bootstrap/less/ge-bootstrap.less";
+
+
+// Styles
+// --------------------------------------------------
+@baseIndent:28px;
+@caretIndent:12px;
+@secondaryIntent: 16px;
+
+.collapsible-list{
+  background-color:@navbarInverseBackground;
+  list-style:none;
+  margin-left:0px;
+  .nav-header{
+    padding-left:@baseIndent;
+  }
+  li{
+    a{
+      color:@textColor;
+      display:block;
+      padding:3px 0px;
+    }
+    &.collapsible-list-subnav{
+      .collapsible-list{
+        display:none;
+      }
+    }
+  }
+}
+
+
+// Nested padding
+// --------------
+.collapsible-list{
+  > li.collapsible-list-subnav > a{
+    padding-left:0px;
+  }
+  > li > a{
+    padding-left:@baseIndent;
+  }
+  &.secondary{
+    > li.collapsible-list-subnav > a{
+      padding-left:@baseIndent - @caretIndent;
+    }
+    > li > a{
+      padding-left:@baseIndent + @secondaryIntent;
+    }
+  }
+  &.tertiary{
+    > li.collapsible-list-subnav > a{
+      padding-left:(@baseIndent * 2) + @caretIndent;
+    }
+    > li > a{
+      padding-left:@baseIndent * 2;
+    }
+  }
+}
+
+
+// Hover state
+// -----------
+.collapsible-list > li > a:hover,
+.collapsible-list > li > a:focus,
+.collapsible-list:hover > a {
+  text-decoration: none;
+  color: @dropdownLinkColorHover;
+  #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
+}
+
+// Caret to indicate there is a submenu
+.collapsible-list-subnav > a:after {
+  display: block;
+  content: " ";
+  float: left;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: @textColor;
+  margin-top: 4px;
+  margin-left: @caretIndent;
+  margin-right: 11px;
+}
+.collapsible-list-subnav:hover > a:after {
+  border-left-color: @dropdownLinkColorHover;
+}
+
+// Open state
+// ----------
+.collapsible-list-subnav.open > a:after{
+  border-width:6px 5px 5px;
+  border-color:transparent;
+  border-top-color:@textColor;
+  margin-right:6px;
+  margin-top:7px;
+}
+.collapsible-list-subnav.open:hover > a:hover:after {
+  border-top-color: @dropdownLinkColorHover;
+}

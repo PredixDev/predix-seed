@@ -1,0 +1,13 @@
+
+ApplicationBootstrap.js
+----------------
+common/cookie.js
+application/csrf.js
+application/EventBus.js
+vendor/moment.js
+
+OtherApp.js
+----------------
+text!some-template.handlebars
+controller/SomeCtrl.js
+models/Some.js

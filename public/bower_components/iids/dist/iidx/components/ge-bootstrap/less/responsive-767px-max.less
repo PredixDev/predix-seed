@@ -1,0 +1,45 @@
+// Dependencies
+// --------------------------------------------------
+//@import "variables.less"
+@import "bootstrap/less/responsive-767px-max.less";
+
+
+// Bootstrap Overrides
+// --------------------------------------------------
+
+// Landscape phone, small desktop and portait tablet
+@media (max-width: 767px) {
+  .page-header {
+    > .pull-right {
+      clear: left;
+      float: none;
+    }
+    .nav-pills {
+      margin-bottom: @gridGutterWidth;
+      text-align: left;
+      width: 100%;
+      > li {
+        margin-top: 1px;
+        float: none;
+        width: 100%;
+        &:first-child {
+          margin-top: 0;
+          > a {
+            .border-radius(@baseBorderRadius @baseBorderRadius 0 0);
+          }
+        }
+        &:last-child > a {
+          .border-radius(0 0 @baseBorderRadius @baseBorderRadius);
+        }
+      }
+    }
+  }
+
+  .input-append,
+  .input-prepend {
+    span.add-on {
+    .box-sizing(border-box);
+    min-height: @inputHeight;
+    }
+  }
+}

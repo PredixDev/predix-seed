@@ -1,0 +1,110 @@
+.map{
+    .zoom_control{
+        position:absolute;
+        right: 10px;
+        bottom: 30px;
+
+        width: 35px;
+        height: 50px;
+
+        z-index: 1001;
+
+        .control{
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 51px;
+            width: 25px;
+
+            -webkit-border-radius: @btnBorderRadius;
+            -moz-border-radius: @btnBorderRadius;
+            border-radius: @btnBorderRadius;
+
+            .map-ui-shadow;
+
+            .zoom_in,.zoom_out{
+                width: 25px;
+                height: 25px;
+                padding: 0;
+                border: none;
+                line-height: 25px;
+                color: #333333;
+
+                .no-selection;
+
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                box-shadow: none;
+
+                [class*="icon-"]{
+                    font-size: 14px;
+                }
+            }
+
+            .zoom_in.disabled,.zoom_out.disabled{
+                opacity: 1;
+                color: @gray;
+
+                &:hover{
+                    background-color: @white;
+                }
+            };
+
+            .zoom_in{
+                border-bottom-right-radius:0;
+                border-bottom-left-radius:0;
+                -webkit-border-bottom-right-radius:0;
+                -mox-border-bottom-left-radius:0;
+                -webkit-border-bottom-right-radius:0;
+                -mox-border-bottom-left-radius:0;
+            }
+
+            .zoom_out{
+                border-top-right-radius:0;
+                border-top-left-radius:0;
+                -webkit-border-top-right-radius:0;
+                -moz-border-top-left-radius:0;
+                -webkit-border-top-right-radius:0;
+                -moz-border-top-left-radius:0;
+            }
+
+            .divider{
+                width: 100%;
+                height: 1px;
+                background-color: #e1e1e8;
+            }
+
+        }
+
+        .indicator{
+            position: absolute;
+            width: 14px;
+            height: 51px;
+            left: 3px;
+            top: 0px;
+            background: black;
+            opacity: 0.9;
+            transition: all 0.2s;
+
+            -webkit-border-top-right-radius:@btnBorderRadius;
+            -moz-border-top-right-radius:@btnBorderRadius;
+            border-top-right-radius:@btnBorderRadius;
+            -webkit-border-bottom-right-radius:@btnBorderRadius;
+            -moz-border-bottom-right-radius:@btnBorderRadius;
+            border-bottom-right-radius:@btnBorderRadius;
+
+        }
+
+        .indicator.show{
+            -webkit-transform:translateX(20px);
+            -moz-transform:translateX(20px);
+            transform:translateX(20px);
+
+            .map-ui-shadow;
+        }
+
+    }
+
+
+
+}

@@ -1,0 +1,20 @@
+{
+  "name": "jumpnav",
+  "description": "Fixed-position links with scrolling to content.",
+  "version": "0.6.4",
+  "main": [
+    "js/jumpnav.js",
+    "less/jumpnav.less"
+  ],
+  "ignore": [
+    "test",
+    ".*",
+    "Gruntfile",
+    "require.config.js"
+  ],
+  "dependencies": {
+    "ge-bootstrap": "git+https://devcloud.sw.ge.com/source/scm/dxc/ge-bootstrap#~1.2",
+    "requirejs": "~2.1.6",
+    "jquery": "~1.10.0"
+  }
+}

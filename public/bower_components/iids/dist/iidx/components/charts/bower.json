@@ -1,0 +1,22 @@
+{
+  "name": "charts",
+  "version": "0.7.7",
+  "main": [
+    "js/charts.js",
+    "less/charts.less"
+  ],
+  "ignore": [
+    "components",
+    "css",
+    "node_modules",
+    "test",
+    ".*",
+    "Gruntfile.js"
+  ],
+  "dependencies": {
+    "brandkit": "git://devcloud.sw.ge.com/source/scm/dxc/brandkit#~1.1.0",
+    "highcharts-amd": "git://devcloud.sw.ge.com/source/scm/dxc/highcharts-amd#Highchartsv3.0.10-Highstockv1.3.10",
+    "requirejs": "git://github.com/jrburke/requirejs-bower#~2.1.11",
+    "jquery": "git://github.com/components/jquery#~1.10.2"
+  }
+}

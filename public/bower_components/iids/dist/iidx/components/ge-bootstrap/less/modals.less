@@ -1,0 +1,34 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "bootstrap/less/modals.less";
+
+
+// Bootstrap Overrides
+// --------------------------------------------------
+
+// Modal
+.modal {
+	border-color: @grayLight;
+	.border-radius(@baseBorderRadius);
+}
+.modal-header {
+	background-color: @grayLightest;
+	border-width: 0;
+	.border-radius((@baseBorderRadius - 1) (@baseBorderRadius - 1) 0 0);
+	#voice > #family > .brand;
+	line-height: 1;
+	padding: 15px;
+	// Close icon
+	.close {
+		margin-top: 0;
+	}
+	> h1, h2, h3, h4 {
+		line-height: inherit;
+	}
+}
+.modal-footer {
+	background-color: transparent;
+	border-top-color: @btnBorder;
+	.border-radius(0 0 @baseBorderRadius @baseBorderRadius);
+}

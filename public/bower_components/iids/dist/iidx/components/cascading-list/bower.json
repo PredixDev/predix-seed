@@ -1,0 +1,28 @@
+{
+  "name": "cascading-list",
+  "version": "0.4.0",
+  "main": [
+    "js/cascading-list.js",
+    "less/cascading-list.less",
+    "less/cascading-list-responsive.less"
+  ],
+  "ignore": [
+    ".*",
+    "npm-debug.log",
+    "Gruntfile.js",
+    "package.json",
+    "components",
+    "css",
+    "node_modules",
+    "test",
+    "js/require.config.js"
+  ],
+  "dependencies": {
+    "ge-bootstrap": "git+https://devcloud.sw.ge.com/source/scm/dxc/ge-bootstrap#~1.1",
+    "requirejs": "~2.1.6",
+    "jquery": "~1.10.0"
+  },
+  "devDependencies": {
+    "jasmine": "latest"
+  }
+}

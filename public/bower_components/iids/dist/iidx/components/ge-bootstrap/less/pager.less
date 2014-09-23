@@ -1,0 +1,23 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "bootstrap/less/pager.less";
+
+
+// Bootstrap Overrides
+// --------------------------------------------------
+
+.pager > li {
+	a,
+	span {
+		border-color: @btnBorder;
+		.border-radius(@baseBorderRadius);
+		color: @grayDark;
+		font-size: @baseFontSize - 2;
+		line-height: @baseLineHeight;
+		padding: 4px 10px;
+	}
+	a:hover {
+		background-color: @grayLightest;
+	}
+}

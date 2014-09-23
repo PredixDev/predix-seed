@@ -1,0 +1,13 @@
+{
+  "name": "map-geolocate",
+  "version": "0.1.1",
+  "main": "js/map-geolocate.js",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

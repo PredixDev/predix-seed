@@ -1,0 +1,19 @@
+{
+  "name": "map-markers",
+  "version": "0.1.4",
+  "main": "js/map-markers.js",
+  "private": true,
+  "dependencies": {
+    "declarative-visualizations": "git@github.sw.ge.com:DXC/declarative-visualizations#~0.6.0",
+    "map-markers": "git@github.sw.ge.com:DXC/map-markers#~0.1.2",
+    "map-popovers": "git@github.sw.ge.com:DXC/map-popovers#~0.1.2",
+    "map-core": "git@github.sw.ge.com:DXC/map-core#~0.2.1"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

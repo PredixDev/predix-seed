@@ -1,0 +1,99 @@
+// Styles
+// --------------------------------------------------
+
+.footer {
+
+  // secondary menu
+  .secondary {
+    background-color: @grayDarker;
+    width: 100%;
+    height: @secondaryFooterHeight;
+
+    // large version has no set height, but does have padding
+    &.large {
+      height: inherit;
+      padding-bottom: @largeFooterBottomPadding;
+      padding-top: @largeFooterTopPadding;
+    }
+
+    // rows/grid system are used in large version (but perhaps don't need to be)
+    .row [class^="span"] {
+      font-size: @fontSizeSmall;
+      color: @grayLighter;
+
+      h4 {
+        font-weight: bold;
+        color: @gray;
+        font-size: @fontSizeSmall;
+        padding-bottom: 15px;
+      }
+
+      a {
+        color: @gray;
+      }
+    }
+
+    // block is a holder for navigation items and will primarily be allowed to pull right or left
+    .block {
+      background: transparent;
+      padding-top: @secondaryBlockPaddingTop;
+      color: @gray;
+      font-size: @fontSizeSmall;
+      font-weight: bold;
+
+      a {
+        color: @gray;
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+      }
+
+      li {
+        float: left;
+        padding-right: @secondaryFooterItemSpacing;
+      }
+    }
+  }
+
+  // main footer
+  .primary {
+    background-color: @black;
+    width: 100%;
+    height: @primaryFooterHeight;
+    color: @grayLight;
+    font-size: @fontSizeSmall;
+
+    // block is a holder for navigation items and will primarily be allowed to pull right or left
+    .block {
+      background: transparent;
+      padding-top: @secondaryBlockPaddingTop;
+
+      a {
+        color: @grayLight
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+      }
+
+      li {
+        float: left;
+        padding-left: @primaryFooterItemSpacing;
+      }
+
+      li.copyright {
+        padding-left: @primaryFooterCopyrightSpacing;
+      }
+    }
+
+    .brand {
+      display: inline-block;
+      height: @brandLogoHeight;
+      padding-top: @brandLogoPaddingTop;
+      color: @white;
+    }
+  }
+}

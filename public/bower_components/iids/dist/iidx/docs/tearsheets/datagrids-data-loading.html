@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Datagrids - data loading</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../components/brandkit/favicon/favicon-144px.png">
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../components/brandkit/favicon/favicon-114px.png">
+
+    <!-- For first- and second-generation iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../components/brandkit/favicon/favicon-72px.png">
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon-precomposed" href="../../components/brandkit/favicon/favicon.png">
+
+    <link rel="icon" href="../../components/brandkit/favicon/favicon.ico">
+    <link href="../../components/prettify/prettify.css" rel="stylesheet">
+    <link href="../assets/css/documentation.css" rel="stylesheet" type="text/css">
+    <link href="../../css/iids.css" rel="stylesheet" type="text/css">
+    <link href="../../css/responsive.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/declarative-visualizations.css" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]>
+      <link id="theme-ie" href="../../css/ie.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+
+    <script src="../../components/modernizr/modernizr.js"></script>
+    <script src="../../components/requirejs/require.js"></script>
+    <script src="../../js/require.config.js"></script>
+    <script type="text/javascript">
+      require.config({ baseUrl: '../../' });
+    </script>
+  </head>
+  <body>
+    <div class="navbar navbar-static-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../index.html"><span class="ge-logo"></span> <span>IIDS Datagrids</span></a>
+        </div>
+      </div>
+     </div>
+
+    <div class="container content">
+        <div class="page-header">
+            <h1 class="voice voice-brand pull-left">Datagrids - data loading</h1>
+        </div>
+        <!-- Alert -->
+        <div class="alert alert-info alert-fixed-top fade">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <strong>Heads up!</strong> This example requires AJAX and can't be run locally. <a href="http://www.gesdh.com/iids/docs/tearsheets/datagrids.html" style="color: #22436b;">Visit GESDH to see it live.</a>
+        </div>
+        <!-- /Alert -->
+        <div class="row">
+          <div class="span12">
+            <div class="module">
+              <div class="module-body">
+                <div class="documentation" style="width: auto;">
+                  <p>IIDS Datagrids take advantage of the Datatables jQuery plugin.</p>
+                  <p>Datagrids come pre-styled and should fully support the Datatables.net API. This includes loading data
+                    with JavaScript Arrays, AJAX and progressive server updates. See <a href="http://datatables.net/">datatables.net</a> for more information about datatables configuration.</p>
+                </div>
+
+                <!-- DOM -->
+                <dl class="documentation">
+                  <dt>Data loading: DOM table</dt>
+                  <dd class="description">
+                    <p>A Datagrid loading data from the DOM.</p>
+                  </dd>
+                  <dt>Example</dt>
+                  <dd class="example">
+                  <dd class="example">
+                    <form class="form-search pull-right">
+                      <div class="input-append">
+                        <input type="text" class="input-medium search-query" data-filter-table="dt-dom"><button class="btn btn-icon"><i class="icon-search"></i></button>
+                      </div>
+                    </form>
+                    <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed" data-table-name="dt-dom">
+                      <thead>
+                        <tr>
+                          <th class="essential">Foo</th>
+                          <th class="essential">Bar</th>
+                          <th class="essential">Baz</th>
+                          <th class="optional">Qux</th>
+                          <th>Bop</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Hello1</td>
+                          <td>Hello2</td>
+                          <td>Hello3</td>
+                          <td>Hello4</td>
+                          <td>Hello5</td>
+                        </tr>
+                        <tr>
+                          <td>Snow1</td>
+                          <td>Snow2</td>
+                          <td class="outlier">Snow3</td>
+                          <td>Snow4</td>
+                          <td>Snow5</td>
+                        </tr>
+                        <tr>
+                          <td>Zerp1</td>
+                          <td>Zerp2</td>
+                          <td>Zerp3</td>
+                          <td>Zerp4</td>
+                          <td>Zerp5</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </dd>
+                  <dt class="hidden-phone">Usage</dt>
+                  <dd class="usage hidden-phone">
+                    <p>Markup:</p>
+                    <pre class="prettyprint linenums lang-html">
+    &lt;form class=&quot;form-search pull-right&quot;&gt;
+      &lt;div class=&quot;input-append&quot;&gt;
+        &lt;input type=&quot;text&quot; class=&quot;input-medium search-query&quot; data-filter-table=&quot;dt-dom&quot;&gt;&lt;button class=&quot;btn btn-icon&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+    &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; class=&quot;table table-bordered&quot; data-table-name=&quot;dt-dom&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th class="essential"&gt;Foo&lt;/th&gt;
+          &lt;th class="essential"&gt;Bar&lt;/th&gt;
+          &lt;th class="essential"&gt;Baz&lt;/th&gt;
+          &lt;th class="optional"&gt;Qux&lt;/th&gt;
+          &lt;th&gt;Bop&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Hello1&lt;/td&gt;
+          &lt;td&gt;Hello2&lt;/td&gt;
+          &lt;td&gt;Hello3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Snow1&lt;/td&gt;
+          &lt;td&gt;Snow2&lt;/td&gt;
+          &lt;td class=&quot;outlier&quot;&gt;Snow3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Zerp1&lt;/td&gt;
+          &lt;td&gt;Zerp2&lt;/td&gt;
+          &lt;td&gt;Zerp3&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+                    </pre>
+                    <p>Script:</p>
+                    <pre class="prettyprint linenums lang-javascript">
+    // DOM elements
+    $('table[data-table-name="dt-dom"]').iidsBasicDataGrid({ 'isResponsive': true });
+                    </pre>
+                    <p>Notes:</p>
+                    <ul>
+                      <li>Any &lt;input&gt; elements with an attribute <code>data-filter-table=&quot;&lt;table-name&gt;&quot;</code> (where &lt;table-name&gt; is the <code>data-table-name</code> of an IIDS data table) will become filters using the standard datatables.net <code>fnFilter()</code> capability.</li>
+                      <li>Links are supported transparently, by adding <code>&lt;a href=&quot;...&quot;&gt;link&lt;/a&gt;</code> to the content of a cell.</li>
+                      <li>Add <code>class=&quot;outlier&quot;</code> to <code>&lt;td&gt;</code> elements to mark a cell as an outlier.</li>
+                      <li>To disable the floater on rollover set the <code>useFloater</code> configuration option to false. ex: <code>iidsBasicDataGrid({ useFloater: false });</code></li>
+                      <li>To enable responsive breakpoints set the <code>isResponsive</code> configuration option to true. ex: <code>iidsBasicDataGrid({ isResponsive: true });</code></li>
+                      <li>When <code>isResponsive</code> is enabled, the number of columns displayed in the table depends on the available screen space. By default, a smartphone will display ~2-3 columns, while an expanded desktop browser displays the full set. This is accomplished by assigning semantic classes to the column headings that indicate which data values take precedence (<code>essential</code> vs <code>optional</code>). If a column does not contain an <code>essential</code> or <code>optional</code> class it will always have the lowest precedence.</li>
+                      <li>While <code>isResponsive</code> is enabled you can prevent certain breakpoints from firing by using the <code>excludes</code> option. For example <code>excludes: { phone: true }}</code> will prevent the component from dropping <code>optional</code> columns on phones. The supported excludes are <code>phone</code>, <code>portraitTablet</code> and <code>landscapeTablet</code>.</li>
+                    </ul>
+                    <div class="alert alert-info">
+                      <strong>Script Requirements:</strong>
+                      <ul>
+                        <li>datagrids</li>
+                      </ul>
+                    </div>
+                  </dd>
+                </dl>
+
+                <!-- /DOM -->
+                <hr style="margin-bottom: 20px;">
+                <!-- JS ARRAY -->
+
+                <dl class="documentation">
+                  <dt>Data loading: array of objects</dt>
+                  <dd class="description">
+                    <p>A Datagrid loading data from a JavaScript Array.</p>
+                  </dd>
+                  <dt>Example</dt>
+                  <dd class="example">
+                    <form class="form-search pull-right">
+                      <div class="input-append">
+                          <input type="text" class="input-medium search-query" data-filter-table="dt-array"><button class="btn btn-icon"><i class="icon-search"></i></button>
+                      </div>
+                    </form>
+                    <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered" data-table-name="dt-array"></table>
+                  </dd>
+                  <dt class="hidden-phone">Usage</dt>
+                  <dd class="usage hidden-phone">
+                    <p>Markup:</p>
+                    <pre class="prettyprint linenums lang-html">
+    &lt;form class=&quot;form-search pull-right&quot;&gt;
+      &lt;div class=&quot;input-append&quot;&gt;
+        &lt;input type=&quot;text&quot; class=&quot;input-medium search-query&quot; data-filter-table=&quot;dt-array&quot;&gt;&lt;button class=&quot;btn btn-icon&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+        &lt;/div&gt;
+     &lt;/form&gt;
+    &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; class=&quot;table table-bordered&quot; data-table-name=&quot;dt-array&quot;&gt;&lt;/table&gt;
+                    </pre>
+                    <p>Script:</p>
+                    <pre class="prettyprint linenums lang-javascript">
+    // JavaScript array and columns
+    $('table[data-table-name="dt-array"]').iidsBasicDataGrid({
+      'aoColumns': [
+        { 'sTitle': 'Schedule', 'sClass': 'essential' },
+        { 'sTitle': 'Account Status', 'sClass': 'essential' },
+        { 'sTitle': 'DBA Name', 'sClass': 'essential' },
+        { 'sTitle': 'Customer Info', 'sClass': 'optional' }
+      ],
+      'aaData': [
+        ['foo', 'bar', 'baz', 'bueller'],
+        ['possum', 'raccoon', 'gravy', 'snowflake'],
+        ['peanut', 'epsilon', 'flapjack', 'nominee']
+      ],
+      'isResponsive': true
+    });
+                    </pre>
+                    <div class="alert alert-info">
+                      <strong>Script Requirements:</strong>
+                      <ul>
+                        <li>datagrids</li>
+                      </ul>
+                    </div>
+                  </dd>
+                </dl>
+
+                <!-- /JS ARRAY -->
+                <hr style="margin-bottom: 20px;">
+                <!-- AJAX, Array of Objects -->
+
+                <dl class="documentation">
+                  <dt>Data loading: ajax array of object</dt>
+                  <dd class="description">
+                    <p>A Datagrid loading data with AJAX. <strong>Array of Objects JSON response.</strong></p>
+                  </dd>
+                  <dt>Example</dt>
+                  <dd class="example">
+                    <form class="form-search pull-right">
+                      <div class="input-append">
+                          <input type="text" class="input-medium search-query" data-filter-table="dt-ajax-objects"><button class="btn btn-icon"><i class="icon-search"></i></button>
+                      </div>
+                    </form>
+                    <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered" data-table-name="dt-ajax-objects"></table>
+                  </dd>
+                  <dt class="hidden-phone">Usage</dt>
+                  <dd class="usage hidden-phone">
+                    <p>Markup:</p>
+                    <pre class="prettyprint linenums lang-html">
+    &lt;form class=&quot;form-search pull-right&quot;&gt;
+      &lt;div class=&quot;input-append&quot;&gt;
+        &lt;input type=&quot;text&quot; class=&quot;input-medium search-query&quot; data-filter-table=&quot;dt-ajax-objects&quot;&gt;&lt;button class=&quot;btn btn-icon&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+        &lt;/div&gt;
+     &lt;/form&gt;
+    &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; class=&quot;table table-bordered&quot; data-table-name=&quot;dt-ajax-objects&quot;&gt;&lt;/table&gt;
+                    </pre>
+                    <p>Script:</p>
+                    <pre class="prettyprint linenums lang-javascript">
+    // Ajax with DataTables, array of objects
+    $('table[data-table-name="dt-ajax-objects"]').iidsBasicDataGrid({
+      'aoColumns': [
+        { 'sTitle': 'Rendering engine', 'mData': 'engine', 'sClass': 'essential' },
+        { 'sTitle': 'Browser', 'mData': 'browser', 'sClass': 'essential' },
+        { 'sTitle': 'Platform(s)', 'mData': 'platform', 'sClass': 'optional' },
+        { 'sTitle': 'Engine version', 'mData': 'version' },
+        { 'sTitle': 'CSS grade', 'mData': 'grade', 'sClass': 'essential' }
+      ],
+      'sAjaxSource': '../assets/data/ao.browsers.json',
+      'useFloater': false,
+      'isResponsive': true
+    });
+                    </pre>
+                    <p>Response:</p>
+                    <pre class="prettyprint linenums lang-javascript">
+    // JSON Array of Objects
+    {
+      "aaData": [
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 4.0",
+          "platform": "Win 95+",
+          "version": "4",
+          "grade": "X"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 5.0",
+          "platform": "Win 95+",
+          "version": "5",
+          "grade": "C"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 5.5",
+          "platform": "Win 95+",
+          "version": "5.5",
+          "grade": "A"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 6",
+          "platform": "Win 98+",
+          "version": "6",
+          "grade": "A"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 7",
+          "platform": "Win XP SP2+",
+          "version": "7",
+          "grade": "A"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 4.0",
+          "platform": "Win 95+",
+          "version": "4",
+          "grade": "X"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 5.0",
+          "platform": "Win 95+",
+          "version": "5",
+          "grade": "C"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 5.5",
+          "platform": "Win 95+",
+          "version": "5.5",
+          "grade": "A"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 6",
+          "platform": "Win 98+",
+          "version": "6",
+          "grade": "A"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 4.0",
+          "platform": "Win 95+",
+          "version": "4",
+          "grade": "X"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 5.0",
+          "platform": "Win 95+",
+          "version": "5",
+          "grade": "C"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 5.5",
+          "platform": "Win 95+",
+          "version": "5.5",
+          "grade": "A"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 6",
+          "platform": "Win 98+",
+          "version": "6",
+          "grade": "A"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 4.0",
+          "platform": "Win 95+",
+          "version": "4",
+          "grade": "X"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 5.0",
+          "platform": "Win 95+",
+          "version": "5",
+          "grade": "C"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 5.5",
+          "platform": "Win 95+",
+          "version": "5.5",
+          "grade": "A"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 6",
+          "platform": "Win 98+",
+          "version": "6",
+          "grade": "A"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 4.0",
+          "platform": "Win 95+",
+          "version": "4",
+          "grade": "X"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 5.0",
+          "platform": "Win 95+",
+          "version": "5",
+          "grade": "C"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 5.5",
+          "platform": "Win 95+",
+          "version": "5.5",
+          "grade": "A"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 6",
+          "platform": "Win 98+",
+          "version": "6",
+          "grade": "A"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 4.0",
+          "platform": "Win 95+",
+          "version": "4",
+          "grade": "X"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 5.0",
+          "platform": "Win 95+",
+          "version": "5",
+          "grade": "C"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 5.5",
+          "platform": "Win 95+",
+          "version": "5.5",
+          "grade": "A"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 6",
+          "platform": "Win 98+",
+          "version": "6",
+          "grade": "A"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 4.0",
+          "platform": "Win 95+",
+          "version": "4",
+          "grade": "X"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 5.0",
+          "platform": "Win 95+",
+          "version": "5",
+          "grade": "C"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 5.5",
+          "platform": "Win 95+",
+          "version": "5.5",
+          "grade": "A"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 6",
+          "platform": "Win 98+",
+          "version": "6",
+          "grade": "A"
+        }
+      ]
+    }
+                    </pre>
+                    <div class="alert alert-info">
+                      <strong>Script Requirements:</strong>
+                      <ul>
+                        <li>datagrids</li>
+                      </ul>
+                    </div>
+                  </dd>
+                </dl>
+
+                <!-- /AJAX, Array of Objects -->
+                <hr style="margin-bottom: 20px;">
+                <!-- AJAX, Array of Arrays -->
+
+                <dl class="documentation">
+                  <dt>Data loading: ajax array of arrays</dt>
+                  <dd class="description">
+                    <p>A Datagrid loading data with AJAX. <strong>Array of Arrays JSON response.</strong></p>
+                  </dd>
+                  <dt>Example</dt>
+                  <dd class="example">
+                    <form class="form-search pull-right">
+                      <div class="input-append">
+                          <input type="text" class="input-medium search-query" data-filter-table="dt-ajax-array"><button class="btn btn-icon"><i class="icon-search"></i></button>
+                      </div>
+                    </form>
+                    <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered" data-table-name="dt-ajax-array"></table>
+                  </dd>
+                  <dt class="hidden-phone">Usage</dt>
+                  <dd class="usage hidden-phone">
+                    <p>Markup:</p>
+                    <pre class="prettyprint linenums lang-html">
+    &lt;form class=&quot;form-search pull-right&quot;&gt;
+      &lt;div class=&quot;input-append&quot;&gt;
+        &lt;input type=&quot;text&quot; class=&quot;input-medium search-query&quot; data-filter-table=&quot;dt-ajax-array&quot;&gt;&lt;button class=&quot;btn btn-icon&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+        &lt;/div&gt;
+     &lt;/form&gt;
+    &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; class=&quot;table table-bordered&quot; data-table-name=&quot;dt-ajax-array&quot;&gt;&lt;/table&gt;
+                    </pre>
+                    <p>Script:</p>
+                    <pre class="prettyprint linenums lang-javascript">
+    // Ajax with DataTables, array of arrays
+    $('table[data-table-name="dt-ajax-array"]').iidsBasicDataGrid({
+      'aoColumns': [
+        { 'sTitle': 'Rendering engine', 'sClass': 'essential' },
+        { 'sTitle': 'Browser', 'sClass': 'essential' },
+        { 'sTitle': 'Platform(s)', 'sClass': 'optional' },
+        { 'sTitle': 'Engine version' },
+        { 'sTitle': 'CSS grade', 'sClass': 'essential' }
+      ],
+      'sAjaxSource': '../assets/data/aa.browsers.json',
+      'isResponsive': true
+    });
+                    </pre>
+                    <p>Response:</p>
+                    <pre class="prettyprint linenums lang-javascript">
+    // JSON Array of Arrays
+    {
+      "aaData": [
+        [
+          "Trident",
+          "Internet Explorer 4.0",
+          "Win 95+",
+          "4",
+          "X"
+        ],
+        [
+          "Trident",
+          "Internet Explorer 5.0",
+          "Win 95+",
+          "5",
+          "C"
+        ],
+        [
+          "Trident",
+          "Internet Explorer 5.5",
+          "Win 95+",
+          "5.5",
+          "A"
+        ],
+        [
+          "Trident",
+          "Internet Explorer 6",
+          "Win 98+",
+          "6",
+          "A"
+        ],
+        [
+          "Trident",
+          "Internet Explorer 7",
+          "Win XP SP2+",
+          "7",
+          "A"
+        ]
+      ]
+    }
+                    </pre>
+                    <div class="alert alert-info">
+                      <strong>Script Requirements:</strong>
+                      <ul>
+                        <li>datagrids</li>
+                      </ul>
+                    </div>
+                  </dd>
+                </dl>
+
+                <!-- /AJAX, Array of Arrays -->
+
+            </div> <!-- /module-body -->
+          </div> <!-- /module -->
+        </div> <!-- /span12 -->
+      </div> <!-- /row -->
+    </div> <!-- /container -->
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript">
+
+  require(['jquery', 'datagrids', 'prettify', 'ge-bootstrap'], function($) {
+    // Make code lovely using Google Prettify.
+    window.prettyPrint && prettyPrint();
+
+    $(function() {
+      // Check if we're running this example on the SDH. If not show the JSON alert.
+      if (window.location.host !== 'www.gesdh.com') {
+        $('.alert').addClass('in');
+      }
+
+      // DOM elements
+      $('table[data-table-name="dt-dom"]').iidsBasicDataGrid({ 'isResponsive': true });
+
+      // JavaScript array and columns
+      $('table[data-table-name="dt-array"]').iidsBasicDataGrid({
+        'aoColumns': [
+          { 'sTitle': 'Schedule', 'sClass': 'essential' },
+          { 'sTitle': 'Account Status', 'sClass': 'essential' },
+          { 'sTitle': 'DBA Name', 'sClass': 'essential' },
+          { 'sTitle': 'Customer Info', 'sClass': 'optional' }
+        ],
+        'aaData': [
+          ['foo', 'bar', 'baz', 'bueller'],
+          ['possum', 'raccoon', 'gravy', 'rabies'],
+          ['peanut', 'epsilon', 'flapjack', 'nominee']
+        ],
+        'isResponsive': true
+      });
+
+      // Ajax with DataTables, array of objects
+      $('table[data-table-name="dt-ajax-objects"]').iidsBasicDataGrid({
+        'aoColumns': [
+          { 'sTitle': 'Rendering engine', 'mData': 'engine', 'sClass': 'essential' },
+          { 'sTitle': 'Browser', 'mData': 'browser', 'sClass': 'essential' },
+          { 'sTitle': 'Platform(s)', 'mData': 'platform', 'sClass': 'optional' },
+          { 'sTitle': 'Engine version', 'mData': 'version' },
+          { 'sTitle': 'CSS grade', 'mData': 'grade', 'sClass': 'essential' }
+        ],
+        'sAjaxSource': '../assets/data/ao.browsers.json',
+        'useFloater': false,
+        'isResponsive': true
+      });
+
+      // Ajax with DataTables, array of arrays
+      $('table[data-table-name="dt-ajax-array"]').iidsBasicDataGrid({
+        'aoColumns': [
+          { 'sTitle': 'Rendering engine', 'sClass': 'essential' },
+          { 'sTitle': 'Browser', 'sClass': 'essential' },
+          { 'sTitle': 'Platform(s)', 'sClass': 'optional' },
+          { 'sTitle': 'Engine version' },
+          { 'sTitle': 'CSS grade', 'sClass': 'essential' }
+        ],
+        'sAjaxSource': '../assets/data/aa.browsers.json',
+        'isResponsive': true
+      });
+    });
+  });
+</script>
+    <script src="../../components/respond/respond.src.js"></script>
+  </body>
+</html>
+

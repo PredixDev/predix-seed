@@ -1,0 +1,96 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "bootstrap/less/button-groups.less";
+
+
+// Bootstrap Overrides
+// --------------------------------------------------
+
+.btn-group > .btn,
+.btn-group > .dropdown-menu,
+.btn-group > .popover {
+  font-size: @baseFontSize - 2;
+}
+.btn-group > .btn-mini {
+  font-size: @fontSizeMini;
+}
+.btn-group > .btn-small {
+  font-size: @fontSizeSmall;
+}
+.btn-group > .btn-large {
+  font-size: @fontSizeLarge;
+}
+.btn-group > .btn-icon {
+  font-size: @baseFontSize + 2;
+  &.btn-large {
+    font-size: @fontSizeLarge + 6;
+  }
+  &.btn-small {
+    font-size: @fontSizeSmall + 2;
+  }
+  &.btn-mini {
+    font-size: @fontSizeMini + 2;
+  }
+}
+
+// Create spacing between split buttons.
+.btn-group > .btn {
+  + .btn-primary,
+  + .btn-success,
+  + .btn-warning,
+  + .btn-info,
+  + .btn-danger {
+    margin-left: 1px;
+  }
+}
+
+// Decrease margin above toolbar
+.btn-toolbar{
+  margin:15px 15px 0px;
+}
+
+.btn-toolbar > .btn-group{
+  margin-bottom:10px;
+}
+
+// Corrects a bug that causes shifting amount button groups
+// where the buttons are overlapping but also use tooltips.
+// The default rule doesn't fire because the .tooltip is
+// inserted between the buttons and breaks the sibling
+// selector, so this enforces it.
+.btn-group > .btn + .tooltip + .btn {
+  margin-left: -1px;
+}
+
+// Add text change to open inverse buttons in addition to the
+// default background color change.
+.btn-group.open .btn-inverse.dropdown-toggle {
+  color: @white;
+}
+
+// These caret rules are here because they match the location
+// of placement in the Bootstrap lib. Otherwise, this would be
+// more appropriate in dropdown, one would think.
+.btn-small .caret,
+.btn-large .caret {
+  margin-top: 8px;
+}
+.btn-mini .caret {
+  margin-top: 7px;
+}
+
+// Filter is only used in the context of button groups, so
+// the rule is located here instead of within buttons.
+.btn-filter .icon-star {
+  margin-right: 5px;
+  margin-left: -2px;
+}
+
+// Fix for shifting padding issue on tooltip when used in a button group
+.btn-group > .tooltip + .btn{
+  padding-left:8px;
+  padding-right:8px;
+}
+
+

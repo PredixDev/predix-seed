@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Datagrids - plugins</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../components/brandkit/favicon/favicon-144px.png">
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../components/brandkit/favicon/favicon-114px.png">
+
+    <!-- For first- and second-generation iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../components/brandkit/favicon/favicon-72px.png">
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon-precomposed" href="../../components/brandkit/favicon/favicon.png">
+
+    <link rel="icon" href="../../components/brandkit/favicon/favicon.ico">
+    <link href="../../components/prettify/prettify.css" rel="stylesheet">
+    <link href="../assets/css/documentation.css" rel="stylesheet" type="text/css">
+    <link href="../../css/iids.css" rel="stylesheet" type="text/css">
+    <link href="../../css/responsive.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/declarative-visualizations.css" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]>
+    <link id="theme-ie" href="../../css/ie.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+
+    <script src="../../components/modernizr/modernizr.js"></script>
+    <script src="../../components/requirejs/require.js"></script>
+    <script src="../../js/require.config.js"></script>
+    <script type="text/javascript">
+        require.config({ baseUrl: '../../' });
+    </script>
+</head>
+<body>
+<div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="../index.html"><span class="ge-logo"></span> <span>IIDS Datagrids</span></a>
+        </div>
+    </div>
+</div>
+
+<div class="container content">
+<div class="page-header">
+    <h1 class="voice voice-brand pull-left">Datagrids - settings and plugins</h1>
+</div>
+<!-- Alert -->
+<div class="alert alert-info alert-fixed-top fade">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>Heads up!</strong> This example requires AJAX and can't be run locally. <a href="http://www.gesdh.com/iids/docs/tearsheets/datagrids.html" style="color: #22436b;">Visit GESDH to see it live.</a>
+</div>
+<!-- /Alert -->
+<div class="row">
+<div class="span12">
+<div class="module">
+<div class="module-body">
+<div class="documentation" style="width: auto;">
+    <p>IIDS Datagrids take advantage of the Datatables jQuery plugin.</p>
+    <p>Datagrids come pre-styled and should fully support the Datatables.net API. This includes loading data
+        with JavaScript Arrays, AJAX and progressive server updates. See <a href="http://datatables.net/">datatables.net</a> for more information about datatables configuration.</p>
+</div>
+
+<!-- Column reordering -->
+
+<dl class="documentation">
+    <dt>Column reordering</dt>
+    <dd class="description">
+        <p>A Datagrid using interactive <strong>column reordering.</strong>.  Drag any column using the mouse, a blue line to the right of the nearest column will indicate where the dragged column will be placed when dropped.</p>
+    </dd>
+    <dt>Example</dt>
+    <dd class="example">
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered" data-table-name="dt-col-reorder-example"></table>
+    </dd>
+    <dt class="hidden-phone">Usage</dt>
+    <dd class="usage hidden-phone">
+        <p>Markup:</p>
+                    <pre class="prettyprint linenums lang-html">
+    &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; class=&quot;table table-bordered&quot; data-table-name=&quot;dt-col-reorder-example&quot;&gt;&lt;/table&gt;</pre>
+        <p>Script:</p>
+                    <pre class="prettyprint linenums lang-javascript">
+    //Column reordering
+    $('table[data-table-name="dt-col-reorder-example"]').iidsBasicDataGrid({
+        'aoColumns': [
+            { 'sTitle': 'Rendering engine', 'mData': 'engine', 'sClass': 'essential'},
+            { 'sTitle': 'Browser', 'mData': 'browser', 'sClass': 'essential'},
+            { 'sTitle': 'Platform(s)', 'mData': 'platform', 'sClass': 'optional'},
+            { 'sTitle': 'Engine version', 'mData': 'version'},
+            { 'sTitle': 'CSS grade', 'mData': 'grade', 'sClass': 'essential'}
+        ],
+        'sAjaxSource': '../assets/data/ao.browsers.json',
+        'plugins': ['R'] //enable the col-reorder plugin (assumes 'datatables-colreorder' is on the page)
+    });
+                    </pre>
+        <p>Notes:</p>
+        <ul>
+            <li>We use the DataTables project's <a href="https://datatables.net/extras/colreorder/" target="_blank">"ColReorder" plugin</a> for this functionality. </li>
+            <li>You must include the plugin library on the page.  The requirejs id for this in IIDx is 'datatables-colreorder'</li>
+            <li>Configure according to the plug-in's <a href="https://datatables.net/extras/colreorder/" target="_blank">documentation</a> with the following changes.</li>
+            <ul>
+                <li>Datatable "plugins" have been moved out of the "sDom" settings parameter into a separate "plugins" settings Array parameter, so enable the plugin by setting 'plugins': ["R"] on your table</li>
+            </ul>
+        </ul>
+        <div class="alert alert-info">
+            <strong>Script Requirements:</strong>
+            <ul>
+                <li>datagrids</li>
+                <li>datatables-colreorder</li>
+            </ul>
+        </div>
+    </dd>
+</dl>
+
+
+<!-- /Column reordering -->
+<hr style="margin-bottom: 20px;">
+<!-- Column filtering -->
+
+<dl class="documentation">
+    <dt>Column filtering</dt>
+    <dd class="description">
+        <p>A Datagrid using interactive <strong>column filtering.</strong></p>
+    </dd>
+    <dt>Example</dt>
+    <dd class="example">
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered" data-table-name="dt-col-filter-example"></table>
+    </dd>
+    <dt class="hidden-phone">Usage</dt>
+    <dd class="usage hidden-phone">
+        <p>Markup:</p>
+                    <pre class="prettyprint linenums lang-html">
+    &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; class=&quot;table table-bordered&quot; data-table-name=&quot;dt-col-filter-example&quot;&gt;&lt;/table&gt;</pre>
+        <p>Script:</p>
+                    <pre class="prettyprint linenums lang-javascript">
+    //Filtering
+    $('table[data-table-name="dt-col-filter-example"]').iidsBasicDataGrid({
+        'aoColumns': [
+            { 'sTitle': 'Rendering engine', 'mData': 'engine', 'sClass': 'essential'},
+            { 'sTitle': 'Browser', 'mData': 'browser', 'sClass': 'essential', 'filter':true},
+            { 'sTitle': 'Platform(s)', 'mData': 'platform', 'sClass': 'optional', 'filter': true},
+            { 'sTitle': 'Engine version', 'mData': 'version', 'filter':true, 'filterPlaceholder':'Filter by this field'},
+            { 'sTitle': 'CSS grade', 'mData': 'grade', 'sClass': 'essential', 'filter':true}
+        ],
+        'sAjaxSource': '../assets/data/ao.browsers.json',
+        'useFloater': false,
+        'isResponsive': true
+    });
+                    </pre>
+        <p>Notes:</p>
+        <ul>
+            <li>Use the "filter:true" and, optionally, "filterPlaceholder:..." members on each aoColumns element for the columns for which you want to enable column filtering.. </li>
+            <li>Due to limited HTML5 support in IE8, placeholders won't render in IE8 without the help of a Javascript polyfill, such as JQuery-placeholder (https://github.com/mathiasbynens/jquery-placeholder)</li>
+        </ul>
+        <div class="alert alert-info">
+            <strong>Script Requirements:</strong>
+            <ul>
+                <li>datagrids</li>
+            </ul>
+        </div>
+    </dd>
+</dl>
+
+
+<!-- /Column filtering -->
+<hr style="margin-bottom: 20px;">
+<!-- Column hiding -->
+
+<dl class="documentation">
+    <dt>Column hiding</dt>
+    <dd class="description">
+        <p>A Datagrid using interactive <strong>column hiding.</strong></p>
+    </dd>
+    <dt>Example</dt>
+    <dd class="example">
+        <form class="form-search pull-right">
+            <div class="col-vis-dropdown-container">
+                <!-- Will be filled in automatically by the column vis plugin -->
+            </div>
+            <div class="input-append">
+                <input type="text" class="input-medium search-query" data-filter-table="dt-ajax-array"><button class="btn btn-icon"><i class="icon-search"></i></button>
+            </div>
+        </form>
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered" data-table-name="dt-col-hiding-example"></table>
+    </dd>
+    <dt class="hidden-phone">Usage</dt>
+    <dd class="usage hidden-phone">
+        <p>Markup:</p>
+                    <pre class="prettyprint linenums lang-html">
+    &lt;form class=&quot;form-search pull-right&quot;&gt;
+      &lt;div class=&quot;col-vis-dropdown-container&quot;&gt;
+          <!-- Will be filled in automatically by the column vis plugin -->
+      &lt;/div&gt;
+      &lt;div class=&quot;input-append&quot;&gt;
+        &lt;input type=&quot;text&quot; class=&quot;input-medium search-query&quot; data-filter-table=&quot;dt-ajax-array&quot;&gt;&lt;button class=&quot;btn btn-icon&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+    &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; class=&quot;table table-bordered&quot; data-table-name=&quot;dt-col-hiding-example&quot;&gt;&lt;/table&gt;</pre>
+        <p>Script:</p>
+                    <pre class="prettyprint linenums lang-javascript">
+    //assume 'datagrids/datagrids-col-vis' is on the page...
+    $('table[data-table-name="dt-col-hiding-example"]').iidsBasicDataGrid({
+        'aoColumns': [
+            { 'sTitle': 'Rendering engine', 'mData': 'engine', 'sClass': 'essential' },
+            { 'sTitle': 'Browser', 'mData': 'browser', 'sClass': 'essential' },
+            { 'sTitle': 'Platform(s)', 'mData': 'platform', 'sClass': 'optional' },
+            { 'sTitle': 'Engine version', 'mData': 'version' },
+            { 'sTitle': 'CSS grade', 'mData': 'grade', 'sClass': 'essential' }
+        ],
+        'sAjaxSource': '../assets/data/ao.browsers.json',
+        "plugins": ["C"], //enable the Column Vis plugin (assumes datagrids/datagrids-col-vis.js is on the page)
+        "oColVis": { //configure the column vis plugin
+            "aiExclude": [ 1 ], // don't allow 2nd column to be hidden
+            "colVisDropdownSelector": ".col-vis-dropdown-container" //put the column hiding control inside the element at this selector
+        }
+    });
+                    </pre>
+        <p>Notes:</p>
+        <ul>
+            <li>We forked the DataTables project's <a href="http://datatables.net/extras/colvis/" target="_blank">"ColVis" plugin</a> for this functionality. </li>
+            <li>You must include the plugin library "[datagrids root]/js/datagrids/datagrids-col-vis.js" on the page.  The requirejs id for this in IIDx is 'datagrids/datagrids-col-vis'</li>
+            <li>Configure according to the original plug-in's <a href="http://datatables.net/extras/colvis/" target="_blank">documentation</a> with the following changes.</li>
+            <ul>
+                <li>Datatable "plugins" have been moved out of the "sDom" settings parameter into a separate "plugins" settings Array parameter, so enable the plugin by setting 'plugins': ["C"] on your table</li>
+                <li>Place the column hide dropdown inside any element consistent with design guidelines by specifying a "colVisDropdownMenuSelector", which is a valid JQuery selector.</li>
+                <li>The notion of "column groups" to show/hide has been removed</li>
+            </ul>
+        </ul>
+        <div class="alert alert-info">
+            <strong>Script Requirements:</strong>
+            <ul>
+                <li>datagrids</li>
+                <li>datagrids/datagrids-col-vis</li>
+            </ul>
+        </div>
+    </dd>
+</dl>
+
+<!-- /Column hiding -->
+<hr style="margin-bottom: 20px;">
+<!-- Row grouping -->
+
+<dl class="documentation">
+    <dt>Row grouping</dt>
+    <dd class="description">
+        <p>A Datagrid using interactive <strong>row grouping.</strong></p>
+    </dd>
+    <dt>Example</dt>
+    <dd class="example">
+        <div class="row-grouping-dropdown-container pull-left">
+            <!-- Will be filled in automatically by the column vis plugin -->
+        </div>
+        <form class="form-search pull-right">
+            <div class="input-append">
+                <input type="text" class="input-medium search-query" data-filter-table="dt-ajax-array"><button class="btn btn-icon"><i class="icon-search"></i></button>
+            </div>
+        </form>
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered" data-table-name="dt-row-grouping-example"></table>
+    </dd>
+    <dt class="hidden-phone">Usage</dt>
+    <dd class="usage hidden-phone">
+        <p>Markup:</p>
+                    <pre class="prettyprint linenums lang-html">
+    &lt;form class=&quot;form-search pull-right&quot;&gt;
+      &lt;div class=&quot;row-grouping-dropdown-container&quot;&gt;
+          <!-- Will be filled in automatically by the column vis plugin -->
+      &lt;/div&gt;
+      &lt;div class=&quot;input-append&quot;&gt;
+        &lt;input type=&quot;text&quot; class=&quot;input-medium search-query&quot; data-filter-table=&quot;dt-ajax-array&quot;&gt;&lt;button class=&quot;btn btn-icon&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+    &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; class=&quot;table table-bordered&quot; data-table-name=&quot;dt-row-grouping-example&quot;&gt;&lt;/table&gt;</pre>
+        <p>Script:</p>
+                    <pre class="prettyprint linenums lang-javascript">
+    //assume 'datagrids/datagrids-row-grouping' is on the page...
+    $('table[data-table-name="dt-row-grouping-example"]').iidsBasicDataGrid({
+        'aoColumns': [
+            { 'sTitle': 'Rendering engine', 'mData': 'engine', 'sClass': 'essential' },
+            { 'sTitle': 'Browser', 'mData': 'browser', 'sClass': 'essential' },
+            { 'sTitle': 'Platform(s)', 'mData': 'platform', 'sClass': 'optional' },
+            { 'sTitle': 'Engine version', 'mData': 'version' },
+            { 'sTitle': 'CSS grade', 'mData': 'grade', 'sClass': 'essential' }
+        ],
+        'sAjaxSource': '../assets/data/ao.browsers.json',
+
+        'plugins': ["G"], //enable the row grouping plugin (assumes datagrids/datagrids-row-grouping.js is on the page)
+        "bPaginate": false, // pagination is not compatible with row grouping
+        "rowGrouping": { //configure the row grpuping plugin
+            rowGroupingDropdownSelector: ".row-grouping-dropdown-container" //tell the plugin where to put the row grouping control
+        }
+    });
+                    </pre>
+        <p>Notes:</p>
+        <ul>
+            <li>You must include the plugin library "[datagrids root]/js/datagrids/datagrids-row-grouping.js" on the page.  The requirejs id for this in IIDx is 'datagrids/datagrids-row-grouping'</li>
+            <li>Datatable "plugins" have been moved out of the "sDom" settings parameter into a separate "plugins" settings Array parameter, so enable the plugin by setting 'plugins': ["G"] on your table</li>
+            <li>Place the row grouping dropdown inside any element consistent with design guidelines by specifying a "rowGroupingDropdownSelector", which is a valid JQuery selector.</li>
+            <li>Pagination must be disabled when row grouping is enabled</li>
+        </ul>
+        <div class="alert alert-info">
+            <strong>Script Requirements:</strong>
+            <ul>
+                <li>datagrids</li>
+                <li>datagrids/datagrids-row-grouping</li>
+            </ul>
+        </div>
+    </dd>
+</dl>
+
+</div> <!-- /module-body -->
+</div> <!-- /module -->
+</div> <!-- /span12 -->
+</div> <!-- /row -->
+</div> <!-- /container -->
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript">
+
+    require(['jquery', 'datagrids', 'datagrids/datagrids-col-vis', 'datagrids/datagrids-row-grouping', 'datatables-colreorder', 'prettify', 'ge-bootstrap'], function($) {
+        // Make code lovely using Google Prettify.
+        window.prettyPrint && prettyPrint();
+
+        $(function() {
+            // Check if we're running this example on the SDH. If not show the JSON alert.
+            if (window.location.host !== 'www.gesdh.com') {
+                $('.alert').addClass('in');
+            }
+
+            //Column reordering
+            $('table[data-table-name="dt-col-reorder-example"]').iidsBasicDataGrid({
+                'aoColumns': [
+                    { 'sTitle': 'Rendering engine', 'mData': 'engine', 'sClass': 'essential'},
+                    { 'sTitle': 'Browser', 'mData': 'browser', 'sClass': 'essential'},
+                    { 'sTitle': 'Platform(s)', 'mData': 'platform', 'sClass': 'optional'},
+                    { 'sTitle': 'Engine version', 'mData': 'version'},
+                    { 'sTitle': 'CSS grade', 'mData': 'grade', 'sClass': 'essential'}
+                ],
+                'sAjaxSource': '../assets/data/ao.browsers.json',
+                'plugins': ['R'] //enable the col-reorder plugin (assumes 'datatables-colreorder' is on the page)
+            });
+
+            //Column Filtering
+            // From http://datatables.net/release-datatables/examples/api/multi_filter.html
+            // See also http://datatables.net/release-datatables/examples/api/multi_filter_select.html
+            // See also http://datatables.net/release-datatables/examples/api/regex.html
+            // See also http://datatables.net/release-datatables/examples/plug-ins/range_filtering.html
+            $('table[data-table-name="dt-col-filter-example"]').iidsBasicDataGrid({
+                'aoColumns': [
+                    { 'sTitle': 'Rendering engine', 'mData': 'engine', 'sClass': 'essential'},
+                    { 'sTitle': 'Browser', 'mData': 'browser', 'sClass': 'essential', 'filter':true},
+                    { 'sTitle': 'Platform(s)', 'mData': 'platform', 'sClass': 'optional', 'filter': true},
+                    { 'sTitle': 'Engine version', 'mData': 'version', 'filter':true, 'filterPlaceholder':'Filter by this field'},
+                    { 'sTitle': 'CSS grade', 'mData': 'grade', 'sClass': 'essential', 'filter':true}
+                ],
+                'sAjaxSource': '../assets/data/ao.browsers.json',
+                'useFloater': false,
+                'isResponsive': true
+            });
+
+
+            //Column hiding
+            //From http://datatables.net/extras/colvis/
+            //See also http://datatables.net/release-datatables/examples/api/show_hide.html
+            //assumes 'datagrids/datagrids-col-vis' is on the page...
+            $('table[data-table-name="dt-col-hiding-example"]').iidsBasicDataGrid({
+                'aoColumns': [
+                    { 'sTitle': 'Rendering engine', 'mData': 'engine', 'sClass': 'essential' },
+                    { 'sTitle': 'Browser', 'mData': 'browser', 'sClass': 'essential' },
+                    { 'sTitle': 'Platform(s)', 'mData': 'platform', 'sClass': 'optional' },
+                    { 'sTitle': 'Engine version', 'mData': 'version' },
+                    { 'sTitle': 'CSS grade', 'mData': 'grade', 'sClass': 'essential' }
+                ],
+                'sAjaxSource': '../assets/data/ao.browsers.json',
+                "plugins": ["C"], //enable the Column Vis plugin (assumes datagrids/datagrids-col-vis.js is on the page)
+                "oColVis": { //configure the column vis plugin
+                    "aiExclude": [ 1 ], // don't allow 2nd column to be hidden
+                    "colVisDropdownSelector": ".col-vis-dropdown-container" //put the column hiding control inside the element at this selector
+                }
+            });
+
+            //assume 'datagrids/datagrids-row-grouping' is on the page...
+            $('table[data-table-name="dt-row-grouping-example"]').iidsBasicDataGrid({
+                'aoColumns': [
+                    { 'sTitle': 'Rendering engine', 'mData': 'engine', 'sClass': 'essential' },
+                    { 'sTitle': 'Browser', 'mData': 'browser', 'sClass': 'essential' },
+                    { 'sTitle': 'Platform(s)', 'mData': 'platform', 'sClass': 'optional' },
+                    { 'sTitle': 'Engine version', 'mData': 'version' },
+                    { 'sTitle': 'CSS grade', 'mData': 'grade', 'sClass': 'essential' }
+                ],
+                'sAjaxSource': '../assets/data/ao.browsers.json',
+
+                'plugins': ["G"], //enable the row grouping plugin (assumes datagrids/datagrids-row-grouping.js is on the page)
+                "bPaginate": false, // pagination is not compatible with row grouping
+                "rowGrouping": { //configure the row grpuping plugin
+                    rowGroupingDropdownSelector: ".row-grouping-dropdown-container" //tell the plugin where to put the row grouping control
+                }
+            });
+        });
+    });
+</script>
+<script src="../../components/respond/respond.src.js"></script>
+</body>
+</html>
+

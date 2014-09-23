@@ -1,0 +1,205 @@
+@import "components/map-layerlist/less/layer-list.less";
+@import "components/map-search/less/address-search.less";
+@import "components/map-zoom/less/map-zoom.less";
+@import "components/map-core/less/frame.less";
+@import "components/map-core/less/panel-shared.less";
+@import "components/map-core/less/panel-fixed.less";
+@import "components/map-core/less/panel-popover.less";
+@import "components/map-search/less/map-search.less";
+@import "components/map-markers/less/map-markers.less";
+@import "components/map-markers/less/map-vector-data-layer.less";
+@import "components/map-markers/less/map-clusters.less";
+@import "components/map-core/less/open-layers-theme.less";
+@import "components/map-core/less/fullscreen.less";
+@import "components/brandkit/less/variables.less";
+@import "components/map-core/less/mixins.less";
+
+.map {
+  width: inherit;
+  height: inherit;
+  position: relative;
+  margin-left:auto;
+  margin-right:auto;
+  padding-left: 0px;
+  overflow: hidden;
+}
+
+.map label { width: auto; display:inline; }
+.map img { max-width:none }
+.map.busy, .map.busy * { cursor: wait }
+
+// More condensed map tables to better fit into popovers and panels
+.map .table {
+  th, td {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-color: @grayLighter;
+  }
+}
+
+.olTileImage {
+  -webkit-transition: opacity 0.1s linear;
+  -moz-transition: opacity 0.1s linear;
+  -o-transition: opacity 0.1s linear;
+  transition: opacity 0.1s linear;
+}
+
+@media print {
+  .map img {
+    max-width: none !important;
+  }
+}
+
+.streetview {
+    display: none;
+}
+
+.streetview img {
+  max-width: none;
+}
+
+.mapdsMap {
+  height: inherit;
+  width: inherit;
+}
+
+//Fullscreen Map Masthead Padding
+//Note: this is a temporary solution until the IIDS publishes a fullscreen fluid grid.
+.navbar-inner.fullscreen-map{
+    padding-left: 20px;
+    padding-right: 20px;
+
+    ul.dropdown-menu{
+        z-index: 1020;
+    }
+}
+
+.map-toolbar{
+    background: rgba(0,0,0,0.6);
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1010;
+
+    >div{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        &.pull-right{
+            margin-right: 20px;
+        }
+        &.pull-left{
+            margin-left: 20px;
+        }
+    }
+
+    .no-selection;
+
+}
+
+
+// Map Button Styles
+
+//Button and button group shadows
+.btn.btn-map{
+    .map-ui-shadow;
+
+    border: none;
+}
+
+.btn-group.btn-map{
+    .map-ui-shadow;
+
+    -webkit-border-radius: @btnBorderRadius;
+    -moz-border-radius: @btnBorderRadius;
+    border-radius: @btnBorderRadius;
+
+    .btn{
+        border-top: none;
+        border-bottom: none;
+
+        //Add vertical padding to compensate for removing the top and bottom border
+        padding: 1px 10px 0;
+    }
+
+    &>.btn:last-child{
+        border-right: none;
+    }
+
+    &>.btn:first-child{
+        border-left: none;
+    }
+
+    .btn:hover{
+        z-index: 0;
+    }
+}
+
+//Change default button color to white to improve contrast on map
+.btn.btn-map, .btn-group.btn-map>.btn{
+    //Set IIDS default button color
+    background-color:@white;
+    &:hover{
+        background-color: darken(@white,10%);
+    }
+
+    //Reset all other IIDS button colors
+    &.btn-primary{
+        background-color:@btnPrimaryBackground;
+
+        &:hover{
+            background-color:@btnPrimaryBackgroundHighlight;
+        }
+    }
+    &.btn-info{
+        background-color:@btnInfoBackground;
+
+        &:hover{
+            background-color:@btnInfoBackgroundHighlight;
+        }
+    }
+    &.btn-success{
+        background-color:@btnSuccessBackground;
+
+        &:hover{
+            background-color:@btnSuccessBackgroundHighlight;
+        }
+    }
+    &.btn-warning{
+        background-color:@btnWarningBackground;
+
+        &:hover{
+            background-color:@btnWarningBackgroundHighlight;
+        }
+    }
+    &.btn-danger{
+        background-color:@btnDangerBackground;
+
+        &:hover{
+            background-color:@btnDangerBackgroundHighlight;
+        }
+    }
+    &.btn-inverse{
+        background-color:@btnInverseBackground;
+
+        &:hover{
+            background-color:@btnInverseBackgroundHighlight;
+        }
+    }
+}
+
+//Icon only buttons set to square
+.btn.btn-map.btn-map-icon{
+    width: 25px;
+    height: 25px;
+    padding: 0 5px;
+
+    [class*="icon-"]{
+        font-size: 14px;
+    }
+}
+
+//Buttons in the map tool bar should have no shadow
+.map-toolbar .btn.btn-map, .map-toolbar .btn-group.btn-map{
+    .no-shadow;
+}

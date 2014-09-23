@@ -1,0 +1,16 @@
+{
+  "name": "map-zoom",
+  "version": "0.1.0",
+  "main": "js/map-zoom.js",
+  "private": true,
+  "dependencies": {
+    "declarative-visualizations": "git+https://devcloud.sw.ge.com/source/scm/dxc/declarative-visualizations#~0.6.0"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

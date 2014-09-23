@@ -1,0 +1,108 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "ge-bootstrap/less/ge-bootstrap.less";
+@import "variables.less";
+
+
+// Styles
+// --------------------------------------------------
+
+.tray {
+  background-color: @btnPrimaryBackground;
+  position: relative;
+  // Only add bottom margin to the tray when it's open.
+  // 7px is the size of the arrow that points to the opener.
+  &.in {
+    &.top {
+      margin-bottom: 7px;
+    }
+    &.bottom {
+      margin-top: 7px;
+    }
+    &.right {
+      margin-left: 7px;
+    }
+    &.left {
+      margin-right: 7px;
+    }
+    &.top .arrow {
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 7px solid @btnPrimaryBackground;
+      bottom: -7px;
+      left: 9px;
+    }
+    &.bottom .arrow {
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-bottom: 7px solid @btnPrimaryBackground;
+      top: -7px;
+      left: 9px;
+    }
+    &.left .arrow {
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-left: 7px solid @btnPrimaryBackground;
+      right: -7px;
+      top: 9px;
+    }
+    &.right .arrow {
+      border-bottom: 7px solid transparent;
+      border-top: 7px solid transparent;
+      border-right: 7px solid @btnPrimaryBackground;
+      left: -7px;
+      top: 9px;
+    }
+  }
+  // Overflow is changed on shown to prevent tray contents
+  // from spilling out during animation but to allow arrow
+  // to appear when the tray is expanded.
+  &.shown {
+    overflow: visible;
+  }
+  .arrow {
+    content: '';
+    display: inline-block;
+    position: absolute;
+  }
+  // Adjust button colors to account for dark background.
+  .btn-link {
+    color: @gray;
+    padding: 0;
+    &:hover {
+      color: @grayLight;
+      [class*="icon-"] {
+        text-decoration: none;
+      }
+    }
+  }
+  .btn-inverse {
+    background-color: @grayDark;
+    color: @grayLighter;
+    &:hover {
+      background-color: lighten(@grayDark, 10%);
+      color: lighten(@grayLighter, 10%);
+    }
+  }
+  .btn-primary {
+    background-color: @grayLighter;
+    color: @grayDarker;
+    &:hover {
+      color: lighten(@grayDarker, 10%);
+      background-color: lighten(@grayLighter, 10%);
+    }
+  }
+}
+.tray-inner {
+  #grid > .fluid > .span(8);
+  margin: 0 auto;
+  padding: 18px 0;
+  .clearfix;
+}
+
+
+// Variants
+// --------------------------------------------------
+
+@import "filter-tray.less";

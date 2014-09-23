@@ -1,0 +1,8 @@
+{
+    "name": "shim-data-tables",
+    "version": "1.10.0",
+    "main": "dist/media/js/jquery.dataTables.js",
+    "devDependencies": {
+        "datatables": "1.10.0"
+    }
+}

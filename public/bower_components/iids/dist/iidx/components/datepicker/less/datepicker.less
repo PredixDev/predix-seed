@@ -1,0 +1,297 @@
+@import "ge-bootstrap/less/ge-bootstrap.less";
+@import "variables.less";
+
+/*!
+ * Datepicker for Bootstrap
+ *
+ * Copyright 2012 Stefan Petre
+ * Improvements by Andrew Rowls
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ */
+
+ /* GE Desired Functionality
+  *
+  * 1. Style of current date
+  * 2. Move footer "today" action to an actual button or link inside the TH
+  * 3. Change markup to use buttons for today, next and prev.
+  *
+  */
+
+.datepicker {
+  padding: 4px;
+	.border-radius(4px);
+	&-inline {
+		width: 220px;
+	}
+	direction: ltr;
+	&&-rtl {
+		direction: rtl;
+		table tr td span {
+			float: right;
+		}
+	}
+	&-dropdown {
+		top: 0;
+		left: 0;
+	}
+	>div {
+		display: none;
+	}
+	&.days div.datepicker-days {
+		display: block;
+	}
+	&.months div.datepicker-months {
+		display: block;
+	}
+	&.years div.datepicker-years {
+		display: block;
+	}
+	table{
+		margin: 0;
+	}
+	td,
+	th{
+		text-align: center;
+    font-weight: 500;
+		width: 20px;
+		height: 20px;
+		.border-radius(4px);
+		border: none;
+    &.next:hover {
+      /* double check mix-in! */
+      .border-radius(4px);
+    }
+    &.prev:hover {
+      /* double check mix-in! */
+      .border-radius(4px);
+    }
+    &.switch:hover{
+      .border-radius(4px);
+    }
+	}
+	// Inline display inside a table presents some problems with
+	// border and background colors.
+	.table-striped & table tr {
+		td, th {
+			background-color: transparent;
+		}
+	}
+	table tr td {
+		&.day:hover {
+			background: @grayLighter;
+			cursor: pointer;
+		}
+    &.day {
+      font-weight: 300;
+    }
+		&.old,
+		&.new {
+			color: @grayLight;
+			font-weight: 300;
+		}
+		&.disabled,
+		&.disabled:hover {
+			font-weight: 300;
+			background: none;
+			color: @grayLight;
+			cursor: default;
+		}
+		&.today,
+		&.today:hover,
+		&.today.disabled,
+		&.today.disabled:hover {
+			background-color: transparent;
+			color: @blue;
+			font-weight: 500;
+		}
+		&.range,
+		&.range:hover,
+		&.range.disabled,
+		&.range.disabled:hover {
+			background:@grayLighter;
+			.border-radius(0);
+		}
+		&.range.today,
+		&.range.today:hover,
+		&.range.today.disabled,
+		&.range.today.disabled:hover {
+			@todayBackground: mix(@orange, @grayLighter);
+			.buttonBackground(@todayBackground, spin(@todayBackground, 20));
+			.border-radius(0);
+		}
+		&.selected,
+		&.selected:hover,
+		&.selected.disabled,
+		&.selected.disabled:hover {
+			background-color: @blue;
+			color: #fff;
+			text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+		}
+		&.active,
+		&.active:hover,
+		&.active.disabled,
+		&.active.disabled:hover {
+			background-color: @blue;
+      font-weight: 300;
+			color: white !important;
+			text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+		}
+		span {
+			display: block;
+			width: 23%;
+			height: 54px;
+			line-height: 54px;
+			float: left;
+			margin: 1%;
+			cursor: pointer;
+			.border-radius(4px);
+			&:hover {
+				background: @grayLighter;
+			}
+			&.disabled,
+			&.disabled:hover {
+				background:none;
+				color: @grayLight;
+				cursor: default;
+			}
+			&.active,
+			&.active:hover,
+			&.active.disabled,
+			&.active.disabled:hover {
+				background-color: @blue;
+				color: white !important;
+				text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+			}
+			&.old {
+				color: @grayLight;
+			}
+		}
+	}
+
+	th.datepicker-switch {
+		width: 145px;
+	}
+
+	thead tr:first-child th,
+	tfoot tr:first-child th {
+		cursor: pointer;
+		&:hover{
+			background: @grayLighter;
+      font-weight: 300;
+		}
+	}
+	.dow {
+		/*border-top: 1px solid #ddd !important;*/
+    font-weight: 700;
+	}
+
+	// Basic styling for calendar-week cells
+	.cw {
+		font-size: 10px;
+		width: 12px;
+		padding: 0 2px 0 5px;
+		vertical-align: middle;
+	}
+	thead tr:first-child th.cw {
+		cursor: default;
+		background-color: transparent;
+	}
+}
+.input-append,
+.input-prepend {
+	&.date {
+		.add-on i {
+			display: block;
+			cursor: pointer;
+			width: 16px;
+			height: 16px;
+		}
+	}
+}
+.input-daterange {
+	input {
+		text-align:center;
+	}
+	input:first-child {
+		.border-radius(3px 0 0 3px);
+	}
+	input:last-child {
+		.border-radius(0 3px 3px 0);
+	}
+	.add-on {
+		display: inline-block;
+		width: auto;
+		min-width: 16px;
+		height: @baseLineHeight;
+		padding: 4px 5px;
+		font-weight: normal;
+		line-height: @baseLineHeight;
+		text-align: center;
+		text-shadow: 0 1px 0 @white;
+		vertical-align: middle;
+		background-color: @grayLighter;
+		border: 1px solid #ccc;
+		margin-left:-5px;
+		margin-right:-5px;
+	}
+}
+
+/* start GE style additions:
+ *
+ * Trying to be unobtrusive as possible
+ *
+ */
+
+.dropdown-menu {
+  margin: 5px 0 0;
+}
+
+.table-condensed th,
+.table-condensed td {
+  padding: 4px 10px;
+}
+
+/* Override Table Header (Month/Year and arrows) */
+
+.datepicker table > thead > tr:nth-child(1) > th {
+	.btn-group > .btn;
+	margin-left: 1px !important;
+	color: @grayDark;
+  font-size: 14px;
+}
+
+.datepicker table > thead > tr:nth-child(1) > th:nth-child(2) {
+	color: @grayDarkest;
+	font-weight: 500;
+  font-size: 14px;
+}
+
+
+/* Override footer (Today) */
+.datepicker tfoot th.today {
+	.btn-group > .btn;
+	font-weight: normal;
+	color: @blue;
+  font-size: 14px;
+}
+
+
+.datepicker tfoot th.today:hover {
+	text-decoration: underline;
+	background-color: none !important;
+	background: none !important;
+}
+
+/* not sure why we have to do this, but it seems to no inherit some key rules */
+
+.datepicker-months > table > tbody > tr > td  {
+	width: 260px;
+}
+
+.datepicker-years > table > tbody > tr > td  {
+	width: 260px;
+}
+
+/* end GE style overrides */

@@ -1,0 +1,116 @@
+@import "brandkit/less/variables.less";
+
+body::-webkit-scrollbar { width: 0 !important }
+
+.two-pane{
+  input[type="checkbox"] {
+    margin-top:-2px;
+  }
+  div[class*="span"]{
+    &.no-margin{
+      margin-bottom:0px;
+    }
+  }
+  .module{
+    border-radius:0px;
+    padding:0px;
+    .module-body{
+      > hr{
+        border:0px;
+        border-bottom:1px solid @grayLighter;
+        margin-bottom:0px;
+      }
+    }
+    &.draggable{
+      height:533px;
+      .module-body{
+        height:100%;
+        > div:first-child{
+          display:block;
+          padding:0px;
+        }
+      }
+    }
+  }
+  .btn-toolbar{
+    margin:15px 15px 5px;
+  }
+  .vertical-divider{
+    border-right:1px solid @grayLighter;
+    margin-right:10px;
+    padding-left:0px;
+    padding-right:15px;
+  }
+  .message-time,
+  .message-header,
+  .message-subject{
+    color: @gray;
+  }
+  .list-pane{
+    border-right:1px solid @grayLighter;
+    margin-bottom:0px;
+    .list-item{
+      background-color:@offWhite;
+      border-bottom:1px solid @grayLighter;
+      li{
+        line-height:19px;
+        padding:10px;
+        vertical-align:middle;
+        &:not(:first-child){
+          border-left:1px solid @grayLighter;
+          width:74%;
+        }
+      }
+      &.unread{
+        background-color:@white;
+      }
+      &.active{
+        background-color:@linkColor;
+        color:@white;
+        .message-subject{
+          color:@white;
+        }
+        li{
+          border-color:@linkColor;
+        }
+      }
+      &:hover{
+        background-color:#B7CBE5;
+        color:@white;
+        .message-subject{
+          color:@white;
+        }
+        li{
+          border-color:@grayLighter;
+        }
+      }
+    }
+    ul{
+      margin-bottom:0px;
+    }
+  }
+  .message-pane{
+    padding:20px;
+    padding-left:0px;
+    .message-pane-btns{
+      margin-bottom:10px;
+    }
+    .reply{
+      border:1px solid @grayLighter;
+      height:200px;
+      margin-top:30px;
+      padding:10px;
+      li:not(:first-child){
+        border-left:1px solid @grayLighter;
+        padding-left:10px;
+      }
+    }
+    .message-time{
+      padding-right:5px;
+    }
+  }
+}
+
+
+
+

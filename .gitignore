@@ -4,7 +4,6 @@ project/target
 target
 tmp
 .history
-dist
 /.idea
 /*.iml
 /out
@@ -18,5 +17,3 @@ bin
 .cache
 .DS_Store
 .*~
-bower_components/
-node_modules/

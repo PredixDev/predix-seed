@@ -1,0 +1,23 @@
+// Dependencies
+// --------------------------------------------------
+@import "ge-bootstrap/less/ge-bootstrap.less";
+@import (reference) "iidx-variables.less";
+@import "base-jumpnav.less";
+
+// IIDX Specific - Need to color change for contrast, also added a bounce
+.jumpnav.fixed {
+  width: 100%;
+  background-color: @grayLighter;
+  /* Firefox */
+  -moz-transition: background-color .5s ease-in, margin-top .5s ease-in;
+  /* WebKit */
+  -webkit-transition: background-color .5s ease-in, margin-top 1.5 ease-in;
+  /* Opera */
+  -o-transition: background-color .5s ease-in, margin-top .5s ease-in;
+  /* Standard */
+  transition: background-color .5s ease-in, margin-top .5s ease-in;
+}
+
+.jumpnav.fixed li a:hover {
+  background-color: @grayLighter;
+}

@@ -1,0 +1,7 @@
+{
+  "name": "prettify",
+  "author": "robdodson",
+  "description": "A fork of Google Code Prettify",
+  "version": "0.2.1",
+  "private": true
+}

@@ -1,0 +1,35 @@
+{
+    "Layers": {
+	    "Bing": [
+            {
+                "ExternalLayerName": "Road",
+                "Key":  "AqTGBsziZHIJYYxgivLBf0hVdrAk9mWO5cQcb8Yux8sW5M8c8opEC2lZqKR1ZZXf",
+                "Type": "road"
+            }
+	    ],
+
+        "WMS": [
+            {
+                "URL": "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/forecasts",
+                "ExternalLayerName": "NDFD Wind Vector Forecast",
+                "IsBaseLayer": false,
+                "TileSize": 512,
+                "DisplayOutsideMaxExtent": false,
+                "WMSParameters": {
+                    "layers": "NDFD_PT_WINDVECT_1_06_G01",
+                    "transparent": true
+                }
+            }
+        ]
+    },
+    "MapOptions": {
+        "CentreLat": 37.779927,
+        "CentreLong": -121.978015,
+        "DefaultZoom": 10,
+        "ZoomLevels": 21
+    },
+    "Google": {
+        "googleClientID": "",
+        "googleChannelID": ""
+    }
+}

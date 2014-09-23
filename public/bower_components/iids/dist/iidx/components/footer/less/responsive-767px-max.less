@@ -1,0 +1,21 @@
+//
+// Responsive: Landscape phone to desktop/tablet
+// --------------------------------------------------
+
+@media (max-width: 767px) {
+  .footer {
+    margin-left: @responsiveMargin;
+    margin-right: @responsiveMargin;
+
+    .container {
+      padding: @responsivePadding;
+    }
+
+    .secondary.large {
+      // design direction was to make these have the same padding in vertical mode
+      // just using the same top var for both now
+      padding-bottom: @largeFooterTopPadding;
+      padding-top: @largeFooterTopPadding;
+    }
+  }
+}

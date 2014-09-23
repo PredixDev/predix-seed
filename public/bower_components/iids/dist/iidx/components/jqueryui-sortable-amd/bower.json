@@ -1,0 +1,18 @@
+{
+  "name": "jqueryui-sortable-amd",
+  "description": "AMD wrapper for jQuery UI Sortable module",
+  "version": "1.10.2",
+  "main": ["js/jquery-ui-1.10.2.custom.js"],
+  "ignore": [
+    "components",
+    "css",
+    "development-bundle",
+    "node_modules",
+    "test",
+    ".*",
+    "Gruntfile.js"
+  ],
+  "dependencies": {
+    "jquery": "~1.10.0"
+  }
+}

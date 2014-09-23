@@ -1,0 +1,35 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "bootstrap/less/pagination.less";
+
+
+// Bootstrap Overrides
+// --------------------------------------------------
+
+.pagination {
+	ul > li > a {
+		color: @grayDark;
+		font-size: @baseFontSize - 2;
+		padding: 4px 10px;
+	}
+	ul > li > a:hover,
+	ul > .active > a,
+	ul > .active > span {
+	  border-color: @paginationActiveBackground;
+		color: @white;
+	}
+	.prev:not(.disabled) a,
+	.next:not(.disabled) a {
+		[class^="icon-"],
+		[class*=" icon-"] {
+			.opacity(30);
+		}
+		&:hover [class^="icon-"],
+		&:hover [class*=" icon-"],
+		&:active [class^="icon-"],
+		&:active [class*=" icon-"] {
+			.opacity(100);
+		}
+	}
+}

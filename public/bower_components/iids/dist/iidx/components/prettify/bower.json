@@ -1,0 +1,9 @@
+{
+  "name": "prettify",
+  "description": "A Javascript module and CSS file that allows syntax highlighting of source code snippets in an html page.",
+  "version": "0.2.1",
+  "main": [
+    "prettify.js",
+    "prettify.css"
+  ]
+}

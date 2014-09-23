@@ -1,0 +1,12 @@
+{
+    "name": "shim-open-layers",
+    "version": "2.13.1",
+    "main": "dist/OpenLayers.js",
+    "ignore": [
+        "package.json",
+        "Gruntfile.js"
+    ],
+    "devDependencies": {
+        "openlayers": "~2.13.1"
+    }
+}

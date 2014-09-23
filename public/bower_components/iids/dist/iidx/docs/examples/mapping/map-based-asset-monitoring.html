@@ -1,0 +1,363 @@
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Map Based Asset Monitoring</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../components/brandkit/favicon/favicon-144px.png">
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../components/brandkit/favicon/favicon-114px.png">
+
+    <!-- For first- and second-generation iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../components/brandkit/favicon/favicon-72px.png">
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon-precomposed" href="../../../components/brandkit/favicon/favicon.png">
+
+    <link rel="icon" href="../../../components/brandkit/favicon/favicon.ico">
+    <link href="../../../css/iids.css" rel="stylesheet" type="text/css">
+    <link href="../../../css/responsive.css" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]>
+      <link id="theme-ie" href="../../../css/ie.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+
+    
+
+    <script src="../../../components/modernizr/modernizr.js"></script>
+  </head>
+  <body>
+
+<div class="navbar navbar-static-top">
+  <div class="navbar-inner fullscreen-map">
+      <a class="brand" href="../../index.html"><span class="ge-logo"></span> <span>My Application <small><i>powered by</i> GE Business</small></span></a>
+      <div class="pull-right">
+        <div class="btn-toolbar pull-left">
+          <div class="btn-group">
+            <button class="btn btn-danger dropdown-toggle" rel="tooltip" data-title="Alerts" data-placement="bottom" data-toggle="dropdown"><i class="icon-warning-sign"></i> 5</button>
+            <ul class="dropdown-menu pull-right message-list">
+              <li class="message-item">
+                <a href="#">
+                  <span class="label label-important pull-left">Urgent</span>
+                  <h4 class="message-title">Alert Type and Title</h4>
+                  <p>This is a brief description or summary of the associated event that occured&hellip;<br><time datetime="MM:DD:YYTHH:MM:SS" class="message-time">MM/DD/YY 12:05</time></p>
+                </a>
+              </li>
+              <li class="message-item">
+                <a href="#">
+                  <span class="label label-warning pull-left">Moderate</span>
+                  <h4 class="message-title">Alert Type and Title</h4>
+                  <p>This is a brief description or summary of the associated event that occured&hellip;<br><time datetime="MM:DD:YYTHH:MM:SS" class="message-time">MM/DD/YY 12:05</time></p>
+                </a>
+              </li>
+              <li class="message-item"><a href="#">View all alerts</a></li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-inverse dropdown-toggle" rel="tooltip" data-title="Messages" data-placement="bottom" data-toggle="dropdown"><i class="icon-envelope-alt"></i></button>
+            <ul class="dropdown-menu pull-right message-list">
+              <li class="message-item empty">No unread messages</li>
+              <li class="message-item"><a href="#">View all messages</a></li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i><span class="user-name">Tom Edison</span> <i class="icon-chevron-down"></i></button>
+            <ul class="dropdown-menu pull-right">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </div>
+        </div>
+        <form class="navbar-search pull-left">
+          <div class="input-append">
+              <input type="search" class="input-medium search-query" data-toggle="dropdown" data-target=".navbar-search"><button type="submit" class="btn btn-icon"><i class="icon-search"></i></button>
+          </div>
+          <div class="typeahead typeahead-faceted dropdown-menu pull-right">
+            <ul class="unstyled">
+              <li class="facet">
+                <div class="facet-name">Top Result</div>
+                <ul class="facet-results unstyled">
+                  <li><a href="#"><strong>Ma</strong>ine</a></li>
+                </ul>
+              </li>
+              <li class="facet">
+                <div class="facet-name">States</div>
+                <ul class="facet-results unstyled">
+                  <li><a href="#"><strong>Ma</strong>ine</a></li>
+                  <li><a href="#"><strong>Ma</strong>ryland</a></li>
+                  <li><a href="#"><strong>Ma</strong>ssachusetts</a></li>
+                  <li><a href="#">Alaba<strong>ma</strong></a></li>
+                </ul>
+              </li>
+              <li class="facet">
+                <div class="facet-name">Cities</div>
+                <ul class="facet-results unstyled">
+                  <li><a href="#"><strong>Ma</strong>bleton, GA</a></li>
+                  <li><a href="#"><strong>Ma</strong>cedon, NY</a></li>
+                  <li><a href="#"><strong>Ma</strong>cedonia, OH</a></li>
+                  <li><a href="#"><strong>Ma</strong>chesney Park, IL</a></li>
+                  <li><a href="#"><strong>Ma</strong>comb, IL</a></li>
+                </ul>
+              </li>
+              <li class="last"><a href="#">View All Results</a></li>
+            </ul>
+          </div>
+        </form>
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <i class="icon-bar"></i>
+          <i class="icon-bar"></i>
+          <i class="icon-bar"></i>
+        </button>
+      </div>
+  </div>
+</div>
+
+
+
+    <div id="app-window">
+      <div class="frame-container">
+
+        <div class="frame">
+          <h2 class="voice voice-brand">Work crews</h2>
+
+          <div class="frame-content row-fluid ui-draggable hide-on-load">
+
+            <section class="module small span12 draggable">
+              <header class="module-header">
+                <h3 class="voice voice-brand">Crew Type</h3>
+              </header>
+
+              <div class="module-body">
+                <label class="checkbox"><input type="checkbox" value="type1">Restoration</label>
+                <label class="checkbox"><input type="checkbox" value="type2">Investigation</label>
+                <label class="checkbox"><input type="checkbox" value="type2">Meter reading</label>
+              </div>
+              <footer class="module-footer"></footer>
+            </section>
+
+            <section class="module small span12 draggable">
+              <header class="module-header">
+                <h3 class="voice voice-brand">Status</h3>
+                <hr>
+              </header>
+
+              <div class="module-body">
+                <label class="checkbox"><input type="checkbox" value="status1">On Duty</label>
+                <label class="checkbox"><input type="checkbox" value="status2">Off Duty</label>
+              </div>
+              <footer class="module-footer"></footer>
+            </section>
+
+          </div>
+        </div>
+
+        <div class="main">
+          <div class="map" data-map-name="default">
+              <div class="map-toolbar">
+                <div class="pull-left">
+                    <form class="form-search form-inline" onsubmit="return false;" data-facet-index="0">
+                    <div class="input-prepend">
+                      <button id="searchSubmitBtn" type="submit" class="btn btn-icon"><i class="icon-search"></i></button>
+                      <input id="query" type="text" class="input-medium search-query" autocomplete="off" placeholder="Asset search" />
+                    </div>
+                    <div class="btn-group">
+                      <button class="btn btn-map dropdown-toggle" data-toggle="dropdown" data-placement="bottom">
+                        <i class="icon-asset"></i><i class="icon-chevron-down"></i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-small">
+                        <li class="" data-original-title="" title="">
+                          <i class="icon-asset"></i>
+                          <label>Asset Search</label>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="" data-original-title="" title="">
+                          <i class="icon-map-marker"></i>
+                          <label>Address Search</label>
+                        </li>
+                      </ul>
+                    </div>
+                  </form>
+                </div>
+                <div class="btn-group pull-right overlay-chooser">
+                  <button class="btn btn-map dropdown-toggle" data-toggle="dropdown" data-layer-map="default" data-title="Layers">
+                    <i class="icon-overlays"></i>Layers<i class="icon-chevron-down"></i>
+                  </button>
+                  <ul class="dropdown-menu"></ul>
+                </div>
+              </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</body>
+
+<script src="../../../components/requirejs/require.js"></script>
+<script src="../../../js/require.config.js"></script>
+  <script>
+    // Load common code that includes config,
+    // then load the app logic for this page.
+    require(['../../../js/require.config.js'], function () {
+        require.config({
+        baseUrl: '../../../',
+        config: { 'map-loader': {
+              configFileName: '../../data/map-config-asset-monitoring.json'
+          }
+        }
+      });
+
+      require(['jquery', 'map-markers', 'map-core', 'map-search', 'map-layer-list', 'map-zoom'], function($, markers, Mapping, search){
+
+        // Subscribe to the map initialise event
+        $.subscribe('mapInitialised', function(mapName, olMap){
+
+          // When the map has been initialised, load the GeoJSON data
+          $.ajax({
+              url : '../../data/GeoJSON_example.json',
+              async : true,
+              dataType: "json"
+            }).done(function(data) {
+
+              // Preprocess the data to add icon styles
+              $.each(data.features, function(key, val){
+                this.metadata = {};
+                this.metadata.icon = "\uf0d1";
+                this.metadata.iconPos = {"x":-8,"y": 4};
+                var stt =  this.properties.Status;
+                if (( stt !== undefined ) && ( stt == 'Off Duty')){
+                  this.metadata.state = 'warning';
+                }
+              });
+
+              // Template for the popover
+              var richPopover = '<div class="popover top" data-popover-id="{{popoverId}}"><div class="arrow"></div><header class="panel-header"><div class="left"><i class="icon-truck"></i></div><div class="popover-title panel-title voice voice-brand"><h3>Crew</h3></div><div class="right voice voice-brand"><p>{{Number}}</p></div></header><div class="popover-content panel-content"><ul class="inline"><li class="vertical-divider"><strong>Crew Type</strong><br/><strong>Status</strong><br/><strong>Crew Leader</strong></li><li class="vertical-divider">{{Type}}<br/>{{Status}}<br/>{{Leader}}</li></ul></div><footer class="panel-footer"><div class="secondary"><a class="btn btn-map"><i class="icon-phone"></i></a></div><div class="primary"><a class="btn btn-map"><i class="icon-star"></i>Bookmark</a><a class="btn btn-map"><i class="icon-pencil"></i></a></div></footer></div>';
+
+              var markerOptions = { popovers: true,
+                                    popoverTemplate: richPopover };
+
+              // Specify the data fields used by the search dropdown
+              var indexOptions =  { indexAttribs : [ "Leader" ],
+                                    secondaryAttribs : [ "Type", "Number" ],
+                                    facet : "Status" };
+
+             // Create the data vector layer
+              markers.addMarkers(data, olMap, markerOptions, 'Crews', indexOptions);
+            });
+
+          // Find the map container we are dealing with here
+          var $mapContainer = $("div.map[data-map-name='"+mapName+"']");
+
+          // Ensure the map is full screen
+          $mapContainer.height($(window).height() - $mapContainer.offset().top);
+
+          // Make sure the map stays fullscreen when resizing
+          $(window).resize(function(){
+            $mapContainer.height(
+              $(window).height() - $mapContainer.offset().top
+            );
+          });
+          olMap.updateSize();
+        });
+
+        // Initialise the map
+        $(".map").initializeMap();
+
+        // Search box data for different states
+        var searchContexts = [
+            {
+                icon:'icon-asset',
+                placeholderText: 'Asset search',
+                type: 'asset'
+            },
+            {
+                icon:'icon-map-marker',
+                placeholderText: 'Address search',
+                type: 'address'
+            }];
+
+        // Asset placeholder should indicate if there is searchable data available
+        $.subscribe("searchableAssetIndexesExist", function(indexesExist){
+          if(!indexesExist){
+            searchContexts[0].placeholderText = 'No searchable data';
+          }else{
+            searchContexts[0].placeholderText = 'Asset search';
+          }
+          $('#query').attr('placeholder', searchContexts[0].placeholderText);
+        });
+
+        // Change the search type between asset and address on click
+        $('.form-search .btn-group .dropdown-menu li').click(function(evt){
+
+          var itemIndex = $(this).index() / 2;
+          var formParent = $(this).closest('.form-search[data-facet-index]');
+          formParent.attr('data-facet-index', itemIndex);
+
+          // Update icon
+          var i = formParent.find('> .btn-group > .btn > i:first-child');
+          i.removeClass();
+
+          // Add new icon class and update the search type
+          if (itemIndex < searchContexts.length) {
+            i.addClass(searchContexts[itemIndex].icon);
+            $('input',formParent).attr("placeholder", searchContexts[itemIndex].placeholderText);
+            $('#query').assetOrAddressSearch({type: searchContexts[itemIndex].type});
+          }
+        });
+
+        // Create the search box
+        $('#query').assetOrAddressSearch({positionElementID: 'searchSubmitBtn', type: 'asset'});
+
+        // Set up the frames to the left of the map
+        require(['jquery', 'jqueryui-sortable-amd'], function($){
+
+
+          $('.frame .row-fluid').sortable({
+            handle:          '.module-header',
+            helper:          'clone',
+            items:           '.draggable',
+            forceHelperSize: true,
+            revert:          200,
+            tolerance:       'pointer',
+            containment:     'parent'
+          });
+
+          var frame = $('.frame');
+          var frameContent = $('.frame-content');
+
+          // Make sure the frame is full height
+          function frameResize() {
+            frame.height(
+                $(window).height() - frame.offset().top
+            );
+
+            frameContent.height(
+                $(window).height() - frameContent.offset().top
+            );
+          }
+
+          frameResize();
+          frameContent.removeClass('hide-on-load');
+
+          // Make sure the frame stays full height when resizing
+          $(window).resize(function(){ frameResize(); });
+        });
+      });
+    });
+  </script>
+    <script src="../../../components/respond/respond.src.js"></script>
+  </body>
+</html>
+

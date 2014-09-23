@@ -1,0 +1,352 @@
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Kitchen Sink</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../components/brandkit/favicon/favicon-144px.png">
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../components/brandkit/favicon/favicon-114px.png">
+
+    <!-- For first- and second-generation iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../components/brandkit/favicon/favicon-72px.png">
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon-precomposed" href="../../../components/brandkit/favicon/favicon.png">
+
+    <link rel="icon" href="../../../components/brandkit/favicon/favicon.ico">
+    <link href="../../../css/iids.css" rel="stylesheet" type="text/css">
+    <link href="../../../css/responsive.css" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]>
+      <link id="theme-ie" href="../../../css/ie.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+
+    
+
+    <script src="../../../components/modernizr/modernizr.js"></script>
+  </head>
+  <body>
+
+<div class="navbar navbar-static-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="ge-logo"></span> <span>My Application <small><i>powered by</i> GE Business</small></span></a>
+      <div class="pull-right">
+        <div class="btn-toolbar pull-left">
+          <div class="btn-group">
+            <button class="btn btn-danger dropdown-toggle" rel="tooltip" data-title="Alerts" data-placement="bottom" data-toggle="dropdown"><i class="icon-warning-sign"></i> 5</button>
+            <ul class="dropdown-menu pull-right message-list">
+              <li class="message-item">
+                <a href="#">
+                  <span class="label label-important pull-left">Urgent</span>
+                  <h4 class="message-title">Alert Type and Title</h4>
+                  <p>This is a brief description or summary of the associated event that occured&hellip;<br><time datetime="MM:DD:YYTHH:MM:SS" class="message-time">MM/DD/YY 12:05</time></p>
+                </a>
+              </li>
+              <li class="message-item">
+                <a href="#">
+                  <span class="label label-warning pull-left">Moderate</span>
+                  <h4 class="message-title">Alert Type and Title</h4>
+                  <p>This is a brief description or summary of the associated event that occured&hellip;<br><time datetime="MM:DD:YYTHH:MM:SS" class="message-time">MM/DD/YY 12:05</time></p>
+                </a>
+              </li>
+              <li class="message-item"><a href="#">View all alerts</a></li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-inverse dropdown-toggle" rel="tooltip" data-title="Messages" data-placement="bottom" data-toggle="dropdown"><i class="icon-envelope-alt"></i></button>
+            <ul class="dropdown-menu pull-right message-list">
+              <li class="message-item empty">No unread messages</li>
+              <li class="message-item"><a href="#">View all messages</a></li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i><span class="user-name">Tom Edison</span> <i class="icon-chevron-down"></i></button>
+            <ul class="dropdown-menu pull-right">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </div>
+        </div>
+        <form class="navbar-search pull-left">
+          <div class="input-append">
+              <input type="search" class="input-medium search-query" data-toggle="dropdown" data-target=".navbar-search"><button type="submit" class="btn btn-icon"><i class="icon-search"></i></button>
+          </div>
+          <div class="typeahead typeahead-faceted dropdown-menu pull-right">
+            <ul class="unstyled">
+              <li class="facet">
+                <div class="facet-name">Top Result</div>
+                <ul class="facet-results unstyled">
+                  <li><a href="#"><strong>Ma</strong>ine</a></li>
+                </ul>
+              </li>
+              <li class="facet">
+                <div class="facet-name">States</div>
+                <ul class="facet-results unstyled">
+                  <li><a href="#"><strong>Ma</strong>ine</a></li>
+                  <li><a href="#"><strong>Ma</strong>ryland</a></li>
+                  <li><a href="#"><strong>Ma</strong>ssachusetts</a></li>
+                  <li><a href="#">Alaba<strong>ma</strong></a></li>
+                </ul>
+              </li>
+              <li class="facet">
+                <div class="facet-name">Cities</div>
+                <ul class="facet-results unstyled">
+                  <li><a href="#"><strong>Ma</strong>bleton, GA</a></li>
+                  <li><a href="#"><strong>Ma</strong>cedon, NY</a></li>
+                  <li><a href="#"><strong>Ma</strong>cedonia, OH</a></li>
+                  <li><a href="#"><strong>Ma</strong>chesney Park, IL</a></li>
+                  <li><a href="#"><strong>Ma</strong>comb, IL</a></li>
+                </ul>
+              </li>
+              <li class="last"><a href="#">View All Results</a></li>
+            </ul>
+          </div>
+        </form>
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <i class="icon-bar"></i>
+          <i class="icon-bar"></i>
+          <i class="icon-bar"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="primary-navbar nav-collapse">
+    <div class="container">
+      <ul class="nav">
+
+        <li class="active"><a href="#">Dashboard</a></li>
+
+        <li><a href="#">Primary Nav 1</a></li>
+
+        <li><a href="#">Primary Nav 2</a></li>
+
+        <li><a href="#">Primary Nav 3</a></li>
+
+        <li><a href="#">Primary Nav 4</a></li>
+
+      </ul>
+
+      <div class="btn-group pull-right visible-desktop">
+        <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown"><i class="icon-file" style="margin-right: 9px;"></i><i class="icon-chevron-down"></i></button>
+        <ul class="dropdown-menu">
+          <li class="nav-header">Recently Closed</li>
+          <li><a href="#">Asset 014</a></li>
+          <li><a href="#">Asset 015</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Close All Tabs</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="workspace-navbar nav-collapse">
+    <div class="container">
+      <ul class="nav">
+
+        <li class="active" >
+          <div class="btn-group btn-filter">
+            <a href="#" class="btn">Asset 001</a>
+            <a href="#" class="btn btn-fade"><i class="icon-remove"></i></a>
+          </div>
+        </li>
+
+        <li>
+          <div class="btn-group btn-filter">
+            <a href="#" class="btn">Asset 002</a>
+            <a href="#" class="btn btn-fade"><i class="icon-remove"></i></a>
+          </div>
+        </li>
+
+        <li>
+          <div class="btn-group btn-filter">
+            <a href="#" class="btn">Asset 003</a>
+            <a href="#" class="btn btn-fade"><i class="icon-remove"></i></a>
+          </div>
+        </li>
+
+        <li>
+          <div class="btn-group btn-filter">
+            <a href="#" class="btn">Asset 004</a>
+            <a href="#" class="btn btn-fade"><i class="icon-remove"></i></a>
+          </div>
+        </li>
+
+        <li>
+          <div class="btn-group btn-filter">
+            <a href="#" class="btn">Asset 005</a>
+            <a href="#" class="btn btn-fade"><i class="icon-remove"></i></a>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="container content">
+  <div class="page-header">
+    <h1 class="voice voice-brand pull-left">Kitchen Sink</h1>
+    <div class="pull-right">
+      <ul class="nav nav-pills pull-left">
+        <li class="active"><a href="#">Page One</a></li>
+        <li><a href="#">Page Two</a></li>
+        <li><a href="#">Page Three</a></li>
+      </ul>
+      <div class="btn-group">
+        <a href="#" class="btn btn-icon btn-large" rel="tooltip" data-title="Add" data-placement="bottom"><i class="icon-plus"></i></a>
+        <a href="#" class="btn btn-icon btn-large" rel="tooltip" data-title="Share" data-placement="bottom"><i class="icon-share-alt"></i></a>
+        <a href="#" class="btn btn-icon btn-large" rel="tooltip" data-title="Refresh" data-placement="bottom"><i class="icon-refresh"></i></a>
+        <a href="#" class="btn btn-icon btn-large" rel="tooltip" data-title="Fullscreen" data-placement="bottom"><i class="icon-fullscreen"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+      <section class="module">
+        <header class="module-header">
+          <h3 class="voice voice-brand pull-left">Functional Demos</h3>
+        </header>
+        <div class="module-body" style="height: 890px;">
+          <br>
+          <h4>Notifications</h4>
+          <ul>
+            <li>
+              <a href="#" data-toggle="alert" data-target=".alert-info">Info</a>
+              <div class="alert alert-info alert-fixed-top" style="display: none;">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <button class="btn btn-small pull-right">Action</button>
+                <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+              </div>
+            </li>
+            <li>
+              <a href="#" data-toggle="alert" data-target=".alert-error">Urgent</a>
+              <div class="alert alert-error alert-fixed-top" style="display: none;">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <button class="btn btn-small pull-right">Action</button>
+                <strong>Oh snap!</strong> Change a few things up and try submitting again.
+              </div>
+            </li>
+            <li>
+              <a href="#" data-toggle="alert" data-target=".alert-warning">Warning</a>
+              <div class="alert alert-warning alert-fixed-top" style="display: none;">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <button class="btn btn-small pull-right">Action</button>
+                <strong>Warning!</strong> Best check yo self, you're not looking too good.
+              </div>
+            </li>
+            <li>
+              <a href="#" data-toggle="alert" data-target=".alert-success">Success</a>
+              <div class="alert alert-success alert-fixed-top" style="display: none;">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <button class="btn btn-small pull-right">Action</button>
+                <strong>Well done!</strong> You successfully read this important alert message.
+              </div>
+            </li>
+          </ul>
+          <br>
+          <h4>Tooltips <small>(hover to invoke; desktop only)</small></h4>
+          <ul>
+            <li><a href="#" rel="tooltip" data-placement="top" title="top tooltip">Top</a></li>
+            <li><a href="#" rel="tooltip" data-placement="right" title="right tooltip">Right</a></li>
+            <li><a href="#" rel="tooltip" data-placement="bottom" title="bottom tooltip">Bottom</a></li>
+            <li><a href="#" rel="tooltip" data-placement="left" title="left tooltip">Left</a></li>
+          </ul>
+          <br>
+          <h4>Popover <small>(click to invoke)</small></h4>
+          <ul>
+            <li><a href="#" rel="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title">Top</a></li>
+            <li><a href="#" rel="popover" data-placement="right" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title">Right</a></li>
+            <li><a href="#" rel="popover" data-placement="bottom" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title">Bottom</a></li>
+            <li><a href="#" rel="popover" data-placement="left" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title">Left</a></li>
+          </ul>
+          <br>
+          <h4>Modal</h4>
+          <ul>
+            <li>
+              <a href="#modal-demo" rel="modal" data-toggle="modal">Invoke</a>
+              <div id="modal-demo" class="modal hide fade">
+                <div class="modal-header">
+                  <h3>Modal header</h3>
+                </div>
+                <div class="modal-body">
+                  <p>One fine body…</p>
+                </div>
+                <div class="modal-footer">
+                  <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+                  <a href="#" class="btn btn-primary">Save changes</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <footer class="module-footer"></footer>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script src="../../../components/requirejs/require.js"></script>
+<script src="../../../js/require.config.js"></script>
+<script type="text/javascript">
+  require.config({
+    baseUrl: '../../../'
+  });
+  require(['iids'], function() {
+    // Register alerts.
+    // Add close events to alerts.
+    $('.alert').addClass('fade').alert();
+    // This is cobbled together from bootstrap dropdown and alert. It
+    // is meant to just show a hidden alert based on data-target selector
+    // and hide any other visible alerts. Using the 'close' button in
+    // the alert will trigger the alert close behavior, which removes
+    // the alert element from the page. Note that this means it can not
+    // be opened again once it has been dismissed, unless reloaded.
+    $('[data-toggle=alert]').on('click.alert.data-api', function() {
+      // Close all alerts.
+      hideAlerts();
+      // Get the jQuery element.
+      var $this = $(this);
+      // Look for a requested target selector.
+      var selector = $this.attr('data-target');
+      // If no target selector, look at the href for selector.
+      if (!selector) {
+        selector = $this.attr('href');
+        selector = selector && selector.replace(/.*(?=#[^\s]*$)/, ''); //strip for ie7
+      }
+      // Get the jQuery target element.
+      var $alert = $(selector);
+      // If not found, look for an alert sibling.
+      $alert.length || ($alert = $this.next('.alert'));
+      // Toggle the alert open.
+      $alert.show().addClass('in');
+      // Exit and prevent default.
+      return false;
+    });
+    // Function to toggle all alerts closed.
+    function hideAlerts() {
+      $('.alert.in').alert('close');
+    }
+  });
+</script>
+    <script src="../../../components/respond/respond.src.js"></script>
+  </body>
+</html>
+

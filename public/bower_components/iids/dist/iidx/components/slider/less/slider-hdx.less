@@ -1,0 +1,182 @@
+// Dependencies
+// --------------------------------------------------
+@import "slider.less";
+
+
+// Styles
+// --------------------------------------------------
+
+input.slider {
+  display: none;
+}
+
+  div.slider * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  div.slider {
+    border-collapse: separate;
+    display: table;
+    position: relative;
+    background-color: @white;
+    padding: 2px;
+    border: 1px solid @grayLighter;
+    .border-radius(@baseBorderRadius);
+  }
+
+  div.slider button.slider-button {
+    display: inline-block;
+    background-color: @white;
+    color: @gray;
+    border: 1px solid transparent;
+    .border-radius(@baseBorderRadius);
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 24px;
+    height: 29px;
+    line-height: @baseLineHeight + 11;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .lt-ie10 div.slider button.slider-button {
+    float: left;
+  }
+
+  div.slider button.slider-button.less {
+    margin-right: 3px;
+  }
+
+  div.slider button.slider-button.more {
+    margin-left: 3px;
+  }
+
+  div.slider div.center {
+    display: table-cell;
+    width: 100%;
+    background-color: @offWhite;
+    border: 1px solid @grayLighter;
+    .border-radius(@baseBorderRadius);
+    vertical-align: middle;
+  }
+
+  div.slider .content {
+    display: table;
+  }
+
+  div.slider label {
+    display: table-cell;
+    white-space: nowrap;
+    padding: 0 7px;
+    color: @gray;
+    vertical-align: middle;
+  }
+
+  div.slider .interactive {
+    display: table-cell;
+    width: 100%;
+    padding-right: 10px;
+    vertical-align: middle;
+  }
+
+  div.slider .track-and-thumb {
+    position: relative;
+    width: 100%;
+    height: 25px;
+  }
+
+  div.slider .track {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: @gray;
+  }
+
+  div.slider .thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 32px;
+    line-height: @baseLineHeight + 5;
+    padding: 0;
+    background-color: @white;
+    border: 1px solid @grayLighter;
+    .border-radius(@baseBorderRadius);
+    color: @cyan;
+  }
+
+  div.slider .thumb i:first-child {
+    padding-right: 7px;
+  }
+
+  div.slider button {
+    outline: none;
+  }
+
+  div.slider button:hover {
+    border-color: @cyan;
+    color: @cyan;
+  }
+
+  div.slider button:active,
+  div.slider.active .thumb {
+    border-color: transparent;
+    color: @white;
+    #gradient > .vertical(lighten(@cyan, 15%), @cyan);
+  }
+
+  div.slider.active .track {
+    background-color: @cyan;
+  }
+
+  // Mega sized slider
+
+  div.slider.mega {
+    .border-radius(@borderRadiusLarge + 4);
+  }
+
+  div.slider.mega button {
+    font-size: @baseFontSize + 7;
+  }
+
+  div.slider.mega button.slider-button {
+    .border-radius(@borderRadiusLarge);
+    width: 40px;
+    height: 59px;
+    line-height: @baseLineHeight + 41;
+  }
+
+  div.slider.mega div.center {
+    .border-radius(6px);
+  }
+
+  div.slider.mega label {
+    padding: 0 17px;
+    font-size: @baseFontSize + 5;
+    font-family: @brandFontFamily;
+  }
+
+  div.slider.mega .interactive {
+    padding-right: 20px;
+  }
+
+  div.slider.mega .track-and-thumb {
+    height: 47px;
+  }
+
+  div.slider.mega .thumb {
+    height: 47px;
+    width: 59px;
+    line-height: @baseLineHeight + 29;
+  }
+
+  div.slider.mega .thumb i:first-child {
+    padding-right: 20px;
+  }
+

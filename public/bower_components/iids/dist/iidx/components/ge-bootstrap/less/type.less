@@ -1,0 +1,134 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "bootstrap/less/type.less";
+
+
+// Bootstrap Overrides
+// --------------------------------------------------
+
+// Blockquote
+blockquote p {
+	#voice > .human(@baseFontSize + 2, normal, @baseLineHeight);
+	margin-bottom: 5px;
+}
+.voice-brand blockquote p,
+blockquote.voice-brand p {
+	#voice > #family > .brand;
+}
+blockquote small {
+	color: @gray;
+}
+
+// Description/definition lists
+dl {
+  dd {
+    margin-bottom: @baseFontSize;
+  }
+}
+
+.dl-horizontal dt {
+  line-height: @baseLineHeight + 1;
+  margin-top: -1px;
+  width: 33.3%;
+}
+.dl-horizontal dd {
+  margin-left: 33.3%;
+  padding-left: 10px;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: normal;
+  font-family: @brandFontFamily;
+}
+h1 {
+	font-size: @baseFontSize + 22; // 36px
+}
+h2 {
+	font-size: @baseFontSize + 10; // 24px
+}
+h3 {
+	font-size: @baseFontSize + 4; // 18px
+	line-height: @baseLineHeight * 1.5;
+}
+h4 {
+	font-size: @baseFontSize; // 14px
+}
+h5 {
+	font-size: @baseFontSize - 2; // 12px
+}
+h6 {
+	font-size: @baseFontSize - 3; // 11px
+	color: @grayLight;
+	text-transform: uppercase;
+}
+h4 small { font-size: round(@baseFontSize*.85714286); }
+
+// Page Header
+.page-header {
+  border-bottom: 0;
+  font-size: @baseFontSize + 12;
+  margin: 0;
+  padding-bottom: 0;
+  text-align: right;
+  .clearfix();
+  > h1 {
+    font-size: inherit;
+    line-height: 35px;
+    text-align: left;
+    small {
+      color: @gray;
+      margin-left: 5px;
+    }
+  }
+  > * {
+    margin-bottom: @gridGutterWidth;
+  }
+  // A few rules to ensure that nav pills and
+  // button groups sit nicely together in the
+  // "secondary" nav area.
+  .nav {
+    margin-bottom: 0;
+    + .btn-group {
+      margin-left: @baseLineHeight;
+    }
+  }
+  .btn-group {
+    margin: 0;
+    .btn-icon {
+      // Button icons in the header need white backgrounds,
+      // not the standard button group porcelain background.
+      background-color: @white;
+      border-color: transparent;
+      &:hover {
+        background-color: @grayLightest;
+      }
+      &.active,
+      &:active {
+        background-color: darken(@white,15%);
+      }
+      &:not(:first-child) {
+        border-left-color: @btnBorder;
+      }
+    }
+  }
+}
+
+// Lists
+ul.structured,
+ol.structured {
+  margin-left: 0;
+  list-style: none;
+  & li {
+    border-top: 1px solid @grayLight;
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+  & li:first-child:not(.nav-header) {
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
+  }
+}

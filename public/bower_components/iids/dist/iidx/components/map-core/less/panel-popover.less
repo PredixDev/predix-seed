@@ -1,0 +1,18 @@
+@import "components/ge-bootstrap/less/ge-bootstrap.less";
+@import "components/brandkit/less/variables.less";
+@import "components/map-core/less/mixins.less";
+
+.documentation.popover-object .map { margin: 0; overflow: visible;}
+
+.map .popover {
+  width: 290px;
+  max-width: 290px;
+  z-index: 1000;
+
+  // Usage of rgba(255, 255, 255, 0) instead of transparent to fix Firefox rendering. See http://stackoverflow.com/questions/13630886/firefox-17-and-css-borders-based-triangles-not-rendering-properly
+  .arrow { border-color: rgba(0, 0, 0, 0.2) rgba(255, 255, 255, 0) rgba(255, 255, 255, 0) rgba(255, 255, 255, 0); }
+
+  .arrow:after { border-color: @grayLighter rgba(255, 255, 255, 0) rgba(255, 255, 255, 0) rgba(255, 255, 255, 0); }
+
+  &.top .arrow:after { bottom: 2px; }
+}

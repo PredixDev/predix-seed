@@ -1,0 +1,154 @@
+.map{
+    .marker{
+
+        path{
+            fill: @blue;
+        }
+
+        &.active{
+            fill: darken(@blue,10%);
+        }
+
+        &.default{
+            path{
+                fill: @blue;
+            }
+        }
+
+        &.default.active{
+            path{
+                fill: darken(@blue,10%);
+            }
+        }
+
+        &.selected, &.selected.active{
+            path{
+                fill: white;
+                stroke: @blue;
+            }
+
+            text{
+                fill:@blue;
+            }
+        }
+
+        &.default.selected, &.default.selected.active{
+            path{
+                fill: white;
+                stroke: @blue;
+            }
+
+            text{
+                fill:@blue;
+            }
+        }
+
+        &.warning{
+            path{
+                fill: @orange;
+            }
+        }
+
+        &.warning.active{
+            path{
+                fill: darken(@orange,10%);
+            }
+        }
+
+        &.warning.selected, &.warning.selected.active{
+            path{
+                fill: white;
+                stroke: @orange;
+            }
+
+            text{
+                fill:@orange;
+            }
+        }
+
+        &.success{
+            path{
+                fill: @green;
+            }
+        }
+
+        &.success.active{
+            path{
+                fill: darken(@green,10%);
+            }
+        }
+
+        &.success.selected, &.success.selected.active{
+            path{
+                fill: white;
+                stroke: @green;
+            }
+
+            text{
+                fill:@green;
+            }
+        }
+
+        &.important{
+            path{
+                fill: @red;
+            }
+        }
+
+        &.important.active{
+            path{
+                fill: darken(@red,10%);
+            }
+        }
+
+        &.important.selected, &.important.selected.active{
+            path{
+                fill: white;
+                stroke: @red;
+            }
+
+            text{
+                fill:@red;
+            }
+        }
+
+        &.highlight{
+            path{
+                fill: @purple;
+            }
+        }
+
+        &.highlight.active{
+            path{
+                fill: darken(@purple,10%);
+            }
+        }
+
+        &.highlight.selected, &.highlight.selected.active{
+            path{
+                fill: white;
+                stroke: @purple;
+            }
+
+            text{
+                fill:@purple;
+            }
+        }
+
+        text{
+            pointer-events: none;
+            font-family: 'FontAwesome';
+            font-size: 14px;
+        }
+
+        cursor: pointer;
+
+        .popover-container{
+            .popover{
+                position: relative !important;
+            }
+
+        }
+
+    }
+}

@@ -1,0 +1,107 @@
+// Dependencies
+// --------------------------------------------------
+@import "ge-bootstrap/less/hdx-bootstrap.less";
+@import "message-list.less";
+
+.message-list {
+  margin-right: 5px;
+}
+
+.message-list > .message-item:not(:first-child) {
+	padding-top:12px;
+}
+
+.message-list .message-title {
+	font-weight: bold;
+	small {
+		display: block;
+		font-weight: normal;
+		font-size: 12px;
+		color: @textColor;
+	}
+}
+
+.message-list .message-title i {
+	padding-right: 4px;
+}
+
+.message-item > a {
+  text-decoration: none;
+  &:hover {
+    .message-title,
+    .message-time,
+    .message-status {
+      color:@linkColor;
+      text-decoration: underline;
+    }
+    color: @linkColor;
+    h4, small {
+      color:inherit;
+    }
+    p {
+      color: @textColor;
+    }
+  }
+}
+
+// undo styling in message-list component that should be targeted more tightly
+.message-list .message-item > * a {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// for masthead
+.navbar .notifications .dropdown-menu {
+  width:300px;
+}
+
+.navbar .notifications .dropdown-menu .message-item a {
+  color: @grayDarkest;
+}
+
+.navbar .notifications .dropdown-menu .message-item:not(:last-child) a:hover {
+  background-color: transparent;
+  background-image: none;
+  color:@linkColor;
+
+  .message-title,
+  .message-time,
+  .message-status {
+    color:@linkColor;
+    text-decoration: underline;
+  }
+
+  h4, small {
+    color:inherit;
+  }
+  p {
+    color: @grayDarkest;   
+  }
+}
+
+.navbar .notifications .dropdown-menu .message-item:last-child a {
+  text-decoration:underline;
+}
+
+.navbar .notifications .dropdown-menu .message-item:last-child a:hover {
+  background-color: transparent;
+  background-image: none;
+  text-decoration: underline;
+  color: @linkColor;
+}
+
+
+.navbar .notifications .dropdown-menu .message-item h4 {
+  font-weight:bold;
+}
+
+.navbar .notifications .dropdown-menu .message-item p {
+  white-space: normal;
+}
+
+
+.navbar .notifications .message-item i {
+  display:inline-block;
+  margin-right:10px;
+}

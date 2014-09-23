@@ -1,0 +1,8 @@
+{
+    "name":  "jQuery-contextMenu",
+    "version": "1.6.6",
+    "main": ["src/jquery.contextMenu.js","src/jquery.contextMenu.css"],
+    "dependencies": {
+        "jquery": ">=1.7.0"
+    }
+}

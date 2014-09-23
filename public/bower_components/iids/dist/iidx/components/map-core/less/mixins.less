@@ -1,0 +1,38 @@
+.map-ui-shadow{
+  -webkit-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2),  1px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2),  1px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2),  1px 1px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.no-shadow{
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.no-selection{
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Need to re-define because it's commented out in ge-bootstrap/../mixins.less
+.box-shadow-map(@shadow) {
+  -webkit-box-shadow: @shadow;
+  -moz-box-shadow: @shadow;
+  box-shadow: @shadow;
+}
+
+.no-selection{
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+}

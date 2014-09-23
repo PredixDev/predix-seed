@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+
+    <div class="spinner"></div>
+
+    <!-- Some refs will fail here depending on load context -->
+    <script src="../../components/requirejs/require.js"></script>
+    <script src="../../js/require.config.js"></script>
+
+    <script src="base/components/requirejs/require.js"></script>
+    <script src="base/js/require.config.js"></script>
+
+    <script type="text/javascript">
+        var urlparts = window.location.href.split("/");
+
+        // determine if we are running as a fixture in a Karma test suite
+        // adjust base url appropriately
+        var baseURL;
+        if (urlparts[3] == "debug.html" || urlparts[3] == "context.html") {
+            baseURL = "/base/";
+        } else {
+            baseURL = urlparts[0] + "/" + urlparts[1] + "/" + urlparts[2] + "/" + urlparts[3];
+        }
+
+        require.config({
+            baseUrl: baseURL
+        });
+
+        require(['jquery', 'spinner'], function ($, spinner) {
+            $('.spinner').spin();
+        });
+    </script>
+
+
+    <button onclick="$('.spinner').spin()">start</button>
+    <button onclick="$('.spinner').spin({length: 28, top: 10, left: 50} )">start with options</button>
+    <button onclick="$('.spinner').spin(false)">stop</button>
+  </body>
+</html>

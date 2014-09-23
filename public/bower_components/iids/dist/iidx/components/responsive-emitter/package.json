@@ -1,0 +1,13 @@
+{
+  "name": "responsive-emitter",
+  "author": "General Electric",
+  "description": "Listen to window resize events and trigger proprietary jQuery events for Bootstrap responsive thresholds.",
+  "version": "0.8.2",
+  "private": true,
+  "homepage": "http://gesdh.com/",
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-watch": "~0.2.0"
+  }
+}

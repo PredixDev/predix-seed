@@ -1,0 +1,69 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "brandkit/less/brandkit.less";
+@import "variables.less";
+
+
+// Styles
+// --------------------------------------------------
+
+.calendar {
+  font-family: @monoFontFamily;
+
+  .month{
+    stroke: @grayDarker;
+    stroke-width: 2px;
+	shape-rendering: crispEdges;
+    fill: none;
+    //opacity: 0.2;
+  }
+
+  .day {
+    fill: #fff;
+    stroke: #eee;
+    stroke-width: 1px;
+  }
+
+  .day.selected {
+    stroke: #ccc;
+    stroke-width: 2px;
+  }
+
+  .day.highlighted {
+    stroke: #ccc;
+    stroke-width: 2px;
+  }
+
+  .brush .extent {
+    stroke: @grayDarker;
+    fill-opacity: 0;
+    shape-rendering: crispEdges;
+  }
+
+  .axis text {
+    font-family: @monoFontFamily;
+    font-size: 13px;
+    fill: @grayDarkest
+  }
+  
+  .legend .step {
+    stroke: @grayDarker;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+  }
+
+  .legend .axis path {
+    display: none;
+  }
+
+  .legend .axis line {
+    stroke: #ccc;
+    shape-rendering: crispEdges;
+  }
+
+  .caption {
+    //font-weight: bold;
+    font-size: 13px;
+  }
+}

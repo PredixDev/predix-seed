@@ -1,0 +1,77 @@
+// Dependencies
+// --------------------------------------------------
+@import "ge-bootstrap/less/hdx-bootstrap.less";
+@import "variables.less";
+
+//styles
+//----------------------------------------------------
+@import "footer.less";
+
+//override default footer styles
+.footer {
+
+  // secondary menu
+  .secondary {
+    background-color: @grayLighter;
+    font-size: @componentFontSize;
+    color: @grayDark; 
+    width: auto;
+    padding-left: 7px;
+    padding-right: 7px;
+    
+    // rows/grid system are used in large version (but perhaps don't need to be)
+    .row [class^="span"] {
+      font-size: @componentFontSize;
+      color: @grayDark; 
+      h4 {
+        color: @grayDark;
+        font-size: @componentFontSize;
+      }
+    }
+    
+    // block is a holder for navigation items and will primarily be allowed to pull right or left
+    .block {
+      font-size: @componentFontSize;
+      a {
+        color: @grayDark;
+      }
+	}
+  }
+
+  // main footer
+  .primary {
+    color: @primaryFooterFontColor;  
+    font-size: @componentFontSize;
+	width: auto;
+    padding-left: 7px;
+    padding-right: 7px;
+    
+    // block is a holder for navigation items and will primarily be allowed to pull right or left
+    .block {
+      a {
+        color: @primaryFooterFontColor;
+      	font-size: @componentFontSize;
+      }
+	}
+  }
+  
+  //logo
+  .ge-logo {
+		background: transparent url("@{componentsPath}/brandkit/img/ge-monogram-athensgray.svg") no-repeat;
+		background-size: contain; //The GE Monogram has slightly different width/height dimensions
+	  	border: 0;
+	  	color: transparent;
+	  	float: left;
+	  	font: 0/0 a;
+	  	height: 36px;
+	  	margin: -10px 10px -3px 0px;
+	  	width: 36px;
+	}
+	
+	.primary .brand {
+		padding-top: 20px;
+		span {
+			float:left;
+		}
+	}
+}

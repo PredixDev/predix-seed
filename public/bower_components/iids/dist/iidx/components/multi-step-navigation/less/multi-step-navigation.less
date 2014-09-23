@@ -1,0 +1,47 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "variables.less";
+@import "ge-bootstrap/less/ge-bootstrap.less";
+
+
+// Styles
+// --------------------------------------------------
+
+.multi-step-nav{
+	.navbar .nav li a{
+		padding:10px 15px 10px;
+	}
+	.navbar-inner{
+		background-color: @navbarInverseBackground;
+		background-image:none;
+		.container{
+			margin:20px auto;
+		}
+	}
+	.nav-pills{
+		li{
+			a{
+				[class^="icon-"]{
+					color:@navbarText;
+				}
+			}
+			&.completed{
+				a,
+				a [class^="icon-"]{
+					color:darken(@navbarText, 50%);
+				}
+			}
+			&:hover,
+			&.active{
+				a{
+					background-color: @navbarLinkBackgroundActive;
+					color:@navbarLinkColorActive;
+					[class^="icon-"]{
+						color:@navbarLinkColorActive;
+					}
+				}
+			}
+		}
+	}
+}

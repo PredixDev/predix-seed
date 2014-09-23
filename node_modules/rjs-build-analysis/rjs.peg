@@ -1,0 +1,33 @@
+start
+  = bundles:parent* { return { bundles: bundles } }
+ 
+parent
+  = newline name:filename newline (separator children:(newline filename)*) newline { 
+      return {
+        parent:name,
+        children: children.map(function(child){return child[1]})
+      }
+    }
+
+ 
+filename
+  = name:chars { return name }
+ 
+chars
+  = chars:char+ { return chars.join(""); }
+ 
+char
+  = [^"\\\0-\x1F\x7f]
+  / '\\"'  { return '"';  }
+  / "\\\\" { return "\\"; }
+  / "\\/"  { return "/";  }
+
+hexDigit
+  = [0-9a-fA-F]
+ 
+newline
+  = [\n\r]
+ 
+separator
+  = "---" "-"*
+

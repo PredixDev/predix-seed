@@ -1,0 +1,37 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "ge-bootstrap/less/ge-bootstrap.less";
+@import "variables.less";
+
+
+// Styles
+// --------------------------------------------------
+
+// Add Widget
+.module-add-widget {
+  background-color: @grayLightest;
+  .border-radius(@baseBorderRadius);
+  height: 290px;
+  text-align: center;
+  .transition(background-color .2s linear);
+  z-index: 2;
+  a {
+    color: @textColor;
+    line-height: 290px;
+    text-decoration: none;
+  }
+  &:hover {
+    background-color: @white;
+    cursor: pointer;
+    a {
+      color: @linkColor;
+      &:hover {
+        color: @linkColor;
+      }
+      &:active {
+        color: darken(@linkColor,15%);
+      }
+    }
+  }
+}

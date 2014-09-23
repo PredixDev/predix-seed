@@ -1,0 +1,680 @@
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Asset Monitoring Data View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../components/brandkit/favicon/favicon-144px.png">
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../components/brandkit/favicon/favicon-114px.png">
+
+    <!-- For first- and second-generation iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../components/brandkit/favicon/favicon-72px.png">
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon-precomposed" href="../../../components/brandkit/favicon/favicon.png">
+
+    <link rel="icon" href="../../../components/brandkit/favicon/favicon.ico">
+    <link href="../../../css/iids.css" rel="stylesheet" type="text/css">
+    <link href="../../../css/responsive.css" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]>
+      <link id="theme-ie" href="../../../css/ie.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+
+    
+
+    <script src="../../../components/modernizr/modernizr.js"></script>
+  </head>
+  <body>
+
+<div class="navbar navbar-static-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="ge-logo"></span> <span>My Application <small><i>powered by</i> GE Business</small></span></a>
+      <div class="pull-right">
+        <div class="btn-toolbar pull-left">
+          <div class="btn-group">
+            <button class="btn btn-danger dropdown-toggle" rel="tooltip" data-title="Alerts" data-placement="bottom" data-toggle="dropdown"><i class="icon-warning-sign"></i> 5</button>
+            <ul class="dropdown-menu pull-right message-list">
+              <li class="message-item">
+                <a href="#">
+                  <span class="label label-important pull-left">Urgent</span>
+                  <h4 class="message-title">Alert Type and Title</h4>
+                  <p>This is a brief description or summary of the associated event that occured&hellip;<br><time datetime="MM:DD:YYTHH:MM:SS" class="message-time">MM/DD/YY 12:05</time></p>
+                </a>
+              </li>
+              <li class="message-item">
+                <a href="#">
+                  <span class="label label-warning pull-left">Moderate</span>
+                  <h4 class="message-title">Alert Type and Title</h4>
+                  <p>This is a brief description or summary of the associated event that occured&hellip;<br><time datetime="MM:DD:YYTHH:MM:SS" class="message-time">MM/DD/YY 12:05</time></p>
+                </a>
+              </li>
+              <li class="message-item"><a href="#">View all alerts</a></li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-inverse dropdown-toggle" rel="tooltip" data-title="Messages" data-placement="bottom" data-toggle="dropdown"><i class="icon-envelope-alt"></i></button>
+            <ul class="dropdown-menu pull-right message-list">
+              <li class="message-item empty">No unread messages</li>
+              <li class="message-item"><a href="#">View all messages</a></li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i><span class="user-name">Tom Edison</span> <i class="icon-chevron-down"></i></button>
+            <ul class="dropdown-menu pull-right">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </div>
+        </div>
+        <form class="navbar-search pull-left">
+          <div class="input-append">
+              <input type="search" class="input-medium search-query" data-toggle="dropdown" data-target=".navbar-search"><button type="submit" class="btn btn-icon"><i class="icon-search"></i></button>
+          </div>
+          <div class="typeahead typeahead-faceted dropdown-menu pull-right">
+            <ul class="unstyled">
+              <li class="facet">
+                <div class="facet-name">Top Result</div>
+                <ul class="facet-results unstyled">
+                  <li><a href="#"><strong>Ma</strong>ine</a></li>
+                </ul>
+              </li>
+              <li class="facet">
+                <div class="facet-name">States</div>
+                <ul class="facet-results unstyled">
+                  <li><a href="#"><strong>Ma</strong>ine</a></li>
+                  <li><a href="#"><strong>Ma</strong>ryland</a></li>
+                  <li><a href="#"><strong>Ma</strong>ssachusetts</a></li>
+                  <li><a href="#">Alaba<strong>ma</strong></a></li>
+                </ul>
+              </li>
+              <li class="facet">
+                <div class="facet-name">Cities</div>
+                <ul class="facet-results unstyled">
+                  <li><a href="#"><strong>Ma</strong>bleton, GA</a></li>
+                  <li><a href="#"><strong>Ma</strong>cedon, NY</a></li>
+                  <li><a href="#"><strong>Ma</strong>cedonia, OH</a></li>
+                  <li><a href="#"><strong>Ma</strong>chesney Park, IL</a></li>
+                  <li><a href="#"><strong>Ma</strong>comb, IL</a></li>
+                </ul>
+              </li>
+              <li class="last"><a href="#">View All Results</a></li>
+            </ul>
+          </div>
+        </form>
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <i class="icon-bar"></i>
+          <i class="icon-bar"></i>
+          <i class="icon-bar"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="primary-navbar nav-collapse">
+    <div class="container">
+      <ul class="nav">
+
+        <li class="active"><a href="#">Dashboard</a></li>
+
+        <li><a href="#">Fleet</a></li>
+
+      </ul>
+
+      <div class="btn-group pull-right visible-desktop">
+        <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown"><i class="icon-file" style="margin-right: 9px;"></i><i class="icon-chevron-down"></i></button>
+        <ul class="dropdown-menu">
+          <li class="nav-header">Recently Closed</li>
+          <li><a href="#">Asset 014</a></li>
+          <li><a href="#">Asset 015</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Close All Tabs</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="workspace-navbar nav-collapse">
+    <div class="container">
+      <ul class="nav">
+
+        <li class="active" >
+          <div class="btn-group btn-filter">
+            <a href="#" class="btn">Asset 001</a>
+            <a href="#" class="btn btn-fade"><i class="icon-remove"></i></a>
+          </div>
+        </li>
+
+        <li>
+          <div class="btn-group btn-filter">
+            <a href="#" class="btn">Asset 002</a>
+            <a href="#" class="btn btn-fade"><i class="icon-remove"></i></a>
+          </div>
+        </li>
+
+        <li>
+          <div class="btn-group btn-filter">
+            <a href="#" class="btn">Asset 003</a>
+            <a href="#" class="btn btn-fade"><i class="icon-remove"></i></a>
+          </div>
+        </li>
+
+        <li>
+          <div class="btn-group btn-filter">
+            <a href="#" class="btn">Asset 004</a>
+            <a href="#" class="btn btn-fade"><i class="icon-remove"></i></a>
+          </div>
+        </li>
+
+        <li>
+          <div class="btn-group btn-filter">
+            <a href="#" class="btn">Asset 005</a>
+            <a href="#" class="btn btn-fade"><i class="icon-remove"></i></a>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- avoid flash of unstyled table -->
+<style>table[data-table-name="myTable"] {visibility:hidden;}</style>
+
+<div class="content">
+    <div id="modal-demo" class="modal hide fade" style="display: none;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3>Share</h3>
+      </div>
+      <div class="modal-body">
+        To: Tom.Edison@GE.com
+        <hr>
+        Subject: Asset 001 Data Share
+        <hr>
+
+        <p>Hey Tom, does this number look right to you?</p>
+        <p><a href="#">http://myapplication.ge.com/assets/asset001/data.html?row=4&col=DataType2</a></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+        <a href="#" class="btn btn-primary">Send</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="page-header">
+        <h1 class="voice voice-brand pull-left">Asset 001</h1>
+        <div class="pull-right">
+          <ul class="nav nav-pills pull-left">
+            <li><a href="#">Overview</a></li>
+            <li><a href="#">Events</a></li>
+            <li class="active"><a href="#">Data</a></li>
+          </ul>
+          <div class="btn-group">
+            <!-- <a href="#" class="btn btn-icon" rel="tooltip" data-title="Add" data-placement="bottom"><i class="icon-plus"></i></a> -->
+            <a href="#" class="btn btn-icon btn-large" rel="tooltip" data-title="Share" data-placement="bottom"><i class="icon-share-alt"></i></a>
+            <a href="#" class="btn btn-icon btn-large" rel="tooltip" data-title="Refresh" data-placement="bottom"><i class="icon-refresh"></i></a>
+            <a href="#" class="btn btn-icon btn-large" rel="tooltip" data-title="Fullscreen" data-placement="bottom"><i class="icon-fullscreen"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <section class="module fullwidth">
+            <div class="module-body">
+              <div class="tray filter-tray top collapse hidden-phone">
+  <div class="tray-inner">
+
+    <div class="filter-rule-group"></div>
+
+    <!-- client-side template -->
+    <script type="text/template" id="filter-rule-template">
+      <form class="inline-form filter-rule">
+        <span class="filter-item span2">
+          <select>
+            <option value="show">Show Only</option>
+            <option value="hide">Hide</option>
+            <option value="highlight">Highlight</option>
+          </select>
+        </span>
+        <span class="filter-item span2">
+          <select>
+            <option value="siteName">Site Name</option>
+            <option value="turbineSN">Turbine SN</option>
+            <option value="average">Average</option>
+            <option value="median">Median</option>
+            <option value="standardDeviation">Standard Deviation</option>
+            <option value="percentile">Percentile</option>
+          </select>
+        </span>
+        <span class="filter-item span1">
+          <select>
+            <option value="=">=</option>
+            <option value="&gt;">&gt;</option>
+            <option value="&gt;=">&gt;=</option>
+            <option value="&lt;">&lt;</option>
+            <option value="&lt;=">&lt;=</option>
+            <option value="startsWidth">starts with</option>
+            <option value="endsWith">ends width</option>
+            <option value="contains">contains</option>
+            <option value="doesNotContain">does not contain</option>
+          </select>
+        </span>
+        <span class="filter-item">
+          <input type="text" value="sample">
+        </span>
+        <span class="filter-item">
+          <button type="button" class="btn-link" data-toggle="filter-rule-remove"><i class="icon-remove-sign"></i></button>
+        </span>
+      </form>
+    </script>
+    <!-- end template -->
+
+    <button class="btn btn-link btn-large pull-left" data-toggle="filter-rule-add" type="button"><i class="icon-plus-sign"></i> Add Condition</button>
+    <div class="pull-right">
+      <button class="btn btn-inverse">Cancel</button>
+      <button class="btn btn-primary">Apply</button>
+    </div>
+
+  </div>
+</div>
+
+              <div class="btn-toolbar">
+                <div class="btn-group hidden-phone">
+                  <button class="btn btn-primary tray-toggle" data-toggle="collapse" data-target=".tray">Filter</button>
+                  <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="icon-chevron-down"></i></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#"><strong>Recents</strong></a></li>
+                    <li><a href="#">Filter 001</a></li>
+                    <li><a href="#">Filter 002</a></li>
+                  </ul>
+                </div>
+                <div class="btn-group btn-filter hidden-phone">
+                  <a href="#" class="btn"><i class="icon-star color-red"></i> Filter 001</a>
+                  <a href="#" class="btn btn-remove"><i class="icon-remove"></i></a>
+                </div>
+                <div class="pull-right">
+                  <form class="form-search btn-group pull-left">
+                    <div class="input-append">
+                      <input type="text" class="input-medium search-query" data-filter-table="myTable"><button type="submit" class="btn btn-icon"><i class="icon-search"></i></button>
+                    </div>
+                  </form>
+                  <div class="btn-group">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-chevron-down"></i></button>
+                    <ul class="dropdown-menu pull-right">
+                      <li><a href="#">Save as CSV</a></li>
+                      <li><a href="#">Save as XLS</a></li>
+                      <li><a href="#">Save as PDF</a></li>
+                      <li><a href="#">Print</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">Add to Dashboard</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+
+<table class="table table-bordered" data-table-name="myTable">
+  <thead>
+    <tr>
+      <th class="essential">Site Name</th>
+      <th class="numeric essential">Turbine SN</th>
+      <th class="numeric essential">Average</th>
+      <th class="numeric optional">Median</th>
+      <th class="numeric optional">Standard Deviation</th>
+      <th class="numeric">Percentile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#">XYZ</a></td>
+      <td class="voice voice-data">100000</td><td class="voice voice-data">95.79</td><td class="voice voice-data">96.70</td><td class="voice voice-data">4.79</td>
+      <td class="voice voice-data gemf-percentile">60</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td><td class="voice voice-data">200000</td><td class="voice voice-data">93.98</td>
+      <td class="voice voice-data">93.90</td><td class="voice voice-data">7.63</td><td class="voice voice-data gemf-percentile">64</td>
+    </tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">300000</td><td class="voice voice-data">97.06</td><td class="voice voice-data">97.04</td>
+      <td class="voice voice-data">0.47</td><td class="voice voice-data gemf-percentile">76</td></tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">350000</td><td class="voice voice-data">95.01</td><td class="voice voice-data outlier">45.13</td><td class="voice voice-data">2.16</td>
+      <td class="voice voice-data gemf-percentile">75</td>
+    </tr>
+    <tr>
+      <td><a href="#">Nob Hill</a></td>
+      <td class="voice voice-data">400000</td><td class="voice voice-data">94.18</td><td class="voice voice-data">94.40</td><td class="voice voice-data">1.08</td>
+      <td class="voice voice-data gemf-percentile">70</td></tr>
+    <tr>
+      <td><a href="#">Pacific Heights</a></td>
+      <td class="voice voice-data">600000</td><td class="voice voice-data">94.01</td><td class="voice voice-data">93.45</td><td class="voice voice-data">4.87</td>
+      <td class="voice voice-data gemf-percentile">70</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td>
+      <td class="voice voice-data">100000</td><td class="voice voice-data">95.79</td><td class="voice voice-data">96.70</td><td class="voice voice-data">4.79</td>
+      <td class="voice voice-data gemf-percentile">60</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td><td class="voice voice-data">200000</td><td class="voice voice-data">93.98</td>
+      <td class="voice voice-data">93.90</td><td class="voice voice-data">7.63</td><td class="voice voice-data gemf-percentile">64</td>
+    </tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">300000</td><td class="voice voice-data">97.06</td><td class="voice voice-data">97.04</td>
+      <td class="voice voice-data">0.47</td><td class="voice voice-data gemf-percentile">76</td></tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">350000</td><td class="voice voice-data outlier">54.11</td><td class="voice voice-data outlier">58.53</td><td class="voice voice-data">2.16</td>
+      <td class="voice voice-data gemf-percentile">75</td>
+    </tr>
+    <tr>
+      <td><a href="#">Nob Hill</a></td>
+      <td class="voice voice-data">400000</td><td class="voice voice-data outlier">44.17</td><td class="voice voice-data">94.40</td><td class="voice voice-data">1.08</td>
+      <td class="voice voice-data gemf-percentile">70</td></tr>
+    <tr>
+      <td><a href="#">Pacific Heights</a></td>
+      <td class="voice voice-data">600000</td><td class="voice voice-data">94.01</td><td class="voice voice-data">93.45</td><td class="voice voice-data">4.87</td>
+      <td class="voice voice-data gemf-percentile">70</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td>
+      <td class="voice voice-data">100000</td><td class="voice voice-data">95.79</td><td class="voice voice-data">96.70</td><td class="voice voice-data">4.79</td>
+      <td class="voice voice-data gemf-percentile">60</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td><td class="voice voice-data">200000</td><td class="voice voice-data">93.98</td>
+      <td class="voice voice-data">93.90</td><td class="voice voice-data">7.63</td><td class="voice voice-data gemf-percentile">64</td>
+    </tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">300000</td><td class="voice voice-data">97.06</td><td class="voice voice-data">97.04</td>
+      <td class="voice voice-data">0.47</td><td class="voice voice-data gemf-percentile">76</td></tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">350000</td><td class="voice voice-data">95.01</td><td class="voice voice-data">95.17</td><td class="voice voice-data">2.16</td>
+      <td class="voice voice-data gemf-percentile">75</td>
+    </tr>
+    <tr>
+      <td><a href="#">Nob Hill</a></td>
+      <td class="voice voice-data">400000</td><td class="voice voice-data">94.18</td><td class="voice voice-data">94.40</td><td class="voice voice-data">1.08</td>
+      <td class="voice voice-data gemf-percentile">70</td></tr>
+    <tr>
+      <td><a href="#">Pacific Heights</a></td>
+      <td class="voice voice-data">600000</td><td class="voice voice-data">94.01</td><td class="voice voice-data">93.45</td><td class="voice voice-data">4.87</td>
+      <td class="voice voice-data gemf-percentile">70</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td>
+      <td class="voice voice-data">100000</td><td class="voice voice-data">95.79</td><td class="voice voice-data">96.70</td><td class="voice voice-data">4.79</td>
+      <td class="voice voice-data gemf-percentile">60</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td><td class="voice voice-data">200000</td><td class="voice voice-data">93.98</td>
+      <td class="voice voice-data">93.90</td><td class="voice voice-data">7.63</td><td class="voice voice-data gemf-percentile">64</td>
+    </tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">300000</td><td class="voice voice-data">97.06</td><td class="voice voice-data">97.04</td>
+      <td class="voice voice-data">0.47</td><td class="voice voice-data gemf-percentile">76</td></tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">350000</td><td class="voice voice-data">95.01</td><td class="voice voice-data">95.17</td><td class="voice voice-data">2.16</td>
+      <td class="voice voice-data gemf-percentile">75</td>
+    </tr>
+    <tr>
+      <td><a href="#">Nob Hill</a></td>
+      <td class="voice voice-data">400000</td><td class="voice voice-data">94.18</td><td class="voice voice-data">94.40</td><td class="voice voice-data">1.08</td>
+      <td class="voice voice-data gemf-percentile">70</td></tr>
+    <tr>
+      <td><a href="#">Pacific Heights</a></td>
+      <td class="voice voice-data">600000</td><td class="voice voice-data">94.01</td><td class="voice voice-data">93.45</td><td class="voice voice-data">4.87</td>
+      <td class="voice voice-data gemf-percentile">70</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td>
+      <td class="voice voice-data">100000</td><td class="voice voice-data">95.79</td><td class="voice voice-data">96.70</td><td class="voice voice-data">4.79</td>
+      <td class="voice voice-data gemf-percentile">60</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td><td class="voice voice-data">200000</td><td class="voice voice-data">93.98</td>
+      <td class="voice voice-data">93.90</td><td class="voice voice-data">7.63</td><td class="voice voice-data gemf-percentile">64</td>
+    </tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">300000</td><td class="voice voice-data">97.06</td><td class="voice voice-data">97.04</td>
+      <td class="voice voice-data">0.47</td><td class="voice voice-data gemf-percentile">76</td></tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">350000</td><td class="voice voice-data">95.01</td><td class="voice voice-data">95.17</td><td class="voice voice-data">2.16</td>
+      <td class="voice voice-data gemf-percentile">75</td>
+    </tr>
+    <tr>
+      <td><a href="#">Nob Hill</a></td>
+      <td class="voice voice-data">400000</td><td class="voice voice-data">94.18</td><td class="voice voice-data">94.40</td><td class="voice voice-data">1.08</td>
+      <td class="voice voice-data gemf-percentile">70</td></tr>
+    <tr>
+      <td><a href="#">Pacific Heights</a></td>
+      <td class="voice voice-data">600000</td><td class="voice voice-data">94.01</td><td class="voice voice-data">93.45</td><td class="voice voice-data">4.87</td>
+      <td class="voice voice-data gemf-percentile">70</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td>
+      <td class="voice voice-data">100000</td><td class="voice voice-data">95.79</td><td class="voice voice-data">96.70</td><td class="voice voice-data">4.79</td>
+      <td class="voice voice-data gemf-percentile">60</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td><td class="voice voice-data">200000</td><td class="voice voice-data outlier">99.72</td>
+      <td class="voice voice-data">93.90</td><td class="voice voice-data">7.63</td><td class="voice voice-data gemf-percentile">64</td>
+    </tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">300000</td><td class="voice voice-data">97.06</td><td class="voice voice-data">97.04</td>
+      <td class="voice voice-data">0.47</td><td class="voice voice-data gemf-percentile">76</td></tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">350000</td><td class="voice voice-data">95.01</td><td class="voice voice-data">95.17</td><td class="voice voice-data">2.16</td>
+      <td class="voice voice-data gemf-percentile">75</td>
+    </tr>
+    <tr>
+      <td><a href="#">Nob Hill</a></td>
+      <td class="voice voice-data">400000</td><td class="voice voice-data">94.18</td><td class="voice voice-data">94.40</td><td class="voice voice-data">1.08</td>
+      <td class="voice voice-data gemf-percentile">70</td></tr>
+    <tr>
+      <td><a href="#">Pacific Heights</a></td>
+      <td class="voice voice-data">600000</td><td class="voice voice-data">94.01</td><td class="voice voice-data">93.45</td><td class="voice voice-data">4.87</td>
+      <td class="voice voice-data gemf-percentile">70</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td>
+      <td class="voice voice-data">100000</td><td class="voice voice-data">95.79</td><td class="voice voice-data">96.70</td><td class="voice voice-data">4.79</td>
+      <td class="voice voice-data gemf-percentile">60</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td><td class="voice voice-data">200000</td><td class="voice voice-data">93.98</td>
+      <td class="voice voice-data">93.90</td><td class="voice voice-data">7.63</td><td class="voice voice-data gemf-percentile">64</td>
+    </tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">300000</td><td class="voice voice-data">97.06</td><td class="voice voice-data">97.04</td>
+      <td class="voice voice-data">0.47</td><td class="voice voice-data gemf-percentile">76</td></tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">350000</td><td class="voice voice-data">95.01</td><td class="voice voice-data">95.17</td><td class="voice voice-data">2.16</td>
+      <td class="voice voice-data gemf-percentile">75</td>
+    </tr>
+    <tr>
+      <td><a href="#">Nob Hill</a></td>
+      <td class="voice voice-data">400000</td><td class="voice voice-data">94.18</td><td class="voice voice-data">94.40</td><td class="voice voice-data">1.08</td>
+      <td class="voice voice-data gemf-percentile">70</td></tr>
+    <tr>
+      <td><a href="#">Pacific Heights</a></td>
+      <td class="voice voice-data">600000</td><td class="voice voice-data">94.01</td><td class="voice voice-data">93.45</td><td class="voice voice-data">4.87</td>
+      <td class="voice voice-data gemf-percentile">70</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td>
+      <td class="voice voice-data">100000</td><td class="voice voice-data">95.79</td><td class="voice voice-data">96.70</td><td class="voice voice-data">4.79</td>
+      <td class="voice voice-data gemf-percentile">60</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td><td class="voice voice-data">200000</td><td class="voice voice-data">93.98</td>
+      <td class="voice voice-data">93.90</td><td class="voice voice-data">7.63</td><td class="voice voice-data gemf-percentile">64</td>
+    </tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">300000</td><td class="voice voice-data">97.06</td><td class="voice voice-data">97.04</td>
+      <td class="voice voice-data">0.47</td><td class="voice voice-data gemf-percentile">76</td></tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">350000</td><td class="voice voice-data">95.01</td><td class="voice voice-data">95.17</td><td class="voice voice-data">2.16</td>
+      <td class="voice voice-data gemf-percentile">75</td>
+    </tr>
+    <tr>
+      <td><a href="#">Nob Hill</a></td>
+      <td class="voice voice-data">400000</td><td class="voice voice-data">94.18</td><td class="voice voice-data">94.40</td><td class="voice voice-data">1.08</td>
+      <td class="voice voice-data gemf-percentile">70</td></tr>
+    <tr>
+      <td><a href="#">Pacific Heights</a></td>
+      <td class="voice voice-data">600000</td><td class="voice voice-data">94.01</td><td class="voice voice-data">93.45</td><td class="voice voice-data">4.87</td>
+      <td class="voice voice-data gemf-percentile">70</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td>
+      <td class="voice voice-data">100000</td><td class="voice voice-data">95.79</td><td class="voice voice-data">96.70</td><td class="voice voice-data">4.79</td>
+      <td class="voice voice-data gemf-percentile">60</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td><td class="voice voice-data">200000</td><td class="voice voice-data">93.98</td>
+      <td class="voice voice-data">93.90</td><td class="voice voice-data">7.63</td><td class="voice voice-data gemf-percentile">64</td>
+    </tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">300000</td><td class="voice voice-data">97.06</td><td class="voice voice-data">97.04</td>
+      <td class="voice voice-data">0.47</td><td class="voice voice-data gemf-percentile">76</td></tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">350000</td><td class="voice voice-data">95.01</td><td class="voice voice-data">95.17</td><td class="voice voice-data">2.16</td>
+      <td class="voice voice-data gemf-percentile">75</td>
+    </tr>
+    <tr>
+      <td><a href="#">Nob Hill</a></td>
+      <td class="voice voice-data">400000</td><td class="voice voice-data">94.18</td><td class="voice voice-data">94.40</td><td class="voice voice-data">1.08</td>
+      <td class="voice voice-data gemf-percentile">70</td></tr>
+    <tr>
+      <td><a href="#">Pacific Heights</a></td>
+      <td class="voice voice-data">600000</td><td class="voice voice-data">94.01</td><td class="voice voice-data">93.45</td><td class="voice voice-data">4.87</td>
+      <td class="voice voice-data gemf-percentile">70</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td>
+      <td class="voice voice-data">100000</td><td class="voice voice-data">95.79</td><td class="voice voice-data">96.70</td><td class="voice voice-data">4.79</td>
+      <td class="voice voice-data gemf-percentile">60</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td><td class="voice voice-data">200000</td><td class="voice voice-data">93.98</td>
+      <td class="voice voice-data">93.90</td><td class="voice voice-data">7.63</td><td class="voice voice-data gemf-percentile">64</td>
+    </tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">300000</td><td class="voice voice-data">97.06</td><td class="voice voice-data">97.04</td>
+      <td class="voice voice-data">0.47</td><td class="voice voice-data gemf-percentile">76</td></tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">350000</td><td class="voice voice-data">95.01</td><td class="voice voice-data">95.17</td><td class="voice voice-data">2.16</td>
+      <td class="voice voice-data gemf-percentile">75</td>
+    </tr>
+    <tr>
+      <td><a href="#">Nob Hill</a></td>
+      <td class="voice voice-data">400000</td><td class="voice voice-data">94.18</td><td class="voice voice-data">94.40</td><td class="voice voice-data">1.08</td>
+      <td class="voice voice-data gemf-percentile">70</td></tr>
+    <tr>
+      <td><a href="#">Pacific Heights</a></td>
+      <td class="voice voice-data">600000</td><td class="voice voice-data">94.01</td><td class="voice voice-data">93.45</td><td class="voice voice-data">4.87</td>
+      <td class="voice voice-data gemf-percentile">70</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td>
+      <td class="voice voice-data">100000</td><td class="voice voice-data">95.79</td><td class="voice voice-data">96.70</td><td class="voice voice-data">4.79</td>
+      <td class="voice voice-data gemf-percentile">60</td>
+    </tr>
+    <tr>
+      <td><a href="#">XYZ</a></td><td class="voice voice-data">200000</td><td class="voice voice-data">93.98</td>
+      <td class="voice voice-data">93.90</td><td class="voice voice-data">7.63</td><td class="voice voice-data gemf-percentile">64</td>
+    </tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">300000</td><td class="voice voice-data">97.06</td><td class="voice voice-data">97.04</td>
+      <td class="voice voice-data">0.47</td><td class="voice voice-data gemf-percentile">76</td></tr>
+    <tr>
+      <td><a href="#">Portrero Hill</a></td>
+      <td class="voice voice-data">350000</td><td class="voice voice-data">95.01</td><td class="voice voice-data">95.17</td><td class="voice voice-data">2.16</td>
+      <td class="voice voice-data gemf-percentile">75</td>
+    </tr>
+    <tr>
+      <td><a href="#">Nob Hill</a></td>
+      <td class="voice voice-data">400000</td><td class="voice voice-data">94.18</td><td class="voice voice-data">94.40</td><td class="voice voice-data">1.08</td>
+      <td class="voice voice-data gemf-percentile">70</td></tr>
+    <tr>
+      <td><a href="#">Pacific Heights</a></td>
+      <td class="voice voice-data">600000</td><td class="voice voice-data">94.01</td><td class="voice voice-data">93.45</td><td class="voice voice-data">4.87</td>
+      <td class="voice voice-data gemf-percentile">70</td>
+    </tr>
+  </tbody>
+</table>
+
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script src="../../../components/requirejs/require.js"></script>
+<script src="../../../js/require.config.js"></script>
+
+<script>
+  require.config({
+    baseUrl: '../../../'
+  });
+  require(['jquery', 'ge-bootstrap', 'datagrids', 'trays', 'iids', 'cascading-list'
+], function($) {
+    $(function() {
+      $('.tray').iidsFilterTray();
+      $('.cascading-list').init();
+      $('table[data-table-name="myTable"]').iidsBasicDataGrid({ 'isResponsive': true });
+      // avoid flash of unstyled table
+      $('table[data-table-name="myTable"]').css({ visibility: 'visible' });
+    });
+
+    $(function() {
+      $('.dropdown-datatables-floater li:last-child a').replaceWith('<a data-toggle="modal" href="#modal-demo">Share this Data Point</a>');
+    });
+
+  });
+</script>
+    <script src="../../../components/respond/respond.src.js"></script>
+  </body>
+</html>
+

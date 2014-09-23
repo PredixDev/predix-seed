@@ -1,0 +1,182 @@
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 29px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.module-data-viz .caption {
+  margin-bottom: 0;
+  font-family: "GE Sans", "ge-sans", "GE Inspira", "ge-inspira", Helvetica, Arial, sans-serif;
+  font-size: 0.85em;
+  color: #575757;
+}
+.module-data-viz .caption.hero {
+  font-family: "GE Inspira", "ge-inspira", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1.2em;
+  color: #141414;
+}
+.module-data-viz .caption.hero strong {
+  font-size: 2em;
+  font-weight: bold;
+}
+.module-data-viz .subtitle {
+  font-weight: bold;
+}
+.module-data-viz#gauges > div {
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-right: 15px;
+  width: 33.3%;
+}
+.module-data-viz#gauges > div .chart1 path.bg {
+  fill: #46ad00;
+}
+.module-data-viz#gauges > div .chart2 path.bg {
+  fill: #005cb9;
+}
+.module-data-viz#gauges > div .chart3 path.bg {
+  fill: #8669ff;
+}
+.module-data-viz#gauges > div .chart4 path.bg {
+  fill: #de2533;
+}
+.module-data-viz#bars {
+  vertical-align: top;
+}
+.module-data-viz#bars [data-visualization] {
+  margin-bottom: 25px;
+}
+.module-data-viz#bars .subtitle {
+  margin-bottom: 0;
+}
+.module-data-viz svg {
+  width: 100%;
+  height: 100%;
+}
+[data-visualization="speedometer"] {
+  margin-bottom: 20px;
+  width: 200px;
+}
+[data-visualization="speedometer"] path.bg {
+  fill: #e7e5e7;
+}
+[data-visualization="speedometer"] .gradient-color-1 {
+  stop-color: #1483B2;
+}
+[data-visualization="speedometer"] .gradient-color-2 {
+  stop-color: #25AAE1;
+}
+[data-visualization="speedometer"].notice .gradient-color-1 {
+  stop-color: #D8BB27;
+}
+[data-visualization="speedometer"].notice .gradient-color-2 {
+  stop-color: #FBDA06;
+}
+[data-visualization="speedometer"].warning .gradient-color-1 {
+  stop-color: #D07931;
+}
+[data-visualization="speedometer"].warning .gradient-color-2 {
+  stop-color: #F58624;
+}
+[data-visualization="speedometer"].danger .gradient-color-1 {
+  stop-color: #C62F27;
+}
+[data-visualization="speedometer"].danger .gradient-color-2 {
+  stop-color: #EE3D2C;
+}
+[data-visualization="meter"] {
+  float: left;
+  width: 50px;
+  height: 250px;
+}
+[data-visualization="meter"] .label {
+  font-size: 10px;
+  font-weight: normal;
+}
+[data-visualization="meter"] .value {
+  font-size: 17px;
+}
+[data-visualization="meter"] .unit {
+  font-size: 13px;
+}
+[data-visualization="meter"] rect.bg {
+  fill: #e7e5e7;
+}
+[data-visualization="meter"] .gradient-color-1 {
+  stop-color: #1483B2;
+}
+[data-visualization="meter"] .gradient-color-2 {
+  stop-color: #25AAE1;
+}
+[data-visualization="meter"].notice .gradient-color-1 {
+  stop-color: #D8BB27;
+}
+[data-visualization="meter"].notice .gradient-color-2 {
+  stop-color: #FBDA06;
+}
+[data-visualization="meter"].warning .gradient-color-1 {
+  stop-color: #D07931;
+}
+[data-visualization="meter"].warning .gradient-color-2 {
+  stop-color: #F58624;
+}
+[data-visualization="meter"].danger .gradient-color-1 {
+  stop-color: #C62F27;
+}
+[data-visualization="meter"].danger .gradient-color-2 {
+  stop-color: #EE3D2C;
+}
+[data-visualization="meter"] .axis path {
+  stroke: black;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+  fill: none;
+}
+[data-visualization="meter"] .tick line {
+  stroke: black;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+[data-visualization="meter"].no-label .value {
+  display: none;
+}
+@media (max-width: 979px) {
+  .module-data-viz [data-visualization="gauge"] {
+    height: 100px;
+  }
+  .module-data-viz [data-visualization="bar"] {
+    height: 95px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .module-data-viz#gauges > div {
+    float: none;
+    margin-bottom: 25px;
+    padding-right: 0;
+    width: 100%;
+  }
+}

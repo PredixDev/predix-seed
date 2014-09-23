@@ -1,0 +1,30 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "ge-bootstrap/less/mixins.less";
+@import "brandkit/less/variables.less";
+@import "variables.less";
+
+
+// Styles
+// --------------------------------------------------
+
+// Portrait tablet
+@media (max-width: 767px) {
+  .two-pane{
+    .page-header{
+      .pull-right{
+        clear:none;
+      }
+    }
+    .message-pane{
+      border-top:1px solid @grayLighter;
+      padding-left:20px;
+    }
+    .module{
+      &.draggable{
+        height:177px;
+      }
+    }
+  }
+}

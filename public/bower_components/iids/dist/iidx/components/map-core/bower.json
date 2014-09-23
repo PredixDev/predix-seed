@@ -1,0 +1,19 @@
+{
+  "name": "map-core",
+  "version": "0.2.2",
+  "main": "js/map-core.js",
+  "private": true,
+  "dependencies": {
+    "open-layers": "https://devcloud.sw.ge.com/source/scm/dxc/shim-open-layers.git#~v2.13.1",
+    "declarative-visualizations": "git+https://devcloud.sw.ge.com/source/scm/dxc/declarative-visualizations#~0.6.0",
+    "underscore-amd": "https://raw.github.com/amdjs/underscore/1.5.2/underscore-min.js",
+    "hogan": "https://raw.github.com/twitter/hogan.js/v3.0.0/web/builds/2.0.0/hogan-2.0.0.min.amd.js"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "test",
+    "tests"
+  ]
+}

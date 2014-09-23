@@ -1,0 +1,45 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "meter.less";
+
+
+// Styles
+// --------------------------------------------------
+
+[data-visualization="meter"] {
+  rect.bg {
+    fill: @BarLightsOnGray;
+  }
+
+  &.warning {
+    .gradient-color-1 {
+      stop-color: @orange;
+    }
+    .gradient-color-2 {
+      stop-color: @orange2;
+    }
+  }
+  svg.visualization-meter {
+    .pointer, .threshold, #container {
+      color: @trueBlack;
+      fill: @trueBlack;
+    }
+    text {
+      color: @black;
+      fill: @black;
+    }
+  }
+  
+  &.no-label {
+  	.value {
+  		display: none;
+  	}
+  }
+  
+  .test-container {
+	  background-color: @white;
+	  color: @black;
+  }
+}
+//colors invariables

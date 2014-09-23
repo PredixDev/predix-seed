@@ -1,0 +1,26 @@
+{
+      "aaData": [
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 4.0",
+          "platform": "Win 95+",
+          "version": "4",
+          "grade": "X"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 5.0",
+          "platform": "Win 95+",
+          "version": "5",
+          "grade": "C"
+        },
+        {
+          "engine": "Trident",
+          "browser": "Internet Explorer 5.5",
+          "platform": "Win 95+",
+          "version": "5.5",
+          "grade": "A"
+        }
+        
+      ]
+    }

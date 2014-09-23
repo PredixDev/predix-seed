@@ -1,0 +1,201 @@
+@import "ge-bootstrap/less/mixins.less";
+@import "brandkit/less/variables.less";
+
+.module-data-viz {
+	.caption {
+		margin-bottom: 0;
+		font-family: @sansFontFamily;
+		font-size: 0.85em;
+		color: @grayDark;
+		&.hero {
+			font-family: @brandFontFamily;
+			font-weight: normal;
+			font-size: 1.2em;
+			color: @black;
+			strong {
+				font-size: 2em;
+				font-weight: bold;
+			}
+		}
+	}
+	.subtitle {
+		font-weight: bold;
+	}
+
+	&#gauges {
+		> div {
+			float: left;
+			.box-sizing(~"border-box");
+			padding-right: 15px;
+			width: 33.3%;
+			.chart1 path.bg {
+				fill: @green;
+			}
+			.chart2 path.bg {
+				fill: @cyan;
+			}
+			.chart3 path.bg {
+				fill: @purple;
+			}
+			.chart4 path.bg {
+				fill: @red;
+			}
+		}
+	}
+	&#bars {
+		vertical-align: top;
+		[data-visualization] {
+			margin-bottom: 25px;
+		}
+		.subtitle {
+			margin-bottom: 0;
+		}
+	}
+
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+[data-visualization="speedometer"] {
+  // height: 120px;
+  margin-bottom: 20px;
+  width: 200px;
+  path.bg {
+    fill: #e7e5e7;
+  }
+  .gradient-color-1 {
+    stop-color: #1483B2;
+  }
+  .gradient-color-2 {
+    stop-color: #25AAE1;
+  }
+  &.notice {
+    .gradient-color-1 {
+      stop-color: #D8BB27;
+    }
+    .gradient-color-2 {
+      stop-color: #FBDA06;
+    }
+  }
+  &.warning {
+    .gradient-color-1 {
+      stop-color: #D07931;
+    }
+    .gradient-color-2 {
+      stop-color: #F58624;
+    }
+  }
+  &.danger {
+    .gradient-color-1 {
+      stop-color: #C62F27;
+    }
+    .gradient-color-2 {
+      stop-color: #EE3D2C;
+    }
+  }
+}
+
+[data-visualization="meter"] {
+  float: left;
+  width: 50px;
+  height: 250px;
+
+  .label {
+    font-size:10px;
+    font-weight: normal;
+  }
+
+  .value {
+    font-size: 17px;
+  }
+
+  .unit {
+    font-size: 13px;
+  }
+
+  rect.bg {
+    fill: #e7e5e7;
+  }
+
+  .gradient-color-1 {
+    stop-color: #1483B2;
+  }
+  .gradient-color-2 {
+    stop-color: #25AAE1;
+  }
+
+  &.notice {
+    .gradient-color-1 {
+      stop-color: #D8BB27;
+    }
+    .gradient-color-2 {
+      stop-color: #FBDA06;
+    }
+  }
+
+  &.warning {
+    .gradient-color-1 {
+      stop-color: #D07931;
+    }
+    .gradient-color-2 {
+      stop-color: #F58624;
+    }
+  }
+
+  &.danger {
+    .gradient-color-1 {
+      stop-color: #C62F27;
+    }
+    .gradient-color-2 {
+      stop-color: #EE3D2C;
+    }
+  }
+
+  .axis path {
+    stroke: black;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+    fill: none;
+  }
+
+  .tick line {
+    stroke: black;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+  }
+  &.no-label {
+  	.value {
+  		display: none;
+  	}
+  }
+}
+
+
+
+// iPhone; smaller tablet
+@media (max-width: 979px) {
+  .module-data-viz {
+    [data-visualization="gauge"] {
+      height: 100px;
+    }
+    [data-visualization="bar"] {
+      height: 95px;
+    }
+  }
+}
+
+// iPhone portrait
+@media only screen and (max-width: 320px){
+.module-data-viz {
+  &#gauges {
+      > div {
+        float: none;
+        margin-bottom: 25px;
+        padding-right: 0;
+        width: 100%;
+      }
+    }
+  }
+}

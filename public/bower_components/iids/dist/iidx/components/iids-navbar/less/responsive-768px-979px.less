@@ -1,0 +1,174 @@
+@media (max-width: @navbarCollapseWidth) {
+
+  .navbar-inner .container,
+  .primary-navbar .container,
+  .workspace-navbar .container {
+    padding: 10px 20px;
+    width: auto;
+  }
+
+  .navbar {
+    .brand {
+      max-width: 25%;
+    }
+  }
+
+  .navbar .brand small {
+    display: none;
+  }
+
+  .nav-collapse .nav > li {
+    margin-top: 5px;
+    font-size: @baseFontSize;
+  }
+
+  .nav-collapse .nav > li:first-child {
+    margin-top: 0;
+  }
+
+  .nav-collapse .nav > li > a:hover {
+    background-color: @navbarLinkBackgroundActive;
+  }
+
+  .nav-collapse .nav > li > a,
+  .nav-collapse .dropdown-menu a {
+    font-weight: normal;
+    margin-bottom: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    .border-radius(@baseBorderRadius);
+  }
+
+  .nav-collapse .dropdown-menu li {
+    margin-top: 5px;
+  }
+
+  .nav-collapse .dropdown-menu a:hover,
+  .nav-collapse .dropdown-menu .active a {
+    background: transparent !important;
+    // #gradient > .vertical(@navbarBackground, @navbarBackground);
+  }
+
+  .nav-collapse .btn-group,
+  .nav-collapse.in .btn-group {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .nav-collapse .btn-toolbar .btn {
+    .border-radius(@baseBorderRadius);
+  }
+  .nav-collapse .btn-toolbar,
+  .nav-collapse .navbar-search {
+    margin: 0;
+  }
+  .nav-collapse .navbar-search {
+    margin: 0;
+    float: left;
+  }
+  .nav-collapse .btn {
+    .border-radius(inherit);
+    padding: 2px 10px;
+  }
+
+  .nav-collapse .dropdown {
+    .clearfix;
+    &.open {
+      border-bottom: 1px solid @grayDarkest;
+    }
+  }
+  .nav-collapse .dropdown-menu {
+    margin: 0;
+    padding: 3px 0 3px 8px;
+  }
+  .nav-collapse .dropdown-menu .nav {
+    // float: none;
+    > li > a {
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+  }
+
+  .nav-collapse .dropdown-menu .nav-header a:hover,
+  .nav-collapse .dropdown-menu .nav-header a:focus {
+    background: transparent;
+  }
+
+  // Caret to indicate there is a submenu
+  .nav-header > a:before {
+    display: block;
+    content: " ";
+    float: left;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: @navbarText;
+    margin-top: 4px;
+    margin-right: 10px;
+  }
+  .nav-header > a:hover:before {
+    border-left-color: @dropdownLinkColorHover;
+  }
+  // Open state
+  .nav-header.open > a:before{
+    border-width: 6px 5px 5px;
+    border-color: transparent;
+    border-top-color: @navbarText;
+    margin-right: 6px;
+    margin-top: 7px;
+  }
+  .nav-header.open > a:hover:before {
+    border-top-color: @dropdownLinkColorHover;
+  }
+
+  .nav-collapse .mega-dropdown {
+    border-top: none;
+  }
+
+  .nav-collapse .mega-dropdown .nav .mega-list a {
+    padding-left: 27px;
+    font-size: @baseFontSize - 1;
+    color: @white;
+  }
+
+  .nav-collapse .navbar-form,
+  .nav-collapse .navbar-search {
+    border: 0;
+    padding: 0;
+  }
+
+  .primary-navbar .nav {
+    margin-bottom: 0;
+  }
+
+  .workspace-navbar .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .workspace-navbar.collapse:not(.in) {
+    border-width: 0;
+  }
+  .workspace-navbar .nav {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .workspace-navbar .nav > li {
+    float: left;
+    margin-bottom: 7px;
+  }
+  .workspace-navbar .nav > li:first-child {
+    margin-top: 5px;
+  }
+
+  .navbar .btn-toolbar,
+  .navbar-search {
+    margin-bottom: 0;
+  }
+
+  .responsive-elements {
+    .clearfix();
+    margin: 0 20px 10px;
+    // display: none;
+  }
+}

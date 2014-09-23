@@ -1,0 +1,73 @@
+// Dependencies
+// --------------------------------------------------
+
+
+
+// Styles
+// --------------------------------------------------
+
+[data-visualization="donut"] {
+  //margin-top: 60px;
+  font-family: @sansFontFamily;
+  height: 170px;
+  .arc {
+    stroke: @white;
+    stroke-width: 1;
+    .fill0 {
+      fill: @cyanDark;
+    }
+    .fill1 {
+      fill: @cyan;
+    }
+    .fill2 {
+      fill: @cyanLight;
+    }
+  }
+  .legend {
+    position: absolute;
+    font-family: @sansFontFamily !important;
+    top: 0;
+    #voice > .data(@baseFontSize - 2, normal);
+    .colorKey {
+      border-radius: 10px;
+      height: 10px;
+      left: -14px;
+      margin-top: 4px;
+      position: absolute;
+      width: 10px;
+    }
+    .fill0 {
+      background: @cyanDark;
+    }
+    .fill1 {
+      background: @cyan;
+    }
+    .fill2 {
+      background: @cyanLight;
+    }
+    strong {
+      display: block;
+    }
+  }
+}
+
+[data-visualization="donut"].wrapped {
+  font-family: @sansFontFamily;
+  svg {
+    width: 65%;
+    height: 65%;
+  }
+  .legend {
+    font-family: @sansFontFamily !important;
+    position: static;
+    margin-top: -5px;
+    margin-left: 20px;
+    p:last-child {
+      margin-bottom: -8px
+    }
+    strong {
+      display: inline-block;
+      margin-left: 4px;
+    }
+  }
+}

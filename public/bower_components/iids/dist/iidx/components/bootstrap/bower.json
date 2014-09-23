@@ -1,0 +1,10 @@
+{
+  "name": "bootstrap-less",
+  "version": "2.3.2",
+  "main": "less/bootstrap.less",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+}

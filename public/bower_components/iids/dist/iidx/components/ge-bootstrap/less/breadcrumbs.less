@@ -1,0 +1,29 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "bootstrap/less/breadcrumbs.less";
+
+
+// Bootstrap Overrides
+// --------------------------------------------------
+
+.breadcrumb {
+  background-color: transparent;
+  font-size: @baseFontSize - 2;
+  padding: 0;
+  > li {
+    text-shadow: none;
+    > .divider {
+      color: @grayLight;
+    }
+    > a {
+      color: @textColor;
+      &:hover {
+        color: @linkColor;
+      }
+    }
+  }
+  > .active {
+    color: @linkColor;
+  }
+}

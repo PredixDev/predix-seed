@@ -1,0 +1,20 @@
+{
+    "Layers": {
+        "Google": [
+            {
+                "ExternalLayerName" : "Google Satellite",
+                "Type" : "satellite"
+            }
+        ]
+    },
+    "MapOptions": {
+        "CentreLat": 37.779927,
+        "CentreLong": -121.978015,
+        "DefaultZoom": 15,
+        "ZoomLevels": 21
+    },
+    "Google": {
+        "googleClientID": "",
+        "googleChannelID": ""
+    }
+}

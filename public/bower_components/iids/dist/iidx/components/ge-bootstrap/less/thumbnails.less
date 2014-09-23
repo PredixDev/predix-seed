@@ -1,0 +1,28 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "bootstrap/less/thumbnails.less";
+
+
+// Bootstrap Overrides
+// --------------------------------------------------
+
+.thumbnail {
+	background-color: @grayLightest;
+	border-width: 0;
+	padding: 15px;
+	.caption {
+		padding: 0;
+		h5 {
+			color: @grayDarkest;
+			font-size: @baseFontSize;
+			margin: 10px 0 5px;
+		}
+		p {
+			line-height: @baseLineHeight;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

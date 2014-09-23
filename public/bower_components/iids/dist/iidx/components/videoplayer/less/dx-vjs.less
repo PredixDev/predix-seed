@@ -1,0 +1,190 @@
+/*
+ Overrides for VideoJS Default Theme
+ Initially done for MDx - if further design systems need to be supported and look different,
+ either clone this stylesheet, and name it MDx specific, or use it as a baseline for other styles to override
+*/
+
+@import "brandkit/less/brandkit.less";
+@import "ge-bootstrap/less/ge-bootstrap.less";
+
+/* big play button over poster image to kickoff playback */
+.vjs-default-skin .vjs-big-play-button,
+.vjs-default-skin .vjs-big-play-button:focus,
+.vjs-default-skin:hover .vjs-big-play-button {
+  .big-play-icon-font-background;
+}
+
+/* current time in control bar */
+.vjs-default-skin .vjs-current-time-display {
+  font-weight: bold;
+}
+
+.vjs-default-skin .vjs-time-divider {
+  color: @gray;
+  font-weight: normal;
+}
+
+.vjs-default-skin .vjs-duration-display {
+  color: @gray;
+}
+
+.vjs-default-skin .vjs-time-controls.vjs-control {
+  width: inherit;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: @baseFontSize;
+}
+
+/** play button width */
+.vjs-default-skin .vjs-play-control {
+  width: 42px; 
+}
+
+.vjs-default-skin .vjs-mute-control {
+  width: 32px;
+}
+
+/** make the volume and slider handles go away */
+.vjs-default-skin .vjs-seek-handle,
+.vjs-default-skin .vjs-volume-bar .vjs-volume-handle {
+  display: none;
+}
+
+.vjs-default-skin .vjs-load-progress {
+  background-color: @gray;
+}
+
+.vjs-default-skin .vjs-slider {
+  background-color: rgba(0,0,0,0);
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: @gray;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: @gray;
+}
+
+.vjs-default-skin .vjs-progress-holder .vjs-play-progress {
+  background-color: @blue;
+  background-image: none;
+  padding: 0;
+  margin: 0;
+  margin-top: -1px; /* overlap over the gray border so it doesn't appear on play prog */
+  padding-top: 1px;
+  margin-bottom: 1px;
+  padding-bottom: 1px;
+}
+
+/* Prog Bar Placement */
+.vjs-progress-holder {
+  margin-top: -2px;
+}
+
+/* Button iconography */
+
+.vjs-default-skin .vjs-big-play-button:before {
+  font-family: @videoPlayerIconFont;
+  color: @videoPlayerIconFontColor;
+  box-shadow: none;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  .big-play-icon-font;
+}
+
+.vjs-default-skin .vjs-control:before {
+  font-family: @videoPlayerIconFont;
+  color: @videoPlayerIconFontColor;
+  font-size: 18px;
+  line-height: 2.4;
+  box-shadow: none;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  .controls-opacity;
+}
+
+/* Play/Pause
+--------------------------------------------------------------------------------
+*/
+
+.vjs-default-skin .vjs-paused:before {
+  .pause-icon-font;
+}
+
+.vjs-default-skin .vjs-play-control:before {
+  .play-icon-font;
+}
+
+.vjs-default-skin .vjs-play-control .vjs-paused {
+  .play-icon-font-background;
+  .controls-opacity;
+}
+
+.vjs-default-skin .vjs-play-control {
+  .play-icon-font-background;
+  .controls-opacity;
+}
+
+
+.vjs-default-skin .vjs-loading-spinner:before {
+  font-family: @videoPlayerIconFont;
+  color: @videoPlayerIconFontColor;
+}
+
+.vjs-default-skin .vjs-control:focus:before, .vjs-default-skin .vjs-control:hover:before {
+  text-shadow: none;
+}
+
+
+/** rounded volume level and container */
+.vjs-default-skin .vjs-volume-level {
+  background-color: @blue;
+  background-image: none;
+  border-radius: 5px;
+  padding-top: 3px;
+  padding-left: 2px;
+  top: -1px;
+  left: -1px;
+}
+
+.vjs-default-skin .vjs-volume-bar.vjs-slider {
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: @gray;
+  background-color: rgba(0,0,0,0);
+  height: 8px;
+}
+
+
+/** tooltip styling */
+.vjs-tip {
+  visibility: hidden;
+  display: block;
+  opacity: 0.8;
+  padding: 5px;
+  font-size: @baseFontSize;
+  font-weight: bold;
+  position: absolute;
+  z-index: 100000;
+  top: -53px;
+}
+.vjs-tip-arrow {
+  background: url(data:image/gif;base64,R0lGODlhCQAJAIABAAAAAAAAACH5BAEAAAEALAAAAAAJAAkAAAIRjAOnwIrcDJxvwkplPtchVQAAOw==) no-repeat top left;
+  bottom: 0;
+  left: 50%;
+  margin-left: -4px;
+  background-position: bottom left;
+  position: absolute;
+  width: 9px;
+  height: 5px;
+}
+.vjs-tip-inner {
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  padding: 5px 8px 4px 8px;
+  background-color: black;
+  color: white;
+  max-width: 200px;
+  text-align: center;
+}

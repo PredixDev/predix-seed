@@ -1,0 +1,12 @@
+// Dependencies
+// --------------------------------------------------
+
+
+// Overrides
+// --------------------------------------------------
+
+// Turn off gradients in IE9 because the conflict when also using border-radius
+div.slider button:active,
+div.slider.active .thumb {
+  filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)" !important;
+}

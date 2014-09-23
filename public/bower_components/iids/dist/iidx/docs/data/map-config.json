@@ -1,0 +1,28 @@
+{
+    "Layers": {
+        "Google": [
+            {
+                "ExternalLayerName" : "Google Streets",
+                "Type" : "roadmap"
+            },
+            {
+                "ExternalLayerName" : "Google Satellite",
+                "Type" : "satellite"
+            },
+            {
+                "ExternalLayerName" : "Google Hybrid",
+                "Type" : "hybrid"
+            }
+        ]
+    },
+    "MapOptions": {
+        "CentreLat": 37.779927,
+        "CentreLong": -121.978015,
+        "DefaultZoom": 15,
+        "ZoomLevels": 21
+    },
+    "Google": {
+        "googleClientID": "",
+        "googleChannelID": ""
+    }
+}

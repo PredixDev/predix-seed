@@ -1,0 +1,1913 @@
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Components</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../components/brandkit/favicon/favicon-144px.png">
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../components/brandkit/favicon/favicon-114px.png">
+
+    <!-- For first- and second-generation iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../components/brandkit/favicon/favicon-72px.png">
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon-precomposed" href="../../../components/brandkit/favicon/favicon.png">
+
+    <link rel="icon" href="../../../components/brandkit/favicon/favicon.ico">
+    <link href="../../../components/prettify/prettify.css" rel="stylesheet">
+    <link href="../../assets/css/documentation.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/documentation-responsive.css" rel="stylesheet" type="text/css">
+    <link href="../../../css/iids.css" rel="stylesheet" type="text/css">
+    <link href="../../../css/responsive.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/declarative-visualizations.css" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]>
+      <link id="theme-ie" href="../../css/ie.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+
+    <script src="../../../components/modernizr/modernizr.js"></script>
+    <script src="../../../components/requirejs/require.js"></script>
+    <script src="../../../js/require.config.js"></script>
+    <script type="text/javascript">
+      require.config({ baseUrl: '../../../' });
+    </script>
+    <!-- <script src="http://localhost:8080/target/target-script-min.js"></script>
+ -->
+  </head>
+
+  <!--
+  The background color is set to white in this fashion so the SDH website can load
+  individual pieces of the documentation as iframes. When viewing the docs in the IIDX
+  folder, we want the components.html and ui.html pages to have grey backgrounds instead
+  of white ones. As a result components.ejs and ui.ejs will override this style at the
+  top of their .ejs files.
+   -->
+  
+  <body>
+
+<!--
+  This style hack is to help the bootstrap fixed navbar work.
+  http://twitter.github.io/bootstrap/components.html#navbar
+-->
+<style type="text/css">
+  body {
+    padding-top: 120px !important;
+  }
+  .anchor {
+    margin-top: -120px;
+    height: 120px;
+    visibility: hidden;
+    display: block;
+  }
+
+  @media (max-width: 979px) {
+    body {
+      padding-top: 0 !important;
+    }
+  }
+</style>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <a class="brand" href="../../index.html"><span class="ge-logo"></span> <span>IIDX - Map Components<small><i>powered by</i> Bootstrap</small></span></a>
+    </div>
+  </div>
+  <div class="primary-navbar nav-collapse collapse">
+    <div class="container">
+      <ul class="nav">
+        <li><a href="#mapview">Map View</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">Layers <i class="icon-chevron-down"></i></a>
+          <ul class="dropdown-menu pull-right">
+            <li><a href="#basemapcontrol">Basemap Control</a></li>
+            <li><a href="#overlaycontrol">Overlay Control</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">Navigation Controls <i class="icon-chevron-down"></i></a>
+          <ul class="dropdown-menu pull-right">
+            <li><a href="#zoom_compact">Zoom Control</a></li>
+            <li><a href="#zoom_key_mouse">Mouse and Keyboard</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">Panels <i class="icon-chevron-down"></i></a>
+          <ul class="dropdown-menu pull-right">
+            <li><a href="#popover_object">Object Popover</a></li>
+            <li><a href="#panel_fixed">Fixed Panel</a></li>
+          </ul>
+        </li>
+        <li><a href="#frames">Frames</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">Search <i class="icon-chevron-down"></i></a>
+          <ul class="dropdown-menu pull-right">
+            <li><a href="#search_object_input">Object Search Input Control</a></li>
+          </ul>
+        </li>
+        <li><a href="#street_view">Street View</a></li>
+        <li><a href="#geolocate">Geolocate</a></li>
+
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="page-header voice-brand">
+    <h1>Mapping Components</h1>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+
+      <div class="module">
+        <div class="sdh-wrapper module-body">
+          <h2 class="voice voice-brand" id="mapview">Map View</h2>
+<table class="documentation">
+  <thead>
+    <tr>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="example">
+        <div id="mapview-map" class="map" data-map-name="mapview_example" style="height:300px; width: 100%;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="description">Basic Map View</td>
+    </tr>
+    <tr>
+      <td class="usage">
+        <p>Markup:</p>
+<pre class="prettyprint linenums lang-html">
+<code>&lt;div id="mapview-map" class="map" data-map-name="mapview_example" style="height:300px; width: 100%;"&gt;&lt;/div&gt;</code>
+</pre>
+        <p>Script:</p>
+<pre class="prettyprint linenums lang-js">
+<code>
+  require.config({
+    baseUrl: '../../../',
+    config: { 'map-loader': {
+        //Default map configuration file with BaseLayers,View and API key
+        configFileName: '../../data/map-config.json'
+      }
+    }
+  });
+
+  require(['map-core'], function(Mapping){
+    //Optional config object can be passed in when creating the map
+    //Object properties will be merged with the default config
+    //Note: These changes are persistent
+
+    //This will update the initial zoom but keep all other default config settings
+    var mapConfig = {MapOptions:{DefaultZoom:14}};
+
+    $("#mapview-map").initializeMap( mapConfig );
+  });
+</code>
+</pre>
+        <p>Embedding a basic interactive map in a div is accomplished by requiring <code>map-core</code>, passing in a config file and then calling <code>$(&hellip;).initializeMap()</code> with a selector targeting the desired DOM element.</p>
+
+        <p>The containing div must have the class <code>map</code> applied. When using additional map components, like the zoom control, it is necessary to include a unique map name in the attribute <code>data-map-name</code>. An additional Id or classes can be added as desired to simplify selection of the map.</p>
+
+        <p>The config file contains a set of default map options in JSON format. The config object is made up of Layers, MapOptions, and Google settings.</p>
+<pre class="prettyprint linenums lang-json">
+{
+  "Layers": {
+    "Google": [
+      {
+        "ExternalLayerName" : "Google Streets",
+        "Type" : "roadmap"
+      },
+      {
+        "ExternalLayerName" : "Google Satellite",
+        "Type" : "satellite"
+      },
+      {
+        "ExternalLayerName" : "Google Hybrid",
+        "Type" : "hybrid"
+      }
+    ]
+  },
+  "MapOptions": {
+    "CentreLat": 37.779927,
+    "CentreLong": -121.978015,
+    "DefaultZoom": 15,
+    "ZoomLevels": 21
+  },
+  "Google": {
+    "googleClientID": "",
+    "googleChannelID": ""
+  }
+}
+</pre>
+        <p><code>Layers</code> contains the set of basemap layers that will be loaded by the map. In this initial version of the mapping collection, only Google Maps is officially supported. The above example shows the three possible layers. At least one is required.</p>
+
+        <p>The <code>MapOptions</code> specify the initial map view. The above example shows setting the center, initial zoom and number of possible zoom levels.</p>
+
+        <p>The mapping collection is using the <a href="https://developers.google.com/maps/documentation/business/">Google Maps API for Business</a>. The <code>Google</code> object in this version is only responsible for setting the client id and channel. These can be left as empty strings for development but IDs must be obtained for release.</p>
+
+        <p class="note">A sample basic config file is available in the <code>map-core</code> js directory.</p>
+
+        <p>It is also possible to pass in a config object when calling <code>initializeMap()</code>. This allows you to vary the configuration dynamically based on application state. The object passed in is merged into the loaded default config object so it is only necessary to pass in the properties that are different, e.g. <code>$(&hellip;).initializeMap({MapOptions:{DefaultZoom:14}})</code></p>
+        <div class="alert alert-info">
+          <strong>Script Requirements:</strong>
+          <ul>
+            <li>map-core</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="documentation">
+    <thead>
+        <tr>
+            <th>Example</th>
+            <th>Description</th>
+            <th>Usage</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+            <td>An example of a <a href="map-search-and-evaluate.html">full screen map</a></td>
+            <td>Full Screen Map</td>
+            <td>
+                <p>For applications where a map is the primary interface for a task, a map can be placed in a Full Screen Layout.</p>
+                <p class="note">Note: The IIDX does not currently have a fullscreen fluid grid layout. To achieve a full screen Masthead and Primary Nav remove the <code>&lt;div class="container"&gt;</code> wrapper and add the class <code>.fullscreen-map</code> to the <code>&lt;div class="navbar-inner"&gt;</code></p></td>
+        </tr>
+        <tr>
+            <td>An example of an <a href="map-dashboard.html">IIDX module map</a></td>
+            <td>IIDX Module Map</td>
+            <td>For applications where a map complements other types of interaction it can be used in an IIDX module in a grid layout.</td>
+        </tr>
+        <tr>
+            <td>An example of <a href="map-multiplemap.html">independent multiple maps</a></td>
+            <td>Multiple Maps</td>
+            <td>More than one map can be used on a page by calling <code>$(&hellip;).initializeMap()</code> multiple times or by using a selector that targets multiple elements.</td>
+        </tr>
+    </tbody>
+    <script src="../../../components/requirejs/require.js"></script>
+
+    <script>
+          require.config({
+              baseUrl: '../../../',
+            config: { 'map-loader': {
+                  configFileName: '../../data/map-config.json'
+              }
+            }
+          });
+
+          require(['map-core'], function(Mapping){
+
+            var mapConfig = {MapOptions:{DefaultZoom:14}};
+
+            $("#mapview-map").initializeMap( mapConfig );
+
+          });
+    </script>
+</table>
+
+
+          <a class="anchor" id="baselayers"></a>
+          <h3 class="voice voice-brand">Base Layer Options</h3>
+<table class="documentation">
+    <thead>
+        <tr>
+            <th>Example</th>
+            <th>Description</th>
+            <th>Usage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="example">
+                <div id="baselayers_google" style="height:400px; width: 100%;"></div>
+            </td>
+            <td class="description">
+                Google Maps
+            </td>
+            <td class="usage">
+                <p>Markup:</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div id="baselayers_google" style="height:400px; width: 100%;"&gt;&lt;/div&gt;
+</pre>
+                <p>Script:</p>
+<pre class="prettyprint linenums lang-javascript">
+$("#baselayers_google").initializeMapWithOptionsOnly({
+  "Layers": {
+    "Google": [
+      {
+        "ExternalLayerName" : "Google Streets",
+        "Type" : "roadmap"
+      }
+    ],
+  },
+  "MapOptions": {
+    "CentreLat": 37.779927,
+    "CentreLong": -121.978015,
+    "DefaultZoom": 14,
+    "ZoomLevels": 21
+  },
+  "Google": {
+    "googleClientID": "",
+    "googleChannelID": ""
+  }
+});
+</pre>
+            </td>
+        </tr>
+        <tr>
+            <td class="example">
+                <div id="baselayers_bing" class="map" style="height:400px; width: 100%;"></div>
+            </td>
+            <td class="description">
+                Bing Maps
+            </td>
+            <td class="usage">
+                <p>Markup:</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div id="baselayers_bing" style="height:400px; width: 100%;"&gt;&lt;/div&gt;
+</pre>
+                <p>Script:</p>
+<pre class="prettyprint linenums lang-javascript">
+$("#baselayers_bing").initializeMapWithOptionsOnly({
+  "Layers": {
+    "Bing": [
+      {
+        "ExternalLayerName": "Road",
+        "Key":  "AqTGBsziZHIJYYxgivLBf0hVdrAk9mWO5cQcb8Yux8sW5M8c8opEC2lZqKR1ZZXf",
+        "Type": "road"
+      }
+    ]
+  },
+  "MapOptions": {
+    "CentreLat": 37.779927,
+    "CentreLong": -121.978015,
+    "DefaultZoom": 14,
+    "ZoomLevels": 21
+  }
+});
+</pre>
+            </td>
+        </tr>
+        <tr>
+            <td class="example">
+                <div id="baselayers_osm" class="map" style="height:400px; width: 100%;"></div>
+            </td>
+            <td class="description">
+                Open Street Maps
+            </td>
+            <td class="usage">
+                <p>Markup:</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div id="baselayers_osm" style="height:400px; width: 100%;"&gt;&lt;/div&gt;
+</pre>
+                <p>Script:</p>
+<pre class="prettyprint linenums lang-javascript">
+$("#baselayers_osm").initializeMapWithOptionsOnly({
+  "Layers": {
+    "OSM": [
+      {
+        "ExternalLayerName": "Open Street Map"
+      }
+    ]
+  },
+  "MapOptions": {
+    "CentreLat": 37.779927,
+    "CentreLong": -121.978015,
+    "DefaultZoom": 14,
+    "ZoomLevels": 21
+  }
+});
+</pre>
+            </td>
+        </tr>
+    </tbody>
+
+
+    <script src="../../../components/requirejs/require.js"></script>
+    <script src="../../../js/require.config.js"></script>
+    <script type="text/javascript">
+
+        require.config({ baseUrl: '../../../' });
+
+          require(['map-core'], function(Mapping){
+
+            $("#baselayers_google").initializeMapWithOptionsOnly({
+              "Layers": {
+                "Google": [
+                  {
+                    "ExternalLayerName" : "Google Streets",
+                    "Type" : "roadmap"
+                  }
+                ],
+              },
+              "MapOptions": {
+                "CentreLat": 37.779927,
+                "CentreLong": -121.978015,
+                "DefaultZoom": 14,
+                "ZoomLevels": 21
+              },
+              "Google": {
+                "googleClientID": "",
+                "googleChannelID": ""
+              }
+
+            });
+
+            $("#baselayers_bing").initializeMapWithOptionsOnly({
+              "Layers": {
+                "Bing": [
+                  {
+                    "ExternalLayerName": "Road",
+                    "Key":  "AqTGBsziZHIJYYxgivLBf0hVdrAk9mWO5cQcb8Yux8sW5M8c8opEC2lZqKR1ZZXf",
+                    "Type": "road"
+                  }
+                ]
+              },
+              "MapOptions": {
+                "CentreLat": 37.779927,
+                "CentreLong": -121.978015,
+                "DefaultZoom": 14,
+                "ZoomLevels": 21
+              }
+            });
+
+            $("#baselayers_osm").initializeMapWithOptionsOnly({
+              "Layers": {
+                "OSM": [
+                  {
+                    "ExternalLayerName": "Open Street Map"
+                  }
+                ]
+              },
+              "MapOptions": {
+                "CentreLat": 37.779927,
+                "CentreLong": -121.978015,
+                "DefaultZoom": 14,
+                "ZoomLevels": 21
+              }
+            });
+          });
+    </script>
+</table>
+
+
+          <a class="anchor" id="layers"></a>
+          <h2 class="voice voice-brand">Layers </h2>
+
+          <a class="anchor" id="basemapcontrol"></a>
+          <h3 class="voice voice-brand">Basemap Control</h3>
+<table class="documentation">
+    <thead>
+        <tr>
+            <th>Example</th>
+            <th>Description</th>
+            <th>Usage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="example">
+                <p class="note"><a href="map-based-asset-monitoring.html">View in context with more than two basemaps</a></p>
+                <p class="note"><a href="map-search-and-evaluate.html">View in context with two basemaps</a></p>
+            </td>
+            <td class="description">Basemap Control</td>
+            <td class="usage">
+                <p>The Basemap Control allows the user to switch between underlying maps, e.g. Streets, Satellite and Terrain for Google Maps.</p>
+                <p class="note">Note: The map needs to have a unique name for the attribute <code>data-map-name</code>, for the control to bind correctly.</p>
+                <p>The Basemap Control is automatically added to the map if the <code>map-layer-list</code> module is required and there are at least two basemaps in the map configuration. When there are exactly two basemaps it will function as a toggle button in the bottom left corner of the map. If there are more than two basemaps then it will expand to show the available basemaps on hover.</p>
+                <p class="note">Note: See <a href="#mapview">Map View</a> for a description of the configuration object and where to add basemaps.</p>
+                <p>Markup:</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div id="map" class="map" data-map-name="layer_example" style="height:200px; width: 100%;"&gt;&lt;/div&gt;
+</pre>
+                <p>Script:</p>
+<pre class="prettyprint linenums lang-javascript">
+  require.config({
+        config: {
+            baseUrl: '../../../',
+            'map-loader': {
+                configFileName: '../../data/map-config.json'
+            }
+        }
+  });
+  require(['map-core', 'map-layerlist'], function(Mapping){
+
+    $("#map").initializeMap();
+
+  });
+</pre>
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+          <a class="anchor" id="overlaycontrol"></a>
+          <h3 class="voice voice-brand">Overlay Control</h3>
+<table class="documentation">
+    <thead>
+        <tr>
+            <th>Example</th>
+            <th>Description</th>
+            <th>Usage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="example">
+                <p class="note"><a href="map-search-and-evaluate.html">View in context with sub-overlays</a></p>
+            </td>
+            <td class="description">Overlay Control</td>
+            <td class="usage">
+                <p>The Overlay Control allows the user to turn on and off layers that sit on top of the map. Unlike the Basemap Control, it needs to be manually added to the markup. In the fullscreen map it should be added to a map toolbar element. If the map is in an IIDX module it should be added to the header.</p>
+                <p>Overlay layers can be added to the map via the configuration file or via the Open Layers <code>addLayer()</code> method. However, Marker and Cluster layers must be added using the appropriate API.</p>
+                <p class="note">Note: An overlay's visibility in the control can be changed by the property <code>displayInLayerSwitcher</code>.</p>
+<p>Markup:</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div id="map" class="map" data-map-name="layer_example" style="height:200px; width: 100%;"&gt;
+    &lt;div class="map-toolbar"&gt;
+        &lt;div class="btn-group pull-right overlay-chooser"&gt;
+          &lt;button class="btn btn-map dropdown-toggle" data-toggle="dropdown" data-layer-map="default" data-title="Layers"&gt;
+            &lt;i class="icon-overlays"&gt;&lt;/i&gt;Layers&lt;i class="icon-chevron-down"&gt;&lt;/i&gt;
+          &lt;/button&gt;
+          &lt;ul class="dropdown-menu">&lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+            <p class="note">NOTE: Overlay groups can be created in the Overlay Control by adding a <code>LayerOrder</code> property to the map configuration. When you group overlays together it is then possible to turn off all the sub-overlays by disabling the parent. When the parent is re-enabled the previous state of all sub-overlays is restored. Below is a segment of a map config JSON file. All the overlay layers should be added and grouped as desired.</p>
+<p>JSON:</p>
+<pre class="prettyprint linenums lang-html">
+{
+    ...,
+    "LayerOrder":[
+      {"LayerGroupName" : "Current Conditions",
+       "Layers" : [
+        "GeoJSON Crews",
+        "NDFD Wind Vector Forecast"
+      ]}
+    ],...
+}
+}</pre>
+              <div class="alert alert-info">
+                  <strong>Script Requirements:</strong>
+                  <ul>
+                    <li>map-layer-list</li>
+                  </ul>
+              </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+          <a class="anchor" id="navigation"></a>
+          <h2 class="voice voice-brand">Navigation Controls </h2>
+
+          <a class="anchor" id="zoom_compact"></a>
+          <h3 class="voice voice-brand">Zoom Control</h3>
+<table class="documentation">
+  <thead>
+      <tr>
+          <th>Example</th>
+          <th>Description</th>
+          <th>Usage</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="example">
+        <div class="map" id="zoom_compact_map" data-map-name="zoom_example" data-map-zoom-indicator="auto" style="height:500px; width:100%;"></div>
+        <p class="note"><a href="map-search-and-evaluate.html">View in context</a></p>
+      </td>
+      <td class="description">Basic Zoom Control</td>
+      <td class="usage">
+        <p>The Zoom Control is added to the map by simply including <code>map-zoom</code> as a dependency.
+        <p>The visibility of the indicator can be set using the data attribute <code>data-map-zoom-indicator</code> which can be set to "show", "hide" or "auto". The default if no attribute is provided is <code>auto</code>.</p>
+        <p class="note">Note: The map needs to have a unique name for the attribute <code>data-map-name</code>, for the control to bind correctly.</p>
+        <p>Markup:</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div class="map" id="zoom_compact_map" data-map-name="zoom_example" data-map-zoom-indicator="auto" style="height:500px; width: 100%;"&gt;&lt;/div&gt;
+</pre>
+        <p>Script:</p>
+<pre class="prettyprint linenums lang-javascript">
+  require.config({
+  baseUrl: '../../../',
+  config: {
+    'map-loader': {
+      //Default map configuration file with BaseLayers,View and API key
+      configFileName: '../../data/map-config.json'
+    }
+  }
+});
+
+  require(['map-core', 'map-zoom'], function(Mapping){
+    $("#map").initializeMap();
+  });
+</pre>
+        <div class="alert alert-info">
+          <strong>Script Requirements:</strong>
+          <ul>
+            <li>map-core</li>
+            <li>map-zoom</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+    <script src="../../../components/requirejs/require.js"></script>
+    <script src="../../../js/require.config.js"></script>
+    <script type="text/javascript">
+
+
+        require.config({
+            baseUrl: '../../../',
+        config: {
+          'map-loader': {
+              configFileName: '../../data/map-config.json'
+            }
+          }
+        });
+
+        require(['map-core', 'map-zoom'], function(Mapping){
+
+          $("#zoom_compact_map").initializeMapWithOptionsOnly({
+            "Layers": {
+              "Google": [
+                {
+                  "ExternalLayerName" : "Google Streets",
+                  "Type" : "roadmap"
+                }
+              ],
+            },
+            "MapOptions": {
+              "CentreLat": 37.779927,
+              "CentreLong": -121.978015,
+              "DefaultZoom": 14,
+              "ZoomLevels": 21
+            },
+            "Google": {
+              "googleClientID": "",
+              "googleChannelID": ""
+            }
+          });
+        });
+    </script>
+</table>
+
+
+          <a class="anchor" id="zoom_key_mouse"></a>
+          <h3 class="voice voice-brand">Keyboard and Mouse</h3>
+<table class="documentation">
+    <thead>
+        <tr>
+            <th>Example</th>
+            <th>Description</th>
+            <th>Usage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="example">
+                <p class="note"><a href="map-search-and-evaluate.html">View in context</a></p>
+            </td>
+            <td class="description">
+                Keyboard and mouse navigation controls
+            </td>
+            <td class="usage">
+                <p>When the map has focus, the arrow keys will move the map in those directions.</p>
+                <p>Pressing the plus and minus keys will cause the map to zoom in and out by one zoom level when the map has focus.</p>
+                <p>Holding the Alt key and dragging the mouse on the map will cause the map to zoom to the bounding box created. </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+          <a class="anchor" id="panels"></a>
+          <h2 class="voice voice-brand">Panels </h2>
+
+          <a class="anchor" id="popover_object"></a>
+          <h3 class="voice voice-brand">Map Popover</h3>
+<table class="documentation popover-object">
+  <thead>
+      <tr>
+          <th>Example</th>
+          <th>Description</th>
+          <th>Usage</th>
+      </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+    <td class="example">
+
+      <div class="map" style="position: relative; height: 240px; width: 300px; float:left;">
+        <div class="popover top" style="display: block;">
+          <div class="arrow"></div>
+          <header class="panel-header">
+            <div class="left">
+              <i class="icon-road"></i>
+            </div>
+            <div class="popover-title panel-title voice voice-brand">
+              <h3>Dispatch Hub: Essen</h3>
+            </div>
+
+            <div class="right voice voice-brand">
+              <p>45</p>
+            </div>
+          </header>
+
+          <div class="popover-content panel-content">
+            <p>
+              Fasanenstraße 10<br />
+              45134 Essen, Germany<br />
+              0176 1245928
+            </p>
+          </div>
+
+          <footer class="panel-footer">
+            <div class="secondary">
+              <a class="btn btn-map">
+                <i class="icon-phone"></i>
+              </a>
+            </div>
+            <div class="primary">
+              <a class="btn btn-map">
+                <i class="icon-star"></i>
+                Bookmark
+              </a>
+              <a class="btn btn-map">
+                <i class="icon-pencil"></i>
+              </a>
+            </div>
+          </footer>
+        </div>
+      </div>
+
+      <div class="map" style="position: relative; height: 240px; width: 300px; float:left;">
+        <div class="popover top" style="display: block;">
+          <div class="arrow"></div>
+
+          <header class="panel-header info">
+            <div class="left">
+              <i class="icon-road"></i>
+            </div>
+
+            <div class="popover-title panel-title twoline voice voice-brand">
+              <h3>Dispatch Hub: Shanghai</h3>
+              <p>Subtext</p>
+            </div>
+
+            <div class="right twoline voice voice-brand">
+              <p>45</p>
+              <small>MPG</small>
+            </div>
+          </header>
+
+          <div class="popover-content panel-content">
+            <p>
+              Fasanenstraße 10<br />
+              45134 Essen, Germany<br />
+              0176 1245928
+            </p>
+          </div>
+
+          <footer class="panel-footer">
+            <div class="secondary"></div>
+            <div class="primary">
+              <a class="btn btn-map">
+                <i class="icon-ok"></i>
+              </a>
+              <a class="btn btn-map">
+                <i class="icon-remove"></i>
+              </a>
+              <a class="btn btn-map">
+                <i class="icon-signal"></i>
+              </a>
+              <a class="btn btn-map">
+                <i class="icon-star"></i>
+              </a>
+              <a class="btn btn-map">
+                <i class="icon-pencil"></i>
+              </a>
+            </div>
+          </footer>
+        </div>
+      </div>
+
+      <div class="map" style="position: relative; height: 240px; width: 300px; float:left;">
+        <div class="popover top" style="display: block;">
+          <div class="arrow"></div>
+
+          <header class="panel-header success">
+            <div class="left">
+              <i class="icon-plane"></i>
+            </div>
+
+            <div class="popover-title panel-title voice voice-brand">
+              <h3>Hub: Singapore</h3>
+            </div>
+
+            <div class="right twoline voice voice-brand">
+              <p>45</p>
+              <small>MPG</small>
+            </div>
+          </header>
+
+          <div class="popover-content panel-content">
+            <p>
+              Fasanenstraße 10<br />
+              45134 Essen, Germany<br />
+              0176 1245928
+            </p>
+          </div>
+
+          <footer class="panel-footer">
+            <div class="secondary">
+              <a class="btn btn-map">
+                <i class="icon-fast-forward"></i>
+              </a>
+            </div>
+            <div class="primary">
+              <a class="btn btn-map">
+                <i class="icon-ok"></i>
+              </a>
+              <a class="btn btn-map">
+                <i class="icon-remove"></i>
+              </a>
+              <a class="btn btn-map">
+                <i class="icon-signal"></i>
+              </a>
+              <a class="btn btn-map">
+                <i class="icon-star"></i>
+              </a>
+              <a class="btn btn-map">
+                <i class="icon-pencil"></i>
+              </a>
+            </div>
+          </footer>
+        </div>
+      </div>
+
+      <div class="map" style="position: relative; height: 240px; width: 300px; float:left;">
+        <div class="popover top" style="display: block;">
+          <div class="arrow"></div>
+
+          <header class="panel-header warning">
+            <div class="popover-title panel-title voice voice-brand">
+              <h3>Dispatch Hub: Hong Kong (Airport)</h3>
+            </div>
+
+            <div class="right">
+              <i class="icon-plane"></i>
+            </div>
+          </header>
+
+          <div class="popover-content panel-content">
+            <p>
+              Fasanenstraße 10<br />
+              45134 Essen, Germany<br />
+              0176 1245928
+            </p>
+          </div>
+
+          <footer class="panel-footer">
+            <div class="secondary">
+              <a class="btn btn-map">Edit</a>
+              <a class="btn btn-map">Activate</a>
+            </div>
+            <div class="primary">
+              <a class="btn btn-map">History</a>
+            </div>
+          </footer>
+        </div>
+      </div>
+
+      <div class="map" style="position: relative; height: 240px; width: 300px; float:left;">
+        <div class="popover top" style="display: block;">
+          <div class="arrow"></div>
+
+          <header class="panel-header danger">
+            <div class="left twoline voice voice-brand">
+              <p>45</p>
+              <small>MPG</small>
+            </div>
+
+            <div class="popover-title panel-title voice voice-brand">
+              <h3>Dispatch Hub: Garmisch-Partenkirchen</h3>
+            </div>
+          </header>
+
+          <div class="popover-content panel-content">
+            <div class="row-fluid">
+              <div class="span6">
+                <strong>Origin:</strong><br />
+                Fasanenstraße 10<br />
+                45134 Essen, Germany<br />
+                0176 1245928
+              </div>
+              <div class="span6">
+                <strong>Destination:</strong><br />
+                House<br />
+                1600 Pennsylvania Ave.<br />
+                Washington, DC
+              </div>
+            </div>
+          </div>
+
+          <footer class="panel-footer">
+            <div class="secondary">
+              <a class="btn btn-map">
+                <i class="icon-phone"></i>
+              </a>
+            </div>
+            <div class="primary">
+              <a class="btn btn-map">
+                <i class="icon-star"></i>
+                Bookmark
+              </a>
+              <a class="btn btn-map">
+                <i class="icon-pencil"></i>
+              </a>
+            </div>
+          </footer>
+        </div>
+      </div>
+
+      <div class="map" style="position: relative; height: 240px; width: 300px; float:left;">
+        <div class="popover top" style="display: block;">
+          <div class="arrow"></div>
+
+          <header class="panel-header">
+            <div class="popover-title panel-title voice voice-brand">
+              <h3>Popover Title Popover Title Popover Title</h3>
+            </div>
+          </header>
+
+          <div class="popover-content panel-content">
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <td><strong>Description</strong></td>
+                  <td>NS 177 Road</td>
+                </tr>
+                <tr>
+                  <td><strong>Milepost</strong></td>
+                  <td>7100 412.72</td>
+                </tr>
+                <tr>
+                  <td><strong>Div/Sub</strong></td>
+                  <td>New South Wales 236 Xings on</td>
+                </tr>
+                <tr>
+                  <td><strong>Next Test</strong></td>
+                  <td>09/12/2013</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <footer class="panel-footer">
+            <div class="secondary"></div>
+            <div class="primary"></div>
+          </footer>
+        </div>
+      </div>
+    </td>
+    <td class="description">Popover Styling and UI Elements</td>
+    <td class="usage">
+      <p>The Map Popover consists of a set of markup and associated styling that provides a framework for creating a direct connection to typical types of information and actions on a map. The popovers are currently integrated with <a href="map-tearsheet-ui.html#poi_basic">Markers</a> and other map features will be added as the toolkit grows. Below is a description of the popover layouts followed by how to integrate a custom popover with markers and associated meta-data.</p>
+      <p>The Map Popover contains a header, content and footer area. The header area may contain icons and texts in separate left and right corner areas. The footer is built as an action area to contain buttons aligned left or right. It also handles the case of having no actions available.</p>
+      <p>This popover is based on the <a href="../../tearsheets/components.html#tooltips-popovers-modals">IIDX Popover</a> styling.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div style=&quot;display: none&quot;&gt;
+  &lt;header class=&quot;panel-header&quot;&gt;
+    &lt;div class=&quot;popover-title panel-title voice voice-brand&quot;&gt;
+      &lt;h3&gt;...&lt;/h3&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;div class=&quot;popover-content panel-content&quot;&gt;
+    ...
+  &lt;/div&gt;
+
+  &lt;footer class=&quot;panel-footer&quot;&gt;
+    &lt;div class=&quot;secondary&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;primary&quot;&gt;...&lt;/div&gt;
+  &lt;/footer&gt;
+&lt;/div&gt;
+</pre>
+      <p class="note">Note: The Map Popovers only work inside a <code>.map</code> element. This is handled automatically when used with markers.</p>
+      <br />
+      <p>The title may contain an icon on the left and some text on the right:</p>
+<pre class="prettyprint linenums lang-html">
+&lt;header class=&quot;panel-header&quot;&gt;
+  &lt;div class=&quot;left&quot;&gt;
+    &lt;i class=&quot;icon-road&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;popover-title panel-title voice voice-brand&quot;&gt;
+    &lt;h3&gt;...&lt;/h3&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;right voice voice-brand&quot;&gt;
+    &lt;p&gt;45&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+</pre>
+      <p>The title as well as the left and right elements are able to contain a subtitle. <code>.twoline</code> needs to be added:</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div class=&quot;popover-title panel-title twoline voice voice-brand&quot;&gt;
+  &lt;h3&gt;...&lt;/h3&gt;
+  &lt;p&gt;Subtext&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;right twoline voice voice-brand&quot;&gt;
+  &lt;p&gt;45&lt;/p&gt;
+  &lt;small&gt;MPG&lt;/small&gt;
+&lt;/div&gt;
+</pre>
+      <p>The header can appear in different colors by applying the Bootstrap states to the popover (<code>.info</code>, <code>.success</code>, <code>.warning</code>, <code>.danger</code>):</p>
+<pre class="prettyprint linenums lang-html">
+&lt;header class=&quot;panel-header info&quot;&gt;
+  ...
+&lt;/header&gt;
+</pre>
+      <br />
+      <p>
+        The footer may contain actions as <code>.btn-map</code> buttons (with icons and/or text) on the right and left:
+      </p>
+<pre class="prettyprint linenums lang-html">
+&lt;footer class=&quot;panel-footer&quot;&gt;
+  &lt;div class=&quot;left&quot;&gt;
+    &lt;a class=&quot;btn btn-map&quot;&gt;
+      &lt;i class=&quot;icon-phone&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;primary&quot;&gt;
+    &lt;a class=&quot;btn btn-map&quot;&gt;
+      &lt;i class=&quot;icon-star&quot;&gt;&lt;/i&gt;
+      Bookmark
+    &lt;/a&gt;
+    &lt;a class=&quot;btn btn-map&quot;&gt;
+      &lt;i class=&quot;icon-pencil&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+</pre>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<table class="documentation popover-object">
+  <thead>
+      <tr>
+          <th>Creating Popovers in Maps</th>
+      </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+    <td class="example">
+      <div class="map" style="position: relative; height: 240px; width: 300px; float:left;">
+        <div class="popover top" style="display: block;">
+          <div class="arrow"></div>
+
+          <header class="panel-header">
+            <div class="left">
+              <i class="icon-road"></i>
+            </div>
+
+            <div class="popover-title panel-title voice voice-brand">
+              <h3>Dispatch Hub: Essen</h3>
+            </div>
+
+            <div class="right voice voice-brand">
+              <p>45</p>
+            </div>
+          </header>
+
+          <div class="popover-content panel-content">
+            <p>
+              Fasanenstraße 10<br />
+              45134 Essen, Germany<br />
+              0176 1245928
+            </p>
+          </div>
+
+          <footer class="panel-footer">
+            <div class="secondary">
+              <a class="btn btn-map">
+                <i class="icon-phone"></i>
+              </a>
+            </div>
+            <div class="primary">
+              <a class="btn btn-map">
+                <i class="icon-star"></i>
+                Bookmark
+              </a>
+              <a class="btn btn-map">
+                <i class="icon-pencil"></i>
+              </a>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="description">
+    Implementation of rich popovers
+    </td>
+  </tr>
+  <tr>
+    <td class="usage">
+      <p>Popovers can be added to markers by passing in an <code>options</code> object with the following properties when adding the markers to the map. The header color is automatically set to match the color of the marker which in turn is dependent on the css class name assigned to the GeoJSON <code>properties</code> <code>state</code> property.</p>
+      <p class="note">Note: The following classes are predefined; <code>default</code>, <code>success</code>, <code>important</code>, <code>warning</code>, and <code>highlight</code>. This can be extended by creating a new css class and extending the css with the desired color.</p>
+      <table>
+        <tr>
+            <th>Name</th>
+            <th>type</th>
+            <th>default</th>
+            <th>description</th>
+        </tr>
+        <tr>
+            <td>popovers</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>When set to true the markers will display a popover based on the <code>popoverTemplate</code> and the GeoJSON <code>properties</code> object.</td>
+        </tr>
+        <tr>
+            <td>popoverTemplate</td>
+            <td>string</td>
+            <td>default template</td>
+            <td>The popoverTemplate contains a string with an HTML template using Hogan syntax. At render time the GeoJSON Features <code>properties</code> object will be passed in.</td>
+        </tr>
+      </table>
+      <br />
+      <p>Below is an example of adding popovers to a marker layer using the marker component. The script shows the method of declaring popover options including the HTML template string for the popover layout. This popover template is shown in a more readable format in the HTML template example. Finally, the GeoJSON example shows the <code>properties</code> data referenced by the <code>{{ }}</code> placeholder tags in the template. These attributes will be bound when the markers are initialised. For further information on the templating methodology, refer to <a href="http://twitter.github.io/hogan.js/">Hogan.js documentation.</a></p>
+      <p><a href="map-based-asset-monitoring.html">View the example.</a></p>
+      <p class="note">Note: It is necessary to add the following attribute snippet to the main popover to enable targeting of the popover by the marker: <code>data-popover-id="{{popoverId}}"</code>, as seen in the example below.</p>
+
+<p>Script:</p>
+<pre class="prettyprint linenums lang-js">
+require(['jquery', 'map-markers', 'map-core', 'map-search', 'map-layer-list', 'map-zoom'], function($, markers, Mapping, search){
+  ...
+  // Markers need to be loaded after the map is readied.
+  $.subscribe('mapInitialised', function(mapName, olMap){
+    var $mapContainer = $("div.map[data-map-name='"+mapName+"']");
+    var map = $mapContainer[0].map.olMap();
+
+    var richPopover = '&lt;div class="popover top" data-popover-id="{{popoverId}}"&gt;&lt;div class="arrow"&gt;&lt;/div&gt;&lt;header class="panel-header"&gt;&lt;div class="left"&gt;&lt;i class="icon-road"&gt;&lt;/i&gt;&lt;/div&gt;&lt;div class="popover-title panel-title voice voice-brand"&gt;&lt;h3&gt;{{title}}&lt;/h3&gt;&lt;/div&gt;&lt;div class="right voice voice-brand"&gt;&lt;p&gt;{{speed}}&lt;/p&gt;&lt;/div&gt;&lt;/header&gt;&lt;div class="popover-content panel-content"&gt;&lt;p&gt;{{address1}}&lt;br /&gt;{{address2}}&lt;br /&gt;{{phone}}&lt;/p&gt;&lt;/div&gt;&lt;footer class="panel-footer"&gt;&lt;div class="secondary"&gt;&lt;a class="btn btn-map"&gt;&lt;i class="icon-phone"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="primary"&gt;&lt;a class="btn btn-map"&gt;&lt;i class="icon-star"&gt;&lt;/i&gt;Bookmark&lt;/a&gt;&lt;a class="btn btn-map"&gt;&lt;i class="icon-pencil"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/div&gt;&lt;/footer&gt;&lt;/div&gt;';
+
+    var popoverOptions = {
+      popovers: true,
+      popoverTemplate: richPopover;
+    };
+
+    $.ajax({
+      url : 'data/rich-popover-example.json',
+      async : true,
+      dataType: "json"
+    })
+    .done(function(data) {
+      markers.addMarkers( data, map, popoverOptions );
+    });
+  });
+  ...
+  // Initialise the map
+  $(".map").initializeMap();
+});
+</pre>
+<p> HTML Template:</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div class="popover top" data-popover-id="{{popoverId}}"&gt;
+  &lt;div class="arrow"&gt;&lt;/div&gt;
+  &lt;header class="panel-header"&gt;
+    &lt;div class="left"&gt;&lt;i class="icon-road"&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;div class="popover-title panel-title voice voice-brand"&gt;
+      &lt;h3&gt;{{title}}&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;div class="right voice voice-brand"&gt;&lt;p&gt;{{speed}}&lt;/p&gt;&lt;/div&gt;
+  &lt;/header&gt;
+  &lt;div class="popover-content panel-content"&gt;
+    &lt;p&gt;{{address1}}
+    &lt;br /&gt;{{address2}}
+    &lt;br /&gt;{{phone}}
+    &lt;/p&gt;
+  &lt;/div&gt;
+  &lt;footer class="panel-footer"&gt;
+    &lt;div class="secondary"&gt;
+      &lt;a class="btn btn-map"&gt;&lt;i class="icon-phone"&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="primary"&gt;
+      &lt;a class="btn btn-map"&gt;&lt;i class="icon-star"&gt;&lt;/i&gt;Bookmark&lt;/a&gt;
+      &lt;a class="btn btn-map"&gt;&lt;i class="icon-pencil"&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+&lt;/div&gt;
+</pre>
+    <p>GeoJSON with a <code>properties</code> object that matches the popover template: </p>
+<pre class="prettyprint linenums lang-json">
+{"type":"FeatureCollection",
+    "features":[
+        {"type":"Feature",
+            "properties":{"title":"Dispatch Hub: Essen","speed":"43","address1":"Fasanenstraße 10","address2":"45134 Essen, Germany","phone":"0176 1245928"},
+            "metadata":{"type":"default","state":"default","icon":"\uf0d1","iconPos": {"x":-7,"y": 5}},
+            "geometry":{"type":"Point","coordinates":[-121.975193,37.777120]},
+            "id":"uniqueId_1"}
+    ]
+}
+</pre>
+
+      <p class="note">Note: If no template is provided via the <code>options</code> object, the marker implementation has a default template that binds to <code>title</code> and <code>content</code> in the <code>properties</code> object.</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+
+          <a class="anchor" id="panel_fixed"></a>
+          <h3 class="voice voice-brand">Fixed Panel</h3>
+<table class="documentation">
+    <thead>
+        <tr>
+            <th>Example</th>
+            <th>Description</th>
+            <th>Usage</th>
+        </tr>
+    </thead>
+  <tbody>
+  <tr>
+    <td class="example">
+      <p class="note"><a href="map-multiplemap.html">View in context</a></p>
+    </td>
+    <td class="description">Fixed Panel on the right</td>
+    <td class="usage">
+      <p>A Fixed Panel can be used to display information on the right hand side of the map. It shares the content styling options with the <a href="#popover_object">Map Popovers</a>.</p>
+
+      <p>To integrate a Fixed Panel this markup needs to be put inside the <code>.map</code> element:</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div class=&quot;panel-container&quot;&gt;
+  &lt;div class=&quot;row-fluid&quot;&gt;
+
+    &lt;section class=&quot;panel span12&quot;&gt;
+      &lt;header class=&quot;panel-header&quot;&gt;
+        &lt;div class=&quot;panel-title voice voice-brand&quot;&gt;
+          &lt;h3&gt;...&lt;/h3&gt;
+        &lt;/div&gt;
+      &lt;/header&gt;
+
+      &lt;div class=&quot;panel-content&quot;&gt;
+        ...
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+      <br />
+
+      <p>The panel elements have the same content abilities as the <a href="#popover_object">Object Popovers</a>:</p>
+
+      <ul>
+        <li><strong>Title areas:</strong> It is possible to have icons and text on the left and right hand side of the title</li>
+        <li><strong>Subtexts:</strong> Both title, left and right elements may contain a second line of text</li>
+        <li><strong>Header colors:</strong> It is possible to assign the Bootstrap states to the panels to change their header colors</li>
+      </ul>
+
+      <p>Please refer to <a href="#popover_object">Object Popovers</a> for further details.</p>
+
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+          <a class="anchor" id="frames"></a>
+          <h2 class="voice voice-brand">Fullscreen Frames </h2>
+<table class="documentation">
+  <thead>
+  <tr>
+    <th>Example</th>
+    <th>Description</th>
+    <th>Usage</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td class="example">      
+      <p class="note"><a href="map-based-asset-monitoring.html">View in context with large and small modules</a></p>
+    </td>
+    <td class="description">Fullscreen Frame containing modules</td>
+    <td class="usage">
+      <p>The fullscreen frame always has the height of the viewport below the navigation. It contains draggable modules which are scaling with the viewport and have different sizes available:</p>
+
+      <ul>
+        <li>full (100% - default)</li>
+        <li>half (50%)</li>
+        <li>large (66.66%)</li>
+        <li>small (33.33%)</li>
+      </ul>
+
+      <p>The following markup needs to be wrapped around the <code>.map</code>:</p>
+      <pre class="prettyprint linenums lang-html">
+&lt;div class=&quot;frame-container&quot;&gt;
+
+  &lt;div class=&quot;frame&quot;&gt;
+    ...
+  &lt;/div&gt;
+
+  &lt;div class=&quot;main&quot;&gt;
+    &lt;div class=&quot;row-fluid&quot;&gt;
+      &lt;div class=&quot;span12&quot;&gt;
+        &lt;div class=&quot;map&quot; data-map-name=&quot;default&quot;&gt;
+          ...
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+      </pre>
+
+      <br />
+
+      <p>Modules are added within the <code>.frame</code>:</p>
+      <pre class="prettyprint linenums lang-html">
+&lt;div class=&quot;frame&quot;&gt;
+  &lt;h2 class=&quot;voice voice-brand&quot;&gt;Headline&lt;/h2&gt;
+  &lt;div class=&quot;frame-content row-fluid ui-draggable hide-on-load&quot;&gt;
+
+    &lt;section class=&quot;module span12 draggable&quot;&gt;
+      &lt;header class=&quot;module-header&quot;&gt;
+        &lt;h4 class=&quot;voice voice-brand&quot;&gt;Headline&lt;/h4&gt;
+      &lt;/header&gt;
+      &lt;div class=&quot;module-body&quot;&gt;
+        Content ...
+      &lt;/div&gt;
+      &lt;footer class=&quot;module-footer&quot;&gt;&lt;/footer&gt;
+    &lt;/section&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+      </pre>
+
+      <br />
+
+      As the <a href="../../tearsheets/ui.html#modules">draggable modules</a> from the <a href="../common-layouts/dashboard-view.html">Dashboard View</a> the JavaScript needs the modules <code>jquery</code> and <code>jqueryui-sortable-amd</code> to work :
+<pre class="prettyprint linenums lang-javascript">
+require(['jquery', 'jqueryui-sortable-amd'], function($){
+
+  $('.frame .row-fluid').sortable({
+    handle:          '.module-header',
+    helper:          'clone',
+    items:           '.draggable',
+    forceHelperSize: true,
+    revert:          200,
+    tolerance:       'pointer',
+    containment:     'parent'
+  });
+
+  var frame = $('.frame');
+  var frameContent = $('.frame-content');
+  var frameModules = $('.frame-content .module');
+
+  //full height
+  function frameResize() {
+    frame.height(
+        $(window).height() - frame.offset().top
+    );
+
+    frameContent.height(
+        $(window).height() - frameContent.offset().top
+    );
+  }
+
+  frameResize();
+  frameContent.removeClass('hide-on-load');
+
+  //make sure the frame stays full height when resizing
+  $(window).resize(function(){ frameResize(); });
+});
+</pre>
+
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+          <a class="anchor" id="search"></a>
+          <h2 class="voice voice-brand">Search </h2>
+
+          <a class="anchor" id="search_object_input"></a>
+<table class="documentation">
+    <thead>
+        <tr>
+            <th>Example</th>
+            <th>Description</th>
+            <th>Usage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="example">
+                <p class="note"><a href="map-based-asset-monitoring.html">View in context</a></p>
+            </td>
+            <td class="description">
+                Asset/Address Search
+                <br/>
+                (Faceted Typeahead)
+            </td>
+            <td class="usage">
+                <p>The Asset/Address search provides a convenient wrapper to Bootstrap Typeahead specifically for use with maps. It provides two modes of search: Address and Asset. Address Search accesses the Google Places API; Asset Search queries indexes of asset data. Search results are presented in a dropdown using typeahead. On selection of a result the map is centred on the relevant asset or address.</p>
+                <p>Asset object indexes are generated by the marker component on load of the asset data. See the <a href="map-tearsheet-ui.html#poi_basic">marker documentation</a> for details. Asset Search will only operate if a marker layer has been indexed and is visible on the map.</p>
+                <p>Asset Search can operate in faceted or non-faceted mode (see <a href="map-search-and-evaluate.html">non-faceted example</a>); Address Search is non-faceted only.</p>
+                <p>Script:</p>
+<pre class="prettyprint linenums lang-javascript">
+$(&hellip;).assetOrAddressSearch({options});
+</pre>
+                <p>Options:</p>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>type</th>
+                        <th>default</th>
+                        <th>description</th>
+                    </tr>
+                    <tr>
+                        <td>type</td>
+                        <td>string</td>
+                        <td>address</td>
+                        <td>The type of search to implement: either 'asset' or 'address'.</td>
+                    </tr>
+                    <tr>
+                        <td>mapNames</td>
+                        <td>array</td>
+                        <td>['default']</td>
+                        <td>An array of map names to which result centering will apply. A map will only be centred on selection of a search result if its name is in this array.</td>
+                    </tr>
+                    <tr>
+                        <td>positionElementID</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>ID of element to use as positional reference.  The search results will align to the left edge of the element.</td>
+                    </tr>
+                     <tr>
+                        <td>isFaceted</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Determines if typeahead results are faceted or non-faceted. For Asset Search the default is <em>true</em>. Setting this for Address Search has no effect - the typeahead results are always shown in non-faceted form.</td>
+                    </tr>
+                    <tr>
+                        <td>items</td>
+                        <td>number</td>
+                        <td>10</td>
+                        <td>The max number of items to display in the Asset Search typeahead results dropdown. For Address Search the number of results is pre-determined by the Google API so this parameter may have no effect.</td>
+                    </tr>
+                   <tr>
+                        <td>offsetPosY</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Offset Y position (px) to be added to the default Y position of the search results.</td>
+                    </tr>
+                </table>
+                <!-- // Note: automatic trigger of compponent has not been tested -->
+                <!--
+                <p>To automatically trigger facetedTypehead, add <code>data-provide="facetedtypeahead"</code> to a text input control. Any of the above options may be specified via <code>data-</code> attributes.</p>
+                -->
+                <div class="alert alert-info">
+                    <strong>Script Requirements:</strong>
+                    <ul>
+                        <li>map-search/asset-address-search</li>
+                        <li>bootstrap/bootstrap-typeahead</li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+          <a class="anchor" id="street_view"></a>
+          <h2 class="voice voice-brand">Street View</h2>
+
+          <a class="anchor" id="street_view_zoom"></a>
+          <h3 class="voice voice-brand">Zoom Into Street View</h3>
+    <table class="documentation">
+    <thead>
+        <tr>
+            <th>Example</th>
+            <th>Description</th>
+            <th>Usage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="example">
+            <div id="street_view_zoom" class="map" data-toggle="streetview" data-map-name="street_view_zoom" style="height:400px; width: 100%;"></div>
+                <p class="note"><a href="map-search-and-evaluate.html">View in context</a></p>
+<script src="../../../components/requirejs/require.js"></script>
+<script src="../../../js/require.config.js"></script>
+<script type="text/javascript">
+
+    require.config({ baseUrl: '../../../' });
+
+    require(['map-core', 'map-street-view'], function(Mapping){
+
+      $(".map#street_view_zoom").initializeMapWithOptionsOnly({
+        "Layers": {
+          "Google": [
+            {
+              "ExternalLayerName" : "Google Streets",
+              "Type" : "roadmap"
+            }
+          ],
+        },
+        "MapOptions": {
+          "CentreLat": 37.766633,
+          "CentreLong": -121.95975,
+          "DefaultZoom": 21,
+          "ZoomLevels": 21
+        },
+        "Google": {
+          "googleClientID": "",
+          "googleChannelID": ""
+        }
+
+    });
+  });
+</script>
+            </td>
+            <td class="description">
+                Zoom to Street View from within the map
+            </td>
+            <td class="usage">
+              <p>Street View uses the Google Street View service, which is part of the Google Maps Javascript v3 api. This provides a seamless zoom into Street View from the map.  By bringing in the <code>map-street-view</code> module, and by specifying a <code>data-map-name</code> and setting <code>data-toggle</code> to <code>streetview</code>, then Street View is automatically initialised and created for the map on screen. </p>
+              <p>Zoom in to the lowest level on the map and if there is a Street View at the location in the centre of the map, the map will zoom into the Street View at that location.  At this point navigation will be available to move around Street View and to zoom out of Street View.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div id="street_view_zoom" class="map" data-toggle="streetview" data-map-name="street_view_zoom" style="height:400px; width: 100%;">&lt;/div>
+</pre>
+              <div class="alert alert-info">
+                  <strong>Script Requirements:</strong>
+                  <ul>
+                      <li>map-street-view</li>
+                  </ul>
+              </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+          <a class="anchor" id="street_view_module"></a>
+          <h3 class="voice voice-brand">Street View Module</h3>
+<table class="documentation">
+    <thead>
+        <tr>
+            <th>Example</th>
+            <th>Description</th>
+            <th>Usage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="example">
+                <p class="note"><a href="map-house-search.html">View in context</a></p>
+            </td>
+            <td class="description">
+                Street View Module
+            </td>
+            <td class="usage">
+                <p>Street view occupies a separate <code>div</code> element than the maps.  This means you can use it in a separate area of code and still synchronise the location of the map with streetview.</p>
+                <p>Street view is part of the google code base and the agreements with google.  It is not advised to use without the google basemaps.</p>
+                <p>HTML markup:</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div class="map" data-map-name="default" data-map-zoom-control="hide" >&lt;/div>
+
+&lt;div class="streetviewtest" data-map-source="default" style="height:350px">&lt;/div>
+</pre>
+                <p>Javascript: </p>
+<pre class="prettyprint linenums lang-js">
+require(['jquery', 'map-core', 'map-street-view'], function($, Mapping, streetView){
+  var $mapSelector = $('div.map[data-map-name="default"]'),
+      map = $mapSelector.initializeMap()[0].map,
+      olMap = map.olMap(),
+      $streetViewSelector = $('div.streetviewtest[data-map-source="default"]'),
+      streetViewSync = streetView.init("default", olMap, $streetViewSelector);
+
+  //set streetview to centre of map
+  streetViewSync.searchForPanorama(olMap.center,50);
+
+  streetViewSync.show();
+
+  var mapListener = function mapListener(evt) {
+    //do not remove street view listener so the map will recenter on the found panorama
+    streetViewSync.searchForPanorama(evt.object.center,50);
+  };
+
+  var streetViewListener = function streetViewListener() {
+    //remove listener on map move to avoid circular event firing
+    olMap.events.remove('moveend');
+    var pos = streetViewSync.getPanorama().getPosition(),
+        transformedPos =  map.googleToOLPosition(pos);
+    olMap.setCenter(transformedPos);
+    //re add map move listener
+    olMap.events.register('moveend', olMap, mapListener);
+  };
+  //bind map move to street view
+  olMap.events.register('moveend', olMap, mapListener);
+  //bind street view move to map
+  google.maps.event.addListener(streetViewSync.getPanorama(), 'position_changed', streetViewListener);
+}
+</pre>
+              <div class="alert alert-info">
+                  <strong>Script Requirements:</strong>
+                  <ul>
+                      <li>map-street-view</li>
+                  </ul>
+              </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+          <h2 class="voice voice-brand">Geolocate</h2>
+
+          <a class="anchor" id="geolocate"></a>
+          <h3 class="voice voice-brand">Geolocate</h3>
+<table class="documentation">
+    <thead>
+        <tr>
+            <th>Example</th>
+            <th>Description</th>
+            <th>Usage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="example">
+                <p class="note"><a href="map-house-search.html">View in context</a></p>
+            </td>
+            <td class="description">
+                Geolocate Control to recentre map at current location
+            </td>
+            <td class="usage">
+                <p>Geolocate utilizes the location of the device accessing the application to centre the map on their coordinates.</p>
+                <p>Merely including the <code>map-geolocate</code> module will activate geolocate and allow the polling of coordinates from the browser or mobile device.  In this case a <code>button</code> is linked to the <code> data-map-name</code> to trigger the geolocate feature. </p>
+<pre class="prettyprint linenums lang-html">
+&lt;div class="map" data-toggle="geolocate" data-map-name="default" data-map-zoom-control="hide">
+  &lt;div class="map-toolbar">
+    &lt;div class="btn-group clickable pull-left">
+      &lt;button class="btn btn-remove" rel="tooltip" data-locate-map="default" data-placement="bottom" title="Centre map on your current location" data-animation="false" >
+        &lt;i class="icon-screenshot active">&lt;/i>
+      &lt;/button>
+    &lt;/div>
+  &lt;/div>
+&lt;/div>
+</pre>
+<pre class="prettyprint linenums lang-js">
+require(['jquery', 'map-core', 'map-geolocate'], function($, Mapping){
+  $('div.map[data-map-name="default"]').initializeMap();
+}
+</pre>
+              <div class="alert alert-info">
+                  <strong>Script Requirements:</strong>
+                  <ul>
+                      <li>map-geolocate</li>
+                  </ul>
+              </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+	<style>
+	.sdh-wrapper > h2     { border-top: 5px solid #13161a; font-size: 36px; font-weight: normal; margin-top: 30px; margin-bottom: 30px; padding-top: 20px; }
+	.sdh-wrapper > h2:first-child { border-top: 0; margin-top: 0; padding-top: 0; }
+	.sdh-wrapper > h3     { border-top: 2px solid #bfc2c5; font-size: 24px; font-weight: normal; padding-top: 25px; margin-bottom: 30px; margin-top: 30px; }
+	.sdh-wrapper > h3:before { background-color: #08a5e1; content: '.'; border-radius: 16px; display: inline-block; height: 16px; margin-right: 8px; position: relative; text-indent: -9999px; vertical-align: baseline; width: 16px; line-height: 16px; }
+	.sdh-wrapper > h2 + h3 { border-top: 0; margin-top: 0; padding-top: 0; }
+	.sdh-wrapper > p      { color: #5C5F63; font-size: 12px; margin-bottom: 30px; margin-top: -10px; }
+  .contextmenu.test {background-color: #999; text-align: center; vertical-align: middle; padding: 12px; }
+  </style>
+
+<script>
+            // Increase load time for IE8
+            requirejs.config({
+                waitSeconds: 30
+            });
+
+            // Preload JS libraries and exec page scripts
+            require([
+                    'require',
+                    'jquery',
+                    'ge-bootstrap',
+                    'prettify',
+                    'spinner',
+                    'iids',
+                    'responsive-tables',
+                    'collapsible-list',
+                    'datepicker',
+                    'contextmenu',
+                    'multi-step-navigation',
+                    'toggle-switch',
+                    'slider'
+                ],
+                function(require, $, bootstrap, prettify, spinner) {
+                    $(
+                        function() {
+                            // -------------------
+                            // DOCUMENTATION SETUP
+                            // -------------------
+
+                            // Make code lovely using Google Prettify.
+                            window.prettyPrint && prettyPrint();
+
+                            // Enable ScrollSpy for dynamic navigation highlighting.
+                            $('body').scrollspy({
+                                offset: 120,
+                                target: '.primary-navbar'
+                            });
+
+                            // Extend jQuery with a better easing function, so we can make
+                            // some pretty scrolling animations.
+                            $.extend(
+                                $.easing,
+                                {
+                                    def: 'easeInOutCubic',
+                                    easeInOutCubic: function (x, t, b, c, d) {
+                                        if ((t/=d/2) < 1) return c/2*t*t*t + b;
+                                        return c/2*((t-=2)*t*t + 2) + b;
+                                    }
+                                }
+                                // This easing function is from:
+                                // jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
+                                // Open source under the BSD License.
+                                // Copyright © 2008 George McGinley Smith
+                                // All rights reserved.
+                            );
+
+                            // Finally, add some smooth scrolling to our body when one of the
+                            // primary-navbar links are clicked (even though this isn't in
+                            // Bootstrap, which everyone said it was... we'll rebuild anyway).
+                            $('.primary-navbar a').click(
+                                function( event ) {
+                                    event.preventDefault();
+                                    var offset = $( $(this).attr('href') ).offset();
+                                    if (offset) {
+                                      $( 'html, body' ).animate( { scrollTop: offset.top }, 1000, 'easeInOutCubic' );
+                                    }
+                                }
+                            );
+
+                            // Now, on to...
+
+                            // ---------------------------
+                            // DOCUMENTATION FUNCTIONALITY
+                            // ---------------------------
+
+                            // Enable stateful buttons
+                            $('[rel=stateful]').click(
+                                function(){
+                                    var $self = $(this);
+                                    $self.button('loading');
+                                    setTimeout(
+                                        function() {
+                                            $self.button('reset');
+                                        },
+                                        3000
+                                    );
+                                }
+                            );
+
+                            // Enable spinners
+                            $('[rel=spinner]').spin();
+
+                            // Enable tabs (with dropdowns, mainly)
+                            $('.nav-tabs > li > a').click(
+                                function(event) {
+                                    event.preventDefault();
+                                    $(this).tab('show');
+                                }
+                            );
+
+                            // Make accordion carets animate!
+                            $('.accordion .collapse')
+                                .on('show',
+                                    function() {
+                                        $(this).prev('.accordion-heading').find('.accordion-toggle').addClass('in');
+                                    }
+                                )
+                                .on('hide',
+                                    function() {
+                                        $(this).prev('.accordion-heading').find('.accordion-toggle').removeClass('in');
+                                    }
+                                );
+
+                            // Enable context menu
+                            $.contextMenu({
+                              selector: ".contextmenu",
+                              items: {
+                                "action1": {"name": "Action"},
+                                "action2": {"name": "Another action"},
+                                "action3": {"name": "Something else here"},
+                                "sep1": "---------",
+                                "fold1": {
+                                    "name": "Separated link",
+                                    "items": {
+                                        "fold1-key1": {"name": "Action"},
+                                        "fold1-key3": {"name": "Another Action"}
+                                    }
+                                }
+                              }
+                            });
+
+                            // Enable multi-step-navigator
+                            $('.multi-step-nav').multiStepNavigation();
+
+                            // Enable rich popovers
+                            $('#popover1').popover({
+                              html: true,
+                              title: 'A Title',
+                              content: function() {
+                                return $('#popover1-content-wrapper').html();
+                              }
+                            }).on('click', function(e) {
+                              e.preventDefault();
+                            });
+
+                            $('#popover2').popover({
+                              html: true,
+                              placement: 'top',
+                              content: function() {
+                                return $('#popover2-content-wrapper').html();
+                              }
+                            }).on('click', function(e) {
+                              e.preventDefault();
+                            });
+
+                            // Conditionally load D3/Declarative Viz if SVG is supported.
+                            // This should prevent errors from being thrown in IE8
+                            if (Modernizr.svg) {
+
+                              require(['declarative-visualizations'], function(visualizations) {
+
+                                var components = [];
+
+                                $('div[data-visualization]').each(function(i, element) {
+                                  var viz = $(element).attr('data-visualization');
+                                  components.push( visualizations[viz](element) );
+                                });
+
+                            });
+                          // If SVG isn't supported alert the user that some elements won't be loaded
+                          } else {
+                            alert('Your browser does not support SVG.\nAny element using D3.js will be omitted.');
+                          }
+                        }
+                    );
+                }
+            );
+        </script>
+        <script src="../../../components/respond/respond.src.js"></script>
+    </body>
+</html>
+

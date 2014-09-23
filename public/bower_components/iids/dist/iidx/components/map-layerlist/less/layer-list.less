@@ -1,0 +1,287 @@
+.mapdslayer {
+  height: 100px;
+  margin-bottom: 20px;
+  transition: width 0.2s, opacity 0.2s;
+  -webkit-transition: height 0.2s, width 0.2s, opacity 0.2s ease-out;
+}
+
+.mapdslayer .olLayerGooglePoweredBy{
+  visibility: hidden;
+}
+
+.mapdslayer .olLayerGoogleCopyright  {
+  visibility: hidden;
+}
+
+.layercontrol{
+  position : absolute;
+  right: 20px;
+  top:10px;
+
+  width: 135px;
+  height: 135px;
+
+  overflow: hidden;
+  display: block;
+
+  z-index: 1001;
+}
+
+.mapdsPanel {
+  display:none;
+  height:450px;
+  width:0px;
+  background-color: #E1E2E5;
+  position:absolute;
+  margin: 0 0 0 0;
+  z-index:250000;
+  overflow: hidden;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  overflow-y: auto;
+
+  transition: width 0.1s, opacity 0.1s, top 0.1s;
+  -webkit-transition: height 0.1s, width 0.1s, top 0.1s, opacity 0.1s ease-out;
+}
+
+.mapdsPanelContent {
+  width: 150px;
+  height: 400px;
+  margin: 5px 25px 25px 25px;
+
+
+  transition: width 0.1s, opacity 0.1s;
+  -webkit-transition: width 0.1s, opacity 0.1s ease-out;
+}
+
+.mapdsPanel::-webkit-scrollbar {
+    width: 12px;
+}
+
+.mapdsPanel::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+.mapdsPanel::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+//Custom icon for overlay drop down toggle button
+.map .btn-group .btn.btn-map{
+    padding-top: 3px;
+    padding-bottom: 3px;
+    i.icon-overlays{
+        background-image: url('@{componentsPath}/map-layerlist/img/ic_layers_dark.svg');
+        background-size: 17px 14px;
+        display: inline-block;
+        width: 17px;
+        height: 14px;
+        margin-right: 8px;
+    }
+
+    i.icon-chevron-down{
+        margin-left: 10px;
+    }
+}
+
+.btn-group.open .btn.btn-map{
+    background-color: @cyan;
+
+    color: white;
+
+    i.icon-overlays{
+        background-image: url('@{componentsPath}/map-layerlist/img/ic_layers_light.svg');
+    }
+
+    i.icon-chevron-down{
+        color: white;
+    }
+}
+
+//Base Layer styling
+.map{
+    .base-layer-chooser{
+        position: absolute;
+        left: 20px;
+        bottom: 30px;
+        background-color: white;
+        z-index: 1001;
+
+        -webkit-border-radius: @btnBorderRadius;
+        -moz-border-radius: @btnBorderRadius;
+        border-radius: @btnBorderRadius;
+
+        max-height: 68px;
+        max-width: 68px;
+        overflow: hidden;
+
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+
+        &:hover{
+            max-width: 100%;
+
+            >ul{
+                li{
+                    display: inline-block;
+                    margin: 9px 9px 9px 0px;
+
+                    &.selected, &.selected:hover{
+                        border: solid 2px @blue;
+                        margin: 8px 8px 8px -1px;
+                    }
+
+                    &:first-child{
+                        &.selected{
+                            margin: 8px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .map-ui-shadow;
+
+        >ul{
+            padding: 0;
+            margin: 0;
+
+            li{
+                display: none;
+                width: 48px;
+                height: 48px;
+                background-color: gray;
+                margin: 9px;
+                overflow: hidden;
+                border: solid 1px #c3c3c3;
+                cursor: pointer;
+
+                &.selected{
+                    display: inline-block;
+                }
+
+                &.satellite{
+                    background: url('@{componentsPath}/map-layerlist/img/base-layer-thumbs/satellite.png');
+                }
+
+                &.roadmap{
+                    background: url('@{componentsPath}/map-layerlist/img/base-layer-thumbs/roadmap.png');
+                }
+
+                &.terrain{
+                    background: url('@{componentsPath}/map-layerlist/img/base-layer-thumbs/terrain.png');
+                }
+            }
+
+            li:hover{
+                border-color: #666666;
+            }
+
+            li:first-child{
+                margin: 9px;
+            }
+        }
+
+        &.toggle{
+            >ul>li{
+                display: block;
+                margin: 9px;
+                &.selected{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+//Overlay styling
+.map{
+    .overlay-chooser{
+        ul.dropdown-menu{
+            border: none;
+            padding: 0;
+            overflow: hidden;
+
+            .map-ui-shadow;
+
+            li{
+                cursor: pointer;
+                height: 28px;
+                line-height: 28px;
+                padding: 0 20px 0 10px;
+                min-width: 175px;
+
+                &.divider{
+                    height: 1px;
+                    border: none;
+                    margin: 0;
+                }
+
+                &.suboverlay{
+                    padding-left: 20px;
+                }
+
+                &:hover{
+                    background-color: #e1e2e5;
+                }
+
+                &:first-child{
+                    padding-top: 5px;
+                }
+
+                &:last-child{
+                    padding-bottom: 5px;
+                }
+
+                >span{
+                    background: url('@{componentsPath}/map-layerlist/img/eye_off.svg');
+                    background-size: 21px 19px;
+                    margin-right: 10px;
+                    width: 21px;
+                    height: 19px;
+                    display: inline-block;
+                    vertical-align: -7px;
+                    .no-selection;
+                }
+
+                >label{
+                    padding: 0;
+                    margin: 0;
+                    overflow: hidden;
+                    display: inline-block;
+                    max-width: 155px;
+                    text-wrap: none;
+                    text-overflow:ellipsis;
+                    vertical-align: middle;
+                    font-size: 12px;
+                    .no-selection;
+                }
+            }
+            li.enabled{
+                >label{
+                    font-weight: bold;
+                }
+
+                >span{
+                    background: url('@{componentsPath}/map-layerlist/img/eye_on.svg');
+                    background-size: 21px 12px;
+                    height: 12px;
+                    vertical-align: -3px;
+                }
+            }
+
+            li.inactive{
+                >span{
+                    background: url('@{componentsPath}/map-layerlist/img/eye_inactive.svg');
+                    background-size: 21px 12px;
+                    height: 12px;
+                    vertical-align: -3px;
+                }
+            }
+        }
+    }
+}
+

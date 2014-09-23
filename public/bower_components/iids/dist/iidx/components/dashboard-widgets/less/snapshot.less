@@ -1,0 +1,27 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "ge-bootstrap/less/ge-bootstrap.less";
+@import "modules/less/modules.less";
+@import "variables.less";
+
+
+// Styles
+// --------------------------------------------------
+
+// Snapshot
+.module-snapshot {
+  background-color: @grayLightest;
+  .border-radius(@baseBorderRadius);
+  .module {
+    min-height: 290px;
+    &:first-child {
+      .border-radius(@baseBorderRadius 0 0 @baseBorderRadius);
+      margin-left: 0;
+      + .module {
+        background: none;
+        margin-left: 10px;
+      }
+    }
+  }
+}

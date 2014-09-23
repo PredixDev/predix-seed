@@ -1,0 +1,737 @@
+{
+  "aaData":
+  [{
+        "Number" : "0",
+        "Leader": "Michael Tasker",
+        "Type": "Investigation",
+        "Status": "On Duty"
+},
+{
+        "Number" : "1",
+        "Leader" : "Micheal Tasker",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "2",
+        "Leader" : "Lenroy Quinlin",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+},
+{
+        "Number" : "3",
+        "Leader" : "Dorin Carni",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "4",
+        "Leader" : "Praveen Mcdonald",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "5",
+        "Leader" : "Cherisse Randall",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "6",
+        "Leader" : "Tatyana Mansfield",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "7",
+        "Leader" : "Schilling Kirkland",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "8",
+        "Leader" : "Gert Waxman",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+},
+{
+        "Number" : "9",
+        "Leader" : "Jaqueline Sybert",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+},
+{
+        "Number" : "10",
+        "Leader" : "Astou Sieg",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "11",
+        "Leader" : "Michele Gest",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "12",
+        "Leader" : "Quay Volosov",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "13",
+        "Leader" : "Lenroy Roose",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "14",
+        "Leader" : "Dorin Esparza-barron",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "15",
+        "Leader" : "Praveen Mckinney",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "16",
+        "Leader" : "Tatyana Chesley",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "17",
+        "Leader" : "Schilling Frazier",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "18",
+        "Leader" : "Jaunice Hussein",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "19",
+        "Leader" : "Cherisse Speakes",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "20",
+        "Leader" : "Wardell Women-na-amat",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+},
+{
+        "Number" : "21",
+        "Leader" : "Gert Zapinsky",
+        "Type" : "Investigation",
+        "Status" : "Off Duty"
+},
+{
+        "Number" : "22",
+        "Leader" : "Quay Slavin",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "23",
+        "Leader" : "Asuman Fontana",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "24",
+        "Leader" : "Jaunice Owens",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "25",
+        "Leader" : "Michele Head",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "26",
+        "Leader" : "Lensler Andrea",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "27",
+        "Leader" : "Dorin Mateer",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "28",
+        "Leader" : "Schilling Birch",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "29",
+        "Leader" : "Praveen Toppin",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "30",
+        "Leader" : "Wardell Peardon",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "31",
+        "Leader" : "Quay Ryer",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "32",
+        "Leader" : "Cherisse Spelman",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "33",
+        "Leader" : "Gertie Giler",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "34",
+        "Leader" : "Asuman Kenney",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "35",
+        "Leader" : "Jaunice Shear",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "36",
+        "Leader" : "Teandra Biological",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "37",
+        "Leader" : "Michele Littig",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+},
+{
+        "Number" : "38",
+        "Leader" : "Micheal Tasker",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+},
+{
+        "Number" : "39",
+        "Leader" : "Lenroy Quinlin",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+},
+{
+        "Number" : "40",
+        "Leader" : "Praveen Mcdonald",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "41",
+        "Leader" : "Gert Waxman",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "42",
+        "Leader" : "Astou Sieg",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "43",
+        "Leader" : "Quay Volosov",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "44",
+        "Leader" : "Lenroy Roose",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "45",
+        "Leader" : "Praveen Mckinney",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "46",
+        "Leader" : "Jaunice Hussein",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "47",
+        "Leader" : "Cherisse Speakes",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "48",
+        "Leader" : "Gert Zapinsky",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "49",
+        "Leader" : "Quay Slavin",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "50",
+        "Leader" : "Asuman Fontana",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "51",
+        "Leader" : "Lensler Andrea",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "52",
+        "Leader" : "Dorin Mateer",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+},
+{
+        "Number" : "53",
+        "Leader" : "Praveen Toppin",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+},
+{
+        "Number" : "54",
+        "Leader" : "Wardell Peardon",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "55",
+        "Leader" : "Quay Ryer",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "56",
+        "Leader" : "Gertie Giler",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "57",
+        "Leader" : "Asuman Kenney",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "58",
+        "Leader" : "Lensler Ford",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "59",
+        "Leader" : "Wardell Eck",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "60",
+        "Leader" : "Gertie Gochnauer",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "61",
+        "Leader" : "Aswan Transit",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "62",
+        "Leader" : "Javad Gamper",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "63",
+        "Leader" : "Lensler Jane",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "64",
+        "Leader" : "Gertie Mondanipour",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "65",
+        "Leader" : "Janene Grinina",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "66",
+        "Leader" : "Tasman Lyss",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "67",
+        "Leader" : "Ward Shah",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "68",
+        "Leader" : "Athol Insel",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "69",
+        "Leader" : "Javad Rankin",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "70",
+        "Leader" : "Lenwood Batty",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "71",
+        "Leader" : "Schaja Sturm",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "72",
+        "Leader" : "Ward Hawker",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "73",
+        "Leader" : "Q. Quaranta",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "74",
+        "Leader" : "Jarad Conrad",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "75",
+        "Leader" : "Javay Norwood",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "76",
+        "Leader" : "Lenwood Logan",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "77",
+        "Leader" : "Ward Fostel",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "78",
+        "Leader" : "Doris Simmons",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "79",
+        "Leader" : "Cherlyn Matties",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "80",
+        "Leader" : "Gertsel Janc",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "81",
+        "Leader" : "Atina Gabbin",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "82",
+        "Leader" : "Javid Canada",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "83",
+        "Leader" : "Tasman Aquirre",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "84",
+        "Leader" : "Mick Brik",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "85",
+        "Leader" : "Lenwood Shofer",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "86",
+        "Leader" : "Dorithia Spriggs",
+        "Type" : "Investigation",
+        "Status" : "Off Duty"
+},
+{
+        "Number" : "87",
+        "Leader" : "Cherlynn Ford",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "88",
+        "Leader" : "Tasman Abbott",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "89",
+        "Leader" : "Jarad Philpot",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "90",
+        "Leader" : "Atina Tuggle",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "91",
+        "Leader" : "Mick Gillmore",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "92",
+        "Leader" : "Q. Lefkovitz",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "93",
+        "Leader" : "Leo Brazerol",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "94",
+        "Leader" : "Dorothea Samlinco",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "95",
+        "Leader" : "Premier Bustillos",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "96",
+        "Leader" : "Ward Crosby",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "97",
+        "Leader" : "Javid Guan",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "98",
+        "Leader" : "Mick Zollicoffer",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+},
+{
+        "Number" : "99",
+        "Leader" : "Leobardo Fromberg",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "100",
+        "Leader" : "Presby Cooley",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "101",
+        "Leader" : "Ward Bainder",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "102",
+        "Leader" : "Kelvin Castro",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "103",
+        "Leader" : "Jody Schecter",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "104",
+        "Leader" : "Javid Kosko",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "105",
+        "Leader" : "Teodor Wingate",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "106",
+        "Leader" : "Mickey Meiller",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "107",
+        "Leader" : "Leobardo Hooks",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "108",
+        "Leader" : "Wang Woodyard",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+},
+{
+        "Number" : "109",
+        "Leader" : "Javid Mostovoy",
+        "Type" : "Restoration",
+        "Status" : "Off Duty"
+},
+{
+        "Number" : "110",
+        "Leader" : "Mickey Woods",
+        "Type" : "Investigation",
+        "Status" : "Off Duty"
+},
+{
+        "Number" : "111",
+        "Leader" : "Jarad Willett",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "112",
+        "Leader" : "Midas Luck",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "113",
+        "Leader" : "Q Baumer",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "114",
+        "Leader" : "Pzadik Whatley",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "115",
+        "Leader" : "Javid Reitze",
+        "Type" : "Investigation",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "116",
+        "Leader" : "Miguel Blumenfeld",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "117",
+        "Leader" : "Leolia Biegacz",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "118",
+        "Leader" : "Dorothy Tongue",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "119",
+        "Leader" : "Scarlette Hardie",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "120",
+        "Leader" : "Pzadik Kestenbaum",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+},
+{
+        "Number" : "121",
+        "Leader" : "Jarboe Salawitch",
+        "Type" : "Restoration",
+        "Status" : "On Duty"
+}
+]
+}
+

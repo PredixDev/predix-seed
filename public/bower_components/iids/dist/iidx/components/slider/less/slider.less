@@ -1,0 +1,198 @@
+// Dependencies
+// --------------------------------------------------
+@import "ge-bootstrap/less/ge-bootstrap.less";
+input.slider {
+  display: none;
+}
+.slider * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.slider * {
+  vertical-align: middle;
+}
+.slider {
+  display: table;
+}
+.slider label {
+  display: table-cell;
+  padding: 0 10px 0 0;
+  text-align: right;
+  white-space: nowrap;
+  color: @grayDark;
+  font-family: @sansFontFamily;
+  font-size: 30px;
+
+  .prefix, .suffix {
+    color: @gray;
+    font-size: 19px;
+  }
+}
+.slider .slider-container {
+  width: 100%;
+  height: auto;
+  display: table-cell;
+  border-collapse: separate;
+}
+.slider .slider-ui {
+  display: table;
+  width: 100%;
+  vertical-align: top;
+  padding: 0;
+  float: left;
+  background: @grayLightest;
+  border: 1px solid @grayLightest;
+  border-radius: 4px;
+  height: 35px;
+}
+.slider.with-scale {
+  margin-bottom: 30px;
+}
+.slider.with-tickmarks {
+  margin-bottom: 30px;
+}
+.slider .slider-ui label {
+  padding: 0 23px 0 10px;
+  text-align: right;
+}
+.slider .slider-button {
+  display:  table-cell;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+}
+.slider .slider-button.less {
+}
+.slider .slider-button.more {
+}
+.slider .slider-button button {
+  line-height: 12px;
+  width: 22px;
+  height: 21px;
+  text-align: center;
+  margin: 5px;
+  font-size: 14px;
+  position: relative;
+  font-weight: normal;
+}
+.slider .slider-button button:active {
+}
+.slider .slider-button button i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  line-height: 22px;
+  text-align: center;
+  color: @gray;
+  text-shadow: 1px 1px 1px #ffffff;
+}
+.slider .slider-content {
+  display: table-cell;
+  padding: 0 18px;
+}
+.slider.with-buttons .slider-content {
+  padding: 0 14px;
+}
+.slider.with-buttons.buttons-together .slider-content {
+  padding: 0 15px 0 18px;
+}
+.slider .slider-content .interactive {
+  display: table;
+  width: 100%;
+}
+.slider .track-and-thumb {
+  width: 100%;
+  height: 36px;
+  display: table-cell;
+  vertical-align: top;
+  position: relative;
+  border: 0;
+  cursor: hand;
+  cursor: pointer;
+}
+.slider .more {
+  text-align: right;
+}
+.slider .track-and-thumb .track {
+  position: relative;
+  top: 15px;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background-color: @gray;
+  padding: 0;
+  margin: 0;
+  z-index: 10;
+}
+.slider .track-and-thumb .highlight {
+  position: relative;
+  top: 10px;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background-color: #000000;
+  padding: 0;
+  margin: 0;
+  z-index: 10;
+}
+.slider .track-and-thumb .track-positioner {
+  height: 35px;
+  position: relative;
+}
+.slider .slider-ui .tickmarks {
+  display: block;
+  position: absolute;
+  width: 100%;
+  bottom: -1px;
+  height: 5px;
+}
+.slider .slider-ui .scale .tick {
+  letter-spacing: 0;
+  font-size: 0;
+  padding: 0;
+  margin: 0;
+  display: block;
+  position: absolute;
+  width: 1px;
+  background: @gray;
+  height: 5px;
+}
+.slider .slider-ui .scale .tick.double {
+  width: 2px;
+  height: 10px;
+}
+.slider .slider-ui .scale {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 20px;
+  top: 37px;
+  left: -1px;
+}
+.slider.with-tickmarks .slider-ui .scale {
+  top: 37px;
+  height: 30px;
+}
+.slider .slider-ui .scale div {
+  display: block;
+  position: absolute;
+  width: 1px;
+  overflow: visible;
+  font-size: 12px;
+  top: 1px;
+  text-align: center;
+}
+.slider.with-tickmarks.with-scale .slider-ui .scale div {
+  top: 10px;
+}
+.slider .slider-ui .scale div span {
+  display: block;
+  width: 100px;
+  left: -50px;
+  position: relative;
+  font-size: 12px;
+  color: @grayDark;
+}

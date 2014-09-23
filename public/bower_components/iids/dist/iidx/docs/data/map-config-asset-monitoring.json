@@ -1,0 +1,45 @@
+{
+    "Layers": {
+        "Google": [
+            {
+                "ExternalLayerName" : "Google Streets",
+                "Type" : "roadmap"
+            },
+            {
+                "ExternalLayerName" : "Google Satellite",
+                "Type" : "satellite"
+            },
+            {
+                "ExternalLayerName" : "Google Terrain",
+                "Type" : "terrain"
+            }
+        ],
+        "WMS": [
+            {
+                "URL": "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/forecasts",
+                "ExternalLayerName": "NDFD Wind Vectors",
+                "IsBaseLayer": false,
+                "TileSize": 512,
+                "DisplayOutsideMaxExtent": false,
+                "WMSParameters": {
+                    "layers": "NDFD_PT_WINDVECT_1_06_G01",
+                    "transparent": true
+                }
+            }
+        ]
+    },
+    "LayerOrder":[
+      "Crews",
+      "NDFD Wind Vectors"
+    ],
+    "MapOptions": {
+        "CentreLat": 42.60,
+        "CentreLong": -76.19,
+        "DefaultZoom": 15,
+        "ZoomLevels": 21
+    },
+    "Google": {
+        "googleClientID": "",
+        "googleChannelID": ""
+    }
+}

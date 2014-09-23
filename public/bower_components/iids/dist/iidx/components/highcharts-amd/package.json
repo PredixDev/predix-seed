@@ -1,0 +1,12 @@
+{
+  "name": "highcharts-amd",
+  "author": "highslide-software",
+  "description": "Highcharts JS is a JavaScript charting library based on SVG and VML rendering.",
+  "version": "3.1.1",
+  "private": true,
+  "homepage": "http://gesdh.com/",
+  "peerDependencies": {
+    "grunt": "~0.4.0",
+    "bower": "~1.2.0"
+  }
+}

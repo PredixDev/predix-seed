@@ -1,0 +1,23 @@
+// DEPENDENCIES
+// --------------------------------------------------
+
+@import "ge-bootstrap/less/ge-bootstrap.less";
+@import "brandkit/less/brandkit";
+@import (reference) "cdx-variables.less";
+@import (reference) "cdx-mixins.less";
+
+// Base VideoJS Stylesheet, lightly modified for GE LESS vars
+@import "videojs.less";
+
+// Style Overrides for accomplishing desired look
+@import "dx-vjs.less";
+
+/* big play button over poster image to kickoff playback */
+.vjs-default-skin .vjs-big-play-button,
+.vjs-default-skin .vjs-big-play-button:focus,
+.vjs-default-skin:hover .vjs-big-play-button {
+  top: inherit;
+  bottom: 0.5em;
+  width: 2.6em;
+  height: 2.6em;
+}

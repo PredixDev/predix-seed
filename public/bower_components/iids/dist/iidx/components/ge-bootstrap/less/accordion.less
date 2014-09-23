@@ -1,0 +1,50 @@
+// Dependencies
+// --------------------------------------------------
+
+@import "bootstrap/less/accordion.less";
+
+
+// Bootstrap Overrides
+// --------------------------------------------------
+
+.accordion-group {
+	.border-radius(0);
+	margin-bottom: 0;
+	margin-top: -1px;
+	&:first-child {
+		.border-radius(@baseBorderRadius @baseBorderRadius 0 0);
+		margin-top: 0;
+	}
+	&:last-child {
+		.border-radius(0 0 @baseBorderRadius @baseBorderRadius);
+	}
+}
+
+.accordion-toggle {
+	color: inherit;
+	.transition(all linear .1s);
+	[class^="icon-"],
+	[class*=" icon-"] {
+		margin-right: 6px;
+		.transition(all linear .1s);
+	}
+	&:hover {
+		color: @linkColor;
+		text-decoration: none;
+	}
+	&.in [class^="icon-"],
+	&.in [class*=" icon-"] {
+		.rotate(90deg);
+	}
+}
+
+.accordion-inner {
+	border-top-width: 0;
+}
+
+.accordion.chromeless {
+  margin: 0;
+  .accordion-group {
+    border: none;
+  }
+}

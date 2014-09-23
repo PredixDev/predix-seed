@@ -1,0 +1,34 @@
+// Dependencies
+// --------------------------------------------------
+@import "ge-bootstrap/less/hdx-bootstrap.less";
+
+@import "hdx-variables.less";
+@import "declarative-visualizations.less";
+@import "hdx-donut.less";
+@import "hdx-meter.less";
+@import "hdx-speedometer.less";
+@import "hdx-pill.less";
+
+@fontsPath:   "@{componentsPath}/brandkit/fonts";
+@imagesPath:  "../img";
+
+//
+// data visualization styles
+//
+
+// these were colors pulled from the visual design, which we are not using (in favor of the named colors from BrandKit)
+// @greenLight: rgb(224,236,186);
+// @orangeLight: rgb(251,221,169);
+// @redLight: rgb(246,180,172);
+
+svg {
+	path, rect, arc {
+		&.success	{ fill: @greenLight; }
+		&.warning	{ fill: @orangeLight; }
+    &.gray 		{ fill: @grayLight; }
+		&.danger	{ fill: @redLight; }
+	}
+  text {
+    fill: @textColor;
+  }
+}

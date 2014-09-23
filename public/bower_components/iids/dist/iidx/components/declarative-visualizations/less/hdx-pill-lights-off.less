@@ -1,0 +1,31 @@
+// Dependencies
+// --------------------------------------------------
+
+
+// Styles
+// --------------------------------------------------
+
+[data-visualization="pill"] {
+  svg {
+
+    text.num {
+      #voice > .ui(66px, normal, 1.5);
+    }
+
+    text.label {
+      #voice > .ui(@baseFontSize, normal, 1.5);
+    }
+
+    path {
+      &.danger   {stroke-width: 0px; fill: @notificationAlertBackground; }
+      &.warning  {stroke-width: 0px;}
+      &.success  {stroke-width: 0px;}
+      &.empty  { stroke-width: 0px; fill: @grayLighter; }
+    }
+  }
+
+  .viz-point-label {
+    color: @primaryFooterFontColor;
+    font-size: @baseFontSize;
+  }
+}
