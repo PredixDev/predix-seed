@@ -15,9 +15,6 @@ In `~/.activator/activatorconfig.txt` (NOTE: you may need to create this file), 
 ### Running the app
 In the root directory, run:
 ```
-npm install
-bower install
-grunt update
 activator run
 ```
 Then use the credentials **demo/demo** to log in.
