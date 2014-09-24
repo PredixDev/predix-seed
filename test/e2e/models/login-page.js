@@ -10,7 +10,7 @@ var LoginPage = function() {
             return browser.driver.getCurrentUrl().then(function(url) {
                 return /page-1/.test(url);
             });
-        }, 3000);
+        }, 10000);
     };
 };
 
