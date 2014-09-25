@@ -5,9 +5,7 @@
 
 Application.name=Predix Seed
 
-Application.Page_1 = Page 1
-Application.Page_2 = Page 2
-Application.Page_3 = Page 3
+Application.Page = Page {0}
 
 application.logout.label=Logout
 page.title=DSP Visual Designer
@@ -74,3 +72,5 @@ VRuntime.datasource.websocket.notSupported = Browser does not support WebSockets
 VRuntime.datasource.endpoint.unavailable = Endpoint {0} is not available
 VRuntime.datasource.response.error = Error response {0} 
 
+# Page Texts
+page.module = Module

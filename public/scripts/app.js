@@ -60,9 +60,9 @@ define([
             name: 'Predix Seed',
             session: {},
             tabs: [
-		        {state: 'page-1', label: vRuntime.messages('Application.Page_1')},
-		        {state: 'page-2', label: vRuntime.messages('Application.Page_2')},
-		        {state: 'page-3', label: vRuntime.messages('Application.Page_3')}
+		        {state: 'page-1', label: vRuntime.messages('Application.Page', 1)},
+		        {state: 'page-2', label: vRuntime.messages('Application.Page', 2)},
+		        {state: 'page-3', label: vRuntime.messages('Application.Page', 3)}
             ]
         };
 

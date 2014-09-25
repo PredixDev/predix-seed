@@ -18,8 +18,6 @@ define(['angular',
         // Retrieve datasource instances
         var myDS = vRuntime.datasource.getInstance("timeseries");
 
-        $scope.pageTitle = "Application.Page_1";
-
         $scope.widget1 = $rootScope.$new(true);
         $scope.widget1.title = "Static Directive Chart";
         $scope.widget1.xAxisTitle = "Time";
