@@ -74,3 +74,6 @@ VRuntime.datasource.response.error = Error response {0}
 
 # Page Texts
 page.module = Module
+
+page.settings = Settings
+page.logout = Logout

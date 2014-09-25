@@ -37,3 +37,6 @@ logger.modelProviderFactory.illegalAccessException=Exception dans ModelProviderF
 errors.onError=sur erreur s'est produite
 errors.invalid.url=Manquant URL service
 errors.invalid.data=Les données manquantes des services
+
+page.settings = réglage
+page.logout = déconnexion
