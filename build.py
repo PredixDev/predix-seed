@@ -56,14 +56,14 @@ def function_requested_exit():
   
 def function_check_play_exists():    
     global play_command
-    print ("Checking existance of Play framework...")
+    print ("Checking existance of Play (Activator) framework...")
     # First see if Play intalled with Predix is available. The installer will insert the path here.
-    play_command = "play" # TODO - change this to activator
+    play_command = "activator" # TODO - change this to activator
     fnull = open(os.devnull, 'w')
     retcode=subprocess.call (play_command + " help", shell=True, stdout=fnull, stderr=fnull)
     fnull.close()
     if retcode:
-        print("ERROR: play command not found. Please install Play framework.")
+        print("ERROR: activator command not found. Please install Play (Activator) framework.")
         os._exit(1)     
 
 
@@ -142,7 +142,7 @@ def function_validate_cert_with_password(sslcert, sslpassword):
 def function_play_dist():        
         print ("Play framework is installed!")
         
-        print ("Play dist started...")
+        print ("Play  (activator) dist started...")
         # rename application config so that it is unique amongst all other application.conf
         shutil.copy2(os.path.join("conf", "application.conf"), os.path.join("conf", "prod.conf"))        
         try:
@@ -151,7 +151,7 @@ def function_play_dist():
         	print e.output
         	os._exit(1)
         os.remove(os.path.join("conf", "prod.conf"))
-        print ("Play dist completed successfully!")
+        print ("Play (activator) dist completed successfully!")
         
         
         
