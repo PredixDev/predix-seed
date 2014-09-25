@@ -3,7 +3,7 @@
         xsi:schemaLocation="urn:org:jgroups http://www.jgroups.org/schema/JGroups-3.4.xsd">
         <!-- Add your machine ip address as bind address replace localhost with ip address -->
     <TCP bind_addr="${jgroups.bind_addr:localhost}"
-         bind_port="${jgroups.tcp.bind_port:7800}"
+         bind_port="${jgroups.tcp.bind_port:8800}"
          loopback="true"
          port_range="30"
          recv_buf_size="${tcp.recv_buf_size:20M}"
@@ -42,7 +42,7 @@
          <!-- Add all the cluster ip addresses and ports here, for each sever who is participating in the cluster, it's ip should be specified first in the list below 
            Ex: initial_hosts="${jgroups.tcpping.initial_hosts:<local_ip>[7800],<remote_server_ip>[7800],<remote_server_ip>[7800]-->                 
     <TCPPING timeout="3000"
-             initial_hosts="${jgroups.tcpping.initial_hosts:localhost[7800]}"
+             initial_hosts="${jgroups.tcpping.initial_hosts:localhost[8800]}"
              port_range="5"
              num_initial_members="1"/>
     <MERGE2  min_interval="10000"
