@@ -25,8 +25,6 @@ define(['angular',
         var dataGridDs = vRuntime.datasource.getInstance("DataGrid");
         var realtimegaugeDs = vRuntime.datasource.getInstance("realtimegauge");
 
-        $scope.pageTitle = "Application.Page_2";
-
         /**
          * WIDGET PROPERTIES
          * Override the below properties (widgetOptions,widgetOverwrite,widgetSettings) for custom implementation.

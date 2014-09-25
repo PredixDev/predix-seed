@@ -16,13 +16,13 @@ define(['angular', 'filters-module'], function(angular, filters) {
      * {{ 'predix.widget.deleteReport.label' | vmessages }}
      */
     filters.filter('vmessages', function() {
-        return function(input) {
+        return function() {
             var out = '';
-            if (input) {
+            if (arguments.length !== 0) {
                 if(typeof Messages !== 'undefined') {
-                    out = Messages(input);
+                    out = Messages.apply(this, arguments);
                 }else{
-                    out = input;
+                    out = arguments.join(' ');
                 }
             }
             return out;

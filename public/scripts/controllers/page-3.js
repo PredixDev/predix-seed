@@ -21,7 +21,6 @@ define(['angular',
         // Retrieve datasource instances
         //var myDS = vRuntime.datasource.getInstance("MyDatasource");
 
-        $scope.pageTitle = "Application.Page_3";
         /**
          * WIDGET PROPERTIES
          * Override the below properties (widgetOptions,widgetOverwrite,widgetSettings) for custom implementation.
