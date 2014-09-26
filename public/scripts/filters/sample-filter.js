@@ -13,7 +13,7 @@ define(['angular', 'filters-module'], function(angular, filters) {
      * Usage:
      * First param is the key in the conf/messages.* file, to use in views.
      *
-     * {{ 'predix.widget.deleteReport.label' | vmessages }}
+     * {{ 'locale.key.from.messages' | vmessages : arg1:arg2:... }}
      */
     filters.filter('vmessages', function() {
         return function() {
