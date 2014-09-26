@@ -58,7 +58,7 @@ def function_check_play_exists():
     global play_command
     print ("Checking existance of Play (Activator) framework...")
     # First see if Play intalled with Predix is available. The installer will insert the path here.
-    play_command = "activator" # TODO - change this to activator
+    play_command = "activator"
     fnull = open(os.devnull, 'w')
     retcode=subprocess.call (play_command + " help", shell=True, stdout=fnull, stderr=fnull)
     fnull.close()
