@@ -22,7 +22,7 @@ define(['angular', 'filters-module'], function(angular, filters) {
                 if(typeof Messages !== 'undefined') {
                     out = Messages.apply(this, arguments);
                 }else{
-                    out = arguments.join(' ');
+                    out = Array.prototype.slice.call(arguments).join(' ');
                 }
             }
             return out;
