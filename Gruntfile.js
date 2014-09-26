@@ -12,7 +12,11 @@ module.exports = function(grunt) {
     grunt.initConfig({
         config: {
             app: 'public',
-            test: 'test'
+            test: 'test',
+            artifactory: {
+                'username': 'svc-dsp-reader',
+                'password': '4wxKT8u8E2'
+            }
         },
 
         //Watch and test when files change
@@ -119,8 +123,8 @@ module.exports = function(grunt) {
                 options: {
                     url: 'https://devcloud.swcoe.ge.com',
                     repository: 'DSP',
-                    username: 'svc-dsp-reader',
-                    password: '4wxKT8u8E2',
+                    username: '<%= config.artifactory.username %>',
+                    password: '<%= config.artifactory.password %>',
                     fetch: [
                         {
                             // update the version here and run grunt update:vclient
@@ -135,8 +139,8 @@ module.exports = function(grunt) {
                 options: {
                     url: 'https://devcloud.swcoe.ge.com',
                     repository: 'DSP',
-                    username: 'svc-dsp-reader',
-                    password: '4wxKT8u8E2',
+                    username: '<%= config.artifactory.username %>',
+                    password: '<%= config.artifactory.password %>',
                     fetch: [
                         {
                             // update the version here and run grunt update:iidx
