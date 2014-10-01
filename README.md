@@ -9,7 +9,7 @@ In `~/.activator/activatorconfig.txt` (NOTE: you may need to create this file), 
 -Dhttp.proxyPort=8080
 -Dhttps.proxyHost=proxy-src.research.ge.com
 -Dhttps.proxyPort=8080
--Dhttp.nonProxyHosts=devcloud.swcoe.ge.com
+-Dhttp.nonProxyHosts=*.swcoe.ge.com|localhost
 ```
 
 ### Running the app
