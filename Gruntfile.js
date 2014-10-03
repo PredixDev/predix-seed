@@ -122,14 +122,14 @@ module.exports = function(grunt) {
             vclient: {
                 options: {
                     url: 'https://devcloud.swcoe.ge.com',
-                    repository: 'DSP',
+                    repository: 'DSP-SNAPSHOT',
                     username: '<%= config.artifactory.username %>',
                     password: '<%= config.artifactory.password %>',
                     fetch: [
                         {
                             // update the version here and run grunt update:vclient
                             // to upgrade to another vclient version
-                            id: 'com.ge.predix.js:vruntime:zip:1.8.0',
+                            id: 'com.ge.predix.js:vruntime:zip:1.9.0',
                             path: 'public/bower_components/vruntime'
                         }
                     ]
@@ -138,14 +138,14 @@ module.exports = function(grunt) {
             iidx: {
                 options: {
                     url: 'https://devcloud.swcoe.ge.com',
-                    repository: 'DSP',
+                    repository: 'DSP-SNAPSHOT',
                     username: '<%= config.artifactory.username %>',
                     password: '<%= config.artifactory.password %>',
                     fetch: [
                         {
                             // update the version here and run grunt update:iidx
                             // to upgrade to another iidx version
-                            id: 'com.ge.predix:iidx:zip:2.1.0',
+                            id: 'com.ge.predix:iidx:zip:3.0.0.dev',
                             path: 'public/bower_components/iids'
                         }
                     ]

@@ -26,17 +26,21 @@
 
 <body class="app" data-ng-controller="MainCtrl">
 
-<div class="navbar navbar-static-top templatecontainer">
+<div class="navbar navbar-default navbar-static-top templatecontainer">
 
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="brand" href="#">
+    <div class="container">
+
+        <div class="masthead navbar-header">
+            <a class="navbar-brand" href="#">
                 <span class="ge-logo"></span>
                 <span>@Language.message("Application.name")
-              <small><i>@Language.message("packager.page.gelogo")</i> @Language.message("packager.page.gebusiness")</small>
-            </span>
+                    <small><i>@Language.message("packager.page.gelogo")</i> @Language.message("packager.page.gebusiness")</small>
+                </span>
             </a>
-            <div class="notifications pull-right">
+        </div>
+
+        <div class="notifications pull-right">
+            <div class="btn-toolbar">
                 <div class="btn-group">
                     <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
                         <i class="icon-user"></i>
@@ -45,9 +49,6 @@
                     </button>
                     <ul class="dropdown-menu pull-right">
                         <li>
-                            <a ng-href="#" href="#">
-                                <i class="icon-cog"></i> {{ "page.settings" | vmessages }}
-                            </a>
                             <!-- Signout link for authentication -->
                             <a ng-href="#" data-ng-click="logout($event)" href="#">
                                 <i class="icon-signout"></i> {{ "page.logout" | vmessages }}
@@ -57,11 +58,12 @@
                 </div>
             </div>
         </div>
+
     </div>
 
-    <div class="navmodule primary-navbar navbar-collapse">
+    <div class="primary-navbar navbar-collapse">
         <div class="container">
-            <ul class="nav" data-ng-cloak="">
+            <ul class="nav navbar-nav" data-ng-cloak="">
                 <li ui-sref-active="active" data-ng-repeat="tab in App.tabs" tab="tab">
                     <a ui-sref="{{tab.state}}">{{tab.label}}</a>
                 </li>
@@ -72,7 +74,7 @@
 </div>
 
 <!-- MAIN CONTENT -->
-<div class="content container" ui-view="">
+<div class="content container" ui-view>
     <!-- This is the container where the tabs will render -->
 </div>
 <script data-main="@routes.Assets.at("/public/scripts","bootstrapper.js")" src="@routes.Assets.at("/public/bower_components", "iids/dist/iidx/components/requirejs/require.js")"></script>
