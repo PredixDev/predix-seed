@@ -209,8 +209,8 @@ require.config({
             exports: 'mock'
         },
         'directives/v-runtime.directives' : {
-    		deps: ['angular']
-    	},
+            deps: ['angular']
+        },
         'angular-ui-router' : ['angular'],
         underscore : {
             exports : '_'

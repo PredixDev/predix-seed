@@ -4,13 +4,13 @@
  *  - Overriding or extending widget API methods
  *  - Changing widget settings or options
  */
-'use strict';
-
 define(['angular',
     'controllers-module',
     'directives/time-series-chart/time-series-chart',
     'vruntime'
 ], function (angular, controllers) {
+	
+    'use strict';
 
     // Controller definition
     controllers.controller("Page1Ctrl", ["$scope", "$rootScope", "directiveBinder", function ($scope, $rootScope, directiveBinder) {

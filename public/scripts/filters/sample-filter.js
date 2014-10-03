@@ -1,13 +1,13 @@
 /*global define */
 define(['angular', 'filters-module'], function(angular, filters) {
-	'use strict';
-	
-	/* Filters */
-	filters.filter('interpolate', ['version', function(version) {
-		return function(text) {
-			return String(text).replace(/\%VERSION\%/mg, version);
-		}
-	}]);
+    'use strict';
+    
+    /* Filters */
+    filters.filter('interpolate', ['version', function(version) {
+        return function(text) {
+            return String(text).replace(/\%VERSION\%/mg, version);
+        };
+    }]);
 
     /**
      * Usage:
@@ -28,18 +28,18 @@ define(['angular', 'filters-module'], function(angular, filters) {
             return out;
         };
     });
-	
-	filters.filter("slugify", function () {
-		return function (input, lowercase) {
-			var out;
-			out = "";
-			out = input.replace(/\s/g, "-");
-			if (lowercase) {
-				out = out.toLowerCase();
-			}
-			return out;
-		};
-	});
-	
-	return filters;
+    
+    filters.filter("slugify", function () {
+        return function (input, lowercase) {
+            var out;
+            out = "";
+            out = input.replace(/\s/g, "-");
+            if (lowercase) {
+                out = out.toLowerCase();
+            }
+            return out;
+        };
+    });
+    
+    return filters;
 });

@@ -5,9 +5,10 @@ Copyright © 2012-2014 General Electric Company. All rights reserved.
 The copyright to the computer software herein is the property of General Electric Company. The software may be used and/or copied only 
 with the written permission of General Electric Company or in accordance with the terms and conditions stipulated in the agreement/contract under which the software has been supplied.
 */
-"use strict";
 
 define([ "vruntime", "directives-module", "line-chart" ], function(vRuntime, directives) {
+	'use strict';
+	
     var TimeSeriesChart = vRuntime.widget.BaseDirective.extend({
         scope: {
             title: "@",
@@ -81,7 +82,7 @@ define([ "vruntime", "directives-module", "line-chart" ], function(vRuntime, dir
             for (var index in dataPoints) {
                 var x, y, seriesId, dataPoint, chartSeries, point;
                 dataPoint = dataPoints[index], seriesId = dataPoint[scope.seriesKey], x = dataPoint[scope.xAxisKey], 
-                y = dataPoint[scope.yAxisKey], null != seriesId && (chartSeries = scope.chart.get(seriesId), 
+                y = dataPoint[scope.yAxisKey], null !== seriesId && (chartSeries = scope.chart.get(seriesId), 
                 point = [ x, y ], chartSeries ? this.addPoint(scope, chartSeries, seriesId, point) : this.addSeries(scope, seriesId, point));
             }
             scope.chart.redraw();
