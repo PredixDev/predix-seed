@@ -19,6 +19,14 @@ module.exports = function (grunt) {
 			}
 		},
 
+		//JSHint source
+		jshint: {
+			all: {
+				jshintrc: '.jshintrc',
+				src: ['public/scripts/**/*.js']
+			}
+		},
+
 		//Watch and test when files change
 		watch: {
 			options: {
