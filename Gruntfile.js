@@ -164,9 +164,10 @@ module.exports = function (grunt) {
 
 
 	grunt.registerTask('serve', [ 'clean:build', 'connect:livereload', 'watch']);
-	grunt.registerTask('test', [ 'clean:test', 'karma']);
-	grunt.registerTask('test:e2e', [ 'clean:test', 'protractor']);
-	grunt.registerTask('default', [ 'test' ]);
+	grunt.registerTask('build', [ 'clean:test', 'clean:build', 'jshint']);
+	grunt.registerTask('test', [ 'build', 'karma']);
+	grunt.registerTask('test:e2e', [ 'build', 'protractor']);
+	grunt.registerTask('default', ['build', 'test' ]);
 
 	// pull the vclient/iidx distributions from artifactory (configured above)
 	grunt.registerTask('update', ['clean:artifactory', 'artifactory']);
