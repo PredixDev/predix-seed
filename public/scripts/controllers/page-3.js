@@ -4,7 +4,6 @@
  *  - Overriding or extending widget API methods
  *  - Changing widget settings or options
  */
-'use strict';
 
 define(['angular',
     'controllers-module',
@@ -14,6 +13,8 @@ define(['angular',
     'widgets/paragraph/paragraph.api',
     'vruntime'
 ], function(angular, controllers, RadialChart, SeriesChart, Gauge, Paragraph) {
+
+    'use strict';
 
     // Controller definition
     controllers.controller("Page3Ctrl", ["$scope", "$rootScope", "directiveBinder", function($scope, $rootScope, directiveBinder) {

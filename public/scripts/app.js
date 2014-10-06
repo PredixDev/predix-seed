@@ -17,7 +17,7 @@ define([
     'routes',
     'interceptors'
 ], function (require, $, angular, ngResource, vRuntime, directives, filters, services, controllers, routes, interceptors) {
-    'use strict';    
+    'use strict';
 
     /**
      * Application definition
@@ -33,7 +33,7 @@ define([
             'app.routes',
             'app.interceptors'
         ]);
-	
+    
     predixApp.run(['$location', '$rootScope', function($location, $rootScope) {
          
         // Application DataSources are defined here
@@ -44,7 +44,7 @@ define([
         vRuntime.datasource.create("realtimegauge", "ws://sjc1dsppf09.crd.ge.com:3001", {});
 
     }]);
-	
+    
 
 
     /**
@@ -53,16 +53,16 @@ define([
      * child controllers to access properties defined on the $rootScope.
      */
     predixApp.controller('MainCtrl',['$scope', '$rootScope', '$location',  function($scope, $rootScope, $location){
-		
+        
         //Global application object
         window.App = $rootScope.App = {
             version: '1.0',
             name: 'Predix Seed',
             session: {},
             tabs: [
-		        {state: 'page-1', label: vRuntime.messages('Application.Page', 1)},
-		        {state: 'page-2', label: vRuntime.messages('Application.Page', 2)},
-		        {state: 'page-3', label: vRuntime.messages('Application.Page', 3)}
+                {state: 'page-1', label: vRuntime.messages('Application.Page', 1)},
+                {state: 'page-2', label: vRuntime.messages('Application.Page', 2)},
+                {state: 'page-3', label: vRuntime.messages('Application.Page', 3)}
             ]
         };
 
@@ -87,7 +87,7 @@ define([
      
     //Set on window for debugging
     window.predixApp = predixApp;
-	
+    
     //Return the application  object
     return predixApp;
 });

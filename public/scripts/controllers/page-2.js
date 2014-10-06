@@ -5,8 +5,6 @@
   *  - Overriding or extending widget API methods
   *  - Changing widget settings or options
   */
-'use strict';
-
 define(['angular',
         'controllers-module',
         'widgets/scatter-chart/scatter-chart.api',
@@ -15,10 +13,11 @@ define(['angular',
         'widgets/gauge/gauge.api',
         'vruntime'
         ], function(angular, controllers, ScatterChart, Datagrid, Bar, Gauge) {
-	
-	// Controller definition
-	controllers.controller("Page2Ctrl", ["$scope", "$rootScope", "directiveBinder", function($scope, $rootScope, directiveBinder) {
-		 
+            'use strict';
+
+    // Controller definition
+    controllers.controller("Page2Ctrl", ["$scope", "$rootScope", "directiveBinder", function($scope, $rootScope, directiveBinder) {
+         
         // Retrieve datasource instances
         var scatterChartDs = vRuntime.datasource.getInstance("ScatterChart");
         var barDs = vRuntime.datasource.getInstance("Bar");
@@ -547,5 +546,5 @@ define(['angular',
         dataGridDs.trigger("FETCH");
         realtimegaugeDs.trigger("FETCH");
 
-	}]);
+    }]);
 });
