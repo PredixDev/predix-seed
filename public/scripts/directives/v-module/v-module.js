@@ -5,6 +5,12 @@ Copyright © 2012-2014 General Electric Company. All rights reserved.
 The copyright to the computer software herein is the property of General Electric Company. The software may be used and/or copied only 
 with the written permission of General Electric Company or in accordance with the terms and conditions stipulated in the agreement/contract under which the software has been supplied.
 */
+
+/** 
+Masking the error W030 reported by JSHint on the angular watch expression
+*/
+/*jshint -W030 */
+
 define([ "angular", "workbench-vruntime-module", "bootstrap" ], function(angular, vruntime) {
     "use strict";
     return vruntime.factory("vModuleService", function($moduleSet, $rootScope) {

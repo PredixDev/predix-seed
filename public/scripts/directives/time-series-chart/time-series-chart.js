@@ -6,6 +6,10 @@ The copyright to the computer software herein is the property of General Electri
 with the written permission of General Electric Company or in accordance with the terms and conditions stipulated in the agreement/contract under which the software has been supplied.
 */
 
+/** 
+Masking the error W030 reported by JSHint on the angular watch expression
+*/
+/*jshint -W030 */
 define([ "vruntime", "directives-module", "line-chart" ], function(vRuntime, directives) {
 	'use strict';
 	
