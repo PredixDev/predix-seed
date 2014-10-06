@@ -15,7 +15,9 @@
     </div>
 
     <div class="col-sm-4">
-        <section id="page-2-module-2" class="module">
+        <!-- Per Bootstrap 3, the column sizes were moved outside the module section, but the d3 bar widget
+            seems to have problems sizing itself without being explicitly set to 100% (or col-sm-12) -->
+        <section id="page-2-module-2" class="module col-sm-12">
             <header class="module-header">
                 <h3 id="page-2-module-2-title" class="voice voice-brand pull-left">{{"page.module" | vmessages}}</h3>
             </header>
