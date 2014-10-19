@@ -17,6 +17,6 @@ exports.config = {
         require('./test/e2e/models/login-page').login();
     },
     onComplete: function() {
-        browser.driver.quit();
+        //browser.driver.quit();
     }
 };
