@@ -79,7 +79,13 @@ module.exports = function (grunt) {
 				singleRun: true
 			}
 		},
-
+		protractor_webdriver: {
+		    test: {
+		      options: {
+		        command: 'webdriver-manager start',
+		      },
+		    },
+		 },
 		//Protractor runner
 		protractor: {
 			options: {
@@ -125,7 +131,6 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-
 		//Library updates with artificatory
 		artifactory: {
 			vclient: {
@@ -167,7 +172,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('serve', [ 'clean:build', 'connect:livereload', 'watch']);
 	grunt.registerTask('build', [ 'clean:test', 'clean:build', 'jshint']);
 	grunt.registerTask('test', [ 'build', 'karma']);
-	grunt.registerTask('test:e2e', [ 'build', 'protractor']);
+	grunt.registerTask('test:e2e', [ 'build','protractor_webdriver', 'protractor']);
 	grunt.registerTask('default', ['build', 'test' ]);
 
 	// pull the vclient/iidx distributions from artifactory (configured above)
