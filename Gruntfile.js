@@ -46,6 +46,7 @@ module.exports = function (grunt) {
 		clean: {
 			build: [],
 			test: ['test-target/'],
+			force: true,
 			artifactory: ['public/bower_components/vruntime', 'public/bower_components/iids']
 		},
 
