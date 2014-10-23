@@ -3,7 +3,7 @@ Clone or fork this project to start your own Predictivity application. Documenta
   	  
 ## To Run
 
-### Install Dependencies
+### Install Framework
 
 1. Play! 2.3.4: http://downloads.typesafe.com/typesafe-activator/1.2.10/typesafe-activator-1.2.10-minimal.zip
 2. Node ^0.10.28: http://nodejs.org/download/
@@ -26,6 +26,13 @@ npm config set https-proxy http://proxy-src.research.ge.com:8080
 npm config set registry http://registry.npmjs.org
 npm config set strict-ssl false
  ```
+
+### Install Dependencies
+```
+npm install
+bower install
+grunt update
+```
 
 ### Running the app
 In the root directory, run:
