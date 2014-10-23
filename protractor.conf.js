@@ -12,7 +12,7 @@ exports.config = {
         isVerbose: true,
         showColors: true,
         includeStackTrace: true,
-        defaultTimeoutInterval: 30000
+        defaultTimeoutInterval: 600000
     },
     onPrepare: function() {
         browser.driver.get('http://localhost:9000');
