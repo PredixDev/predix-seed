@@ -30,6 +30,7 @@ npm config set strict-ssl false
 ### Install Dependencies
 ```
 npm install
+npm install -g bower
 bower install
 grunt update
 ```
