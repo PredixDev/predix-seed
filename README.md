@@ -31,6 +31,7 @@ npm config set strict-ssl false
 ```
 npm install
 npm install -g bower
+npm install -g grunt-cli
 bower install
 grunt update
 ```
