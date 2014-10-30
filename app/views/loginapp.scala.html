@@ -1,6 +1,6 @@
 @(message:String)
 @import com.ge.dsv.common.util.Language;
-
+@import play.api.Play.current;
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -143,7 +143,7 @@
                     dataType: "JSON"
                 }).done(function (res) {
                     //redirect upon successful login
-                    window.location.replace('@Http.Context.current().request().getQueryString("TargetUrl")');
+                    window.location.replace('@play.api.Play.configuration.getString("application.context").getOrElse("/")');
                 }).fail(function (res) {
                     showFlash('alert alert-error', window.Messages('login.page.invalid'));
                 });
