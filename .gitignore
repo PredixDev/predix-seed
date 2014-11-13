@@ -20,3 +20,6 @@ bin
 node_modules
 public/bower_components
 atlassian-ide-plugin.xml
+test-target/
+*.log
+serviceKeystore.jks

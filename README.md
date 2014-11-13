@@ -2,6 +2,13 @@
 Clone or fork this project to start your own Predictivity application. Documentation and more info can be found at [predix.sw.ge.com](http://predix.sw.ge.com)
   	  
 ## To Run
+
+### Install Framework
+
+1. Play! 2.3.4: http://downloads.typesafe.com/typesafe-activator/1.2.10/typesafe-activator-1.2.10-minimal.zip
+2. Node ^0.10.28: http://nodejs.org/download/
+3. Python 2.7.5
+
 ### Setup your proxy settings
 In `~/.activator/activatorconfig.txt` (NOTE: you may need to create this file), add the following:
 ```
@@ -10,6 +17,23 @@ In `~/.activator/activatorconfig.txt` (NOTE: you may need to create this file), 
 -Dhttps.proxyHost=proxy-src.research.ge.com
 -Dhttps.proxyPort=8080
 -Dhttp.nonProxyHosts=*.swcoe.ge.com|localhost
+```
+
+npm config proxy 
+```
+npm config set proxy http://proxy-src.research.ge.com:8080
+npm config set https-proxy http://proxy-src.research.ge.com:8080
+npm config set registry http://registry.npmjs.org
+npm config set strict-ssl false
+ ```
+
+### Install Dependencies
+```
+npm install
+npm install -g bower
+npm install -g grunt-cli
+bower install
+grunt update
 ```
 
 ### Running the app

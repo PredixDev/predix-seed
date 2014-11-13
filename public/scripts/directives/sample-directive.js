@@ -1,6 +1,6 @@
 /*global define */
 define(['angular', 'directives-module'], function(angular, directives) {
-	'use strict';
+    'use strict';
 
     /* Directives  */
     directives.directive('appVersion', ['version', function(version) {
@@ -9,8 +9,8 @@ define(['angular', 'directives-module'], function(angular, directives) {
             link: function(scope, elm, attrs) {
                 elm.text(version);
             }
-        }
+        };
     }]);
-	
-	return directives;
+    
+    return directives;
 });

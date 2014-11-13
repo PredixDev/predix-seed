@@ -1,11 +1,11 @@
 /* global requirejs, define */
-
-'use strict';
 /**
  * This file sets up the basic module libraries you'll need
  * for your application.
  */
 requirejs.onError = function(err) {
+    'use strict';
+
     //console.log(err.requireType);
     if (err.requireType === 'timeout') {
         //console.error('modules: ' + err.requireModules);
@@ -19,7 +19,7 @@ requirejs.onError = function(err) {
 require.config({
     enforceDefine : false,
     xhtml : false,    
-	//Cache buster
+    //Cache buster
     //urlArgs : '_=' + Date.now(),
     waitSeconds : 15,
     config : {
@@ -60,25 +60,25 @@ require.config({
         lodash: '../bower_components/lodash/dist/lodash.min',
 
         // Require JS Plugins
-		text: '../bower_components/requirejs-plugins/lib/text',
-		order: '../bower_components/requirejs-plugins/src/order',
-		async: '../bower_components/requirejs-plugins/src/async',
-		depend: '../bower_components/requirejs-plugins/src/depend',
-		font: '../bower_components/requirejs-plugins/src/font',
-		goog: '../bower_components/requirejs-plugins/src/goog',
-		image: '../bower_components/requirejs-plugins/src/image',
-		json: '../bower_components/requirejs-plugins/src/json',
-		mdown: '../bower_components/requirejs-plugins/src/mdown',
-		noext: '../bower_components/requirejs-plugins/src/noext',
-		propertyParser: '../bower_components/requirejs-plugins/src/propertyParser',
-		Markdown: '../bower_components/requirejs-plugins/lib/Markdown.Converter',
+        text: '../bower_components/requirejs-plugins/lib/text',
+        order: '../bower_components/requirejs-plugins/src/order',
+        async: '../bower_components/requirejs-plugins/src/async',
+        depend: '../bower_components/requirejs-plugins/src/depend',
+        font: '../bower_components/requirejs-plugins/src/font',
+        goog: '../bower_components/requirejs-plugins/src/goog',
+        image: '../bower_components/requirejs-plugins/src/image',
+        json: '../bower_components/requirejs-plugins/src/json',
+        mdown: '../bower_components/requirejs-plugins/src/mdown',
+        noext: '../bower_components/requirejs-plugins/src/noext',
+        propertyParser: '../bower_components/requirejs-plugins/src/propertyParser',
+        Markdown: '../bower_components/requirejs-plugins/lib/Markdown.Converter',
 
         /* 
         * IIDx 2.1.0
         * To map IIDx to workbench, please modify path, map and shim section of this require js
         * The following section is copied from iidx require.config.js and path are re-mapped to bower_components/iids folder
         */
-        brandkit: '../bower_components/iids/dist/iidx/components/brandkit/js/brandkit',
+        brandkit: '../bower_components/iids/dist/iidx/components/brandkit/js/iidx-brandkit',
         'cascading-list': '../bower_components/iids/dist/iidx/components/cascading-list/js/cascading-list',
         charts: '../bower_components/iids/dist/iidx/components/charts/js/charts',
        'charts-theme': '../bower_components/iids/dist/iidx/components/charts/js/charts/theme',
@@ -223,23 +223,23 @@ require.config({
         'bootstrap'
     ],    
     shim : {
-		vruntime: {
+        vruntime: {
             deps: ['jquery', 'angular']
         },
         'angular' : {
-			deps: ['jquery'],
-			exports : 'angular'
-		},
-		'angular-route': ['angular'],
-		'angular-resource': ['angular', 'angular-route', 'angular-ui-router'],
-		'angular-mocks': {
-			deps:['angular', 'angular-route', 'angular-resource', 'angular-ui-router'],
-			exports: 'mock'
-		},
+            deps: ['jquery'],
+            exports : 'angular'
+        },
+        'angular-route': ['angular'],
+        'angular-resource': ['angular', 'angular-route', 'angular-ui-router'],
+        'angular-mocks': {
+            deps:['angular', 'angular-route', 'angular-resource', 'angular-ui-router'],
+            exports: 'mock'
+        },
         'angular-ui-router' : ['angular'],
         'directives/v-runtime.directives' : {
-    		deps: ['angular']
-    	},
+            deps: ['angular']
+        },
         underscore : {
             exports : '_'
         },
@@ -285,16 +285,16 @@ require.config({
         },
 
 
-		//Add depends to bootstrapper to load the angular app
-		bootstrapper: {
-			deps: [
-				'app',
-				'directives-module',
-				'filters-module',
-				'services-module',
-				'controllers-module',
-				'routes'
-			]
-		}
+        //Add depends to bootstrapper to load the angular app
+        bootstrapper: {
+            deps: [
+                'app',
+                'directives-module',
+                'filters-module',
+                'services-module',
+                'controllers-module',
+                'routes'
+            ]
+        }
     }
 });

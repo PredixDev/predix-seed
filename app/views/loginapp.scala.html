@@ -1,5 +1,6 @@
 @(message:String)
 @import com.ge.dsv.common.util.Language;
+@import play.api.Play;
 
 <!DOCTYPE HTML>
 <html>
@@ -44,34 +45,48 @@
 		<script type="text/javascript" src="@com.ge.dsv.controllers.routes.MessageController.getMessages()"></script>
 	</head>
 	<body>
-		<div class="navbar navbar-static-top">
-			<div class="navbar-inner">
-				<div class="container">
-					<a class="brand" id="xx" href="#"><span class="ge-logo"></span><span>@Language.message("Application.name")<small><i>@Language.message("packager.page.gelogo")</i> @Language.message("packager.page.gebusiness")</small></span></a>
-				</div>
-			</div>
-		</div>
 
-		<div class="content container">
-		    <div id="login-box" class="login-popup">
-		          <form method="post" id="loginform" >
-		            	<label id="usernameLabel"></label>
-		                <input id="username" name="loginUserName" value="" type="text" autocomplete="on" placeholder="Username" class="input-xlarge">
-		                </label>
-		               <label id="passwordLabel"></label>
-		                <input id="password" name="loginPassword" value="" type="password" placeholder="......" class="input-xlarge">
-		                <input id="TargetUrl" name="TargetUrl" value="@Http.Context.current().request().getQueryString("TargetUrl")" type="hidden">
-		                </label>
-		                <br>
-		                 <label class="checkbox">
-		    				<input type="checkbox" name="rememberme" id="rememberme"> <label id="loginOptionLabel"></label>
-		  				 </label>
-		                <br>
-		                <button class="btn" type="submit" id="loginButton"></button>
-		          </form>
-                  <div id="ajaxstate" class="alert alert-success" style="display:none"></div>
-		    </div>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="masthead navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <span class="ge-logo"></span>
+                            <span id="a7749d78-d720-455c-886a-00fff4022ee7_brand">@Language.message("Application.name")
+                                <small><i>@Language.message("packager.page.gelogo")</i> @Language.message("packager.page.gebusiness")</small>
+                            </span>
+                    </a>
+                </div>
+            </div>
         </div>
+
+        <div class="content container">
+            <div id="login-box" class="login-popup col-sm-2">
+                <form method="post" id="loginform">
+                    <div class="form-group">
+                        <label id="usernameLabel"></label>
+                        <input id="username" name="loginUserName" value="" type="text" autocomplete="on" placeholder="Username"  class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label id="passwordLabel"></label>
+                        <input id="password" name="loginPassword" value="" type="password" placeholder="......" class="form-control">
+                    </div>
+                    <input id="TargetUrl" name="TargetUrl" value="@Http.Context.current().request().getQueryString("TargetUrl")" type="hidden">
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="rememberme" id="rememberme"><div id="loginOptionLabel"></div>
+                            </label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <button class="btn btn-default" type="submit" id="loginButton"></button>
+                    </div>
+                </form>
+                <div id="ajaxstate" class="alert alert-success" style="display:none"></div>
+            </div>
+        </div>
+
          <script type="text/javascript">
             var $ajaxState = $('#ajaxstate');
             var $loginBox = $('#login-box');
@@ -129,7 +144,7 @@
                     dataType: "JSON"
                 }).done(function (res) {
                     //redirect upon successful login
-                    window.location.replace('@Http.Context.current().request().getQueryString("TargetUrl")');
+                    window.location.replace('@Play.current.configuration.getString("application.context").getOrElse("/")');
                 }).fail(function (res) {
                     showFlash('alert alert-error', window.Messages('login.page.invalid'));
                 });

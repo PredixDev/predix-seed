@@ -5,6 +5,12 @@ Copyright © 2012-2014 General Electric Company. All rights reserved.
 The copyright to the computer software herein is the property of General Electric Company. The software may be used and/or copied only 
 with the written permission of General Electric Company or in accordance with the terms and conditions stipulated in the agreement/contract under which the software has been supplied.
 */
+
+/** 
+Masking the error W030 reported by JSHint on the angular watch expression
+*/
+/*jshint -W030 */
+
 define([ "angular", "workbench-vruntime-module", "bootstrap" ], function(angular, vruntime) {
     "use strict";
     return vruntime.factory("vModuleService", function($moduleSet, $rootScope) {
@@ -83,7 +89,7 @@ define([ "angular", "workbench-vruntime-module", "bootstrap" ], function(angular
                 index: "@",
                 editable: "@"
             },
-            template: '<section class="module draggable span{{moduleSize}}" data-id="module-{{$id}}" data-index="{{moduleIndex}}" data-module="module-{{$id}}">	<header class="module-header module-contextmenu">		<h3 class="voice voice-brand pull-left">{{moduleTitle}}</h3>		<div class="module-widget-controls pull-right"><div class="btn-group pull-right module-controls" data-ng-show="editable">			<button class="btn dropdown-toggle btn-mini" data-toggle="dropdown">				<i class="icon-chevron-down"></i>\n			</button>\n			<ul class="dropdown-menu actions">\n				<li class="action" data-ng-repeat="action in moduleActions">\n					<a href="" class="action-link" data-moduleid="module-{{$id}}" data-moduleindex="{{moduleIndex}}" data-action="{{action.name}}">{{action.label}}</a>\n				</li>\n			</ul>\n		</div>\n	</div>\n	</header>\n	<div class="module-body" name="placeholder-{{index}}" data-uuid="{{uuid}}"\n			 data-widgettype="{{moduleWidget.type}}"\n			 data-widgetid="{{moduleWidget.id}}"\n			 data-widgetuuid="{{moduleWidget.uuid}}"> <div class="module-content" data-ng-transclude></div></div>\n	<footer class="module-footer"></footer>\n</section>',
+            template: '<section class="module draggable span{{moduleSize}}" data-id="module-{{$id}}" data-index="{{moduleIndex}}" data-module="module-{{$id}}">    <header class="module-header module-contextmenu">        <h3 class="voice voice-brand pull-left">{{moduleTitle}}</h3>        <div class="module-widget-controls pull-right"><div class="btn-group pull-right module-controls" data-ng-show="editable">            <button class="btn dropdown-toggle btn-mini" data-toggle="dropdown">                <i class="icon-chevron-down"></i>\n            </button>\n            <ul class="dropdown-menu actions">\n                <li class="action" data-ng-repeat="action in moduleActions">\n                    <a href="" class="action-link" data-moduleid="module-{{$id}}" data-moduleindex="{{moduleIndex}}" data-action="{{action.name}}">{{action.label}}</a>\n                </li>\n            </ul>\n        </div>\n    </div>\n    </header>\n    <div class="module-body" name="placeholder-{{index}}" data-uuid="{{uuid}}"\n             data-widgettype="{{moduleWidget.type}}"\n             data-widgetid="{{moduleWidget.id}}"\n             data-widgetuuid="{{moduleWidget.uuid}}"> <div class="module-content" data-ng-transclude></div></div>\n    <footer class="module-footer"></footer>\n</section>',
             link: {
                 post: function(scope, element, attrs, controller) {
                     var timeoutId = $timeout(function() {
