@@ -37,11 +37,11 @@ define([
     predixApp.run(['$location', '$rootScope', function($location, $rootScope) {
          
         // Application DataSources are defined here
-        vRuntime.datasource.create("ScatterChart", "http://sjc1dsppf09.crd.ge.com:9090/service/dummydata/line", {});
-        vRuntime.datasource.create("timeseries", "http://sjc1dsppf09.crd.ge.com:9090/service/dummydata/line", {});
-        vRuntime.datasource.create("DataGrid", "http://sjc1dsppf09.crd.ge.com:9090/service/dummydata/datagridlarge", {});
-        vRuntime.datasource.create("Bar", "http://sjc1dsppf09.crd.ge.com:9090/service/dummydata/bar", {});
-        vRuntime.datasource.create("realtimegauge", "ws://sjc1dsppf09.crd.ge.com:3001", {});
+        vRuntime.datasource.create("ScatterChart", "http://alp1experience6.cloud.ge.com:9090/service/dummydata/line", {});
+        vRuntime.datasource.create("timeseries", "http://alp1experience6.cloud.ge.com:9090/service/dummydata/line", {});
+        vRuntime.datasource.create("DataGrid", "http://alp1experience6.cloud.ge.com:9090/service/dummydata/datagridlarge", {});
+        vRuntime.datasource.create("Bar", "http://alp1experience6.cloud.ge.com:9090/service/dummydata/bar", {});
+        vRuntime.datasource.create("realtimegauge", "ws://alp1experience6.cloud.ge.com:3001", {});
 
     }]);
     
@@ -68,8 +68,49 @@ define([
 
         //Unbind all widgets from datasources and widgets when page changes
         $rootScope.$on('$routeChangeStart', function() {
+            if ($rootScope.displayInfoMessageRouteCount >= $rootScope.displayInfoMessageNavCount) {
+                $rootScope.displayInfoMessage = false;
+                $rootScope.displayInfoMessageRouteCount = 0;
+                $rootScope.displayInfoMessageNavCount = 0;
+            }
+            $rootScope.displayInfoMessageRouteCount++;
             vRuntime.binder.unbindAll();
         });
+
+
+
+        //$rootScope.serviceUrl = "http://3.39.77.88:9090/service/";
+        $rootScope.serviceUrl = "http://localhost:9090/service/";
+        // Application DataSources are defined here
+        //VRuntime.services.datasource.create("cardService", "http://3.239.240.40:9090/service/cardstore/cards", {});
+        //deepak ip: 3.39.78.156
+       // VRuntime.services.datasource.create("cardService", "http://3.39.78.156:9090/service/cardstore/cards", {});
+
+        $rootScope.displayInfoMessageRouteCount = 0;
+        $rootScope.displayInfoMessageNavCount = 0;
+
+        $rootScope.showMsg = function(msg, cls, navCount) {
+            $timeout(function() {
+                $rootScope.displayMessage = msg;
+                $rootScope.alertClass = cls;
+                $rootScope.displayInfoMessage = true;
+            });
+            $rootScope.displayInfoMessageRouteCount = 0;
+            $rootScope.displayInfoMessageNavCount = navCount || 0;
+        }
+
+        $rootScope.$on("$routeChangeStart", function (evt, next) {
+            if ($rootScope.displayInfoMessageRouteCount >= $rootScope.displayInfoMessageNavCount) {
+                $rootScope.displayInfoMessage = false;
+                $rootScope.displayInfoMessageRouteCount = 0;
+                $rootScope.displayInfoMessageNavCount = 0;
+            }
+            $rootScope.displayInfoMessageRouteCount++;
+        });
+
+        VRuntime.services.datasource.create("packService", $rootScope.serviceUrl + "appConfig/apps", {});
+
+
 
         $rootScope.logout = function(event){
             event.preventDefault();
