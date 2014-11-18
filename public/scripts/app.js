@@ -97,7 +97,7 @@ define([
             });
             $rootScope.displayInfoMessageRouteCount = 0;
             $rootScope.displayInfoMessageNavCount = navCount || 0;
-        }
+        };
 
         $rootScope.$on("$routeChangeStart", function (evt, next) {
             if ($rootScope.displayInfoMessageRouteCount >= $rootScope.displayInfoMessageNavCount) {
