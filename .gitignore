@@ -23,3 +23,5 @@ atlassian-ide-plugin.xml
 test-target/
 *.log
 serviceKeystore.jks
+.sonar
+.idea
