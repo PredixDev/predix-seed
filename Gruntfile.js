@@ -10,6 +10,7 @@ module.exports = function (grunt) {
 
 	// Project configuration
 	grunt.initConfig({
+		pkg: grunt.file.readJSON('package.json'),
 		config: {
 			app: 'public',
 			test: 'test',
@@ -164,6 +165,40 @@ module.exports = function (grunt) {
 						}
 					]
 				}
+			},
+			release: {
+				options: {
+					url: 'https://devcloud.swcoe.ge.com',
+					repository: 'DSP-SNAPSHOT',
+					username: 'svc-dsp-deploy',
+					password: 'm3yqLMHpBy',
+					publish: [
+						{
+							id: 'com.ge.predix.experience:<%= pkg.name %>:zip',
+							name: '<%= pkg.name %>',
+							version: '<%= pkg.version %>',
+							path: 'dist/'
+						}
+					],
+					parameters: ['build.name=<%= pkg.name %>', 'version=<%= pkg.version %>']
+				},
+				files: [
+					{
+						src: [
+						    '*',
+							'*.*',
+							'app/**',
+							'conf/**',
+							'project/**',
+							'public/image/**',
+							'public/scripts/**',
+							'public/stylesheets/**',
+							'public/views/**',
+							'tools/**',
+							'test/**'
+						]
+					}
+				]
 			}
 		}
 	});
