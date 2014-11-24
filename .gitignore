@@ -6,6 +6,7 @@ tmp
 .history
 /.idea
 /*.iml
+dist
 /out
 /.idea_modules
 .classpath
