@@ -185,7 +185,7 @@ module.exports = function (grunt) {
 				files: [
 					{
 						src: [
-						    '*',
+						    '.*',
 							'*.*',
 							'app/**',
 							'conf/**',
