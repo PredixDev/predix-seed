@@ -185,7 +185,6 @@ module.exports = function (grunt) {
 				files: [
 					{
 						src: [
-						    '.*',
 							'*.*',
 							'app/**',
 							'conf/**',
@@ -211,5 +210,5 @@ module.exports = function (grunt) {
 	grunt.registerTask('default', ['build', 'test' ]);
 
 	// pull the vclient/iidx distributions from artifactory (configured above)
-	grunt.registerTask('update', ['clean:artifactory', 'artifactory']);
+	grunt.registerTask('update', ['clean:artifactory', 'artifactory:vclient', 'artifactory:iidx']);
 };
