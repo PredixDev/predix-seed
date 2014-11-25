@@ -185,11 +185,12 @@ module.exports = function (grunt) {
 				files: [
 					{
 						src: [
+							'.*',
 							'*.*',
 							'app/**',
 							'conf/**',
 							'project/**',
-							'public/image/**',
+							'public/images/**',
 							'public/scripts/**',
 							'public/stylesheets/**',
 							'public/views/**',
