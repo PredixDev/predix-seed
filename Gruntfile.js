@@ -210,5 +210,9 @@ module.exports = function (grunt) {
 	grunt.registerTask('default', ['build', 'test' ]);
 
 	// pull the vclient/iidx distributions from artifactory (configured above)
-	grunt.registerTask('update', ['clean:artifactory', 'artifactory:vclient', 'artifactory:iidx']);
+	grunt.registerTask('predix:update', ['clean:artifactory', 'artifactory:vclient', 'artifactory:iidx']);
+	grunt.registerTask('update', function() {
+		grunt.log.warn('The `update` task has been deprecated. Use `grunt predix:update` to update your predix dependencies.');
+		grunt.task.run(['predix:update']);
+	});
 };
