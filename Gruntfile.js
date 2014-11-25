@@ -174,7 +174,7 @@ module.exports = function (grunt) {
 					password: 'm3yqLMHpBy',
 					publish: [
 						{
-							id: 'com.ge.predix.experience:<%= pkg.name %>:zip',
+							id: 'com.ge.predix.experience:<%= pkg.name %>:tgz',
 							name: '<%= pkg.name %>',
 							version: '<%= pkg.version %>',
 							path: 'dist/'
