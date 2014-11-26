@@ -7,7 +7,7 @@ var Home = function () {
 	this.name = element(by.css('.page-header'));
 	this.get = function () {
 		browser.driver.get(browser.params.baseUrl + '/home');
-		return browser.driver.sleep(2000);
+		return browser.driver.sleep(1500);
 	};
 };
 module.exports = Home;

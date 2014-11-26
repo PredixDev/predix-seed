@@ -8,7 +8,7 @@ var About = function () {
 	this.name = element(by.css('.page-header'));
 	this.get = function () {
 		browser.driver.get(browser.params.baseUrl + '/about');
-		return browser.driver.sleep(2000);
+		return browser.driver.sleep(1500);
 	};
 };
 module.exports = About;
