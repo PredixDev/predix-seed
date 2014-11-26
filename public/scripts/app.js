@@ -52,7 +52,7 @@ define([
 			name: 'Predix Seed',
 			session: {},
 			tabs: [
-				{state: 'home', label: vRuntime.messages('Application.home')},
+				{state: 'home', label: vRuntime.messages('Home')},
 				{state: 'about', label: vRuntime.messages('About')}
 			]
 		};

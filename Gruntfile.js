@@ -66,7 +66,12 @@ module.exports = function (grunt) {
 				files: [ '<%= config.app %>/stylesheets/**/*.css' ]
 			},
 			scripts: {
-				files: [ '<%= config.app %>/scripts/**/*.js' ]
+				files: [
+					'<%= config.test %>/e2e/**/*.js',
+					'<%= config.test %>/spec/**/*.js',
+					'<%= config.app %>/scripts/**/*.js'
+				],
+				tasks: ['jshint']
 			},
 			test: {
 				files: [ 'test/spec/*.js' ],

@@ -3,9 +3,9 @@
  * This is the router definition that defines all application routes.
  */
 /*global define */
-define([ 'angular', 'angular-ui-router', 'controllers/main' ], function (angular) {
+define(['angular', 'angular-ui-router', 'controllers/main'], function (angular) {
 	'use strict';
-	return angular.module('app.routes', [ 'ui.router' ]).config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
+	return angular.module('app.routes', ['ui.router']).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
 		//Turn on or off HTML5 mode which uses the # hash
 		$locationProvider.html5Mode(false);
@@ -20,5 +20,5 @@ define([ 'angular', 'angular-ui-router', 'controllers/main' ], function (angular
 
 		$urlRouterProvider
 			.otherwise('home');
-	} ]);
+	}]);
 });

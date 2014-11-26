@@ -1,4 +1,6 @@
-define([ 'angular-mocks', 'app' ], function(mocks, app) {
+/* jshint unused:false */
+define(['angular-mocks', 'app'], function (mocks, app) {
+	'use strict';
 	describe('app.controllers:', function () {
 		beforeEach(module('predixApp'));
 
