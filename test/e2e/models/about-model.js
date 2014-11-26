@@ -4,9 +4,11 @@
  */
 var About = function () {
 	'use strict';
-	this.name = element(by.binding('tab.label'));
+
+	this.name = element(by.css('.page-header'));
 	this.get = function () {
-		return browser.driver.get('#/about');
+		browser.driver.get(browser.params.baseUrl + '/about');
+		return browser.driver.sleep(2000);
 	};
 };
 module.exports = About;

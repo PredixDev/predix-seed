@@ -4,9 +4,10 @@
  */
 var Home = function () {
 	'use strict';
-	this.name = element(by.binding('tab.label'));
+	this.name = element(by.css('.page-header'));
 	this.get = function () {
-		return browser.driver.get('#/home');
+		browser.driver.get(browser.params.baseUrl + '/home');
+		return browser.driver.sleep(2000);
 	};
 };
 module.exports = Home;
