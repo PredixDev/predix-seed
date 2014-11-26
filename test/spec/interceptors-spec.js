@@ -4,7 +4,7 @@ define(['angular-mocks', 'interceptors'], function (mocks, interceptors) {
 	describe('interceptors', function () {
 		beforeEach(module('app.interceptors'));
 
-		var scope, httpBackend, http;
+		var scope, httpBackend, http, successCallback, errorCallback;
 		beforeEach(inject(function ($httpBackend, $http) {
 			httpBackend = $httpBackend;
 			http = $http;
@@ -17,11 +17,9 @@ define(['angular-mocks', 'interceptors'], function (mocks, interceptors) {
 			});
 
 			it('should have X-Requested-With header', function () {
-
 				httpBackend.expectGET('/api', undefined, function (headers) {
 					return headers['X-Requested-With'] === 'XMLHttpRequest';
 				}).respond(201, '');
-
 				httpBackend.flush();
 			});
 
@@ -31,8 +29,6 @@ define(['angular-mocks', 'interceptors'], function (mocks, interceptors) {
 		});
 
 		describe('When getting 200 response', function () {
-			var successCallback, errorCallback;
-
 			beforeEach(function () {
 				successCallback = jasmine.createSpy('successCallback');
 				errorCallback = jasmine.createSpy('errorCallback');
@@ -68,9 +64,7 @@ define(['angular-mocks', 'interceptors'], function (mocks, interceptors) {
 				errorCallback = jasmine.createSpy('errorCallback');
 				httpBackend.when('GET', '/api').respond(401, '');
 				http.get('/api').then(successCallback, errorCallback);
-
 				_replace = window.location.replace;
-
 				spyOn(window.location, 'replace');
 			});
 
