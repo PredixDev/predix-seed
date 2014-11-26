@@ -4,17 +4,21 @@ define(['angular-mocks', 'app'], function (mocks, app) {
 	describe('app.controllers:', function () {
 		beforeEach(module('predixApp'));
 
-		describe('Testing Main Controller', function () {
+		describe('Testing HomeCtrl:', function () {
 			var $scope, ctrl;
 
 			beforeEach(inject(function ($rootScope, $controller) {
 				$scope = $rootScope.$new();
-				ctrl = $controller('MainCtrl', {
+				ctrl = $controller('HomeCtrl', {
 					$scope: $scope
 				});
 			}));
-			xit('should have widgetSettings1 object', function () {
-				expect($scope.widgetSettings1).toBeDefined();
+
+			it('should have name on $scope', function () {
+				expect($scope.name).toBeDefined();
+			});
+			it('should have correct name on $scope', function () {
+				expect($scope.name).toBeDefined('home');
 			});
 		});
 	});
