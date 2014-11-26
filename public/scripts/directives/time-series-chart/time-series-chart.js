@@ -1,18 +1,14 @@
 /*
-predix-workbench - 14.1.0 - Tuesday, August 26th, 2014, 7:42:11 PM 
+predix-workbench - 14.1.0 - Tuesday, August 26th, 2014, 7:42:11 PM
 
-Copyright © 2012-2014 General Electric Company. All rights reserved. 
-The copyright to the computer software herein is the property of General Electric Company. The software may be used and/or copied only 
+Copyright © 2012-2014 General Electric Company. All rights reserved.
+The copyright to the computer software herein is the property of General Electric Company. The software may be used and/or copied only
 with the written permission of General Electric Company or in accordance with the terms and conditions stipulated in the agreement/contract under which the software has been supplied.
 */
 
-/** 
-Masking the error W030 reported by JSHint on the angular watch expression
-*/
-/*jshint -W030 */
+/* jshint ignore:start */
 define([ "vruntime", "directives-module", "line-chart" ], function(vRuntime, directives) {
 	'use strict';
-	
     var TimeSeriesChart = vRuntime.widget.BaseDirective.extend({
         scope: {
             title: "@",
@@ -30,7 +26,7 @@ define([ "vruntime", "directives-module", "line-chart" ], function(vRuntime, dir
         vLink: function(scope, element, attrs) {
             this._super(scope, element, attrs);
             var self = this, chartConfig = this.buildConfig(scope);
-            scope.chart = new Highcharts.Chart(chartConfig), scope.numPointsDisplayed = {}, 
+            scope.chart = new Highcharts.Chart(chartConfig), scope.numPointsDisplayed = {},
             scope.$watch("data", function(newData) {
                 self.dataChanged.call(self, scope, newData);
             }, !0);
@@ -65,7 +61,7 @@ define([ "vruntime", "directives-module", "line-chart" ], function(vRuntime, dir
         },
         addPoint: function(scope, chartSeries, seriesId, point) {
             var isScrolling = !0;
-            scope.maxNumPoints > scope.numPointsDisplayed[seriesId] && (isScrolling = !1, scope.numPointsDisplayed[seriesId]++), 
+            scope.maxNumPoints > scope.numPointsDisplayed[seriesId] && (isScrolling = !1, scope.numPointsDisplayed[seriesId]++),
             chartSeries.addPoint(point, !0, isScrolling);
         },
         addSeries: function(scope, seriesId, point) {
@@ -85,8 +81,8 @@ define([ "vruntime", "directives-module", "line-chart" ], function(vRuntime, dir
             }
             for (var index in dataPoints) {
                 var x, y, seriesId, dataPoint, chartSeries, point;
-                dataPoint = dataPoints[index], seriesId = dataPoint[scope.seriesKey], x = dataPoint[scope.xAxisKey], 
-                y = dataPoint[scope.yAxisKey], null !== seriesId && (chartSeries = scope.chart.get(seriesId), 
+                dataPoint = dataPoints[index], seriesId = dataPoint[scope.seriesKey], x = dataPoint[scope.xAxisKey],
+                y = dataPoint[scope.yAxisKey], null != seriesId && (chartSeries = scope.chart.get(seriesId),
                 point = [ x, y ], chartSeries ? this.addPoint(scope, chartSeries, seriesId, point) : this.addSeries(scope, seriesId, point));
             }
             scope.chart.redraw();
@@ -99,3 +95,4 @@ define([ "vruntime", "directives-module", "line-chart" ], function(vRuntime, dir
         return new TimeSeriesChart();
     }), TimeSeriesChart;
 });
+/* jshint ignore:end */

@@ -1,57 +1,89 @@
-var LIVERELOAD_PORT = 35724;
-var SERVER_PORT = 9001;
-var RUNNER_PORT = 9002;
+/**
+ * @description I am the Projects Gruntfile that contains tasks to build, test and deploy a project.
+ * @namespace my-test-app
+ */
 module.exports = function (grunt) {
 	'use strict';
 
-	// load all grunt tasks matching the `grunt-*` pattern
-	require('load-grunt-tasks')(grunt);
+	//Local server ports
+	var LIVERELOAD_PORT = 35724;
+	var SERVER_PORT = 9001;
+	var RUNNER_PORT = 9002;
+
+	//Project config
+	var CONFIG = {
+		name: 'my-predix-app',
+		app: 'public',
+		test: 'test',
+		server: 'server',
+		src: 'public/scripts',
+		dist: 'dist',
+		bower: 'public/bower_components',
+		tmp: '.tmp',
+		artifactory: {
+			host: 'https://devcloud.swcoe.ge.com',
+			repo: 'DSP-SNAPSHOT',
+			username: 'svc-dsp-reader',
+			password: '4wxKT8u8E2'
+		}
+	};
+
+	//Connect - Livereload setup
+	var lrSnippet = require('connect-livereload')({
+		port: CONFIG.livereload
+	});
+
+	//Connect - static directory
+	var mountFolder = function (connect, dir) {
+		return connect.static(require('path').resolve(dir));
+	};
+
+	// Time grunt tasks
 	require('time-grunt')(grunt);
+
+	// Load all grunt tasks
+	require('load-grunt-tasks')(grunt);
 
 	// Project configuration
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		config: {
-			app: 'public',
-			test: 'test',
-			artifactory: {
-				'username': 'svc-dsp-reader',
-				'password': '4wxKT8u8E2'
-			}
+		meta: {
+			banner: '/**\n' + ' * <%= pkg.name %>\n' + ' * @version v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n'
+				+ ' * @link <%= pkg.homepage %>\n' + ' * @author <%= pkg.author.name %> <<%= pkg.author.email %>>\n'
+				+ ' * @license MIT License, http://www.opensource.org/licenses/MIT\n' + ' */\n'
 		},
 
-		//JSHint source
-		jshint: {
-			all: {
-				jshintrc: '.jshintrc',
-				src: ['public/scripts/**/*.js']
-			}
-		},
+		// Project settings
+		config: CONFIG,
 
-		//Watch and test when files change
+		// Watch task configuration
 		watch: {
 			options: {
 				nospawn: true,
 				livereload: '<%= connect.options.livereload %>'
 			},
+			styles: {
+				files: [ '<%= config.app %>/stylesheets/**/*.css' ]
+			},
 			scripts: {
-				files: ['public/scripts/**/*.js']
+				files: [ '<%= config.app %>/scripts/**/*.js' ]
 			},
 			test: {
-				files: ['test/spec/*.js'],
-				tasks: [ 'jasmine' ]
+				files: [ 'test/spec/*.js' ],
+				tasks: [ 'karma' ]
 			}
 		},
 
-		//Clean test directory
+		// Clean task configuration
 		clean: {
-			build: [],
-			test: ['test-target/'],
-			force: true,
-			artifactory: ['public/bower_components/vruntime', 'public/bower_components/iids']
+			build: [ '<%= config.tmp %>' ],
+			artifactory: [
+				'<%= config.bower %>/vruntime'
+			],
+			test: [ 'test-target/' ]
 		},
 
-		//Server to load spec runner
+		// Preview server configuration
 		connect: {
 			options: {
 				livereload: LIVERELOAD_PORT,
@@ -60,34 +92,70 @@ module.exports = function (grunt) {
 			},
 			livereload: {
 				options: {
-					port: RUNNER_PORT,
+					port: SERVER_PORT,
 					open: true,
-					base: ['public']
+					base: [ 'public' ]
 				}
 			},
 			test: {
 				options: {
 					port: RUNNER_PORT,
-					base: ['.tmp', '.']
+					base: [ '.tmp', '.' ]
 				}
 			},
+			docs: {
+				options: {
+					useAvailablePort: true,
+					keepalive: true,
+					open: true,
+					middleware: function (connect) {
+						return [ mountFolder(connect, '.'), mountFolder(connect, '.tmp'), mountFolder(connect, 'docs') ];
+					}
+				}
+			},
+			production: {
+				options: {
+					keepalive: true,
+					port: 8000,
+					middleware: function (connect, options) {
+						return [
+							// rewrite requirejs to the compiled version
+							function (req, res, next) {
+								if (req.url === '<%= config.bower %>/requirejs/require.js') {
+									req.url = '/dist/require.min.js';
+								}
+								next();
+							}, connect.static(options.base),
+
+						];
+					}
+				}
+			}
 		},
 
-		//Karma configuration
+		// Karma Unit configuration
 		karma: {
 			runner: {
 				configFile: 'karma.conf.js',
 				singleRun: true
 			}
 		},
-		protractor_webdriver: {
-		    test: {
-		      options: {
-		        command: 'webdriver-manager start',
-		      },
-		    },
-		 },
-		//Protractor runner
+
+		//JSHint task -
+		jshint: {
+			options: {
+				jshintrc: '.jshintrc'
+			},
+			src: [
+				'<%= config.src %>/**/*.js'
+			],
+			test: [
+				'<%= config.test %>/e2e/**/*.js',
+				'<%= config.test %>/spec/**/*.js'
+			]
+		},
+
+		// Protractor runner - https://www.npmjs.org/package/grunt-protractor-runner
 		protractor: {
 			options: {
 				keepAlive: false,
@@ -95,16 +163,26 @@ module.exports = function (grunt) {
 			},
 			e2e: {
 				options: {
-					configFile: "protractor.conf.js"
+					configFile: 'protractor.conf.js'
 				}
 			}
 		},
 
-		//Requirejs build config
+		// Protractor webdriver - https://www.npmjs.org/package/grunt-protractor-webdriver
+		protractor_webdriver: {
+			e2e: {
+				options: {
+					//path: '/usr/local/bin/webdriver-manager',
+					command: 'webdriver-manager start'
+				}
+			}
+		},
+
+		// Requirejs build configuration
 		requirejs: {
 			compile: {
 				options: {
-					out: "target/public/scripts/main-optimized.js",
+					out: '<%= config.dist %>/public/scripts/main-optimized.js',
 					// dir: '<%= settings.dist.dir %>',
 					normalizeDirDefines: 'all',
 					optimize: 'uglify',
@@ -112,12 +190,12 @@ module.exports = function (grunt) {
 					wrap: true,
 					skipDirOptimize: false,
 					include: [ 'config' ],
-					baseUrl: 'public/scripts',
-					//Since we are not using the browser and bypassing the catalog manager.
+					baseUrl: '<%= config.src %>/',
+					// Since we are not using the browser and bypassing the catalog manager.
 					paths: {
 						widgets: '../../conf/components'
 					},
-					mainConfigFile: '<%= config.test %>/test-config.js',
+					mainConfigFile: '<%= config.src %>/build.js',
 					done: function (done, output) {
 						var duplicates = require('rjs-build-analysis').duplicates(output);
 
@@ -132,37 +210,137 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-		//Library updates with artificatory
+
+		//Changelog - https://www.npmjs.org/package/grunt-changelog
+		changelog: {
+			sample: {
+				options: {
+					dest: 'release-notes/<%= pkg.version %>.txt',
+					//TODO: Change to match your projects feature commit comment code.
+					//featureRegex: '/(^(PROJECT-*\d+\W*\s*\[FEATURE\])+\s-\s)/gm',
+					//TODO: Change to match your projects fix commit comment code.
+					//fixRegex: '/(^(PROJECT-*\d+\W*\s*\[FIX\])+\s-\s)/gm',
+					partials: {
+						features: '{{#each features}}{{> feature}}{{/each}}',
+						feature: '[NEW] {{this}}\n',
+						fixes: '{{#each fixes}}{{> fix}}{{/each}}',
+						fix: '[FIX] {{this}}\n'
+					}
+				}
+			}
+		},
+
+		// Bump task -
+		bump: {
+			options: {
+				files: [ 'package.json' ],
+				updateConfigs: [],
+				commit: true,
+				commitMessage: 'Release v%VERSION%',
+				commitFiles: [ 'package.json' ],
+				createTag: true,
+				tagName: 'v%VERSION%',
+				tagMessage: 'Version %VERSION%',
+				push: true,
+				pushTo: 'origin',
+				gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
+			}
+		},
+
+		// NG Docs Task - https://github.com/m7r/grunt-ngdocs
+		//Docs how-to - https://github.com/angular/angular.js/wiki/Writing-AngularJS-Documentation
+		ngdocs: {
+			options: {
+				html5Mode: false,
+				title: '<%= pkg.name %> Documentation',
+				scripts: [ 'angular.js' ],
+				styles: [ '../dist/<%= pkg.name %>.css' ]
+			},
+			api: {
+				src: [ 'public/scripts/**/*.js' ],
+				title: 'API Documentation'
+			}
+		},
+
+		//ngAnnotate task
+		ngAnnotate: {
+			options: {
+				singleQuotes: true,
+				remove: false,
+				add: true
+			},
+			dist: {
+			 files: [
+					{
+						expand: true,
+						src: [ '<%= config.src %>/**/*.js' ],
+						dest: '<%= config.tmp %>/scripts',
+						ext: '.annotated.js', // Dest filepaths will have this extension.
+						extDot: 'last',       // Extensions in filenames begin after the last dot
+					}
+				]
+			}
+		},
+
+		//Concat task
+		concat: {
+			options: {
+				//banner: '<%= meta.banner %>',
+				stripBanners: true
+			},
+			dist: {
+				src: [ '<%= config.src %>/<%= pkg.name %>.js' ],
+				dest: '<%= config.dist %>/<%= pkg.name %>.js'
+			}
+		},
+
+		//Uglify task
+		uglify: {
+			options: {
+				//banner: '<%= meta.banner %>'
+			},
+			dist: {
+				src: '<%= concat.dist.dest %>',
+				dest: '<%= config.dist %>/<%= pkg.name %>.min.js'
+			}
+		},
+
+		// Artifactory task
 		artifactory: {
+			//vClient library
 			vclient: {
 				options: {
-					url: 'https://devcloud.swcoe.ge.com',
-					repository: 'DSP-SNAPSHOT',
+					url: '<%=config.artifactory.host %>',
+					repository: '<%=config.artifactory.repo %>',
 					username: '<%= config.artifactory.username %>',
 					password: '<%= config.artifactory.password %>',
 					fetch: [
 						{
-							// update the version here and run grunt update:vclient
-							// to upgrade to another vclient version
-							id: 'com.ge.predix.js:vruntime:zip:1.9.0',
-							path: 'public/bower_components/vruntime'
+							group_id: 'com.ge.predix.js',
+							name: 'vruntime',
+							ext: 'zip',
+							version: '1.9.0',
+							path: '<%= config.bower %>/vruntime'
 						}
 					]
 				}
 			},
-			iidx: {
+			//iidx library
+			ux: {
 				options: {
-					url: 'https://devcloud.swcoe.ge.com',
-					repository: 'DSP-SNAPSHOT',
-					username: '<%= config.artifactory.username %>',
-					password: '<%= config.artifactory.password %>',
+					url: '<%=config.artifactory.host %>',
+					repository: '<%=config.artifactory.repo %>',
+					username: '<%=config.artifactory.username %>',
+					password: '<%=config.artifactory.password %>',
 					fetch: [
 						{
-							// update the version here and run grunt update:iidx
-							// to upgrade to another iidx version
-							id: 'com.ge.predix:iidx:zip:3.0.0.dev',
-							path: 'public/bower_components/iids'
+							group_id: 'com.ge.predix',
+							name: 'iidx',
+							ext: 'zip',
+							version: '3.0.0.dev',
+							path: '<%= config.bower %>/iids'
 						}
+
 					]
 				}
 			},
@@ -203,17 +381,15 @@ module.exports = function (grunt) {
 		}
 	});
 
+	//TODO - Grunt Tasks
+	//TODO - pull the vclient/iidx distributions from artifactory (configured above)
+	grunt.registerTask('predix:update', [ 'clean:artifactory', 'artifactory' ]);
+	grunt.registerTask('update', [ 'clean:artifactory', 'artifactory' ]);
 
-	grunt.registerTask('serve', [ 'clean:build', 'connect:livereload', 'watch']);
-	grunt.registerTask('build', [ 'clean:test', 'clean:build', 'jshint']);
-	grunt.registerTask('test', [ 'build', 'karma']);
-	grunt.registerTask('test:e2e', [ 'build','protractor_webdriver', 'protractor']);
-	grunt.registerTask('default', ['build', 'test' ]);
-
-	// pull the vclient/iidx distributions from artifactory (configured above)
-	grunt.registerTask('predix:update', ['clean:artifactory', 'artifactory:vclient', 'artifactory:iidx']);
-	grunt.registerTask('update', function() {
-		grunt.log.warn('The `update` task has been deprecated. Use `grunt predix:update` to update your predix dependencies.');
-		grunt.task.run(['predix:update']);
-	});
+	grunt.registerTask('build', [ 'clean:build', /*'changelog', 'bump',*/ 'jshint:src', /*'ngAnnotate',*/ 'requirejs']);
+	grunt.registerTask('test', [ 'clean:test', 'karma' ]);
+	grunt.registerTask('test:e2e', [ 'clean:test', 'protractor_webdriver', 'protractor' ]);
+	grunt.registerTask('serve', [ 'clean:build', 'connect:livereload', 'watch' ]);
+	grunt.registerTask('docs', [ 'build', 'ngdocs', 'connect:docs' ]);
+	grunt.registerTask('default', [ 'build', 'test' ]);
 };
