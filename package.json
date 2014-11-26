@@ -1,6 +1,6 @@
 {
-	"name": "my-seed-app",
-	"version": "0.0.1",
+	"name": "predix-seed-app",
+	"version": "1.0.0",
 	"private": true,
 	"engines": {
 		"node": ">=0.10.0"
