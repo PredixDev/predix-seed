@@ -35,8 +35,8 @@ import com.ge.dsv.common.util.Util;
  * Controllers are the connections between the view and model.
  * Use this controller or create your own to add view handlers and business-specific logic.
  */
-@With(SessionManager.class) // these annotations enable authentication for the class
-@Security.Authenticated(Secured.class)
+//@With(SessionManager.class) // these annotations enable authentication for the class
+//@Security.Authenticated(Secured.class)
 public class ApplicationController extends BaseApplicationController
 {
     /**

@@ -34,4 +34,5 @@ GET                                                          /assets/*file      
 GET                                                          /images/*file                         controllers.Assets.at(path="/public/images", file)
 GET                                                          /stylesheets/*file                    controllers.Assets.at(path="/public/stylesheets", file)
 GET                                                          /scripts/*file                        controllers.Assets.at(path="/public/scripts", file)
+GET                                                          /views/*file                          controllers.Assets.at(path="/public/views", file)
 GET                                                          /bower_components/*file               controllers.Assets.at(path="/public/bower_components", file)
