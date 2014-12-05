@@ -6,7 +6,7 @@ scalaVersion := "2.11.1"
 
 libraryDependencies ++= Seq(
   "org.mockito" % "mockito-all" % "1.9.5" % "test",
-  "com.ge.dsv" %% "predix-v-runtime" % "1.9.0-SNAPSHOT")
+  "com.ge.dsv" %% "predix-v-runtime" % "1.9.0")
 
 lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
