@@ -22,7 +22,7 @@ module.exports = function (grunt) {
 		tmp: '.tmp',
 		artifactory: {
 			host: 'https://devcloud.swcoe.ge.com',
-			repo: 'DSP',
+			repo: 'DSP-SNAPSHOT',
 			username: 'svc-dsp-reader',
 			password: '4wxKT8u8E2'
 		}
@@ -342,7 +342,7 @@ module.exports = function (grunt) {
 							group_id: 'com.ge.predix',
 							name: 'iidx',
 							ext: 'zip',
-							version: '3.0.0',
+							version: '3.0.0.dev',
 							path: '<%= config.bower %>/iids'
 						}
 
@@ -352,7 +352,7 @@ module.exports = function (grunt) {
 			release: {
 				options: {
 					url: 'https://devcloud.swcoe.ge.com',
-					repository: 'DSP',
+					repository: '<%= grunt.config.get("repo") %>',
 					username: 'svc-dsp-deploy',
 					password: 'm3yqLMHpBy',
 					publish: [
