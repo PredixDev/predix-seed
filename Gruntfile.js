@@ -384,7 +384,7 @@ module.exports = function (grunt) {
 							path: 'dist/'
 						}
 					],
-					parameters: ['build.name=<%= pkg.name %>', 'version=<%= pkg.version %>']
+					parameters: ['build.name=<%= pkg.name %>', 'version=<%= pkg.version %>'+buildNumber ]
 				},
 				files: [
 					{
