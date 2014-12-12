@@ -20,6 +20,7 @@
     "grunt-bump": "0.0.15",
     "grunt-changelog": "^0.2.2",
     "grunt-cli": "^0.1.13",
+    "grunt-config": "^0.2.2",
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-connect": "^0.7.1",
     "grunt-contrib-jshint": "~0.8.0",
