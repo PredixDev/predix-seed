@@ -11,6 +11,7 @@ module.exports = function (grunt) {
 	var RUNNER_PORT = 9002;
 
 	//Project config
+	var buildNumber = '';
 	var CONFIG = {
 		name: 'my-predix-app',
 		app: 'public',
@@ -22,11 +23,31 @@ module.exports = function (grunt) {
 		tmp: '.tmp',
 		artifactory: {
 			host: 'https://devcloud.swcoe.ge.com',
-			repo: 'DSP-SNAPSHOT',
+			repo: 'DSP',
 			username: 'svc-dsp-reader',
 			password: '4wxKT8u8E2'
+		},
+		//Enviornment specific settings
+		dev: {
+			options: {
+				variables: {
+					'repo': 'DSP-SNAPSHOT'
+				}
+			}
+		},
+		prod: {
+			options: {
+				variables: {
+					'repo': 'DSP'
+				}
+			}
 		}
 	};
+	
+	//For adding build number to zip
+	if(grunt.option('buildNumber')){
+		buildNumber = grunt.option('buildNumber');
+	}
 
 	//Connect - Livereload setup
 	var lrSnippet = require('connect-livereload')({
@@ -316,7 +337,7 @@ module.exports = function (grunt) {
 			vclient: {
 				options: {
 					url: '<%=config.artifactory.host %>',
-					repository: '<%=config.artifactory.repo %>',
+					repository: '<%= grunt.config.get("repo") %>',
 					username: '<%= config.artifactory.username %>',
 					password: '<%= config.artifactory.password %>',
 					fetch: [
@@ -334,7 +355,7 @@ module.exports = function (grunt) {
 			ux: {
 				options: {
 					url: '<%=config.artifactory.host %>',
-					repository: '<%=config.artifactory.repo %>',
+					repository: '<%= grunt.config.get("repo") %>',
 					username: '<%=config.artifactory.username %>',
 					password: '<%=config.artifactory.password %>',
 					fetch: [
@@ -342,7 +363,7 @@ module.exports = function (grunt) {
 							group_id: 'com.ge.predix',
 							name: 'iidx',
 							ext: 'zip',
-							version: '3.0.0.dev',
+							version: '3.0.0',
 							path: '<%= config.bower %>/iids'
 						}
 
@@ -352,14 +373,14 @@ module.exports = function (grunt) {
 			release: {
 				options: {
 					url: 'https://devcloud.swcoe.ge.com',
-					repository: 'DSP-SNAPSHOT',
+					repository: 'DSP',
 					username: 'svc-dsp-deploy',
 					password: 'm3yqLMHpBy',
 					publish: [
 						{
 							id: 'com.ge.predix.experience:<%= pkg.name %>:tgz',
 							name: '<%= pkg.name %>',
-							version: '<%= pkg.version %>',
+							version: '<%= pkg.version %>' + buildNumber,
 							path: 'dist/'
 						}
 					],
@@ -388,8 +409,8 @@ module.exports = function (grunt) {
 
 	//TODO - Grunt Tasks
 	//TODO - pull the vclient/iidx distributions from artifactory (configured above)
-	grunt.registerTask('predix:update', [ 'clean:artifactory', 'artifactory' ]);
-	grunt.registerTask('update', [ 'clean:artifactory', 'artifactory' ]);
+	grunt.registerTask('predix:update', [ 'config:prod', 'clean:artifactory', 'artifactory:ux','artifactory:vclient' ]);
+	grunt.registerTask('update', [ 'config:prod', 'clean:artifactory', 'artifactory:ux', 'artifactory:vclient' ]);
 
 	grunt.registerTask('build', [ 'clean:build', /*'changelog', 'bump',*/ 'jshint:src', /*'ngAnnotate',*/ 'requirejs']);
 	grunt.registerTask('test', [ 'clean:test', 'karma' ]);
@@ -397,4 +418,5 @@ module.exports = function (grunt) {
 	grunt.registerTask('serve', [ 'clean:build', 'connect:livereload', 'watch' ]);
 	grunt.registerTask('docs', [ 'build', 'ngdocs', 'connect:docs' ]);
 	grunt.registerTask('default', [ 'build', 'test' ]);
+	grunt.registerTask('release', [ 'config:prod', 'default', 'artifactory:release:publish']);
 };

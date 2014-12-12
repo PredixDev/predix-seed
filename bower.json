@@ -1,5 +1,5 @@
 {
-  "name": "my-application",
+  "name": "predix-seed",
   "private": true,
   "ignore": [
     "**/.*",
