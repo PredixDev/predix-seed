@@ -23,7 +23,7 @@ module.exports = function (grunt) {
 		tmp: '.tmp',
 		artifactory: {
 			host: 'https://devcloud.swcoe.ge.com',
-			repo: 'DSP-SNAPSHOT',
+			repo: 'DSP',
 			username: 'svc-dsp-reader',
 			password: '4wxKT8u8E2'
 		},
