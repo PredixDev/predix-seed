@@ -72,13 +72,10 @@ require.config({
 		noext: '../bower_components/requirejs-plugins/src/noext',
 		propertyParser: '../bower_components/requirejs-plugins/src/propertyParser',
 		Markdown: '../bower_components/requirejs-plugins/lib/Markdown.Converter',
+		css: '../bower_components/require-css/css',
 
-		/*
-		 * IIDx 2.1.0
-		 * To map IIDx to workbench, please modify path, map and shim section of this require js
-		 * The following section is copied from iidx require.config.js and path are re-mapped to bower_components/iids folder
-		 */
-		brandkit: '../bower_components/iids/dist/iidx/components/brandkit/js/brandkit',
+		
+		brandkit: '../bower_components/iids/dist/iidx/components/brandkit/js/iidx-brandkit',
 		'cascading-list': '../bower_components/iids/dist/iidx/components/cascading-list/js/cascading-list',
 		charts: '../bower_components/iids/dist/iidx/components/charts/js/charts',
 		'charts-theme': '../bower_components/iids/dist/iidx/components/charts/js/charts/theme',
