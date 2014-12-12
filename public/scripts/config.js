@@ -1,10 +1,12 @@
-/* global requirejs */
-
-'use strict';
+/* global requirejs, define */
+/* jshint camelcase: false */
+/* jshint unused: false */
 /**
  * This file sets up the basic module libraries you'll need
  * for your application.
  */
+'use strict';
+
 requirejs.onError = function (err) {
 	//console.log(err.requireType);
 	if (err.requireType === 'timeout') {
@@ -28,9 +30,6 @@ require.config({
 		}
 	},
 	paths: {
-		/*
-		 * Predix V modules paths
-		 */
 
 		//VRuntime Paths
 		widgets: '/resources/com.ge.dsv.component.catalog.ComponentCatalogResourceManager',
@@ -72,13 +71,12 @@ require.config({
 		noext: '../bower_components/requirejs-plugins/src/noext',
 		propertyParser: '../bower_components/requirejs-plugins/src/propertyParser',
 		Markdown: '../bower_components/requirejs-plugins/lib/Markdown.Converter',
+		css: '../bower_components/require-css/css',
 
 		/*
-		 * IIDx 2.1.0
-		 * To map IIDx to workbench, please modify path, map and shim section of this require js
-		 * The following section is copied from iidx require.config.js and path are re-mapped to bower_components/iids folder
+		 * IIDx 3.0.0
 		 */
-		brandkit: '../bower_components/iids/dist/iidx/components/brandkit/js/brandkit',
+		brandkit: '../bower_components/iids/dist/iidx/components/brandkit/js/iidx-brandkit',
 		'cascading-list': '../bower_components/iids/dist/iidx/components/cascading-list/js/cascading-list',
 		charts: '../bower_components/iids/dist/iidx/components/charts/js/charts',
 		'charts-theme': '../bower_components/iids/dist/iidx/components/charts/js/charts/theme',
@@ -262,25 +260,25 @@ require.config({
 			deps: ['jquery', 'datatables']
 		},
 		'bootstrap-transition': {
-			deps: [ 'jquery' ],
+			deps: ['jquery'],
 			exports: 'bootstrap-transition'
 		},
-		'bootstrap-affix': [ 'jquery' ],
-		'bootstrap-alert': [ 'jquery' ],
-		'bootstrap-button': [ 'jquery' ],
-		'bootstrap-carousel': [ 'jquery', 'bootstrap-transition' ],
-		'bootstrap-collapse': [ 'jquery', 'bootstrap-transition' ],
-		'bootstrap-dropdown': [ 'jquery' ],
+		'bootstrap-affix': ['jquery'],
+		'bootstrap-alert': ['jquery'],
+		'bootstrap-button': ['jquery'],
+		'bootstrap-carousel': ['jquery', 'bootstrap-transition'],
+		'bootstrap-collapse': ['jquery', 'bootstrap-transition'],
+		'bootstrap-dropdown': ['jquery'],
 		'bootstrap-modal': {
-			deps: [ 'jquery', 'bootstrap-transition' ],
+			deps: ['jquery', 'bootstrap-transition'],
 			exports: '$.fn.modal'
 		},
-		'bootstrap-popover': [ 'jquery', 'bootstrap-tooltip' ],
-		'bootstrap-scrollspy': [ 'jquery' ],
-		'bootstrap-tab': [ 'jquery' ],
-		'bootstrap-typeahead': [ 'jquery' ],
+		'bootstrap-popover': ['jquery', 'bootstrap-tooltip'],
+		'bootstrap-scrollspy': ['jquery'],
+		'bootstrap-tab': ['jquery'],
+		'bootstrap-typeahead': ['jquery'],
 		'bootstrap-tooltip': {
-			deps: [ 'jquery', 'bootstrap-transition' ],
+			deps: ['jquery', 'bootstrap-transition'],
 			exports: 'tooltip'
 		},
 
