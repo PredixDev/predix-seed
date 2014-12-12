@@ -31,7 +31,16 @@ from distutils import dir_util
 # Constants
 RUN_APP = 'runapp.py'
 RUN_WORKBENCH = 'run-workbench.py'
-						
+
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+
 def function_zip(inputDirectory, zipName):
     zip = zipfile.ZipFile(zipName, 'w')
     for root, dirs, files in os.walk(inputDirectory):
@@ -273,7 +282,14 @@ print ("with the written permission of General Electric Company or in accordance
 print ("with the terms and conditions stipulated in the agreement/contract")
 print ("under which the software has been supplied.")
 print ("----------------------------------------------------------------")
-     
+print ("")
+print (bcolors.BOLD + bcolors.WARNING + "Deprecation Notice:" + bcolors.ENDC)
+print (bcolors.WARNING + "This script is DEPRECATED and will be removed in the next release." + bcolors.ENDC)
+print (bcolors.WARNING + "Please use 'activator dist' and the resulting zip in target/universal/" + bcolors.ENDC)
+print (bcolors.WARNING + "For SSL and port configuration, see: " + bcolors.ENDC)
+print (bcolors.WARNING + "https://playframework.com/documentation/2.3.x/ProductionDist" + bcolors.ENDC)
+print ("")
+
 this_platform = platform.system()
 
 # Input validation
