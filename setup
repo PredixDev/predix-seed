@@ -1,0 +1,11 @@
+# Load NPM development dependencies
+npm install
+
+# Download third party client libraries
+bower install
+
+# Download GE internal dependencies
+grunt update
+
+# Get latest Play Framework dependencies
+activator update
