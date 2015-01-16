@@ -1,0 +1,21 @@
+before_script:
+  - export http_proxy=http://sjc1intproxy01.crd.ge.com:8080/
+  - export https_proxy=http://sjc1intproxy01.crd.ge.com:8080/
+  - export no_proxy="localhost, 127.0.0.1, *.ge.com"
+  - git config --global http.sslVerify "false"
+  - git config --global http.proxy http://sjc1intproxy01.crd.ge.com:8080
+  - git config --global https.proxy http://sjc1intproxy01.crd.ge.com:8080
+  - npm config set proxy http://sjc1intproxy01.crd.ge.com:8080/
+  - npm config set https-proxy http://sjc1intproxy01.crd.ge.com:8080/
+   
+script:
+  - node -v
+  - npm -v
+  - npm install -g grunt-cli bower
+  - grunt -V
+  - npm install
+  - bower install
+  - grunt update
+  - grunt -v
+  - grunt config:dev artifactory:release:publish --buildNumber=${BUILD_NUMBER}
+
