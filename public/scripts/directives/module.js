@@ -1,9 +1,9 @@
 /*
  * Define Angular app.directives module
  */
-define(['angular'], function (angular) {
+define(['angular','angular-bootstrap'], function (angular) {
 	'use strict';
-	var module = angular.module('app.directives', []);
+	var module = angular.module('app.directives', ['ui.bootstrap.pagination']);
 	module.config(['$compileProvider', function ($compileProvider) {
 		module._directive = module.directive;
 		module.directive = function (name, factory) {

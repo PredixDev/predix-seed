@@ -53,7 +53,8 @@ define([
 			session: {},
 			tabs: [
 				{state: 'home', label: vRuntime.messages('Home')},
-				{state: 'about', label: vRuntime.messages('About')}
+				{state: 'about', label: vRuntime.messages('About')},
+                {state: 'widgets', label: vRuntime.messages('Widgets')}
 			]
 		};
 

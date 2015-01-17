@@ -28,12 +28,14 @@ require.config({
 		}
 	},
 	paths: {
+//        'time-series-widget': '../bower_components/px-time-series/main',
+//        'datagrid-widget': '../bower_components/px-datagrid/main',
+
+
 		/*
 		 * Predix V modules paths
 		 */
-
 		//VRuntime Paths
-		widgets: '/resources/com.ge.dsv.component.catalog.ComponentCatalogResourceManager',
 		directives: './directives',
 		vruntime: '../bower_components/vruntime/dist/vruntime',
 
@@ -42,8 +44,8 @@ require.config({
 		app: './app',
 
 		//Angular App Modules
+        'widgets-module': 'directives/module',
 		'controllers-module': 'controllers/module',
-		'directives-module': 'directives/module',
 		'filters-module': 'filters/module',
 		'services-module': 'services/module',
 
@@ -52,6 +54,7 @@ require.config({
 		'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
 		'angular-resource': '../bower_components/angular-resource/angular-resource',
 		'angular-route': '../bower_components/angular-route/angular-route',
+        'angular-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap.min',
 
 		// angular ui router
 		'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router.min',
@@ -240,6 +243,9 @@ require.config({
 		underscore: {
 			exports: '_'
 		},
+        'angular-bootstrap': {
+            deps: ['angular']
+        },
 		/*
 		 * IIDx shim
 		 * This section shim require for IIDx
@@ -286,7 +292,7 @@ require.config({
 		bootstrapper: {
 			deps: [
 				'app',
-				'directives-module',
+				'widgets-module',
 				'filters-module',
 				'services-module',
 				'controllers-module',

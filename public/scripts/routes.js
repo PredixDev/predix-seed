@@ -16,7 +16,9 @@ define(['angular', 'angular-ui-router', 'controllers/main'], function (angular) 
 		 */
 		$stateProvider
 			.state('home', {url: '/home', templateUrl: 'views/home.html', controller: 'HomeCtrl'})
-			.state('about', {url: '/about', templateUrl: 'views/about.html', controller: 'AboutCtrl'});
+			.state('about', {url: '/about', templateUrl: 'views/about.html', controller: 'AboutCtrl'})
+            .state('widgets', {url: '/widgets', templateUrl: 'views/widgets.html', controller: 'WidgetsCtrl'})
+        ;
 
 		$urlRouterProvider
 			.otherwise('home');
