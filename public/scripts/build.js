@@ -22,7 +22,6 @@ require.config({
 
 		//Angular App Modules
 		'controllers-module': 'controllers/module',
-		'directives-module': 'directives/module',
 		'filters-module': 'filters/module',
 		'services-module': 'services/module',
 

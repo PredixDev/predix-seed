@@ -1,5 +1,5 @@
 /*global define */
-define(['angular', 'directives-module'], function (angular, directives) {
+define(['angular', 'widgets-module'], function (angular, directives) {
 	'use strict';
 
 	/* Directives  */
