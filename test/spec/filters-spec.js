@@ -5,19 +5,11 @@ define(['angular-mocks', 'app'], function (mocks, app) {
 		beforeEach(module('app.filters'));
 		var slugify;
 
-
 		beforeEach(function () {
 			inject(function ($injector, $rootScope, slugifyFilter) {
 				slugify = slugifyFilter;
 			});
 		});
-
-		describe('sampleFilter - The test case for the filter.', function () {
-			it('should meet [blank] expectation.', function () {
-
-			});
-		});
-
 
 		describe('slugifyFilter - Simple filter to slugify strings', function () {
 			it('should turn a string into a slug', function () {

@@ -8,7 +8,7 @@ var LoginPage = function () {
 
 		browser.driver.wait(function () {
 			return browser.driver.getCurrentUrl().then(function (url) {
-				return /page-1/.test(url);
+				return /home/.test(url);
 			});
 		}, 10000);
 	};

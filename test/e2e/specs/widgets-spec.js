@@ -1,0 +1,60 @@
+'use strict';
+
+var navigationBar = require('../models/navigation-bar');
+var timeseries = require('../models/timeseries.js')
+var datagrid = require('../models/datagrid');
+
+describe('Widgets Page', function () {
+
+    beforeEach(function () {
+        navigationBar.clickPage('Widgets');
+    });
+
+    it('navigates to the appropriate url', function () {
+        expect(browser.getLocationAbsUrl()).toContain('widgets');
+    });
+
+    it('shows the selected page', function () {
+        expect(navigationBar.getActivePageName()).toBe('Widgets');
+    });
+
+    it('highlights the pages tab that is currently being viewed', function () {
+        expect(navigationBar.isPageActive('Widgets')).toBeTruthy();
+    });
+
+	it('renders a time series', function() {
+        element(by.css('.time-series-chart')).then(function(widget) {
+            timeseries.getContent(widget).then(function (content) {
+                expect(content.getTitle()).toEqual(['Time Series Chart']);
+                expect(content.getSubtitle()).toEqual([]);
+                expect(content.getXAxisTitle()).toEqual([]);
+                expect(content.getYAxisTitle()).toEqual([]);
+                expect(content.hasYAxisLabels()).not.toEqual(['']);
+                expect(content.numSeries()).toEqual(3);
+                expect(content.getSeriesLabels()).toEqual([ 'Winter 2007-2008', 'Winter 2008-2009', 'Winter 2009-2010' ]);
+            });
+        });
+    });
+
+    it('renders a data grid', function() {
+        element(by.css('.sample-datagrid')).then(function(widget) {
+            datagrid.getContent(widget).then(function (content) {
+                expect(content.getTitle()).toEqual('Datagrid');
+                expect(content.getHeaders()).toEqual('ID Timestamp Quality Value');
+                expect(content.getNumRows()).toEqual(6);
+                expect(content.getRow(0)).toContain('Good');
+                expect(content.getRow(0)).toContain('1432');
+                expect(content.getRow(1)).toContain('Good');
+                expect(content.getRow(1)).toContain('1857');
+                expect(content.getRow(2)).toContain('Poor');
+                expect(content.getRow(2)).toContain('720');
+                expect(content.getRow(3)).toContain('Excellent');
+                expect(content.getRow(3)).toContain('2600');
+                expect(content.getRow(4)).toContain('Poor');
+                expect(content.getRow(4)).toContain('530');
+                expect(content.getRow(5)).toContain('Excellent');
+                expect(content.getRow(5)).toContain('2134');
+            });
+        });
+    })
+});

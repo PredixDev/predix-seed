@@ -9,8 +9,6 @@ require.config({
 	// Karma serves files from '/base'
 	baseUrl: '/base/public/scripts',
 	paths: {
-		widgets: '../../conf/components',
-		directivesFolder: '../../conf/directives'
 	},
 	// ask Require.js to load these files (all our tests)
 	deps: allTestFiles,
