@@ -14,11 +14,8 @@ define(['angular-mocks', 'app'], function (mocks, app) {
 				});
 			}));
 
-			it('should have name on $scope', function () {
-				expect($scope.name).toBeDefined();
-			});
 			it('should have correct name on $scope', function () {
-				expect($scope.name).toBeDefined('home');
+				expect($scope.name).toBe('Home');
 			});
 		});
 	});

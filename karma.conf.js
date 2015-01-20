@@ -16,12 +16,9 @@ module.exports = function (config) {
 		    {pattern: 'public/scripts/config.js', included: true},
 		    {pattern: 'test/test-config.js', included: true},
 
-			//Widget components/directives
-			{pattern: 'conf/components/**/*.*', included: false},
-			{pattern: 'conf/directives/**/*.*', included: false},
-
 			//App Bower components
 			{pattern: 'public/bower_components/**/*.js', included: false},
+            {pattern: 'public/bower_components/**/*.tmpl', included: false},
 
 			//App src files
 			{pattern: 'public/scripts/*.js', included: false},
@@ -31,7 +28,7 @@ module.exports = function (config) {
 			{pattern: 'public/views/**/*.*', included: false},
 
 			//App specs
-			{pattern: 'test/spec/*-spec.js', included: false}
+			{pattern: 'test/spec/**/*-spec.js', included: false}
 		],
 
 		// list of files / patterns to exclude

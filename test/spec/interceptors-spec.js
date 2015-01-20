@@ -22,10 +22,6 @@ define(['angular-mocks', 'interceptors'], function (mocks, interceptors) {
 				}).respond(201, '');
 				httpBackend.flush();
 			});
-
-			xit('should intercept session timeout', function () {
-
-			});
 		});
 
 		describe('When getting 200 response', function () {

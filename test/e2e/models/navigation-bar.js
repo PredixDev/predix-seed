@@ -5,7 +5,7 @@ var NavigationBar = function () {
 		var pageButton = element(by.linkText(pageName));
 		pageButton.click();
 		browser.driver.wait(function () {
-			return element(by.id(pageName.toLowerCase().replace(' ', '-') + '-title')).isPresent();
+			return element(by.id(pageName.toLowerCase().replace(' ', '-') + '-page')).isPresent();
 		}, 3000);
 	};
 
@@ -21,6 +21,5 @@ var NavigationBar = function () {
 			});
 	};
 };
-
 
 module.exports = new NavigationBar();
