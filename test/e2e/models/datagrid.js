@@ -30,10 +30,10 @@ var Datagrid = function() {
 
         widget.all(by.css('thead th')).then(function(columnHeaders) {
             columnHeaders[columnIndex].getAttribute("class").then(function(classes) {
-                if(classes.indexOf("sorting_asc") !== -1) {
+                if (classes.indexOf("sorting_asc") !== -1) {
                     deferred.fulfill("up");
                 }
-                else if(classes.indexOf("sorting_desc") !== -1) {
+                else if (classes.indexOf("sorting_desc") !== -1) {
                     deferred.fulfill("down");
                 }
                 else {
@@ -89,7 +89,7 @@ var Datagrid = function() {
         widget.all(by.css('.pagination li')).then(function(buttons) {
             buttons[buttons.length - 1].getAttribute("class").then(function(classes) {
                 var isEnabled = true;
-                if(classes.indexOf("disabled") > -1) {
+                if (classes.indexOf("disabled") > -1) {
                     isEnabled = false;
                 }
                 deferred.fulfill(isEnabled);
@@ -103,7 +103,7 @@ var Datagrid = function() {
         widget.all(by.css('.pagination li')).then(function(buttons) {
             buttons[0].getAttribute("class").then(function(classes) {
                 var isEnabled = true;
-                if(classes.indexOf("disabled") > -1) {
+                if (classes.indexOf("disabled") > -1) {
                     isEnabled = false;
                 }
                 deferred.fulfill(isEnabled);
@@ -193,7 +193,7 @@ var Datagrid = function() {
             getRows(widget).then(function(rows) {
                 getTitle(widget).then(function(title) {
                     content.getTitle = function() {
-                        if(title.length <= 0) {
+                        if (title.length <= 0) {
                             return '';
                         }
                         else {
@@ -202,7 +202,7 @@ var Datagrid = function() {
                     };
 
                     content.getHeaders = function() {
-                        if(headers.length <= 0) {
+                        if (headers.length <= 0) {
                             return '';
                         }
                         else {
