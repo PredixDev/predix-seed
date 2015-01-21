@@ -19,7 +19,7 @@ JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 pipelineStages := Seq(rjs)
 
 includeFilter in rjs := new FileFilter {
-  val scriptsDir = (baseDirectory.value / "public" / "scripts").getAbsolutePath
+  val scriptsDir = (baseDirectory.value / "public" ).getAbsolutePath
   def accept(file: File) = file.getAbsolutePath.startsWith(scriptsDir)
 }
 

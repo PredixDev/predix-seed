@@ -43,7 +43,7 @@ module.exports = function (grunt) {
 			}
 		}
 	};
-	
+
 	//For adding build number to zip
 	if(grunt.option('buildNumber')){
 		buildNumber = grunt.option('buildNumber');
@@ -92,10 +92,10 @@ module.exports = function (grunt) {
 					'<%= config.test %>/spec/**/*.js',
 					'<%= config.app %>/scripts/**/*.js'
 				],
-				tasks: ['jshint']
+				tasks: ['jshint', 'karma']
 			},
 			test: {
-				files: [ 'test/spec/*.js' ],
+				files: [ 'test/spec/**/*.js' ],
 				tasks: [ 'karma' ]
 			}
 		},

@@ -7,6 +7,9 @@ Application.name=Predix Seed
 
 Application.Page = Page {0}
 
+demo.internationalization=Internationalization Support
+demo.jsminification={0} minification
+
 application.logout.label=Logout
 page.title=DSP Visual Designer
 packager.page.title=My Application
@@ -55,7 +58,7 @@ dataController.proxy.applying.results=applying results...
 dataController.proxy.error.processing=error processing
 dataController.proxy.path.not.found=path not found
 dataController.proxy.invalid.json=invalid json
-dataController.proxy.contenttype.not.supported=Content-Type not 
+dataController.proxy.contenttype.not.supported=Content-Type not
 dataController.proxy.websocket.missing=Missing query parameter "serviceEndPoint"
 dataController.result.typereceived=ContentType received: {0}
 dataController.result.attempttosend=Attempting to send response as is
@@ -68,9 +71,9 @@ errors.invalid.data=Missing service data
 
 # vRuntime messages (v client)
 VRuntime.datasource.websocket.closed = Websocket connection {0} is closed
-VRuntime.datasource.websocket.notSupported = Browser does not support WebSockets. Please upgrade to a modern browser 
+VRuntime.datasource.websocket.notSupported = Browser does not support WebSockets. Please upgrade to a modern browser
 VRuntime.datasource.endpoint.unavailable = Endpoint {0} is not available
-VRuntime.datasource.response.error = Error response {0} 
+VRuntime.datasource.response.error = Error response {0}
 
 # Page Texts
 page.module = Module

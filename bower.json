@@ -19,7 +19,10 @@
     "angular-resource": "1.2.14",
     "angular-mocks": "1.2.14",
     "angular-ui-router": "0.2.10",
-    "lodash": "2.4.1"
+    "lodash": "2.4.1",
+    "angular-bootstrap": "0.8.0",
+    "px-datagrid": "git://github.sw.ge.com/PredixWidgetCatalog/px-datagrid.git",
+    "px-time-series": "git://github.sw.ge.com/PredixWidgetCatalog/px-time-series.git"
   }
 }
 
