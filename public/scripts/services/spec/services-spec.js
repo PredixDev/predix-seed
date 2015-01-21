@@ -1,10 +1,10 @@
 /* jshint unused:false */
-define(['angular-mocks', 'app'], function (mocks, app) {
-	'use strict';
+define(['angular-mocks', 'app'], function(mocks, app) {
+    'use strict';
     beforeEach(module('myapp'));
 
-    describe('sample-service', function () {
-        it('should ...', function () {
+    describe('sample-service', function() {
+        it('should ...', function() {
 
         });
     });
