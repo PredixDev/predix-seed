@@ -12,7 +12,6 @@ require.config({
 		 * Predix V modules paths
 		 */
 
-		widgets: 'empty:',
 		directives: 'empty:',
 		vruntime: 'empty:',
 
@@ -21,15 +20,16 @@ require.config({
 		iids: 'empty:',
 
 		//Angular App Modules
-		'controllers-module': 'controllers/module',
-		'filters-module': 'filters/module',
-		'services-module': 'services/module',
+        'widgets-module': './widget-module',
+        'sample-module': './sample-module',
+
 
 		//angularjs + modules
 		angular: 'empty:',
 		'angular-resource': 'empty:',
 		'angular-route': 'empty:',
-		'angular-mocks': 'empty:',
+        'angular-bootstrap': 'empty:',
+        'angular-mocks': 'empty:',
 
 		//angular ui + modules
 		'angular-ui-router': 'empty:',
@@ -39,20 +39,22 @@ require.config({
 		jquery: 'empty:',
 		lodash: 'empty:',
 
-		//Require JS Plugins
-		text: 'empty:',
-		json: 'empty:',
-		order: 'empty:',
-		async: 'empty:',
-		depend: 'empty:',
-		font: 'empty:',
-		goog: 'empty:',
-		image: 'empty:',
-		mdown: 'empty:',
-		noext: 'empty:',
-		propertyParser: 'empty:',
-		Markdown: 'empty:',
-
+        // Require JS Plugins
+        text: '../bower_components/requirejs-plugins/lib/text',
+        order: '../bower_components/requirejs-plugins/src/order',
+        async: '../bower_components/requirejs-plugins/src/async',
+        depend: '../bower_components/requirejs-plugins/src/depend',
+        font: '../bower_components/requirejs-plugins/src/font',
+        goog: '../bower_components/requirejs-plugins/src/goog',
+        image: '../bower_components/requirejs-plugins/src/image',
+        json: '../bower_components/requirejs-plugins/src/json',
+        mdown: '../bower_components/requirejs-plugins/src/mdown',
+        noext: '../bower_components/requirejs-plugins/src/noext',
+        propertyParser: '../bower_components/requirejs-plugins/src/propertyParser',
+        Markdown: '../bower_components/requirejs-plugins/lib/Markdown.Converter',
+        css: '../bower_components/require-css/css',
+        'css-builder': '../bower_components/require-css/css-builder',
+        normalize: '../bower_components/require-css/normalize',
 		/*
 		 * IIDx 2.1.0
 		 * To map IIDx to workbench, please modify path, map and shim section of this require js
@@ -203,7 +205,10 @@ require.config({
 			exports: 'angular'
 		},
 		'angular-route': ['angular'],
-		'angular-resource': ['angular', 'angular-route', 'angular-ui-router'],
+        'angular-bootstrap': {
+            deps: ['angular']
+        },
+        'angular-resource': ['angular', 'angular-route', 'angular-ui-router'],
 		'angular-mocks': {
 			deps: ['angular', 'angular-route', 'angular-resource', 'angular-ui-router'],
 			exports: 'mock'
