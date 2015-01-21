@@ -16,6 +16,8 @@ script:
   - npm install
   - bower install --allow-root
   - grunt update
+  - activator test
   - grunt -v
+  - grunt test:e2e
   - grunt config:dev artifactory:release:publish --buildNumber=${BUILD_NUMBER}
 
