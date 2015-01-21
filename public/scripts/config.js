@@ -1,12 +1,12 @@
 /* global requirejs, define */
 /* jshint camelcase: false */
 /* jshint unused: false */
+
+'use strict';
 /**
  * This file sets up the basic module libraries you'll need
  * for your application.
  */
-'use strict';
-
 requirejs.onError = function (err) {
 	//console.log(err.requireType);
 	if (err.requireType === 'timeout') {
@@ -32,7 +32,6 @@ require.config({
 	paths: {
 
 		//VRuntime Paths
-		widgets: '/resources/com.ge.dsv.component.catalog.ComponentCatalogResourceManager',
 		directives: './directives',
 		vruntime: '../bower_components/vruntime/dist/vruntime',
 
@@ -40,17 +39,16 @@ require.config({
 		config: './config',
 		app: './app',
 
-		//Angular App Modules
-		'controllers-module': 'controllers/module',
-		'directives-module': 'directives/module',
-		'filters-module': 'filters/module',
-		'services-module': 'services/module',
+        //Angular App Modules
+        'widgets-module': './widget-module',
+        'sample-module': './sample-module',
 
 		// angularjs + modules
 		angular: '../bower_components/angular/angular',
 		'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
 		'angular-resource': '../bower_components/angular-resource/angular-resource',
 		'angular-route': '../bower_components/angular-route/angular-route',
+        'angular-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap.min',
 
 		// angular ui router
 		'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router.min',
@@ -241,6 +239,9 @@ require.config({
 		underscore: {
 			exports: '_'
 		},
+        'angular-bootstrap': {
+            deps: ['angular']
+        },
 		/*
 		 * IIDx shim
 		 * This section shim require for IIDx
@@ -260,39 +261,26 @@ require.config({
 			deps: ['jquery', 'datatables']
 		},
 		'bootstrap-transition': {
-			deps: ['jquery'],
+			deps: [ 'jquery' ],
 			exports: 'bootstrap-transition'
 		},
-		'bootstrap-affix': ['jquery'],
-		'bootstrap-alert': ['jquery'],
-		'bootstrap-button': ['jquery'],
-		'bootstrap-carousel': ['jquery', 'bootstrap-transition'],
-		'bootstrap-collapse': ['jquery', 'bootstrap-transition'],
-		'bootstrap-dropdown': ['jquery'],
+		'bootstrap-affix': [ 'jquery' ],
+		'bootstrap-alert': [ 'jquery' ],
+		'bootstrap-button': [ 'jquery' ],
+		'bootstrap-carousel': [ 'jquery', 'bootstrap-transition' ],
+		'bootstrap-collapse': [ 'jquery', 'bootstrap-transition' ],
+		'bootstrap-dropdown': [ 'jquery' ],
 		'bootstrap-modal': {
-			deps: ['jquery', 'bootstrap-transition'],
+			deps: [ 'jquery', 'bootstrap-transition' ],
 			exports: '$.fn.modal'
 		},
-		'bootstrap-popover': ['jquery', 'bootstrap-tooltip'],
-		'bootstrap-scrollspy': ['jquery'],
-		'bootstrap-tab': ['jquery'],
-		'bootstrap-typeahead': ['jquery'],
+		'bootstrap-popover': [ 'jquery', 'bootstrap-tooltip' ],
+		'bootstrap-scrollspy': [ 'jquery' ],
+		'bootstrap-tab': [ 'jquery' ],
+		'bootstrap-typeahead': [ 'jquery' ],
 		'bootstrap-tooltip': {
-			deps: ['jquery', 'bootstrap-transition'],
+			deps: [ 'jquery', 'bootstrap-transition' ],
 			exports: 'tooltip'
-		},
-
-
-		//Add depends to bootstrapper to load the angular app
-		bootstrapper: {
-			deps: [
-				'app',
-				'directives-module',
-				'filters-module',
-				'services-module',
-				'controllers-module',
-				'routes'
-			]
 		}
 	}
 });
