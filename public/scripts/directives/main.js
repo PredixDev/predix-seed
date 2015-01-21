@@ -1,6 +1,6 @@
 /*
  * load angular app.directives files - angular.module("app.directives");
  */
-define(['./sample-directive'], function () {
+define(['./sample-directive'], function() {
 
 });
