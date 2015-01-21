@@ -373,7 +373,7 @@ module.exports = function (grunt) {
 			release: {
 				options: {
 					url: 'https://devcloud.swcoe.ge.com',
-					repository: 'DSP',
+					repository: '<%= grunt.config.get("repo") %>',
 					username: 'svc-dsp-deploy',
 					password: 'm3yqLMHpBy',
 					publish: [
@@ -384,7 +384,7 @@ module.exports = function (grunt) {
 							path: 'dist/'
 						}
 					],
-					parameters: ['build.name=<%= pkg.name %>', 'version=<%= pkg.version %>']
+					parameters: ['build.name=<%= pkg.name %>', 'version=<%= pkg.version %>'+buildNumber ]
 				},
 				files: [
 					{

@@ -1,4 +1,6 @@
-/* global requirejs */
+/* global requirejs, define */
+/* jshint camelcase: false */
+/* jshint unused: false */
 
 'use strict';
 /**
@@ -29,9 +31,6 @@ require.config({
     },
     paths: {
 
-        /*
-         * Predix V modules paths
-         */
         //VRuntime Paths
         directives: './directives',
         vruntime: '../bower_components/vruntime/dist/vruntime',
@@ -72,7 +71,9 @@ require.config({
         Markdown: '../bower_components/requirejs-plugins/lib/Markdown.Converter',
         css: '../bower_components/require-css/css',
 
-
+        /*
+         * IIDx 3.0.0
+         */
         brandkit: '../bower_components/iids/dist/iidx/components/brandkit/js/iidx-brandkit',
         'cascading-list': '../bower_components/iids/dist/iidx/components/cascading-list/js/cascading-list',
         charts: '../bower_components/iids/dist/iidx/components/charts/js/charts',
@@ -280,19 +281,6 @@ require.config({
         'bootstrap-tooltip': {
             deps: ['jquery', 'bootstrap-transition'],
             exports: 'tooltip'
-        },
-
-
-        //Add depends to bootstrapper to load the angular app
-        bootstrapper: {
-            deps: [
-                'app',
-                'widgets-module',
-                'filters-module',
-                'services-module',
-                'controllers-module',
-                'routes'
-            ]
         }
     }
 });
