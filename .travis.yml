@@ -7,6 +7,8 @@ before_script:
   - git config --global https.proxy http://sjc1intproxy01.crd.ge.com:8080
   - npm config set proxy http://sjc1intproxy01.crd.ge.com:8080/
   - npm config set https-proxy http://sjc1intproxy01.crd.ge.com:8080/
+  - export JAVA_HOME=/usr/local/java/jdk1.7.0_60
+  - export PATH=$PATH:/activator-1.2.10:$JAVA_HOME/bin
 
 script:
   - node -v
