@@ -41,10 +41,8 @@ require.config({
         app: './app',
 
         //Angular App Modules
-        'widgets-module': 'directives/module',
-        'controllers-module': 'controllers/module',
-        'filters-module': 'filters/module',
-        'services-module': 'services/module',
+        'widgets-module': './widget-module',
+        'sample-module': './sample-module',
 
         // angularjs + modules
         angular: '../bower_components/angular/angular',

@@ -1,9 +1,9 @@
 /*global define */
-define(['angular', 'widgets-module'], function (angular, directives) {
+define(['angular', 'sample-module'], function (angular, sampleModule) {
 	'use strict';
 
 	/* Directives  */
-	directives.directive('appVersion', ['version', function (version) {
+    sampleModule.directive('appVersion', ['version', function (version) {
 		return {
 			restrict: 'E',
 			link: function (scope, elm, attrs) {
@@ -13,5 +13,5 @@ define(['angular', 'widgets-module'], function (angular, directives) {
 		};
 	}]);
 
-	return directives;
+	return sampleModule;
 });

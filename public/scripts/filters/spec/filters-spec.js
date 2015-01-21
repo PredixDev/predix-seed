@@ -1,8 +1,8 @@
 /* jshint unused:false */
 define(['angular-mocks', 'app'], function (mocks, app) {
 	'use strict';
-	describe('app.filters:', function () {
-		beforeEach(module('app.filters'));
+	describe('Testing filters:', function () {
+		beforeEach(module('myapp'));
 		var slugify;
 
 		beforeEach(function () {
