@@ -7,7 +7,7 @@ before_script:
   - git config --global https.proxy http://sjc1intproxy01.crd.ge.com:8080
   - npm config set proxy http://sjc1intproxy01.crd.ge.com:8080/
   - npm config set https-proxy http://sjc1intproxy01.crd.ge.com:8080/
-   
+
 script:
   - node -v
   - npm -v
@@ -16,6 +16,8 @@ script:
   - npm install
   - bower --allow-root install
   - grunt update
+  - activator test
   - grunt -v
+  - grunt test:e2e
   - grunt config:dev artifactory:release:publish --buildNumber=${BUILD_NUMBER}
 
