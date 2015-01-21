@@ -25,10 +25,7 @@ module.exports = function (config) {
 			{pattern: 'public/scripts/**/*.js', included: false},
 			{pattern: 'public/stylesheets/**/*.*', included: false},
 			{pattern: 'public/images/**/*.*', included: false},
-			{pattern: 'public/views/**/*.*', included: false},
-
-			//App specs
-			{pattern: 'test/spec/**/*-spec.js', included: false}
+			{pattern: 'public/views/**/*.*', included: false}
 		],
 
 		// list of files / patterns to exclude

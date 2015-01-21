@@ -1,9 +1,9 @@
 /*global define, Messages */
-define(['angular', 'filters-module'], function (angular, filters) {
+define(['angular', 'sample-module'], function (angular, sampleModule) {
 	'use strict';
 
 	/* Filters */
-	filters.filter('interpolate', ['version', function (version) {
+    sampleModule.filter('interpolate', ['version', function (version) {
 		return function (text) {
 			return String(text).replace(/\%VERSION\%/mg, version);
 		};
@@ -15,7 +15,7 @@ define(['angular', 'filters-module'], function (angular, filters) {
 	 *
 	 * {{ 'locale.key.from.messages' | vmessages : arg1:arg2:... }}
 	 */
-	filters.filter('vmessages', function () {
+    sampleModule.filter('vmessages', function () {
 		return function () {
 			var out = '';
 			if (arguments.length !== 0) {
@@ -29,7 +29,7 @@ define(['angular', 'filters-module'], function (angular, filters) {
 		};
 	});
 
-	filters.filter('slugify', function () {
+    sampleModule.filter('slugify', function () {
 		return function (input, lowercase) {
 			var out;
 			out = '';
@@ -41,5 +41,5 @@ define(['angular', 'filters-module'], function (angular, filters) {
 		};
 	});
 
-	return filters;
+	return sampleModule;
 });

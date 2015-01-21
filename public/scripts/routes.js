@@ -3,7 +3,7 @@
  * This is the router definition that defines all application routes.
  */
 /*global define */
-define(['angular', 'angular-ui-router', 'controllers/main'], function (angular) {
+define(['angular', 'angular-ui-router'], function (angular) {
 	'use strict';
 	return angular.module('app.routes', ['ui.router']).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
