@@ -369,40 +369,6 @@ module.exports = function (grunt) {
 
 					]
 				}
-			},
-			release: {
-				options: {
-					url: 'https://devcloud.swcoe.ge.com',
-					repository: '<%= grunt.config.get("repo") %>',
-					username: 'svc-dsp-deploy',
-					password: 'm3yqLMHpBy',
-					publish: [
-						{
-							id: 'com.ge.predix.experience:<%= pkg.name %>:tgz',
-							name: '<%= pkg.name %>',
-							version: '<%= pkg.version %>' + buildNumber,
-							path: 'dist/'
-						}
-					],
-					parameters: ['build.name=<%= pkg.name %>', 'version=<%= pkg.version %>'+buildNumber ]
-				},
-				files: [
-					{
-						src: [
-							'.*',
-							'*.*',
-							'app/**',
-							'conf/**',
-							'project/**',
-							'public/images/**',
-							'public/scripts/**',
-							'public/stylesheets/**',
-							'public/views/**',
-							'tools/**',
-							'test/**'
-						]
-					}
-				]
 			}
 		}
 	});
@@ -418,5 +384,4 @@ module.exports = function (grunt) {
 	grunt.registerTask('serve', [ 'clean:build', 'connect:livereload', 'watch' ]);
 	grunt.registerTask('docs', [ 'build', 'ngdocs', 'connect:docs' ]);
 	grunt.registerTask('default', [ 'build', 'test' ]);
-	grunt.registerTask('release', [ 'config:prod', 'default', 'artifactory:release:publish']);
 };
