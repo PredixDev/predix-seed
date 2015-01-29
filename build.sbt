@@ -10,7 +10,7 @@ libraryDependencies ++= Seq(
 
 lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
-credentials += Credentials("Artifactory Realm", "devcloud.swcoe.ge.com", "svc-dsp-reader", "4wxKT8u8E2")
+credentials += Credentials("Artifactory Realm", "devcloud.swcoe.ge.com", "svc-dsp-reader", "\{DESede\}KdBJ8yO7kUyeAnzBMEg7KA==")
 
 resolvers += "Artifactory Realm" at "https://devcloud.swcoe.ge.com/artifactory/repo/"
 
