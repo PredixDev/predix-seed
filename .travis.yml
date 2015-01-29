@@ -19,5 +19,4 @@ script:
   - grunt update
   - activator test
   - grunt -v
-  - grunt config:dev artifactory:release:publish --buildNumber=${BUILD_NUMBER}
 
