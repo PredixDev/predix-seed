@@ -13,6 +13,7 @@ before_script:
 script:
   - node -v
   - npm -v
+  - apt-get install bzip2
   - npm install -g grunt-cli bower
   - grunt -V
   - npm install
