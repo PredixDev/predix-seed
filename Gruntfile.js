@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 		artifactory: {
 			host: 'https://devcloud.swcoe.ge.com',
 			repo: 'DSP',
-            username: 'svc-dsp-reader',
+            		username: 'svc-dsp-reader',
 			password: '\{DESede\}KdBJ8yO7kUyeAnzBMEg7KA=='
 		},
 		//Enviornment specific settings
