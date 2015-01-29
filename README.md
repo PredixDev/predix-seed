@@ -1,3 +1,5 @@
+[![Build Status](http://alpha.menlo-ci.sw.ge.com:11112/job/predix-seed/badge/icon)](http://alpha.menlo-ci.sw.ge.com:11112/job/predix-seed/)
+
 #Predix Experience 2.0 Seed
 Clone or fork this project to start your own Predictivity application. Documentation and more info can be found at [predix.sw.ge.com](http://predix.sw.ge.com)
   	  
