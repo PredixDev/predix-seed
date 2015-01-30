@@ -23,7 +23,7 @@
         "angular-bootstrap": "0.8.0",
         "px-datagrid": "git://github.sw.ge.com/PredixWidgetCatalog/px-datagrid.git#develop",
         "px-time-series": "git://github.sw.ge.com/PredixWidgetCatalog/px-time-series.git#develop",
-        "px-oauth": "git://github.sw.ge.com/Predix-Experience/px-oauth.git#master"
+        "oauth-ng": "~0.3.6"
     }
 }
 
