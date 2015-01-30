@@ -3,7 +3,7 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page     
+# Home page
 GET                                                          /                                     controllers.ApplicationController.index()
 
 # Overriding Predix proxy route so you can enable/disable authentication in your controller
@@ -36,3 +36,5 @@ GET                                                          /stylesheets/*file 
 GET                                                          /scripts/*file                        controllers.Assets.at(path="/public/scripts", file)
 GET                                                          /views/*file                          controllers.Assets.at(path="/public/views", file)
 GET                                                          /bower_components/*file               controllers.Assets.at(path="/public/bower_components", file)
+
+GET     /*any                      controllers.ApplicationController.main(any)
