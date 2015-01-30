@@ -30,7 +30,7 @@ exports.config = {
                 //if redirected to home successfully, start the test
                 return /home/.test(url);
             });
-        }, 5000);
+        }, 6000);
     },
     onComplete: function() {
         browser.driver.quit();
