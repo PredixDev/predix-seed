@@ -14,16 +14,16 @@
     "dependencies": {
         "requirejs-plugins": "1.0.2",
         "require-css": "0.1.1",
-        "angular": "1.3.11",
-        "angular-route": "1.3.11",
-        "angular-resource": "1.3.11",
-        "angular-mocks": "1.3.11",
+        "angular": "~1.3.12",
+        "angular-route": "~1.3.12",
+        "angular-resource": "~1.3.12",
+        "angular-mocks": "~1.3.12",
         "angular-ui-router": "0.2.13",
         "lodash": "2.4.1",
         "angular-bootstrap": "0.8.0",
         "px-datagrid": "git://github.sw.ge.com/PredixWidgetCatalog/px-datagrid.git#develop",
         "px-time-series": "git://github.sw.ge.com/PredixWidgetCatalog/px-time-series.git#develop",
-        "oauth-ng": "~0.3.6"
+        "px-oauth": "git://github.sw.ge.com/Predix-Experience/px-oauth.git#master"
     }
 }
 
