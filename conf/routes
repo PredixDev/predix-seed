@@ -3,20 +3,15 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page     
-GET                                                          /                                     controllers.ApplicationController.index()
+# Home page
+GET                                                          /                                     controllers.Assets.at(path="/public/", file="index.html")
 
 # Overriding Predix proxy route so you can enable/disable authentication in your controller
-GET                                                          /api/v2/proxy                 controllers.ApplicationController.getProxy()
-POST                                                         /api/v2/proxy                 controllers.ApplicationController.postProxy()
-PUT                                                          /api/v2/proxy                 controllers.ApplicationController.putProxy()
-DELETE                                                       /api/v2/proxy                 controllers.ApplicationController.deleteProxy()
+GET                                                          /api/v2/proxy                         controllers.ApplicationController.getProxy()
+POST                                                         /api/v2/proxy                         controllers.ApplicationController.postProxy()
+PUT                                                          /api/v2/proxy                         controllers.ApplicationController.putProxy()
+DELETE                                                       /api/v2/proxy                         controllers.ApplicationController.deleteProxy()
 GET                                                          /api/v2/websocket                     controllers.ApplicationController.webSocket()
-
-# Predix authentication routes - don't touch!
-GET    /login                                controllers.Authentication.login(applicationName:String?= "", message:String ?= "")
-POST   /login/:applicationName               controllers.Authentication.authenticate(applicationName:String)
-GET    /logout              controllers.Authentication.logout()
 
 # Uploading multipart/form-data example
 POST                                                         /upload                               controllers.ApplicationController.upload()
@@ -24,8 +19,6 @@ POST                                                         /upload            
 # Add your additional routes here
 
 
-# Delegate to Predix routes for some basic non-authenticated routes (messages, getUTC, changeLocale)
-->                                                           /                                     predixvapplication.Routes
 
 # Map static resources from the /public folder to the /assets URL path
 GET                                                          /assets/*file                         controllers.Assets.at(path="/public", file)
@@ -34,5 +27,10 @@ GET                                                          /assets/*file      
 GET                                                          /images/*file                         controllers.Assets.at(path="/public/images", file)
 GET                                                          /stylesheets/*file                    controllers.Assets.at(path="/public/stylesheets", file)
 GET                                                          /scripts/*file                        controllers.Assets.at(path="/public/scripts", file)
-GET                                                          /views/*file                          controllers.Assets.at(path="/public/views", file)
 GET                                                          /bower_components/*file               controllers.Assets.at(path="/public/bower_components", file)
+
+# Delegate to Predix routes for some basic non-authenticated routes (messages, getUTC, changeLocale)
+->                                                           /                                     predixvapplication.Routes
+
+# To support HTML5 Mode, we need to have a catch-all route that returns the index page
+GET                                                          /*anything                                controllers.ApplicationController.main(anything)
