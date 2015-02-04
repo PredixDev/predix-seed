@@ -2,7 +2,7 @@
 define(['angular-mocks', 'app'], function(mocks, app) {
     'use strict';
     describe('Testing HomeCtrl:', function() {
-        beforeEach(module('myapp'));
+        beforeEach(module('predixApp'));
 
         var $scope, ctrl;
 

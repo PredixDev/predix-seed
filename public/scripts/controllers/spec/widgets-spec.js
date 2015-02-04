@@ -2,7 +2,7 @@
 define(['angular-mocks', 'app'], function(mocks, app) {
     'use strict';
     describe('Testing WidgetsCtrl:', function() {
-        beforeEach(module('myapp'));
+        beforeEach(module('predixApp'));
 
         var $scope, ctrl;
 
