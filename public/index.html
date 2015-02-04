@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard</title>
+    <title>Predix Seed</title>
+    <base href="/">
 
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta charset="utf-8">
@@ -15,7 +16,7 @@
     <link rel="stylesheet" href="/stylesheets/app.css"/>
 
     <!-- Enables internationalization -->
-    <script type="text/javascript" src="/services/messages.js"></script>
+    <script type="text/javascript" src="/api/v2/messages.js"></script>
 
 </head>
 
@@ -23,12 +24,12 @@
 
 <div class="navbar navbar-default navbar-static-top templatecontainer">
 
-    <oauth
-        ng-hide="true"
-        site="https://predixuaa.ges-apps.ice.ge.com"
-        client-id="app"
-        redirect-uri="">
-    </oauth>
+    <!-- Adds implicit grant oauth -->
+    <px-oauth
+        site="site"
+        client-id="clientId"
+        redirect-uri="redirectUri">
+    </px-oauth>
 
     <div class="container">
 

@@ -4,20 +4,15 @@
  * NOTE: These are named references that are defined inside of the config.js RequireJS configuration file.
  */
 define([
-    'require',
     'jquery',
     'angular',
     'angular-resource',
     'vruntime',
-    'directives/main',
-    'filters/main',
-    'services/main',
-    'controllers/main',
-    'dashboard/main',
+    'main',
     'routes',
     'interceptors',
-    'oauth'
-], function (require, $, angular, ngResource, vRuntime, directives, filters, services, controllers, dashboard, routes, interceptors) {
+    '../bower_components/px-oauth/main'
+], function($, angular, ngResource, vRuntime) {
     'use strict';
 
     /**
@@ -27,13 +22,11 @@ define([
      */
     var predixApp = angular.module('predixApp', [
         'ngResource',
-        'app.controllers',
-        'app.directives',
-        'app.services',
-        'app.filters',
         'app.routes',
         'app.interceptors',
-        'oauth'
+        'sample.module',
+        'predix.widgets',
+        'predix.oauth'
     ]);
 
     /**
@@ -64,6 +57,11 @@ define([
             event.preventDefault();
             location.replace('logout');
         };
+
+        // Example UAA Configuration
+        $scope.site = "https://predixuaa.ges-apps.ice.ge.com";  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
+        $scope.clientId = "app";                                // Your app id that you registered with Cloud Foundry.
+        $scope.redirectUri = $location.absUrl();                // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
 
     }]);
 
