@@ -11,7 +11,8 @@ define([
     'main',
     'routes',
     'interceptors',
-    '../bower_components/px-oauth/main'
+    '../bower_components/px-oauth/main',
+    'dashboard/main'
 ], function($, angular, ngResource, vRuntime) {
     'use strict';
 
@@ -25,8 +26,9 @@ define([
         'app.routes',
         'app.interceptors',
         'sample.module',
-        'predix.widgets',
-        'predix.oauth'
+        'predix.dashboard.widgets',
+        'predix.oauth',
+        'predix.configurable-dashboard'
     ]);
 
     /**
@@ -44,7 +46,8 @@ define([
             tabs: [
                 {state: 'home', label: vRuntime.messages('Home')},
                 {state: 'about', label: vRuntime.messages('About')},
-                {state: 'widgets', label: vRuntime.messages('Widgets')}
+                {state: 'widgets', label: vRuntime.messages('Widgets')},
+                {state: 'dashboard.main', label: vRuntime.messages('Dashboard')}
             ]
         };
 
