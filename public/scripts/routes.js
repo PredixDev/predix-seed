@@ -3,7 +3,7 @@
  * This is the router definition that defines all application routes.
  */
 /*global define */
-define(['angular', 'angular-ui-router', '../bower_components/px-oauth/main'], function(angular) {
+define(['angular', 'angular-ui-router',     '../bower_components/px-oauth/main'], function(angular) {
     'use strict';
     return angular.module('app.routes', ['ui.router', 'predix.oauth']).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 
@@ -15,31 +15,9 @@ define(['angular', 'angular-ui-router', '../bower_components/px-oauth/main'], fu
          * This is where the name of the route is matched to the controller and view template.
          */
         $stateProvider
-            .state('home', {
-                url: '/home',
-                templateUrl: 'assets/views/home.html',
-                controller: 'HomeCtrl',
-                parent: 'secure'
-            })
-            .state('about', {
-                url: '/about',
-                templateUrl: 'assets/views/about.html',
-                controller: 'AboutCtrl',
-                parent: 'secure'
-            })
-            .state('widgets', {
-                url: '/widgets',
-                templateUrl: 'assets/views/widgets.html',
-                controller: 'WidgetsCtrl',
-                parent: 'secure'
-            })
-            .state('dashboard', {
-                url: '/dashboard',
-                templateUrl: 'assets/views/dashboard.html',
-                controller: 'DashboardCtrl',
-                abstract: true,
-                parent: 'secure'
-            });
+            .state('home', {url: '/home', templateUrl: 'assets/views/home.html', controller: 'HomeCtrl', parent: 'secure'})
+            .state('about', {url: '/about', templateUrl: 'assets/views/about.html', controller: 'AboutCtrl', parent: 'secure'})
+            .state('widgets', {url: '/widgets', templateUrl: 'assets/views/widgets.html', controller: 'WidgetsCtrl', parent: 'secure'});
 
         $urlRouterProvider
             .otherwise('home');
