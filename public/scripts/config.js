@@ -14,9 +14,6 @@ requirejs.onError = function(err) {
     }
     throw err;
 };
-
-var pxContextualDashboard = '../bower_components/px-contextual-dashboard';
-
 /**
  * RequireJS Config
  * This is configuration for the entire application.
@@ -34,22 +31,9 @@ require.config({
     },
     paths: {
 
-        bower_components: '../bower_components',
-
-        // TODO: Make short path for px-* modules including widgets.
         //'px-oauth': '../bower_components/px-oauth/main',
         'oauth': '../bower_components/oauth-ng/dist/oauth-ng',
         'ng-storage': '../bower_components/ngstorage/ngStorage',
-
-        /** Configurable Dashboard required plugins **/
-        'dashboard': pxContextualDashboard,
-        'angular-schema-form': '../bower_components/angular-schema-form/dist/schema-form', // .min
-        'angular-schema-form-boostrap': '../bower_components/angular-schema-form/dist/bootstrap-decorator.min',
-        'objectpath': '../bower_components/objectpath/lib/ObjectPath',
-        'tv4': '../bower_components/tv4/tv4',
-        'angular-schema-form-dependencies': pxContextualDashboard + '/dashboard/angular-schema-form-dependencies',
-        'widgets-module': pxContextualDashboard + '/widgets-module', // TODO this needs to move.....
-        /** end config dash required ones **/
 
         //VRuntime Paths
         directives: './directives',
@@ -60,6 +44,7 @@ require.config({
         app: './app',
 
         //Angular App Modules
+        'widgets-module': './widget-module',
         'sample-module': './sample-module',
 
         // angularjs + modules
@@ -67,7 +52,6 @@ require.config({
         'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
         'angular-resource': '../bower_components/angular-resource/angular-resource',
         'angular-route': '../bower_components/angular-route/angular-route',
-        'angular-sanitize': '../bower_components/angular-sanitize/angular-sanitize',
         'angular-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap.min',
 
         // angular ui router
@@ -168,19 +152,19 @@ require.config({
 
         // IIDx additions
         'accordion': '../bower_components/iids/dist/iidx/components/ge-bootstrap/js/ge-bootstrap/accordion',
-        'bootstrap-affix': '../bower_components/iids/dist/iidx/components/bootstrap/js/affix',
-        'bootstrap-alert': '../bower_components/iids/dist/iidx/components/bootstrap/js/alert',
-        'bootstrap-button': '../bower_components/iids/dist/iidx/components/bootstrap/js/button',
-        'bootstrap-carousel': '../bower_components/iids/dist/iidx/components/bootstrap/js/carousel',
-        'bootstrap-collapse': '../bower_components/iids/dist/iidx/components/bootstrap/js/collapse',
-        'bootstrap-dropdown': '../bower_components/iids/dist/iidx/components/bootstrap/js/dropdown',
-        'bootstrap-modal': '../bower_components/iids/dist/iidx/components/bootstrap/js/modal',
-        'bootstrap-popover': '../bower_components/iids/dist/iidx/components/bootstrap/js/popover',
-        'bootstrap-scrollspy': '../bower_components/iids/dist/iidx/components/bootstrap/js/scrollspy',
-        'bootstrap-tab': '../bower_components/iids/dist/iidx/components/bootstrap/js/tab',
-        'bootstrap-tooltip': '../bower_components/iids/dist/iidx/components/bootstrap/js/tooltip',
-        'bootstrap-transition': '../bower_components/iids/dist/iidx/components/bootstrap/js/transition',
-        'bootstrap-typeahead': '../bower_components/iids/dist/iidx/components/bootstrap/js/typeahead',
+        'bootstrap-affix': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-affix',
+        'bootstrap-alert': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-alert',
+        'bootstrap-button': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-button',
+        'bootstrap-carousel': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-carousel',
+        'bootstrap-collapse': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-collapse',
+        'bootstrap-dropdown': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-dropdown',
+        'bootstrap-modal': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-modal',
+        'bootstrap-popover': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-popover',
+        'bootstrap-scrollspy': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-scrollspy',
+        'bootstrap-tab': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-tab',
+        'bootstrap-tooltip': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-tooltip',
+        'bootstrap-transition': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-transition',
+        'bootstrap-typeahead': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-typeahead',
 
         'bar-declarative-visualizations': '../bower_components/iids/dist/iidx/components/declarative-visualizations/js/declarative-visualizations/bar',
         'donut-declarative-visualizations': '../bower_components/iids/dist/iidx/components/declarative-visualizations/js/declarative-visualizations/donut',
@@ -308,8 +292,5 @@ require.config({
         'ng-storage': {
             deps: ['angular']
         },
-        //angular schema form
-        'angular-schema-form': ['angular', 'angular-sanitize', 'angular-schema-form-dependencies'],
-        'angular-schema-form-boostrap': ['angular-schema-form']
     }
 });
