@@ -11,7 +11,7 @@ define([
     'main',
     'routes',
     'interceptors',
-    '../bower_components/px-oauth/main'
+    'px-oauth'
 ], function($, angular, ngResource, vRuntime) {
     'use strict';
 
