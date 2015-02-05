@@ -31,9 +31,7 @@ require.config({
     },
     paths: {
 
-        //'px-oauth': '../bower_components/px-oauth/main',
-        'oauth': '../bower_components/oauth-ng/dist/oauth-ng',
-        'ng-storage': '../bower_components/ngstorage/ngStorage',
+        'px-oauth': '../bower_components/px-oauth/dist/px-oauth.min',
 
         //VRuntime Paths
         directives: './directives',
@@ -286,11 +284,8 @@ require.config({
             deps: ['jquery', 'bootstrap-transition'],
             exports: 'tooltip'
         },
-        oauth: {
-            deps: ['angular', 'ng-storage']
-        },
-        'ng-storage': {
-            deps: ['angular']
-        },
+        'px-oauth': {
+            deps: ['angular', 'angular-ui-router']
+        }
     }
 });
