@@ -31,6 +31,15 @@ define([
         'predix.configurable-dashboard'
     ]);
 
+    predixApp.config(['WidgetLoaderServiceProvider', 'DashboardSettingsServiceProvider', function (WidgetLoaderServiceProvider, DashboardSettingsServiceProvider) {
+        WidgetLoaderServiceProvider.loadWidgetsFrom([
+            //'../bower_components/px-datagrid/src',
+            '../bower_components/px-time-series/src'
+        ]);
+
+        //DashboardSettingsServiceProvider.enableSecureNetworkProtocol(true);
+    }]);
+
     /**
      * Main Controller
      * This controller is the top most level controller that allows for all
