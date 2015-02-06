@@ -80,3 +80,83 @@ page.module = Module
 
 page.settings = Settings
 page.logout = Logout
+
+
+# predix form
+form.field.required = is required.
+form.field.minlength = is required to be at least {0} characters.
+form.field.maxlength = cannot be longer than {0} characters.
+form.action.save = Save
+form.action.cancel = Cancel
+form.action.submit = Submit
+form.action.delete = Delete
+form.action.ok = Ok
+form.action.close=Close
+
+# Configurable Dashboard
+dashboard.view.add = New View
+dashboard.view.configure = Configure View
+dashboard.view.name = View Name
+dashboard.view.delete = Delete View
+dashboard.view.delete.confirm = Are you sure you want to delete the view {0}?
+
+dashboard.editmode.revert=Revert
+dashboard.editmode.save=Save
+
+dashboard.widget.add= Add Widget
+dashboard.widget.delete = Delete Widget
+dashboard.widget.confirm.delete = Are you sure you want to delete this widget?
+
+dashboard.noviews.message = No views are configured for this context.
+dashboard.noviews.link = Create a view.
+
+dashboard.widgetconfig.title=Configure Widget
+dashboard.widgetconfig.datasource.settings=Data Settings
+dashboard.widgetconfig.datasource=Data Source
+dashboard.widgetconfig.datasource.choose=Choose a Data Source
+dashboard.widgetconfig.datasource.zerostate=Select a Widget Type
+dashboard.widgetconfig.options=Options
+dashboard.widgetconfig.choice=Choose Widget
+dashboard.widgetconfig.widget=Widget Type
+dashboard.widgetconfig.widget.settings=Widget Settings
+dashboard.widgetconfig.widget.choose=Choose a Widget Type
+dashboard.widgetconfig.widget.zerostate=Select a Widget Type
+dashboard.widgetconfig.widget.width=Width:
+dashboard.widgetconfig.widget.width.half=Half Page
+dashboard.widgetconfig.widget.width.full=Full Page
+
+dashboard.contextbrowser.nochildren=This context has no children.
+dashboard.contextbrowser.openbutton=Open
+
+dashboard.context.none=Select Context
+dashboard.context.datasource.fetchfail = Error when fetching context datasource
+dashboard.context.view.fetchfail = Error when fetching context view
+dashboard.context.view.updatefail = Error when updating context view
+dashboard.context.view.deletefail = Error when deleting context view
+dashboard.context.view.createfail = Error when creating context view
+
+dashboard.context.metadata.fetchfail = Error when fetching context metadata
+contextbrowser.contexttree.fetchfail=Error when the fetching context tree
+contextbrowser.getchildren.fetchfail=Error when the fetching children for context tree
+contextbrowser.isopenable.nodeentity=node.entity does not exist, returning false for isOpenable
+contextbrowser.getchildren.nodeidentifiermissing=node.nodeIdentifier is not valid, not setting the children
+pxtreenav.nowhere.tofetch.children=The next level of children could not be returned.
+
+dashboard.widgetrenderer.error=Widget rendering error.
+dashboard.widgetloaderservice.loadwidgetsonpage.error=Error loading widgets on to page. Check to make sure the WidgetLoaderServiceProvider is pointing towards all your widgets' main files, and make sure the main files are loading all of the widget's source files.
+dashboard.widgetloaderservice.loadwidgetschemas.error=Error loading widget schemas. Check to make sure the WidgetLoaderServiceProvider is pointing towards all your widgets' schema files.
+
+# widget configurator error codes - based off tv4 (for supported fields: string, number, enum)
+# unfortunately, due to a limitation in the angular-schema-form plugin, you cannot have dynamic options
+# the default error codes will be more descriptive (in English), but they are not able to be internationalized
+dashboard.widgetconfig.errorCodes.NUMBER_MULTIPLE_OF=Value is not valid
+dashboard.widgetconfig.errorCodes.NUMBER_MINIMUM=Value is less than minimum
+dashboard.widgetconfig.errorCodes.NUMBER_MINIMUM_EXCLUSIVE=Value is equal to exclusive minimum
+dashboard.widgetconfig.errorCodes.NUMBER_MAXIMUM=Value is greater than maximum
+dashboard.widgetconfig.errorCodes.NUMBER_MAXIMUM_EXCLUSIVE=Value is equal to exclusive maximum
+dashboard.widgetconfig.errorCodes.NUMBER_NOT_A_NUMBER=Value is not a valid number
+dashboard.widgetconfig.errorCodes.STRING_LENGTH_SHORT=String is too short
+dashboard.widgetconfig.errorCodes.STRING_LENGTH_LONG=String is too long
+dashboard.widgetconfig.errorCodes.STRING_PATTERN=String does not match pattern
+dashboard.widgetconfig.errorCodes.OBJECT_REQUIRED=Missing required property
+dashboard.widgetconfig.errorCodes.DEFAULT=Field is not valid
