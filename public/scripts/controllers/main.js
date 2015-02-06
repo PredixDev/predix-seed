@@ -1,3 +1,3 @@
-define(['./about', './home', './widgets'], function() {
+define(['./about', './home', './widgets', './dashboard'], function() {
 
 });

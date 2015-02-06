@@ -32,6 +32,7 @@ require.config({
     paths: {
 
         'px-oauth': '../bower_components/px-oauth/dist/px-oauth.min',
+        'px-dashboard': '../bower_components/px-contextual-dashboard/dist/px-contextual-dashboard.min',
 
         //VRuntime Paths
         directives: './directives',
@@ -50,6 +51,7 @@ require.config({
         'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
         'angular-resource': '../bower_components/angular-resource/angular-resource',
         'angular-route': '../bower_components/angular-route/angular-route',
+        'angular-sanitize': '../bower_components/angular-sanitize/angular-sanitize',
         'angular-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap.min',
 
         // angular ui router
@@ -150,19 +152,19 @@ require.config({
 
         // IIDx additions
         'accordion': '../bower_components/iids/dist/iidx/components/ge-bootstrap/js/ge-bootstrap/accordion',
-        'bootstrap-affix': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-affix',
-        'bootstrap-alert': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-alert',
-        'bootstrap-button': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-button',
-        'bootstrap-carousel': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-carousel',
-        'bootstrap-collapse': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-collapse',
-        'bootstrap-dropdown': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-dropdown',
-        'bootstrap-modal': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-modal',
-        'bootstrap-popover': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-popover',
-        'bootstrap-scrollspy': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-scrollspy',
-        'bootstrap-tab': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-tab',
-        'bootstrap-tooltip': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-tooltip',
-        'bootstrap-transition': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-transition',
-        'bootstrap-typeahead': '../bower_components/iids/dist/iidx/components/bootstrap/js/bootstrap-typeahead',
+        'bootstrap-affix': '../bower_components/iids/dist/iidx/components/bootstrap/js/affix',
+        'bootstrap-alert': '../bower_components/iids/dist/iidx/components/bootstrap/js/alert',
+        'bootstrap-button': '../bower_components/iids/dist/iidx/components/bootstrap/js/button',
+        'bootstrap-carousel': '../bower_components/iids/dist/iidx/components/bootstrap/js/carousel',
+        'bootstrap-collapse': '../bower_components/iids/dist/iidx/components/bootstrap/js/collapse',
+        'bootstrap-dropdown': '../bower_components/iids/dist/iidx/components/bootstrap/js/dropdown',
+        'bootstrap-modal': '../bower_components/iids/dist/iidx/components/bootstrap/js/modal',
+        'bootstrap-popover': '../bower_components/iids/dist/iidx/components/bootstrap/js/popover',
+        'bootstrap-scrollspy': '../bower_components/iids/dist/iidx/components/bootstrap/js/scrollspy',
+        'bootstrap-tab': '../bower_components/iids/dist/iidx/components/bootstrap/js/tab',
+        'bootstrap-tooltip': '../bower_components/iids/dist/iidx/components/bootstrap/js/tooltip',
+        'bootstrap-transition': '../bower_components/iids/dist/iidx/components/bootstrap/js/transition',
+        'bootstrap-typeahead': '../bower_components/iids/dist/iidx/components/bootstrap/js/typeahead',
 
         'bar-declarative-visualizations': '../bower_components/iids/dist/iidx/components/declarative-visualizations/js/declarative-visualizations/bar',
         'donut-declarative-visualizations': '../bower_components/iids/dist/iidx/components/declarative-visualizations/js/declarative-visualizations/donut',
@@ -230,6 +232,7 @@ require.config({
         },
         'angular-route': ['angular'],
         'angular-resource': ['angular', 'angular-route', 'angular-ui-router'],
+        'angular-sanitize': ['angular'],
         'angular-mocks': {
             deps: ['angular', 'angular-route', 'angular-resource', 'angular-ui-router'],
             exports: 'mock'
@@ -286,6 +289,9 @@ require.config({
         },
         'px-oauth': {
             deps: ['angular', 'angular-ui-router']
+        },
+        'px-dashboard': {
+            deps: ['angular', 'jquery', 'angular-bootstrap', 'angular-sanitize', 'vruntime', 'angular-ui-router', 'bootstrap-modal', 'bootstrap-transition', 'bootstrap-dropdown']
         }
     }
 });
