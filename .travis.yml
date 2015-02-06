@@ -19,6 +19,5 @@ script:
   - grunt update
   - activator test
   - grunt -v
-  - activator --version
-  - activator dist
+  - activator -v dist
 
