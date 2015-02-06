@@ -32,6 +32,13 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
                 templateUrl: 'assets/views/widgets.html',
                 controller: 'WidgetsCtrl',
                 parent: 'secure'
+            })
+            .state('dashboard', {
+                url: '/dashboard',
+                templateUrl: 'assets/views/dashboard.html',
+                controller: 'DashboardCtrl',
+                abstract: true,
+                parent: 'secure'
             });
 
         $urlRouterProvider
