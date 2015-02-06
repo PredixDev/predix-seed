@@ -11,6 +11,7 @@ require.config({
         /*
          * Predix V modules paths
          */
+		'px-oauth': 'empty:',
 
         directives: 'empty:',
         vruntime: 'empty:',
