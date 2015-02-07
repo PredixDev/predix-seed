@@ -12,7 +12,8 @@ define([
     'routes',
     'interceptors',
     'px-oauth',
-    'px-dashboard'
+    'px-dashboard',
+    'widgets-module'
 ], function($, angular, ngResource, vRuntime) {
     'use strict';
 
