@@ -1,4 +1,4 @@
-define(['angular', 'sample-module', '../../bower_components/px-datagrid/src/main', '../../bower_components/px-time-series/src/main'], function(angular, sampleModule) {
+define(['angular', 'sample-module', 'bower_components/px-datagrid/src/main', 'bower_components/px-time-series/src/main'], function(angular, sampleModule) {
     'use strict';
     return sampleModule.controller('WidgetsCtrl', ['$scope', function($scope) {
         $scope.name = 'Widgets';
