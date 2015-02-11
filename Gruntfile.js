@@ -81,7 +81,7 @@ module.exports = function (grunt) {
 		watch: {
 			options: {
 				nospawn: true,
-				livereload: '<%= connect.options.livereload %>'
+				livereload: '<%= connect.livereload %>'
 			},
 			styles: {
 				files: [ '<%= config.app %>/stylesheets/**/*.css' ]
