@@ -22,7 +22,7 @@ define(['angular'], function(angular) {
          * If you are using Siteminder, this interceptor can be used to capture the session timeout on an AJAX request.
          * You can implement your conditions in this interceptor according to your own requirement.
          */
-        $httpProvider.interceptors.push(['$q', function($q) {
+        $httpProvider.interceptors.push(['$q', '$window', function($q, $window) {
             return {
                 // optional method
                 'request': function(config) {
@@ -44,7 +44,7 @@ define(['angular'], function(angular) {
 
                     //redirect to logout page when V-server throws unauthorized status
                     if (rejection.status === 401) {
-                        location.replace('/logout');
+                        $window.location.replace('/logout');
                     }
                     //handle error
                     return $q.reject(rejection);
