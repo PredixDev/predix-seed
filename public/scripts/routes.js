@@ -16,7 +16,6 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
          */
         $stateProvider
             .state('root', {
-                url: '',
                 templateUrl: 'assets/views/root.html',  // Provide a common root template for all states (i.e. nav-bar)
                 abstract: true,
                 parent: 'secure'                        // On initial load, ensures oauth token exists
