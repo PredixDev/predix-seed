@@ -2,13 +2,25 @@
 define(['angular-mocks', 'interceptors'], function(mocks, interceptors) {
     'use strict';
     describe('interceptors', function() {
+        var scope, httpBackend, http, successCallback, errorCallback, $window;
+
         beforeEach(module('app.interceptors'));
 
-        var scope, httpBackend, http, successCallback, errorCallback;
-        beforeEach(inject(function($httpBackend, $http) {
-            httpBackend = $httpBackend;
-            http = $http;
-        }));
+        beforeEach(function () {
+            $window = {location: { replace: jasmine.createSpy()} };
+
+            module(function($provide) {
+                $provide.value('$window', $window);
+            });
+
+            inject(function (_$httpBackend_, _$http_) {
+                httpBackend = _$httpBackend_;
+                http = _$http_;
+
+                //to get around ui router issue https://github.com/angular-ui/ui-router/issues/212
+                httpBackend.whenGET(/views.*/).respond(200, '');
+            });
+        });
 
         describe('When making $http request', function() {
             beforeEach(function() {
@@ -17,10 +29,9 @@ define(['angular-mocks', 'interceptors'], function(mocks, interceptors) {
             });
 
             it('should have X-Requested-With header', function() {
-                httpBackend.expectGET('/api', undefined, function(headers) {
+                httpBackend.whenGET('/api', undefined, function(headers) {
                     return headers['X-Requested-With'] === 'XMLHttpRequest';
                 }).respond(201, '');
-                httpBackend.flush();
             });
         });
 
@@ -30,10 +41,10 @@ define(['angular-mocks', 'interceptors'], function(mocks, interceptors) {
                 errorCallback = jasmine.createSpy('errorCallback');
                 httpBackend.when('GET', '/api').respond(201, '');
                 http.get('/api').then(successCallback, errorCallback);
+                httpBackend.flush();
             });
 
             it('should pass through interceptor', function() {
-                httpBackend.flush();
                 expect(successCallback).toHaveBeenCalled();
             });
 
@@ -60,19 +71,12 @@ define(['angular-mocks', 'interceptors'], function(mocks, interceptors) {
                 errorCallback = jasmine.createSpy('errorCallback');
                 httpBackend.when('GET', '/api').respond(401, '');
                 http.get('/api').then(successCallback, errorCallback);
-                _replace = window.location.replace;
-                spyOn(window.location, 'replace');
+                httpBackend.flush();
             });
 
             it('should redirect to /logout', function() {
-                httpBackend.flush();
-                expect(window.location.replace).toHaveBeenCalledWith('/logout');
+                expect($window.location.replace).toHaveBeenCalledWith('/logout');
             });
-
-            afterEach(function() {
-                window.location.replace = _replace;
-            });
-
         });
 
     });
