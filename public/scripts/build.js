@@ -11,8 +11,10 @@ require.config({
         /*
          * Predix V modules paths
          */
-		'px-oauth': 'empty:',
+        'px-oauth': 'empty:',
+        'px-dashboard': 'empty:',
 
+        'bower_components': '../bower_components',
         directives: 'empty:',
         vruntime: 'empty:',
 
