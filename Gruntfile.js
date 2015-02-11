@@ -81,7 +81,7 @@ module.exports = function (grunt) {
 		watch: {
 			options: {
 				nospawn: true,
-				livereload: '<%= connect.options.livereload %>'
+				livereload: '<%= connect.livereload %>'
 			},
 			styles: {
 				files: [ '<%= config.app %>/stylesheets/**/*.css' ]
@@ -111,16 +111,17 @@ module.exports = function (grunt) {
 
 		// Preview server configuration
 		connect: {
-			options: {
-				livereload: LIVERELOAD_PORT,
-				hostname: 'localhost',
-				open: false
-			},
 			livereload: {
 				options: {
 					port: SERVER_PORT,
 					open: true,
-					base: [ 'public' ]
+                    hostname: 'localhost',
+                    middleware: function(connect) {
+                           return [
+                               require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']),
+                               connect.static(require('path').resolve('public'))
+                           ];
+                    }
 				}
 			},
 			test: {
