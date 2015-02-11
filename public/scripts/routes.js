@@ -15,30 +15,35 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
          * This is where the name of the route is matched to the controller and view template.
          */
         $stateProvider
+            .state('root', {
+                templateUrl: 'assets/views/root.html',  // Provide a common root template for all states (i.e. nav-bar)
+                abstract: true,
+                parent: 'secure'                        // On initial load, ensures oauth token exists
+            })
             .state('home', {
                 url: '/home',
                 templateUrl: 'assets/views/home.html',
                 controller: 'HomeCtrl',
-                parent: 'secure'
+                parent: 'root'
             })
             .state('about', {
                 url: '/about',
                 templateUrl: 'assets/views/about.html',
                 controller: 'AboutCtrl',
-                parent: 'secure'
+                parent: 'root'
             })
             .state('widgets', {
                 url: '/widgets',
                 templateUrl: 'assets/views/widgets.html',
                 controller: 'WidgetsCtrl',
-                parent: 'secure'
+                parent: 'root'
             })
             .state('dashboard', {
                 url: '/dashboard',
                 templateUrl: 'assets/views/dashboard.html',
                 controller: 'DashboardCtrl',
                 abstract: true,
-                parent: 'secure'
+                parent: 'root'
             });
 
         $urlRouterProvider

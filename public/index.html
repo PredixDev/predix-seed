@@ -4,7 +4,8 @@
     <title>Predix Seed</title>
     <base href="/">
 
-    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <!--[if IE]>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,9 +22,6 @@
 </head>
 
 <body class="app" data-ng-controller="MainCtrl">
-
-<div class="navbar navbar-default navbar-static-top templatecontainer">
-
     <!-- Adds implicit grant oauth -->
     <px-oauth
         site="site"
@@ -31,57 +29,10 @@
         redirect-uri="redirectUri">
     </px-oauth>
 
-    <div class="container">
+    <ui-view/>
 
-        <div class="masthead navbar-header">
-            <a class="navbar-brand" href="#">
-                <span class="ge-logo"></span>
-                <span>Predix Dashboard
-                    <small><i>powered by</i> GE Business</small>
-                </span>
-            </a>
-        </div>
-
-        <div class="notifications pull-right">
-            <div class="btn-toolbar">
-                <div class="btn-group">
-                    <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-user"></i>
-                        <span class="user-name">username</span>
-                        <i class="icon-chevron-down"></i>
-                    </button>
-                    <ul class="dropdown-menu pull-right">
-                        <li>
-                            <!-- Signout link for authentication -->
-                            <a ng-href="#" data-ng-click="logout($event)" href="#">
-                                <i class="icon-signout"></i> {{ "page.logout" | vmessages }}
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="primary-navbar navbar-collapse">
-        <div class="container">
-            <ul class="nav navbar-nav" data-ng-cloak="">
-                <li ui-sref-active="active" data-ng-repeat="tab in App.tabs" tab="tab">
-                    <a ui-sref="{{tab.state}}">{{tab.label}}</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-</div>
-
-<!-- MAIN CONTENT -->
-<div class="content container" ui-view>
-    <!-- This is the container where the tabs will render -->
-</div>
-
-<script data-main="scripts/bootstrapper.js" src="bower_components/iids/dist/iidx/components/requirejs/require.js"></script>
+    <script data-main="scripts/bootstrapper.js"
+            src="bower_components/iids/dist/iidx/components/requirejs/require.js"></script>
 
 </body>
 </html>

@@ -32,13 +32,11 @@ define([
         'predix.configurable-dashboard'
     ]);
 
-    predixApp.config(['WidgetLoaderServiceProvider', 'DashboardSettingsServiceProvider', function (WidgetLoaderServiceProvider, DashboardSettingsServiceProvider) {
+    predixApp.config(['WidgetLoaderServiceProvider', function (WidgetLoaderServiceProvider) {
         WidgetLoaderServiceProvider.loadWidgetsFrom([
             'bower_components/px-datagrid/src',
             'bower_components/px-time-series/src'
         ]);
-
-        //DashboardSettingsServiceProvider.enableSecureNetworkProtocol(true);
     }]);
 
     /**
