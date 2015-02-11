@@ -115,6 +115,7 @@ module.exports = function (grunt) {
 				options: {
 					port: SERVER_PORT,
 					open: true,
+                    hostname: 'localhost',
                     middleware: function(connect) {
                            return [
                                require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']),
