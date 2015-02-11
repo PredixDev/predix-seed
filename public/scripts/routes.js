@@ -16,31 +16,31 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
          */
         $stateProvider
             .state('root', {
-                templateUrl: 'assets/views/root.html',  // Provide a common root template for all states (i.e. nav-bar)
+                templateUrl: 'views/root.html',  // Provide a common root template for all states (i.e. nav-bar)
                 abstract: true,
                 parent: 'secure'                        // On initial load, ensures oauth token exists
             })
             .state('home', {
                 url: '/home',
-                templateUrl: 'assets/views/home.html',
+                templateUrl: 'views/home.html',
                 controller: 'HomeCtrl',
                 parent: 'root'
             })
             .state('about', {
                 url: '/about',
-                templateUrl: 'assets/views/about.html',
+                templateUrl: 'views/about.html',
                 controller: 'AboutCtrl',
                 parent: 'root'
             })
             .state('widgets', {
                 url: '/widgets',
-                templateUrl: 'assets/views/widgets.html',
+                templateUrl: 'views/widgets.html',
                 controller: 'WidgetsCtrl',
                 parent: 'root'
             })
             .state('dashboard', {
                 url: '/dashboard',
-                templateUrl: 'assets/views/dashboard.html',
+                templateUrl: 'views/dashboard.html',
                 controller: 'DashboardCtrl',
                 abstract: true,
                 parent: 'root'

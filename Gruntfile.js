@@ -111,16 +111,16 @@ module.exports = function (grunt) {
 
 		// Preview server configuration
 		connect: {
-			options: {
-				livereload: LIVERELOAD_PORT,
-				hostname: 'localhost',
-				open: false
-			},
 			livereload: {
 				options: {
 					port: SERVER_PORT,
 					open: true,
-					base: [ 'public' ]
+                    middleware: function(connect) {
+                           return [
+                               require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']),
+                               connect.static(require('path').resolve('public'))
+                           ];
+                    }
 				}
 			},
 			test: {
