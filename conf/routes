@@ -29,6 +29,8 @@ GET                                                          /stylesheets/*file 
 GET                                                          /scripts/*file                        controllers.Assets.at(path="/public/scripts", file)
 GET                                                          /bower_components/*file               controllers.Assets.at(path="/public/bower_components", file)
 
+GET                                                          /views/*file               controllers.Assets.at(path="/public/views", file)
+
 # Delegate to Predix routes for some basic non-authenticated routes (messages, getUTC, changeLocale)
 ->                                                           /                                     predixvapplication.Routes
 
