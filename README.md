@@ -7,9 +7,8 @@ Clone or fork this project to start your own Predictivity application. Documenta
 
 ### Install Framework
 
-1. Play! 2.3.4: http://downloads.typesafe.com/typesafe-activator/1.2.10/typesafe-activator-1.2.10-minimal.zip
+1. Play! 2.3.6: http://downloads.typesafe.com/typesafe-activator/1.2.10/typesafe-activator-1.2.10-minimal.zip
 2. Node ^0.10.28: http://nodejs.org/download/
-3. Python 2.7.5
 
 ### Setup your proxy settings
 In `~/.activator/activatorconfig.txt` (NOTE: you may need to create this file), add the following:
@@ -45,17 +44,6 @@ activator run
 ```
 Then use the credentials **demo/demo** to log in.
 
-## Troubleshooting
-
-### I can't log in.
-You may be unable to connect to the demo kernel server. You can either start your own kernel 
-server locally and change the app.conf settings accordingly, or disable the login page temporarily 
-by commenting out these two lines in app/controllers/ApplicationController.java.
-```
-@With(SessionManager.class) // these annotations enable authentication for the class
-@Security.Authenticated(Secured.class)
-```
-
 ## Tutorial
 
 This application gives you a great starting point right out of the box, which includes the following:
@@ -85,11 +73,9 @@ management (if authentication is enabled).
 the proxy web service.  Check out the upload method for an example of how to do a file 
 upload.
 
-### Scala Views
-The app/views directory contains the main entry points to the application, which include:
-- app.scala.html - This file is the main view that includes all application client-side dependencies. 
-(styles, scripts, etc.)
-- loginapp.scala.html - This file is login view that is used when authentication is enabled.
+### Views
+The public/ directory contains the main entry points to the application, which include:
+- index.html - This file is the main view that includes all application client-side dependencies. 
 
 ### Angular Configuration
 Visualization projects use the AngularJS framework with RequireJS which allows Play to load, 
@@ -143,6 +129,20 @@ The configuration that Play uses to compress and run your scripts during product
 the [r.js optimizer](http://requirejs.org/docs/optimization.html#basics) is located in the 
 build.js file.
 
+
+### Authentication
+This application uses [px-oauth](https://github.sw.ge.com/Predix-Experience/px-oauth) for handling [implicit grant oauth](http://oauthlib.readthedocs.org/en/latest/oauth2/grants/implicit.html). The endpoint to authorize against can be changed in your app.js
+
+```
+// Example UAA Configuration
+$scope.site = 'https://predixuaa.ges-apps.ice.ge.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
+$scope.clientId = 'app';                                // Your app id that you registered with Cloud Foundry.
+$scope.redirectUri = $location.absUrl();                // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
+
+```
+The px-oauth directive will store the token in Session Storage which can be passed with each data source request in the `Authorization` header.
+
+### Deploying
 To create a dist build run the following command from inside of your projects root directory:
 ```
 activator dist
