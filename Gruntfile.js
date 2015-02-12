@@ -116,11 +116,42 @@ module.exports = function (grunt) {
 					port: SERVER_PORT,
 					open: true,
                     hostname: 'localhost',
-                    middleware: function(connect) {
-                           return [
-                               require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']),
-                               connect.static(require('path').resolve('public'))
-                           ];
+                    middleware: function(connect,options,middlewares) {
+                           var proxyConfig = {
+                            proxy: {
+                                forward: {
+                                    '/services': 'http://asset-server.grc-apps.svc.ice.ge.com'
+                                    //                   asset-server.grc-apps.svc.ice.ge.com
+                                },
+                                headers: {
+                                    //make sure to keep Service-End-Point header which for some reason is getting clobbered
+                                    'X-No-Validation': function(req) {
+                                    	console.log(req.headers);
+                                        return true; //req.headers['x-no-validation']
+                                    },
+                                    'Accept': function(req) {
+                                    	return 'application/json; charset=UTF-8';
+                                    },
+                                    'Content-Type': function(req) {
+                                    	return 'application/json, text/javascript, */*; q=0.01';
+                                    }
+                                }
+                            }
+                        };
+
+                        return [
+                            require('json-proxy').initialize(proxyConfig),
+                            require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']),
+                            connect.static(require('path').resolve('public'))
+                        ];
+
+// TODO for development only
+// function(req, res, next) {
+// res.setHeader('Access-Control-Allow-Origin', '*');
+// res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+// res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+// next();
+// },
                     }
 				}
 			},
