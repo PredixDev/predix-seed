@@ -81,7 +81,7 @@ module.exports = function (grunt) {
 		watch: {
 			options: {
 				nospawn: true,
-				livereload: '<%= connect.options.livereload %>'
+				livereload: '<%= connect.livereload %>'
 			},
 			styles: {
 				files: [ '<%= config.app %>/stylesheets/**/*.css' ]
@@ -115,6 +115,7 @@ module.exports = function (grunt) {
 				options: {
 					port: SERVER_PORT,
 					open: true,
+                    hostname: 'localhost',
                     middleware: function(connect,options,middlewares) {
                            var proxyConfig = {
                             proxy: {
