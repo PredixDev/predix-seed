@@ -144,14 +144,6 @@ module.exports = function (grunt) {
                             require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']),
                             connect.static(require('path').resolve('public'))
                         ];
-
-// TODO for development only
-// function(req, res, next) {
-// res.setHeader('Access-Control-Allow-Origin', '*');
-// res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-// res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-// next();
-// },
                     }
 				}
 			},
