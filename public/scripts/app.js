@@ -32,11 +32,13 @@ define([
         'predix.configurable-dashboard'
     ]);
 
-    predixApp.config(['WidgetLoaderServiceProvider', function (WidgetLoaderServiceProvider) {
+    predixApp.config(['WidgetLoaderServiceProvider', 'ContextBrowserServiceProvider', function (WidgetLoaderServiceProvider, ContextBrowserServiceProvider) {
         WidgetLoaderServiceProvider.loadWidgetsFrom([
             'bower_components/px-datagrid/src',
             'bower_components/px-time-series/src'
         ]);
+
+        ContextBrowserServiceProvider.setContextService("MyAssetService");
     }]);
 
     /**
@@ -75,6 +77,24 @@ define([
         $scope.redirectUri = $location.absUrl();                // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
 
     }]);
+
+    predixApp.factory('MyAssetService', function(){
+        return {
+            baseUrl: '/services/asset',
+            transform: function (asset){
+                return  {
+                    name: asset.assetId,
+                    id: asset.uri,
+                    parentId: asset.parent,
+                    classification: asset.specification,
+                    isOpenable: !(asset.attributes && asset.attributes.isNotOpenable)
+                };
+            },
+            getAssetChildrenUrl: function (id){
+                return this.baseUrl + '?filter=parent='+id;
+            }
+        };
+    });
 
     //Enable logging to the console. (levels are ERROR, WARN, SUCCESS, INFO, NONE)
     //get a logger instance
