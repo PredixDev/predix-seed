@@ -26,7 +26,7 @@ define(['angular'], function(angular) {
             return {
                 // optional method
                 'request': function(config) {
-                    // do something on success
+                    // do something before request
                     return config;
                 },
                 // optional method
@@ -41,11 +41,6 @@ define(['angular'], function(angular) {
                 },
                 // optional method
                 'responseError': function(rejection) {
-
-                    //redirect to logout page when V-server throws unauthorized status
-                    if (rejection.status === 401) {
-                        $window.location.replace('/logout');
-                    }
                     //handle error
                     return $q.reject(rejection);
                 }
