@@ -38,7 +38,7 @@ define([
             'bower_components/px-time-series/src'
         ]);
 
-        ContextBrowserServiceProvider.setContextService("MyAssetService");
+        ContextBrowserServiceProvider.setContextService('MyAssetService');
     }]);
 
     /**
