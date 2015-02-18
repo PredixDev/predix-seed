@@ -32,12 +32,39 @@ define([
         'predix.configurable-dashboard'
     ]);
 
-    predixApp.config(['WidgetLoaderServiceProvider', function (WidgetLoaderServiceProvider) {
+    predixApp.config(['WidgetLoaderServiceProvider', 'ContextBrowserServiceProvider', function (WidgetLoaderServiceProvider, ContextBrowserServiceProvider) {
         WidgetLoaderServiceProvider.loadWidgetsFrom([
             'bower_components/px-datagrid/src',
             'bower_components/px-time-series/src'
         ]);
+
+        /**
+         * Enable the following line to use SampleEntityService as Entity Tree data provider for the Configurable dashboard context browser
+         */
+        //ContextBrowserServiceProvider.setContextService('SampleEntityService');
     }]);
+
+    /**
+     * A configurable dashboard sample entity service
+     */
+    predixApp.factory('SampleEntityService', function(){
+        return {
+            baseUrl: '/services/asset',
+            rootEntityId: null,
+            transform: function (entity){
+                return  {
+                    name: entity.assetId,
+                    id: entity.uri,
+                    parentId: entity.parent,
+                    classification: entity.specification,
+                    isOpenable: !(entity.attributes && entity.attributes.isNotOpenable)
+                };
+            },
+            getEntityChildrenUrl: function (parentEntityId){
+                return this.baseUrl + '?filter=parent='+parentEntityId;
+            }
+        };
+    });
 
     /**
      * Main Controller
