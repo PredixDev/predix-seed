@@ -32,13 +32,11 @@ define([
         'predix.configurable-dashboard'
     ]);
 
-    predixApp.config(['WidgetLoaderServiceProvider', 'ContextBrowserServiceProvider', function (WidgetLoaderServiceProvider, ContextBrowserServiceProvider) {
+    predixApp.config(['WidgetLoaderServiceProvider', function (WidgetLoaderServiceProvider) {
         WidgetLoaderServiceProvider.loadWidgetsFrom([
             'bower_components/px-datagrid/src',
             'bower_components/px-time-series/src'
         ]);
-
-        ContextBrowserServiceProvider.setContextService('MyAssetService');
     }]);
 
     /**
@@ -72,29 +70,11 @@ define([
         };
 
         // Example UAA Configuration
-        $scope.site = 'https://predixuaa.grc-apps.svc.ice.ge.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
+        $scope.site = 'https://predixuaa.ges-apps.ice.ge.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
         $scope.clientId = 'app';                                // Your app id that you registered with Cloud Foundry.
         $scope.redirectUri = $location.absUrl();                // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
 
     }]);
-
-    predixApp.factory('MyAssetService', function(){
-        return {
-            baseUrl: '/services/asset',
-            transform: function (asset){
-                return  {
-                    name: asset.assetId,
-                    id: asset.uri,
-                    parentId: asset.parent,
-                    classification: asset.specification,
-                    isOpenable: !(asset.attributes && asset.attributes.isNotOpenable)
-                };
-            },
-            getAssetChildrenUrl: function (id){
-                return this.baseUrl + '?filter=parent='+id;
-            }
-        };
-    });
 
     //Enable logging to the console. (levels are ERROR, WARN, SUCCESS, INFO, NONE)
     //get a logger instance
