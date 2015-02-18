@@ -32,11 +32,12 @@ define([
         'predix.configurable-dashboard'
     ]);
 
-    predixApp.config(['WidgetLoaderServiceProvider', function (WidgetLoaderServiceProvider) {
+    predixApp.config(['WidgetLoaderServiceProvider', 'ViewServiceProvider', function (WidgetLoaderServiceProvider, ViewServiceProvider) {
         WidgetLoaderServiceProvider.loadWidgetsFrom([
             'bower_components/px-datagrid/src',
             'bower_components/px-time-series/src'
         ]);
+        ViewServiceProvider.setViewUrl('http://dev-dashboard-server.grc-apps.svc.ice.ge.com');
     }]);
 
     /**
