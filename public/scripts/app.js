@@ -32,13 +32,43 @@ define([
         'predix.configurable-dashboard'
     ]);
 
-    predixApp.config(['WidgetLoaderServiceProvider', 'ViewServiceProvider', function (WidgetLoaderServiceProvider, ViewServiceProvider) {
+    predixApp.config(['WidgetLoaderServiceProvider', 'ContextBrowserServiceProvider', 'ViewServiceProvider', 'DatasourceServiceProvider', function (WidgetLoaderServiceProvider, ContextBrowserServiceProvider, ViewServiceProvider, DatasourceServiceProvider) {
         WidgetLoaderServiceProvider.loadWidgetsFrom([
             'bower_components/px-datagrid/src',
             'bower_components/px-time-series/src'
         ]);
+
+        /**
+         * Enable the following line to use SampleEntityService as Entity Tree data provider for the Configurable dashboard context browser
+         */
+        ContextBrowserServiceProvider.setContextService('SampleEntityService');
+
         ViewServiceProvider.setViewUrl('http://dev-dashboard-server.grc-apps.svc.ice.ge.com');
+
+        DatasourceServiceProvider.setContextMetadataUrl('dashboard-mock-server.grc-apps.svc.ice.ge.com/qa/service/readerApp/Entity');
     }]);
+
+    /**
+     * A configurable dashboard sample entity service
+     */
+    predixApp.factory('SampleEntityService', function(){
+        return {
+            baseUrl: '/services/asset',
+            rootEntityId: null,
+            transform: function (entity){
+                return  {
+                    name: entity.assetId + 'test',
+                    id: entity.uri,
+                    parentId: entity.parent,
+                    classification: entity.specification,
+                    isOpenable: !(entity.attributes && entity.attributes.isNotOpenable)
+                };
+            },
+            getEntityChildrenUrl: function (parentEntityId){
+                return this.baseUrl + '?filter=parent='+parentEntityId;
+            }
+        };
+    });
 
     /**
      * Main Controller

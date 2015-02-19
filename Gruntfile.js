@@ -117,23 +117,29 @@ module.exports = function (grunt) {
 					open: true,
                     hostname: 'localhost',
                     middleware: function(connect,options,middlewares) {
-                           var proxyConfig = {
+                        var proxyConfig = {
                             proxy: {
                                 forward: {
-                                    '/services': 'http://asset-server.grc-apps.svc.ice.ge.com'
-                                    //                   asset-server.grc-apps.svc.ice.ge.com
+                                    '/services/asset': 'http://asset-server.grc-apps.svc.ice.ge.com',
+                                    '/api/v2/proxy': 'http://localhost:9001'
                                 },
                                 headers: {
                                     //make sure to keep Service-End-Point header which for some reason is getting clobbered
                                     'X-No-Validation': function(req) {
-                                    	console.log(req.headers);
+                                        console.log(req.headers);
                                         return true; //req.headers['x-no-validation']
                                     },
                                     'Accept': function(req) {
-                                    	return 'application/json; charset=UTF-8';
+                                        return 'application/json; charset=UTF-8';
                                     },
                                     'Content-Type': function(req) {
-                                    	return 'application/json, text/javascript, */*; q=0.01';
+                                        return 'application/json, text/javascript, */*; q=0.01';
+                                    },
+                                    'Service-End-Point': function(req) {
+                                        return req.headers['service-end-point']
+                                    },
+                                    'authorization': function(req) {
+                                        return req.headers['authorization']
                                     }
                                 }
                             }
@@ -144,6 +150,7 @@ module.exports = function (grunt) {
                             require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']),
                             connect.static(require('path').resolve('public'))
                         ];
+
                     }
 				}
 			},
@@ -403,7 +410,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('update', [ 'config:prod', 'clean:artifactory', 'artifactory:ux', 'artifactory:vclient' ]);
 
 	grunt.registerTask('build', [ 'clean:build', /*'changelog', 'bump',*/ 'jshint:src', /*'ngAnnotate',*/ 'requirejs']);
-	grunt.registerTask('test', [ 'jshint:test', 'clean:test', 'karma' ]);
+	grunt.registerTask('test', [ 'jshint:src', 'clean:test', 'karma' ]);
 	grunt.registerTask('test:e2e', [ 'clean:test', 'protractor_webdriver', 'protractor' ]);
 	grunt.registerTask('serve', [ 'clean:build', 'connect:livereload', 'watch' ]);
 	grunt.registerTask('docs', [ 'build', 'ngdocs', 'connect:docs' ]);
