@@ -11,10 +11,11 @@ require.config({
         /*
          * Predix V modules paths
          */
+        'bower_components': '../bower_components',
         'px-oauth': 'empty:',
         'px-dashboard': 'empty:',
+        'px-datasource': 'empty:',
 
-        'bower_components': '../bower_components',
         directives: 'empty:',
         vruntime: 'empty:',
 
@@ -26,11 +27,11 @@ require.config({
         'widgets-module': './widget-module',
         'sample-module': './sample-module',
 
-
         //angularjs + modules
         angular: 'empty:',
         'angular-resource': 'empty:',
         'angular-route': 'empty:',
+        'angular-sanitize': 'empty:',
         'angular-bootstrap': 'empty:',
         'angular-mocks': 'empty:',
 
@@ -263,6 +264,15 @@ require.config({
         'bootstrap-tooltip': {
             deps: [ 'jquery', 'bootstrap-transition' ],
             exports: 'tooltip'
+        },
+        'px-oauth': {
+            deps: ['angular', 'angular-ui-router']
+        },
+        'px-dashboard': {
+            deps: ['angular', 'jquery', 'angular-bootstrap', 'angular-sanitize', 'vruntime', 'angular-ui-router', 'bootstrap-modal', 'bootstrap-transition', 'bootstrap-dropdown', 'px-datasource']
+        },
+        'px-datasource': {
+            deps: ['angular', 'lodash']
         }
     }
 });
