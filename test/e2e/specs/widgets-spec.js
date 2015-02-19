@@ -1,7 +1,7 @@
 'use strict';
 
 var navigationBar = require('../models/navigation-bar');
-var timeseries = require('../models/timeseries.js')
+var timeseries = require('../models/timeseries.js');
 var datagrid = require('../models/datagrid');
 
 describe('Widgets Page', function() {
@@ -56,5 +56,5 @@ describe('Widgets Page', function() {
                 expect(content.getRow(5)).toContain('2134');
             });
         });
-    })
+    });
 });
