@@ -297,5 +297,6 @@ require.config({
         'px-datasource': {
             deps: ['angular', 'lodash']
         }
+
     }
 });
