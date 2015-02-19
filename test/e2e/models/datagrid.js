@@ -29,15 +29,15 @@ var Datagrid = function() {
         var deferred = protractor.promise.defer();
 
         widget.all(by.css('thead th')).then(function(columnHeaders) {
-            columnHeaders[columnIndex].getAttribute("class").then(function(classes) {
-                if (classes.indexOf("sorting_asc") !== -1) {
-                    deferred.fulfill("up");
+            columnHeaders[columnIndex].getAttribute('class').then(function(classes) {
+                if (classes.indexOf('sorting_asc') !== -1) {
+                    deferred.fulfill('up');
                 }
-                else if (classes.indexOf("sorting_desc") !== -1) {
-                    deferred.fulfill("down");
+                else if (classes.indexOf('sorting_desc') !== -1) {
+                    deferred.fulfill('down');
                 }
                 else {
-                    deferred.fulfill("");
+                    deferred.fulfill('');
                 }
             });
         });
@@ -87,9 +87,9 @@ var Datagrid = function() {
     var isRightEnabled = function(widget) {
         var deferred = protractor.promise.defer();
         widget.all(by.css('.pagination li')).then(function(buttons) {
-            buttons[buttons.length - 1].getAttribute("class").then(function(classes) {
+            buttons[buttons.length - 1].getAttribute('class').then(function(classes) {
                 var isEnabled = true;
-                if (classes.indexOf("disabled") > -1) {
+                if (classes.indexOf('disabled') > -1) {
                     isEnabled = false;
                 }
                 deferred.fulfill(isEnabled);
@@ -98,12 +98,12 @@ var Datagrid = function() {
         return deferred.promise;
     };
 
-    var isLeftEnabled = function(widget, selector) {
+    var isLeftEnabled = function(widget) {
         var deferred = protractor.promise.defer();
         widget.all(by.css('.pagination li')).then(function(buttons) {
-            buttons[0].getAttribute("class").then(function(classes) {
+            buttons[0].getAttribute('class').then(function(classes) {
                 var isEnabled = true;
-                if (classes.indexOf("disabled") > -1) {
+                if (classes.indexOf('disabled') > -1) {
                     isEnabled = false;
                 }
                 deferred.fulfill(isEnabled);
