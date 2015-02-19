@@ -2,10 +2,8 @@
  * RequireJS build Config
  * This is configuration for the entire application.
  */
-define('text', {
-    load: function() {
-    }
-});
+define('text', {load: function() {
+}});
 require.config({
     enforceDefine: false,
     xhtml: false,
@@ -13,9 +11,11 @@ require.config({
         /*
          * Predix V modules paths
          */
-		'px-oauth': 'empty:',
+        'bower_components': '../bower_components',
+        'px-oauth': 'empty:',
+        'px-dashboard': 'empty:',
+        'px-datasource': 'empty:',
 
-        widgets: 'empty:',
         directives: 'empty:',
         vruntime: 'empty:',
 
@@ -24,14 +24,16 @@ require.config({
         iids: 'empty:',
 
         //Angular App Modules
-        'controllers-module': 'controllers/module',
-        'filters-module': 'filters/module',
-        'services-module': 'services/module',
+        'widgets-module': './widget-module',
+        'sample-module': './sample-module',
+
 
         //angularjs + modules
         angular: 'empty:',
         'angular-resource': 'empty:',
         'angular-route': 'empty:',
+        'angular-sanitize': 'empty:',
+        'angular-bootstrap': 'empty:',
         'angular-mocks': 'empty:',
 
         //angular ui + modules
@@ -42,20 +44,22 @@ require.config({
         jquery: 'empty:',
         lodash: 'empty:',
 
-        //Require JS Plugins
-        text: 'empty:',
-        json: 'empty:',
-        order: 'empty:',
-        async: 'empty:',
-        depend: 'empty:',
-        font: 'empty:',
-        goog: 'empty:',
-        image: 'empty:',
-        mdown: 'empty:',
-        noext: 'empty:',
-        propertyParser: 'empty:',
-        Markdown: 'empty:',
-
+        // Require JS Plugins
+        text: '../bower_components/requirejs-plugins/lib/text',
+        order: '../bower_components/requirejs-plugins/src/order',
+        async: '../bower_components/requirejs-plugins/src/async',
+        depend: '../bower_components/requirejs-plugins/src/depend',
+        font: '../bower_components/requirejs-plugins/src/font',
+        goog: '../bower_components/requirejs-plugins/src/goog',
+        image: '../bower_components/requirejs-plugins/src/image',
+        json: '../bower_components/requirejs-plugins/src/json',
+        mdown: '../bower_components/requirejs-plugins/src/mdown',
+        noext: '../bower_components/requirejs-plugins/src/noext',
+        propertyParser: '../bower_components/requirejs-plugins/src/propertyParser',
+        Markdown: '../bower_components/requirejs-plugins/lib/Markdown.Converter',
+        css: '../bower_components/require-css/css',
+        'css-builder': '../bower_components/require-css/css-builder',
+        normalize: '../bower_components/require-css/normalize',
         /*
          * IIDx 2.1.0
          * To map IIDx to workbench, please modify path, map and shim section of this require js
@@ -206,6 +210,9 @@ require.config({
             exports: 'angular'
         },
         'angular-route': ['angular'],
+        'angular-bootstrap': {
+            deps: ['angular']
+        },
         'angular-resource': ['angular', 'angular-route', 'angular-ui-router'],
         'angular-mocks': {
             deps: ['angular', 'angular-route', 'angular-resource', 'angular-ui-router'],
@@ -238,26 +245,35 @@ require.config({
             deps: ['jquery', 'datatables']
         },
         'bootstrap-transition': {
-            deps: ['jquery'],
+            deps: [ 'jquery' ],
             exports: 'bootstrap-transition'
         },
-        'bootstrap-affix': ['jquery'],
-        'bootstrap-alert': ['jquery'],
-        'bootstrap-button': ['jquery'],
-        'bootstrap-carousel': ['jquery', 'bootstrap-transition'],
-        'bootstrap-collapse': ['jquery', 'bootstrap-transition'],
-        'bootstrap-dropdown': ['jquery'],
+        'bootstrap-affix': [ 'jquery' ],
+        'bootstrap-alert': [ 'jquery' ],
+        'bootstrap-button': [ 'jquery' ],
+        'bootstrap-carousel': [ 'jquery', 'bootstrap-transition' ],
+        'bootstrap-collapse': [ 'jquery', 'bootstrap-transition' ],
+        'bootstrap-dropdown': [ 'jquery' ],
         'bootstrap-modal': {
-            deps: ['jquery', 'bootstrap-transition'],
+            deps: [ 'jquery', 'bootstrap-transition' ],
             exports: '$.fn.modal'
         },
-        'bootstrap-popover': ['jquery', 'bootstrap-tooltip'],
-        'bootstrap-scrollspy': ['jquery'],
-        'bootstrap-tab': ['jquery'],
-        'bootstrap-typeahead': ['jquery'],
+        'bootstrap-popover': [ 'jquery', 'bootstrap-tooltip' ],
+        'bootstrap-scrollspy': [ 'jquery' ],
+        'bootstrap-tab': [ 'jquery' ],
+        'bootstrap-typeahead': [ 'jquery' ],
         'bootstrap-tooltip': {
-            deps: ['jquery', 'bootstrap-transition'],
+            deps: [ 'jquery', 'bootstrap-transition' ],
             exports: 'tooltip'
+        },
+        'px-oauth': {
+            deps: ['angular', 'angular-ui-router']
+        },
+        'px-dashboard': {
+            deps: ['angular', 'jquery', 'angular-bootstrap', 'angular-sanitize', 'vruntime', 'angular-ui-router', 'bootstrap-modal', 'bootstrap-transition', 'bootstrap-dropdown', 'px-datasource']
+        },
+        'px-datasource': {
+            deps: ['angular', 'lodash']
         }
     }
 });
