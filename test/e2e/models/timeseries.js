@@ -73,7 +73,7 @@ var TimeSeries = function() {
                                     };
 
                                     content.getYAxisTitle = function() {
-                                        return yAxisTitle
+                                        return yAxisTitle;
                                     };
 
                                     content.hasYAxisLabels = function() {
