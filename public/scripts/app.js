@@ -33,6 +33,7 @@ define([
         'predix.datasource',
         'predix.configurable-dashboard'
     ]);
+
     predixApp.config(['WidgetLoaderServiceProvider', 'ContextBrowserServiceProvider', 'ViewServiceProvider', 'DatasourceServiceProvider', function (WidgetLoaderServiceProvider, ContextBrowserServiceProvider, ViewServiceProvider, DatasourceServiceProvider) {
         WidgetLoaderServiceProvider.loadWidgetsFrom([
             'bower_components/px-datagrid/src',
@@ -58,7 +59,7 @@ define([
             rootEntityId: null,
             transform: function (entity){
                 return  {
-                    name: entity.assetId,
+                    name: entity.assetId + 'test',
                     id: entity.uri,
                     parentId: entity.parent,
                     classification: entity.specification,
