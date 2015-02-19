@@ -33,6 +33,7 @@ require.config({
         'bower_components': '../bower_components',
         'px-oauth': '../bower_components/px-oauth/dist/px-oauth.min',
         'px-dashboard': '../bower_components/px-contextual-dashboard/dist/px-contextual-dashboard.min',
+        'px-datasource': '../bower_components/px-datasource/dist/px-datasource.min',
 
         //VRuntime Paths
         directives: './directives',
@@ -291,7 +292,11 @@ require.config({
             deps: ['angular', 'angular-ui-router']
         },
         'px-dashboard': {
-            deps: ['angular', 'jquery', 'angular-bootstrap', 'angular-sanitize', 'vruntime', 'angular-ui-router', 'bootstrap-modal', 'bootstrap-transition', 'bootstrap-dropdown']
+            deps: ['angular', 'jquery', 'angular-bootstrap', 'angular-sanitize', 'vruntime', 'angular-ui-router', 'bootstrap-modal', 'bootstrap-transition', 'bootstrap-dropdown', 'px-datasource']
+        },
+        'px-datasource': {
+            deps: ['angular', 'lodash']
         }
+
     }
 });

@@ -13,6 +13,7 @@ define([
     'interceptors',
     'px-oauth',
     'px-dashboard',
+    'px-datasource',
     'widgets-module'
 ], function($, angular, ngResource, vRuntime) {
     'use strict';
@@ -29,10 +30,11 @@ define([
         'sample.module',
         'predix.widgets',
         'predix.oauth',
+        'predix.datasource',
         'predix.configurable-dashboard'
     ]);
 
-    predixApp.config(['WidgetLoaderServiceProvider', 'ContextBrowserServiceProvider', function (WidgetLoaderServiceProvider, ContextBrowserServiceProvider) {
+    predixApp.config(['WidgetLoaderServiceProvider', 'ContextBrowserServiceProvider', 'ViewServiceProvider', 'DatasourceServiceProvider', function (WidgetLoaderServiceProvider, ContextBrowserServiceProvider, ViewServiceProvider, DatasourceServiceProvider) {
         WidgetLoaderServiceProvider.loadWidgetsFrom([
             'bower_components/px-datagrid/src',
             'bower_components/px-time-series/src'
@@ -41,7 +43,11 @@ define([
         /**
          * Enable the following line to use SampleEntityService as Entity Tree data provider for the Configurable dashboard context browser
          */
-        //ContextBrowserServiceProvider.setContextService('SampleEntityService');
+        ContextBrowserServiceProvider.setContextService('SampleEntityService');
+
+        ViewServiceProvider.setViewUrl('http://dev-dashboard-server.grc-apps.svc.ice.ge.com');
+
+        DatasourceServiceProvider.setContextMetadataUrl('dashboard-mock-server.grc-apps.svc.ice.ge.com/qa/service/readerApp/Entity');
     }]);
 
     /**
@@ -53,7 +59,7 @@ define([
             rootEntityId: null,
             transform: function (entity){
                 return  {
-                    name: entity.assetId,
+                    name: entity.assetId + 'test',
                     id: entity.uri,
                     parentId: entity.parent,
                     classification: entity.specification,
@@ -83,6 +89,7 @@ define([
                 {state: 'about', label: vRuntime.messages('About')},
                 {state: 'widgets', label: vRuntime.messages('Widgets')},
                 {state: 'dashboard.main', label: vRuntime.messages('Dashboard')}
+
             ]
         };
 
@@ -97,7 +104,7 @@ define([
         };
 
         // Example UAA Configuration
-        $scope.site = 'https://predixuaa.ges-apps.ice.ge.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
+        $scope.site = 'https://predixuaa.grc-apps.svc.ice.ge.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
         $scope.clientId = 'app';                                // Your app id that you registered with Cloud Foundry.
         $scope.redirectUri = $location.absUrl();                // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
 

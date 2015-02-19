@@ -116,11 +116,41 @@ module.exports = function (grunt) {
 					port: SERVER_PORT,
 					open: true,
                     hostname: 'localhost',
-                    middleware: function(connect) {
-                           return [
-                               require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']),
-                               connect.static(require('path').resolve('public'))
-                           ];
+                    middleware: function(connect,options,middlewares) {
+                        var proxyConfig = {
+                            proxy: {
+                                forward: {
+                                    '/services/asset': 'http://asset-server.grc-apps.svc.ice.ge.com',
+                                    '/api/v2/proxy': 'http://localhost:9001'
+                                },
+                                headers: {
+                                    //make sure to keep Service-End-Point header which for some reason is getting clobbered
+                                    'X-No-Validation': function(req) {
+                                        console.log(req.headers);
+                                        return true; //req.headers['x-no-validation']
+                                    },
+                                    'Accept': function(req) {
+                                        return 'application/json; charset=UTF-8';
+                                    },
+                                    'Content-Type': function(req) {
+                                        return 'application/json, text/javascript, */*; q=0.01';
+                                    },
+                                    'Service-End-Point': function(req) {
+                                        return req.headers['service-end-point']
+                                    },
+                                    'authorization': function(req) {
+                                        return req.headers['authorization']
+                                    }
+                                }
+                            }
+                        };
+
+                        return [
+                            require('json-proxy').initialize(proxyConfig),
+                            require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']),
+                            connect.static(require('path').resolve('public'))
+                        ];
+
                     }
 				}
 			},
@@ -303,7 +333,7 @@ module.exports = function (grunt) {
 						src: [ '<%= config.src %>/**/*.js' ],
 						dest: '<%= config.tmp %>/scripts',
 						ext: '.annotated.js', // Dest filepaths will have this extension.
-						extDot: 'last',       // Extensions in filenames begin after the last dot
+						extDot: 'last'       // Extensions in filenames begin after the last dot
 					}
 				]
 			}
