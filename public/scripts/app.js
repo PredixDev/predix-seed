@@ -37,6 +37,7 @@ define([
             'bower_components/px-datagrid/src',
             'bower_components/px-time-series/src'
         ]);
+        ViewServiceProvider.setViewUrl('http://dev-dashboard-server.grc-apps.svc.ice.ge.com');
 
         /**
          * Enable the following line to use SampleEntityService as Entity Tree data provider for the Configurable dashboard context browser

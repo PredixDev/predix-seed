@@ -333,7 +333,7 @@ module.exports = function (grunt) {
 						src: [ '<%= config.src %>/**/*.js' ],
 						dest: '<%= config.tmp %>/scripts',
 						ext: '.annotated.js', // Dest filepaths will have this extension.
-						extDot: 'last',       // Extensions in filenames begin after the last dot
+						extDot: 'last'       // Extensions in filenames begin after the last dot
 					}
 				]
 			}
