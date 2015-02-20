@@ -5,11 +5,10 @@
   "engines": {
     "node": ">=0.10.0"
   },
-    "author": {
-        "name": "Predix Experience",
-        "email": "Predix.experience@ge.com"
-
-    },
+  "author": {
+    "name": "Predix Experience",
+    "email": "Predix.experience@ge.com"
+  },
   "scripts": {
     "test": "grunt",
     "start": "grunt serve"
@@ -30,6 +29,7 @@
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-connect": "^0.7.1",
     "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-cssmin": "^0.12.2",
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-requirejs": "~0.4.3",
     "grunt-contrib-watch": "~0.5.3",
