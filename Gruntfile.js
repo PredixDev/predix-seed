@@ -244,6 +244,7 @@ module.exports = function (grunt) {
 					optimize: 'uglify',
 					wrap: true,
 					skipDirOptimize: false,
+                    generateSourceMaps: false,
 					include:['bootstrapper'],
 					name: 'app',
 					removeCombined: true,
@@ -298,15 +299,11 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         src: [
-                            'public/index.html',
-                            'public/stylesheets/main.min.css',
-                            'public/bower_components/oauth-ng/dist/**/*.html',
-                            'public/bower_components/px-*/*.html',
+                            'public/index.html', //Main Index.html
+                            'public/stylesheets/main.min.css', //minified CSS
                             'public/views/*.html',
                             'public/bower_components/px-datagrid/src/*',
-                            'public/bower_components/px-time-series/src/*',
-                            '!public/bower_components/px-contextual-dashboard/node_modules/**',
-                            '!public/bower_components/px-contextual-dashboard/bower_components/**',
+                            'public/bower_components/px-time-series/src/*'
                             ],
                         dest: '<%= config.dist %>/'
                     },
