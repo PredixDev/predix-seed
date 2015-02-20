@@ -102,7 +102,7 @@ module.exports = function (grunt) {
 
 		// Clean task configuration
 		clean: {
-			build: [ '<%= config.tmp %>' ],
+			build: [ '<%= config.dist %>' ],
 			artifactory: [
 				'<%= config.bower %>/vruntime'
 			],
@@ -239,20 +239,26 @@ module.exports = function (grunt) {
 		requirejs: {
 			compile: {
 				options: {
-					out: '<%= config.dist %>/public/scripts/main-optimized.js',
-					// dir: '<%= settings.dist.dir %>',
+					out: '<%= config.dist %>/public/scripts/bootstrapper.js',
 					normalizeDirDefines: 'all',
 					optimize: 'uglify',
-					stubModules: [ 'json', 'text' ],
 					wrap: true,
 					skipDirOptimize: false,
-					include: [ 'config' ],
+					include:['bootstrapper'],
+					name: 'app',
+					removeCombined: true,
 					baseUrl: '<%= config.src %>/',
 					// Since we are not using the browser and bypassing the catalog manager.
 					paths: {
 						widgets: '../../conf/components'
 					},
-					mainConfigFile: '<%= config.src %>/build.js',
+					config: {
+				        text: {
+				            env: 'node'
+				        }
+				    },
+					findNestedDependencies: true,
+					mainConfigFile: '<%= config.src %>/config.js',
 					done: function (done, output) {
 						var duplicates = require('rjs-build-analysis').duplicates(output);
 
@@ -286,6 +292,42 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+        copy: {
+            dist: {
+                files:[
+                    {expand: true,
+                        src: [
+                            'public/index.html',
+                            'public/stylesheets/app.css',
+                            'public/bower_components/iids/dist/iidx/css/iids.min.css',
+                            'public/bower_components/iids/dist/iidx/css/*.css',
+                            'public/bower_components/iids/dist/iidx/components/brandkit/fonts/*.*',
+                            'public/bower_components/oauth-ng/dist/**/*.html',
+                            'public/bower_components/px-*/*.html',
+                            'public/views/*.html',
+                            'public/bower_components/px-datagrid/src/*',
+                            'public/bower_components/px-time-series/src/*',
+                            '!public/bower_components/px-contextual-dashboard/node_modules/**',
+                            '!public/bower_components/px-contextual-dashboard/bower_components/**',
+                            ],
+                        dest: '<%= config.dist %>/'
+                    },
+                    {expand: true, src: [
+                        'public/bower_components/iids/dist/iidx/components/requirejs/**',
+                        'public/bower_components/requirejs-plugins/src/**'
+                    ], dest: '<%= config.dist %>/'},
+                    {expand: false, src:[] }
+
+                ]
+            }
+        },
+
+        htmlbuild: {
+            dist: {
+                src: 'public/index.html',
+                dest: '<%= config.dist %>/',
+            }
+        },
 
 		// Bump task -
 		bump: {
@@ -409,7 +451,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('predix:update', [ 'config:prod', 'clean:artifactory', 'artifactory:ux','artifactory:vclient' ]);
 	grunt.registerTask('update', [ 'config:prod', 'clean:artifactory', 'artifactory:ux', 'artifactory:vclient' ]);
 
-	grunt.registerTask('build', [ 'clean:build', /*'changelog', 'bump',*/ 'jshint:src', /*'ngAnnotate',*/ 'requirejs']);
+	grunt.registerTask('build', [ 'clean:build', 'jshint:src', 'copy:dist','requirejs']);
 	grunt.registerTask('test', [ 'jshint:test', 'clean:test', 'karma' ]);
 	grunt.registerTask('test:e2e', [ 'clean:test', 'protractor_webdriver', 'protractor' ]);
 	grunt.registerTask('serve', [ 'clean:build', 'connect:livereload', 'watch' ]);

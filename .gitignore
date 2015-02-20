@@ -26,3 +26,4 @@ test-target/
 serviceKeystore.jks
 .sonar
 .idea
+.nginx.conf
