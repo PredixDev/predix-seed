@@ -17,6 +17,8 @@
     <!-- Enables internationalization -->
     <!--TODO Make this a service -->
 
+    <script type='text/javascript' src='http://dev-messages.grc-apps.svc.ice.ge.com/messages.js'></script>
+
 </head>
 
 <body class="app" data-ng-controller="MainCtrl">
@@ -24,20 +26,14 @@
     <px-oauth
         site="site"
         client-id="clientId"
+        template="loginTemplate"
         redirect-uri="redirectUri">
     </px-oauth>
 
     <ui-view/>
 </body>
 
-<!-- TODO Hack to avoid index.html from bootstrapping the app again recursively -->
-
-<script>
-    if(typeof define ==="undefined"){
-        document.write("\x3Cscript data-main='scripts/bootstrapper.js' src='bower_components/iids/dist/iidx/components/requirejs/require.js'\>\x3C/script>");
-        document.write("\x3Cscript type='text/javascript' src='http://dev-messages.grc-apps.svc.ice.ge.com/messages.js'>\x3C/script>");
-                                                                                                                                                   }
-</script>
-
+<script data-main='scripts/bootstrapper.js'
+        src='bower_components/iids/dist/iidx/components/requirejs/require.js'></script>
 
 </html>
