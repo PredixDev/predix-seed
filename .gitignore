@@ -27,3 +27,4 @@ serviceKeystore.jks
 .sonar
 .idea
 .nginx.conf
+main.min.css

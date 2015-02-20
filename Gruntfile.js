@@ -295,13 +295,11 @@ module.exports = function (grunt) {
         copy: {
             dist: {
                 files:[
-                    {expand: true,
+                    {
+                        expand: true,
                         src: [
                             'public/index.html',
-                            'public/stylesheets/app.css',
-                            'public/bower_components/iids/dist/iidx/css/iids.min.css',
-                            'public/bower_components/iids/dist/iidx/css/*.css',
-                            'public/bower_components/iids/dist/iidx/components/brandkit/fonts/*.*',
+                            'public/stylesheets/main.min.css',
                             'public/bower_components/oauth-ng/dist/**/*.html',
                             'public/bower_components/px-*/*.html',
                             'public/views/*.html',
@@ -312,24 +310,44 @@ module.exports = function (grunt) {
                             ],
                         dest: '<%= config.dist %>/'
                     },
-                    {expand: true, src: [
-                        'public/bower_components/iids/dist/iidx/components/requirejs/**',
-                        'public/bower_components/requirejs-plugins/src/**'
-                    ], dest: '<%= config.dist %>/'},
-                    {expand: false, src:[] }
+                    {
+                        expand: true, src: [
+                            'public/bower_components/iids/dist/iidx/components/requirejs/**',
+                            'public/bower_components/requirejs-plugins/src/**'
+                        ],
+                        dest: '<%= config.dist %>/'
+                    },
+                    {
+                        expand: true,
+                        src:['public/**/components/brandkit/fonts/*.*',],
+                        dest:'<%= config.dist %>/public/components/brandkit/fonts/',
+                        flatten: true
+                     },
+                    {
+                        expand: true,
+                        src:['public/**/components/brandkit/img/*.*',],
+                        dest:'<%= config.dist %>/public/components/brandkit/img/',
+                        flatten: true
+                    }
 
                 ]
             }
         },
 
-        htmlbuild: {
-            dist: {
-                src: 'public/index.html',
-                dest: '<%= config.dist %>/',
+        cssmin: {
+            options: {},
+            target: {
+                files: {
+                    "public/stylesheets/main.min.css": [
+                        'public/stylesheets/app.css',
+                        'public/bower_components/iids/dist/iidx/css/*.min.css'
+                    ]
+                }
             }
         },
 
-		// Bump task -
+
+        // Bump task -
 		bump: {
 			options: {
 				files: [ 'package.json' ],
@@ -451,7 +469,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('predix:update', [ 'config:prod', 'clean:artifactory', 'artifactory:ux','artifactory:vclient' ]);
 	grunt.registerTask('update', [ 'config:prod', 'clean:artifactory', 'artifactory:ux', 'artifactory:vclient' ]);
 
-	grunt.registerTask('build', [ 'clean:build', 'jshint:src', 'copy:dist','requirejs']);
+	grunt.registerTask('build', [ 'clean:build', 'cssmin', 'jshint:src', 'copy:dist','requirejs']);
 	grunt.registerTask('test', [ 'jshint:test', 'clean:test', 'karma' ]);
 	grunt.registerTask('test:e2e', [ 'clean:test', 'protractor_webdriver', 'protractor' ]);
 	grunt.registerTask('serve', [ 'clean:build', 'connect:livereload', 'watch' ]);
