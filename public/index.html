@@ -12,13 +12,12 @@
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/bower_components/iids/dist/iidx/css/iids.min.css"/>
-    <link rel="stylesheet" href="/bower_components/iids/dist/iidx/css/responsive.min.css"/>
-    <link rel="stylesheet" href="/stylesheets/app.css"/>
+    <link type="text/css" rel="stylesheet" href="bower_components/iids/dist/iidx/css/iids.min.css"/>
+    <link type="text/css" rel="stylesheet" href="bower_components/iids/dist/iidx/css/responsive.min.css"/>
+    <link type="text/css" rel="stylesheet" href="stylesheets/app.css"/>
 
     <!-- Enables internationalization -->
     <!--TODO Make this a service -->
-    <script type="text/javascript" src="http://localhost:9001/api/v2/messages.js"></script>
 
 </head>
 
@@ -31,9 +30,15 @@
     </px-oauth>
 
     <ui-view/>
-
-    <script data-main="scripts/bootstrapper.js"
-            src="bower_components/iids/dist/iidx/components/requirejs/require.js"></script>
-
 </body>
+
+<script>
+    <!-- TODO Hack to avoid index.html from bootstrapping the app again recursively -->
+    if(typeof define ==="undefined"){
+        document.write("\x3Cscript data-main='scripts/bootstrapper.js' src='bower_components/iids/dist/iidx/components/requirejs/require.js'\>\x3C/script>");
+        document.write("\x3Cscript type='text/javascript' src='http://localhost:9001/api/v2/messages.js'>\x3C/script>");
+                                                                                                                                                   }
+</script>
+
+
 </html>
