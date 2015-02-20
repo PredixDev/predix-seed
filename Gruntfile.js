@@ -409,8 +409,8 @@ module.exports = function (grunt) {
 	grunt.registerTask('predix:update', [ 'config:prod', 'clean:artifactory', 'artifactory:ux','artifactory:vclient' ]);
 	grunt.registerTask('update', [ 'config:prod', 'clean:artifactory', 'artifactory:ux', 'artifactory:vclient' ]);
 
-	grunt.registerTask('build', [ 'clean:build', /*'changelog', 'bump',*/ 'jshint:src', /*'ngAnnotate',*/ 'requirejs']);
-	grunt.registerTask('test', [ 'jshint:src', 'clean:test', 'karma' ]);
+    grunt.registerTask('build', [ 'clean:build', /*'changelog', 'bump',*/ 'jshint:src', /*'ngAnnotate',*/ 'requirejs']);
+	grunt.registerTask('test', [ 'jshint:test', 'clean:test', 'karma' ]);
 	grunt.registerTask('test:e2e', [ 'clean:test', 'protractor_webdriver', 'protractor' ]);
 	grunt.registerTask('serve', [ 'clean:build', 'connect:livereload', 'watch' ]);
 	grunt.registerTask('docs', [ 'build', 'ngdocs', 'connect:docs' ]);
