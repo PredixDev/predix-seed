@@ -18,7 +18,7 @@ module.exports = function (grunt) {
 		test: 'test',
 		server: 'server',
 		src: 'public/scripts',
-		dist: 'dist',
+		dist: 'dist/www',
 		bower: 'public/bower_components',
 		tmp: '.tmp',
 		artifactory: {
@@ -239,7 +239,7 @@ module.exports = function (grunt) {
 		requirejs: {
 			compile: {
 				options: {
-					out: '<%= config.dist %>/public/scripts/bootstrapper.js',
+					out: '<%= config.dist %>/scripts/bootstrapper.js',
 					normalizeDirDefines: 'all',
 					optimize: 'uglify',
 					wrap: true,
@@ -297,33 +297,37 @@ module.exports = function (grunt) {
             dist: {
                 files:[
                     {
+                        cwd: 'public',
                         expand: true,
                         src: [
-                            'public/index.html', //Main Index.html
-                            'public/stylesheets/main.min.css', //minified CSS
-                            'public/views/*.html',
-                            'public/bower_components/px-datagrid/src/*',
-                            'public/bower_components/px-time-series/src/*'
+                            'index.html', //Main Index.html
+                            'stylesheets/main.min.css', //minified CSS
+                            'views/*.html',
+                            'bower_components/px-datagrid/src/*',
+                            'bower_components/px-time-series/src/*'
                             ],
                         dest: '<%= config.dist %>/'
                     },
                     {
+                        cwd: 'public',
                         expand: true, src: [
-                            'public/bower_components/iids/dist/iidx/components/requirejs/**',
-                            'public/bower_components/requirejs-plugins/src/**'
+                            'bower_components/iids/dist/iidx/components/requirejs/**',
+                            'bower_components/requirejs-plugins/src/**'
                         ],
                         dest: '<%= config.dist %>/'
                     },
                     {
+                        cwd: 'public',
                         expand: true,
-                        src:['public/**/components/brandkit/fonts/*.*',],
-                        dest:'<%= config.dist %>/public/components/brandkit/fonts/',
+                        src:['**/components/brandkit/fonts/*.*',],
+                        dest:'<%= config.dist %>/components/brandkit/fonts/',
                         flatten: true
                      },
                     {
+                        cwd: 'public',
                         expand: true,
-                        src:['public/**/components/brandkit/img/*.*',],
-                        dest:'<%= config.dist %>/public/components/brandkit/img/',
+                        src:['**/components/brandkit/img/*.*',],
+                        dest:'<%= config.dist %>/components/brandkit/img/',
                         flatten: true
                     }
 

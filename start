@@ -1,3 +1,12 @@
-export APP_ROOT=/tmp
-erb nginx.conf > .nginx.conf
-nginx -c .nginx.conf -p .
+# Before we start, we have to set some of the env variables just like in cloudfoundry
+export APP_ROOT=dist/public
+export PORT=9000
+export RESOLVER=grmsamer.grms.ge.com
+mkdir -p $APP_ROOT/nginx/logs/
+
+#Using erb (apidock.com/ruby/ERB) to come  up with the actual nginx configuration , naming it with a dot infront
+#This is how the static build pack does their magic as well
+erb dist/nginx.conf
+
+# Starting the nginx
+nginx -c .nginx.conf -p . -g "pid /tmp/nginx.pid;"
