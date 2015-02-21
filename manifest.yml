@@ -1,6 +1,6 @@
 ---
 applications:
   - name: dev-exp-seed
-    buildpack: https://github.com/cloudfoundry-community/staticfile-buildpack.git
-    path: dist/public
+    buildpack: https://github.com/sabithksme/staticfile-buildpack.git
+    path: dist
     memory: 64M
