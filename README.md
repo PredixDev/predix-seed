@@ -7,7 +7,6 @@ Clone or fork this project to start your own Predictivity application. Documenta
 
 ### Install Framework
 
-1. Play! 2.3.6: http://downloads.typesafe.com/typesafe-activator/1.2.10/typesafe-activator-1.2.10-minimal.zip
 2. Node ^0.10.28: http://nodejs.org/download/
 
 npm config proxy 
@@ -30,9 +29,9 @@ grunt update
 ### Running the app
 In the root directory, run:
 ```
-activator run
+grunt serve
 ```
-Then use the credentials **demo/demo** to log in.
+Then use the credentials provided by the UAA server to log in.
 
 ## Tutorial
 
@@ -43,25 +42,6 @@ This application gives you a great starting point right out of the box, which in
 - Internationalization Support
 - Distributed Caching
 - JavaScript minification
-
-### Play configuration
-The build system underneath your application in [SBT](http://www.scala-sbt.org/), which is 
-configured in the build.sbt file.  This file is where your application's dependencies are
-specified, including predix-v-runtime (the V server library).
-
-The conf directory contains several other important application configuration files.
-- The app.conf file contains all of the application's runtime settings.
-- The routes file contains HTTP request verbs and paths mapped to controller methods.
-- The messages.en file is used to externalize all application strings.
-
-### Java Controllers
-The app/controllers directory contains the application's business logic, which includes the 
-following controllers by default:
-- Authentication.java is used by the Visualization code for authentication and session 
-management (if authentication is enabled).
-- ApplicationController.java is used by the Visualization code for widget rendering and 
-the proxy web service.  Check out the upload method for an example of how to do a file 
-upload.
 
 ### Views
 The public/ directory contains the main entry points to the application, which include:
@@ -134,9 +114,13 @@ The px-oauth directive will store the token in Session Storage which can be pass
 
 ### Deploying
 To create a dist build run the following command from inside of your projects root directory:
+```unix
+grunt build
+cf push;
 ```
-activator dist
-```
+
+You might want to revisit the dist/nginx.conf folder to check on nginx configuration
+
 
 ## Questions?
 - Ask questions on [AnswerHub](https://answers.sw.ge.com/spaces/53/experience.html)
