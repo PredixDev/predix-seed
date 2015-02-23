@@ -17,7 +17,4 @@ script:
   - npm install
   - bower install --allow-root
   - grunt update
-  - activator test
   - grunt -v
-  - activator -v dist
-
