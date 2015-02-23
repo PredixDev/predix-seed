@@ -6,6 +6,3 @@ bower install
 
 # Download GE internal dependencies
 grunt update
-
-# Get latest Play Framework dependencies
-activator update

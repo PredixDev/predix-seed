@@ -107,6 +107,7 @@ define([
         $scope.site = 'https://predixuaa.grc-apps.svc.ice.ge.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
         $scope.clientId = 'app';                                // Your app id that you registered with Cloud Foundry.
         $scope.redirectUri = $location.absUrl();                // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
+        $scope.loginTemplate= 'views/home.html';
 
     }]);
 

@@ -12,13 +12,12 @@
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/bower_components/iids/dist/iidx/css/iids.min.css"/>
-    <link rel="stylesheet" href="/bower_components/iids/dist/iidx/css/responsive.min.css"/>
-    <link rel="stylesheet" href="/stylesheets/app.css"/>
+    <link type="text/css" rel="stylesheet" href="stylesheets/main.min.css"/>
 
     <!-- Enables internationalization -->
     <!--TODO Make this a service -->
-    <script type="text/javascript" src="http://localhost:9001/api/v2/messages.js"></script>
+
+    <script type='text/javascript' src='http://dev-messages.grc-apps.svc.ice.ge.com/messages.js'></script>
 
 </head>
 
@@ -27,13 +26,14 @@
     <px-oauth
         site="site"
         client-id="clientId"
+        template="loginTemplate"
         redirect-uri="redirectUri">
     </px-oauth>
 
     <ui-view/>
-
-    <script data-main="scripts/bootstrapper.js"
-            src="bower_components/iids/dist/iidx/components/requirejs/require.js"></script>
-
 </body>
+
+<script data-main='scripts/bootstrapper.js'
+        src='bower_components/iids/dist/iidx/components/requirejs/require.js'></script>
+
 </html>
