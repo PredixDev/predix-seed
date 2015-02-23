@@ -1,7 +1,7 @@
 /**
- * @description I am the Projects Gruntfile that contains tasks to build, test and deploy a project.
- * @namespace my-test-app
- */
+* @description I am the Projects Gruntfile that contains tasks to build, test and deploy a project.
+* @namespace my-test-app
+*/
 module.exports = function (grunt) {
 	'use strict';
 
@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 		artifactory: {
 			host: 'https://devcloud.swcoe.ge.com',
 			repo: 'DSP',
-            		username: '502398775',
+			username: '502398775',
 			password: '{DESede}/O9QTuX+WMKXBCwL9/LJUQ=='
 		},
 		//Enviornment specific settings
@@ -70,8 +70,8 @@ module.exports = function (grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		meta: {
 			banner: '/**\n' + ' * <%= pkg.name %>\n' + ' * @version v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n'
-				+ ' * @link <%= pkg.homepage %>\n' + ' * @author <%= pkg.author.name %> <<%= pkg.author.email %>>\n'
-				+ ' * @license MIT License, http://www.opensource.org/licenses/MIT\n' + ' */\n'
+			+ ' * @link <%= pkg.homepage %>\n' + ' * @author <%= pkg.author.name %> <<%= pkg.author.email %>>\n'
+			+ ' * @license MIT License, http://www.opensource.org/licenses/MIT\n' + ' */\n'
 		},
 
 		// Project settings
@@ -115,43 +115,44 @@ module.exports = function (grunt) {
 				options: {
 					port: SERVER_PORT,
 					open: true,
-                    hostname: 'localhost',
-                    middleware: function(connect,options,middlewares) {
-                        var proxyConfig = {
-                            proxy: {
-                                forward: {
-                                    '/services/asset': 'http://asset-server.grc-apps.svc.ice.ge.com',
-                                    '/api/v2/proxy': 'http://localhost:9001'
-                                },
-                                headers: {
-                                    //make sure to keep Service-End-Point header which for some reason is getting clobbered
-                                    'X-No-Validation': function(req) {
-                                        console.log(req.headers);
-                                        return true; //req.headers['x-no-validation']
-                                    },
-                                    'Accept': function(req) {
-                                        return 'application/json; charset=UTF-8';
-                                    },
-                                    'Content-Type': function(req) {
-                                        return 'application/json, text/javascript, */*; q=0.01';
-                                    },
-                                    'Service-End-Point': function(req) {
-                                        return req.headers['service-end-point']
-                                    },
-                                    'authorization': function(req) {
-                                        return req.headers['authorization']
+					hostname: 'localhost',
+					middleware: function(connect,options,middlewares) {
+						var proxyConfig = {
+							proxy: {
+								forward: {
+									'/services/asset': 'http://asset-server.grc-apps.svc.ice.ge.com',
+									'/api/v2/proxy': 'http://dev-exp-seed.grc-apps.svc.ice.ge.com',
+									'/components/brandkit/' : 'http://localhost:9000/bower_components/iids/dist/iidx'
+								},
+								headers: {
+									//make sure to keep Service-End-Point header which for some reason is getting clobbered
+									'X-No-Validation': function(req) {
+										console.log(req.headers);
+										return true; //req.headers['x-no-validation']
+									},
+									'Accept': function(req) {
+										return 'application/json; charset=UTF-8';
+									},
+									'Content-Type': function(req) {
+										return 'application/json, text/javascript, */*; q=0.01';
+									},
+									'Service-End-Point': function(req) {
+										return req.headers['service-end-point']
+									},
+									'authorization': function(req) {
+										return req.headers['authorization']
                                     }
-                                }
-                            }
-                        };
+								}
+							}
+						};
 
-                        return [
-                            require('json-proxy').initialize(proxyConfig),
-                            require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']),
-                            connect.static(require('path').resolve('public'))
-                        ];
+						return [
+							require('json-proxy').initialize(proxyConfig),
+							require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']),
+							connect.static(require('path').resolve('public'))
+						];
 
-                    }
+					}
 				}
 			},
 			test: {
@@ -244,7 +245,7 @@ module.exports = function (grunt) {
 					optimize: 'uglify',
 					wrap: true,
 					skipDirOptimize: false,
-                    generateSourceMaps: false,
+					generateSourceMaps: false,
 					include:['bootstrapper'],
 					name: 'app',
 					removeCombined: true,
@@ -254,10 +255,10 @@ module.exports = function (grunt) {
 						widgets: '../../conf/components'
 					},
 					config: {
-				        text: {
-				            env: 'node'
-				        }
-				    },
+						text: {
+							env: 'node'
+						}
+					},
 					findNestedDependencies: true,
 					mainConfigFile: '<%= config.src %>/config.js',
 					done: function (done, output) {
@@ -293,62 +294,62 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-        copy: {
-            dist: {
-                files:[
-                    {
-                        cwd: 'public',
-                        expand: true,
-                        src: [
-                            'index.html', //Main Index.html
-                            'stylesheets/main.min.css', //minified CSS
-                            'views/*.html',
-                            'bower_components/px-datagrid/src/*',
-                            'bower_components/px-time-series/src/*'
-                            ],
-                        dest: '<%= config.dist %>/'
-                    },
-                    {
-                        cwd: 'public',
-                        expand: true, src: [
-                            'bower_components/iids/dist/iidx/components/requirejs/**',
-                            'bower_components/requirejs-plugins/src/**'
-                        ],
-                        dest: '<%= config.dist %>/'
-                    },
-                    {
-                        cwd: 'public',
-                        expand: true,
-                        src:['**/components/brandkit/fonts/*.*',],
-                        dest:'<%= config.dist %>/components/brandkit/fonts/',
-                        flatten: true
-                     },
-                    {
-                        cwd: 'public',
-                        expand: true,
-                        src:['**/components/brandkit/img/*.*',],
-                        dest:'<%= config.dist %>/components/brandkit/img/',
-                        flatten: true
-                    }
+		copy: {
+			dist: {
+				files:[
+					{
+						cwd: 'public',
+						expand: true,
+						src: [
+							'index.html', //Main Index.html
+							'stylesheets/main.min.css', //minified CSS
+							'views/*.html',
+							'bower_components/px-datagrid/src/*',
+							'bower_components/px-time-series/src/*'
+						],
+						dest: '<%= config.dist %>/'
+					},
+					{
+						cwd: 'public',
+						expand: true, src: [
+							'bower_components/iids/dist/iidx/components/requirejs/**',
+							'bower_components/requirejs-plugins/src/**'
+						],
+						dest: '<%= config.dist %>/'
+					},
+					{
+						cwd: 'public',
+						expand: true,
+						src:['**/components/brandkit/fonts/*.*',],
+						dest:'<%= config.dist %>/components/brandkit/fonts/',
+						flatten: true
+					},
+					{
+						cwd: 'public',
+						expand: true,
+						src:['**/components/brandkit/img/*.*',],
+						dest:'<%= config.dist %>/components/brandkit/img/',
+						flatten: true
+					}
 
-                ]
-            }
-        },
+				]
+			}
+		},
 
-        cssmin: {
-            options: {},
-            target: {
-                files: {
-                    "public/stylesheets/main.min.css": [
-                        'public/stylesheets/app.css',
-                        'public/bower_components/iids/dist/iidx/css/*.min.css'
-                    ]
-                }
-            }
-        },
+		cssmin: {
+			options: {},
+			target: {
+				files: {
+					"public/stylesheets/main.min.css": [
+						'public/stylesheets/app.css',
+						'public/bower_components/iids/dist/iidx/css/*.min.css'
+					]
+				}
+			}
+		},
 
 
-        // Bump task -
+		// Bump task -
 		bump: {
 			options: {
 				files: [ 'package.json' ],
@@ -388,7 +389,7 @@ module.exports = function (grunt) {
 				add: true
 			},
 			dist: {
-			 files: [
+				files: [
 					{
 						expand: true,
 						src: [ '<%= config.src %>/**/*.js' ],

@@ -3,5 +3,4 @@ public/bower_components
 test-target
 main.min.css
 dist/public
-.nginx.conf
 dist/www
