@@ -84,7 +84,8 @@ module.exports = function (grunt) {
 				livereload: '<%= connect.livereload %>'
 			},
 			styles: {
-				files: [ '<%= config.app %>/stylesheets/**/*.css' ]
+				files: [ '<%= config.app %>/stylesheets/**/*.css' ],
+				tasks: ['cssmin']
 			},
 			scripts: {
 				files: [
