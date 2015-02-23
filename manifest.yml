@@ -4,3 +4,5 @@ applications:
     buildpack: https://github.com/sabithksme/staticfile-buildpack.git
     path: dist
     memory: 64M
+env:
+    assetUrl: http://asset-server.grc-apps.svc.ice.ge.com/services/asset
