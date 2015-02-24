@@ -8,34 +8,33 @@
 define(['angular',
     'sample-module',
     'vruntime'
-], function (angular, controllers) {
+], function(angular, controllers) {
     'use strict';
 
     // Controller definition
-    controllers.controller('DashboardCtrl', ['$scope', '$rootScope', '$q', function ($scope, $rootScope, $q) {
+    controllers.controller('DashboardCtrl', ['$scope', '$rootScope', '$q', function($scope, $rootScope, $q) {
 
         $scope.contextSelectorConfig = {
             baseUrl: '/services/asset',
-            rootEntityId: null
-            //transform: function(entity) {
-            //    return {
-            //        name: entity.assetId,
-            //        id: entity.uri,
-            //        parentId: entity.parent,
-            //        classification: entity.specification,
-            //        isOpenable: !(entity.attributes && entity.attributes.isNotOpenable)
-            //    };
-            //},
-            //getEntityChildrenUrl: function(parentEntityId) {
-            //    return this.baseUrl + '?filter=parent=' + parentEntityId;
-            //}
+            rootEntityId: null,
+            transform: function(entity) {
+                return {
+                    name: entity.assetId,
+                    id: entity.uri,
+                    parentId: entity.parent,
+                    classification: entity.specification,
+                    isOpenable: !(entity.attributes && entity.attributes.isNotOpenable)
+                };
+            },
+            getEntityChildrenUrl: function(parentEntityId) {
+                return this.baseUrl + '?filter=parent=' + parentEntityId;
+            },
+            onOpenContext: function(contextDetails) {
+                $scope.context = contextDetails;
+            }
         };
 
         //$scope.disabled = true;
-
-        $scope.setContext =  function(contextDetails) {
-            $scope.context = contextDetails;
-        };
 
     }]);
 });
