@@ -34,16 +34,11 @@ define([
         'predix.configurable-dashboard'
     ]);
 
-    predixApp.config(['WidgetLoaderServiceProvider', 'ContextBrowserServiceProvider', 'ViewServiceProvider', 'DatasourceServiceProvider', function (WidgetLoaderServiceProvider, ContextBrowserServiceProvider, ViewServiceProvider, DatasourceServiceProvider) {
+    predixApp.config(['WidgetLoaderServiceProvider', 'ViewServiceProvider', 'DatasourceServiceProvider', function(WidgetLoaderServiceProvider, ViewServiceProvider, DatasourceServiceProvider) {
         WidgetLoaderServiceProvider.loadWidgetsFrom([
             'bower_components/px-datagrid/src',
             'bower_components/px-time-series/src'
         ]);
-
-        /**
-         * Enable the following line to use SampleEntityService as Entity Tree data provider for the Configurable dashboard context browser
-         */
-        //ContextBrowserServiceProvider.setContextService('SampleEntityService');
 
         ViewServiceProvider.setViewUrl('http://dev-dashboard-server.grc-apps.svc.ice.ge.com');
 
@@ -51,33 +46,11 @@ define([
     }]);
 
     /**
-     * A configurable dashboard sample entity service
-     */
-    predixApp.factory('SampleEntityService', function(){
-        return {
-            baseUrl: '/services/asset',
-            rootEntityId: null,
-            transform: function (entity){
-                return  {
-                    name: entity.assetId + 'test',
-                    id: entity.uri,
-                    parentId: entity.parent,
-                    classification: entity.specification,
-                    isOpenable: !(entity.attributes && entity.attributes.isNotOpenable)
-                };
-            },
-            getEntityChildrenUrl: function (parentEntityId){
-                return this.baseUrl + '?filter=parent='+parentEntityId;
-            }
-        };
-    });
-
-    /**
      * Main Controller
      * This controller is the top most level controller that allows for all
      * child controllers to access properties defined on the $rootScope.
      */
-    predixApp.controller('MainCtrl', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
+    predixApp.controller('MainCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
 
         //Global application object
         window.App = $rootScope.App = {
@@ -95,11 +68,11 @@ define([
         };
 
         //Unbind all widgets from datasources and widgets when page changes
-        $rootScope.$on('$routeChangeStart', function () {
+        $rootScope.$on('$routeChangeStart', function() {
             vRuntime.binder.unbindAll();
         });
 
-        $rootScope.logout = function (event) {
+        $rootScope.logout = function(event) {
             event.preventDefault();
             location.replace('logout');
         };
@@ -108,7 +81,7 @@ define([
         $scope.site = 'https://predixuaa.grc-apps.svc.ice.ge.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
         $scope.clientId = 'app';                                // Your app id that you registered with Cloud Foundry.
         $scope.redirectUri = $location.absUrl();                // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
-        $scope.loginTemplate= 'views/home.html';
+        $scope.loginTemplate = 'views/home.html';
 
     }]);
 
