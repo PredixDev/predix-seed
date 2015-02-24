@@ -13,6 +13,6 @@ script:
   - npm -v
   - grunt -V
   - npm install
-  - bower install --allow-root
+  - bower --allow-root install
   - grunt update
   - grunt -v

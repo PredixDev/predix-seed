@@ -13,6 +13,7 @@ define([
     'interceptors',
     'px-oauth',
     'px-dashboard',
+    'px-datasource',
     'widgets-module'
 ], function($, angular, ngResource, vRuntime) {
     'use strict';
@@ -29,20 +30,20 @@ define([
         'sample.module',
         'predix.widgets',
         'predix.oauth',
+        'predix.datasource',
         'predix.configurable-dashboard'
     ]);
 
-    predixApp.config(['WidgetLoaderServiceProvider', 'ContextBrowserServiceProvider', 'ViewServiceProvider', function (WidgetLoaderServiceProvider, ContextBrowserServiceProvider, ViewServiceProvider) {
+    predixApp.config(['WidgetLoaderServiceProvider', 'ContextBrowserServiceProvider', 'ViewServiceProvider', 'DatasourceServiceProvider', function (WidgetLoaderServiceProvider, ContextBrowserServiceProvider, ViewServiceProvider, DatasourceServiceProvider) {
         WidgetLoaderServiceProvider.loadWidgetsFrom([
             'bower_components/px-datagrid/src',
             'bower_components/px-time-series/src'
         ]);
-        ViewServiceProvider.setViewUrl('http://dev-dashboard-server.grc-apps.svc.ice.ge.com');
 
         /**
          * Enable the following line to use SampleEntityService as Entity Tree data provider for the Configurable dashboard context browser
          */
-        ContextBrowserServiceProvider.setContextService('SampleEntityService');
+        //ContextBrowserServiceProvider.setContextService('SampleEntityService');
 
         ViewServiceProvider.setViewUrl('http://dev-dashboard-server.grc-apps.svc.ice.ge.com');
 
@@ -58,7 +59,7 @@ define([
             rootEntityId: null,
             transform: function (entity){
                 return  {
-                    name: entity.assetId,
+                    name: entity.assetId + 'test',
                     id: entity.uri,
                     parentId: entity.parent,
                     classification: entity.specification,
@@ -88,6 +89,7 @@ define([
                 {state: 'about', label: vRuntime.messages('About')},
                 {state: 'widgets', label: vRuntime.messages('Widgets')},
                 {state: 'dashboard.main', label: vRuntime.messages('Dashboard')}
+
             ]
         };
 
