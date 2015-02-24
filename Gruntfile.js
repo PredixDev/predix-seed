@@ -138,10 +138,10 @@ module.exports = function (grunt) {
 										return 'application/json, text/javascript, */*; q=0.01';
 									},
 									'Service-End-Point': function(req) {
-										return req.headers['service-end-point']
+										return req.headers['service-end-point'] || 'NA'
 									},
 									'authorization': function(req) {
-										return req.headers['authorization']
+										return req.headers['authorization'] || 'NA'
                                     }
 								}
 							}
