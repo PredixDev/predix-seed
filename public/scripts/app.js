@@ -88,7 +88,8 @@ define([
                 {state: 'home', label: vRuntime.messages('Home')},
                 {state: 'about', label: vRuntime.messages('About')},
                 {state: 'widgets', label: vRuntime.messages('Widgets')},
-                {state: 'dashboard.main', label: vRuntime.messages('Dashboard')}
+                {state: 'alarm', label: 'Alarm'},
+                {state: 'dashboard', label: vRuntime.messages('Dashboard')},
 
             ]
         };
