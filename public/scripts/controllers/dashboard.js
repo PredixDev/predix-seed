@@ -17,19 +17,23 @@ define(['angular',
         $scope.contextSelectorConfig = {
             baseUrl: '/services/asset',
             rootEntityId: null
+            //transform: function(entity) {
+            //    return {
+            //        name: entity.assetId,
+            //        id: entity.uri,
+            //        parentId: entity.parent,
+            //        classification: entity.specification,
+            //        isOpenable: !(entity.attributes && entity.attributes.isNotOpenable)
+            //    };
+            //},
+            //getEntityChildrenUrl: function(parentEntityId) {
+            //    return this.baseUrl + '?filter=parent=' + parentEntityId;
+            //}
         };
 
-        $scope.selectedContext =  function(contextDetails) {
+        //$scope.disabled = true;
 
-            $scope.context = contextDetails;
-            var defer = $q.defer();
-
-            if(!contextDetails || !contextDetails.identifier || !contextDetails.name || !contextDetails.classification) {
-                window.logger.error('context is not properly formatted with identifier, name, classification');
-                defer.reject();
-                return defer.promise;
-            }
-
+        $scope.setContext =  function(contextDetails) {
             $scope.context = contextDetails;
         };
 
