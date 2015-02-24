@@ -12,9 +12,12 @@ define(['angular',
     'use strict';
 
     // Controller definition
-    controllers.controller('DashboardCtrl', ['$scope', '$rootScope', 'contextTree', '$q', function ($scope, $rootScope, contextTree, $q) {
+    controllers.controller('DashboardCtrl', ['$scope', '$rootScope', '$q', function ($scope, $rootScope, $q) {
 
-        $scope.contextTree = contextTree;
+        $scope.contextSelectorConfig = {
+            baseUrl: '/services/asset',
+            rootEntityId: null
+        };
 
         $scope.selectedContext =  function(contextDetails) {
 

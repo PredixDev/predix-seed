@@ -44,9 +44,6 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
                 controller: 'DashboardCtrl',
                 parent: 'root',
                 resolve: {
-                    contextTree: function(ContextBrowserService) {
-                        return ContextBrowserService.loadContextTree();
-                    },
                     widgets: function(WidgetLoaderService) {
                         return WidgetLoaderService.loadWidgets();
                     }
