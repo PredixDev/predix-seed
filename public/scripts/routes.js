@@ -42,7 +42,34 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
                 url: '/dashboard',
                 templateUrl: 'views/dashboard.html',
                 controller: 'DashboardCtrl',
-                abstract: true,
+                parent: 'root',
+                resolve: {
+                    widgets: function(WidgetLoaderService) {
+                        return WidgetLoaderService.loadWidgets();
+                    }
+                }
+            })
+            .state('alarm', {
+                url: '/alarm',
+                templateUrl: 'views/alarm.html',
+                controller: 'AlarmCtrl',
+                resolve: {
+                    context: function($q) {
+                        var deferred = $q.defer();
+
+                        var myContext = {
+                            identifier: '/asset/right-tire-set-uri',
+                            name: 'TIRE SET R',
+                            classification: '/classification/tire-classification-uri'
+                        };
+
+                        deferred.resolve(myContext);
+                        return deferred.promise;
+                    },
+                    widgets: function(WidgetLoaderService) {
+                        return WidgetLoaderService.loadWidgets();
+                    }
+                },
                 parent: 'root'
             });
 
