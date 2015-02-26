@@ -475,7 +475,7 @@ module.exports = function(grunt) {
     grunt.registerTask('build', ['clean:build', 'cssmin', 'jshint:src', 'copy:dist', 'requirejs']);
     grunt.registerTask('test', ['jshint:test', 'clean:test', 'karma']);
     grunt.registerTask('test:e2e', ['clean:test', 'protractor_webdriver', 'protractor']);
-    grunt.registerTask('serve', ['clean:build', 'connect:livereload', 'watch']);
+    grunt.registerTask('serve', ['cssmin', 'clean:build', 'connect:livereload', 'watch']);
     grunt.registerTask('docs', ['build', 'ngdocs', 'connect:docs']);
     grunt.registerTask('default', ['build', 'test']);
 };
