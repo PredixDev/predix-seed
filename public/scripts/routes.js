@@ -58,7 +58,7 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
                         var deferred = $q.defer();
 
                         var myContext = {
-                            identifier: '/asset/right-tire-set-uri',
+                            id: '/asset/right-tire-set-uri',
                             name: 'TIRE SET R',
                             classification: '/classification/tire-classification-uri'
                         };
