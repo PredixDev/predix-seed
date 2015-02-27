@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 
     //Local server ports
     var LIVERELOAD_PORT = 35723;
-    var SERVER_PORT = 9001;
+    var SERVER_PORT = 9000;
     var RUNNER_PORT = 9002;
 
     //Project config
