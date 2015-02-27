@@ -42,12 +42,7 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
                 url: '/dashboard',
                 templateUrl: 'views/dashboard.html',
                 controller: 'DashboardCtrl',
-                parent: 'root',
-                resolve: {
-                    widgets: function(WidgetLoaderService) {
-                        return WidgetLoaderService.loadWidgets();
-                    }
-                }
+                parent: 'root'
             })
             .state('alarm', {
                 url: '/alarm',
@@ -65,9 +60,6 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
 
                         deferred.resolve(myContext);
                         return deferred.promise;
-                    },
-                    widgets: function(WidgetLoaderService) {
-                        return WidgetLoaderService.loadWidgets();
                     }
                 },
                 parent: 'root'
