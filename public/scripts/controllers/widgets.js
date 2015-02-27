@@ -6,8 +6,7 @@ define(['angular', 'sample-module', 'bower_components/px-datagrid/src/main', 'bo
         /*
          data for time series widget
          */
-        var timeSeriesData = {
-            "queries": [
+        var timeSeriesData = [
                 {
                     "sample_size": 1071,
                     "results": [
@@ -1013,15 +1012,14 @@ define(['angular', 'sample-module', 'bower_components/px-datagrid/src/main', 'bo
                         }
                     ]
                 }
-            ]
-        };
+            ];
 
         /*
          scope for time series widget
          */
         $scope.timeSeries = {
             title: 'Time Series Chart',
-            series: timeSeriesData,
+            queries: timeSeriesData,
             showYAxisUnits: true,
             plotType: 'line'
         };
