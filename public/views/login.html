@@ -1,0 +1,11 @@
+<li class="oauth ng-scope">
+  <a href="#" class="logged-out" ng-show="show=='logged-out'" ng-click="login()">
+  	<i class="icon-signin"></i> Sign In
+  </a>
+  <a href="#" class="logged-in ng-binding ng-hide" ng-show="show=='logged-in'" ng-click="logout()">
+	<i class="icon-signout"></i> {{ "page.logout" | vmessages }}
+  </a>
+  <a href="#" class="denied ng-hide" ng-show="show=='denied'" ng-click="login()">
+  	<i class="icon-ban-circle"></i> Access denied. Try again.
+  </a>
+</li>

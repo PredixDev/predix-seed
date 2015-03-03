@@ -22,15 +22,63 @@
 </head>
 
 <body class="app" data-ng-controller="MainCtrl">
-    <!-- Adds implicit grant oauth -->
-    <px-oauth
-        site="site"
-        client-id="clientId"
-        template="loginTemplate"
-        redirect-uri="redirectUri">
-    </px-oauth>
 
-    <ui-view/>
+
+<div class="navbar navbar-default navbar-static-top templatecontainer">
+
+    <div class="container">
+
+        <div class="masthead navbar-header">
+            <a class="navbar-brand" href="#">
+                <span class="ge-logo"></span>
+                <span>Predix Dashboard
+                    <small><i>powered by</i> GE Business</small>
+                </span>
+            </a>
+        </div>
+
+        <div class="notifications pull-right">
+            <div class="btn-toolbar">
+                <div class="btn-group">
+                    <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-user"></i>
+                        <span class="user-name"> Username </span>
+                        <i class="icon-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu pull-right">
+                        <!-- Signout link for authentication - Adds implicit grant oauth -->
+                        <px-oauth
+                            template="template"
+                            profileUri="profileUri"
+                            site="site"
+                            client-id="clientId"
+                            redirect-uri="redirectUri">
+                        </px-oauth>      
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="primary-navbar navbar-collapse">
+        <div class="container">
+            <ul class="nav navbar-nav" data-ng-cloak="">
+                <li ui-sref-active="active" data-ng-repeat="tab in App.tabs" tab="tab">
+                    <a ui-sref="{{tab.state}}">{{tab.label}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content container" ui-view>
+<!-- This is the container where the tabs will render -->
+</div>
+
+
+
 </body>
 
 <script data-main='scripts/bootstrapper.js'
