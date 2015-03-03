@@ -2,6 +2,14 @@
 
 #Predix Experience 2.0 Seed
 Clone or fork this project to start your own Predictivity application. Documentation and more info can be found at [predix.sw.ge.com](http://predix.sw.ge.com)
+
+The predix-seed is a starter project that contains the following Predix components:
+- [px-contextual-dashboard](https://github.sw.ge.com/Predix-Experience/px-contextual-dashboard)
+- [px-oauth](https://github.sw.ge.com/Predix-Experience/px-oauth)
+- [px-datasource](https://github.sw.ge.com/Predix-Experience/px-datasource)
+- [px-time-series](https://github.sw.ge.com/PredixWidgetCatalog/px-time-series)
+- [px-datagrid](https://github.sw.ge.com/PredixWidgetCatalog/px-datagrid)
+- [px-tree-navigation](https://github.sw.ge.com/PredixWidgetCatalog/px-tree-navigation)
   	  
 ## To Run
 
