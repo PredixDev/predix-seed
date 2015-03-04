@@ -39,24 +39,23 @@ In the root directory, run:
 ```
 grunt serve
 ```
-Then use the credentials provided by the UAA server to log in.
+Then use the credentials provided by the UAA server to log in. (Default username/password: marissa/koala)
 
 ## Tutorial
 
 This application gives you a great starting point right out of the box, which includes the following:
-- Session Management
-- User Authentication
-- Proxy Web Service
+- Contextual Dashboard
 - Internationalization Support
-- Distributed Caching
-- JavaScript minification
+- User Authentication
+- Proxy
+- Cloud Foundry Deploy Support
 
 ### Views
 The public/ directory contains the main entry points to the application, which include:
 - index.html - This file is the main view that includes all application client-side dependencies. 
 
 ### Angular Configuration
-Visualization projects use the AngularJS framework with RequireJS which allows Play to load, 
+Visualization projects use the AngularJS framework with RequireJS which allows Grunt to
 minify and concatenate all JavaScript files without using any extra tools.
 
 [RequireJS](http://requirejs.org/) is used to load the Angular files which are a modified 
@@ -65,9 +64,10 @@ version of the files created by the Yeoman Angular community generator.
 The public/scripts/app.js file is the main entry point to the AngularJS application, 
 which does the following:
 - Dynamically injects all AngularJS modules using RequireJS.
+- Configures application's providers for widgets and contextual dashboard's view and metadata services.
 - Defines client-side routing for the application.
 - Defines the MainCtrl.
-- Defines all datasources for the application.
+- Defines UAA configuration.
 
 The public/scripts/routes.js file defines all the routes for the application.
 
@@ -86,7 +86,7 @@ the visual representation of the application's model and its business logic.
 
 #### Views
 The views for the application are located in the public/views directory.  The templates are 
-injected into the ng-view directive located in app.scala.html file.
+injected into the ui-view directive located in index.html file.
   
 #### Controllers
 The Angular controllers for the application are located in the public/scripts/controllers 
@@ -100,13 +100,12 @@ either load them using the main.js file or require them where they are used (for
 the controller for the page they are on).
 
 ### RequireJS Configuration and Optimization
-The configuration [RequireJS](http://requirejs.org/) uses during development mode to load your 
+The configuration [RequireJS](http://requirejs.org/) used during development mode to load your 
 scripts is in the config.js file.
 
 #### Optimizer
-The configuration that Play uses to compress and run your scripts during production mode thru 
-the [r.js optimizer](http://requirejs.org/docs/optimization.html#basics) is located in the 
-build.js file.
+Grunt will use RequireJS to compress your scripts during production mode thru 
+the [r.js optimizer](http://requirejs.org/docs/optimization.html#basics). This can be configured in requirejs task of your Gruntfile.js.
 
 
 ### Authentication
@@ -114,12 +113,12 @@ This application uses [px-oauth](https://github.sw.ge.com/Predix-Experience/px-o
 
 ```
 // Example UAA Configuration
-$scope.site = 'https://predixuaa.ges-apps.ice.ge.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
-$scope.clientId = 'app';                                // Your app id that you registered with Cloud Foundry.
-$scope.redirectUri = $location.absUrl();                // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
+$scope.site = 'https://predixuaa.grc-apps.svc.ice.ge.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
+$scope.clientId = 'app';                                    // Your app id that you registered with Cloud Foundry.
+$scope.redirectUri = $location.absUrl();                    // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
 
 ```
-The px-oauth directive will store the token in Session Storage which can be passed with each data source request in the `Authorization` header.
+The px-oauth directive will store the token in Session Storage and will pass it with each data source request in the `Authorization` header. The interceptor is registered with $http automatically.
 
 ### Deploying
 To create a dist build run the following command from inside of your projects root directory:
@@ -136,7 +135,7 @@ You might want to revisit the dist/nginx.conf folder to check on nginx configura
 - File tickets for [support](https://gesoftware.service-now.com/Predix/)
 
 # Copyright
-Copyright &copy; 2014 GE Global Research. All rights reserved.
+Copyright &copy; 2015 GE Global Research. All rights reserved.
 
 The copyright to the computer software herein is the property of
 GE Global Research. The software may be used and/or copied only
