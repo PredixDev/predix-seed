@@ -86,7 +86,7 @@ module.exports = function(grunt) {
             styles: {
                 files: [
                     '<%= config.app %>/stylesheets/**/*.css',
-                    '!<%= config.app %>/stylesheets/main.min.css
+                    '!<%= config.app %>/stylesheets/main.min.css'
                 ],
                 tasks: ['cssmin']
             },
