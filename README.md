@@ -32,7 +32,6 @@ npm install -g bower
 npm install -g grunt-cli
 bower install
 grunt update
-grunt build
 ```
 
 ### Running the app
