@@ -84,7 +84,10 @@ module.exports = function(grunt) {
                 livereload: '<%= connect.livereload %>'
             },
             styles: {
-                files: ['<%= config.app %>/stylesheets/**/*.css'],
+                files: [
+                    '<%= config.app %>/stylesheets/**/*.css',
+                    '!<%= config.app %>/stylesheets/main.min.css
+                ],
                 tasks: ['cssmin']
             },
             scripts: {
@@ -344,6 +347,7 @@ module.exports = function(grunt) {
                     "public/stylesheets/main.min.css": [
                         'public/stylesheets/app.css',
                         'public/stylesheets/**/*.css',
+                        '!public/stylesheets/main.min.css',
                         'public/bower_components/iids/dist/iidx/css/*.min.css'
                     ]
                 }
