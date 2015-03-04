@@ -79,6 +79,7 @@ To add a new page to the application use the following steps:
 - Add a new view file into the public/views directory.
 - Add the new page to the stateProvider in routes.js.
 - Add the new page to the tabs in the MainCtrl in app.js.
+- Style the page by creating a page-specific directory under public/stylesheets with css file(s) there.
 
 ### Angular Views and Controllers
 Each page in the application has a controller and view with a one-to-one relationship that handle 
