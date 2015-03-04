@@ -343,6 +343,7 @@ module.exports = function(grunt) {
                 files: {
                     "public/stylesheets/main.min.css": [
                         'public/stylesheets/app.css',
+                        'public/stylesheets/**/*.css',
                         'public/bower_components/iids/dist/iidx/css/*.min.css'
                     ]
                 }
