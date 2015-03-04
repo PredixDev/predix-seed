@@ -33,8 +33,7 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
             .state('dashboard', {
                 url: '/dashboard',
                 templateUrl: 'views/dashboard.html',
-                controller: 'DashboardCtrl',
-                parent: 'root'
+                controller: 'DashboardCtrl'
             })
             .state('alarm', {
                 url: '/alarm',
