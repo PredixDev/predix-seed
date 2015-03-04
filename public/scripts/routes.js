@@ -15,34 +15,25 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
          * This is where the name of the route is matched to the controller and view template.
          */
         $stateProvider
-            .state('root', {
-                templateUrl: 'views/root.html',  // Provide a common root template for all states (i.e. nav-bar)
-                abstract: true,
-                parent: 'secure'                        // On initial load, ensures oauth token exists
-            })
             .state('home', {
                 url: '/home',
                 templateUrl: 'views/home.html',
-                controller: 'HomeCtrl',
-                parent: 'root'
+                controller: 'HomeCtrl'
             })
             .state('about', {
                 url: '/about',
                 templateUrl: 'views/about.html',
-                controller: 'AboutCtrl',
-                parent: 'root'
+                controller: 'AboutCtrl'
             })
             .state('widgets', {
                 url: '/widgets',
                 templateUrl: 'views/widgets.html',
-                controller: 'WidgetsCtrl',
-                parent: 'root'
+                controller: 'WidgetsCtrl'
             })
             .state('dashboard', {
                 url: '/dashboard',
                 templateUrl: 'views/dashboard.html',
-                controller: 'DashboardCtrl',
-                parent: 'root'
+                controller: 'DashboardCtrl'
             })
             .state('alarm', {
                 url: '/alarm',
@@ -51,18 +42,15 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
                 resolve: {
                     context: function($q) {
                         var deferred = $q.defer();
-
                         var myContext = {
                             id: '/asset/right-tire-set-uri',
                             name: 'TIRE SET R',
                             classification: '/classification/tire-classification-uri'
                         };
-
                         deferred.resolve(myContext);
                         return deferred.promise;
                     }
-                },
-                parent: 'root'
+                }
             });
 
         $urlRouterProvider
