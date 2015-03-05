@@ -121,7 +121,7 @@ module.exports = function(grunt) {
                         var proxyConfig = {
                             proxy: {
                                 forward: {
-                                    '/services/asset': 'http://asset-service-sprintdemo.grc-apps.svc.ice.ge.com',
+                                    '/services/asset': 'http://asset-server.grc-apps.svc.ice.ge.com',
                                     '/api/v2/proxy': 'http://dev-exp-seed.grc-apps.svc.ice.ge.com',
                                     '/components/brandkit/': 'http://localhost:' + SERVER_PORT + '/bower_components/iids/dist/iidx'
                                 },
@@ -474,10 +474,10 @@ module.exports = function(grunt) {
     grunt.registerTask('predix:update', ['config:prod', 'clean:artifactory', 'artifactory:ux', 'artifactory:vclient']);
     grunt.registerTask('update', ['config:prod', 'clean:artifactory', 'artifactory:ux', 'artifactory:vclient']);
 
-    grunt.registerTask('build', ['clean:build', 'cssmin', 'jshint:src', 'copy:dist', 'requirejs']);
+    grunt.registerTask('dist', ['clean:build', 'cssmin', 'jshint:src', 'copy:dist', 'requirejs']);
     grunt.registerTask('test', ['jshint:test', 'clean:test', 'karma']);
     grunt.registerTask('test:e2e', ['clean:test', 'protractor_webdriver', 'protractor']);
     grunt.registerTask('serve', ['cssmin', 'clean:build', 'connect:livereload', 'watch']);
-    grunt.registerTask('docs', ['build', 'ngdocs', 'connect:docs']);
-    grunt.registerTask('default', ['build', 'test']);
+    grunt.registerTask('docs', ['dist', 'ngdocs', 'connect:docs']);
+    grunt.registerTask('default', ['dist', 'test']);
 };
