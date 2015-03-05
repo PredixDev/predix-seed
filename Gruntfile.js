@@ -121,7 +121,7 @@ module.exports = function(grunt) {
                         var proxyConfig = {
                             proxy: {
                                 forward: {
-                                    '/services/asset': 'http://asset-server.grc-apps.svc.ice.ge.com',
+                                    '/services/asset': 'http://asset-service-sprintdemo.grc-apps.svc.ice.ge.com',
                                     '/api/v2/proxy': 'http://dev-exp-seed.grc-apps.svc.ice.ge.com',
                                     '/components/brandkit/': 'http://localhost:' + SERVER_PORT + '/bower_components/iids/dist/iidx'
                                 },
@@ -306,7 +306,8 @@ module.exports = function(grunt) {
                             'stylesheets/main.min.css', //minified CSS
                             'views/*.html',
                             'bower_components/px-datagrid/src/*',
-                            'bower_components/px-time-series/src/*'
+                            'bower_components/px-time-series/src/*',
+                            'bower_components/px-oauth/dist/views/*.html'
                         ],
                         dest: '<%= config.dist %>/'
                     },
