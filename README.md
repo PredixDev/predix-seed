@@ -123,7 +123,7 @@ The px-oauth directive will store the token in Session Storage and will pass it 
 ### Deploying
 To create a dist build run the following command from inside of your projects root directory:
 ```unix
-grunt build
+grunt dist
 cf push;
 ```
 

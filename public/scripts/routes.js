@@ -40,7 +40,7 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
                 templateUrl: 'views/alarm.html',
                 controller: 'AlarmCtrl',
                 resolve: {
-                    context: function($q) {
+                    context: ['$q', function($q) {
                         var deferred = $q.defer();
                         var myContext = {
                             id: '/asset/right-tire-set-uri',
@@ -49,7 +49,7 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
                         };
                         deferred.resolve(myContext);
                         return deferred.promise;
-                    }
+                    }]
                 }
             });
 
