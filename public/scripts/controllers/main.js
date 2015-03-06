@@ -1,3 +1,3 @@
-define(['./about', './home', './widgets', './dashboard', './alarm', './overridingctrls'], function() {
+define(['./about', './home', './widgets', './dashboard', './alarm'], function() {
 
 });
