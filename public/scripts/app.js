@@ -62,8 +62,7 @@ define([
                 {state: 'about', label: vRuntime.messages('About')},
                 {state: 'widgets', label: vRuntime.messages('Widgets')},
                 {state: 'alarm', label: 'Alarm'},
-                {state: 'dashboard', label: vRuntime.messages('Dashboard')},
-
+                {state: 'dashboard', label: vRuntime.messages('Dashboard')}
             ]
         };
 
@@ -74,9 +73,8 @@ define([
 
         // Example UAA Configuration
         $scope.site = 'https://predixuaa.grc-apps.svc.ice.ge.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
-        $scope.clientId = 'app';                                // Your app id that you registered with Cloud Foundry.
-        $scope.redirectUri = $location.absUrl();                // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
-
+        $scope.clientId = 'app';                                    // Your app id that you registered with Cloud Foundry.
+        $scope.redirectUri = $location.absUrl();                    // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
     }]);
 
     //Enable logging to the console. (levels are ERROR, WARN, SUCCESS, INFO, NONE)
