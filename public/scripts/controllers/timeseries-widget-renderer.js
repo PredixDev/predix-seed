@@ -23,6 +23,8 @@
  *
  *      1. Create a NEW controller for your widget renderer implementation.  This controller will only be used for rendering the widgets you specify.
  *              Make sure to load it onto the page (require it somewhere)!
+ *              ** Note: This MUST be a separate controller from any other controller in your application.  This controller will exist only around 1 widget
+ *                  and datasource on a view and is responsible for managing the scope/datasource properties for that individual widget.  Do NOT combine this with another controller.
  *
  *      2. Add the name of your new controller to the response from your back-end view service (the view service returns the list of all views for your application)
  *              id: 'context.myview',
