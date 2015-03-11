@@ -42,7 +42,7 @@ define([
 
         ViewServiceProvider.setViewUrl('http://dev-dashboard-server.grc-apps.svc.ice.ge.com');
 
-        DatasourceServiceProvider.setContextMetadataUrl('http://dashboard-mock-server.grc-apps.svc.ice.ge.com/qa');
+        DatasourceServiceProvider.setContextMetadataUrl('http://localhost:8080/qa');
     }]);
 
     /**
