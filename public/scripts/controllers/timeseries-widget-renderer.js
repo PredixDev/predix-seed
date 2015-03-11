@@ -60,12 +60,13 @@ define(['angular', 'sample-module'], function (angular, controllers) {
             }
 
             // override the datasource (to customize the method, url, or options)
+            /* jshint camelcase:false */
             $scope.datasource.options.start_absolute = args.min;
             $scope.datasource.options.end_absolute = args.max;
             $scope.datasource.options.metrics[0].aggregators[0].sampling = {
                 unit: 'minutes',
                 value: '1'
-            }
+            };
             delete $scope.datasource.options.start_relative;
             delete $scope.datasource.options.end_relative;
 
