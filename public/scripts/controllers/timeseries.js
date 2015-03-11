@@ -19,8 +19,6 @@ define(['angular', 'sample-module'], function (angular, controllers) {
      */
     controllers.controller('TimeseriesWidgetRendererCtrl', function ($scope, $controller) {
 
-
-
         // catch the px-dashboard-event
         $scope.$on('px-dashboard-event', function (event, name, args) {
             // we suggest having an additional unique name to identify your event
@@ -31,41 +29,16 @@ define(['angular', 'sample-module'], function (angular, controllers) {
             // override the datasource (to customize the method, url, or options)
             $scope.datasource.options.start_absolute = args.min;
             $scope.datasource.options.end_absolute = args.max;
+            $scope.datasource.options.metrics[0].aggregators[0].sampling = {
+                unit:'minutes',
+                value: '1'
+            }
             delete $scope.datasource.options.start_relative;
+            delete $scope.datasource.options.end_relative;
 
             // fetch new data with the modified datasource
             $scope.fetch($scope.datasource);
         });
-
-        //$scope.beforeRequest = function(datasource, context) {
-        //    // {"metrics":[{"tags":{},"name":"WIN-KFUUK53UEAV.Simulation00011","aggregators":[{"name":"sum","align_sampling":true,"sampling":{"value":"1","unit":"milliseconds"}}]}],"cache_time":0,"start_relative":{"value":"1","unit":"weeks"}}
-        //    //datasource.options.start_relative = {value:"1", unit:"weeks"};
-        //
-        //    datasource.options = {
-        //        metrics: [
-        //            {
-        //                tags: {},
-        //                name: "WIN-KFUUK53UEAV.Simulation00011",
-        //                aggregators: [
-        //                    {
-        //                        name: "sum",
-        //                        align_sampling: true,
-        //                        sampling: {
-        //                            value: "1",
-        //                            unit: "milliseconds"
-        //                        }
-        //                    }
-        //                ]
-        //            }
-        //        ],
-        //        cache_time: 0,
-        //        start_relative: {
-        //            value: "1",
-        //            unit: "weeks"
-        //        }
-        //    };
-        //    return datasource;
-        //};
 
         // Extend the Predix WidgetRendererController
         angular.extend(this, $controller('WidgetRendererController', {$scope: $scope}));
