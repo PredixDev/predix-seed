@@ -124,7 +124,7 @@ module.exports = function(grunt) {
                         var proxyConfig = {
                             proxy: {
                                 forward: {
-                                    '/services/asset': 'http://asset-server.grc-apps.svc.ice.ge.com',
+                                    '/services/asset': 'http://asset-service-sprintdemo.grc-apps.svc.ice.ge.com',
                                     '/api/v2/proxy': 'http://dev-exp-seed.grc-apps.svc.ice.ge.com',
                                     '/components/brandkit/': 'http://localhost:' + SERVER_PORT + '/bower_components/iids/dist/iidx'
                                 },

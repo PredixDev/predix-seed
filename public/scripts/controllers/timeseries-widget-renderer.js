@@ -44,13 +44,36 @@
  *              angular.extend(this, $controller('WidgetRendererController', {$scope: $scope}));
  *
  */
-//define(['angular', 'sample-module'], function(angular, controllers) {
-//    'use strict';
-//
-//    // This is an example controller that shows how to handle events from other widgets and fetch new data
-//    // ** this is NOT the same as your page controller, as this encapsulates your widget and datasource only (read the section above for more info) **
-//    controllers.controller('TimeseriesWidgetRendererCtrl', function ($scope, $controller) {
-//
+define(['angular', 'sample-module'], function (angular, controllers) {
+    'use strict';
+
+    // This is an example controller that shows how to handle events from other widgets and fetch new data
+    // ** this is NOT the same as your page controller, as this encapsulates your widget and datasource only (read the section above for more info) **
+    controllers.controller('TimeseriesWidgetRendererCtrl', ['$scope', '$controller', function ($scope, $controller) {
+
+        // EXAMPLE time series widget uses this controller to handle x-axis events and update the data.
+        // catch the px-dashboard-event
+        $scope.$on('px-dashboard-event', function (event, name, args) {
+            // we suggest having an additional unique name to identify your event
+            if (name !== 'after-set-extremes') {
+                return;
+            }
+
+            // override the datasource (to customize the method, url, or options)
+            /* jshint camelcase:false */
+            $scope.datasource.options.start_absolute = args.min;
+            $scope.datasource.options.end_absolute = args.max;
+            $scope.datasource.options.metrics[0].aggregators[0].sampling = {
+                unit: 'minutes',
+                value: '1'
+            };
+            delete $scope.datasource.options.start_relative;
+            delete $scope.datasource.options.end_relative;
+
+            // fetch new data with the modified datasource
+            $scope.fetch($scope.datasource);
+        });
+
 //        // OPTIONAL interceptor before any fetch is called (allowing you to change the url, query params, request body, etc.)
 //        $scope.beforeRequest = function(datasource, context) {
 //            datasource.options.tags = ['sdf', '234234'];
@@ -78,10 +101,10 @@
 //            // fetch new data with the modified datasource
 //            $scope.fetch($scope.datasource);
 //        });
-//
-//        // Extend the Predix WidgetRendererController
-//        // ** this needs to be the LAST line in your CustomWidgetRendererController **
-//        angular.extend(this, $controller('WidgetRendererController', {$scope: $scope}));
-//
-//    });
-//});
+
+        // Extend the Predix WidgetRendererController
+        // ** this needs to be the LAST line in your CustomWidgetRendererController **
+        angular.extend(this, $controller('WidgetRendererController', {$scope: $scope}));
+
+    }]);
+});
