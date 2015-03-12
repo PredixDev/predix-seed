@@ -49,7 +49,7 @@ define(['angular', 'sample-module'], function (angular, controllers) {
 
     // This is an example controller that shows how to handle events from other widgets and fetch new data
     // ** this is NOT the same as your page controller, as this encapsulates your widget and datasource only (read the section above for more info) **
-    controllers.controller('TimeseriesWidgetRendererCtrl', function ($scope, $controller) {
+    controllers.controller('TimeseriesWidgetRendererCtrl', ['$scope', '$controller', function ($scope, $controller) {
 
         // EXAMPLE time series widget uses this controller to handle x-axis events and update the data.
         // catch the px-dashboard-event
@@ -106,5 +106,5 @@ define(['angular', 'sample-module'], function (angular, controllers) {
         // ** this needs to be the LAST line in your CustomWidgetRendererController **
         angular.extend(this, $controller('WidgetRendererController', {$scope: $scope}));
 
-    });
+    }]);
 });
