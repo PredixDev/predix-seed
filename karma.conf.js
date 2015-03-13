@@ -13,6 +13,8 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
+            {pattern: 'public/cf-routes.js', included: true},
+
             {pattern: 'public/scripts/config.js', included: true},
             {pattern: 'test/test-config.js', included: true},
 

@@ -40,7 +40,7 @@ define([
             'bower_components/px-time-series/src'
         ]);
 
-        ViewServiceProvider.setViewUrl('http://dev-dashboard-server.grc-apps.svc.ice.ge.com');
+        ViewServiceProvider.setViewUrl(window.getCfRoute('view_persistence'));
 
         DatasourceServiceProvider.setContextMetadataUrl('http://dashboard-mock-server.grc-apps.svc.ice.ge.com/qa');
     }]);
