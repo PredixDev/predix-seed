@@ -63,6 +63,8 @@ define(['angular', 'sample-module'], function (angular, controllers) {
             /* jshint camelcase:false */
             $scope.datasource.options.start_absolute = args.min;
             $scope.datasource.options.end_absolute = args.max;
+            // set some caching value to improve performance for developers:
+            $scope.datasource.options.cache_time = 1000;
             $scope.datasource.options.metrics[0].aggregators[0].sampling = {
                 unit: 'minutes',
                 value: '1'
