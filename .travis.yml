@@ -9,6 +9,7 @@ before_script:
   - npm config set https-proxy http://sjc1intproxy01.crd.ge.com:8080/
 
 script:
+  - rm -rf /root/.npm/*.lock.STALE
   - node -v
   - npm -v
   - npm config delete proxy
@@ -20,4 +21,3 @@ script:
   - grunt -V  
   - grunt update
   - grunt -v
-  
