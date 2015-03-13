@@ -20,3 +20,4 @@ script:
   - grunt -V  
   - grunt update
   - grunt -v
+  
