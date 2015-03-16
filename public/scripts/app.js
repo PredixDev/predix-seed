@@ -34,13 +34,13 @@ define([
         'predix.configurable-dashboard'
     ]);
 
-    predixApp.config(['WidgetLoaderServiceProvider', 'ViewServiceProvider', 'DatasourceServiceProvider', function(WidgetLoaderServiceProvider, ViewServiceProvider, DatasourceServiceProvider) {
+    predixApp.config(['WidgetLoaderServiceProvider', 'ViewServiceProvider', 'DatasourceServiceProvider','VCAP_SERVICES', function(WidgetLoaderServiceProvider, ViewServiceProvider, DatasourceServiceProvider, VCAP_SERVICES) {
         WidgetLoaderServiceProvider.loadWidgetsFrom([
             'bower_components/px-datagrid/src',
             'bower_components/px-time-series/src'
         ]);
 
-        ViewServiceProvider.setViewUrl(window.getCfRoute('view_persistence'));
+        ViewServiceProvider.setViewUrl(VCAP_SERVICES.view_persistence); //window.getCfRoute('view_persistence'));
 
         DatasourceServiceProvider.setContextMetadataUrl('http://dashboard-mock-server.grc-apps.svc.ice.ge.com/qa');
     }]);
