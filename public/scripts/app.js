@@ -15,7 +15,7 @@ define([
     'px-dashboard',
     'px-datasource',
     'widgets-module'
-], function($, angular, ngResource, vRuntime) {
+], function ($, angular, ngResource, vRuntime) {
     'use strict';
 
     /**
@@ -34,13 +34,20 @@ define([
         'predix.configurable-dashboard'
     ]);
 
-    predixApp.config(['WidgetLoaderServiceProvider', 'ViewServiceProvider', 'DatasourceServiceProvider', function(WidgetLoaderServiceProvider, ViewServiceProvider, DatasourceServiceProvider) {
+
+    /**
+     * Define constants here. This gives you access to you services registered in Cloud Foundry.
+     * You can access the url VCAP_SERVICES.myServiceName.
+     */
+    predixApp.constant('VCAP_SERVICES', window.getRoutes());
+
+    predixApp.config(['WidgetLoaderServiceProvider', 'ViewServiceProvider', 'DatasourceServiceProvider', 'VCAP_SERVICES', function (WidgetLoaderServiceProvider, ViewServiceProvider, DatasourceServiceProvider, VCAP_SERVICES) {
         WidgetLoaderServiceProvider.loadWidgetsFrom([
             'bower_components/px-datagrid/src',
             'bower_components/px-time-series/src'
         ]);
 
-        ViewServiceProvider.setViewUrl('http://dev-dashboard-server.grc-apps.svc.ice.ge.com');
+        ViewServiceProvider.setViewUrl(VCAP_SERVICES.viewPersistence);
 
         DatasourceServiceProvider.setContextMetadataUrl('http://dashboard-mock-server.grc-apps.svc.ice.ge.com/qa');
     }]);
@@ -50,7 +57,7 @@ define([
      * This controller is the top most level controller that allows for all
      * child controllers to access properties defined on the $rootScope.
      */
-    predixApp.controller('MainCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
+    predixApp.controller('MainCtrl', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
 
         //Global application object
         window.App = $rootScope.App = {
@@ -67,7 +74,7 @@ define([
         };
 
         //Unbind all widgets from datasources and widgets when page changes
-        $rootScope.$on('$routeChangeStart', function() {
+        $rootScope.$on('$routeChangeStart', function () {
             vRuntime.binder.unbindAll();
         });
 

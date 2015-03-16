@@ -120,6 +120,58 @@ $scope.redirectUri = $location.absUrl();                    // Where the UAA ser
 ```
 The px-oauth directive will store the token in Session Storage and will pass it with each data source request in the `Authorization` header. The interceptor is registered with $http automatically.
 
+
+### Binding to View Service 
+
+Now the predix-seed app can be bound to be services like ``` View Service ``` to save view
+
+
+```unix
+
+cf m | grep -i "View Service Free" 
+View Service Free        Free View Service*                                       Allows user to create up to  views
+
+# Creating Service  (Can be run once in a space or more —If really reqd)
+cf cs "View Service Free" "free-view-service” view_persistence
+
+#Binding to the application
+cf bs dev-exp-seed view_persistence
+
+# Validating the binding
+cf env dev-exp-seed
+
+
+```
+The output should look like something below
+
+```json
+{
+ "VCAP_SERVICES": {
+  "View Service Free": [
+   {
+    "credentials": {
+     "url": "dev-dashboard-server.grc-apps.svc.ice.ge.com"
+    },
+    "label": "View Service Free",
+    "name": "view_persistence",
+    "plan": "Free View Service",
+    "syslog_drain_url": "",
+    "tags": []
+   }
+  ]
+ }
+}
+
+```
+
+Now in your application ``` app.js ```, you can do
+
+```javascript
+   ViewServiceProvider.setViewUrl(window.getCfRoute('view_persistence')));
+```
+
+```javascript window.getCfRoute ``` is  a javascript function that would be made available by the static build pack.
+
 ### Deploying
 To create a dist build run the following command from inside of your projects root directory:
 ```unix
