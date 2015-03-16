@@ -1,3 +1,4 @@
+/* jshint unused:false, undef:false */
 define(['angular-mocks', 'interceptors'], function (mocks, interceptors) {
     'use strict';
     describe('interceptors', function () {
