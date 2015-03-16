@@ -329,7 +329,6 @@ module.exports = function(grunt) {
                         expand: true,
                         src: [
                             'bower_components/iids/dist/iidx/components/brandkit/img/*.*',
-                            'bower_components/iids/dist/iidx/components/brandkit/favicon/*.*',
                             'bower_components/iids/dist/iidx/components/brandkit/fonts/*.*',
                             'bower_components/iids/dist/iidx/css/*.*'],
                         dest: '<%= config.dist %>/'
