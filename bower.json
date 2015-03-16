@@ -25,7 +25,7 @@
         "px-time-series": "git://github.sw.ge.com/PredixWidgetCatalog/px-time-series.git#develop",
         "px-oauth": "git://github.sw.ge.com/Predix-Experience/px-oauth.git#develop",
         "px-datasource": "git://github.sw.ge.com/Predix-Experience/px-datasource.git#develop",
-        "px-contextual-dashboard": "git://github.sw.ge.com/Predix-Experience/px-contextual-dashboard.git#develop"
+        "px-contextual-dashboard": "git://github.sw.ge.com/PX/px-contextual-dashboard.git#develop"
 
     }
 }
