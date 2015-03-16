@@ -349,7 +349,7 @@ module.exports = function(grunt) {
                         'public/stylesheets/app.css',
                         'public/stylesheets/**/*.css',
                         '!public/stylesheets/main.min.css',
-                        'public/bower_components/iids/dist/iidx/css/*.min.css'
+                        'public/bower_components/iids/dist/iidx/css/iids.min.css'
                     ]
                 }
             }
