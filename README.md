@@ -129,6 +129,8 @@ cf push;
 
 You might want to revisit the dist/nginx.conf folder to check on nginx configuration
 
+### Contextual Dashboard
+For details on how to use and configure the contextual dashboard, see the [px-contextual-dashboard README](https://github.sw.ge.com/Predix-Experience/px-contextual-dashboard).
 
 ## Questions?
 - Ask questions on [AnswerHub](https://answers.sw.ge.com/spaces/53/experience.html)

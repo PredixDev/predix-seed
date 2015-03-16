@@ -58,9 +58,6 @@ require.config({
         // angular ui router
         'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router.min',
 
-        // Required libs
-        lodash: '../bower_components/lodash/dist/lodash.min',
-
         // Require JS Plugins
         text: '../bower_components/requirejs-plugins/lib/text',
         order: '../bower_components/requirejs-plugins/src/order',
@@ -295,7 +292,7 @@ require.config({
             deps: ['angular', 'jquery', 'angular-bootstrap', 'angular-sanitize', 'vruntime', 'angular-ui-router', 'bootstrap-modal', 'bootstrap-transition', 'bootstrap-dropdown', 'px-datasource']
         },
         'px-datasource': {
-            deps: ['angular', 'lodash']
+            deps: ['angular', 'underscore']
         }
 
     }

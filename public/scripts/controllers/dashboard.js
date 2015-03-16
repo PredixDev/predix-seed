@@ -8,35 +8,37 @@
 define(['angular',
     'sample-module',
     'vruntime'
-], function(angular, controllers) {
+], function (angular, controllers) {
     'use strict';
 
     // Controller definition
-    controllers.controller('DashboardCtrl', ['$scope', function($scope) {
+    controllers.controller('DashboardCtrl', ['$scope', '$q', function ($scope, $q) {
+
 
         $scope.contextSelectorConfig = {
             baseUrl: '/services', // the base uri where your asset instance is
             rootEntityId: null, // the root of the context browser
-            onOpenContext: function(contextDetails) { // callback when the open button is hit in the context browser
+            onOpenContext: function (contextDetails) { // callback when the open button is hit in the context browser
                 $scope.context = contextDetails;
             },
-            transformSelectedEntityDetails: function(entity) { // configure key value pairs to show in the entity info panel in the context browser (the selected entity)
+            transformSelectedEntityDetails: function (entity) { // configure key value pairs to show in the entity info panel in the context browser (the selected entity)
                 return [
-                    {label: 'Tom Edison'},  // (ex: {label: entity.attributes['Customer Name'].value})
+                    {label: 'Tom Edison'},  // (ex: {label: entity[0].attributes['Customer Name'].value})
                     {label: '12/24/2001'},
                     {label: 'Williamsburg Contract'},
                     {label: 'Serial Number', value: '345hwfher2wh3f8h47f'}
                 ];
             },
-            transformPinnedEntityDetails: function(entity) { // configure key value pairs to show in the entity info panel in dashboard (the pinned entity)
+            transformPinnedEntityDetails: function (entity) { // configure key value pairs to show in the entity info panel in dashboard (the pinned entity)
                 return [
-                    {label: 'Tom Edison'},  // (ex: {label: entity.attributes['Customer Name'].value})
+                    {label: 'Tom Edison'},  // (ex: {label: entity[0].attributes['Customer Name'].value})
                     {label: '12/24/2001'},
                     {label: 'Williamsburg Contract'},
                     {label: 'Serial Number', value: '345hwfher2wh3f8h47f'},
                     {label: 'Part Number', value: 32434},
                     {label: 'Part', value: '34wtefh8cdx'}
                 ];
+
             }
         };
 
@@ -67,11 +69,41 @@ define(['angular',
         //            isOpenable: !(entity.attributes && entity.attributes.isNotOpenable) // Is the open button displayed?
         //        };
         //    },
-        //    getEntityChildrenUrl: function(parentEntityId) { // When a node is clicked, children are fetched using this URL.
-        //        return this.baseUrl + '/asset?filter=parent=' + parentEntityId;
+        //    getEntityChildren: function(parentId, rangeStart) { // override fetching the children if you're not using Predix Asset by passing parentId and rangeStart (starting row number of the next batch of child entities) which supports pagination.
+        //        var deferred = $q.defer();
+        //        // customize your url here
+        //        var childrenUrl = this.baseUrl + '/asset?filter=topLevelOnly=true:parent=' + parentId;
+        //
+        //        // get your data from your url
+        //        $http.get(childrenUrl, {headers: headers})
+        //            .success(function(data, status, headers) {
+        //
+        //                // resolve the promise with the child entity with the object format below
+        //                var childEntities = {
+        //                    meta: { total: numberOfChildrenTotal }, // the total number of child entities, NOT the number returned (this allows support for pagination)
+        //                    data: data // child entities (can be only 1 page)
+        //                };
+        //                deferred.resolve(childEntities);
+        //            })
+        //            .error(function(data, status, headers, config) {
+        //                deferred.reject('Error fetching asset with id ' + parentId);
+        //            });
+        //
+        //        return deferred.promise;
         //    },
-        //    getEntityDetailUrl: function(entityId) { // When a node is clicked, the additional asset details are fetched using this URL.
-        //        return this.baseUrl + entityId;
+        //    getEntityDetails: function(entityId) { // override for fetching details about an entity, out of the box we don't do any fetching for entity details... you must implement this to fetch
+        //        var deferred = $q.defer();
+        //        var entityDetailUrl = this.baseUrl + entityId;
+        //
+        //        $http.get(entityDetailUrl)
+        //            .success(function(data) {
+        //                deferred.resolve(data); // just resolve with the details returned, you're responsible for transforming them in transformSelectedEntityDetails and transformPinnedEntityDetails method anyway
+        //            })
+        //            .error(function(data, status, headers, config) {
+        //                deferred.reject('Error fetching asset detail with id ' + entityId);
+        //            });
+        //
+        //        return deferred.promise;
         //    },
         //    transformSelectedEntityDetails: function(entity) { // Configure key-value pairs to show in the entity info panel in the context browser (the selected entity)
         //        return [
