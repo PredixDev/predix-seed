@@ -5,6 +5,6 @@ applications:
     path: dist
     memory: 64M
     services:
-            - view_persistence
+            - viewPersistence
 env:
     assetUrl: http://asset-service-sprintdemo.grc-apps.svc.ice.ge.com/services/asset

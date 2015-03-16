@@ -7,7 +7,7 @@
         'View Service Free': [{
             'credentials': {'url': 'dev-dashboard-server.grc-apps.svc.ice.ge.com'},
             'label': 'View Service Free',
-            'name': 'view_persistence',
+            'name': 'viewPersistence',
             'plan': 'Free View Service',
             'syslog_drain_url': '',
             'tags': []

@@ -40,7 +40,7 @@ define([
             'bower_components/px-time-series/src'
         ]);
 
-        ViewServiceProvider.setViewUrl(VCAP_SERVICES.view_persistence); //window.getCfRoute('view_persistence'));
+        ViewServiceProvider.setViewUrl(VCAP_SERVICES.viewPersistence);
 
         DatasourceServiceProvider.setContextMetadataUrl('http://dashboard-mock-server.grc-apps.svc.ice.ge.com/qa');
     }]);
