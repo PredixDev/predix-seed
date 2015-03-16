@@ -1,5 +1,5 @@
 /* jshint unused:false */
-define(['angular-mocks', 'app'], function(mocks, app) {
+define(['angular-mocks', 'app'], function(mocks) {
     'use strict';
     describe('myapp', function() {
         var $scope, ctrl;

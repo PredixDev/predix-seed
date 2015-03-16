@@ -9,8 +9,6 @@ require(['config'], function(config) {
 
         //vRuntime.logger.log(config);
 
-        app.constant('VCAP_SERVICES', window.getRoutes());
-
         //start angular application here
         angular.bootstrap(document, [app.name]);
     });
