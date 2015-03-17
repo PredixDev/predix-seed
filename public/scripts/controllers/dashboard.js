@@ -16,7 +16,7 @@ define(['angular',
 
 
         $scope.contextSelectorConfig = {
-            baseUrl: VCAP_SERVICES.predixAsset, // the base uri where your asset instance is
+            baseUrl: VCAP_SERVICES.predixAsset+'/services', // the base uri where your asset instance is
             rootEntityId: null, // the root of the context browser
             onOpenContext: function (contextDetails) { // callback when the open button is hit in the context browser
                 $scope.context = contextDetails;
