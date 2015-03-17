@@ -129,11 +129,6 @@ module.exports = function(grunt) {
                                     '/components/brandkit/': 'http://localhost:' + SERVER_PORT + '/bower_components/iids/dist/iidx'
                                 },
                                 headers: {
-                                    //make sure to keep Service-End-Point header which for some reason is getting clobbered
-                                    'X-No-Validation': function(req) {
-                                        console.log(req.headers);
-                                        return true; //req.headers['x-no-validation']
-                                    },
                                     'Accept': function(req) {
                                         return 'application/json; charset=UTF-8';
                                     },
