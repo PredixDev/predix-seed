@@ -308,6 +308,7 @@ module.exports = function(grunt) {
                             'index.html', //Main Index.html
                             'stylesheets/main.min.css', //minified CSS
                             'views/*.html',
+                            'images/*.*',
                             'bower_components/px-datagrid/src/*',
                             'bower_components/px-time-series/src/*',
                             'bower_components/px-oauth/dist/views/*.html'
@@ -316,27 +317,22 @@ module.exports = function(grunt) {
                     },
                     {
                         cwd: 'public',
-                        expand: true, src: [
-                        'bower_components/iids/dist/iidx/components/requirejs/**',
-                        'bower_components/requirejs-plugins/src/**'
-                    ],
+                        expand: true,
+                        src: [
+                            'bower_components/iids/dist/iidx/components/requirejs/**',
+                            'bower_components/requirejs-plugins/src/**'
+                        ],
                         dest: '<%= config.dist %>/'
                     },
                     {
                         cwd: 'public',
                         expand: true,
-                        src: ['**/components/brandkit/fonts/*.*',],
-                        dest: '<%= config.dist %>/components/brandkit/fonts/',
-                        flatten: true
-                    },
-                    {
-                        cwd: 'public',
-                        expand: true,
-                        src: ['**/components/brandkit/img/*.*',],
-                        dest: '<%= config.dist %>/components/brandkit/img/',
-                        flatten: true
+                        src: [
+                            'bower_components/iids/dist/iidx/components/brandkit/img/*.*',
+                            'bower_components/iids/dist/iidx/components/brandkit/fonts/*.*',
+                            'bower_components/iids/dist/iidx/css/*.*'],
+                        dest: '<%= config.dist %>/'
                     }
-
                 ]
             }
         },
@@ -348,8 +344,7 @@ module.exports = function(grunt) {
                     "public/stylesheets/main.min.css": [
                         'public/stylesheets/app.css',
                         'public/stylesheets/**/*.css',
-                        '!public/stylesheets/main.min.css',
-                        'public/bower_components/iids/dist/iidx/css/*.min.css'
+                        '!public/stylesheets/main.min.css'
                     ]
                 }
             }
