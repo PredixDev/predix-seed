@@ -121,32 +121,7 @@ module.exports = function(grunt) {
                     open: true,
                     hostname: 'localhost',
                     middleware: function(connect, options, middlewares) {
-                        var proxyConfig = {
-                            proxy: {
-                                forward: {
-                                    '/services/asset': 'http://asset-service-sprintdemo.grc-apps.svc.ice.ge.com',
-                                    '/api/v2/proxy': 'http://dev-exp-seed.grc-apps.svc.ice.ge.com',
-                                    '/components/brandkit/': 'http://localhost:' + SERVER_PORT + '/bower_components/iids/dist/iidx'
-                                },
-                                headers: {
-                                    'Accept': function(req) {
-                                        return 'application/json; charset=UTF-8';
-                                    },
-                                    'Content-Type': function(req) {
-                                        return 'application/json, text/javascript, */*; q=0.01';
-                                    },
-                                    'Service-End-Point': function(req) {
-                                        return req.headers['service-end-point'] || 'NA'
-                                    },
-                                    'authorization': function(req) {
-                                        return req.headers['authorization'] || 'NA'
-                                    }
-                                }
-                            }
-                        };
-
                         return [
-                            require('json-proxy').initialize(proxyConfig),
                             require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']),
                             connect.static(require('path').resolve('public'))
                         ];

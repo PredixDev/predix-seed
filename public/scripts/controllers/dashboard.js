@@ -12,11 +12,11 @@ define(['angular',
     'use strict';
 
     // Controller definition
-    controllers.controller('DashboardCtrl', ['$scope', '$q', function ($scope, $q) {
+    controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', function (VCAP_SERVICES, $scope, $q) {
 
 
         $scope.contextSelectorConfig = {
-            baseUrl: '/services', // the base uri where your asset instance is
+            baseUrl: VCAP_SERVICES.predixAsset+'/services', // the base uri where your asset instance is
             rootEntityId: null, // the root of the context browser
             onOpenContext: function (contextDetails) { // callback when the open button is hit in the context browser
                 $scope.context = contextDetails;
