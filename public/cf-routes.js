@@ -29,17 +29,17 @@
         ]
     };
 
-window.getRoutes = function () {
-    var routes = {};
-    for (var serviceId in VCAP_SERVICES) {
-        var service = VCAP_SERVICES[serviceId];
-        for (var instanceIndex in service) {
-            var instance = service[instanceIndex];
-            routes[instance.name] = location.protocol + '//' + instance.credentials.uri;
+    window.getRoutes = function () {
+        var routes = {};
+        for (var serviceId in VCAP_SERVICES) {
+            var service = VCAP_SERVICES[serviceId];
+            for (var instanceIndex in service) {
+                var instance = service[instanceIndex];
+                routes[instance.name] = location.protocol + '//' + instance.credentials.uri;
+            }
         }
-    }
-    return routes;
-};
+        return routes;
+    };
 
 })();
 
