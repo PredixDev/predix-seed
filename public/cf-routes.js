@@ -10,7 +10,7 @@
                     "uri": "dev-dashboard-server.grc-apps.svc.ice.ge.com"
                 },
                 "label": "View Service Free",
-                "name": "viewPersistence",
+                "name": "viewPersistenceService",
                 "plan": "Free View Service",
                 "syslog_drain_url": "",
                 "tags": []
