@@ -76,7 +76,7 @@ define(['angular', 'sample-module'], function (angular, controllers) {
             $scope.fetch($scope.datasource);
         });
 
-        $scope.errorCallback = function(response){
+        $scope.errorCallback = function(){
             $scope.errorLoading = true;
         };
 //        // OPTIONAL interceptor before any fetch is called (allowing you to change the url, query params, request body, etc.)
