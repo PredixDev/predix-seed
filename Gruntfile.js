@@ -121,33 +121,7 @@ module.exports = function(grunt) {
                     open: true,
                     hostname: 'localhost',
                     middleware: function(connect, options, middlewares) {
-                        var proxyConfig = {
-                            proxy: {
-                                forward: {
-                                    '/services/asset': 'http://asset-service-sprintdemo.grc-apps.svc.ice.ge.com',
-                                    '/api/v2/proxy': 'http://dev-exp-seed.grc-apps.svc.ice.ge.com',
-                                    '/components/brandkit/': 'http://localhost:' + SERVER_PORT + '/bower_components/iids/dist/iidx'
-                                },
-                                headers: {
-                                    //make sure to keep Service-End-Point header which for some reason is getting clobbered
-                                    'Accept': function(req) {
-                                        return 'application/json; charset=UTF-8';
-                                    },
-                                    'Content-Type': function(req) {
-                                        return 'application/json, text/javascript, */*; q=0.01';
-                                    },
-                                    'Service-End-Point': function(req) {
-                                        return req.headers['service-end-point'] || 'NA'
-                                    },
-                                    'authorization': function(req) {
-                                        return req.headers['authorization'] || 'NA'
-                                    }
-                                }
-                            }
-                        };
-
                         return [
-                            require('json-proxy').initialize(proxyConfig),
                             require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']),
                             connect.static(require('path').resolve('public'))
                         ];
@@ -304,6 +278,7 @@ module.exports = function(grunt) {
                             'index.html', //Main Index.html
                             'stylesheets/main.min.css', //minified CSS
                             'views/*.html',
+                            'images/*.*',
                             'bower_components/px-datagrid/src/*',
                             'bower_components/px-time-series/src/*',
                             'bower_components/px-oauth/dist/views/*.html'
@@ -312,27 +287,22 @@ module.exports = function(grunt) {
                     },
                     {
                         cwd: 'public',
-                        expand: true, src: [
-                        'bower_components/iids/dist/iidx/components/requirejs/**',
-                        'bower_components/requirejs-plugins/src/**'
-                    ],
+                        expand: true,
+                        src: [
+                            'bower_components/iids/dist/iidx/components/requirejs/**',
+                            'bower_components/requirejs-plugins/src/**'
+                        ],
                         dest: '<%= config.dist %>/'
                     },
                     {
                         cwd: 'public',
                         expand: true,
-                        src: ['**/components/brandkit/fonts/*.*',],
-                        dest: '<%= config.dist %>/components/brandkit/fonts/',
-                        flatten: true
-                    },
-                    {
-                        cwd: 'public',
-                        expand: true,
-                        src: ['**/components/brandkit/img/*.*',],
-                        dest: '<%= config.dist %>/components/brandkit/img/',
-                        flatten: true
+                        src: [
+                            'bower_components/iids/dist/iidx/components/brandkit/img/*.*',
+                            'bower_components/iids/dist/iidx/components/brandkit/fonts/*.*',
+                            'bower_components/iids/dist/iidx/css/*.*'],
+                        dest: '<%= config.dist %>/'
                     }
-
                 ]
             }
         },
@@ -344,8 +314,7 @@ module.exports = function(grunt) {
                     "public/stylesheets/main.min.css": [
                         'public/stylesheets/app.css',
                         'public/stylesheets/**/*.css',
-                        '!public/stylesheets/main.min.css',
-                        'public/bower_components/iids/dist/iidx/css/*.min.css'
+                        '!public/stylesheets/main.min.css'
                     ]
                 }
             }

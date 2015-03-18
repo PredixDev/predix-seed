@@ -76,6 +76,9 @@ define(['angular', 'sample-module'], function (angular, controllers) {
             $scope.fetch($scope.datasource);
         });
 
+        $scope.errorCallback = function(){
+            $scope.errorLoading = true;
+        };
 //        // OPTIONAL interceptor before any fetch is called (allowing you to change the url, query params, request body, etc.)
 //        $scope.beforeRequest = function(datasource, context) {
 //            datasource.options.tags = ['sdf', '234234'];
