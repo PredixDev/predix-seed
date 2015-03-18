@@ -4,14 +4,13 @@ define(['angular-mocks', 'interceptors'], function (mocks, interceptors) {
     describe('interceptors', function () {
         beforeEach(module('app.interceptors'));
 
-        var  httpBackend, http, Endpoint, successCallback, errorCallback;
-        beforeEach(inject(function ($httpBackend, $http, _Endpoint_) {
+        var  httpBackend, http, LogoutService, successCallback, errorCallback;
+        beforeEach(inject(function ($httpBackend, $http, _LogoutService_) {
             httpBackend = $httpBackend;
             http = $http;
-            Endpoint = _Endpoint_;
-            spyOn(Endpoint, 'redirect').andCallThrough();
+            LogoutService = _LogoutService_;
+            spyOn(LogoutService, 'hardLogout').andCallThrough();
         }));
-
 
         describe('When getting 200 response', function () {
             beforeEach(function () {
@@ -41,7 +40,7 @@ define(['angular-mocks', 'interceptors'], function (mocks, interceptors) {
 
             it('should redirect to the UAA logout page', function () {
                 httpBackend.flush();
-                expect(Endpoint.redirect).toHaveBeenCalled();
+                expect(LogoutService.hardLogout).toHaveBeenCalled();
             });
         });
     });

@@ -15,6 +15,7 @@ define(['angular'], function (angular) {
          * Predix V server is expecting X-Requested-With header to identify the ajax traffic
          * When session is timed out, v session manager will return a json response instead of a redirect
          */
+
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
         /*
@@ -22,7 +23,7 @@ define(['angular'], function (angular) {
          * If you are using Siteminder, this interceptor can be used to capture the session timeout on an AJAX request.
          * You can implement your conditions in this interceptor according to your own requirement.
          */
-        $httpProvider.interceptors.push(['$q', 'Endpoint', function ($q, Endpoint) {
+        $httpProvider.interceptors.push(['$q', 'LogoutService', function ($q, LogoutService) {
             return {
                 // optional method
                 'request': function (config) {
@@ -43,7 +44,7 @@ define(['angular'], function (angular) {
                 // If you want to allow 401's, you can remove this method.
                 'responseError': function (rejection) {
                     if (rejection.status === 401) {
-                        Endpoint.redirect();
+                        LogoutService.hardLogout();
                     }
                     // handle error
                     return $q.reject(rejection);
