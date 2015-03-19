@@ -1,113 +1,82 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>my-test-app</title>
+    <title>Predix Seed</title>
+    <base href="/">
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="/favicon.ico">
-	<!--[if lt IE 9]>
-	<link id="theme-ie" href="bower_components/iids/css/ie.css" rel="stylesheet" type="text/css">
-	<![endif]-->
+    <!--[if IE]>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- build:css styles/vendor.css -->
-	<!-- bower:css -->
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 
-	<!-- endbower -->
-	<!-- endbuild -->
+    <!-- Styles -->
+    <link type="text/css" rel="stylesheet" href="bower_components/iids/dist/iidx/css/iids.min.css"/>
+    <link type="text/css" rel="stylesheet" href="bower_components/iids/dist/iidx/css/responsive.min.css"/>
 
-	<!-- build:css(.tmp) styles/main.css -->
-	<link href="bower_components/iids/dist/iidx/css/iids.min.css" rel="stylesheet" type="text/css">
-	<link href="bower_components/iids/dist/iidx/css/responsive.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="stylesheets/app.css">
-	<!-- endbuild -->
-	<style>
-		[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-			display: none !important;
-		}
-	</style>
+    <!--[if lt IE 9]>
+    <link id="theme-ie" type="text/css" rel="stylesheet" href="bower_components/iids/dist/iidx/css/ie.min.css"/>
+    <![endif]-->
+
+    <link type="text/css" rel="stylesheet" href="stylesheets/main.min.css"/>
+
+    <script type='application/javascript' src='cf-routes.js'></script>
+
+    <script type='application/javascript' src='https://dev-messages.grc-apps.svc.ice.ge.com/messages.js'></script>
+
 </head>
+
 <body class="app" data-ng-controller="MainCtrl">
-<!--[if lt IE 10]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
-
-<!-- Navbar -->
-<header class="navbar navbar-default navbar-static-top templatecontainer">
-
-	<div class="container">
-
-		<div class="masthead navbar-header">
-			<a class="navbar-brand" href="#">
-				<span class="ge-logo"></span>
-                <span data-ng-cloak="">{{ App.name }}
-              <small><i>powered by </i> Predix</small>
-            </span>
-			</a>
-		</div>
-
-		<!--
-		<div class="notifications pull-right">
-			<div class="btn-toolbar">
-				<div class="btn-group">
-					<button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-user"></i>
-						<span class="user-name">@session.get("loginUserName")</span>
-						<i class="icon-chevron-down"></i>
-					</button>
-					<ul class="dropdown-menu pull-right">
-						<li>
-							<a ng-href="#" data-ng-click="logout($event)" href="#">
-								<i class="icon-signout"></i> {{ "page.logout" | vmessages }}
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
--->
-	</div>
-
-	<div class="primary-navbar navbar-collapse">
-		<div class="container">
-			<ul class="nav navbar-nav" data-ng-cloak="">
-				<li ui-sref-active="active" data-ng-repeat="tab in App.tabs" tab="tab">
-					<a ui-sref="{{tab.state}}">{{tab.label}}</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-
-</header>
 
 
+<div class="navbar navbar-default navbar-static-top templatecontainer">
 
-<!-- Content -->
-<div class="content container" ui-view="">
-	<!-- This is the container where the tabs will render -->
+    <div class="container">
+
+        <div class="masthead navbar-header">
+            <a class="navbar-brand" href="#">
+                <span class="ge-logo"></span>
+                <span>Predix Dashboard
+                    <small><i>powered by</i> GE Business</small>
+                </span>
+            </a>
+        </div>
+        <div class="notifications pull-right">
+            <div class="btn-toolbar">
+                <div class="btn-group">
+                    <!-- Signout link for authentication - Adds implicit grant oauth -->
+                    <px-oauth
+                        site="site"
+                        client-id="clientId"
+                        redirect-uri="redirectUri">
+                    </px-oauth>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="primary-navbar navbar-collapse">
+        <div class="container">
+            <ul class="nav navbar-nav" data-ng-cloak="">
+                <li ui-sref-active="active" data-ng-repeat="tab in App.tabs" tab="tab">
+                    <a ui-sref="{{tab.state}}">{{tab.label}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content container" ui-view>
+    <!-- This is the container where the tabs will render -->
 </div>
 
 
-
-<!-- build:js scripts/vendor.js -->
-<!-- bower:js -->
-<script type="text/javascript">
-	var require = {
-		baseUrl: 'scripts'
-	};
-</script>
-<script src="bower_components/iids/dist/iidx/components/requirejs/require.js"></script>
-<script src="scripts/bootstrapper.js"></script>
-<!-- endbower -->
-<!-- endbuild -->
-
-
-
 </body>
+
+<script data-main='scripts/bootstrapper.js'
+        src='bower_components/iids/dist/iidx/components/requirejs/require.js'></script>
+
 </html>

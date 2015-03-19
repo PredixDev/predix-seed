@@ -1,17 +1,30 @@
 <div id="home-page" class="page">
-	<div class="page-header voice voice-brand">
-		<h1 class="pull-left page-title">home</h1>
-	</div>
-	<div class="row module-set">
-		<div class="col-sm-12">
-			<section class="module">
-				<header class="module-header">
-					<h3 class="voice voice-brand pull-left">Module</h3>
-				</header>
-				<div class="module-body"></div>
-				<footer class="module-footer">
-				</footer>
-			</section>
-		</div>
-	</div>
+    <div class="page-header voice voice-brand">
+        <h1 class="pull-left page-title">{{name}}</h1>
+    </div>
+    <div class="row module-set">
+        <div class="col-sm-12">
+            <section class="module">
+                <header class="module-header">
+                    <h3 class="voice voice-brand pull-left">Hello!</h3>
+                </header>
+                <div class="module-body">
+
+                    <p>Welcome to your Predix 2.0 seed web application.</p>
+
+                    <h2>To Run Locally</h2>
+                    <p>In the root directory, run:</p>
+                    <pre><code>./setup</code></pre>
+                    <pre><code>grunt serve</code></pre>
+                    <p>Then use the credentials <strong>bob/password</strong> to log in (Provided by UAA Server).</p>
+
+                    <h2>To Run on the Cloud</h2>
+                    <pre><code>cf push</code></pre>
+
+                </div>
+                <footer class="module-footer">
+                </footer>
+            </section>
+        </div>
+    </div>
 </div>

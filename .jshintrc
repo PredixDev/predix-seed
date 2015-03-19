@@ -20,7 +20,7 @@
 	"strict": true,
 	"trailing": true,
 	"smarttabs": true,
-	"white": true,
+	"white": false,
 	"globals": {
 		/* requirejs */
 		"window": false,
@@ -32,6 +32,7 @@
 		"expect": false,
 		"element": false,
 		/* PROTRACTOR */
+        "protractor": false,
 		"browser": false,
 		"by" : false,
 		/* MOCHA */

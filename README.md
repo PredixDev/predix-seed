@@ -1,23 +1,21 @@
-#Predix Experience Visualization 14.2E Seed
+[![Build Status](http://alpha.menlo-ci.sw.ge.com:11112/job/predix-seed/badge/icon)](http://alpha.menlo-ci.sw.ge.com:11112/job/predix-seed/)
+
+#Predix Experience 2.0 Seed
 Clone or fork this project to start your own Predictivity application. Documentation and more info can be found at [predix.sw.ge.com](http://predix.sw.ge.com)
+
+The predix-seed is a starter project that contains the following Predix components:
+- [px-contextual-dashboard](https://github.sw.ge.com/Predix-Experience/px-contextual-dashboard)
+- [px-oauth](https://github.sw.ge.com/Predix-Experience/px-oauth)
+- [px-datasource](https://github.sw.ge.com/Predix-Experience/px-datasource)
+- [px-time-series](https://github.sw.ge.com/PredixWidgetCatalog/px-time-series)
+- [px-datagrid](https://github.sw.ge.com/PredixWidgetCatalog/px-datagrid)
+- [px-tree-navigation](https://github.sw.ge.com/PredixWidgetCatalog/px-tree-navigation)
   	  
 ## To Run
 
 ### Install Framework
 
-1. Play! 2.3.4: http://downloads.typesafe.com/typesafe-activator/1.2.10/typesafe-activator-1.2.10-minimal.zip
 2. Node ^0.10.28: http://nodejs.org/download/
-3. Python 2.7.5
-
-### Setup your proxy settings
-In `~/.activator/activatorconfig.txt` (NOTE: you may need to create this file), add the following:
-```
--Dhttp.proxyHost=proxy-src.research.ge.com
--Dhttp.proxyPort=8080
--Dhttps.proxyHost=proxy-src.research.ge.com
--Dhttps.proxyPort=8080
--Dhttp.nonProxyHosts=*.swcoe.ge.com|localhost
-```
 
 npm config proxy 
 ```
@@ -33,64 +31,30 @@ npm install
 npm install -g bower
 npm install -g grunt-cli
 bower install
-grunt update
 ```
 
 ### Running the app
 In the root directory, run:
 ```
-activator run
+grunt serve
 ```
-Then use the credentials **demo/demo** to log in.
-
-## Troubleshooting
-
-### I can't log in.
-You may be unable to connect to the demo kernel server. You can either start your own kernel 
-server locally and change the app.conf settings accordingly, or disable the login page temporarily 
-by commenting out these two lines in app/controllers/ApplicationController.java.
-```
-@With(SessionManager.class) // these annotations enable authentication for the class
-@Security.Authenticated(Secured.class)
-```
+Then use the credentials provided by the UAA server to log in. (Default username/password: marissa/koala)
 
 ## Tutorial
 
 This application gives you a great starting point right out of the box, which includes the following:
-- Session Management
-- User Authentication
-- Proxy Web Service
+- Contextual Dashboard
 - Internationalization Support
-- Distributed Caching
-- JavaScript minification
+- User Authentication
+- Proxy
+- Cloud Foundry Deploy Support
 
-### Play configuration
-The build system underneath your application in [SBT](http://www.scala-sbt.org/), which is 
-configured in the build.sbt file.  This file is where your application's dependencies are
-specified, including predix-v-runtime (the V server library).
-
-The conf directory contains several other important application configuration files.
-- The app.conf file contains all of the application's runtime settings.
-- The routes file contains HTTP request verbs and paths mapped to controller methods.
-- The messages.en file is used to externalize all application strings.
-
-### Java Controllers
-The app/controllers directory contains the application's business logic, which includes the 
-following controllers by default:
-- Authentication.java is used by the Visualization code for authentication and session 
-management (if authentication is enabled).
-- ApplicationController.java is used by the Visualization code for widget rendering and 
-the proxy web service.  Check out the upload method for an example of how to do a file 
-upload.
-
-### Scala Views
-The app/views directory contains the main entry points to the application, which include:
-- app.scala.html - This file is the main view that includes all application client-side dependencies. 
-(styles, scripts, etc.)
-- loginapp.scala.html - This file is login view that is used when authentication is enabled.
+### Views
+The public/ directory contains the main entry points to the application, which include:
+- index.html - This file is the main view that includes all application client-side dependencies. 
 
 ### Angular Configuration
-Visualization projects use the AngularJS framework with RequireJS which allows Play to load, 
+Visualization projects use the AngularJS framework with RequireJS which allows Grunt to
 minify and concatenate all JavaScript files without using any extra tools.
 
 [RequireJS](http://requirejs.org/) is used to load the Angular files which are a modified 
@@ -99,9 +63,10 @@ version of the files created by the Yeoman Angular community generator.
 The public/scripts/app.js file is the main entry point to the AngularJS application, 
 which does the following:
 - Dynamically injects all AngularJS modules using RequireJS.
+- Configures application's providers for widgets and contextual dashboard's view and metadata services.
 - Defines client-side routing for the application.
 - Defines the MainCtrl.
-- Defines all datasources for the application.
+- Defines UAA configuration.
 
 The public/scripts/routes.js file defines all the routes for the application.
 
@@ -112,6 +77,7 @@ To add a new page to the application use the following steps:
 - Add a new view file into the public/views directory.
 - Add the new page to the stateProvider in routes.js.
 - Add the new page to the tabs in the MainCtrl in app.js.
+- Style the page by creating a page-specific directory under public/stylesheets with css file(s) there.
 
 ### Angular Views and Controllers
 Each page in the application has a controller and view with a one-to-one relationship that handle 
@@ -119,7 +85,7 @@ the visual representation of the application's model and its business logic.
 
 #### Views
 The views for the application are located in the public/views directory.  The templates are 
-injected into the ng-view directive located in app.scala.html file.
+injected into the ui-view directive located in index.html file.
   
 #### Controllers
 The Angular controllers for the application are located in the public/scripts/controllers 
@@ -133,25 +99,97 @@ either load them using the main.js file or require them where they are used (for
 the controller for the page they are on).
 
 ### RequireJS Configuration and Optimization
-The configuration [RequireJS](http://requirejs.org/) uses during development mode to load your 
+The configuration [RequireJS](http://requirejs.org/) used during development mode to load your 
 scripts is in the config.js file.
 
 #### Optimizer
-The configuration that Play uses to compress and run your scripts during production mode thru 
-the [r.js optimizer](http://requirejs.org/docs/optimization.html#basics) is located in the 
-build.js file.
+Grunt will use RequireJS to compress your scripts during production mode thru 
+the [r.js optimizer](http://requirejs.org/docs/optimization.html#basics). This can be configured in requirejs task of your Gruntfile.js.
 
+
+### Authentication
+This application uses [px-oauth](https://github.sw.ge.com/Predix-Experience/px-oauth) for handling [implicit grant oauth](http://oauthlib.readthedocs.org/en/latest/oauth2/grants/implicit.html). The endpoint to authorize against can be changed in your app.js
+
+```
+// Example UAA Configuration
+$scope.site = 'https://predixuaa.grc-apps.svc.ice.ge.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
+$scope.clientId = 'app';                                    // Your app id that you registered with Cloud Foundry.
+$scope.redirectUri = $location.absUrl();                    // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
+
+```
+The px-oauth directive will store the token in Session Storage and will pass it with each data source request in the `Authorization` header. The interceptor is registered with $http automatically.
+
+
+### Binding to View Service 
+
+Now the predix-seed app can be bound to be services like ``` View Service ``` to save view
+
+
+```unix
+
+cf m | grep -i "View Service Free" 
+View Service Free        Free View Service*                                       Allows user to create up to  views
+
+# Creating Service  (Can be run once in a space or more —If really reqd)
+cf cs "View Service Free" "free-view-service” viewPersistence
+
+#Binding to the application
+cf bs dev-exp-seed viewPersistence
+
+# Validating the binding
+cf env dev-exp-seed
+
+
+```
+The output should look like something below
+
+```json
+{
+ "VCAP_SERVICES": {
+  "View Service Free": [
+   {
+    "credentials": {
+     "url": "dev-dashboard-server.grc-apps.svc.ice.ge.com"
+    },
+    "label": "View Service Free",
+    "name": "viewPersistence",
+    "plan": "Free View Service",
+    "syslog_drain_url": "",
+    "tags": []
+   }
+  ]
+ }
+}
+
+```
+
+Now in your application ``` app.js ```, you can add ``` 'VCAP_SERVICES' ``` as a dependency and then use it whereever you want to get the url
+
+```javascript
+
+   ViewServiceProvider.setViewUrl(VCAP_SERVICES.viewPersistence);
+
+```
+
+
+### Deploying
 To create a dist build run the following command from inside of your projects root directory:
+```unix
+grunt dist
+cf push;
 ```
-activator dist
-```
+
+You might want to revisit the dist/nginx.conf folder to check on nginx configuration
+
+### Contextual Dashboard
+For details on how to use and configure the contextual dashboard, see the [px-contextual-dashboard README](https://github.sw.ge.com/Predix-Experience/px-contextual-dashboard).
 
 ## Questions?
 - Ask questions on [AnswerHub](https://answers.sw.ge.com/spaces/53/experience.html)
 - File tickets for [support](https://gesoftware.service-now.com/Predix/)
 
 # Copyright
-Copyright &copy; 2014 GE Global Research. All rights reserved.
+Copyright &copy; 2015 GE Global Research. All rights reserved.
 
 The copyright to the computer software herein is the property of
 GE Global Research. The software may be used and/or copied only
