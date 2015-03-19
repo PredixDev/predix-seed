@@ -21,12 +21,6 @@ module.exports = function(grunt) {
         dist: 'dist/www',
         bower: 'public/bower_components',
         tmp: '.tmp',
-        artifactory: {
-            host: 'https://devcloud.swcoe.ge.com',
-            repo: 'DSP',
-            username: '502398775',
-            password: '{DESede}/O9QTuX+WMKXBCwL9/LJUQ=='
-        },
         //Enviornment specific settings
         dev: {
             options: {
@@ -107,9 +101,6 @@ module.exports = function(grunt) {
         // Clean task configuration
         clean: {
             build: ['<%= config.dist %>'],
-            artifactory: [
-                '<%= config.bower %>/vruntime'
-            ],
             test: ['test-target/']
         },
 
@@ -394,54 +385,8 @@ module.exports = function(grunt) {
                 src: '<%= concat.dist.dest %>',
                 dest: '<%= config.dist %>/<%= pkg.name %>.min.js'
             }
-        },
-
-        // Artifactory task
-        artifactory: {
-            //vClient library
-            vclient: {
-                options: {
-                    url: '<%=config.artifactory.host %>',
-                    repository: '<%= grunt.config.get("repo") %>',
-                    username: '<%= config.artifactory.username %>',
-                    password: '<%= config.artifactory.password %>',
-                    fetch: [
-                        {
-                            group_id: 'com.ge.predix.js',
-                            name: 'vruntime',
-                            ext: 'zip',
-                            version: '1.9.0',
-                            path: '<%= config.bower %>/vruntime'
-                        }
-                    ]
-                }
-            },
-            //iidx library
-            ux: {
-                options: {
-                    url: '<%=config.artifactory.host %>',
-                    repository: '<%= grunt.config.get("repo") %>',
-                    username: '<%=config.artifactory.username %>',
-                    password: '<%=config.artifactory.password %>',
-                    fetch: [
-                        {
-                            group_id: 'com.ge.predix',
-                            name: 'iidx',
-                            ext: 'zip',
-                            version: '3.0.0',
-                            path: '<%= config.bower %>/iids'
-                        }
-
-                    ]
-                }
-            }
         }
     });
-
-    //TODO - Grunt Tasks
-    //TODO - pull the vclient/iidx distributions from artifactory (configured above)
-    grunt.registerTask('predix:update', ['config:prod', 'clean:artifactory', 'artifactory:ux', 'artifactory:vclient']);
-    grunt.registerTask('update', ['config:prod', 'clean:artifactory', 'artifactory:ux', 'artifactory:vclient']);
 
     grunt.registerTask('dist', ['clean:build', 'cssmin', 'jshint:src', 'copy:dist', 'requirejs']);
     grunt.registerTask('test', ['jshint:test', 'clean:test', 'karma']);
