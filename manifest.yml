@@ -1,10 +1,9 @@
 ---
 applications:
-  - name: dev-exp-seed
+  - name: predix-experience-seed
     buildpack: https://github.com/sabithksme/staticfile-buildpack.git
     path: dist
     memory: 64M
     services:
-            - viewPersistence
-env:
-    assetUrl: http://asset-service-sprintdemo.grc-apps.svc.ice.ge.com/services/asset
+            - viewPersistenceService
+            - predixAsset

@@ -31,7 +31,6 @@ npm install
 npm install -g bower
 npm install -g grunt-cli
 bower install
-grunt update
 ```
 
 ### Running the app
@@ -132,10 +131,10 @@ cf m | grep -i "View Service Free"
 View Service Free        Free View Service*                                       Allows user to create up to  views
 
 # Creating Service  (Can be run once in a space or more —If really reqd)
-cf cs "View Service Free" "free-view-service” view_persistence
+cf cs "View Service Free" "free-view-service” viewPersistence
 
 #Binding to the application
-cf bs dev-exp-seed view_persistence
+cf bs dev-exp-seed viewPersistence
 
 # Validating the binding
 cf env dev-exp-seed
@@ -153,7 +152,7 @@ The output should look like something below
      "url": "dev-dashboard-server.grc-apps.svc.ice.ge.com"
     },
     "label": "View Service Free",
-    "name": "view_persistence",
+    "name": "viewPersistence",
     "plan": "Free View Service",
     "syslog_drain_url": "",
     "tags": []
@@ -164,13 +163,14 @@ The output should look like something below
 
 ```
 
-Now in your application ``` app.js ```, you can do
+Now in your application ``` app.js ```, you can add ``` 'VCAP_SERVICES' ``` as a dependency and then use it whereever you want to get the url
 
 ```javascript
-   ViewServiceProvider.setViewUrl(window.getCfRoute('view_persistence')));
+
+   ViewServiceProvider.setViewUrl(VCAP_SERVICES.viewPersistence);
+
 ```
 
-```javascript window.getCfRoute ``` is  a javascript function that would be made available by the static build pack.
 
 ### Deploying
 To create a dist build run the following command from inside of your projects root directory:

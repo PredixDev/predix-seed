@@ -38,7 +38,6 @@
     "grunt-ngdocs": "^0.2.4",
     "grunt-protractor-runner": "^0.2.4",
     "grunt-protractor-webdriver": "^0.1.9",
-    "json-proxy": "0.3.0",
     "karma": "~0.12.0",
     "karma-chrome-launcher": "~0.1",
     "karma-coverage": "^0.2.1",

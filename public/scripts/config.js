@@ -72,6 +72,8 @@ require.config({
         propertyParser: '../bower_components/requirejs-plugins/src/propertyParser',
         Markdown: '../bower_components/requirejs-plugins/lib/Markdown.Converter',
         css: '../bower_components/require-css/css',
+        'css-builder': '../bower_components/require-css/css-builder',
+        'normalize': '../bower_components/require-css/normalize',
 
         /*
          * IIDx 3.0.0

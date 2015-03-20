@@ -21,12 +21,6 @@ module.exports = function(grunt) {
         dist: 'dist/www',
         bower: 'public/bower_components',
         tmp: '.tmp',
-        artifactory: {
-            host: 'https://devcloud.swcoe.ge.com',
-            repo: 'DSP',
-            username: '502398775',
-            password: '{DESede}/O9QTuX+WMKXBCwL9/LJUQ=='
-        },
         //Enviornment specific settings
         dev: {
             options: {
@@ -107,9 +101,6 @@ module.exports = function(grunt) {
         // Clean task configuration
         clean: {
             build: ['<%= config.dist %>'],
-            artifactory: [
-                '<%= config.bower %>/vruntime'
-            ],
             test: ['test-target/']
         },
 
@@ -121,37 +112,7 @@ module.exports = function(grunt) {
                     open: true,
                     hostname: 'localhost',
                     middleware: function(connect, options, middlewares) {
-                        var proxyConfig = {
-                            proxy: {
-                                forward: {
-                                    '/services/asset': 'http://asset-service-sprintdemo.grc-apps.svc.ice.ge.com',
-                                    '/api/v2/proxy': 'http://dev-exp-seed.grc-apps.svc.ice.ge.com',
-                                    '/components/brandkit/': 'http://localhost:' + SERVER_PORT + '/bower_components/iids/dist/iidx'
-                                },
-                                headers: {
-                                    //make sure to keep Service-End-Point header which for some reason is getting clobbered
-                                    'X-No-Validation': function(req) {
-                                        console.log(req.headers);
-                                        return true; //req.headers['x-no-validation']
-                                    },
-                                    'Accept': function(req) {
-                                        return 'application/json; charset=UTF-8';
-                                    },
-                                    'Content-Type': function(req) {
-                                        return 'application/json, text/javascript, */*; q=0.01';
-                                    },
-                                    'Service-End-Point': function(req) {
-                                        return req.headers['service-end-point'] || 'NA'
-                                    },
-                                    'authorization': function(req) {
-                                        return req.headers['authorization'] || 'NA'
-                                    }
-                                }
-                            }
-                        };
-
                         return [
-                            require('json-proxy').initialize(proxyConfig),
                             require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']),
                             connect.static(require('path').resolve('public'))
                         ];
@@ -308,6 +269,7 @@ module.exports = function(grunt) {
                             'index.html', //Main Index.html
                             'stylesheets/main.min.css', //minified CSS
                             'views/*.html',
+                            'images/*.*',
                             'bower_components/px-datagrid/src/*',
                             'bower_components/px-time-series/src/*',
                             'bower_components/px-oauth/dist/views/*.html'
@@ -316,27 +278,22 @@ module.exports = function(grunt) {
                     },
                     {
                         cwd: 'public',
-                        expand: true, src: [
-                        'bower_components/iids/dist/iidx/components/requirejs/**',
-                        'bower_components/requirejs-plugins/src/**'
-                    ],
+                        expand: true,
+                        src: [
+                            'bower_components/iids/dist/iidx/components/requirejs/**',
+                            'bower_components/requirejs-plugins/src/**'
+                        ],
                         dest: '<%= config.dist %>/'
                     },
                     {
                         cwd: 'public',
                         expand: true,
-                        src: ['**/components/brandkit/fonts/*.*',],
-                        dest: '<%= config.dist %>/components/brandkit/fonts/',
-                        flatten: true
-                    },
-                    {
-                        cwd: 'public',
-                        expand: true,
-                        src: ['**/components/brandkit/img/*.*',],
-                        dest: '<%= config.dist %>/components/brandkit/img/',
-                        flatten: true
+                        src: [
+                            'bower_components/iids/dist/iidx/components/brandkit/img/*.*',
+                            'bower_components/iids/dist/iidx/components/brandkit/fonts/*.*',
+                            'bower_components/iids/dist/iidx/css/*.*'],
+                        dest: '<%= config.dist %>/'
                     }
-
                 ]
             }
         },
@@ -348,8 +305,7 @@ module.exports = function(grunt) {
                     "public/stylesheets/main.min.css": [
                         'public/stylesheets/app.css',
                         'public/stylesheets/**/*.css',
-                        '!public/stylesheets/main.min.css',
-                        'public/bower_components/iids/dist/iidx/css/*.min.css'
+                        '!public/stylesheets/main.min.css'
                     ]
                 }
             }
@@ -429,54 +385,8 @@ module.exports = function(grunt) {
                 src: '<%= concat.dist.dest %>',
                 dest: '<%= config.dist %>/<%= pkg.name %>.min.js'
             }
-        },
-
-        // Artifactory task
-        artifactory: {
-            //vClient library
-            vclient: {
-                options: {
-                    url: '<%=config.artifactory.host %>',
-                    repository: '<%= grunt.config.get("repo") %>',
-                    username: '<%= config.artifactory.username %>',
-                    password: '<%= config.artifactory.password %>',
-                    fetch: [
-                        {
-                            group_id: 'com.ge.predix.js',
-                            name: 'vruntime',
-                            ext: 'zip',
-                            version: '1.9.0',
-                            path: '<%= config.bower %>/vruntime'
-                        }
-                    ]
-                }
-            },
-            //iidx library
-            ux: {
-                options: {
-                    url: '<%=config.artifactory.host %>',
-                    repository: '<%= grunt.config.get("repo") %>',
-                    username: '<%=config.artifactory.username %>',
-                    password: '<%=config.artifactory.password %>',
-                    fetch: [
-                        {
-                            group_id: 'com.ge.predix',
-                            name: 'iidx',
-                            ext: 'zip',
-                            version: '3.0.0',
-                            path: '<%= config.bower %>/iids'
-                        }
-
-                    ]
-                }
-            }
         }
     });
-
-    //TODO - Grunt Tasks
-    //TODO - pull the vclient/iidx distributions from artifactory (configured above)
-    grunt.registerTask('predix:update', ['config:prod', 'clean:artifactory', 'artifactory:ux', 'artifactory:vclient']);
-    grunt.registerTask('update', ['config:prod', 'clean:artifactory', 'artifactory:ux', 'artifactory:vclient']);
 
     grunt.registerTask('dist', ['clean:build', 'cssmin', 'jshint:src', 'copy:dist', 'requirejs']);
     grunt.registerTask('test', ['jshint:test', 'clean:test', 'karma']);

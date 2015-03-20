@@ -12,6 +12,13 @@
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 
     <!-- Styles -->
+    <link type="text/css" rel="stylesheet" href="bower_components/iids/dist/iidx/css/iids.min.css"/>
+    <link type="text/css" rel="stylesheet" href="bower_components/iids/dist/iidx/css/responsive.min.css"/>
+
+    <!--[if lt IE 9]>
+    <link id="theme-ie" type="text/css" rel="stylesheet" href="bower_components/iids/dist/iidx/css/ie.min.css"/>
+    <![endif]-->
+
     <link type="text/css" rel="stylesheet" href="stylesheets/main.min.css"/>
 
     <script type='application/javascript' src='cf-routes.js'></script>
@@ -38,19 +45,12 @@
         <div class="notifications pull-right">
             <div class="btn-toolbar">
                 <div class="btn-group">
-                    <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-user"></i>
-                        <span class="user-name"> Username </span>
-                        <i class="icon-chevron-down"></i>
-                    </button>
-                    <ul class="dropdown-menu pull-right">
-                        <!-- Signout link for authentication - Adds implicit grant oauth -->
-                        <px-oauth
-                            site="site"
-                            client-id="clientId"
-                            redirect-uri="redirectUri">
-                        </px-oauth>
-                    </ul>
+                    <!-- Signout link for authentication - Adds implicit grant oauth -->
+                    <px-oauth
+                        site="site"
+                        client-id="clientId"
+                        redirect-uri="redirectUri">
+                    </px-oauth>
                 </div>
             </div>
         </div>
@@ -70,9 +70,8 @@
 
 <!-- MAIN CONTENT -->
 <div class="content container" ui-view>
-<!-- This is the container where the tabs will render -->
+    <!-- This is the container where the tabs will render -->
 </div>
-
 
 
 </body>
