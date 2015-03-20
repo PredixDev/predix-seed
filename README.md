@@ -38,7 +38,7 @@ In the root directory, run:
 ```
 grunt serve
 ```
-Then use the credentials provided by the UAA server to log in. (Default username/password: marissa/koala)
+Then use the credentials provided by the UAA server to log in. (Default username/password: rocket/Gu@rdian5)
 
 ## Tutorial
 
