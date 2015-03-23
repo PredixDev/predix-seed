@@ -19,7 +19,9 @@ define(['angular',
             baseUrl: VCAP_SERVICES.predixAsset+'/services', // the base uri where your asset instance is
             rootEntityId: null, // the root of the context browser
             onOpenContext: function (contextDetails) { // callback when the open button is hit in the context browser
-                $scope.context = contextDetails;
+                $scope.$apply(function() {
+                    $scope.context = contextDetails;
+                });
             },
             transformSelectedEntityDetails: function (entity) { // configure key value pairs to show in the entity info panel in the context browser (the selected entity)
                 return [
