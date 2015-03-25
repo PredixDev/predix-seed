@@ -29,12 +29,15 @@
         }
     </style>
 
+    <!--
+    Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports.
+    Must be loaded before jquery: https://github.com/webcomponents/webcomponentsjs/issues/48
+     -->
+    <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+
     <script type='application/javascript' src='cf-routes.js'></script>
 
     <script type='application/javascript' src='https://dev-messages.grc-apps.svc.ice.ge.com/messages.js'></script>
-
-    <!-- Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports -->
-    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
 
 
 </head>
