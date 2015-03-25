@@ -35,10 +35,10 @@
     <div class="container">
 
         <div class="masthead navbar-header">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#" data-ng-cloak="">
                 <span class="ge-logo"></span>
-                <span>Predix Dashboard
-                    <small><i>powered by</i> GE Business</small>
+                <span>{{ 'application.page.title' | vmessages }}
+                    <small><i>{{ 'application.page.powered.by' | vmessages }}</i>{{ 'application.page.ge.business' | vmessages }}</small>
                 </span>
             </a>
         </div>
