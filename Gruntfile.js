@@ -84,6 +84,10 @@ module.exports = function(grunt) {
                 ],
                 tasks: ['cssmin']
             },
+            less: {
+                files: ['<%= config.app %>/stylesheets/**/*.less'],
+                tasks: ['less']
+            },
             scripts: {
                 files: [
                     '<%= config.test %>/e2e/**/*.js',
@@ -311,6 +315,13 @@ module.exports = function(grunt) {
             }
         },
 
+        less: {
+            development: {
+                files: {
+                    '<%= config.app %>/stylesheets/app.css': '<%= config.app %>/stylesheets/**/*.less'
+                }
+            }
+        },
 
         // Bump task -
         bump: {
@@ -388,10 +399,10 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('dist', ['clean:build', 'cssmin', 'jshint:src', 'copy:dist', 'requirejs']);
+    grunt.registerTask('dist', ['clean:build', 'less', 'cssmin', 'jshint:src', 'copy:dist', 'requirejs']);
     grunt.registerTask('test', ['jshint:test', 'clean:test', 'karma']);
     grunt.registerTask('test:e2e', ['clean:test', 'protractor_webdriver', 'protractor']);
-    grunt.registerTask('serve', ['cssmin', 'clean:build', 'connect:livereload', 'watch']);
+    grunt.registerTask('serve', ['less', 'cssmin', 'clean:build', 'connect:livereload', 'watch']);
     grunt.registerTask('docs', ['dist', 'ngdocs', 'connect:docs']);
     grunt.registerTask('default', ['dist', 'test']);
 };
