@@ -86,7 +86,7 @@ module.exports = function(grunt) {
             },
             less: {
                 files: ['<%= config.app %>/stylesheets/**/*.less'],
-                tasks: ['less']
+                tasks: ['less','cssmin']
             },
             scripts: {
                 files: [
