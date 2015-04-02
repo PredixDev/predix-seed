@@ -29,7 +29,7 @@
         "px-app-nav": "git://github.sw.ge.com/PXC/px-app-nav.git#master",
         "iids": "git://github.sw.ge.com/Predix-Experience/iidx#3.0",
         "vruntime": "git://github.sw.ge.com/Predix-Experience/vclient#1.0",
-        "px-starter-kit-design": "git://github.sw.ge.com/pxc/px-starter-kit-design.git#master"
+        "px-starter-kit-design": "git://github.sw.ge.com/PXd/px-starter-kit-design.git#master"
     }
 }
 
