@@ -11,23 +11,7 @@
 
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 
-    <!-- Styles -->
-    <link type="text/css" rel="stylesheet" href="bower_components/iids/dist/iidx/css/iids.min.css"/>
-    <link type="text/css" rel="stylesheet" href="bower_components/iids/dist/iidx/css/responsive.min.css"/>
-
-    <!--[if lt IE 9]>
-    <link id="theme-ie" type="text/css" rel="stylesheet" href="bower_components/iids/dist/iidx/css/ie.min.css"/>
-    <![endif]-->
-
-    <link type="text/css" rel="stylesheet" href="stylesheets/main.min.css"/>
-
-    <!-- override IIDx styles here for purposes of Px until IIDx is removed / replaced -->
-    <style>
-        html {
-            font-size: 1em;
-            line-height: 1.5;
-        }
-    </style>
+    <link type="text/css" rel="stylesheet" href="stylesheets/px.css"/>
 
     <!--
     Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports.
@@ -62,7 +46,7 @@
 </px-app-nav>
 
 <!-- MAIN CONTENT -->
-<div class="content container" ui-view>
+<div class="viewport" ui-view>
     <!-- This is the container where the tabs will render -->
 </div>
 
