@@ -297,13 +297,24 @@ module.exports = function(grunt) {
                 ]
             }
         },
+        
+        sass: {
+            dist: {
+            options: {
+              includePaths: ['public/bower_components']
+            },
+            files: {
+              'public/stylesheets/px.css': 'sass/px.scss'
+            }
+          }
+        },
 
         cssmin: {
             options: {},
             target: {
                 files: {
                     "public/stylesheets/main.min.css": [
-                        'public/stylesheets/app.css',
+                        //'public/stylesheets/app.css',
                         'public/stylesheets/**/*.css',
                         '!public/stylesheets/main.min.css'
                     ]
@@ -388,10 +399,10 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('dist', ['clean:build', 'cssmin', 'jshint:src', 'copy:dist', 'requirejs']);
+    grunt.registerTask('dist', ['clean:build', 'cssmin', 'jshint:src', 'copy:dist', 'requirejs', 'sass']);
     grunt.registerTask('test', ['jshint:test', 'clean:test', 'karma']);
     grunt.registerTask('test:e2e', ['clean:test', 'protractor_webdriver', 'protractor']);
-    grunt.registerTask('serve', ['cssmin', 'clean:build', 'connect:livereload', 'watch']);
+    grunt.registerTask('serve', ['cssmin', 'clean:build', 'connect:livereload', 'watch', 'sass']);
     grunt.registerTask('docs', ['dist', 'ngdocs', 'connect:docs']);
     grunt.registerTask('default', ['dist', 'test']);
 };
