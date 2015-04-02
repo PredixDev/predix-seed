@@ -56,6 +56,7 @@
     "requirejs": "~2.1.11",
     "rjs-build-analysis": "0.0.3",
     "time-grunt": "^0.4.0",
-    "grunt-sass": "^0.18.1"
+    "grunt-sass": "^0.18.1",
+    "grunt-autoprefixer": "~2.2.0"
   }
 }

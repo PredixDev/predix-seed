@@ -304,8 +304,20 @@ module.exports = function(grunt) {
               includePaths: ['public/bower_components']
             },
             files: {
-              'public/stylesheets/px.css': 'sass/px.scss'
+              'public/stylesheets/noprefix/px.css': 'sass/px.scss'
             }
+          }
+        },
+        
+        autoprefixer: {
+            options: {
+            browsers: ['last 2 version']
+          },
+          multiple_files: {
+            expand: true,
+            flatten: true,
+            src: 'public/stylesheets/noprefix/*.css',
+            dest: 'public/stylesheets'
           }
         },
 
@@ -399,10 +411,10 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('dist', ['clean:build', 'cssmin', 'jshint:src', 'copy:dist', 'requirejs', 'sass']);
+    grunt.registerTask('dist', ['clean:build', 'cssmin', 'jshint:src', 'copy:dist', 'requirejs', 'sass', 'autoprefixer']);
     grunt.registerTask('test', ['jshint:test', 'clean:test', 'karma']);
     grunt.registerTask('test:e2e', ['clean:test', 'protractor_webdriver', 'protractor']);
-    grunt.registerTask('serve', ['cssmin', 'clean:build', 'connect:livereload', 'watch', 'sass']);
+    grunt.registerTask('serve', ['cssmin', 'clean:build', 'connect:livereload', 'watch', 'sass', 'autoprefixer']);
     grunt.registerTask('docs', ['dist', 'ngdocs', 'connect:docs']);
     grunt.registerTask('default', ['dist', 'test']);
 };
