@@ -17,7 +17,7 @@
     Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports.
     Must be loaded before jquery: https://github.com/webcomponents/webcomponentsjs/issues/48
      -->
-    <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
     <script type='application/javascript' src='cf-routes.js'></script>
 
@@ -30,7 +30,7 @@
 
 <link rel="import" href="bower_components/px-app-nav/px-app-nav.html"/>
 
-<px-app-nav navItems="{{App.tabs}}" pathPrefix="/" pathKey="state" solutionName="GE Software">
+<px-app-nav nav-items="{{App.tabs}}" path-prefix="/" path-key="state" solution-name="GE Software">
 
     <div class="auth">
         <px-oauth
