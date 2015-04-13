@@ -85,7 +85,7 @@ module.exports = function(grunt) {
                 tasks: ['cssmin']
             },
             less: {
-                files: ['<%= config.app %>/stylesheets/**/*.less'],
+                files: ['<%= config.app %>/stylesheets/app.less'],
                 tasks: ['less','cssmin']
             },
             scripts: {
@@ -318,7 +318,7 @@ module.exports = function(grunt) {
         less: {
             development: {
                 files: {
-                    '<%= config.app %>/stylesheets/app.css': '<%= config.app %>/stylesheets/**/*.less'
+                    '<%= config.app %>/stylesheets/app.css': '<%= config.app %>/stylesheets/app.less'
                 }
             }
         },
