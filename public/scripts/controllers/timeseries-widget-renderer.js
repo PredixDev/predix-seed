@@ -15,8 +15,7 @@
  * The possible ways to extend the WidgetRenderer today are:
  *      - change the datasource before a request is made                    (implement beforeRequest)
  *      - transform the response data before it is given to the widget      (implement afterResponse)
- *      - handle events from other widgets (fetch different data)           (add a px-dashboard-event handler)
- *
+ *      - handle events from other widgets (fetch different data)           (add a custom event handler + reflect the event back in your page's controller)
  *
  *
  * If you decide you need to extend the default WidgetRenderer controller for one of your widgets, here are the steps (examples shown below):
@@ -38,7 +37,7 @@
  *              }
  *              ...
  *
- *      3. Implement any customizations you need (beforeRequest, afterResponse, event handlers).
+ *      3. Implement any customizations you need (beforeRequest, afterResponse, custom event handlers).
  *
  *      4. Extend the WidgetRendererController in the LAST line of this file.
  *              angular.extend(this, $controller('WidgetRendererController', {$scope: $scope}));
@@ -52,7 +51,7 @@ define(['angular', 'sample-module'], function (angular, controllers) {
     controllers.controller('TimeseriesWidgetRendererCtrl', ['$scope', '$controller', function ($scope, $controller) {
 
         // EXAMPLE time series widget uses this controller to handle x-axis events and update the data.
-        // catch the px-dashboard-event
+        // catch the px-dashboard-event (which is emitted from the px-time-series widget
         $scope.$on('px-dashboard-event', function (event, name, args) {
             // we suggest having an additional unique name to identify your event
             if (name !== 'after-set-extremes') {
@@ -92,12 +91,19 @@ define(['angular', 'sample-module'], function (angular, controllers) {
 //            return data;
 //        };
 //
-//        // OPTIONAL catch the px-dashboard-event
-//        $scope.$on('px-dashboard-event', function(event, name, tags){
-//            // we suggest having an additional unique name to identify your event
-//            if(name !== 'my-button-click-event'){
-//                return;
-//            }
+//        // OPTIONAL catch my-custom-event
+//        // You can catch events that come from
+//        //       1. the widget that this renderer is around
+//        //               You may want to catch events that are emitted by the widget that this renderer controller is wrapping.
+//        //               The example above show catching an event from the time-series widget which then re-fetches the data with different start/end times.
+//        //       2. a different widget on the page
+//        //               You may want to enable widget-to-widget communication on your page by catching an event here from another widget on the page.
+//        //               To do this you need to:
+//        //                   - emit a uniquely-named event from the talking widget (ex: 'tag-clicked-event')
+//        //                   - catch this event ($on('tag-clicked-event')) in your page controller (so DashboardCtrl in dashboard.js or similar)
+//        //                       and $broadcast a differently named event back down ($broadcast('update-timeseries')).
+//        //                   - catch the broadcasted event ($on('update-timeseries')) in the updating widget's renderer controller (like below)
+//        $scope.$on('my-custom-event', function(event, name, tags){
 //
 //            // override the datasource (to customize the method, url, or options)
 //            // careful, if you have the beforeRequest interceptor implemented and do the same changes there as well it'll happen 2 times!
