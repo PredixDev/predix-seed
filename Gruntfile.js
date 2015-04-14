@@ -282,8 +282,8 @@ module.exports = function(grunt) {
                         src: [
                             'bower_components/iids/dist/iidx/components/requirejs/**',
                             'bower_components/requirejs-plugins/src/**',
-                            'bower_components/requirejs-plugins/lib/**',
-                            'bower_components/require-css/**'
+                            'bower_components/requirejs-plugins/lib/text.js',
+                            'bower_components/require-css/css.js'
                         ],
                         dest: '<%= config.dist %>/'
                     },
