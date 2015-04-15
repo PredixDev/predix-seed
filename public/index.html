@@ -27,29 +27,26 @@
 </head>
 
 <body class="app" data-ng-controller="MainCtrl">
-  
-  <div class="viewport viewport--full-height">
-
-<link rel="import" href="bower_components/px-app-nav/px-app-nav.html"/>
-
-<div class="layout">
-    <px-app-nav nav-items="{{App.tabs}}" path-prefix="/" path-key="state">
-
-    <div class="auth">
-        <px-oauth
-                site="site"
-                client-id="clientId"
-                redirect-uri="redirectUri">
-        </px-oauth>
+  <div class="viewport">
+    <div class="layout">
+      <div class="layout__item">
+        <link rel="import" href="bower_components/px-app-nav/px-app-nav.html"/>
+        <px-app-nav nav-items="{{App.tabs}}" path-prefix="/" path-key="state">
+          <div class="auth">
+            <px-oauth
+                    site="site"
+                    client-id="clientId"
+                    redirect-uri="redirectUri">
+            </px-oauth>
+          </div>
+        </px-app-nav>
+      </div>
+      <!-- MAIN CONTENT -->
+      <div class="layout__item" ui-view>
+          <!-- This is the container where the tabs will render -->
+      </div>
     </div>
-</px-app-nav>
-
-    <!-- MAIN CONTENT -->
-    <div ui-view>
-        <!-- This is the container where the tabs will render -->
-    </div>
-
-
+  </div>
 </body>
 
 <script data-main='scripts/bootstrapper.js'
