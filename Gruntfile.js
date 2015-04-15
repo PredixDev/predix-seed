@@ -5,12 +5,12 @@
 module.exports = function(grunt) {
     'use strict';
 
-    //Local server ports
+    // Local server ports
     var LIVERELOAD_PORT = 35723;
     var SERVER_PORT = 9000;
     var RUNNER_PORT = 9002;
 
-    //Project config
+    // Project config
     var buildNumber = '';
     var CONFIG = {
         name: 'my-predix-app',
@@ -38,17 +38,17 @@ module.exports = function(grunt) {
         }
     };
 
-    //For adding build number to zip
+    // For adding build number to zip
     if (grunt.option('buildNumber')) {
         buildNumber = grunt.option('buildNumber');
     }
 
-    //Connect - Livereload setup
+    // Connect - Livereload setup
     var lrSnippet = require('connect-livereload')({
         port: CONFIG.livereload
     });
 
-    //Connect - static directory
+    // Connect - static directory
     var mountFolder = function(connect, dir) {
         return connect.static(require('path').resolve(dir));
     };
@@ -241,7 +241,7 @@ module.exports = function(grunt) {
             }
         },
 
-        //Changelog - https://www.npmjs.org/package/grunt-changelog
+        // Changelog - https://www.npmjs.org/package/grunt-changelog
         changelog: {
             sample: {
                 options: {
@@ -333,7 +333,7 @@ module.exports = function(grunt) {
         },
 
         // NG Docs Task - https://github.com/m7r/grunt-ngdocs
-        //Docs how-to - https://github.com/angular/angular.js/wiki/Writing-AngularJS-Documentation
+        // Docs how-to - https://github.com/angular/angular.js/wiki/Writing-AngularJS-Documentation
         ngdocs: {
             options: {
                 html5Mode: false,
