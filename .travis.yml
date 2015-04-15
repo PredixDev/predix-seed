@@ -17,6 +17,5 @@ script:
   - npm config set registry http://GIS05808.devcloud.ge.com:9095
   - npm install
   - bower --allow-root install
-  - npm install -g grunt-cli
   - grunt -V
   - grunt -v
