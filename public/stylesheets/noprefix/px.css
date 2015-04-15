@@ -634,6 +634,9 @@ html {
       padding-right: 0;
       padding-left: 0; } }
 
+.viewport--full-height {
+  min-height: 100vh; }
+
 /*------------------------------------*\
     $PX-TYPOGRAPHY-DESIGN
 \*------------------------------------*/
@@ -816,9 +819,6 @@ html {
        */
 .layout--full .layout__item {
   display: flex; }
-
-body, html {
-  height: 100%; }
 
 /*------------------------------------*\
     #PX-CLEARFIX-DESIGN
