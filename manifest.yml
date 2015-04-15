@@ -1,6 +1,6 @@
 ---
 applications:
-  - name: predix-experience-seed
+  - name: predix-experience-seed-fork
     buildpack: https://github.com/sabithksme/staticfile-buildpack.git
     path: dist
     memory: 64M
