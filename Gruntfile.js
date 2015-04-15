@@ -164,7 +164,7 @@ module.exports = function(grunt) {
             }
         },
 
-        //JSHint task -
+        // JSHint task - https://www.npmjs.com/package/grunt-contrib-jshint
         jshint: {
             options: {
                 jshintrc: '.jshintrc'
@@ -300,6 +300,7 @@ module.exports = function(grunt) {
             }
         },
 
+        // cssmin task - https://github.com/gruntjs/grunt-contrib-cssmin
         cssmin: {
             options: {},
             target: {
@@ -314,7 +315,7 @@ module.exports = function(grunt) {
         },
 
 
-        // Bump task -
+        // Bump task - https://www.npmjs.com/package/grunt-bump
         bump: {
             options: {
                 files: ['package.json'],
@@ -346,7 +347,7 @@ module.exports = function(grunt) {
             }
         },
 
-        //ngAnnotate task
+        // ngAnnotate - https://www.npmjs.com/package/grunt-ng-annotate
         ngAnnotate: {
             options: {
                 singleQuotes: true,
@@ -366,7 +367,7 @@ module.exports = function(grunt) {
             }
         },
 
-        //Concat task
+        // Concat task - https://www.npmjs.com/package/grunt-contrib-concat
         concat: {
             options: {
                 //banner: '<%= meta.banner %>',
@@ -378,7 +379,7 @@ module.exports = function(grunt) {
             }
         },
 
-        //Uglify task
+        // Uglify task - https://www.npmjs.com/package/grunt-contrib-uglify
         uglify: {
             options: {
                 //banner: '<%= meta.banner %>'
