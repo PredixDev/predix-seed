@@ -28,6 +28,11 @@
     "px-datasource": "git://github.sw.ge.com/Predix-Experience/px-datasource.git#develop",
     "px-contextual-dashboard": "git://github.sw.ge.com/PX/px-contextual-dashboard.git#develop",
     "px-app-nav": "git://github.sw.ge.com/PXC/px-app-nav.git#master",
+    "px-starter-kit-design": "git://github.sw.ge.com/PXC/px-starter-kit-design.git#master",
+    "px-buttons-design": "git://github.sw.ge.com/PXC/px-buttons-design.git#master",
+    "px-colors-design": "git://github.sw.ge.com/PXC/px-colors-design.git#master",
+    "px-layout-design": "git://github.sw.ge.com/PXC/px-layout-design.git#master",
+    "px-list-bare-design": "git://github.sw.ge.com/PXC/px-list-bare-design.git#master",
     "vruntime": "git://github.sw.ge.com/Predix-Experience/vclient#1.0"
   },
   "resolutions": {
