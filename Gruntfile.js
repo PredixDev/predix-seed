@@ -21,7 +21,7 @@ module.exports = function(grunt) {
         dist: 'dist/www',
         bower: 'public/bower_components',
         tmp: '.tmp',
-        //Enviornment specific settings
+        // Environment-specific settings
         dev: {
             options: {
                 variables: {
@@ -246,9 +246,9 @@ module.exports = function(grunt) {
             sample: {
                 options: {
                     dest: 'release-notes/<%= pkg.version %>.txt',
-                    //TODO: Change to match your projects feature commit comment code.
+                    //TODO: Change to match your project's feature commit comment code.
                     //featureRegex: '/(^(PROJECT-*\d+\W*\s*\[FEATURE\])+\s-\s)/gm',
-                    //TODO: Change to match your projects fix commit comment code.
+                    //TODO: Change to match your project's fix commit comment code.
                     //fixRegex: '/(^(PROJECT-*\d+\W*\s*\[FIX\])+\s-\s)/gm',
                     partials: {
                         features: '{{#each features}}{{> feature}}{{/each}}',
@@ -266,7 +266,7 @@ module.exports = function(grunt) {
                         cwd: 'public',
                         expand: true,
                         src: [
-                            'index.html', //Main Index.html
+                            'index.html', //main index.html
                             'stylesheets/main.min.css', //minified CSS
                             'views/*.html',
                             'images/*.*',
@@ -359,7 +359,7 @@ module.exports = function(grunt) {
                         expand: true,
                         src: ['<%= config.src %>/**/*.js'],
                         dest: '<%= config.tmp %>/scripts',
-                        ext: '.annotated.js', // Dest filepaths will have this extension.
+                        ext: '.annotated.js', // Dest filepaths will have this extension
                         extDot: 'last'       // Extensions in filenames begin after the last dot
                     }
                 ]
