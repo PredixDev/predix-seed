@@ -5,6 +5,27 @@
  * github.com/inuitcss | inuitcss.com
  */
 /*------------------------------------*\
+    #PX-COLORS-DESIGN
+\*------------------------------------*/
+/**
+ * GE Color Palette
+ */
+/**
+ * Primary
+ */
+/**
+ * Light
+ */
+/**
+ * Dark
+ */
+/**
+ * Circle
+ */
+/**
+ * Monochrome
+ */
+/*------------------------------------*\
     #PX-FUNCTIONS-DESIGN
 \*------------------------------------*/
 /**
@@ -631,6 +652,103 @@ html {
   min-height: 100vh; }
 
 /*------------------------------------*\
+    #PX-FLEXBOX-DESIGN
+\*------------------------------------*/
+/**
+* Flexbox for Predix Experience
+*/
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
+ */
+.flex {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.flex--reverse {
+  -webkit-flex-direction: row-reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse; }
+
+.flex--column {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.flex--column--reverse {
+  -webkit-flex-direction: column-reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse; }
+
+.flex--wrap {
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+
+.flex--center {
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+.flex--right {
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end; }
+
+.flex--justify {
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.flex--spaced {
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
+
+.flex--top {
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
+
+.flex--middle {
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.flex--bottom {
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end; }
+
+.flex--baseline {
+  -webkit-align-items: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline; }
+
+.flex__item--top {
+  -webkit-align-self: flex-start;
+      -ms-flex-item-align: start;
+          align-self: flex-start; }
+
+.flex__item--middle {
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center; }
+
+.flex__item--bottom {
+  -webkit-align-self: flex-end;
+      -ms-flex-item-align: end;
+          align-self: flex-end; }
+
+.flex__item--baseline {
+  -webkit-align-self: baseline;
+      -ms-flex-item-align: baseline;
+          align-self: baseline; }
+
+/*------------------------------------*\
     $PX-TYPOGRAPHY-DESIGN
 \*------------------------------------*/
 /**
@@ -793,7 +911,7 @@ html {
           flex-wrap: wrap;
   list-style: none;
   margin: 0;
-  margin-left: -6px;
+  margin-left: -10px;
   padding: 0; }
 
 /**
@@ -802,7 +920,7 @@ html {
        * 3. Required to combine fluid widths and fixed gutters.
        */
 .layout__item {
-  padding-left: 6px;
+  padding-left: 10px;
   /* [1] */
   -webkit-flex: 1;
       -ms-flex: 1;
@@ -818,12 +936,163 @@ html {
               flex-basis: 0; } }
 
 /**
-       * Align layout items to the vertical bottoms of each other.
+       * Layouts with small gutters.
        */
-.layout--full .layout__item {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex; }
+.layout--small {
+  margin-left: -5px; }
+  .layout--small > .layout__item {
+    padding-left: 5px; }
+
+/*!
+ * inuitcss, by @csswizardry
+ *
+ * github.com/inuitcss | inuitcss.com
+ */
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
+ */
+/**
+  * 1. Allow us to style box model properties.
+  * 2. Line different sized buttons up a little nicer.
+  * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+  *    buttons).
+  * 4. Reset/normalize some styles.
+  * 5. Force all button-styled elements to appear clickable.
+  * 6. Fixes odd inner spacing in IE7.
+  * 7. Subtract the border size from the padding value so that buttons do not
+  *    grow larger as we add borders.
+  */
+.btn {
+  display: inline-block;
+  /* [1] */
+  vertical-align: middle;
+  /* [2] */
+  font: inherit;
+  /* [3] */
+  text-align: center;
+  /* [4] */
+  margin: 0;
+  /* [4] */
+  cursor: pointer;
+  /* [5] */
+  overflow: visible;
+  /* [6] */
+  background: #3171e3;
+  -webkit-font-smoothing: antialiased;
+  border: 0;
+  padding: 6px 1em;
+  border-radius: 3px; }
+  .btn, .btn:hover, .btn:active, .btn:focus {
+    text-decoration: none;
+    /* [4] */
+    color: white; }
+  .btn:hover, .btn:focus {
+    background: linear-gradient(180deg, #34b2fc 0%, #3171e3 100%); }
+  .btn:active {
+    background: linear-gradient(0deg, #34b2fc 0%, #3171e3 100%); }
+
+/**
+  * Establish default space between adjacent buttons
+  */
+.btn + .btn {
+  margin-left: 12px; }
+
+/**
+  * Fix a Firefox bug whereby `input type="submit"` gains 2px extra padding.
+  */
+.btn::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/**
+     * Buttons with no styles (good a11y practice to use <button> for actions rather than <a>.
+     */
+.btn--bare, .auth button {
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  text-transform: none; }
+  .btn--bare, .btn--bare:hover, .btn--bare:active, .btn--bare:focus, .auth button, .auth button:hover, .auth button:active, .auth button:focus {
+    background: transparent;
+    background-image: none;
+    color: inherit; }
+
+/*------------------------------------*\
+    #PX-LIST-BARE-DESIGN
+\*------------------------------------*/
+/**
+ * The list-bare object simply removes any indents and bullet points from lists.
+ */
+/*!
+ * inuitcss, by @csswizardry
+ *
+ * github.com/inuitcss | inuitcss.com
+ */
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
+ */
+.list-bare, .auth ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+body {
+  padding-bottom: 3.125rem;
+  background-color: #414141; }
+
+.layout__item.navbar {
+  -webkit-flex: none;
+      -ms-flex: none;
+          flex: none;
+  box-sizing: content-box; }
+  .layout__item.navbar > nav {
+    position: relative;
+    box-sizing: border-box;
+    min-height: calc(100vh - 3.125rem); }
+
+.auth {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1em; }
+  .auth, .auth a {
+    color: white; }
+
+.navbar--collapsed .auth {
+  position: absolute !important;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  clip: rect(0 0 0 0) !important; }
+
+[role=banner] {
+  height: 3.125rem; }
+  [role=banner] h1 {
+    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1;
+    margin: 0;
+    font-weight: normal;
+    color: white; }
+  [role=banner] svg {
+    margin-top: -.1em;
+    margin-right: 1em; }
+
+main {
+  border: 5px solid #868686;
+  background-color: white; }
+  main > section {
+    padding: 20px; }
 
 /*------------------------------------*\
     #PX-CLEARFIX-DESIGN

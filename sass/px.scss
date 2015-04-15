@@ -1,8 +1,9 @@
-$imported-once-files: ();
+$imported-once-files        : ();
 
 // Settings
 @import "inuit-defaults/settings.defaults";
 @import "inuit-responsive-settings/settings.responsive";
+@import "px-colors-design/settings.colors";
 
 // Tools
 @import "px-functions-design/tools.functions";
@@ -16,12 +17,84 @@ $imported-once-files: ();
 
 // Base
 @import "px-viewport-design/base.viewport";
+@import "px-flexbox-design/base.flexbox";
 @import "px-typography-design/base.typography";
 
 // Objects
-$inuit-enable-layout--full          : true;
+$inuit-layout-gutter        : 10px;
+$inuit-layout-gutter--small : 5px;
+$inuit-layout-gutter--large : 15px;
+$inuit-layout-gutter--huge  : 20px;
+
+$inuit-enable-layout--small : true;
 
 @import "px-layout-design/objects.layout";
+
+$inuit-enable-btn--bare     : true;
+
+@import "px-buttons-design/objects.buttons";
+@import "px-list-bare-design/objects.list-bare";
+
+// App
+body {
+  padding-bottom: calculateRem(50px);
+  background-color: $gray-darker;
+}
+
+.layout__item.navbar {
+  flex: none;
+  box-sizing: content-box;
+  > nav {
+    position: relative;
+    box-sizing: border-box;
+    min-height: calc(100vh - #{calculateRem(50px)});
+  }
+}
+
+.auth {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1em;
+  &, a {
+    color: $white;
+  }
+  button {
+    @extend %btn--bare;
+  }
+  ul {
+    @extend %list-bare;
+  }
+}
+
+.navbar--collapsed {
+  .auth {
+    @include accessibility;
+  }
+}
+
+[role=banner] {
+  height: calculateRem(50px);
+  h1 {
+    @include inuit-font-size(24px);
+    margin: 0;
+    font-weight: normal;
+    color: $white;
+  }
+  svg {
+    margin-top: -.1em;
+    margin-right: 1em;
+  }
+}
+
+main {
+  border: 5px solid $gray;
+  background-color: $white;
+  > section {
+    padding: 20px;
+  }
+}
 
 // Trumps
 @import "px-clearfix-design/trumps.clearfix";
