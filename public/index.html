@@ -4,28 +4,12 @@
     <title>Predix Seed</title>
     <base href="/">
 
-    <!--[if IE]>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 
     <link type="text/css" rel="stylesheet" href="stylesheets/px.css"/>
-
-    <!--[if lt IE 9]>
-    <link id="theme-ie" type="text/css" rel="stylesheet" href="bower_components/iids/dist/iidx/css/ie.min.css"/>
-    <![endif]-->
-
-    <link type="text/css" rel="stylesheet" href="stylesheets/main.min.css"/>
-
-    <!-- override IIDx styles here for purposes of Px until IIDx is removed / replaced -->
-    <style>
-        html {
-            font-size: 1em;
-            line-height: 1.5;
-        }
-    </style>
 
     <!--
     Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports.
@@ -37,21 +21,18 @@
 
     <script type='application/javascript' src='https://dev-messages.grc-apps.svc.ice.ge.com/messages.js'></script>
 
-    <style>
-        .layout__full-height{
-          height: 100vh;
-        }
-    </style>
     <link rel="localization" href="locales/manifest.json">
     <script src="bower_components/l20n/l20n.min.js"></script>
 
 </head>
 
-<body class="app fullbleed" data-ng-controller="MainCtrl">
+<body class="app" data-ng-controller="MainCtrl">
+  
+  <div class="viewport viewport--full-height">
 
 <link rel="import" href="bower_components/px-app-nav/px-app-nav.html"/>
 
-<div class="layout layout__full-height">
+<div class="layout">
     <px-app-nav nav-items="{{App.tabs}}" path-prefix="/" path-key="state">
 
     <div class="auth">
@@ -64,11 +45,9 @@
 </px-app-nav>
 
     <!-- MAIN CONTENT -->
-    <div class="layout__item viewport" ui-view>
+    <div ui-view>
         <!-- This is the container where the tabs will render -->
     </div>
-
-</div>
 
 
 </body>

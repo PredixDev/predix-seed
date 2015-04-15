@@ -18,9 +18,17 @@ $imported-once-files: ();
 @import "px-viewport-design/base.viewport";
 @import "px-typography-design/base.typography";
 
+// Objects
+$inuit-enable-layout--full          : true;
+
+@import "px-layout-design/objects.layout";
+
+// App
+body, html {
+  height: 100%;
+}
+
 // Trumps
 @import "px-clearfix-design/trumps.clearfix";
 @import "px-spacing-responsive-design/trumps.spacing-responsive";
 @import "px-widths-responsive-design/trumps.widths-responsive";
-
-@import "px-layout-design/objects.layout.scss";

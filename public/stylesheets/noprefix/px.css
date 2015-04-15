@@ -765,6 +765,62 @@ html {
   font-weight: 600 !important; }
 
 /*------------------------------------*\
+    #PX-LAYOUT-DESIGN
+\*------------------------------------*/
+/*!
+ * inuitcss, by @csswizardry
+ *
+ * github.com/inuitcss | inuitcss.com
+ */
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
+ */
+/**
+ * The Predix Experience layout system uses `box-sizing: border-box;` and
+ * `display: flex;` to create an extremely powerful, flexible
+ * alternative to the traditional grid system. Combine the layout items with
+ * the widths found in `trumps.widths`.
+ */
+/**
+   * Begin a layout group.
+   */
+.layout {
+  display: flex;
+  /* [1] */
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  margin-left: -6px;
+  padding: 0; }
+
+/**
+       * 1. Space columns apart.
+       * 2. Full-width unless told to behave otherwise.
+       * 3. Required to combine fluid widths and fixed gutters.
+       */
+.layout__item {
+  padding-left: 6px;
+  /* [1] */
+  flex: 1;
+  /* [2] */
+  flex-basis: 10em; }
+  @media screen and (min-width: 64rem) {
+    .layout__item {
+      flex-basis: 0; } }
+
+/**
+       * Align layout items to the vertical bottoms of each other.
+       */
+.layout--full .layout__item {
+  display: flex; }
+
+body, html {
+  height: 100%; }
+
+/*------------------------------------*\
     #PX-CLEARFIX-DESIGN
 \*------------------------------------*/
 /*------------------------------------*\
@@ -1151,50 +1207,3 @@ html {
   .u-4\/5-retina {
     width: 80% !important;
     flex: none !important; } }
-
-/*------------------------------------*\
-    #PX-LAYOUT-DESIGN
-\*------------------------------------*/
-/*!
- * inuitcss, by @csswizardry
- *
- * github.com/inuitcss | inuitcss.com
- */
-/*------------------------------------*\
-    #PX-FUNCTIONS-DESIGN
-\*------------------------------------*/
-/**
- * Sass functions for Predix Experience
- */
-/**
- * The Predix Experience layout system uses `box-sizing: border-box;` and
- * `display: flex;` to create an extremely powerful, flexible
- * alternative to the traditional grid system. Combine the layout items with
- * the widths found in `trumps.widths`.
- */
-/**
-   * Begin a layout group.
-   */
-.layout {
-  display: flex;
-  /* [1] */
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  margin-left: -6px;
-  padding: 0; }
-
-/**
-       * 1. Space columns apart.
-       * 2. Full-width unless told to behave otherwise.
-       * 3. Required to combine fluid widths and fixed gutters.
-       */
-.layout__item {
-  padding-left: 6px;
-  /* [1] */
-  flex: 1;
-  /* [2] */
-  flex-basis: 10em; }
-  @media screen and (min-width: 64rem) {
-    .layout__item {
-      flex-basis: 0; } }

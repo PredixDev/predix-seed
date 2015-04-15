@@ -758,6 +758,74 @@ html {
   font-weight: 600 !important; }
 
 /*------------------------------------*\
+    #PX-LAYOUT-DESIGN
+\*------------------------------------*/
+/*!
+ * inuitcss, by @csswizardry
+ *
+ * github.com/inuitcss | inuitcss.com
+ */
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
+ */
+/**
+ * The Predix Experience layout system uses `box-sizing: border-box;` and
+ * `display: flex;` to create an extremely powerful, flexible
+ * alternative to the traditional grid system. Combine the layout items with
+ * the widths found in `trumps.widths`.
+ */
+/**
+   * Begin a layout group.
+   */
+.layout {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  /* [1] */
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  margin-left: -6px;
+  padding: 0; }
+
+/**
+       * 1. Space columns apart.
+       * 2. Full-width unless told to behave otherwise.
+       * 3. Required to combine fluid widths and fixed gutters.
+       */
+.layout__item {
+  padding-left: 6px;
+  /* [1] */
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  /* [2] */
+  -webkit-flex-basis: 10em;
+      -ms-flex-preferred-size: 10em;
+          flex-basis: 10em; }
+  @media screen and (min-width: 64rem) {
+    .layout__item {
+      -webkit-flex-basis: 0;
+          -ms-flex-preferred-size: 0;
+              flex-basis: 0; } }
+
+/**
+       * Align layout items to the vertical bottoms of each other.
+       */
+.layout--full .layout__item {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+body, html {
+  height: 100%; }
+
+/*------------------------------------*\
     #PX-CLEARFIX-DESIGN
 \*------------------------------------*/
 /*------------------------------------*\
@@ -1304,60 +1372,3 @@ html {
     -webkit-flex: none !important;
         -ms-flex: none !important;
             flex: none !important; } }
-
-/*------------------------------------*\
-    #PX-LAYOUT-DESIGN
-\*------------------------------------*/
-/*!
- * inuitcss, by @csswizardry
- *
- * github.com/inuitcss | inuitcss.com
- */
-/*------------------------------------*\
-    #PX-FUNCTIONS-DESIGN
-\*------------------------------------*/
-/**
- * Sass functions for Predix Experience
- */
-/**
- * The Predix Experience layout system uses `box-sizing: border-box;` and
- * `display: flex;` to create an extremely powerful, flexible
- * alternative to the traditional grid system. Combine the layout items with
- * the widths found in `trumps.widths`.
- */
-/**
-   * Begin a layout group.
-   */
-.layout {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  /* [1] */
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  margin-left: -6px;
-  padding: 0; }
-
-/**
-       * 1. Space columns apart.
-       * 2. Full-width unless told to behave otherwise.
-       * 3. Required to combine fluid widths and fixed gutters.
-       */
-.layout__item {
-  padding-left: 6px;
-  /* [1] */
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  /* [2] */
-  -webkit-flex-basis: 10em;
-      -ms-flex-preferred-size: 10em;
-          flex-basis: 10em; }
-  @media screen and (min-width: 64rem) {
-    .layout__item {
-      -webkit-flex-basis: 0;
-          -ms-flex-preferred-size: 0;
-              flex-basis: 0; } }
