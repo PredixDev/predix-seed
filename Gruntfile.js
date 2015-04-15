@@ -78,11 +78,8 @@ module.exports = function(grunt) {
                 livereload: '<%= connect.livereload %>'
             },
             styles: {
-                files: [
-                    '<%= config.app %>/stylesheets/**/*.css',
-                    '!<%= config.app %>/stylesheets/main.min.css'
-                ],
-                tasks: ['cssmin']
+                files: ['sass/*.scss'],
+                tasks: ['sass', 'autoprefixer']
             },
             scripts: {
                 files: [
