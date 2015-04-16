@@ -264,7 +264,7 @@ module.exports = function(grunt) {
                         expand: true,
                         src: [
                             'index.html', //Main Index.html
-                            'stylesheets/main.min.css', //minified CSS
+                            'stylesheets/*.css', //minified CSS
                             'views/*.html',
                             'images/*.*',
                             'bower_components/px-datagrid/src/*',
@@ -290,11 +290,26 @@ module.exports = function(grunt) {
                             'bower_components/iids/dist/iidx/components/brandkit/fonts/*.*',
                             'bower_components/iids/dist/iidx/css/*.*'],
                         dest: '<%= config.dist %>/'
+                    },
+                    {
+                        cwd: 'public',
+                        expand: true,
+                        src: [
+                            'bower_components/px-app-nav/**',
+                            'bower_components/l20n/**',
+                            'bower_components/webcomponentsjs/**',
+                            'bower_components/web-animations-js/**',
+                            'bower_components/px-l10n-mixin/**',
+                            'bower_components/polymer/**',
+                            'type/**'
+                            ],
+                        dest: '<%= config.dist %>/'
                     }
+
                 ]
             }
         },
-        
+
         sass: {
             dist: {
             options: {
@@ -305,7 +320,7 @@ module.exports = function(grunt) {
             }
           }
         },
-        
+
         autoprefixer: {
             options: {
             browsers: ['last 2 version']
