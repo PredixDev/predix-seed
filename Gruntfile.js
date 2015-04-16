@@ -5,12 +5,12 @@
 module.exports = function(grunt) {
     'use strict';
 
-    //Local server ports
+    // Local server ports
     var LIVERELOAD_PORT = 35723;
     var SERVER_PORT = 9000;
     var RUNNER_PORT = 9002;
 
-    //Project config
+    // Project config
     var buildNumber = '';
     var CONFIG = {
         name: 'my-predix-app',
@@ -21,7 +21,7 @@ module.exports = function(grunt) {
         dist: 'dist/www',
         bower: 'public/bower_components',
         tmp: '.tmp',
-        //Enviornment specific settings
+        // Environment-specific settings
         dev: {
             options: {
                 variables: {
@@ -38,17 +38,17 @@ module.exports = function(grunt) {
         }
     };
 
-    //For adding build number to zip
+    // For adding build number to zip
     if (grunt.option('buildNumber')) {
         buildNumber = grunt.option('buildNumber');
     }
 
-    //Connect - Livereload setup
+    // Connect - Livereload setup
     var lrSnippet = require('connect-livereload')({
         port: CONFIG.livereload
     });
 
-    //Connect - static directory
+    // Connect - static directory
     var mountFolder = function(connect, dir) {
         return connect.static(require('path').resolve(dir));
     };
@@ -80,6 +80,10 @@ module.exports = function(grunt) {
             styles: {
                 files: ['sass/*.scss'],
                 tasks: ['sass', 'autoprefixer']
+            },
+            less: {
+                files: ['<%= config.app %>/stylesheets/app.less'],
+                tasks: ['less','cssmin']
             },
             scripts: {
                 files: [
@@ -161,7 +165,7 @@ module.exports = function(grunt) {
             }
         },
 
-        //JSHint task -
+        // JSHint task - https://www.npmjs.com/package/grunt-contrib-jshint
         jshint: {
             options: {
                 jshintrc: '.jshintrc'
@@ -238,14 +242,14 @@ module.exports = function(grunt) {
             }
         },
 
-        //Changelog - https://www.npmjs.org/package/grunt-changelog
+        // Changelog - https://www.npmjs.org/package/grunt-changelog
         changelog: {
             sample: {
                 options: {
                     dest: 'release-notes/<%= pkg.version %>.txt',
-                    //TODO: Change to match your projects feature commit comment code.
+                    //TODO: Change to match your project's feature commit comment code.
                     //featureRegex: '/(^(PROJECT-*\d+\W*\s*\[FEATURE\])+\s-\s)/gm',
-                    //TODO: Change to match your projects fix commit comment code.
+                    //TODO: Change to match your project's fix commit comment code.
                     //fixRegex: '/(^(PROJECT-*\d+\W*\s*\[FIX\])+\s-\s)/gm',
                     partials: {
                         features: '{{#each features}}{{> feature}}{{/each}}',
@@ -278,7 +282,9 @@ module.exports = function(grunt) {
                         expand: true,
                         src: [
                             'bower_components/iids/dist/iidx/components/requirejs/**',
-                            'bower_components/requirejs-plugins/src/**'
+                            'bower_components/requirejs-plugins/src/**',
+                            'bower_components/requirejs-plugins/lib/text.js',
+                            'bower_components/require-css/css.js'
                         ],
                         dest: '<%= config.dist %>/'
                     },
@@ -333,6 +339,7 @@ module.exports = function(grunt) {
           }
         },
 
+        // cssmin task - https://github.com/gruntjs/grunt-contrib-cssmin
         cssmin: {
             options: {},
             target: {
@@ -346,8 +353,15 @@ module.exports = function(grunt) {
             }
         },
 
+        less: {
+            development: {
+                files: {
+                    '<%= config.app %>/stylesheets/app.css': '<%= config.app %>/stylesheets/app.less'
+                }
+            }
+        },
 
-        // Bump task -
+        // Bump task - https://www.npmjs.com/package/grunt-bump
         bump: {
             options: {
                 files: ['package.json'],
@@ -365,7 +379,7 @@ module.exports = function(grunt) {
         },
 
         // NG Docs Task - https://github.com/m7r/grunt-ngdocs
-        //Docs how-to - https://github.com/angular/angular.js/wiki/Writing-AngularJS-Documentation
+        // Docs how-to - https://github.com/angular/angular.js/wiki/Writing-AngularJS-Documentation
         ngdocs: {
             options: {
                 html5Mode: false,
@@ -379,7 +393,7 @@ module.exports = function(grunt) {
             }
         },
 
-        //ngAnnotate task
+        // ngAnnotate - https://www.npmjs.com/package/grunt-ng-annotate
         ngAnnotate: {
             options: {
                 singleQuotes: true,
@@ -392,14 +406,14 @@ module.exports = function(grunt) {
                         expand: true,
                         src: ['<%= config.src %>/**/*.js'],
                         dest: '<%= config.tmp %>/scripts',
-                        ext: '.annotated.js', // Dest filepaths will have this extension.
+                        ext: '.annotated.js', // Dest filepaths will have this extension
                         extDot: 'last'       // Extensions in filenames begin after the last dot
                     }
                 ]
             }
         },
 
-        //Concat task
+        // Concat task - https://www.npmjs.com/package/grunt-contrib-concat
         concat: {
             options: {
                 //banner: '<%= meta.banner %>',
@@ -411,7 +425,7 @@ module.exports = function(grunt) {
             }
         },
 
-        //Uglify task
+        // Uglify task - https://www.npmjs.com/package/grunt-contrib-uglify
         uglify: {
             options: {
                 //banner: '<%= meta.banner %>'
