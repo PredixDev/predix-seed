@@ -1,7 +1,7 @@
 $imported-once-files        : ();
 
 // Settings
-@import "inuit-defaults/settings.defaults";
+@import "px-defaults-design/settings.defaults";
 @import "inuit-responsive-settings/settings.responsive";
 @import "px-colors-design/settings.colors";
 
@@ -41,25 +41,12 @@ html {
   background-color: $gray-darker;
 }
 
-body {
-  padding-bottom: calculateRem(50px);
-}
-
 .layout__item.navbar {
   flex: none;
-  box-sizing: content-box;
-  > nav {
-    position: relative;
-    box-sizing: border-box;
-  }
+  min-height: calc(100vh - 50px);
 }
 
 .auth {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 1em;
   &, a {
     color: $white;
   }
