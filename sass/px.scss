@@ -27,6 +27,7 @@ $inuit-layout-gutter--large : 15px;
 $inuit-layout-gutter--huge  : 20px;
 
 $inuit-enable-layout--small : true;
+$inuit-enable-layout--full  : true;
 
 @import "px-layout-design/objects.layout";
 
@@ -36,9 +37,12 @@ $inuit-enable-btn--bare     : true;
 @import "px-list-bare-design/objects.list-bare";
 
 // App
+html {
+  background-color: $gray-darker;
+}
+
 body {
   padding-bottom: calculateRem(50px);
-  background-color: $gray-darker;
 }
 
 .layout__item.navbar {
@@ -47,7 +51,6 @@ body {
   > nav {
     position: relative;
     box-sizing: border-box;
-    min-height: calc(100vh - #{calculateRem(50px)});
   }
 }
 
