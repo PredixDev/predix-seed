@@ -1,7 +1,7 @@
 $imported-once-files        : ();
 
 // Settings
-@import "inuit-defaults/settings.defaults";
+@import "px-defaults-design/settings.defaults";
 @import "inuit-responsive-settings/settings.responsive";
 @import "px-colors-design/settings.colors";
 
@@ -27,6 +27,7 @@ $inuit-layout-gutter--large : 15px;
 $inuit-layout-gutter--huge  : 20px;
 
 $inuit-enable-layout--small : true;
+$inuit-enable-layout--full  : true;
 
 @import "px-layout-design/objects.layout";
 
@@ -36,27 +37,20 @@ $inuit-enable-btn--bare     : true;
 @import "px-list-bare-design/objects.list-bare";
 
 // App
-body {
-  padding-bottom: calculateRem(50px);
+html {
   background-color: $gray-darker;
 }
 
 .layout__item.navbar {
-  flex: none;
   box-sizing: content-box;
+  flex: none;
+  min-height: calc(100vh - 50px);
   > nav {
-    position: relative;
     box-sizing: border-box;
-    min-height: calc(100vh - #{calculateRem(50px)});
   }
 }
 
 .auth {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 1em;
   &, a {
     color: $white;
   }
@@ -81,10 +75,9 @@ body {
     margin: 0;
     font-weight: normal;
     color: $white;
-  }
-  svg {
-    margin-top: -.1em;
-    margin-right: 1em;
+    svg {
+      margin-bottom: -.1em;
+    }
   }
 }
 
@@ -98,5 +91,9 @@ main {
 
 // Trumps
 @import "px-clearfix-design/trumps.clearfix";
+
+$inuit-enable-margins--tiny     : true;
+$inuit-enable-margins--rtl      : true;
+
 @import "px-spacing-responsive-design/trumps.spacing-responsive";
 @import "px-widths-responsive-design/trumps.widths-responsive";

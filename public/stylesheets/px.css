@@ -68,12 +68,12 @@
    *    render text using sub-pixel anti-aliasing.
    */
 html {
-  font-size: 1em;
+  font-size: 0.9375em;
   /* [1] */
-  line-height: 1.5;
+  line-height: 1.3333333333;
   /* [1] */
   background-color: #fff;
-  color: #333;
+  color: #000;
   overflow-y: scroll;
   /* [2] */
   min-height: 100%;
@@ -137,8 +137,8 @@ audio:not([controls]) {
    * As per: csswizardry.com/2012/06/single-direction-margin-declarations
    */
 h1, h2, h3, h4, h5, h6, ul, ol, dl, blockquote, p, address, hr, table, fieldset, figure, pre {
-  margin-bottom: 24px;
-  margin-bottom: 1.5rem; }
+  margin-bottom: 20px;
+  margin-bottom: 1.3333333333rem; }
 
 /**
    * Remove extra vertical spacing when nesting lists.
@@ -151,8 +151,8 @@ li > ul, li > ol {
    * by a consistent amount. Define that amount once,here.
    */
 ul, ol, dd {
-  margin-left: 48px;
-  margin-left: 3rem; }
+  margin-left: 40px;
+  margin-left: 2.6666666667rem; }
 
 /* Links
      ========================================================================== */
@@ -629,6 +629,11 @@ html {
 /**
 * Define a default max viewport
 */
+/*!
+ * inuitcss, by @csswizardry
+ *
+ * github.com/inuitcss | inuitcss.com
+ */
 /*------------------------------------*\
     #PX-FUNCTIONS-DESIGN
 \*------------------------------------*/
@@ -637,12 +642,12 @@ html {
  */
 .viewport {
   width: 98%;
-  max-width: 75rem;
+  max-width: 80rem;
   margin-right: auto;
   margin-left: auto;
   padding-right: 1%;
   padding-left: 1%; }
-  @media screen and (min-width: 75rem) {
+  @media screen and (min-width: 80rem) {
     .viewport {
       width: 100%;
       padding-right: 0;
@@ -929,7 +934,7 @@ html {
   -webkit-flex-basis: 10em;
       -ms-flex-preferred-size: 10em;
           flex-basis: 10em; }
-  @media screen and (min-width: 64rem) {
+  @media screen and (min-width: 68.266666667rem) {
     .layout__item {
       -webkit-flex-basis: 0;
           -ms-flex-preferred-size: 0;
@@ -942,6 +947,14 @@ html {
   margin-left: -5px; }
   .layout--small > .layout__item {
     padding-left: 5px; }
+
+/**
+       * Align layout items to the vertical bottoms of each other.
+       */
+.layout--full .layout__item {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
 
 /*!
  * inuitcss, by @csswizardry
@@ -983,7 +996,7 @@ html {
   background: #3171e3;
   -webkit-font-smoothing: antialiased;
   border: 0;
-  padding: 6px 1em;
+  padding: 5px 1em;
   border-radius: 3px; }
   .btn, .btn:hover, .btn:active, .btn:focus {
     text-decoration: none;
@@ -998,7 +1011,7 @@ html {
   * Establish default space between adjacent buttons
   */
 .btn + .btn {
-  margin-left: 12px; }
+  margin-left: 10px; }
 
 /**
   * Fix a Firefox bug whereby `input type="submit"` gains 2px extra padding.
@@ -1042,28 +1055,20 @@ html {
   padding: 0;
   list-style: none; }
 
-body {
-  padding-bottom: 3.125rem;
+html {
   background-color: #414141; }
 
 .layout__item.navbar {
+  box-sizing: content-box;
   -webkit-flex: none;
       -ms-flex: none;
           flex: none;
-  box-sizing: content-box; }
+  min-height: calc(100vh - 50px); }
   .layout__item.navbar > nav {
-    position: relative;
-    box-sizing: border-box;
-    min-height: calc(100vh - 3.125rem); }
+    box-sizing: border-box; }
 
-.auth {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 1em; }
-  .auth, .auth a {
-    color: white; }
+.auth, .auth a {
+  color: white; }
 
 .navbar--collapsed .auth {
   position: absolute !important;
@@ -1076,17 +1081,16 @@ body {
   clip: rect(0 0 0 0) !important; }
 
 [role=banner] {
-  height: 3.125rem; }
+  height: 3.3333333333rem; }
   [role=banner] h1 {
     font-size: 24px;
-    font-size: 1.5rem;
-    line-height: 1;
+    font-size: 1.6rem;
+    line-height: 1.6666666667;
     margin: 0;
     font-weight: normal;
     color: white; }
-  [role=banner] svg {
-    margin-top: -.1em;
-    margin-right: 1em; }
+    [role=banner] h1 svg {
+      margin-bottom: -.1em; }
 
 main {
   border: 5px solid #868686;
@@ -1153,6 +1157,66 @@ main {
 /**
  * Sass functions for Predix Experience
  */
+/**
+       * Add tiny margins.
+       */
+.m-- {
+  margin: 5px !important; }
+
+.mt-- {
+  margin-top: 5px !important; }
+
+.mr-- {
+  margin-right: 5px !important; }
+
+.mb-- {
+  margin-bottom: 5px !important; }
+
+.ml-- {
+  margin-left: 5px !important; }
+
+.mh-- {
+  margin-right: 5px !important;
+  margin-left: 5px !important; }
+
+.mv-- {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important; }
+
+/**
+       * Switch left and right margins when right-to-left language settings in use.
+       */
+[dir=rtl] .mr {
+  margin-right: 0 !important;
+  margin-left: 20px !important; }
+[dir=rtl] .ml {
+  margin-right: 20px !important;
+  margin-left: 0 !important; }
+[dir=rtl] .mr- {
+  margin-right: 0 !important;
+  margin-left: 10px !important; }
+[dir=rtl] .ml- {
+  margin-right: 10px !important;
+  margin-left: 0 !important; }
+[dir=rtl] .mr-- {
+  margin-right: 0 !important;
+  margin-left: 5px !important; }
+[dir=rtl] .ml-- {
+  margin-right: 5px !important;
+  margin-left: 0 !important; }
+[dir=rtl] .mr\+ {
+  margin-right: 0 !important;
+  margin-left: 40px !important; }
+[dir=rtl] .ml\+ {
+  margin-right: 40px !important;
+  margin-left: 0 !important; }
+[dir=rtl] .mr\+\+ {
+  margin-right: 0 !important;
+  margin-left: 80px !important; }
+[dir=rtl] .ml\+\+ {
+  margin-right: 80px !important;
+  margin-left: 0 !important; }
+
 /*------------------------------------*\
     #PX-WIDTHS-RESPONSIVE-DESIGN
 \*------------------------------------*/
@@ -1264,7 +1328,7 @@ main {
       -ms-flex: none !important;
           flex: none !important; }
 
-@media screen and (max-width: 44.9375rem) {
+@media screen and (max-width: 47.9375rem) {
   .u-1\/1-palm {
     width: 100% !important; }
   .u-1\/2-palm {
@@ -1318,7 +1382,7 @@ main {
         -ms-flex: none !important;
             flex: none !important; } }
 
-@media screen and (min-width: 45rem) and (max-width: 63.9375rem) {
+@media screen and (min-width: 48rem) and (max-width: 68.204166667rem) {
   .u-1\/1-lap {
     width: 100% !important; }
   .u-1\/2-lap {
@@ -1372,7 +1436,7 @@ main {
         -ms-flex: none !important;
             flex: none !important; } }
 
-@media screen and (min-width: 45rem) {
+@media screen and (min-width: 48rem) {
   .u-1\/1-lap-and-up {
     width: 100% !important; }
   .u-1\/2-lap-and-up {
@@ -1426,7 +1490,7 @@ main {
         -ms-flex: none !important;
             flex: none !important; } }
 
-@media screen and (max-width: 63.9375rem) {
+@media screen and (max-width: 68.204166667rem) {
   .u-1\/1-portable {
     width: 100% !important; }
   .u-1\/2-portable {
@@ -1480,7 +1544,7 @@ main {
         -ms-flex: none !important;
             flex: none !important; } }
 
-@media screen and (min-width: 64rem) {
+@media screen and (min-width: 68.266666667rem) {
   .u-1\/1-desk {
     width: 100% !important; }
   .u-1\/2-desk {
@@ -1534,7 +1598,7 @@ main {
         -ms-flex: none !important;
             flex: none !important; } }
 
-@media screen and (min-width: 75rem) {
+@media screen and (min-width: 80rem) {
   .u-1\/1-desk-wide {
     width: 100% !important; }
   .u-1\/2-desk-wide {
