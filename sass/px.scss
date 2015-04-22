@@ -42,8 +42,12 @@ html {
 }
 
 .layout__item.navbar {
+  box-sizing: content-box;
   flex: none;
   min-height: calc(100vh - 50px);
+  > nav {
+    box-sizing: border-box;
+  }
 }
 
 .auth {
@@ -71,10 +75,9 @@ html {
     margin: 0;
     font-weight: normal;
     color: $white;
-  }
-  svg {
-    margin-top: -.1em;
-    margin-right: 1em;
+    svg {
+      margin-bottom: -.1em;
+    }
   }
 }
 
@@ -88,5 +91,9 @@ main {
 
 // Trumps
 @import "px-clearfix-design/trumps.clearfix";
+
+$inuit-enable-margins--tiny     : true;
+$inuit-enable-margins--rtl      : true;
+
 @import "px-spacing-responsive-design/trumps.spacing-responsive";
 @import "px-widths-responsive-design/trumps.widths-responsive";

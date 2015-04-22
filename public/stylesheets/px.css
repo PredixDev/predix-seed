@@ -73,7 +73,7 @@ html {
   line-height: 1.3333333333;
   /* [1] */
   background-color: #fff;
-  color: #333;
+  color: #000;
   overflow-y: scroll;
   /* [2] */
   min-height: 100%;
@@ -629,6 +629,11 @@ html {
 /**
 * Define a default max viewport
 */
+/*!
+ * inuitcss, by @csswizardry
+ *
+ * github.com/inuitcss | inuitcss.com
+ */
 /*------------------------------------*\
     #PX-FUNCTIONS-DESIGN
 \*------------------------------------*/
@@ -637,12 +642,12 @@ html {
  */
 .viewport {
   width: 98%;
-  max-width: 75rem;
+  max-width: 80rem;
   margin-right: auto;
   margin-left: auto;
   padding-right: 1%;
   padding-left: 1%; }
-  @media screen and (min-width: 75rem) {
+  @media screen and (min-width: 80rem) {
     .viewport {
       width: 100%;
       padding-right: 0;
@@ -929,7 +934,7 @@ html {
   -webkit-flex-basis: 10em;
       -ms-flex-preferred-size: 10em;
           flex-basis: 10em; }
-  @media screen and (min-width: 64rem) {
+  @media screen and (min-width: 68.266666667rem) {
     .layout__item {
       -webkit-flex-basis: 0;
           -ms-flex-preferred-size: 0;
@@ -1054,10 +1059,13 @@ html {
   background-color: #414141; }
 
 .layout__item.navbar {
+  box-sizing: content-box;
   -webkit-flex: none;
       -ms-flex: none;
           flex: none;
   min-height: calc(100vh - 50px); }
+  .layout__item.navbar > nav {
+    box-sizing: border-box; }
 
 .auth, .auth a {
   color: white; }
@@ -1081,9 +1089,8 @@ html {
     margin: 0;
     font-weight: normal;
     color: white; }
-  [role=banner] svg {
-    margin-top: -.1em;
-    margin-right: 1em; }
+    [role=banner] h1 svg {
+      margin-bottom: -.1em; }
 
 main {
   border: 5px solid #868686;
@@ -1150,6 +1157,66 @@ main {
 /**
  * Sass functions for Predix Experience
  */
+/**
+       * Add tiny margins.
+       */
+.m-- {
+  margin: 5px !important; }
+
+.mt-- {
+  margin-top: 5px !important; }
+
+.mr-- {
+  margin-right: 5px !important; }
+
+.mb-- {
+  margin-bottom: 5px !important; }
+
+.ml-- {
+  margin-left: 5px !important; }
+
+.mh-- {
+  margin-right: 5px !important;
+  margin-left: 5px !important; }
+
+.mv-- {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important; }
+
+/**
+       * Switch left and right margins when right-to-left language settings in use.
+       */
+[dir=rtl] .mr {
+  margin-right: 0 !important;
+  margin-left: 20px !important; }
+[dir=rtl] .ml {
+  margin-right: 20px !important;
+  margin-left: 0 !important; }
+[dir=rtl] .mr- {
+  margin-right: 0 !important;
+  margin-left: 10px !important; }
+[dir=rtl] .ml- {
+  margin-right: 10px !important;
+  margin-left: 0 !important; }
+[dir=rtl] .mr-- {
+  margin-right: 0 !important;
+  margin-left: 5px !important; }
+[dir=rtl] .ml-- {
+  margin-right: 5px !important;
+  margin-left: 0 !important; }
+[dir=rtl] .mr\+ {
+  margin-right: 0 !important;
+  margin-left: 40px !important; }
+[dir=rtl] .ml\+ {
+  margin-right: 40px !important;
+  margin-left: 0 !important; }
+[dir=rtl] .mr\+\+ {
+  margin-right: 0 !important;
+  margin-left: 80px !important; }
+[dir=rtl] .ml\+\+ {
+  margin-right: 80px !important;
+  margin-left: 0 !important; }
+
 /*------------------------------------*\
     #PX-WIDTHS-RESPONSIVE-DESIGN
 \*------------------------------------*/
@@ -1261,7 +1328,7 @@ main {
       -ms-flex: none !important;
           flex: none !important; }
 
-@media screen and (max-width: 44.9375rem) {
+@media screen and (max-width: 47.9375rem) {
   .u-1\/1-palm {
     width: 100% !important; }
   .u-1\/2-palm {
@@ -1315,7 +1382,7 @@ main {
         -ms-flex: none !important;
             flex: none !important; } }
 
-@media screen and (min-width: 45rem) and (max-width: 63.9375rem) {
+@media screen and (min-width: 48rem) and (max-width: 68.204166667rem) {
   .u-1\/1-lap {
     width: 100% !important; }
   .u-1\/2-lap {
@@ -1369,7 +1436,7 @@ main {
         -ms-flex: none !important;
             flex: none !important; } }
 
-@media screen and (min-width: 45rem) {
+@media screen and (min-width: 48rem) {
   .u-1\/1-lap-and-up {
     width: 100% !important; }
   .u-1\/2-lap-and-up {
@@ -1423,7 +1490,7 @@ main {
         -ms-flex: none !important;
             flex: none !important; } }
 
-@media screen and (max-width: 63.9375rem) {
+@media screen and (max-width: 68.204166667rem) {
   .u-1\/1-portable {
     width: 100% !important; }
   .u-1\/2-portable {
@@ -1477,7 +1544,7 @@ main {
         -ms-flex: none !important;
             flex: none !important; } }
 
-@media screen and (min-width: 64rem) {
+@media screen and (min-width: 68.266666667rem) {
   .u-1\/1-desk {
     width: 100% !important; }
   .u-1\/2-desk {
@@ -1531,7 +1598,7 @@ main {
         -ms-flex: none !important;
             flex: none !important; } }
 
-@media screen and (min-width: 75rem) {
+@media screen and (min-width: 80rem) {
   .u-1\/1-desk-wide {
     width: 100% !important; }
   .u-1\/2-desk-wide {
