@@ -1,4 +1,4 @@
-define(['angular', 'sample-module', 'bower_components/px-datagrid/src/main', 'bower_components/px-time-series/src/main'], function(angular, sampleModule) {
+define(['angular', 'sample-module'], function(angular, sampleModule) {
     'use strict';
     return sampleModule.controller('WidgetsCtrl', ['$scope', function($scope) {
         $scope.name = 'Widgets';
@@ -124,105 +124,7 @@ define(['angular', 'sample-module', 'bower_components/px-datagrid/src/main', 'bo
          scope for time series widget
          */
         $scope.timeSeries = {
-            title: 'Time Series Chart',
-            queries: timeSeriesData,
-            showYAxisUnits: true,
-            plotType: 'line'
-        };
-
-        /*
-         data for data grid widget
-         */
-        var dataGridData = [
-            {
-                'sensorId': 1,
-                'value': 1432,
-                'timestamp': 'Mon Sep 22 2014 12:35:40 GMT-0700 (PDT)',
-                'quality': 'Good'
-            },
-            {
-                'sensorId': 2,
-                'value': 1857,
-                'timestamp': 'Mon Sep 22 2014 12:34:40 GMT-0700 (PDT)',
-                'quality': 'Good'
-            },
-            {
-                'sensorId': 3,
-                'value': 720,
-                'timestamp': 'Mon Sep 22 2014 12:33:40 GMT-0700 (PDT)',
-                'quality': 'Poor'
-            },
-            {
-                'sensorId': 4,
-                'value': 2600,
-                'timestamp': 'Mon Sep 22 2014 12:32:40 GMT-0700 (PDT)',
-                'quality': 'Excellent'
-            },
-            {
-                'sensorId': 5,
-                'value': 530,
-                'timestamp': 'Mon Sep 22 2014 12:31:40 GMT-0700 (PDT)',
-                'quality': 'Poor'
-            },
-            {
-                'sensorId': 3,
-                'value': 2134,
-                'timestamp': 'Mon Sep 22 2014 12:30:40 GMT-0700 (PDT)',
-                'quality': 'Excellent'
-            }
-        ];
-
-        var dataGridColumns = [
-            {
-                'field': 'sensorId',
-                'type': 'string',
-                'inputType': 'text',
-                'inputSize': 5,
-                'label': 'ID'
-            },
-            {
-                'field': 'timestamp',
-                'type': 'date',
-                'inputType': 'text',
-                'inputSize': 20,
-                'label': 'Timestamp'
-            },
-            {
-                'field': 'quality',
-                'type': 'enum',
-                'inputType': 'select',
-                'label': 'Quality',
-                'options': [
-                    {
-                        'label': 'One',
-                        'option': 1
-                    },
-                    {
-                        'label': 'Two',
-                        'option': 2
-                    },
-                    {
-                        'label': 'Three',
-                        'option': 3
-                    }
-                ]
-            },
-            {
-                'field': 'value',
-                'type': 'number',
-                'inputType': 'text',
-                'inputSize': 10,
-                'label': 'Value'
-            }
-        ];
-
-        /*
-         scope for data grid widget
-         */
-        $scope.datagrid = {
-            title: 'Datagrid',
-            tableData: dataGridData,
-            columns: dataGridColumns
+            queries: timeSeriesData
         };
     }]);
 });
