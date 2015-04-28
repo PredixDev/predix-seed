@@ -1,42 +1,43 @@
 {
-  "name": "predix-seed",
-  "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "public/bower_components",
-    "test",
-    "tests",
-    "target",
-    "test-target",
-    "sass"
-  ],
-  "dependencies": {
-    "requirejs-plugins": "1.0.2",
-    "require-css": "0.1.1",
-    "angular": "~1.3.12",
-    "angular-route": "~1.3.12",
-    "angular-resource": "~1.3.12",
-    "angular-mocks": "~1.3.12",
-    "angular-ui-router": "0.2.13",
-    "angular-bootstrap": "0.8.0",
-    "lodash": "2.4.1",
-    "px-time-series": "git://github.sw.ge.com/PredixWidgetCatalog/px-time-series.git#no_angular",
-    "px-oauth": "git://github.sw.ge.com/Predix-Experience/px-oauth.git#develop",
-    "px-datasource": "git://github.sw.ge.com/Predix-Experience/px-datasource.git#develop",
-    "px-contextual-dashboard": "git://github.sw.ge.com/PX/px-contextual-dashboard.git#develop",
-    "px-app-nav": "git://github.sw.ge.com/PXC/px-app-nav.git#master",
-    "px-starter-kit-design": "git://github.sw.ge.com/PXC/px-starter-kit-design.git#master",
-    "px-buttons-design": "git://github.sw.ge.com/PXC/px-buttons-design.git#master",
-    "px-colors-design": "git://github.sw.ge.com/PXC/px-colors-design.git#master",
-    "px-layout-design": "git://github.sw.ge.com/PXC/px-layout-design.git#master",
-    "px-list-bare-design": "git://github.sw.ge.com/PXC/px-list-bare-design.git#master",
-    "vruntime": "git://github.sw.ge.com/Predix-Experience/vclient#1.0"
-  },
-  "resolutions": {
-    "polymer": "~v0.8.0",
-    "webcomponentsjs": "^0.6.0"
-  }
+    "name": "predix-seed",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "public/bower_components",
+        "test",
+        "tests",
+        "target",
+        "test-target",
+        "sass"
+    ],
+    "dependencies": {
+        "requirejs-plugins": "1.0.2",
+        "require-css": "0.1.1",
+        "angular": "~1.3.12",
+        "angular-route": "~1.3.12",
+        "angular-resource": "~1.3.12",
+        "angular-mocks": "~1.3.12",
+        "angular-ui-router": "0.2.13",
+        "angular-bootstrap": "0.8.0",
+        "lodash": "2.4.1",
+        "px-time-series": "git://github.sw.ge.com/PredixWidgetCatalog/px-time-series.git#no_angular",
+        "px-oauth": "git://github.sw.ge.com/Predix-Experience/px-oauth.git#develop",
+        "px-datasource": "git://github.sw.ge.com/Predix-Experience/px-datasource.git#develop",
+        "px-contextual-dashboard": "git://github.sw.ge.com/PX/px-contextual-dashboard.git#develop",
+        "px-app-nav": "git://github.sw.ge.com/PXC/px-app-nav.git#master",
+        "px-starter-kit-design": "git://github.sw.ge.com/PXC/px-starter-kit-design.git#master",
+        "px-buttons-design": "git://github.sw.ge.com/PXC/px-buttons-design.git#master",
+        "px-colors-design": "git://github.sw.ge.com/PXC/px-colors-design.git#master",
+        "px-layout-design": "git://github.sw.ge.com/PXC/px-layout-design.git#master",
+        "px-list-bare-design": "git://github.sw.ge.com/PXC/px-list-bare-design.git#master",
+        "vruntime": "git://github.sw.ge.com/Predix-Experience/vclient#1.0"
+    },
+    "resolutions": {
+        "polymer": "~v0.8.0",
+        "webcomponentsjs": "^0.6.0",
+        "underscore": "~1.8.3"
+    }
 }
 

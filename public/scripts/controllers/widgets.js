@@ -11,7 +11,7 @@ define(['angular', 'sample-module'], function(angular, sampleModule) {
                     'sample_size': 1071,
                     'results': [
                         {
-                            'name': 'Winter 2007-2008',
+                            'name': 'Winter 1970-1971',
                             'values': [
                                 [
                                     25833600000,
