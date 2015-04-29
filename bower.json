@@ -23,6 +23,8 @@
     "angular-bootstrap": "0.8.0",
     "lodash": "2.4.1",
     "px-time-series": "git://github.sw.ge.com/PredixWidgetCatalog/px-time-series.git#no_angular",
+    "px-time-series-ng": "git://github.sw.ge.com/PredixWidgetCatalog/px-time-series.git#develop",
+    "px-datagrid": "git://github.sw.ge.com/PredixWidgetCatalog/px-datagrid.git#develop",
     "px-oauth": "git://github.sw.ge.com/Predix-Experience/px-oauth.git#develop",
     "px-datasource": "git://github.sw.ge.com/Predix-Experience/px-datasource.git#develop",
     "px-contextual-dashboard": "git://github.sw.ge.com/PX/px-contextual-dashboard.git#develop",
