@@ -44,7 +44,7 @@ define([
     predixApp.config(['WidgetLoaderServiceProvider', 'ViewServiceProvider', 'DatasourceServiceProvider', 'VCAP_SERVICES', function (WidgetLoaderServiceProvider, ViewServiceProvider, DatasourceServiceProvider, VCAP_SERVICES) {
         WidgetLoaderServiceProvider.loadWidgetsFrom([
             'bower_components/px-datagrid/src',
-            'bower_components/px-time-series-ng/src'
+            'bower_components/px-time-series/src'
         ]);
 
         ViewServiceProvider.setViewUrl(VCAP_SERVICES.viewPersistenceService);
