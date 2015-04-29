@@ -75,6 +75,9 @@ require.config({
         'css-builder': '../bower_components/require-css/css-builder',
         'normalize': '../bower_components/require-css/normalize',
 
+      'underscore': '../bower_components/underscore-amd/index',
+      jquery: '../bower_components/jquery/dist/jquery.min',
+
         /*
          * IIDx 3.0.0
          */
@@ -93,7 +96,6 @@ require.config({
         'declarative-visualizations': '../bower_components/iids/dist/iidx/components/declarative-visualizations/js/declarative-visualizations',
         'ge-bootstrap': '../bower_components/iids/dist/iidx/components/ge-bootstrap/js/ge-bootstrap',
         'iids-navbar': '../bower_components/iids/dist/iidx/components/iids-navbar/js/iids-navbar',
-        jquery: '../bower_components/iids/dist/iidx/components/jquery/jquery.min',
         'jquery-csv': '../bower_components/iids/dist/iidx/components/jquery-csv/src/jquery.csv',
         'jqueryui-sortable-amd': '../bower_components/iids/dist/iidx/components/jqueryui-sortable-amd/js/jquery-ui-1.10.2.custom',
         'jQuery-contextMenu': '../bower_components/iids/dist/iidx/components/jQuery-contextMenu/src/jquery.contextMenu',
@@ -134,7 +136,6 @@ require.config({
         'map-search': '../bower_components/iids/dist/iidx/components/map-search/js/asset-address-search', //backwards compatibility only, can be removed in a non-backwards compatible release w/ client paths change to 'map-search-component/asset-address-search'
         'map-zoom': '../bower_components/iids/dist/iidx/components/map-zoom/js/map-zoom',
         'hogan': '../bower_components/iids/dist/iidx/components/hogan/index',
-        'underscore': '../bower_components/iids/dist/iidx/components/underscore-amd/index',
         OpenLayers: '../bower_components/iids/dist/iidx/components/open-layers/dist/OpenLayers',
         'map-layerlist': '../bower_components/iids/dist/iidx/components/map-layerlist/js/map-layer-list',
         navbar: '../bower_components/iids/dist/iidx/components/navbar/js/iids-navbar',
