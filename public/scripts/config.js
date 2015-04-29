@@ -4,9 +4,9 @@
 
 'use strict';
 /**
- * This file sets up the basic module libraries you'll need
- * for your application.
- */
+* This file sets up the basic module libraries you'll need
+* for your application.
+*/
 requirejs.onError = function(err) {
     //console.log(err.requireType);
     if (err.requireType === 'timeout') {
@@ -15,9 +15,9 @@ requirejs.onError = function(err) {
     throw err;
 };
 /**
- * RequireJS Config
- * This is configuration for the entire application.
- */
+* RequireJS Config
+* This is configuration for the entire application.
+*/
 require.config({
     enforceDefine: false,
     xhtml: false,
@@ -75,12 +75,12 @@ require.config({
         'css-builder': '../bower_components/require-css/css-builder',
         'normalize': '../bower_components/require-css/normalize',
 
-      'underscore': '../bower_components/underscore-amd/index',
-      jquery: '../bower_components/jquery/dist/jquery.min',
+        underscore: '../bower_components/underscore-amd/index',
+        jquery: '../bower_components/jquery/dist/jquery.min',
 
         /*
-         * IIDx 3.0.0
-         */
+        * IIDx 3.0.0
+        */
         brandkit: '../bower_components/iids/dist/iidx/components/brandkit/js/iidx-brandkit',
         'cascading-list': '../bower_components/iids/dist/iidx/components/cascading-list/js/cascading-list',
         charts: '../bower_components/iids/dist/iidx/components/charts/js/charts',
@@ -190,15 +190,15 @@ require.config({
         'stock-chart': '../bower_components/iids/dist/iidx/components/charts/js/charts/stock'
 
         /*
-         * End of IIDx path re-map
-         */
+        * End of IIDx path re-map
+        */
 
     },
     /*
-     * IIDx use ge-bootstrap internally in their system
-     * The follow section use ge-bootstrap map to remap ge-bootstrap path to the path alias above
-     * Therefore all IIDx internal ge-bootstrap reference link will not be broken
-     */
+    * IIDx use ge-bootstrap internally in their system
+    * The follow section use ge-bootstrap map to remap ge-bootstrap path to the path alias above
+    * Therefore all IIDx internal ge-bootstrap reference link will not be broken
+    */
     map: {
         'ge-bootstrap': {
             'bootstrap/bootstrap-affix': 'bootstrap-affix',
@@ -249,9 +249,9 @@ require.config({
             deps: ['angular']
         },
         /*
-         * IIDx shim
-         * This section shim require for IIDx
-         */
+        * IIDx shim
+        * This section shim require for IIDx
+        */
         OpenLayers: {
             exports: 'OpenLayers'
         },

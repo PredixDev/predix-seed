@@ -5,6 +5,12 @@
  * github.com/inuitcss | inuitcss.com
  */
 /*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
+ */
+/*------------------------------------*\
     #PX-COLORS-DESIGN
 \*------------------------------------*/
 /**
@@ -42,11 +48,23 @@
  *
  * github.com/inuitcss | inuitcss.com
  */
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
+ */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /*!
  * inuitcss, by @csswizardry
  *
  * github.com/inuitcss | inuitcss.com
+ */
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
  */
 /*------------------------------------*\
     #PX-FUNCTIONS-DESIGN
@@ -137,8 +155,7 @@ audio:not([controls]) {
    * As per: csswizardry.com/2012/06/single-direction-margin-declarations
    */
 h1, h2, h3, h4, h5, h6, ul, ol, dl, blockquote, p, address, hr, table, fieldset, figure, pre {
-  margin-bottom: 20px;
-  margin-bottom: 1.3333333333rem; }
+  margin-bottom: 1rem; }
 
 /**
    * Remove extra vertical spacing when nesting lists.
@@ -151,8 +168,7 @@ li > ul, li > ol {
    * by a consistent amount. Define that amount once,here.
    */
 ul, ol, dd {
-  margin-left: 40px;
-  margin-left: 2.6666666667rem; }
+  margin-left: 2rem; }
 
 /* Links
      ========================================================================== */
@@ -330,13 +346,6 @@ button[disabled], html input[disabled] {
   cursor: default; }
 
 /**
-   * Remove inner padding and border in Firefox 4+.
-   */
-button::-moz-focus-inner, input::-moz-focus-inner {
-  border: 0;
-  padding: 0; }
-
-/**
    * Address Firefox 4+ setting `line-height` on `input` using `!important` in
    * the UA stylesheet.
    */
@@ -361,9 +370,12 @@ input[type="checkbox"], input[type="radio"] {
    * `font-size` values of the `input`, it causes the cursor style of the
    * decrement button to change from `default` to `text`.
    */
-input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
-  height: auto; }
-
+/*
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+  }
+*/
 /**
    * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
    * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
@@ -380,9 +392,12 @@ input[type="search"] {
    * Safari (but not Chrome) clips the cancel button when the search input has
    * padding (and `textfield` appearance).
    */
-input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none; }
-
+/*
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+*/
 /**
    * Define consistent border, margin, and padding.
    */
@@ -640,6 +655,12 @@ html {
 /**
  * Sass functions for Predix Experience
  */
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
+ */
 .viewport {
   width: 98%;
   max-width: 80rem;
@@ -733,6 +754,11 @@ html {
       -ms-flex-align: baseline;
           align-items: baseline; }
 
+.flex__item {
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
+
 .flex__item--top {
   -webkit-align-self: flex-start;
       -ms-flex-item-align: start;
@@ -771,6 +797,12 @@ html {
  * Sass functions for Predix Experience
  */
 /*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
+ */
+/*------------------------------------*\
     #PX-MIXINS-DESIGN
 \*------------------------------------*/
 /**
@@ -780,6 +812,12 @@ html {
  * inuitcss, by @csswizardry
  *
  * github.com/inuitcss | inuitcss.com
+ */
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
  */
 @font-face {
   font-family: 'GE Inspira';
@@ -883,6 +921,10 @@ html {
 .weight--semibold {
   font-weight: 600 !important; }
 
+small {
+  font-size: 0.8rem;
+  line-height: 1.6666666667; }
+
 /*------------------------------------*\
     #PX-LAYOUT-DESIGN
 \*------------------------------------*/
@@ -890,6 +932,12 @@ html {
  * inuitcss, by @csswizardry
  *
  * github.com/inuitcss | inuitcss.com
+ */
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
  */
 /*------------------------------------*\
     #PX-FUNCTIONS-DESIGN
@@ -916,7 +964,7 @@ html {
           flex-wrap: wrap;
   list-style: none;
   margin: 0;
-  margin-left: -10px;
+  margin-left: -1rem;
   padding: 0; }
 
 /**
@@ -925,16 +973,25 @@ html {
        * 3. Required to combine fluid widths and fixed gutters.
        */
 .layout__item {
-  padding-left: 10px;
+  padding-left: 1rem;
   /* [1] */
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
   /* [2] */
-  -webkit-flex-basis: 10em;
-      -ms-flex-preferred-size: 10em;
-          flex-basis: 10em; }
-  @media screen and (min-width: 68.266666667rem) {
+  -webkit-flex-basis: 20rem;
+      -ms-flex-preferred-size: 20rem;
+          flex-basis: 20rem; }
+  .layout__item:nth-last-child(-n+3):first-child, .layout__item:nth-last-child(-n+3):first-child ~ .layout__item {
+    -webkit-flex-basis: 40rem;
+        -ms-flex-preferred-size: 40rem;
+            flex-basis: 40rem; }
+    @media screen and (min-width: 80rem) {
+      .layout__item:nth-last-child(-n+3):first-child, .layout__item:nth-last-child(-n+3):first-child ~ .layout__item {
+        -webkit-flex-basis: 0;
+            -ms-flex-preferred-size: 0;
+                flex-basis: 0; } }
+  @media screen and (min-width: 80rem) {
     .layout__item {
       -webkit-flex-basis: 0;
           -ms-flex-preferred-size: 0;
@@ -944,14 +1001,14 @@ html {
        * Layouts with small gutters.
        */
 .layout--small {
-  margin-left: -5px; }
+  margin-left: -0.6666666667rem; }
   .layout--small > .layout__item {
-    padding-left: 5px; }
+    padding-left: 0.6666666667rem; }
 
 /**
        * Align layout items to the vertical bottoms of each other.
        */
-.layout--full .layout__item {
+.layout--full > .layout__item {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex; }
@@ -960,6 +1017,29 @@ html {
  * inuitcss, by @csswizardry
  *
  * github.com/inuitcss | inuitcss.com
+ */
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
+ */
+/*------------------------------------*\
+    #PX-MIXINS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass mixins for Predix Experience
+ */
+/*!
+ * inuitcss, by @csswizardry
+ *
+ * github.com/inuitcss | inuitcss.com
+ */
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
  */
 /*------------------------------------*\
     #PX-FUNCTIONS-DESIGN
@@ -989,6 +1069,8 @@ html {
   /* [4] */
   margin: 0;
   /* [4] */
+  padding-right: 1em;
+  padding-left: 1em;
   cursor: pointer;
   /* [5] */
   overflow: visible;
@@ -996,7 +1078,9 @@ html {
   background: #3171e3;
   -webkit-font-smoothing: antialiased;
   border: 0;
-  padding: 5px 1em;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  line-height: calc(2em - 2px);
   border-radius: 3px; }
   .btn, .btn:hover, .btn:active, .btn:focus {
     text-decoration: none;
@@ -1011,14 +1095,7 @@ html {
   * Establish default space between adjacent buttons
   */
 .btn + .btn {
-  margin-left: 10px; }
-
-/**
-  * Fix a Firefox bug whereby `input type="submit"` gains 2px extra padding.
-  */
-.btn::-moz-focus-inner {
-  border: 0;
-  padding: 0; }
+  margin-left: 0.6666666667rem; }
 
 /**
      * Buttons with no styles (good a11y practice to use <button> for actions rather than <a>.
@@ -1027,6 +1104,7 @@ html {
   border: 0;
   border-radius: 0;
   padding: 0;
+  line-height: inherit;
   text-transform: none; }
   .btn--bare, .btn--bare:hover, .btn--bare:active, .btn--bare:focus, .auth button, .auth button:hover, .auth button:active, .auth button:focus {
     background: transparent;
@@ -1043,6 +1121,12 @@ html {
  * inuitcss, by @csswizardry
  *
  * github.com/inuitcss | inuitcss.com
+ */
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
  */
 /*------------------------------------*\
     #PX-FUNCTIONS-DESIGN
@@ -1083,7 +1167,6 @@ html {
 [role=banner] {
   height: 3.3333333333rem; }
   [role=banner] h1 {
-    font-size: 24px;
     font-size: 1.6rem;
     line-height: 1.6666666667;
     margin: 0;
@@ -1138,6 +1221,12 @@ main {
  * Sass functions for Predix Experience
  */
 /*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
+ */
+/*------------------------------------*\
     #PX-SPACING-DESIGN
 \*------------------------------------*/
 /**
@@ -1157,64 +1246,70 @@ main {
 /**
  * Sass functions for Predix Experience
  */
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
+ */
 /**
        * Add tiny margins.
        */
 .m-- {
-  margin: 5px !important; }
+  margin: 0.3333333333rem !important; }
 
 .mt-- {
-  margin-top: 5px !important; }
+  margin-top: 0.3333333333rem !important; }
 
 .mr-- {
-  margin-right: 5px !important; }
+  margin-right: 0.3333333333rem !important; }
 
 .mb-- {
-  margin-bottom: 5px !important; }
+  margin-bottom: 0.3333333333rem !important; }
 
 .ml-- {
-  margin-left: 5px !important; }
+  margin-left: 0.3333333333rem !important; }
 
 .mh-- {
-  margin-right: 5px !important;
-  margin-left: 5px !important; }
+  margin-right: 0.3333333333rem !important;
+  margin-left: 0.3333333333rem !important; }
 
 .mv-- {
-  margin-top: 5px !important;
-  margin-bottom: 5px !important; }
+  margin-top: 0.3333333333rem !important;
+  margin-bottom: 0.3333333333rem !important; }
 
 /**
        * Switch left and right margins when right-to-left language settings in use.
        */
 [dir=rtl] .mr {
   margin-right: 0 !important;
-  margin-left: 20px !important; }
+  margin-left: 1rem !important; }
 [dir=rtl] .ml {
-  margin-right: 20px !important;
+  margin-right: 1rem !important;
   margin-left: 0 !important; }
 [dir=rtl] .mr- {
   margin-right: 0 !important;
-  margin-left: 10px !important; }
+  margin-left: 0.6666666667rem !important; }
 [dir=rtl] .ml- {
-  margin-right: 10px !important;
+  margin-right: 0.6666666667rem !important;
   margin-left: 0 !important; }
 [dir=rtl] .mr-- {
   margin-right: 0 !important;
-  margin-left: 5px !important; }
+  margin-left: 0.3333333333rem !important; }
 [dir=rtl] .ml-- {
-  margin-right: 5px !important;
+  margin-right: 0.3333333333rem !important;
   margin-left: 0 !important; }
-[dir=rtl] .mr\+ {
+[dir=rtl] .mr\00002b {
   margin-right: 0 !important;
-  margin-left: 40px !important; }
-[dir=rtl] .ml\+ {
-  margin-right: 40px !important;
+  margin-left: 1.3333333333rem !important; }
+[dir=rtl] .ml\00002b {
+  margin-right: 1.3333333333rem !important;
   margin-left: 0 !important; }
-[dir=rtl] .mr\+\+ {
+[dir=rtl] .mr\00002b\00002b {
   margin-right: 0 !important;
-  margin-left: 80px !important; }
-[dir=rtl] .ml\+\+ {
-  margin-right: 80px !important;
+  margin-left: 2rem !important; }
+[dir=rtl] .ml\00002b\00002b {
+  margin-right: 2rem !important;
   margin-left: 0 !important; }
 
 /*------------------------------------*\
@@ -1234,10 +1329,22 @@ main {
 /**
  * Sass functions for Predix Experience
  */
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
+ */
 /*!
  * inuitcss, by @csswizardry
  *
  * github.com/inuitcss | inuitcss.com
+ */
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
  */
 /*------------------------------------*\
     #WIDTHS
@@ -1260,10 +1367,22 @@ main {
 /**
  * Sass functions for Predix Experience
  */
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
+ */
 /*!
  * inuitcss, by @csswizardry
  *
  * github.com/inuitcss | inuitcss.com
+ */
+/*------------------------------------*\
+    #PX-FUNCTIONS-DESIGN
+\*------------------------------------*/
+/**
+ * Sass functions for Predix Experience
  */
 .u-1\/1 {
   width: 100% !important; }

@@ -36,10 +36,12 @@
     "px-list-bare-design": "git://github.sw.ge.com/PXC/px-list-bare-design.git#master",
     "vruntime": "git://github.sw.ge.com/Predix-Experience/vclient#1.0",
     "iron-overlay": "https://github.com/GeneralElectric/iron-overlay.git",
-    "iids": "git://github.sw.ge.com/Predix-Experience/iidx#3.0"
+    "iids": "git://github.sw.ge.com/Predix-Experience/iidx#3.0",
+    "px-theme": "git://github.sw.ge.com/PXc/px-theme.git"
   },
   "resolutions": {
     "underscore": "~1.8.3",
-    "polymer": "v0.8.0-rc.7"
+    "polymer": "v0.8.0-rc.7",
+    "px-theme": "master"
   }
 }
