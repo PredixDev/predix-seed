@@ -9,13 +9,9 @@
 
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 
-    <link type="text/css" rel="stylesheet" href="stylesheets/px.css"/>
-
-    <!--
-    Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports.
-    Must be loaded before jquery: https://github.com/webcomponents/webcomponentsjs/issues/48
-     -->
-    <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <!-- Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports -->
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="bower_components/polymer/polymer.html"/>
 
     <script type='application/javascript' src='cf-routes.js'></script>
 
@@ -23,6 +19,11 @@
 
     <link rel="localization" href="locales/manifest.json">
     <script src="bower_components/l20n/l20n.min.js"></script>
+    
+    <!-- Import custom element. Note: see comment about relative paths to dependencies in the *.html file referenced below -->
+    <link rel="import" href="bower_components/px-theme/px-theme.html"/>
+    
+    <link type="text/css" rel="stylesheet" href="stylesheets/px.css"/>
 
     <link rel="import" href="bower_components/px-theme/px-theme.html">
 
@@ -38,9 +39,9 @@
     </div>
   </header>
   <div class="viewport">
-    <div class="layout layout--small layout--full">
+    <div class="layout layout--full layout--flush">
       <link rel="import" href="bower_components/px-app-nav/px-app-nav.html"/>
-      <px-app-nav class="layout__item" nav-items="{{App.tabs}}" path-prefix="/" path-key="state"">
+      <px-app-nav class="layout__item" nav-items="{{App.tabs}}" path-prefix="/" path-key="state">
         <div class="auth">
           <px-oauth
                   site="site"
@@ -51,12 +52,36 @@
       </px-app-nav>
       <main class="layout__item" role="main">
         <!-- MAIN CONTENT -->
-        <section ui-view style="width:100%">
+        <section class="u-1/1" role="region" ui-view>
           <!-- This is the container where the tabs will render -->
         </section>
       </main>
     </div>
   </div>
+  <footer class="flex flex--middle" role="contentinfo">
+    <div class="viewport">
+      <nav class="flex flex--right flex--middle" role="navigation">
+        <ul class="list-inline">
+          <li class="mh-">
+            <a href="#">Privacy</a>
+          </li>
+          <li class="mh-">
+            <a href="#">Terms</a>
+          </li>
+          <li class="mh-">
+            <a href="#">Contact</a>
+          </li>
+          <li class="mh-">
+            <a href="#">Accessibility</a>
+          </li>
+          <li class="mh-">
+            <a href="#">Cookies</a>
+          </li>
+        </ul>
+        <small class="ml+">©2015 General Electric</small>
+      </nav>  
+    </div>
+  </footer>
 </body>
 
 <script data-main='scripts/bootstrapper.js'
