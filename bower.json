@@ -27,7 +27,7 @@
     "px-datagrid": "git://github.sw.ge.com/PredixWidgetCatalog/px-datagrid.git#develop",
     "px-oauth": "git://github.sw.ge.com/Predix-Experience/px-oauth.git#develop",
     "px-datasource": "git://github.sw.ge.com/Predix-Experience/px-datasource.git#develop",
-    "px-contextual-dashboard": "git://github.sw.ge.com/PX/px-contextual-dashboard.git#develop",
+    "px-contextual-dashboard": "git://github.sw.ge.com/Predix-Experience/px-contextual-dashboard.git#develop",
     "px-app-nav": "git://github.sw.ge.com/PXC/px-app-nav.git#master",
     "px-starter-kit-design": "git://github.sw.ge.com/PXC/px-starter-kit-design.git#master",
     "px-buttons-design": "git://github.sw.ge.com/PXC/px-buttons-design.git#master",
