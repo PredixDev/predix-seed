@@ -17,40 +17,7 @@ define(['angular-mocks', 'app'], function(mocks, app) {
             expect($scope.name).toBe('Widgets');
         });
 
-        describe('should have the datagrid scope', function() {
-
-            it('has the title', function() {
-                expect($scope.datagrid.title).toBe('Datagrid');
-            });
-
-            it('has the tableData', function() {
-                expect($scope.datagrid.tableData.length).toBe(6);
-                expect($scope.datagrid.tableData[0]).toEqual({
-                    sensorId: 1,
-                    value: 1432,
-                    timestamp: 'Mon Sep 22 2014 12:35:40 GMT-0700 (PDT)',
-                    quality: 'Good'
-                });
-            });
-
-            it('has the columns', function() {
-                expect($scope.datagrid.columns.length).toBe(4);
-                expect($scope.datagrid.columns[0]).toEqual({
-                    field: 'sensorId',
-                    type: 'string',
-                    inputType: 'text',
-                    inputSize: 5,
-                    label: 'ID'
-                });
-            });
-
-        });
-
         describe('should have the timeseries scope', function() {
-
-            it('has the title', function() {
-                expect($scope.timeSeries.title).toBe('Time Series Chart');
-            });
 
             it('has the queries', function() {
                 expect($scope.timeSeries.queries[0].results.length).toBe(1);
@@ -159,14 +126,6 @@ define(['angular-mocks', 'app'], function(mocks, app) {
                         ]
                     ]
                 });
-            });
-
-            it('has the showYAxisUnits', function() {
-                expect($scope.timeSeries.showYAxisUnits).toBe(true);
-            });
-
-            it('has the plotType', function() {
-                expect($scope.timeSeries.plotType).toBe('line');
             });
         });
     });
