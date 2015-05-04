@@ -78,11 +78,8 @@ module.exports = function(grunt) {
                 livereload: '<%= connect.livereload %>'
             },
             styles: {
-                files: [
-                    '<%= config.app %>/stylesheets/**/*.css',
-                    '!<%= config.app %>/stylesheets/main.min.css'
-                ],
-                tasks: ['cssmin']
+                files: ['sass/*.scss'],
+                tasks: ['sass', 'autoprefixer']
             },
             less: {
                 files: ['<%= config.app %>/stylesheets/app.less'],
@@ -270,8 +267,8 @@ module.exports = function(grunt) {
                         cwd: 'public',
                         expand: true,
                         src: [
-                            'index.html', //main index.html
-                            'stylesheets/main.min.css', //minified CSS
+                            'index.html', //Main Index.html
+                            'stylesheets/*.css', //minified CSS
                             'views/*.html',
                             'images/*.*',
                             'bower_components/px-datagrid/src/*',
@@ -299,9 +296,55 @@ module.exports = function(grunt) {
                             'bower_components/iids/dist/iidx/components/brandkit/fonts/*.*',
                             'bower_components/iids/dist/iidx/css/*.*'],
                         dest: '<%= config.dist %>/'
+                    },
+                    {
+                        cwd: 'public',
+                        expand: true,
+                        src: [
+                            'bower_components/px-app-nav/**',
+                            'bower_components/l20n/**',
+                            'bower_components/webcomponentsjs/**',
+                            'bower_components/web-animations-js/**',
+                            'bower_components/px-l10n-mixin/**',
+                            'bower_components/polymer/**',
+                            'type/**'
+                            ],
+                        dest: '<%= config.dist %>/'
+                    },
+                    {
+                        cwd: 'public',
+                        expand: true,
+                        src: [
+                            'bower_components/font-awesome/fonts/**'
+                            ],
+                        dest: '<%= config.dist %>/'
                     }
+
                 ]
             }
+        },
+
+        sass: {
+            dist: {
+            options: {
+              includePaths: ['public/bower_components']
+            },
+            files: {
+              'public/stylesheets/noprefix/px.css': 'sass/px.scss'
+            }
+          }
+        },
+
+        autoprefixer: {
+            options: {
+            browsers: ['last 2 version']
+          },
+          multiple_files: {
+            expand: true,
+            flatten: true,
+            src: 'public/stylesheets/noprefix/*.css',
+            dest: 'public/stylesheets'
+          }
         },
 
         // cssmin task - https://github.com/gruntjs/grunt-contrib-cssmin
@@ -310,7 +353,7 @@ module.exports = function(grunt) {
             target: {
                 files: {
                     "public/stylesheets/main.min.css": [
-                        'public/stylesheets/app.css',
+                        //'public/stylesheets/app.css',
                         'public/stylesheets/**/*.css',
                         '!public/stylesheets/main.min.css'
                     ]
@@ -402,10 +445,10 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('dist', ['clean:build', 'less', 'cssmin', 'jshint:src', 'copy:dist', 'requirejs']);
+    grunt.registerTask('dist', ['clean:build', 'cssmin', 'jshint:src', 'copy:dist', 'requirejs', 'sass', 'autoprefixer']);
     grunt.registerTask('test', ['jshint:test', 'clean:test', 'karma']);
     grunt.registerTask('test:e2e', ['clean:test', 'protractor_webdriver', 'protractor']);
-    grunt.registerTask('serve', ['less', 'cssmin', 'clean:build', 'connect:livereload', 'watch']);
+    grunt.registerTask('serve', ['cssmin', 'clean:build', 'connect:livereload', 'watch', 'sass', 'autoprefixer']);
     grunt.registerTask('docs', ['dist', 'ngdocs', 'connect:docs']);
     grunt.registerTask('default', ['dist', 'test']);
 };

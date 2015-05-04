@@ -4,9 +4,9 @@
 
 'use strict';
 /**
- * This file sets up the basic module libraries you'll need
- * for your application.
- */
+* This file sets up the basic module libraries you'll need
+* for your application.
+*/
 requirejs.onError = function(err) {
     //console.log(err.requireType);
     if (err.requireType === 'timeout') {
@@ -15,9 +15,9 @@ requirejs.onError = function(err) {
     throw err;
 };
 /**
- * RequireJS Config
- * This is configuration for the entire application.
- */
+* RequireJS Config
+* This is configuration for the entire application.
+*/
 require.config({
     enforceDefine: false,
     xhtml: false,
@@ -75,9 +75,12 @@ require.config({
         'css-builder': '../bower_components/require-css/css-builder',
         'normalize': '../bower_components/require-css/normalize',
 
+        underscore: '../bower_components/underscore-amd/index',
+        jquery: '../bower_components/jquery/dist/jquery.min',
+
         /*
-         * IIDx 3.0.0
-         */
+        * IIDx 3.0.0
+        */
         brandkit: '../bower_components/iids/dist/iidx/components/brandkit/js/iidx-brandkit',
         'cascading-list': '../bower_components/iids/dist/iidx/components/cascading-list/js/cascading-list',
         charts: '../bower_components/iids/dist/iidx/components/charts/js/charts',
@@ -93,7 +96,6 @@ require.config({
         'declarative-visualizations': '../bower_components/iids/dist/iidx/components/declarative-visualizations/js/declarative-visualizations',
         'ge-bootstrap': '../bower_components/iids/dist/iidx/components/ge-bootstrap/js/ge-bootstrap',
         'iids-navbar': '../bower_components/iids/dist/iidx/components/iids-navbar/js/iids-navbar',
-        jquery: '../bower_components/iids/dist/iidx/components/jquery/jquery.min',
         'jquery-csv': '../bower_components/iids/dist/iidx/components/jquery-csv/src/jquery.csv',
         'jqueryui-sortable-amd': '../bower_components/iids/dist/iidx/components/jqueryui-sortable-amd/js/jquery-ui-1.10.2.custom',
         'jQuery-contextMenu': '../bower_components/iids/dist/iidx/components/jQuery-contextMenu/src/jquery.contextMenu',
@@ -134,7 +136,6 @@ require.config({
         'map-search': '../bower_components/iids/dist/iidx/components/map-search/js/asset-address-search', //backwards compatibility only, can be removed in a non-backwards compatible release w/ client paths change to 'map-search-component/asset-address-search'
         'map-zoom': '../bower_components/iids/dist/iidx/components/map-zoom/js/map-zoom',
         'hogan': '../bower_components/iids/dist/iidx/components/hogan/index',
-        'underscore': '../bower_components/iids/dist/iidx/components/underscore-amd/index',
         OpenLayers: '../bower_components/iids/dist/iidx/components/open-layers/dist/OpenLayers',
         'map-layerlist': '../bower_components/iids/dist/iidx/components/map-layerlist/js/map-layer-list',
         navbar: '../bower_components/iids/dist/iidx/components/navbar/js/iids-navbar',
@@ -189,15 +190,15 @@ require.config({
         'stock-chart': '../bower_components/iids/dist/iidx/components/charts/js/charts/stock'
 
         /*
-         * End of IIDx path re-map
-         */
+        * End of IIDx path re-map
+        */
 
     },
     /*
-     * IIDx use ge-bootstrap internally in their system
-     * The follow section use ge-bootstrap map to remap ge-bootstrap path to the path alias above
-     * Therefore all IIDx internal ge-bootstrap reference link will not be broken
-     */
+    * IIDx use ge-bootstrap internally in their system
+    * The follow section use ge-bootstrap map to remap ge-bootstrap path to the path alias above
+    * Therefore all IIDx internal ge-bootstrap reference link will not be broken
+    */
     map: {
         'ge-bootstrap': {
             'bootstrap/bootstrap-affix': 'bootstrap-affix',
@@ -248,9 +249,9 @@ require.config({
             deps: ['angular']
         },
         /*
-         * IIDx shim
-         * This section shim require for IIDx
-         */
+        * IIDx shim
+        * This section shim require for IIDx
+        */
         OpenLayers: {
             exports: 'OpenLayers'
         },

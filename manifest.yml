@@ -6,4 +6,4 @@ applications:
     memory: 64M
     services:
             - viewPersistenceService
-            - predixAsset
+            - predixAssetExp

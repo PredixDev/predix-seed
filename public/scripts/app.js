@@ -65,11 +65,11 @@ define([
             name: 'Predix Seed',
             session: {},
             tabs: [
-                {state: 'home', label: vRuntime.messages('Home')},
-                {state: 'about', label: vRuntime.messages('About')},
-                {state: 'widgets', label: vRuntime.messages('Widgets')},
-                {state: 'alarm', label: 'Alarm'},
-                {state: 'dashboard', label: vRuntime.messages('Dashboard')}
+                {icon: 'fa-home', state: 'home', label: vRuntime.messages('Home'), l10nId: 'Home'},
+                {icon: 'fa-newspaper-o', state: 'about', label: vRuntime.messages('About'), l10nId: 'About'},
+                {icon: 'fa-bar-chart', state: 'widgets', label: vRuntime.messages('Widgets'), l10nId: 'Widgets'},
+                {icon: 'fa-warning', state: 'alarm', label: 'Alarm', l10nId: 'Alarm'},
+                {icon: 'fa-tachometer', state: 'dashboard', label: vRuntime.messages('Dashboard'), l10nId: 'Dashboard'}
             ]
         };
 

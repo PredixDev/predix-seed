@@ -1,0 +1,197 @@
+$imported-once-files        : ();
+
+// Settings
+@import "px-defaults-design/settings.defaults";
+@import "inuit-responsive-settings/settings.responsive";
+@import "px-colors-design/settings.colors";
+
+// Tools
+@import "px-mixins-design/tools.mixins";
+@import "inuit-responsive-tools/tools.responsive";
+
+// Generic
+@import "px-normalize-design/generic.normalize";
+@import "px-box-sizing-design/generic.box-sizing";
+@import "px-helpers-design/generic.helpers";
+
+// Meta
+@import "px-meta-lists-design/meta.lists";
+
+// Base
+@import "px-viewport-design/base.viewport";
+@import "px-flexbox-design/base.flexbox";
+@import "px-typography-design/base.typography";
+@import "px-code-design/base.code";
+@import "px-headings-design/base.headings";
+@import "px-iconography-design/base.iconography";
+
+// Objects
+$inuit-enable-layout--small : true;
+$inuit-enable-layout--flush : true;
+$inuit-enable-layout--full  : true;
+
+@import "px-layout-design/objects.layout";
+
+$inuit-enable-btn--bare     : true;
+
+//@import "px-buttons-design/objects.buttons";
+
+// App
+html {
+  background-color: $gray-darker;
+}
+
+.layout__item.navbar {
+  flex: none;
+  min-height: calc(100vh - #{calculateRem(120px)});
+}
+
+.auth {
+  &, a {
+    color: $white;
+  }
+  button {
+    @extend %btn--bare;
+  }
+  ul {
+    @extend %list-bare;
+  }
+}
+
+.navbar--collapsed {
+  .auth {
+    @include accessibility;
+  }
+}
+
+[role=banner], [role=contentinfo] {
+  height: calculateRem(60px);
+}
+
+[role=banner] {
+  h1 {
+    @include inuit-font-size(24px);
+    margin: 0;
+    font-weight: normal;
+    color: $white;
+    svg {
+      margin-bottom: -.1em;
+    }
+  }
+}
+
+main {
+  border: $inuit-base-spacing-unit--tiny solid $gray;
+  background-color: $white;
+}
+
+.spine, .cards {
+  h3 {
+    line-height: 1;
+  }
+  p b {
+    font-weight: normal;
+  }
+}
+
+.spine {
+  border-top: 2px solid $gray-dark;
+  background : linear-gradient(180deg, rgb(110, 112, 114) 0%, rgb(139, 141, 143) 100%);
+  color: $white;
+  article {
+    padding: $inuit-base-spacing-unit--small $inuit-base-spacing-unit--small $inuit-base-spacing-unit--large;
+  }
+  h3 {
+    margin-top: 0;
+    margin-bottom: $inuit-base-spacing-unit;
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+  p {
+    margin: 0 0 0 -.08em;
+  }
+  p b {
+    color: $gray-light;
+  }
+}
+
+.spine--primary, .spine--secondary {
+  .layout__item {
+    @include border-right-left(right, $gray-dark);
+  }
+}
+
+.spine--primary p {
+  @include inuit-font-size(75px,false);
+  padding-top: $inuit-base-spacing-unit--small;
+  line-height: .55;
+  b {
+    font-size: .5em;
+  }
+}
+
+.spine--secondary {
+  border-top: 1px solid $gray-dark;
+  p {
+    @include inuit-font-size(45px,false);
+    padding-top: $inuit-base-spacing-unit--tiny;
+    line-height: .6;
+    b {
+      font-size: .6666em;
+    }
+  }
+}
+
+.cards {
+  background-color: $white;
+  color: $true-black;
+  h2 {
+    border-bottom: 2px solid $gray-light;
+  }
+  .layout__item {
+    @include border-right-left(right, $gray-light);
+    border-bottom: 1px solid $gray-light;
+  }
+  article {
+    padding: $inuit-base-spacing-unit--large $inuit-base-spacing-unit--large $inuit-base-spacing-unit--huge;
+  }
+  h3, p {
+    margin: 0;
+  }
+  p {
+    @include inuit-font-size(60px,36px);
+    padding-top: $inuit-base-spacing-unit;
+    b {
+      font-size: .5em;
+      color: $gray;
+    }
+  }
+}
+
+[role=contentinfo] {
+  @include inuit-font-size(12px);
+  color: $white;
+  a {
+    text-decoration: none;
+    color: $white;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Trumps
+@import "px-clearfix-design/trumps.clearfix";
+
+$inuit-enable-margins--tiny             : true;
+$inuit-enable-margins--small            : true;
+$inuit-enable-margins--large            : true;
+$inuit-enable-margins--none             : true;
+$inuit-enable-margins--rtl              : true;
+$inuit-enable-margins--negative-tiny    : true;
+$inuit-enable-paddings                  : true;
+$inuit-enable-paddings--tiny            : true;
+$inuit-enable-paddings--large           : true;
+
+@import "px-spacing-responsive-design/trumps.spacing-responsive";
+@import "px-widths-responsive-design/trumps.widths-responsive";
