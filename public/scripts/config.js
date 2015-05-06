@@ -75,7 +75,7 @@ require.config({
         'css-builder': '../bower_components/require-css/css-builder',
         'normalize': '../bower_components/require-css/normalize',
 
-        underscore: '../bower_components/underscore-amd/index',
+        underscore: '../bower_components/underscore/underscore',
         jquery: '../bower_components/jquery/dist/jquery.min',
 
         /*
