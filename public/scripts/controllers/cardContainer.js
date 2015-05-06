@@ -25,7 +25,7 @@ define(['angular',
         var eventHandler    = function(e){
             console.log(e.detail , e.target);
             var attr = e.detail.attr;
-            e.target[attr] = {
+            e.detail.card[attr] = {
                 name: 'changing',
                 url: e.detail.startDate
             };
