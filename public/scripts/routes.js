@@ -35,6 +35,11 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
                 templateUrl: 'views/dashboard.html',
                 controller: 'DashboardCtrl'
             })
+            .state('cardContainer', {
+                url: '/cardContainer',
+                templateUrl: 'views/cards.html',
+                controller: 'CardContainerController'
+            })
             .state('alarm', {
                 url: '/alarm',
                 templateUrl: 'views/alarm.html',
