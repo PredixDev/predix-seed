@@ -20,10 +20,8 @@ define(['angular',
             name: 'another thing!!'
         };
 
-        var myCard = document.querySelectorAll('my-card');
-        console.log(myCard);
+        var myCard = document.querySelectorAll('demo-card');
         var eventHandler    = function(e){
-            console.log(e.detail , e.target);
             var attr = e.detail.attr;
             e.detail.card[attr] = {
                 name: 'changing',
@@ -31,7 +29,6 @@ define(['angular',
             };
         };
         for(i in myCard){
-            console.log(myCard[i]);
             if(myCard[i].addEventListener){
                 myCard[i].addEventListener('px-change-attr',eventHandler);
             }
