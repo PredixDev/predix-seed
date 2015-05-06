@@ -20,16 +20,22 @@ define(['angular',
             name: 'another thing!!'
         };
 
-        $('#mycard1').on('px-card-more-data',function(){
-            console.log(arguments);
-            console.log($scope.fromng);
-            // get more data
-            // choose instance to send back to (somehow send id?)
-            $scope.fromng = {
+        var myCard = document.querySelectorAll('my-card');
+        console.log(myCard);
+        var eventHandler    = function(e){
+            console.log(e.detail , e.target);
+            var attr = e.detail.attr;
+            e.target[attr] = {
                 name: 'changing',
-                url: 'yay!'
+                url: e.detail.startDate
             };
-            $scope.$apply();
-        });
+        };
+        for(i in myCard){
+            console.log(myCard[i]);
+            if(myCard[i].addEventListener){
+                myCard[i].addEventListener('px-change-attr',eventHandler);
+            }
+        }
+
     }]);
 });
