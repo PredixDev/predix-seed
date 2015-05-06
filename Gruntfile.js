@@ -77,10 +77,6 @@ module.exports = function(grunt) {
                 nospawn: true,
                 livereload: '<%= connect.livereload %>'
             },
-            styles: {
-                files: ['sass/*.scss'],
-                tasks: ['sass', 'autoprefixer']
-            },
             less: {
                 files: ['<%= config.app %>/stylesheets/app.less'],
                 tasks: ['less','cssmin']
@@ -324,17 +320,6 @@ module.exports = function(grunt) {
             }
         },
 
-        sass: {
-            dist: {
-            options: {
-              includePaths: ['public/bower_components']
-            },
-            files: {
-              'public/stylesheets/noprefix/px.css': 'sass/px.scss'
-            }
-          }
-        },
-
         autoprefixer: {
             options: {
             browsers: ['last 2 version']
@@ -445,10 +430,10 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('dist', ['clean:build', 'cssmin', 'jshint:src', 'copy:dist', 'requirejs', 'sass', 'autoprefixer']);
+    grunt.registerTask('dist', ['clean:build', 'cssmin', 'jshint:src', 'copy:dist', 'requirejs', 'autoprefixer']);
     grunt.registerTask('test', ['jshint:test', 'clean:test', 'karma']);
     grunt.registerTask('test:e2e', ['clean:test', 'protractor_webdriver', 'protractor']);
-    grunt.registerTask('serve', ['cssmin', 'clean:build', 'connect:livereload', 'watch', 'sass', 'autoprefixer']);
+    grunt.registerTask('serve', ['cssmin', 'clean:build', 'connect:livereload', 'watch', 'autoprefixer']);
     grunt.registerTask('docs', ['dist', 'ngdocs', 'connect:docs']);
     grunt.registerTask('default', ['dist', 'test']);
 };
