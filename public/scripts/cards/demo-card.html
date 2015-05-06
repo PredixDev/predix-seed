@@ -6,9 +6,10 @@
     <template>
         <div style="border: 1px;border-color: red;border-style: solid;">
             <h1>My context name is:<span>{{context.name}}</span></h1>
-            <h1>In 1 second:<span>{{context.url}}</span></h1>
             <button on-click="getMoreData">Get more data</button>
-            <px-time-series></px-time-series>
+            <div>{{data.name}}</div>
+            <div>{{data.thing}}</div>
+            <px-time-series queries="{{data.queries}}"></px-time-series>
         </div>
     </template>
 </dom-module>
