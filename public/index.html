@@ -19,13 +19,13 @@
 
     <link rel="localization" href="locales/manifest.json">
     <script src="bower_components/l20n/l20n.min.js"></script>
-    
-    <!-- Import custom element. Note: see comment about relative paths to dependencies in the *.html file referenced below -->
-    <link rel="import" href="bower_components/px-theme/px-theme.html"/>
-    
-    <link type="text/css" rel="stylesheet" href="stylesheets/px.css"/>
 
-    <link rel="import" href="bower_components/px-theme/px-theme.html">
+    <!-- import component theme css variables. -->
+    <link rel="import" href="bower_components/px-theme/px-theme.html"/>
+
+    <!-- import page level css. -->
+    <link rel="import" href="bower_components/px-theme/px-app.html">
+
 
 </head>
 
@@ -79,7 +79,7 @@
           </li>
         </ul>
         <small class="ml+">©2015 General Electric</small>
-      </nav>  
+      </nav>
     </div>
   </footer>
 </body>
