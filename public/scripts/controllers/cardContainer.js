@@ -13,8 +13,23 @@ define(['angular',
 
     // Controller definition
     controllers.controller('CardContainerController', ['$scope',  function ($scope) {
-        $scope.context = {a: 123};
+        $scope.fromng = {
+            name: 'fromng!!'
+        };
+        $scope.anotherthing = {
+            name: 'another thing!!'
+        };
 
-
+        $('#mycard1').on('px-card-more-data',function(){
+            console.log(arguments);
+            console.log($scope.fromng);
+            // get more data
+            // choose instance to send back to (somehow send id?)
+            $scope.fromng = {
+                name: 'changing',
+                url: 'yay!'
+            };
+            $scope.$apply();
+        });
     }]);
 });
