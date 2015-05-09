@@ -1,2 +1,189 @@
-<px-context-selector class="clearfix" data-config="contextSelectorConfig"></px-context-selector>
-<px-configurable-dashboard context="context" type="dashboard"></px-configurable-dashboard>
+<style>
+
+    .spacer {
+        display: inline-block;
+        width: 1ex;
+        height: 1ex;
+    }
+
+    .context-heading {
+        vertical-align: middle;
+        line-height: 0.7;
+        white-space: nowrap;
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+    span.context-heading {
+        display: inline-block;
+    }
+    .context-heading > span {
+        font-size: 150%;
+    }
+
+    header.solid { background-color: white; }
+
+    .overlay-backdrop {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        transition: opacity 0.35s ease 0s;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .overlay-toggle {
+        cursor: pointer;
+        z-index: 1;
+    }
+    .overlay-container {
+        background-color: white;
+        transition: height 0.35s ease 0s, max-height 0.35s ease 0s;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 0;
+        max-height: 0;
+        width: 100%;
+    }
+    .overlay-container > div {
+        transition: min-height 0s ease 0s;
+        min-height: 23.33333333em;
+    }
+
+    /*noinspection CssUnusedSymbol*/
+    .overlay-container.open,
+    .overlay-controller.open .overlay-container {
+        transition: height 0.35s ease 0s, max-height 0.35s ease 0s;
+        height: 23.33333333em;
+        max-height: 95%;
+    }
+    .overlay-container.open > div,
+    .overlay-controller.open .overlay-container > div {
+        transition: min-height 0.0875s ease 0.35s;
+        min-height: 100%;
+    }
+
+    /*noinspection CssUnusedSymbol*/
+    .overlay-controller .overlay-open,
+    .overlay-controller:not(.open) .overlay-open,
+    .overlay-controller.open .overlay-closed {
+        display: none;
+    }
+
+    .overlay-controller.open .overlay-open {
+        display: inherit;
+    }
+    .overlay-controller.open .overlay-backdrop {
+        opacity: 0.65;
+        pointer-events: auto;
+    }
+
+    /* the above CSS is rendered by LESS inside px-responsive-prototype */
+
+</style>
+
+<script>
+var OPEN = 'open';
+$('.overlay-controller').each(function(i,oc){
+    var $oc = $(oc);
+    $oc.find('.overlay-toggle').click(function(){
+        $oc.toggleClass(OPEN);
+    });
+
+    $('body').click(
+        function(e) {
+            var target = e.target;
+            var contained = false;
+            $oc
+                .find('.overlay-toggle, .overlay-container')
+                .each(function(i,ot){
+                          contained = target==ot || ot.contains(target);
+                          if(contained)
+                              return false;
+                      });
+
+            if(!contained)
+                $oc.removeClass(OPEN);
+        });
+});
+</script>
+
+<div class="overlay-backdrop"><span></span></div>
+
+<div class="overlay-controller flex-y full-xy position-absolute scroll-y-hidden">
+
+
+    <header class="overlay-toggle solid">
+        <span class="spacer"></span>
+        <span class="context-heading"><span class="text">{{context.name || "Select Context"}}</span></span>
+        <span>&nbsp;<i class="fa fa-chevron-down overlay-closed"></i><i class="fa fa-chevron-up overlay-open"></i>&nbsp;</span>
+        <span class="spacer"></span>
+    </header>
+
+    <div class="main flex-1" style="background-color: #CCC">
+        <div class="full-xy position-absolute scroll-y-auto">
+
+            <div style="padding:2ex;">
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+                <div>Dashboard contents...</div>
+            </div>
+
+
+
+        </div>
+
+        <div class="overlay-backdrop position-absolute"><span></span></div>
+
+        <div class="overlay-container">
+            <div class="full-height">
+             <px-context-selector class="clearfix" data-config="contextSelectorConfig"></px-context-selector>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+

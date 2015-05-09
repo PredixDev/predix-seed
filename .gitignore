@@ -4,3 +4,4 @@ test-target
 main.min.css
 dist/public
 dist/www
+.idea

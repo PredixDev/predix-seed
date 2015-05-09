@@ -1,0 +1,584 @@
+span.spacer,
+span.spacer-x,
+span.spacer-y {
+    display: inline-block;
+}
+.spacer,
+.spacer-x {
+    width: 1ex;
+}
+.spacer,
+.spacer-y {
+    height: 1ex;
+}
+.flex,
+.flex-x,
+.flex-y {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+}
+.flex.align-center,
+.flex-x.align-center,
+.flex-y.align-center {
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.flex-x {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: row;
+    -webkit-flex-direction: row;
+    -moz-box-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+.flex-y {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: column;
+    -webkit-flex-direction: column;
+    -moz-box-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.flex-1 {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+.full-x, .full-xy {
+    width: 100%;
+}
+.full-y, .full-xy {
+    height: 100%;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.scroll {
+    overflow: scroll;
+}
+.scroll-hidden {
+    overflow: hidden;
+}
+.scroll-auto {
+    overflow: auto;
+}
+.scroll-x {
+    overflow-x: scroll;
+}
+.scroll-x-hidden {
+    overflow-x: hidden;
+}
+.scroll-x-auto {
+    overflow-x: auto;
+}
+.scroll-y {
+    overflow-y: scroll;
+}
+.scroll-y-hidden {
+    overflow-y: hidden;
+}
+.scroll-y-auto {
+    overflow-y: auto;
+}
+.block {
+    display: block;
+}
+.inline-block {
+    display: inline-block;
+}
+.invisible {
+    visibility: hidden;
+}
+.icon {
+    line-height: 0;
+    text-align: center;
+}
+.icon > * {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    margin: auto;
+    background-repeat: no-repeat;
+}
+@font-face {
+    font-family: "GE Inspira Sans";
+    src: url("../type/GEInspiraSans-Regular-v01.eot");
+    src: url("../type/GEInspiraSans-Regular-v01.eot?#iefix") format("embedded-opentype"), url("../type/GEInspiraSans-Regular-v01.woff") format("woff"), url("../type/GEInspiraSans-Regular-v01.ttf") format("truetype"), url("../type/GEInspiraSans-Regular-v01.svg#GE Inspira Sans") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "GE Inspira Sans";
+    src: url("../type/GEInspiraSans-Italic-v01.eot");
+    src: url("../type/GEInspiraSans-Italic-v01.eot?#iefix") format("embedded-opentype"), url("../type/GEInspiraSans-Italic-v01.woff") format("woff"), url("../type/GEInspiraSans-Italic-v01.ttf") format("truetype"), url("../type/GEInspiraSans-Italic-v01.svg#GE Inspira Sans") format("svg");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "GE Inspira Sans";
+    src: url("../type/GEInspiraSans-Bold-v01.eot");
+    src: url("../type/GEInspiraSans-Bold-v01.eot?#iefix") format("embedded-opentype"), url("../type/GEInspiraSans-Bold-v01.woff") format("woff"), url("../type/GEInspiraSans-Bold-v01.ttf") format("truetype"), url("../type/GEInspiraSans-Bold-v01.svg#GE Inspira Sans") format("svg");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "GE Inspira Sans";
+    src: url("../type/GEInspiraSans-BoldItalic-v01.eot");
+    src: url("../type/GEInspiraSans-BoldItalic-v01.eot?#iefix") format("embedded-opentype"), url("../type/GEInspiraSans-BoldItalic-v01.woff") format("woff"), url("../type/GEInspiraSans-BoldItalic-v01.ttf") format("truetype"), url("../type/GEInspiraSans-BoldItalic-v01.svg#GE Inspira Sans") format("svg");
+    font-weight: bold;
+    font-style: italic;
+}
+.text {
+    display: inline-block;
+    margin-top: 0.05em;
+    margin-bottom: -0.05em;
+}
+html,
+body {
+    /* Full Width/Height */
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+h5 {
+    margin-bottom: 0.5em;
+}
+h5 + p {
+    margin-top: 0;
+}
+.context-heading {
+    vertical-align: middle;
+    line-height: 0.7;
+    white-space: nowrap;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+span.context-heading {
+    display: inline-block;
+}
+.context-heading > span {
+    font-size: 150%;
+}
+body {
+    font-family: GE Inspira Sans, Segue, Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    background-color: #434548;
+}
+div.main, section.main {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+body > div.main {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    transition: left 0.5s ease 0s, right 0.5s ease 0s;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: column;
+    -webkit-flex-direction: column;
+    -moz-box-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+@media all and (min-width: 1200px) {
+    body > div.main {
+        left: 3em;
+        right: 3em;
+    }
+}
+body > div.main > header {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    color: #ffffff;
+    padding: 0.6em 0.26666667em;
+    transition: padding 0.5s ease 0s;
+}
+@media all and (max-width: 1200px) {
+    body > div.main > header {
+        padding: 0.6em 1em;
+    }
+}
+body > div.main > header > * {
+    vertical-align: middle;
+}
+body > div.main > header > .icon + .text,
+body > div.main > header > .icon + * + .text {
+    margin-top: 0;
+}
+body > div.main > div.main > nav {
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    order: 1;
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: column;
+    -webkit-flex-direction: column;
+    -moz-box-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #2b2a2b;
+    transition: width 0.35s ease 0s, min-width 0.35s ease 0s;
+    width: 13.93333333em;
+    min-width: 13.93333333em;
+}
+body > div.main > div.main > nav,
+body > div.main > div.main > nav a {
+    color: #ffffff;
+}
+body > div.main > div.main > nav a[name=''][href=''],
+body > div.main > div.main > nav a:not([name]),
+body > div.main > div.main > nav a:not([href]) {
+    cursor: pointer;
+}
+body > div.main > div.main > nav hr {
+    margin: 0;
+    border: 0;
+    border-top: 1px solid #0c0b0c;
+    border-bottom: 1px solid #3d3d3d;
+}
+body > div.main > div.main > nav > div {
+    width: 13.93333333em;
+}
+body > div.main > div.main > nav > div.flex-1 {
+    overflow: hidden;
+    overflow-y: auto;
+}
+body > div.main > div.main > nav > div div.spacer {
+    width: 0.33333333em;
+    height: 0.33333333em;
+}
+body > div.main > div.main > nav > div .icon {
+    width: 3.73333333em;
+    min-width: 3.73333333em;
+}
+body > div.main > div.main > nav > div .icon > * {
+    width: 1.6em;
+    height: 1.6em;
+}
+body > div.main > div.main > nav > div .icon > *:before {
+    line-height: 1.6em;
+}
+body > div.main > div.main > nav > div .icon + .label {
+    margin-left: -0.53333333em;
+    margin-right: -0.53333333em;
+    transition: opacity 0.2625s ease 0s;
+    display: inline-block;
+    margin-top: 0.05em;
+    margin-bottom: -0.05em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    width: 100%;
+    max-width: 100%;
+}
+body > div.main > div.main > nav > div .icon + .label + .count > span,
+body > div.main > div.main > nav > div .icon + .label + * + .count > span {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    font-size: 65%;
+    display: inline-block;
+    background-color: black;
+    border-radius: 0.8em;
+    padding: 0.23333333em 0.33333333em 0.16666667em 0.34em;
+}
+body > div.main > div.main > nav > div li a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    padding: 0.33333333em 0;
+}
+body > div.main > div.main > nav > div li a > span {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+body > div.main > div.main > nav > div li a > span > .label {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+body > div.main > div.main > nav > div li > div + ul {
+    margin-top: -0.33333333em;
+    margin-bottom: 0.33333333em;
+}
+body > div.main > div.main > nav > div ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+body > div.main > div.main > nav > div ul ul a {
+    padding: 0;
+}
+body > div.main > div.main > nav > div ul ul a .label > span {
+    font-size: smaller;
+}
+body > div.main > div.main > nav > div .user-area {
+    padding: 0.4em 0;
+}
+body > div.main > div.main > nav > div .user-area > div {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+body > div.main > div.main > nav > div .user-area > div .settings {
+    cursor: pointer;
+}
+body > div.main > div.main > nav > div .user-area > div .settings > i {
+    margin: 0.2em 0.5em;
+}
+body > div.main > div.main > nav div.hide-when-collapsed {
+    overflow: hidden;
+    max-height: 26.66666667em;
+    transition: max-height 0.35s ease 0s, opacity 0.35s ease 0s;
+}
+body > div.main > div.main > nav.collapsed {
+    width: 3.73333333em;
+    min-width: 3.73333333em;
+}
+body > div.main > div.main > nav.collapsed > div.flex-1 {
+    overflow-y: auto;
+}
+body > div.main > div.main > nav.collapsed > div .icon + .label {
+    opacity: 0;
+    transition: opacity 0.175s ease 0.175s;
+}
+body > div.main > div.main > nav.collapsed div.hide-when-collapsed {
+    opacity: 0;
+    max-height: 0;
+    transition: max-height 1s ease 0s, opacity 1s ease 0.175s;
+}
+@media all and (max-width: 768px) {
+    body > div.main > div.main > nav {
+        width: 3.73333333em;
+        min-width: 3.73333333em;
+    }
+    body > div.main > div.main > nav > div.flex-1 {
+        overflow-y: auto;
+    }
+    body > div.main > div.main > nav > div .icon + .label {
+        opacity: 0;
+        transition: opacity 0.175s ease 0.175s;
+    }
+    body > div.main > div.main > nav div.hide-when-collapsed {
+        opacity: 0;
+        max-height: 0;
+        transition: max-height 1s ease 0s, opacity 1s ease 0.175s;
+    }
+}
+body > div.main > div.main > nav.open,
+body > div.main > div.main > nav.open-item {
+    width: 13.93333333em;
+    min-width: 13.93333333em;
+}
+body > div.main > div.main > nav.open > div .icon + .label,
+body > div.main > div.main > nav.open-item > div .icon + .label {
+    opacity: 1;
+}
+body > div.main > div.main > nav.open div.hide-when-collapsed,
+body > div.main > div.main > nav.open-item div.hide-when-collapsed {
+    opacity: 1;
+    max-height: 26.66666667em;
+    transition: max-height 0.35s ease 0s, opacity 0.35s ease 0s;
+}
+body > div.main > div.main > div.main {
+    color: #222222;
+    background-color: #ffffff;
+}
+body > div.main > div.main > div.main > header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #DDD;
+}
+body > div.main > div.main > div.main > header > span {
+    display: inline-block;
+    vertical-align: middle;
+}
+body > div.main > div.main > div.main > header > span.spacer {
+    width: 1em;
+    height: 1.06666667em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+body > div.main > div.main > div.main,
+body > div.main > div.main > div.main > div.main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: column;
+    -webkit-flex-direction: column;
+    -moz-box-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    -ms-flex-order: 2;
+    -webkit-order: 2;
+    order: 2;
+}
+body > div.main > div.main > div.main .cards {
+    overflow-y: auto;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+body > div.main > div.main > div.main .cards fieldset:not(:first-child) {
+    margin-top: 1em;
+}
+body > div.main > div.main > div.main .card {
+    margin: 10px;
+    min-height: 200px;
+    box-shadow: 0 0 10px black;
+}
+body > div.main > div.main > div.main .card > div {
+    padding: 1em;
+}
+body > div.main > div.main > div.main .card > div h1:first-child,
+body > div.main > div.main > div.main .card > div h2:first-child,
+body > div.main > div.main > div.main .card > div h3:first-child,
+body > div.main > div.main > div.main .card > div h4:first-child,
+body > div.main > div.main > div.main .card > div h5:first-child,
+body > div.main > div.main > div.main .card > div h6:first-child {
+    margin-top: 0;
+}
+body > div.main > footer {
+    font-size: small;
+    text-align: right;
+}
+nav.spine > div {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+}
+nav.spine > div > div {
+    display: -webkit-inline-flex;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 1ex;
+    background-color: #989696;
+    min-height: 80px;
+    border: 2px solid white;
+}
+html:not([dir=rtl]) nav.spine > div > div:nth-child(n+2) {
+    border-left: 0;
+}
+html[dir=rtl] nav.spine > div > div:nth-child(n+2) {
+    border-right: 0;
+}
+.ge-logo {
+    line-height: 0;
+    text-align: center;
+    width: 1.2em;
+    height: 1.2em;
+    background-image: url("../images/ge/ge-monogram-athensgray.svg");
+}
+.ge-logo > * {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    margin: auto;
+    background-repeat: no-repeat;
+}
+.menu-button {
+    cursor: pointer;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.menu-button > i {
+    background-image: url(../images/hamburger_icon.svg) !important;
+    width: 1.33333333em !important;
+    height: 1.06666667em !important;
+}
+.menu-button.wide {
+    display: inline-block;
+}
+.menu-button.narrow {
+    display: none;
+}
+@media all and (max-width: 768px) {
+    .menu-button.wide {
+        display: none;
+    }
+    .menu-button.narrow {
+        display: inline-block;
+    }
+}
