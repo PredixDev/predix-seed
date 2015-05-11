@@ -269,7 +269,8 @@ module.exports = function(grunt) {
                             'images/*.*',
                             'bower_components/px-datagrid/src/*',
                             'bower_components/px-time-series/src/*',
-                            'bower_components/px-oauth/dist/views/*.html'
+                            'bower_components/px-oauth/dist/views/*.html',
+                            'bower_components/requirejs/require.js'
                         ],
                         dest: '<%= config.dist %>/'
                     },
@@ -277,7 +278,6 @@ module.exports = function(grunt) {
                         cwd: 'public',
                         expand: true,
                         src: [
-                            'bower_components/iids/dist/iidx/components/requirejs/**',
                             'bower_components/requirejs-plugins/src/**',
                             'bower_components/requirejs-plugins/lib/text.js',
                             'bower_components/require-css/css.js'
@@ -288,20 +288,13 @@ module.exports = function(grunt) {
                         cwd: 'public',
                         expand: true,
                         src: [
-                            'bower_components/iids/dist/iidx/components/brandkit/img/*.*',
-                            'bower_components/iids/dist/iidx/components/brandkit/fonts/*.*',
-                            'bower_components/iids/dist/iidx/css/*.*'],
-                        dest: '<%= config.dist %>/'
-                    },
-                    {
-                        cwd: 'public',
-                        expand: true,
-                        src: [
                             'bower_components/px-app-nav/**',
                             'bower_components/l20n/**',
+                            'locales/**',
                             'bower_components/webcomponentsjs/**',
                             'bower_components/web-animations-js/**',
                             'bower_components/px-l10n-mixin/**',
+                            'bower_components/px-theme/**',
                             'bower_components/polymer/**',
                             'type/**'
                             ],
