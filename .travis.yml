@@ -16,6 +16,7 @@ script:
   - npm config delete https-proxy
   - npm config set registry http://GIS05808.devcloud.ge.com:9095
   - npm install
+  - bower cache clean
   - bower --allow-root install
   - grunt -V
   - grunt -v
