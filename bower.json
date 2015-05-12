@@ -22,7 +22,7 @@
     "angular-ui-router": "0.2.13",
     "angular-bootstrap": "0.8.0",
     "lodash": "2.4.1",
-    "px-timeseries": "git://github.sw.ge.com/PXc/px-time-series.git#~0.1.0",
+    "px-timeseries": "git://github.sw.ge.com/PXc/px-time-series.git#master",
     "px-time-series": "git://github.sw.ge.com/PredixWidgetCatalog/px-time-series.git#develop",
     "px-datagrid": "git://github.sw.ge.com/PredixWidgetCatalog/px-datagrid.git#develop",
     "px-oauth": "git://github.sw.ge.com/Predix-Experience/px-oauth.git#develop",
@@ -30,7 +30,6 @@
     "px-contextual-dashboard": "git://github.sw.ge.com/Predix-Experience/px-contextual-dashboard.git#develop",
     "px-app-nav": "git://github.sw.ge.com/PXC/px-app-nav.git#master",
     "vruntime": "git://github.sw.ge.com/Predix-Experience/vclient#1.0",
-    "iron-overlay": "https://github.com/GeneralElectric/iron-overlay.git",
     "iids": "git://github.sw.ge.com/Predix-Experience/iidx#3.0",
     "px-theme": "git://github.sw.ge.com/PXc/px-theme.git#0.1.4"
   },
