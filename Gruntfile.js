@@ -289,6 +289,8 @@ module.exports = function(grunt) {
                         expand: true,
                         src: [
                             'bower_components/px-app-nav/**',
+                            'bower_components/px-timeseries/**',
+                            'bower_components/px-context-browser/**',
                             'bower_components/l20n/**',
                             'locales/**',
                             'bower_components/webcomponentsjs/**',

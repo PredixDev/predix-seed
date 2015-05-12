@@ -14,7 +14,8 @@ define([
     'px-oauth',
     'px-dashboard',
     'px-datasource',
-    'widgets-module'
+    'widgets-module',
+    'line-chart'
 ], function ($, angular, ngResource, vRuntime) {
     'use strict';
 
