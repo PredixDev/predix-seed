@@ -1,5 +1,5 @@
 <link rel="import" href="../../bower_components/px-card/px-card.html"/>
-<link rel="import" href="../../bower_components/px-timeseries/px-time-series.html"/>
+<link rel="import" href="../../bower_components/px-timeseries/px-ts-chart.html"/>
 
 <dom-module id="demo-card">
 
@@ -9,7 +9,13 @@
             <button on-click="getMoreData">Get more data</button>
             <div>{{data.name}}</div>
             <div>{{data.thing}}</div>
-            <px-time-series queries="{{data.queries}}"></px-time-series>
+
+            <px-ts-chart>
+              <px-ts-chart-controls data-controls></px-ts-chart-controls>
+              <px-chart-series series-obj="{{data.queries}}"
+                               series-obj-data-key="values"
+                               series-obj-name-key="name"></px-chart-series>
+            </px-ts-chart>
         </div>
     </template>
 </dom-module>
