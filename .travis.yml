@@ -10,7 +10,6 @@ before_script:
 
 script:
   - rm -rf /root/.npm/*.lock.STALE
-  - ls public/bower_components
   - rm -rf public/bower_components
   - node -v
   - npm -v
