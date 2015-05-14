@@ -6,8 +6,7 @@
  */
 /* jshint unused: false */
 define(['angular',
-    'sample-module',
-    'vruntime'
+    'sample-module'
 ], function (angular, controllers) {
     'use strict';
 

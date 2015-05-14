@@ -1,3 +1,3 @@
-define(['./about', './home', './widgets', './dashboard', './alarm', './timeseries-widget-renderer'], function() {
+define(['./about', './home', './widgets', './dashboard', './timeseries-widget-renderer'], function() {
 
 });
