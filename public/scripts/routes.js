@@ -34,29 +34,8 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
                 url: '/dashboard',
                 templateUrl: 'views/dashboard.html',
                 controller: 'DashboardCtrl'
-            })
-            .state('cardContainer', {
-                url: '/cardContainer',
-                templateUrl: 'views/cards.html',
-                controller: 'CardContainerController'
-            })
-            .state('alarm', {
-                url: '/alarm',
-                templateUrl: 'views/alarm.html',
-                controller: 'AlarmCtrl',
-                resolve: {
-                    context: ['$q', function($q) {
-                        var deferred = $q.defer();
-                        var myContext = {
-                            id: '/asset/right-tire-set-uri',
-                            name: 'TIRE SET R',
-                            classification: '/classification/tire-classification-uri'
-                        };
-                        deferred.resolve(myContext);
-                        return deferred.promise;
-                    }]
-                }
             });
+
 
         $urlRouterProvider
             .otherwise('home');

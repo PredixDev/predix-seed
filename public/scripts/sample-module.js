@@ -1,10 +1,10 @@
 /*
  * Define Angular controllers module
  */
-define(['angular', 'vruntime'], function(angular) {
+define(['angular'], function(angular) {
     'use strict';
 
-    var module = angular.module('sample.module', ['vRuntime.services']);
+    var module = angular.module('sample.module', []);
 
     module.config(['$controllerProvider', function($controllerProvider) {
         module._controller = module.controller;

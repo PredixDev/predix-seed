@@ -6,17 +6,14 @@
 define([
     'jquery',
     'angular',
-    'angular-resource',
-    'vruntime',
     'main',
     'routes',
     'interceptors',
     'px-oauth',
     'px-dashboard',
     'px-datasource',
-    'widgets-module',
-    'line-chart'
-], function ($, angular, ngResource, vRuntime) {
+    'widgets-module'
+], function ($, angular) {
     'use strict';
 
     /**
@@ -25,7 +22,6 @@ define([
      * @type {module}
      */
     var predixApp = angular.module('predixApp', [
-        'ngResource',
         'app.routes',
         'app.interceptors',
         'sample.module',
@@ -42,17 +38,6 @@ define([
      */
     predixApp.constant('VCAP_SERVICES', window.getRoutes());
 
-    predixApp.config(['WidgetLoaderServiceProvider', 'ViewServiceProvider', 'DatasourceServiceProvider', 'VCAP_SERVICES', function (WidgetLoaderServiceProvider, ViewServiceProvider, DatasourceServiceProvider, VCAP_SERVICES) {
-        WidgetLoaderServiceProvider.loadWidgetsFrom([
-            'bower_components/px-datagrid/src',
-            'bower_components/px-time-series/src'
-        ]);
-
-        ViewServiceProvider.setViewUrl(VCAP_SERVICES.viewPersistenceService);
-
-        DatasourceServiceProvider.setContextMetadataUrl('http://dashboard-mock-server.grc-apps.svc.ice.ge.com/qa');
-    }]);
-
     /**
      * Main Controller
      * This controller is the top most level controller that allows for all
@@ -66,18 +51,12 @@ define([
             name: 'Predix Seed',
             session: {},
             tabs: [
-                {icon: 'fa-home', state: 'home', label: vRuntime.messages('Home'), l10nId: 'Home'},
-                {icon: 'fa-newspaper-o', state: 'about', label: vRuntime.messages('About'), l10nId: 'About'},
-                {icon: 'fa-bar-chart', state: 'widgets', label: vRuntime.messages('Widgets'), l10nId: 'Widgets'},
-                {icon: 'fa-warning', state: 'alarm', label: 'Alarm', l10nId: 'Alarm'},
-                {icon: 'fa-tachometer', state: 'dashboard', label: vRuntime.messages('Dashboard'), l10nId: 'Dashboard'}
+                {icon: 'fa-home', state: 'home', label: 'Home', l10nId: 'Home'},
+                {icon: 'fa-newspaper-o', state: 'about', label: 'About', l10nId: 'About'},
+                {icon: 'fa-bar-chart', state: 'widgets', label: 'Widgets', l10nId: 'Widgets'},
+                {icon: 'fa-tachometer', state: 'dashboard', label: 'Dashboard', l10nId: 'Dashboard'}
             ]
         };
-
-        //Unbind all widgets from datasources and widgets when page changes
-        $rootScope.$on('$routeChangeStart', function () {
-            vRuntime.binder.unbindAll();
-        });
 
         // Example UAA Configuration
         $scope.site = 'https://uaa-staging.nurego.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
@@ -85,11 +64,6 @@ define([
         $scope.redirectUri = $location.absUrl();                    // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
     }]);
 
-    //Enable logging to the console. (levels are ERROR, WARN, SUCCESS, INFO, NONE)
-    //get a logger instance
-    window.logger = vRuntime.logger.create('config dash');
-    //set logger instance level
-    window.logger.setLevel(vRuntime.logger.global.WARN);
 
     //Set on window for debugging
     window.predixApp = predixApp;
