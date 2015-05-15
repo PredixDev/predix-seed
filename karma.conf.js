@@ -13,12 +13,21 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
+            {pattern: 'public/cf-routes.js', included: true},
+
             {pattern: 'public/scripts/config.js', included: true},
             {pattern: 'test/test-config.js', included: true},
 
+            //App Bower components
+            {pattern: 'public/bower_components/**/*.js', included: false},
+            {pattern: 'public/bower_components/**/*.tmpl', included: false},
+
             //App src files
-            {pattern: 'public/scripts/data-transformation.js', included: false},
-            {pattern: 'public/scripts/spec/transform-data-spec.js', included: false}
+            {pattern: 'public/scripts/*.js', included: false},
+            {pattern: 'public/scripts/**/*.js', included: false},
+            {pattern: 'public/stylesheets/**/*.*', included: false},
+            {pattern: 'public/images/**/*.*', included: false},
+            {pattern: 'public/views/**/*.*', included: false}
         ],
 
         // list of files / patterns to exclude
@@ -69,7 +78,7 @@ module.exports = function(config) {
         // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
         // - PhantomJS
         // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
-        browsers: ['PhantomJS'],
+        browsers: ['Chrome'],
         captureTimeout: 60000,
 
 

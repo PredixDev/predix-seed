@@ -20,8 +20,7 @@ define(['angular-mocks', 'app'], function(mocks, app) {
         describe('should have the timeseries scope', function() {
 
             it('has the queries', function() {
-                expect($scope.timeSeries.queries[0].results.length).toBe(1);
-                expect($scope.timeSeries.queries[0].results[0]).toEqual({
+                expect($scope.timeSeries.queries).toEqual({
                     'name': 'Winter 2007-2008',
                     'values': [
                         [
