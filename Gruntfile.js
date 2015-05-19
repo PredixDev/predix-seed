@@ -267,10 +267,8 @@ module.exports = function(grunt) {
                             'stylesheets/*.css', //minified CSS
                             'views/*.html',
                             'images/*.*',
-                            'bower_components/px-datagrid/src/*',
-                            'bower_components/px-time-series/src/*',
-                            'bower_components/px-oauth/dist/views/*.html',
-                            'bower_components/requirejs/require.js'
+                            'type/**',
+                            'locales/**'
                         ],
                         dest: '<%= config.dist %>/'
                     },
@@ -280,34 +278,30 @@ module.exports = function(grunt) {
                         src: [
                             'bower_components/requirejs-plugins/src/**',
                             'bower_components/requirejs-plugins/lib/text.js',
-                            'bower_components/require-css/css.js'
-                        ],
-                        dest: '<%= config.dist %>/'
-                    },
-                    {
-                        cwd: 'public',
-                        expand: true,
-                        src: [
+                            'bower_components/require-css/css.js',
+                            'bower_components/requirejs/require.js',
+
+                            'bower_components/px-oauth/dist/views/*.html',
+
                             'bower_components/px-app-nav/**',
+
                             'bower_components/px-timeseries/**',
+                            'bower_components/highstock-release/**',
+                            'bower_components/annotations/**',
+                            'bower_components/moment/**',
+
                             'bower_components/px-context-browser/**',
+
                             'bower_components/l20n/**',
-                            'locales/**',
+
                             'bower_components/webcomponentsjs/**',
                             'bower_components/web-animations-js/**',
                             'bower_components/px-l10n-mixin/**',
                             'bower_components/px-theme/**',
                             'bower_components/polymer/**',
-                            'type/**'
-                            ],
-                        dest: '<%= config.dist %>/'
-                    },
-                    {
-                        cwd: 'public',
-                        expand: true,
-                        src: [
+
                             'bower_components/font-awesome/fonts/**'
-                            ],
+                        ],
                         dest: '<%= config.dist %>/'
                     }
 
