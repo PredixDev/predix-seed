@@ -1,6 +1,20 @@
 define(['angular', 'sample-module'], function(angular, sampleModule) {
     'use strict';
-    return sampleModule.controller('CardsCtrl', ['$scope', function($scope) {
+    return sampleModule.controller('CardsCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+
+        window.deck = {
+            getData: function() {
+                return new Promise(function(resolve, reject) {
+                    $timeout(function(){
+                        // on success
+                        resolve(70);
+                    }, 30);
+
+                    // on failure
+                    //reject('error');
+                });
+            }
+        };
 
         var timeSeriesData = [
             {
@@ -121,6 +135,10 @@ define(['angular', 'sample-module'], function(angular, sampleModule) {
                 queries: timeSeriesData
             }
         };
+
+        $timeout(function(){
+            $scope.context.name = 'This is a new context';
+        }, 3000);
 
     }]);
 });

@@ -3,6 +3,7 @@
 <link rel="import" href="../../bower_components/px-card/px-card-controls.html"/>
 <link rel="import" href="../../bower_components/px-card/px-card-behavior.html"/>
 <link rel="import" href="../../bower_components/px-card/px-context-name.html"/>
+<!--<link rel="import" href="../../bower_components/px-timeseries/px-ts-chart.html"/>-->
 
 <dom-module id="sample-card">
     <template>
@@ -10,15 +11,39 @@
             <px-card-controls></px-card-controls>
             <px-context-name context-name="{{context.name}}"></px-context-name>
             <p>This is a more complex Predix Experience card.</p>
+            <!--<px-ts-chart>-->
+                <!--<px-chart-series series-obj="{{timeSeriesObj}}" series-obj-data-key="data"></px-chart-series>-->
+            <!--</px-ts-chart>-->
+            <button on-click="getMoreTemperatureData">Get More Temperature Data</button>
+            <p>Current Temperature:<span>{{currentTemperature}}</span>F</p>
         </px-card>
     </template>
 </dom-module>
 <script>
     Polymer({
         is: 'sample-card',
+        ready: function() {
+            this.currentTemperature = 65;
+        },
         refresh: function() {
             // (optionally) implement this API method to refresh your card data
             console.log('refresh!');
+        },
+        contextChanged: function(newContext, oldContext) {
+            // (optionally) implement this API method to do interesting stuff when the context is changed
+            console.log('context changed!');
+            // var allData = px.timeseries.adapter.kairosdb.transform(newContext.data.queries);
+            // this.timeSeriesObj = allData;
+        },
+        getMoreTemperatureData: function(){
+            var self = this;
+            this.getData('/temperature').then(function(currentTemperature) {
+                // on fulfillment
+                self.currentTemperature = currentTemperature;
+            }, function(reason) {
+                // on rejection
+                console.err(reason);
+            });
         },
         behaviors: [px.cardBehavior]
     });
