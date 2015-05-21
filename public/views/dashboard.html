@@ -1,4 +1,8 @@
+<link rel="import" href="../cards/demo-card.html"/>
+<link rel="import" href="../cards/sample-card.html"/>
+
 <px-context-selector class="clearfix" data-config="contextSelectorConfig"></px-context-selector>
-<h1>{{context.name}}</h1>
-<p>{{context.id}}</p>
-<p>{{context.classification}}</p>
+
+<demo-card context="{{context}}" state="{{state}}"></demo-card>
+
+<sample-card context="{{context}}" state="{{state}}"></sample-card>
