@@ -5,11 +5,9 @@ define([], function() {
         var $testContainer;
 
         beforeEach(function() {
-
             setFixtures(sandbox({
                 id: 'test-container'
             }));
-
             //fake widget container
             $testContainer = $('#test-container');
             $testContainer.append('<sample-card></sample-card>');
@@ -27,6 +25,9 @@ define([], function() {
             });
         });
 
+        afterEach(function(){
+            $('#test-container').remove();
+        });
     });
 
 });

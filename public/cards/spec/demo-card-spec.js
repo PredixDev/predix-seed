@@ -26,6 +26,10 @@ define([], function() {
                 expect($(demoCard).text()).toContain(stubContext.name);
             });
         });
+
+        afterEach(function(){
+            $('#test-container').remove();
+        });
     });
 
 });
