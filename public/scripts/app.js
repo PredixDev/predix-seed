@@ -54,7 +54,8 @@ define([
                 {icon: 'fa-home', state: 'home', label: 'Home', l10nId: 'Home'},
                 {icon: 'fa-newspaper-o', state: 'about', label: 'About', l10nId: 'About'},
                 {icon: 'fa-bar-chart', state: 'widgets', label: 'Widgets', l10nId: 'Widgets'},
-                {icon: 'fa-tachometer', state: 'dashboard', label: 'Dashboard', l10nId: 'Dashboard'}
+                {icon: 'fa-tachometer', state: 'dashboard', label: 'Dashboard', l10nId: 'Dashboard'},
+                {icon: 'fa-tachometer', state: 'cards', label: 'Cards', l10nId: 'Cards'}
             ]
         };
 

@@ -1,0 +1,18 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html"/>
+<link rel="import" href="../../bower_components/px-card/px-card.html"/>
+<link rel="import" href="../../bower_components/px-card/px-card-behavior.html"/>
+
+<dom-module id="demo-card">
+    <template>
+        <px-card>
+            <h1>Hello World</h1>
+            <p>This is the bare minimum you need for a Predix Experience card.</p>
+        </px-card>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: 'demo-card',
+        behaviors: [px.cardBehavior]
+    });
+</script>

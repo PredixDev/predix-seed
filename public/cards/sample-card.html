@@ -1,0 +1,25 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html"/>
+<link rel="import" href="../../bower_components/px-card/px-card.html"/>
+<link rel="import" href="../../bower_components/px-card/px-card-controls.html"/>
+<link rel="import" href="../../bower_components/px-card/px-card-behavior.html"/>
+<link rel="import" href="../../bower_components/px-card/px-context-name.html"/>
+
+<dom-module id="sample-card">
+    <template>
+        <px-card>
+            <px-card-controls></px-card-controls>
+            <px-context-name context-name="{{context.name}}"></px-context-name>
+            <p>This is a more complex Predix Experience card.</p>
+        </px-card>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: 'sample-card',
+        refresh: function() {
+            // (optionally) implement this API method to refresh your card data
+            console.log('refresh!');
+        },
+        behaviors: [px.cardBehavior]
+    });
+</script>

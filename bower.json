@@ -1,35 +1,37 @@
 {
-  "name": "predix-seed",
-  "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "public/bower_components",
-    "test",
-    "tests",
-    "target",
-    "test-target",
-    "sass"
-  ],
-  "dependencies": {
-    "require-css": "0.1.1",
-    "requirejs-plugins": "1.0.2",
-    "angular": "~1.3.12",
-    "angular-route": "~1.3.12",
-    "angular-resource": "~1.3.12",
-    "angular-mocks": "~1.3.12",
-    "angular-ui-router": "0.2.13",
-    "angular-bootstrap": "0.8.0",
-    "lodash": "2.4.1",
-    "px-timeseries": "git://github.build.ge.com/PXc/px-time-series.git#master",
-    "px-oauth": "git://github.build.ge.com/Predix-Experience/px-oauth.git#develop",
-    "px-datasource": "git://github.build.ge.com/Predix-Experience/px-datasource.git#develop",
-    "px-contextual-dashboard": "git://github.build.ge.com/Predix-Experience/px-contextual-dashboard.git#develop",
-    "px-app-nav": "git://github.build.ge.com/PXC/px-app-nav.git#master",
-    "px-theme": "git://github.build.ge.com/PXc/px-theme.git#~v0.1.7"
-  },
-  "resolutions": {
-    "underscore": "~1.8.3"
-  }
+    "name": "predix-seed",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "public/bower_components",
+        "test",
+        "tests",
+        "target",
+        "test-target",
+        "sass"
+    ],
+    "dependencies": {
+        "require-css": "0.1.1",
+        "requirejs-plugins": "1.0.2",
+        "angular": "~1.3.12",
+        "angular-route": "~1.3.12",
+        "angular-resource": "~1.3.12",
+        "angular-mocks": "~1.3.12",
+        "angular-ui-router": "0.2.13",
+        "angular-bootstrap": "0.8.0",
+        "lodash": "2.4.1",
+        "px-timeseries": "git://github.build.ge.com/PXc/px-time-series.git#master",
+        "px-oauth": "git://github.build.ge.com/Predix-Experience/px-oauth.git#develop",
+        "px-datasource": "git://github.build.ge.com/Predix-Experience/px-datasource.git#develop",
+        "px-contextual-dashboard": "git://github.build.ge.com/Predix-Experience/px-contextual-dashboard.git#develop",
+        "px-app-nav": "git://github.build.ge.com/PXC/px-app-nav.git#master",
+        "px-theme": "git://github.build.ge.com/PXc/px-theme.git#~v0.1.7",
+        "px-card": "git://github.build.ge.com/Predix-Experience/px-card.git#master",
+        "px": "git://github.build.ge.com/Predix-Experience/px.git"
+    },
+    "resolutions": {
+        "underscore": "~1.8.3"
+    }
 }
