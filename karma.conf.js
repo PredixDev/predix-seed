@@ -13,6 +13,20 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
+            'test/lib/jasmine-jquery.js',
+            'test/lib/jasmine-fixture.min.js',
+            {pattern: 'public/bower_components/polymer/**/*.js', included: true},
+            {pattern: 'public/bower_components/polymer//*.html', included: true},
+            {pattern: 'public/bower_components/webcomponentsjs/webcomponents.js', included: true},
+            {pattern: 'public/bower_components/px/dist/px.min.js', included: true},
+            {pattern: 'public/bower_components/px-card/px-card.html', included: true},
+            {pattern: 'public/bower_components/px-card/px-card-behavior.html', included: true},
+            {pattern: 'public/bower_components/px-card/px-card-controls.html', included: true},
+            {pattern: 'public/bower_components/px-card/px-context-name.html', included: true},
+            {pattern: 'public/bower_components/px-card/css/px-card.css', included: true},
+
+            {pattern: 'public/cards/demo-card.html', included: true},
+
             {pattern: 'public/cf-routes.js', included: true},
 
             {pattern: 'public/scripts/config.js', included: true},
@@ -27,7 +41,8 @@ module.exports = function(config) {
             {pattern: 'public/scripts/**/*.js', included: false},
             {pattern: 'public/stylesheets/**/*.*', included: false},
             {pattern: 'public/images/**/*.*', included: false},
-            {pattern: 'public/views/**/*.*', included: false}
+            {pattern: 'public/views/**/*.*', included: false},
+            {pattern: 'public/cards/spec/*.*', included: false}
         ],
 
         // list of files / patterns to exclude
@@ -78,7 +93,7 @@ module.exports = function(config) {
         // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
         // - PhantomJS
         // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
-        browsers: ['PhantomJS'],
+        browsers: ['Chrome'],
         captureTimeout: 60000,
 
 
