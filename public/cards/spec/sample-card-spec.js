@@ -1,6 +1,6 @@
 define([], function() {
     'use strict';
-    describe('Demo Card', function(){
+    describe('Sample Card', function(){
 
         var $testContainer;
 
@@ -12,20 +12,21 @@ define([], function() {
 
             //fake widget container
             $testContainer = $('#test-container');
-            $testContainer.append('<demo-card></demo-card>');
+            $testContainer.append('<sample-card></sample-card>');
         });
 
         it('should display context', function(){
             waits(5);
             runs(function() {
                 var stubContext = {
-                    name: 'Stub Context Name'
+                    name: 'Stub Context Name on Sample Card'
                 };
-                var demoCard = $testContainer.get(0).querySelector('demo-card');
-                demoCard.context = stubContext;
-                expect($(demoCard).text()).toContain(stubContext.name);
+                var sampleCard = $testContainer.get(0).querySelector('sample-card');
+                sampleCard.context = stubContext;
+                expect($(sampleCard).text()).toContain(stubContext.name);
             });
         });
+
     });
 
 });
