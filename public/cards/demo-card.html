@@ -2,6 +2,13 @@
 <link rel="import" href="../bower_components/px-card/px-card.html"/>
 <link rel="import" href="../bower_components/px-card/px-card-behavior.html"/>
 
+<!--
+  Steps for creating a Predix card.
+    1. Create a Polymer web component.
+    2. Wrap it in px-card.
+    3. Use the px.cardBehavior
+    4. Compose widgets and ui-elements together to create your custom card.  Implement px.cardBehavior API methods
+        such as refresh and contextChanged, or call methods like getData.  -->
 <dom-module id="demo-card">
     <template>
         <px-card>
