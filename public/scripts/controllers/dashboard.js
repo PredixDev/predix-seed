@@ -19,7 +19,15 @@ define(['angular',
             rootEntityId: null, // the root of the context browser
             onOpenContext: function (contextDetails) { // callback when the open button is hit in the context browser
                 $scope.$apply(function() {
-                    $scope.context = contextDetails;
+
+                    // need to clean up the context details so it doesn't have the infinite parent/children cycle,
+                    // which causes problems later (can't interpolate: {{context}} TypeError: Converting circular structure to JSON)
+                    var newContext = angular.copy(contextDetails);
+                    newContext.children = [];
+                    newContext.parent = [];
+
+                    $scope.context = newContext;
+
                 });
             },
             transformSelectedEntityDetails: function (entity) { // configure key value pairs to show in the entity info panel in the context browser (the selected entity)
