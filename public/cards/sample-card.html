@@ -15,7 +15,7 @@
                 <!--<px-chart-series series-obj="{{timeSeriesObj}}" series-obj-data-key="data"></px-chart-series>-->
             <!--</px-ts-chart>-->
             <button on-click="getMoreTemperatureData">Get More Temperature Data</button>
-            <p>Current Temperature:<span>{{currentTemperature}}</span>F</p>
+            <p id="temp">Current Temperature:<span>{{currentTemperature}}</span>F</p>
         </px-card>
     </template>
 </dom-module>
@@ -42,7 +42,7 @@
                 self.currentTemperature = currentTemperature;
             }, function(reason) {
                 // on rejection
-                console.err(reason);
+                self.currentTemperature = 'ERROR';
             });
         },
         behaviors: [px.cardBehavior]
