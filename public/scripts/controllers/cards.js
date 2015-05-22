@@ -4,7 +4,7 @@ define(['angular', 'sample-module'], function(angular, sampleModule) {
 
         window.deck = {
             getData: function() {
-                return new Promise(function(resolve, reject) {
+                return new Promise(function(resolve) {
                     $timeout(function(){
                         // on success
                         resolve(70);

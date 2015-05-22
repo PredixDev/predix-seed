@@ -26,6 +26,7 @@
 		"window": false,
 		"define": false,
 		"vRuntime": false,
+        "Promise": false,
 		/* ANGULAR MOCKS */
 		"inject": false,
 		"module": false,
