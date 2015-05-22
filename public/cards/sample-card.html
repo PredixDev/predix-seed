@@ -9,6 +9,14 @@
         <div>FAKE TIMESERIES</div>
         <div>Min: <span>{{chartState.min}}</span></div>
         <div>Max: <span>{{chartState.max}}</span></div>
+        <ul>Series displayed:
+            <div>{{chartState.series}}</div>
+            <!--<template is="dom-repeat" items="{{chartState.series}}">   TODO file bug for this-->
+                <!--<li>{{item}}</li>-->
+            <!--</template>-->
+        </ul>
+        <input value="{{text::input}}">
+        <button on-click="addSeries">Add Series</button>
         <button on-click="zoom">Zoom</button>
     </template>
 
@@ -19,14 +27,44 @@
         properties: {
             chartState: {
                 type: Object,
-                notify: true
+                notify: true,
+                observer: 'chartStateChanged'
             }
         },
         zoom: function() {
             console.log('fake time series chart zoomed');
             this.chartState.min--;
             this.chartState.max++;
-            this.set('chartState', {min: this.chartState.min, max: this.chartState.max});
+
+//            // optionally set changes individually to reflect in DOM and rollup
+//            this.set('chartState.min', this.chartState.min);
+//            this.set('chartState.max', this.chartState.max);
+//
+//            // or, aggregate all your state changes together
+//            this.updateMyState();
+
+            this.updateMyState();
+        },
+        addSeries: function() {
+            if (this.text !== '') {
+                this.chartState.series.push(this.text);
+//                this.push('chartState.series', this.text);
+                this.updateMyState();
+            }
+            this.text = '';
+        },
+        chartStateChanged: function(newChartState) {
+            console.log('NEW CHART STATE', newChartState);
+        },
+        ready: function() {
+            this.text = '';
+        },
+        updateMyState: function() {
+            this.set('chartState', {
+                min: this.chartState.min,
+                max: this.chartState.max,
+                series: this.chartState.series
+            });
         }
     });
 </script>
@@ -57,14 +95,15 @@
 
     Polymer({
         is: 'sample-card',
-        observers: ['chartStateChanged(chartState)'],
+        observers: ['chartStateChanged(chartState.*)'],
         //coming from deck
         stateChanged: function(newState, oldState) {
             console.log(this.id + ' new state from deck', newState);
 
             this.chartState = {
                 min: newState.zoom.min,
-                max: newState.zoom.max
+                max: newState.zoom.max,
+                series: newState.tags
             };
 
         },
@@ -72,7 +111,8 @@
         chartStateChanged: function(newChartState) {
             console.log(this.id + ' new chart state in sample card', newChartState);
             this.updateDeck({
-                zoom: this.chartState
+                zoom: {min: newChartState.base.min, max: newChartState.base.max},
+                tags: newChartState.base.series
             });
         },
         ready: function() {
