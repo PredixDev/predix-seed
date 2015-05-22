@@ -13,20 +13,6 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'test/lib/jasmine-jquery.js',
-            'test/lib/jasmine-fixture.min.js',
-            {pattern: 'public/bower_components/webcomponentsjs/webcomponents.js', included: true},
-            {pattern: 'public/bower_components/polymer/polymer-micro.html', included: false},
-            {pattern: 'public/bower_components/polymer/polymer-mini.html', included: false},
-            {pattern: 'public/bower_components/polymer/polymer.html', included: false},
-            {pattern: 'public/bower_components/px/dist/px.min.js', included: true},
-            {pattern: 'public/bower_components/px-card/px-card.html', included: false},
-            {pattern: 'public/bower_components/px-card/px-card-behavior.html', included: false},
-            {pattern: 'public/bower_components/px-card/px-card-controls.html', included: false},
-            {pattern: 'public/bower_components/px-card/px-context-name.html', included: false},
-            {pattern: 'public/bower_components/px-card/css/px-card.css', included: false},
-
-            {pattern: 'public/cards/*.html', included: true},
             {pattern: 'public/cf-routes.js', included: true},
 
             {pattern: 'public/scripts/config.js', included: true},
