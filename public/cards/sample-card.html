@@ -19,24 +19,17 @@
         properties: {
             chartState: {
                 type: Object,
-                notify: true,
-                observer: 'chartStateChanged'
+                notify: true
             }
         },
-        zoom: function(){
+        zoom: function() {
             console.log('fake time series chart zoomed');
             this.chartState.min--;
             this.chartState.max++;
-            //this.set('chartState.min', this.chartState.min);
-//            this.set('chartState.max', this.chartState.max});
             this.set('chartState', {min: this.chartState.min, max: this.chartState.max});
-        },
-        chartStateChanged: function(n,old){
-            console.log('fake ts new chart state  ',n);
         }
     });
 </script>
-
 
 <!--
   Steps for creating a Predix card.
@@ -61,50 +54,26 @@
     </template>
 </dom-module>
 <script>
+
     Polymer({
         is: 'sample-card',
-        properties: {
-            state: {
-                type: Object,
-                observer: 'stateChanged'
-            }
-        },
         observers: ['chartStateChanged(chartState)'],
         //coming from deck
-        stateChanged: function(newState, oldState){
-            console.log(this.id+' new state from deck', newState);
+        stateChanged: function(newState, oldState) {
+            console.log(this.id + ' new state from deck', newState);
 
-            this.fromDeck = true;
-            // either we must set the entire object here
             this.chartState = {
-                min: newState.clement.min
+                min: newState.zoom.min,
+                max: newState.zoom.max
             };
-            this.fromDeck = false;
-            // or maybe we can do this if we do a deeper watch in the widget??
-            //this.set('chartState.min', newState.clement.min);
+
         },
         //up from widget
-        chartStateChanged: function(newChartState){
-            if (!this.fromDeck){
-                console.log(this.id+' new chart state in sample card', newChartState);
-                this.updateDeck(100000);
-            }
-            else{
-                console.log('KILL this update because from deck');
-            }
-
-        },
-        updateDeck: function(value){
-            if (this.findParentDeck().updateState) {
-                this.findParentDeck().updateState(this.id, value);
-            }
-            else {
-                console.log('no updatestate');
-            }
-        },
-        findParentDeck: function(){
-            var parent = this.parentElement;
-            return parent;
+        chartStateChanged: function(newChartState) {
+            console.log(this.id + ' new chart state in sample card', newChartState);
+            this.updateDeck({
+                zoom: this.chartState
+            });
         },
         ready: function() {
             this.currentTemperature = 65;
@@ -126,7 +95,7 @@
          * add your own methods, such as this click handler, to do custom logic.
          * the px card behaviors include a getData method which will handle fetching the data for you
          **/
-        getMoreTemperatureData: function(){
+        getMoreTemperatureData: function() {
             var self = this;
             this.getData('/temperature').then(function(currentTemperature) {
                 // on fulfillment
