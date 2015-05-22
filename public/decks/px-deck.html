@@ -14,7 +14,7 @@
                 // find all px-cards
                 if (node._type && node._type === 'px-card') {
                     if (node.id !== cardId) {
-                        node.state = state;
+                        node.deckState = state;
                     }
                     else {
                         console.log('dont send to the card that sent or one that doesnt have an id');
@@ -24,16 +24,6 @@
                     console.log('not a px-card');
                 }
             });
-        },
-        ready: function() {
-            var state = {
-                zoom: {
-                    min: 20,
-                    max: 50
-                },
-                tags: ['a']
-            };
-            this.updateState(null, state);
         }
     });
 </script>

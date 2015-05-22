@@ -4,6 +4,44 @@
 <link rel="import" href="../bower_components/px-card/px-card-behavior.html"/>
 <link rel="import" href="../bower_components/px-card/px-context-name.html"/>
 
+<dom-module id="px-tag-list">
+    <template>
+        <ul>Tags:
+             <template is="dom-repeat" items="{{tags}}">
+            <li>{{item}}</li>
+            </template>
+        </ul>
+        <input value="{{text::input}}">
+        <button on-click="addTags">Add Tags</button>
+    </template>
+
+</dom-module>
+<script>
+    Polymer({
+        is: 'px-tag-list',
+        properties: {
+            tags: {
+                type: Object,
+                notify: true,
+                observer: 'tagsChanged'
+            }
+        },
+        addTags: function() {
+            if (this.text !== '') {
+                this.push('tags', this.text);
+            }
+            this.text = '';
+        },
+        tagsChanged: function(newChartState) {
+            console.log('NEW TAGS', newChartState);
+        },
+        ready: function() {
+            this.text = '';
+            this.tags = [];
+        }
+    });
+</script>
+
 <dom-module id="px-fake-timeseries">
     <template>
         <div>FAKE TIMESERIES</div>
@@ -12,11 +50,9 @@
         <ul>Series displayed:
             <div>{{chartState.series}}</div>
             <!--<template is="dom-repeat" items="{{chartState.series}}">   TODO file bug for this-->
-                <!--<li>{{item}}</li>-->
-            <!--</template>-->
+                <li>{{item}}</li>
+            </template>
         </ul>
-        <input value="{{text::input}}">
-        <button on-click="addSeries">Add Series</button>
         <button on-click="zoom">Zoom</button>
     </template>
 
@@ -44,14 +80,6 @@
 //            this.updateMyState();
 
             this.updateMyState();
-        },
-        addSeries: function() {
-            if (this.text !== '') {
-                this.chartState.series.push(this.text);
-//                this.push('chartState.series', this.text);
-                this.updateMyState();
-            }
-            this.text = '';
         },
         chartStateChanged: function(newChartState) {
             console.log('NEW CHART STATE', newChartState);
@@ -85,7 +113,7 @@
             <p>This is a more complex Predix Experience card.</p>
             <button on-click="getMoreTemperatureData">Get More Temperature Data</button>
             <p id="temp">Current Temperature:<span>{{currentTemperature}}</span>F</p>
-            <px-fake-timeseries chart-state="{{chartState}}"></px-fake-timeseries>
+            <px-tag-list tags="{{tags}}"></px-tag-list>
             <px-fake-timeseries chart-state="{{chartState}}"></px-fake-timeseries>
             <div>-------------------------------------</div>
         </px-card>
@@ -95,9 +123,8 @@
 
     Polymer({
         is: 'sample-card',
-        observers: ['chartStateChanged(chartState.*)'],
-        //coming from deck
-        stateChanged: function(newState, oldState) {
+        observers: ['chartStateChanged(chartState.*)', 'tagChanged(tags.*)'],
+        deckStateChanged: function(newState, oldState) {
             console.log(this.id + ' new state from deck', newState);
 
             this.chartState = {
@@ -107,7 +134,15 @@
             };
 
         },
-        //up from widget
+        tagChanged: function(newTags){
+            if (this.chartState){
+                this.chartState = {
+                    min: this.chartState.min,
+                    max: this.chartState.max,
+                    series: newTags.base
+                };
+            }
+        },
         chartStateChanged: function(newChartState) {
             console.log(this.id + ' new chart state in sample card', newChartState);
             this.updateDeck({
@@ -117,7 +152,9 @@
         },
         ready: function() {
             this.currentTemperature = 65;
-            this.chartState = {};
+            this.chartState = {
+                series: []
+            };
         },
         /**
          * (optionally) implement this API method to refresh your card data

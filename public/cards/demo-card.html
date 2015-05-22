@@ -15,32 +15,12 @@
             <h1>Hello World</h1>
             <p>{{context.name}}</p>
             <p>This is the bare minimum you need for a Predix Experience card.</p>
-            <button on-click="updateDeck">update</button>
         </px-card>
     </template>
 </dom-module>
 <script>
     Polymer({
         is: 'demo-card',
-        properties: {
-            state: {
-                type: Object,
-                observer: 'stateChanged'
-            }
-        },
-        stateChanged: function(newState, oldState){
-            console.log('new state', newState);
-        },
-        updateDeck: function(){
-            this.findParentDeck().updateState(1);
-        },
-        ready: function(){
-
-        },
-        findParentDeck: function(){
-            var parent = this.parentElement;
-            return parent;
-        },
         behaviors: [px.cardBehavior]
     });
 </script>
