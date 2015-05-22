@@ -41,8 +41,7 @@ module.exports = function(config) {
             {pattern: 'public/scripts/**/*.js', included: false},
             {pattern: 'public/stylesheets/**/*.*', included: false},
             {pattern: 'public/images/**/*.*', included: false},
-            {pattern: 'public/views/**/*.*', included: false},
-            {pattern: 'public/cards/spec/*.*', included: false}
+            {pattern: 'public/views/**/*.*', included: false}
         ],
 
         // list of files / patterns to exclude
@@ -93,7 +92,7 @@ module.exports = function(config) {
         // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
         // - PhantomJS
         // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
-        browsers: ['Chrome'],
+        browsers: ['PhantomJS'],
         captureTimeout: 60000,
 
 
