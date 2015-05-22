@@ -4,6 +4,40 @@
 <link rel="import" href="../bower_components/px-card/px-card-behavior.html"/>
 <link rel="import" href="../bower_components/px-card/px-context-name.html"/>
 
+<dom-module id="px-fake-timeseries">
+    <template>
+        <div>FAKE TIMESERIES</div>
+        <div>Min: <span>{{chartState.min}}</span></div>
+        <div>Max: <span>{{chartState.max}}</span></div>
+        <button on-click="zoom">Zoom</button>
+    </template>
+
+</dom-module>
+<script>
+    Polymer({
+        is: 'px-fake-timeseries',
+        properties: {
+            chartState: {
+                type: Object,
+                notify: true,
+                observer: 'chartStateChanged'
+            }
+        },
+        zoom: function(){
+            console.log('fake time series chart zoomed');
+            this.chartState.min--;
+            this.chartState.max++;
+            //this.set('chartState.min', this.chartState.min);
+//            this.set('chartState.max', this.chartState.max});
+            this.set('chartState', {min: this.chartState.min, max: this.chartState.max});
+        },
+        chartStateChanged: function(n,old){
+            console.log('fake ts new chart state  ',n);
+        }
+    });
+</script>
+
+
 <!--
   Steps for creating a Predix card.
     1. Create a Polymer web component.
@@ -20,14 +54,61 @@
             <p>This is a more complex Predix Experience card.</p>
             <button on-click="getMoreTemperatureData">Get More Temperature Data</button>
             <p id="temp">Current Temperature:<span>{{currentTemperature}}</span>F</p>
+            <px-fake-timeseries chart-state="{{chartState}}"></px-fake-timeseries>
+            <px-fake-timeseries chart-state="{{chartState}}"></px-fake-timeseries>
+            <div>-------------------------------------</div>
         </px-card>
     </template>
 </dom-module>
 <script>
     Polymer({
         is: 'sample-card',
+        properties: {
+            state: {
+                type: Object,
+                observer: 'stateChanged'
+            }
+        },
+        observers: ['chartStateChanged(chartState)'],
+        //coming from deck
+        stateChanged: function(newState, oldState){
+            console.log(this.id+' new state from deck', newState);
+
+            this.fromDeck = true;
+            // either we must set the entire object here
+            this.chartState = {
+                min: newState.clement.min
+            };
+            this.fromDeck = false;
+            // or maybe we can do this if we do a deeper watch in the widget??
+            //this.set('chartState.min', newState.clement.min);
+        },
+        //up from widget
+        chartStateChanged: function(newChartState){
+            if (!this.fromDeck){
+                console.log(this.id+' new chart state in sample card', newChartState);
+                this.updateDeck(100000);
+            }
+            else{
+                console.log('KILL this update because from deck');
+            }
+
+        },
+        updateDeck: function(value){
+            if (this.findParentDeck().updateState) {
+                this.findParentDeck().updateState(this.id, value);
+            }
+            else {
+                console.log('no updatestate');
+            }
+        },
+        findParentDeck: function(){
+            var parent = this.parentElement;
+            return parent;
+        },
         ready: function() {
             this.currentTemperature = 65;
+            this.chartState = {};
         },
         /**
          * (optionally) implement this API method to refresh your card data

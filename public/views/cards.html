@@ -1,6 +1,10 @@
 <link rel="import" href="../cards/demo-card.html"/>
 <link rel="import" href="../cards/sample-card.html"/>
+<link rel="import" href="../decks/px-deck.html"/>
 
-<demo-card context="{{context}}" state="{{state}}"></demo-card>
+<px-deck>
+    <!--<demo-card context="{{context}}"></demo-card>-->
+    <sample-card id="card1" context="{{context}}"></sample-card>
+    <sample-card id="card2" context="{{context}}"></sample-card>
+</px-deck>
 
-<sample-card context="{{context}}" state="{{state}}"></sample-card>

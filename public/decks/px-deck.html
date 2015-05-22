@@ -1,0 +1,37 @@
+<link rel="import" href="../bower_components/polymer/polymer.html"/>
+
+<dom-module id="px-deck">
+    <template>
+        <content></content>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: 'px-deck',
+        updateState: function(cardId, state) {
+            var content = Polymer.dom(this.root).querySelector('content');
+            Polymer.dom(content).getDistributedNodes().forEach(function(node){
+                console.log(node.id, cardId);
+                if(node.id && (node.id !== cardId)) {
+                    node.state = {
+                        clement: {
+                            min: state
+                        }
+                    };
+                }
+                else {
+                    console.log('dont send to the card that sent');
+                }
+            });
+        },
+        ready: function() {
+            var state = {
+                'clement': {
+                    min: 20,
+                    max: 50
+                }
+            };
+            this.updateState(null,  state);
+        }
+    });
+</script>
