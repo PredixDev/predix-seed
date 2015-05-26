@@ -1,3 +1,3 @@
-define(['./about', './home', './widgets', './dashboard', './timeseries-widget-renderer', './cards', './widgetToWidget'], function() {
+define(['./about', './home', './widgets', './dashboard', './timeseries-widget-renderer', './cards', './widget-to-widget', './fetch-data'], function() {
 
 });

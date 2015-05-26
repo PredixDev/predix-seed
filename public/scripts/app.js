@@ -56,7 +56,8 @@ define([
                 {icon: 'fa-bar-chart', state: 'widgets', label: 'Widgets', l10nId: 'Widgets'},
                 {icon: 'fa-tachometer', state: 'dashboard', label: 'Dashboard', l10nId: 'Dashboard'},
                 {icon: 'fa-tachometer', state: 'cards', label: 'Cards', l10nId: 'Cards'},
-                {icon: 'fa-tachometer', state: 'w2w', label: 'Widget to Widget', l10nId: 'Widget to Widget'}
+                {icon: 'fa-tachometer', state: 'w2w', label: 'Widget to Widget', l10nId: 'Widget to Widget'},
+                {icon: 'fa-tachometer', state: 'fetchData', label: 'Fetching Data', l10nId: 'Fetching Data'}
             ]
         };
 

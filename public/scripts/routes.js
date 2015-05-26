@@ -44,6 +44,11 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
                 url: '/w2w',
                 templateUrl: 'views/widget-to-widget.html',
                 controller: 'WidgetToWidgetCtrl'
+            })
+            .state('fetchData', {
+                url: '/fetchData',
+                templateUrl: 'views/fetch-data.html',
+                controller: 'FetchData'
             });
 
 
