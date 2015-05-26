@@ -47,11 +47,12 @@
         <div>FAKE TIMESERIES</div>
         <div>Min: <span>{{chartState.min}}</span></div>
         <div>Max: <span>{{chartState.max}}</span></div>
+        <div>Gauge<span>{{gauge.labelMin}}</span></div>
         <ul>Series displayed:
             <div>{{chartState.series}}</div>
             <!--<template is="dom-repeat" items="{{chartState.series}}">   TODO file bug for this-->
-                <li>{{item}}</li>
-            </template>
+                <!--<li>{{item}}</li>-->
+            <!--</template>-->
         </ul>
         <button on-click="zoom">Zoom</button>
     </template>
@@ -65,6 +66,9 @@
                 type: Object,
                 notify: true,
                 observer: 'chartStateChanged'
+            },
+            gauge: {
+                type: Object
             }
         },
         zoom: function() {
@@ -114,7 +118,7 @@
             <button on-click="getMoreTemperatureData">Get More Temperature Data</button>
             <p id="temp">Current Temperature:<span>{{currentTemperature}}</span>F</p>
             <px-tag-list tags="{{tags}}"></px-tag-list>
-            <px-fake-timeseries chart-state="{{chartState}}"></px-fake-timeseries>
+            <px-fake-timeseries chart-state="{{chartState}}" gauge="{{gauge}}"></px-fake-timeseries>
             <div>-------------------------------------</div>
         </px-card>
     </template>
@@ -150,11 +154,19 @@
                 tags: newChartState.base.series
             });
         },
-        ready: function() {
+        init: function() {
             this.currentTemperature = 65;
             this.chartState = {
                 series: []
             };
+            var self = this;
+            this.getData(this.context.url).then(function(gauge) {
+                // on fulfillment
+                self.gauge = gauge;
+            }, function(reason) {
+                // on rejection
+                self.gauge = 'ERROR';
+            });
         },
         /**
          * (optionally) implement this API method to refresh your card data
@@ -174,9 +186,9 @@
          **/
         getMoreTemperatureData: function() {
             var self = this;
-            this.getData('/temperature').then(function(currentTemperature) {
+            this.getData('http://localhost:3000/bar').then(function(currentTemperature) {
                 // on fulfillment
-                self.currentTemperature = currentTemperature;
+                self.currentTemperature = currentTemperature.value;
             }, function(reason) {
                 // on rejection
                 self.currentTemperature = 'ERROR';
