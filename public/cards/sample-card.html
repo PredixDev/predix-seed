@@ -124,7 +124,7 @@
     Polymer({
         is: 'sample-card',
         observers: ['chartStateChanged(chartState.*)', 'tagChanged(tags.*)'],
-        deckStateChanged: function(newState, oldState) {
+        dealerStateChanged: function(newState, oldState) {
             console.log(this.id + ' new state from deck', newState);
 
             this.chartState = {
