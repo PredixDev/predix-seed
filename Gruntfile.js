@@ -266,6 +266,7 @@ module.exports = function(grunt) {
                             'index.html', //Main Index.html
                             'stylesheets/*.css', //minified CSS
                             'views/*.html',
+                            'cards/*.html',
                             'images/*.*',
                             'type/**',
                             'locales/**'
@@ -289,6 +290,11 @@ module.exports = function(grunt) {
                             'bower_components/highstock-release/**',
                             'bower_components/annotations/**',
                             'bower_components/moment/**',
+
+                            'bower_components/px-card/**',
+
+                            'bower_components/px/**',
+                            'bower_components/es6-promise/dist/**',
 
                             'bower_components/px-context-browser/**',
 
