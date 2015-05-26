@@ -39,6 +39,11 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
                 url: '/cards',
                 templateUrl: 'views/cards.html',
                 controller: 'CardsCtrl'
+            })
+            .state('w2w', {
+                url: '/w2w',
+                templateUrl: 'views/widget-to-widget.html',
+                controller: 'WidgetToWidgetCtrl'
             });
 
 
