@@ -68,7 +68,7 @@ define([
         $rootScope.$on('$viewContentLoaded', function () {
             $timeout(function(){
                 document.querySelector('px-deck').init();
-            }, 0);
+            }, 10);
         });
     }]);
 
