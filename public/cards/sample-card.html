@@ -67,7 +67,7 @@
     Polymer({
         is: 'sample-card',
         observers: ['chartStateChanged(chartState.*)'],
-        dealerStateChanged: function(newState, oldState) {
+        deckStateChanged: function(newState, oldState) {
 
             this.chartState = {
                 min: newState.zoom.min,
