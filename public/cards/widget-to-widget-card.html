@@ -1,0 +1,83 @@
+<link rel="import" href="../bower_components/polymer/polymer.html"/>
+<link rel="import" href="../bower_components/px-card/px-card.html"/>
+<link rel="import" href="../bower_components/px-card/px-card-behavior.html"/>
+
+<!-- This is a tag list widget -->
+<dom-module id="px-tag-list">
+    <template>
+        <ul>Tags:
+            <template is="dom-repeat" items="{{tags}}">
+                <li>{{item}}</li>
+            </template>
+        </ul>
+        <input value="{{text::input}}">
+        <button on-click="addTags">Add Tags</button>
+    </template>
+
+</dom-module>
+<script>
+    Polymer({
+        is: 'px-tag-list',
+        properties: {
+            tags: {
+                type: Object,
+                notify: true
+            }
+        },
+        addTags: function() {
+            if (this.text !== '') {
+                this.push('tags', this.text);
+            }
+            this.text = '';
+        },
+        ready: function() {
+            this.text = '';
+            this.tags = [];
+        }
+    });
+</script>
+
+<dom-module id="px-fake-timeseries">
+    <template>
+        <div>Fake timeseries</div>
+        <ul>Series displayed:
+            <div>{{chartState.series}}</div>
+        </ul>
+    </template>
+
+</dom-module>
+<script>
+    Polymer({
+        is: 'px-fake-timeseries',
+        properties: {
+            chartState: {
+                type: Object
+            }
+        }
+    });
+</script>
+
+<!-- this is the widget-to-widget-card -->
+<dom-module id="widget-to-widget-card">
+    <template>
+        <px-card>
+            <div style="border:black 2px solid;">
+                <h1>Widget to Widget communication</h1>
+                <px-tag-list tags="{{tags}}" style="float: right; border:black 1px dashed"></px-tag-list>
+                <px-fake-timeseries chart-state="{{chartState}}" style="border:black 1px dashed; float: left"></px-fake-timeseries>
+                <div style="clear: both;"></div>
+            </div>
+        </px-card>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: 'widget-to-widget-card',
+        observers: ['tagsChanged(tags.*)'],
+        tagsChanged: function(newTags, oldTags){
+            this.chartState = {series: newTags.base};
+        },
+        behaviors: [px.cardBehavior]
+    });
+</script>
+

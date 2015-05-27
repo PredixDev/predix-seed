@@ -31,7 +31,6 @@ define([
         'predix.configurable-dashboard'
     ]);
 
-
     /**
      * Define constants here. This gives you access to you services registered in Cloud Foundry.
      * You can access the url VCAP_SERVICES.myServiceName.
@@ -43,7 +42,7 @@ define([
      * This controller is the top most level controller that allows for all
      * child controllers to access properties defined on the $rootScope.
      */
-    predixApp.controller('MainCtrl', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
+    predixApp.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$timeout', function ($scope, $rootScope, $location, $timeout) {
 
         //Global application object
         window.App = $rootScope.App = {
@@ -55,14 +54,22 @@ define([
                 {icon: 'fa-newspaper-o', state: 'about', label: 'About', l10nId: 'About'},
                 {icon: 'fa-bar-chart', state: 'widgets', label: 'Widgets', l10nId: 'Widgets'},
                 {icon: 'fa-tachometer', state: 'dashboard', label: 'Dashboard', l10nId: 'Dashboard'},
-                {icon: 'fa-tachometer', state: 'cards', label: 'Cards', l10nId: 'Cards'}
+                {icon: 'fa-tachometer', state: 'c2c', label: 'Card to Card', l10nId: 'Card to Card'},
+                {icon: 'fa-tachometer', state: 'w2w', label: 'Widget to Widget', l10nId: 'Widget to Widget'},
+                {icon: 'fa-tachometer', state: 'fetchData', label: 'Fetching Data', l10nId: 'Fetching Data'}
             ]
         };
 
         // Example UAA Configuration
         $scope.site = 'https://uaa-staging.nurego.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
-        $scope.clientId = 'experience_seed_app';                                    // Your app id that you registered with Cloud Foundry.
-        $scope.redirectUri = $location.absUrl();                    // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
+        $scope.clientId = 'experience_seed_app';         // Your app id that you registered with Cloud Foundry.
+        $scope.redirectUri = $location.absUrl();         // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
+
+        $rootScope.$on('$viewContentLoaded', function () {
+            $timeout(function(){
+                document.querySelector('px-deck').init();
+            }, 10);
+        });
     }]);
 
 

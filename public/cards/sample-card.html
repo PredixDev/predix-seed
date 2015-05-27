@@ -1,58 +1,84 @@
 <link rel="import" href="../bower_components/polymer/polymer.html"/>
 <link rel="import" href="../bower_components/px-card/px-card.html"/>
-<link rel="import" href="../bower_components/px-card/px-card-controls.html"/>
 <link rel="import" href="../bower_components/px-card/px-card-behavior.html"/>
-<link rel="import" href="../bower_components/px-card/px-context-name.html"/>
 
-<!--
-  Steps for creating a Predix card.
-    1. Create a Polymer web component.
-    2. Wrap it in px-card.
-    3. Use the px.cardBehavior
-    4. Compose widgets and ui-elements together to create your custom card.  Implement px.cardBehavior API methods
-        such as refresh and contextChanged, or call methods like getData.  -->
+<dom-module id="px-widget">
+    <template>
+        <div>Dummy Timeseries</div>
+        <div>Min: <span>{{chartState.min}}</span></div>
+        <div>Max: <span>{{chartState.max}}</span></div>
+        <button on-click="zoom">Zoom</button>
+    </template>
+
+</dom-module>
+<script>
+    Polymer({
+        is: 'px-widget',
+        properties: {
+            chartState: {
+                type: Object,
+                notify: true
+            },
+            gauge: {
+                type: Object
+            }
+        },
+        zoom: function() {
+            console.log('fake time series chart zoomed');
+            this.chartState.min++;
+            this.chartState.max--;
+
+//            // optionally set changes individually to reflect in DOM and rollup
+//            this.set('chartState.min', this.chartState.min);
+//            this.set('chartState.max', this.chartState.max);
+//
+//            // or, aggregate all your state changes together
+//            this.updateMyState();
+
+            this.updateMyState();
+        },
+        ready: function() {
+            this.chartState = {
+                min: 0,
+                max: 100
+            }
+        },
+        updateMyState: function() {
+            this.set('chartState', {
+                min: this.chartState.min,
+                max: this.chartState.max
+            });
+        }
+    });
+</script>
+
+
 <dom-module id="sample-card">
     <template>
         <px-card>
-            <!-- compose any widgets and ui elements you want for your card -->
-            <px-card-controls></px-card-controls>
-            <px-context-name context-name="{{context.name}}"></px-context-name>
-            <p>This is a more complex Predix Experience card.</p>
-            <button on-click="getMoreTemperatureData">Get More Temperature Data</button>
-            <p id="temp">Current Temperature:<span>{{currentTemperature}}</span>F</p>
+            <div style="border:black 2px solid;">
+                <px-widget chart-state="{{chartState}}"></px-widget>
+            </div>
         </px-card>
     </template>
 </dom-module>
 <script>
+
     Polymer({
         is: 'sample-card',
-        ready: function() {
-            this.currentTemperature = 65;
+        observers: ['chartStateChanged(chartState.*)'],
+        deckStateChanged: function(newState, oldState) {
+
+            this.chartState = {
+                min: newState.zoom.min,
+                max: newState.zoom.max
+            };
+
         },
-        /**
-         * (optionally) implement this API method to refresh your card data
-         **/
-        refresh: function() {
-            console.log('refresh!');
-        },
-        /**
-         * (optionally) implement this API method to do interesting stuff when the context is changed
-         **/
-        contextChanged: function(newContext, oldContext) {
-            console.log('context changed!');
-        },
-        /**
-         * add your own methods, such as this click handler, to do custom logic.
-         * the px card behaviors include a getData method which will handle fetching the data for you
-         **/
-        getMoreTemperatureData: function(){
-            var self = this;
-            this.getData('/temperature').then(function(currentTemperature) {
-                // on fulfillment
-                self.currentTemperature = currentTemperature;
-            }, function(reason) {
-                // on rejection
-                self.currentTemperature = 'ERROR';
+        chartStateChanged: function(newChartState) {
+            console.log(this.id + ' new chart state in sample card', newChartState);
+            this.updateDeck({
+                zoom: {min: newChartState.base.min, max: newChartState.base.max}
             });
         },
         behaviors: [px.cardBehavior]
