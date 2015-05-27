@@ -1,10 +1,8 @@
 <link rel="import" href="../bower_components/polymer/polymer.html"/>
 <link rel="import" href="../bower_components/px-card/px-card.html"/>
-<link rel="import" href="../bower_components/px-card/px-card-controls.html"/>
 <link rel="import" href="../bower_components/px-card/px-card-behavior.html"/>
-<link rel="import" href="../bower_components/px-card/px-context-name.html"/>
 
-<dom-module id="px-widget1">
+<dom-module id="px-widget">
     <template>
         <div>Dummy Timeseries</div>
         <div>Min: <span>{{chartState.min}}</span></div>
@@ -15,7 +13,7 @@
 </dom-module>
 <script>
     Polymer({
-        is: 'px-widget1',
+        is: 'px-widget',
         properties: {
             chartState: {
                 type: Object,
@@ -60,7 +58,7 @@
     <template>
         <px-card>
             <div style="border:black 2px solid;">
-                <px-widget1 chart-state="{{chartState}}"></px-widget1>
+                <px-widget chart-state="{{chartState}}"></px-widget>
             </div>
         </px-card>
     </template>
