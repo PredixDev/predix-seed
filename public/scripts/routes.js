@@ -35,10 +35,10 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
                 templateUrl: 'views/dashboard.html',
                 controller: 'DashboardCtrl'
             })
-            .state('cards', {
-                url: '/cards',
-                templateUrl: 'views/cards.html',
-                controller: 'CardsCtrl'
+            .state('c2c', {
+                url: '/c2c',
+                templateUrl: 'views/card-to-card.html',
+                controller: 'CardToCardCtrl'
             })
             .state('w2w', {
                 url: '/w2w',
