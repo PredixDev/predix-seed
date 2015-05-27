@@ -42,7 +42,7 @@ define([
      * This controller is the top most level controller that allows for all
      * child controllers to access properties defined on the $rootScope.
      */
-    predixApp.controller('MainCtrl', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
+    predixApp.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$timeout', function ($scope, $rootScope, $location, $timeout) {
 
         //Global application object
         window.App = $rootScope.App = {
@@ -65,10 +65,11 @@ define([
         $scope.clientId = 'experience_seed_app';         // Your app id that you registered with Cloud Foundry.
         $scope.redirectUri = $location.absUrl();         // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
 
-        $rootScope.$on('$viewContentLoaded',
-            function (event, viewConfig) {
+        $rootScope.$on('$viewContentLoaded', function () {
+            $timeout(function(){
                 document.querySelector('px-deck').init();
-            });
+            }, 0);
+        });
     }]);
 
 
