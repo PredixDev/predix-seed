@@ -3,7 +3,6 @@
 <link rel="import" href="../bower_components/px-card/px-card-controls.html"/>
 <link rel="import" href="../bower_components/px-card/px-card-behavior.html"/>
 
-
 <dom-module id="fetch-data-card">
     <template>
         <px-card>
@@ -20,10 +19,10 @@
     Polymer({
         is: 'fetch-data-card',
         init: function() {
-            this.getTemperature('http://localhost:3000/gauge');
+            this.getTemperature('http://3.39.77.244:3000/gauge');
         },
         getMoreTemperatureData: function() {
-            this.getTemperature('http://localhost:3000/bar');
+            this.getTemperature('http://3.39.77.244:3000/bar');
         },
         getTemperature: function(url){
             var self = this;
@@ -38,3 +37,5 @@
         behaviors: [px.cardBehavior]
     });
 </script>
+
+

@@ -31,7 +31,6 @@ define([
         'predix.configurable-dashboard'
     ]);
 
-
     /**
      * Define constants here. This gives you access to you services registered in Cloud Foundry.
      * You can access the url VCAP_SERVICES.myServiceName.
@@ -63,8 +62,13 @@ define([
 
         // Example UAA Configuration
         $scope.site = 'https://uaa-staging.nurego.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
-        $scope.clientId = 'experience_seed_app';                                    // Your app id that you registered with Cloud Foundry.
-        $scope.redirectUri = $location.absUrl();                    // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
+        $scope.clientId = 'experience_seed_app';         // Your app id that you registered with Cloud Foundry.
+        $scope.redirectUri = $location.absUrl();         // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
+
+        $rootScope.$on('$viewContentLoaded',
+            function (event, viewConfig) {
+                document.querySelector('px-deck').init();
+            });
     }]);
 
 
