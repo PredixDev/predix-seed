@@ -1,26 +1,14 @@
 <link rel="import" href="../bower_components/px-timeseries/px-ts-chart.html"/>
-<div id="widgets-page" class="page">
-    <div class="page-header voice voice-brand">
-        <h1 class="pull-left page-title">{{name}}</h1>
-    </div>
-    <div class="row module-set">
-        <div class="col-sm-12">
-            <section class="module">
-                <header class="module-header">
-                    <h3 class="voice voice-brand pull-left">Sample Widget 1</h3>
-                </header>
-                <div class="module-body">
 
-                  <px-ts-chart>
-                    <px-ts-chart-controls data-controls></px-ts-chart-controls>
-                    <px-chart-series name="fan-vibration-cruise"
-                                     series-obj="{{timeSeries.queries}}"
-                                     series-obj-data-key="values"></px-chart-series>
-                  </px-ts-chart>
-                </div>
-                <footer class="module-footer">
-                </footer>
-            </section>
-        </div>
-    </div>
-</div>
+<section class="m+">
+  <h1>{{name}}</h1>
+
+
+  <h5>Sample Widget 1</h5>
+  <px-ts-chart>
+    <px-ts-chart-controls data-controls></px-ts-chart-controls>
+    <px-chart-series id="fan-vibration-cruise"
+                     series-obj="{{timeSeries.queries}}"
+                     series-obj-data-key="values"></px-chart-series>
+  </px-ts-chart>
+</section>
