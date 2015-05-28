@@ -56,7 +56,8 @@ define([
                 {icon: 'fa-tachometer', state: 'dashboard', label: 'Dashboard', l10nId: 'Dashboard'},
                 {icon: 'fa-tachometer', state: 'c2c', label: 'Card to Card', l10nId: 'Card to Card'},
                 {icon: 'fa-tachometer', state: 'w2w', label: 'Widget to Widget', l10nId: 'Widget to Widget'},
-                {icon: 'fa-tachometer', state: 'fetchData', label: 'Fetching Data', l10nId: 'Fetching Data'}
+                {icon: 'fa-tachometer', state: 'fetchData', label: 'Fetching Data', l10nId: 'Fetching Data'},
+                {icon: 'fa-tachometer', state: 'sampleCards', label: 'Sample Cards', l10nId: 'Sample Cards'}
             ]
         };
 
