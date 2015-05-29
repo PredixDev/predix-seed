@@ -1,40 +1,39 @@
-<!--<link rel="import" href="../cards/demo-card.html"/>-->
-<!--<link rel="import" href="../cards/sample-card.html"/>-->
-
 <px-context-selector class="clearfix" data-config="contextSelectorConfig"></px-context-selector>
 
-<!--<demo-card context="{{context}}" state="{{state}}"></demo-card>-->
-
-<!--<sample-card context="{{context}}" state="{{state}}"></sample-card>-->
-
 <button onclick="switchDeck('views/sample-cards.html')">ts widget sample view</button>
-<button onclick="switchDeck('views/widget-to-widget.html')">widget to widget view</button>
 <button onclick="switchDeck('views/card-to-card.html')">card to card view</button>
 <button onclick="switchDeck('views/fetch-data.html')">fetch data view</button>
 <div id="desk">
 
 </div>
-<script>
-    function switchDeck(url){
 
-//        var decks = {};
-//        console.log('DECKS', decks);
-//        if (!decks[url]){
-            Polymer.Base.importHref(url, function(e){
+<script>
+
+    window.loaded = window.loaded || {};
+
+    window.switchDeck = function(url) {
+
+        var container = document.getElementById('desk');
+
+        var deckContent;
+
+        if (loaded[url]) {
+            deckContent = loaded[url];
+            container.innerHTML = deckContent;
+        }
+        else {
+            Polymer.Base.importHref(url, function(e) {
                 var container = document.getElementById('desk');
                 container.innerHTML = "";
 
                 var deckContent = e.target.import.querySelector('px-deck').innerHTML;
                 deckContent = "<px-deck>" + deckContent + "</px-deck>";
-
-                //decks[url] = deckContent;
-
-                console.log(deckContent);
+                loaded[url] = deckContent;
                 container.innerHTML = deckContent;
-            }, function(e){
+            }, function(e) {
 
             });
-//        }
+        }
+    };
 
-    }
 </script>
