@@ -1,0 +1,37 @@
+<link rel="import" href="../bower_components/polymer/polymer.html"/>
+<link rel="import" href="../bower_components/px-card/px-card.html"/>
+<link rel="import" href="../bower_components/px-timeseries/px-ts-chart.html"/>
+
+<dom-module id="time-series-card">
+    <template>
+        <px-card>
+            <px-ts-chart id="tsChart">
+                <px-ts-chart-controls data-controls></px-ts-chart-controls>
+                <!--<px-chart-series id='1' name="fan-vibration-cruise"-->
+                <!--series-obj="{{timeSeries.queries}}"-->
+                <!--series-obj-data-key="data"></px-chart-series>-->
+            </px-ts-chart>
+        </px-card>
+    </template>
+</dom-module>
+<script>
+
+    Polymer({
+        is: 'time-series-card',
+        init: function() {
+            /*
+             data for time series widget
+             */
+            var self = this;
+            this.getData('http://3.39.78.77:3000/ts').then(function(data) {
+                var timeSeriesData = window.px.timeseries.adapter.kairosdb.transform(data);
+                timeSeriesData.forEach(function(series) {
+                    series.id = series.name;
+                    self.$.tsChart.addSeries(series);
+                });
+            });
+        },
+        behaviors: [px.cardBehavior]
+    });
+</script>
+

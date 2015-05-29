@@ -42,7 +42,7 @@ define([
      * This controller is the top most level controller that allows for all
      * child controllers to access properties defined on the $rootScope.
      */
-    predixApp.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$timeout', function ($scope, $rootScope, $location, $timeout) {
+    predixApp.controller('MainCtrl', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
 
         //Global application object
         window.App = $rootScope.App = {
@@ -56,7 +56,8 @@ define([
                 {icon: 'fa-tachometer', state: 'dashboard', label: 'Dashboard', l10nId: 'Dashboard'},
                 {icon: 'fa-tachometer', state: 'c2c', label: 'Card to Card', l10nId: 'Card to Card'},
                 {icon: 'fa-tachometer', state: 'w2w', label: 'Widget to Widget', l10nId: 'Widget to Widget'},
-                {icon: 'fa-tachometer', state: 'fetchData', label: 'Fetching Data', l10nId: 'Fetching Data'}
+                {icon: 'fa-tachometer', state: 'fetchData', label: 'Fetching Data', l10nId: 'Fetching Data'},
+                {icon: 'fa-tachometer', state: 'sampleCards', label: 'Sample Cards', l10nId: 'Sample Cards'}
             ]
         };
 
@@ -64,12 +65,6 @@ define([
         $scope.site = 'https://uaa-staging.nurego.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
         $scope.clientId = 'experience_seed_app';         // Your app id that you registered with Cloud Foundry.
         $scope.redirectUri = $location.absUrl();         // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
-
-        $rootScope.$on('$viewContentLoaded', function () {
-            $timeout(function(){
-                document.querySelector('px-deck').init();
-            }, 10);
-        });
     }]);
 
 

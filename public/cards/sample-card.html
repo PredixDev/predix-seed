@@ -24,17 +24,8 @@
             }
         },
         zoom: function() {
-            console.log('fake time series chart zoomed');
             this.chartState.min++;
             this.chartState.max--;
-
-//            // optionally set changes individually to reflect in DOM and rollup
-//            this.set('chartState.min', this.chartState.min);
-//            this.set('chartState.max', this.chartState.max);
-//
-//            // or, aggregate all your state changes together
-//            this.updateMyState();
-
             this.updateMyState();
         },
         ready: function() {
@@ -52,13 +43,10 @@
     });
 </script>
 
-
 <dom-module id="sample-card">
     <template>
         <px-card>
-            <div style="border:black 2px solid;">
-                <px-widget chart-state="{{chartState}}"></px-widget>
-            </div>
+            <px-widget chart-state="{{chartState}}"></px-widget>
         </px-card>
     </template>
 </dom-module>
@@ -76,7 +64,6 @@
 
         },
         chartStateChanged: function(newChartState) {
-            console.log(this.id + ' new chart state in sample card', newChartState);
             this.updateDeck({
                 zoom: {min: newChartState.base.min, max: newChartState.base.max}
             });

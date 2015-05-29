@@ -49,6 +49,11 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
                 url: '/fetchData',
                 templateUrl: 'views/fetch-data.html',
                 controller: 'FetchData'
+            })
+            .state('sampleCards', {
+                url: '/sampleCards',
+                templateUrl: 'views/sample-cards.html',
+                controller: 'SampleCardsCtrl'
             });
 
 

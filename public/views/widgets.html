@@ -1,14 +1,13 @@
 <link rel="import" href="../bower_components/px-timeseries/px-ts-chart.html"/>
 
 <section class="m+">
-  <h1>{{name}}</h1>
+    <h1>{{name}}</h1>
 
-
-  <h5>Sample Widget 1</h5>
-  <px-ts-chart>
-    <px-ts-chart-controls data-controls></px-ts-chart-controls>
-    <px-chart-series id="fan-vibration-cruise"
-                     series-obj="{{timeSeries.queries}}"
-                     series-obj-data-key="values"></px-chart-series>
-  </px-ts-chart>
+    <h5>Sample Widget 1</h5>
+    <px-ts-chart>
+        <px-ts-chart-controls data-controls></px-ts-chart-controls>
+        <px-chart-series id="fan-vibration-cruise"
+                         series-obj="{{timeSeries.queries}}"
+                         series-obj-data-key="values"></px-chart-series>
+    </px-ts-chart>
 </section>

@@ -6,11 +6,9 @@
 <dom-module id="fetch-data-card">
     <template>
         <px-card>
-            <div style="border:black 2px solid;">
-                <h1>Fetch data</h1>
-                <button on-click="getMoreTemperatureData">Get Different Data</button>
-                <p id="temp">Current Temperature:<span>{{currentTemperature}}</span>F</p>
-            </div>
+            <h1>Fetch data</h1>
+            <button on-click="getMoreTemperatureData">Get Different Data</button>
+            <p id="temp">Current Temperature:<span>{{currentTemperature}}</span>F</p>
         </px-card>
     </template>
 </dom-module>
@@ -18,13 +16,13 @@
 
     Polymer({
         is: 'fetch-data-card',
-        init: function() {
-            this.getTemperature('http://3.39.77.244:3000/gauge');
+        ready: function() {
+            this.getTemperature('http://3.39.78.77:3000/gauge');
         },
         getMoreTemperatureData: function() {
-            this.getTemperature('http://3.39.77.244:3000/bar');
+            this.getTemperature('http://3.39.78.77:3000/bar');
         },
-        getTemperature: function(url){
+        getTemperature: function(url) {
             var self = this;
             this.getData(url).then(function(data) {
                 // on fulfillment
