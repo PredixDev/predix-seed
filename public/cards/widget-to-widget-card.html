@@ -61,12 +61,11 @@
 <dom-module id="widget-to-widget-card">
     <template>
         <px-card>
-            <div style="border:black 2px solid;">
-                <h1>Widget to Widget communication</h1>
-                <px-tag-list tags="{{tags}}" style="float: right; border:black 1px dashed"></px-tag-list>
-                <px-fake-timeseries chart-state="{{chartState}}" style="border:black 1px dashed; float: left"></px-fake-timeseries>
-                <div style="clear: both;"></div>
-            </div>
+            <h1>Widget to Widget communication</h1>
+            <px-tag-list tags="{{tags}}" style="float: right; border:black 1px dashed"></px-tag-list>
+            <px-fake-timeseries chart-state="{{chartState}}"
+                                style="border:black 1px dashed; float: left"></px-fake-timeseries>
+            <div style="clear: both;"></div>
         </px-card>
     </template>
 </dom-module>
@@ -74,7 +73,7 @@
     Polymer({
         is: 'widget-to-widget-card',
         observers: ['tagsChanged(tags.*)'],
-        tagsChanged: function(newTags, oldTags){
+        tagsChanged: function(newTags, oldTags) {
             this.chartState = {series: newTags.base};
         },
         behaviors: [px.cardBehavior]
