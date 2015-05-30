@@ -46,6 +46,7 @@
 <dom-module id="sample-card">
     <template>
         <px-card>
+            <div>Context Name <span>{{context.name}}</span></div>
             <px-widget chart-state="{{chartState}}"></px-widget>
         </px-card>
     </template>
@@ -62,6 +63,9 @@
                 max: newState.zoom.max
             };
 
+        },
+        contextChanged: function(newContext){
+            console.log('newContext', newContext);
         },
         chartStateChanged: function(newChartState) {
             this.updateDeck({

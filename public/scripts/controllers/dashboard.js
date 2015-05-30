@@ -13,6 +13,11 @@ define(['angular',
     // Controller definition
     controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', function (VCAP_SERVICES, $scope, $q) {
 
+        $scope.context = {
+            name: 'Clement'
+        };
+
+        document.querySelector('px-dashboard').context = $scope.context;
 
         $scope.contextSelectorConfig = {
             baseUrl: VCAP_SERVICES.predixAsset+'/services', // the base uri where your asset instance is
