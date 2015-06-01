@@ -13,8 +13,7 @@ define(['angular',
     // Controller definition
     controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', function(VCAP_SERVICES, $scope, $q) {
 
-        $scope.selectedView = '';
-        $scope.viewUrl = '';
+        $scope.selectedView = 'views/sample-cards.html';
 
         $scope.switchDeck = function(url) {
             $scope.selectedView = url;
