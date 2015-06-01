@@ -24,7 +24,6 @@
 
 <dom-module id="px-dashboard">
     <template>
-        <h2>Context in the dahsboard:<span>{{context.name}}</span></h2>
         <div id="desk"></div>
     </template>
 </dom-module>
@@ -49,6 +48,7 @@
         },
         switchDeck: function(url) {
 
+            var self = this;
             var container = document.getElementById('desk');
 
             container.innerHTML = "";
@@ -58,14 +58,14 @@
                     var deck = e.target.import.body;
                     container.appendChild(deck);
                     loaded[url] = deck;
-                    document.querySelector('px-deck').context = {name: 'haha'};
+                    document.querySelector('px-deck').context = self.context;
                 }, function (e) {
 
                 });
             }
             else {
                 container.appendChild(loaded[url]);
-                document.querySelector('px-deck').context = {name: 'hehe'};
+                document.querySelector('px-deck').context = this.context;
             }
         }
     });
@@ -78,16 +78,13 @@
 <template is="dom-bind">
 
     <px-context-selector class="clearfix" data-config="contextSelectorConfig"></px-context-selector>
+    <button ng-click="changeContext()">Change context</button>
 
     <px-view-selector selected-view="{{selectedView}}"></px-view-selector>
 
+    <px-dashboard selected-view="{{selectedView}}" context="{{context}}"></px-dashboard>
+
     <h1>This is the context name (not in the card): {{context.name}}</h1>
-
-    <px-dashboard selected-view="{{selectedView}}" context="{{context}}">
-        <!--<px-view-selector selected-view="{{selectedView}}"></px-view-selector>-->
-
-    </px-dashboard>
-
     <div>SelectedView: <span>{{selectedView}}</span></div>
 
 </template>
