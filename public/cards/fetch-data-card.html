@@ -17,10 +17,10 @@
     Polymer({
         is: 'fetch-data-card',
         ready: function() {
-            this.getTemperature('http://3.39.78.77:3000/gauge');
+            this.getTemperature('http://localhost:3000/gauge');
         },
         getMoreTemperatureData: function() {
-            this.getTemperature('http://3.39.78.77:3000/bar');
+            this.getTemperature('http://localhost:3000/bar');
         },
         getTemperature: function(url) {
             var self = this;

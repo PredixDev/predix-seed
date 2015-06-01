@@ -51,30 +51,24 @@
 
             var container = document.getElementById('desk');
 
-            var deckContent;
-            var self = this;
-
-//            if (loaded[url]) {
-//                deckContent = loaded[url];
-//                container.innerHTML = deckContent;
-//            }
-//            else {
-                Polymer.Base.importHref(url, function(e) {
-                    var container = document.getElementById('desk');
-                    container.innerHTML = "";
-                    e.target.import.querySelector('px-deck').context = self.context;
-                    var deckContent = e.target.import.querySelector('body');//.innerHTML;
-                    console.log(deckContent);
-                    //deckContent = "<px-deck>" + deckContent + "</px-deck>";
-                    loaded[url] = deckContent;
-//                    container.innerHTML = deckContent;
-                    container.appendChild(deckContent);
-                }, function(e) {
+            container.innerHTML = "";
+            if (!loaded[url]) {
+                Polymer.Base.importHref(url, function (e) {
+                    debugger;
+                    var deck = e.target.import.body;
+                    container.appendChild(deck);
+                    loaded[url] = deck;
+                    document.querySelector('px-deck').context = {name: 'haha'};
+                }, function (e) {
 
                 });
             }
-//        }
-    })
+            else {
+                container.appendChild(loaded[url]);
+                document.querySelector('px-deck').context = {name: 'hehe'};
+            }
+        }
+    });
 
 </script>
 

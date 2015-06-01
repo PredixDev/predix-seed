@@ -23,7 +23,7 @@
              data for time series widget
              */
             var self = this;
-            this.getData('http://3.39.78.77:3000/ts').then(function(data) {
+            this.getData('http://localhost:3000/ts').then(function(data) {
                 var timeSeriesData = window.px.timeseries.adapter.kairosdb.transform(data);
                 timeSeriesData.forEach(function(series) {
                     series.id = series.name;
