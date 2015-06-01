@@ -13,15 +13,26 @@ define(['angular',
     // Controller definition
     controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', function(VCAP_SERVICES, $scope, $q) {
 
+        $scope.selectedView = '';
+        $scope.viewUrl = '';
+
+        $scope.switchDeck = function(url) {
+            $scope.selectedView = url;
+        };
+
         $scope.context = {
             name: 'Clement'
         };
 
         $scope.changeContext = function() {
-            $scope.context.name = 'Lauren';
+            //fetch related views
+
+            $scope.context = {
+                name: 'Lauren'
+            };
         };
 
-        document.querySelector('px-dashboard').context = $scope.context;
+        //document.querySelector('px-dashboard').context = $scope.context;
 
         $scope.contextSelectorConfig = {
             baseUrl: VCAP_SERVICES.predixAsset + '/services', // the base uri where your asset instance is
