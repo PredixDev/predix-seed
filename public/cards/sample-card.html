@@ -1,6 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer.html"/>
 <link rel="import" href="../bower_components/px-card/px-card.html"/>
-<link rel="import" href="../bower_components/px-card/px-card-behavior.html"/>
 
 <!-- this is a sample widget, which just has a zoom button and displays two numbers -->
 <!--    it is used in the card below -->
@@ -69,6 +68,6 @@
                 zoom: {min: newChartState.base.min, max: newChartState.base.max}
             });
         },
-        behaviors: [px.cardBehavior]
+        behaviors: [px.card]
     });
 </script>

@@ -1,50 +1,15 @@
-<link rel="import" href="../bower_components/polymer/polymer.html"/>
+<button ng-click="changeContext()">Change context</button>
+<!--<px-context-selector class="clearfix" data-config="contextSelectorConfig"></px-context-selector>-->
 
-<!--<dom-module id="px-view-selector">-->
-    <!--<template>-->
-        <!--<button on-click="switchDeck">views/sample-cards.html</button>-->
-        <!--<button on-click="switchDeck">views/card-to-card.html</button>-->
-        <!--<button on-click="switchDeck">views/fetch-data.html</button>-->
-    <!--</template>-->
-<!--</dom-module>-->
-<!--<script>-->
-    <!--Polymer({-->
-        <!--is: 'px-view-selector',-->
-        <!--properties: {-->
-            <!--selectedView: {-->
-                <!--type: String,-->
-                <!--notify: true-->
-            <!--}-->
-        <!--},-->
-        <!--switchDeck: function(e) {-->
-            <!--var selectedView = e.target.textContent;-->
-            <!--this.set('selectedView', selectedView);-->
-            <!--console.log(selectedView);-->
-        <!--}-->
-    <!--})-->
-<!--</script>-->
+<button ng-click="switchDeck('views/sample-cards.html')">views/sample-cards.html</button>
+<button ng-click="switchDeck('views/card-to-card.html')">views/card-to-card.html</button>
+<button ng-click="switchDeck('views/fetch-data.html')">views/fetch-data.html</button>
 
+<!--<px-view-selector bind-polymer selected-view="{{selectedView}}"></px-view-selector>-->
 
+<px-dashboard selected-view="{{selectedView}}" context="{{context}}"></px-dashboard>
 
-<!---------->
-
-
-<!--<template is="dom-bind">-->
-
-    <button ng-click="changeContext()">Change context</button>
-    <!--<px-context-selector class="clearfix" data-config="contextSelectorConfig"></px-context-selector>-->
-
-    <button ng-click="switchDeck('views/sample-cards.html')">views/sample-cards.html</button>
-    <button ng-click="switchDeck('views/card-to-card.html')">views/card-to-card.html</button>
-    <button ng-click="switchDeck('views/fetch-data.html')">views/fetch-data.html</button>
-
-    <!--<px-view-selector bind-polymer selected-view="{{selectedView}}"></px-view-selector>-->
-
-    <px-dashboard selected-view="{{selectedView}}" context="{{context}}"></px-dashboard>
-
-    <h1>This is the context name (not in the card): {{context.name}}</h1>
-    <div>SelectedView: <span>{{selectedView}}</span></div>
-
-<!--</template>-->
+<h1>This is the context name (not in the card): {{context.name}}</h1>
+<div>SelectedView: <span>{{selectedView}}</span></div>
 
 
