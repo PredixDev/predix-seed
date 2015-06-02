@@ -22,6 +22,7 @@
             /*
              data for time series widget
              */
+            console.log('px-card init is called');
             var self = this;
             this.getData('http://localhost:3000/ts').then(function(data) {
                 var timeSeriesData = window.px.timeseries.adapter.kairosdb.transform(data);

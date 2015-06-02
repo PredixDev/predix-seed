@@ -6,5 +6,9 @@ define(['angular', 'sample-module'], function(angular, sampleModule) {
             name: 'This is context'
         };
 
+        document.addEventListener('px-deck-ready', function () {
+            document.querySelector('px-deck').init();
+        });
+
     }]);
 });

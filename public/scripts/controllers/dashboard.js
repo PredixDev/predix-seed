@@ -31,6 +31,7 @@ define(['angular',
             };
         };
 
+
         //document.querySelector('px-dashboard').context = $scope.context;
 
         $scope.contextSelectorConfig = {
