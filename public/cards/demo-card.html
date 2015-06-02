@@ -7,8 +7,13 @@
     1. Create a Polymer web component.
     2. Wrap it in px-card.
     3. Use the px.cardBehavior
-    4. Compose widgets and ui-elements together to create your custom card.  Implement px.cardBehavior API methods
-        such as refresh and contextChanged, or call methods like getData.  -->
+    4. Compose widgets and ui-elements together to create your custom card.  Implement custom methods and use
+        px.cardBehavior API methods like getData, updateDeck, showCard, hideCard
+
+  Then, wrap your card in a px-deck.  (views/sample-cards.html)
+
+  (Optionally) You may choose to wrap your card in a px-dashboard. (views/dashboard.html & controllers/dashboard.js)
+    -->
 <dom-module id="demo-card">
     <template>
         <px-card>
@@ -21,6 +26,22 @@
 <script>
     Polymer({
         is: 'demo-card',
+        init: function(){
+            // this is where you can do some initialization of your card
+        },
+        contextChanged: function(newContext, oldContext){
+            // this is where you will receive updates to the context
+        },
+        deckStateChanged: function(newDeckState, oldDeckState){
+            // this is where you will receive updates from other cards
+        },
+        // you can add additional functionality here
+        // you may want to use api methods like this.getData, this.updateDeck, this.showCard, this.hideCard
+        //    cards/sample-card.html has an example of using updateDeck & deckStateChanged
+        //    cards/sample-card.html also has an example of showing the context.name using data binding
+        //    cards/fetch-data-card.html has an example of using this.getData
+        //    cards/widget-to-widget-card.html has an example of binding widgets together
+        //    cards/time-series-card.html has an example of the px-ts-chart widget, getData, and init
         behaviors: [px.cardBehavior]
     });
 </script>

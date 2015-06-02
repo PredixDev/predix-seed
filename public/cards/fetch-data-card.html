@@ -16,7 +16,7 @@
 
     Polymer({
         is: 'fetch-data-card',
-        ready: function() {
+        init: function() {
             this.getTemperature('http://localhost:3000/gauge');
         },
         getMoreTemperatureData: function() {

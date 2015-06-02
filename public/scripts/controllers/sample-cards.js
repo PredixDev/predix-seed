@@ -5,10 +5,5 @@ define(['angular', 'sample-module'], function(angular, sampleModule) {
         $scope.context = {
             name: 'This is context'
         };
-
-        document.addEventListener('px-deck-ready', function () {
-            document.querySelector('px-deck').init();
-        });
-
     }]);
 });
