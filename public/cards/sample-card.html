@@ -1,52 +1,51 @@
 <link rel="import" href="../bower_components/polymer/polymer.html"/>
 <link rel="import" href="../bower_components/px-card/px-card.html"/>
-<link rel="import" href="../bower_components/px-card/px-card-behavior.html"/>
 
-<dom-module id="px-widget">
+<!-- this is a sample widget, which just has a zoom button and displays two numbers -->
+<!--    it is used in the card below -->
+<dom-module id="my-widget">
     <template>
         <div>Dummy Timeseries</div>
         <div>Min: <span>{{chartState.min}}</span></div>
         <div>Max: <span>{{chartState.max}}</span></div>
         <button on-click="zoom">Zoom</button>
     </template>
-
 </dom-module>
 <script>
     Polymer({
-        is: 'px-widget',
+        is: 'my-widget',
         properties: {
             chartState: {
                 type: Object,
                 notify: true
-            },
-            gauge: {
-                type: Object
             }
         },
         zoom: function() {
             this.chartState.min++;
             this.chartState.max--;
-            this.updateMyState();
-        },
-        ready: function() {
-            this.chartState = {
-                min: 0,
-                max: 100
-            }
-        },
-        updateMyState: function() {
+
+            // tell the outside world that i've updated my state by using set (with notify: true above)
             this.set('chartState', {
                 min: this.chartState.min,
                 max: this.chartState.max
             });
+        },
+        ready: function() {
+            // initialize the chart state
+            this.chartState = {
+                min: 0,
+                max: 100
+            }
         }
     });
 </script>
 
+<!-- this is a sample card which shows how to communicate with the outside world/other cards (through the deck) -->
 <dom-module id="sample-card">
     <template>
         <px-card>
-            <px-widget chart-state="{{chartState}}"></px-widget>
+            <div>Context Name <span>{{context.name}}</span></div>
+            <my-widget chart-state="{{chartState}}"></my-widget>
         </px-card>
     </template>
 </dom-module>
@@ -56,18 +55,19 @@
         is: 'sample-card',
         observers: ['chartStateChanged(chartState.*)'],
         deckStateChanged: function(newState, oldState) {
-
+            // when the deck state has changed (for example, when another card has changed that state),
+            //   then we will handle it here - in this case, by passing that information into the widget
             this.chartState = {
                 min: newState.zoom.min,
                 max: newState.zoom.max
             };
-
         },
         chartStateChanged: function(newChartState) {
+            // when the chartState property has changed, we'll update the deck state to broadcast it to other cards
             this.updateDeck({
                 zoom: {min: newChartState.base.min, max: newChartState.base.max}
             });
         },
-        behaviors: [px.cardBehavior]
+        behaviors: [px.card]
     });
 </script>

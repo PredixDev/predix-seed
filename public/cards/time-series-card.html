@@ -7,9 +7,6 @@
         <px-card>
             <px-ts-chart id="tsChart">
                 <px-ts-chart-controls data-controls></px-ts-chart-controls>
-                <!--<px-chart-series id='1' name="fan-vibration-cruise"-->
-                <!--series-obj="{{timeSeries.queries}}"-->
-                <!--series-obj-data-key="data"></px-chart-series>-->
             </px-ts-chart>
         </px-card>
     </template>
@@ -19,11 +16,9 @@
     Polymer({
         is: 'time-series-card',
         init: function() {
-            /*
-             data for time series widget
-             */
             var self = this;
-            this.getData('http://3.39.78.77:3000/ts').then(function(data) {
+            // use the API getData method to fetch data, then pass that data into our time series widget
+            this.getData('http://localhost:3000/ts').then(function(data) {
                 var timeSeriesData = window.px.timeseries.adapter.kairosdb.transform(data);
                 timeSeriesData.forEach(function(series) {
                     series.id = series.name;
@@ -31,7 +26,7 @@
                 });
             });
         },
-        behaviors: [px.cardBehavior]
+        behaviors: [px.card]
     });
 </script>
 

@@ -7,17 +7,37 @@
 /* jshint unused: false */
 define(['angular',
     'sample-module'
-], function (angular, controllers) {
+], function(angular, controllers) {
     'use strict';
 
     // Controller definition
-    controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', function (VCAP_SERVICES, $scope, $q) {
+    controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', function(VCAP_SERVICES, $scope, $q) {
 
+        $scope.selectedView = 'views/sample-cards.html';
+
+        $scope.switchDeck = function(url) {
+            $scope.selectedView = url;
+        };
+
+        $scope.context = {
+            name: 'Turbine 1234'
+        };
+
+        $scope.changeContext = function() {
+            //fetch related views
+
+            $scope.context = {
+                name: 'Turbine 5678'
+            };
+        };
+
+
+        //document.querySelector('px-dashboard').context = $scope.context;
 
         $scope.contextSelectorConfig = {
-            baseUrl: VCAP_SERVICES.predixAsset+'/services', // the base uri where your asset instance is
+            baseUrl: VCAP_SERVICES.predixAsset + '/services', // the base uri where your asset instance is
             rootEntityId: null, // the root of the context browser
-            onOpenContext: function (contextDetails) { // callback when the open button is hit in the context browser
+            onOpenContext: function(contextDetails) { // callback when the open button is hit in the context browser
                 $scope.$apply(function() {
 
                     // need to clean up the context details so it doesn't have the infinite parent/children cycle,
@@ -30,7 +50,7 @@ define(['angular',
 
                 });
             },
-            transformSelectedEntityDetails: function (entity) { // configure key value pairs to show in the entity info panel in the context browser (the selected entity)
+            transformSelectedEntityDetails: function(entity) { // configure key value pairs to show in the entity info panel in the context browser (the selected entity)
                 return [
                     {label: 'Tom Edison'},  // (ex: {label: entity[0].attributes['Customer Name'].value})
                     {label: '12/24/2001'},
@@ -38,7 +58,7 @@ define(['angular',
                     {label: 'Serial Number', value: '345hwfher2wh3f8h47f'}
                 ];
             },
-            transformPinnedEntityDetails: function (entity) { // configure key value pairs to show in the entity info panel in dashboard (the pinned entity)
+            transformPinnedEntityDetails: function(entity) { // configure key value pairs to show in the entity info panel in dashboard (the pinned entity)
                 return [
                     {label: 'Tom Edison'},  // (ex: {label: entity[0].attributes['Customer Name'].value})
                     {label: '12/24/2001'},
