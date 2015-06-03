@@ -20,14 +20,14 @@ define(['angular',
         };
 
         $scope.context = {
-            name: 'Clement'
+            name: 'Turbine 1234'
         };
 
         $scope.changeContext = function() {
             //fetch related views
 
             $scope.context = {
-                name: 'Lauren'
+                name: 'Turbine 5678'
             };
         };
 

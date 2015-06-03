@@ -1,11 +1,9 @@
 <button ng-click="changeContext()">Change context</button>
-<!--<px-context-selector class="clearfix" data-config="contextSelectorConfig"></px-context-selector>-->
+<px-context-selector class="clearfix" data-config="contextSelectorConfig"></px-context-selector>
 
 <button ng-click="switchDeck('views/sample-cards.html')">views/sample-cards.html</button>
 <button ng-click="switchDeck('views/card-to-card.html')">views/card-to-card.html</button>
 <button ng-click="switchDeck('views/fetch-data.html')">views/fetch-data.html</button>
-
-<!--<px-view-selector bind-polymer selected-view="{{selectedView}}"></px-view-selector>-->
 
 <px-dashboard selected-view="{{selectedView}}" context="{{context}}"></px-dashboard>
 
