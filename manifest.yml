@@ -5,5 +5,4 @@ applications:
     path: dist
     memory: 64M
     services:
-            - viewPersistenceService
             - predixAssetExp2
