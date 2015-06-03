@@ -1,9 +1,9 @@
 ---
 applications:
-  - name: predix-experience-seed
+  - name: predix-experience-seed-2
     buildpack: https://github.com/sabithksme/staticfile-buildpack.git
     path: dist
     memory: 64M
     services:
             - viewPersistenceService
-            - predixAssetExp
+            - predixAssetExp2
