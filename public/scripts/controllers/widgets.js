@@ -7,7 +7,7 @@ define(['angular', 'sample-module'], function(angular, sampleModule) {
          data for time series widget
          */
         var timeSeriesData = {
-            'name': 'Winter 2007-2008',
+            'name': 'Winter 1970-1971',
             'values': [
                 [
                     25833600000,
