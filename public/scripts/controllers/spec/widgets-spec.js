@@ -21,7 +21,7 @@ define(['angular-mocks', 'app'], function(mocks, app) {
 
             it('has the queries', function() {
                 expect($scope.timeSeries.queries).toEqual({
-                    'name': 'Winter 2007-2008',
+                    'name': 'Winter 1970-1971',
                     'values': [
                         [
                             25833600000,

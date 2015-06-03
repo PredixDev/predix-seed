@@ -29,7 +29,7 @@ describe('Widgets Page', function() {
                 expect(content.getYAxisTitle()).toEqual([]);
                 expect(content.hasYAxisLabels()).not.toEqual(['']);
                 expect(content.numSeries()).toEqual(2); // 1 series on the chart + navigator
-                expect(content.getSeriesLabels()).toEqual(['Winter 2007-2008']);
+                expect(content.getSeriesLabels()).toEqual(['Winter 1970-1971']);
             });
         });
     });
