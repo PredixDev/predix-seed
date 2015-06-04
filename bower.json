@@ -22,7 +22,7 @@
     "angular-ui-router": "0.2.13",
     "angular-bootstrap": "0.8.0",
     "lodash": "2.4.1",
-    "px-timeseries": "git://github.build.ge.com/PXc/px-time-series.git#master",
+    "px-ts-chart": "git://github.build.ge.com/PXc/px-time-series.git#master",
     "px-oauth": "git://github.build.ge.com/Predix-Experience/px-oauth.git#develop",
     "px-datasource": "git://github.build.ge.com/Predix-Experience/px-datasource.git#develop",
     "px-contextual-dashboard": "git://github.build.ge.com/Predix-Experience/px-contextual-dashboard.git#develop",
