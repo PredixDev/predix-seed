@@ -286,7 +286,7 @@ module.exports = function(grunt) {
 
                             'bower_components/px-app-nav/**',
 
-                            'bower_components/px-timeseries/**',
+                            'bower_components/px-ts-chart/**',
                             'bower_components/highstock-release/**',
                             'bower_components/annotations/**',
                             'bower_components/moment/**',
