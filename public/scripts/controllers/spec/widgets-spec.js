@@ -20,7 +20,7 @@ define(['angular-mocks', 'app'], function(mocks, app) {
         describe('should have the timeseries scope', function() {
 
             it('has the queries', function() {
-                expect($scope.timeSeries.queries).toEqual({
+                expect($scope.simpleTimeSeries.queries).toEqual({
                     'name': 'Winter 1970-1971',
                     'values': [
                         [

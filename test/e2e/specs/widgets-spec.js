@@ -4,22 +4,33 @@ var navigationBar = require('../models/navigation-bar');
 var timeseries = require('../models/timeseries.js');
 var datagrid = require('../models/datagrid');
 
-describe('Widgets Page', function() {
+describe('Components Page', function() {
 
     beforeEach(function() {
-        navigationBar.clickPage('Widgets');
+        navigationBar.clickPage('Components');
     });
 
     it('navigates to the appropriate url', function() {
-        expect(browser.getLocationAbsUrl()).toContain('widgets');
+        expect(browser.getLocationAbsUrl()).toContain('components');
     });
 
     it('shows the selected page', function() {
-        expect(navigationBar.getActivePageName()).toBe('Widgets');
+        expect(navigationBar.getActivePageName()).toBe('Components');
     });
 
     it('highlights the pages tab that is currently being viewed', function() {
-        expect(navigationBar.isPageActive('Widgets')).toBeTruthy();
+        expect(navigationBar.isPageActive('Components')).toBeTruthy();
+    });
+});
+
+describe('Components Page', function() {
+
+    beforeEach(function() {
+        navigationBar.clickPage('Time series');
+    });
+
+    it('navigates to the appropriate url', function() {
+        expect(browser.getLocationAbsUrl()).toContain('timeSeries');
     });
 
     it('renders a time series', function() {
