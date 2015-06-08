@@ -116,7 +116,7 @@ define(['angular', 'sample-module'], function(angular, sampleModule) {
         /*
          scope for time series widget
          */
-        $scope.timeSeries = {
+        $scope.simpleTimeSeries = {
             queries: timeSeriesData
         };
     }]);

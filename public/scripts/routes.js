@@ -20,15 +20,15 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
                 templateUrl: 'views/home.html',
                 controller: 'HomeCtrl'
             })
-            .state('about', {
-                url: '/about',
-                templateUrl: 'views/about.html',
-                controller: 'AboutCtrl'
-            })
-            .state('widgets', {
-                url: '/widgets',
+            .state('components', {
+                url: '/components',
                 templateUrl: 'views/widgets.html',
                 controller: 'WidgetsCtrl'
+            })
+            .state('timeSeries', {
+              url: '/timeSeries',
+              templateUrl: 'views/timeSeries.html',
+              controller: 'WidgetsCtrl'
             })
             .state('dashboard', {
                 url: '/dashboard',

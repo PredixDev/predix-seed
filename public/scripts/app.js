@@ -50,14 +50,16 @@ define([
             name: 'Predix Seed',
             session: {},
             tabs: [
-                {icon: 'fa-home', state: 'home', label: 'Home', l10nId: 'Home'},
-                {icon: 'fa-newspaper-o', state: 'about', label: 'About', l10nId: 'About'},
-                {icon: 'fa-bar-chart', state: 'widgets', label: 'Widgets', l10nId: 'Widgets'},
-                {icon: 'fa-tachometer', state: 'dashboard', label: 'Dashboard', l10nId: 'Dashboard'},
-                {icon: 'fa-tachometer', state: 'c2c', label: 'Card to Card', l10nId: 'Card to Card'},
-                {icon: 'fa-tachometer', state: 'w2w', label: 'Widget to Widget', l10nId: 'Widget to Widget'},
-                {icon: 'fa-tachometer', state: 'fetchData', label: 'Fetching Data', l10nId: 'Fetching Data'},
-                {icon: 'fa-tachometer', state: 'sampleCards', label: 'Sample Cards', l10nId: 'Sample Cards'}
+                {icon: 'fa-home', state: 'home', label: 'Home'},
+                {icon: 'fa-bar-chart', state: 'components', label: 'Components', subitems: [
+                  {state: 'timeSeries', label: 'Time series'},
+                  {state: 'w2w', label: 'Component communication'}
+                ]},
+                {icon: 'fa-th', state: 'sampleCards', label: 'Cards', subitems: [
+                  {state: 'c2c', label: 'Card communication'},
+                  {state: 'fetchData', label: 'Fetching data'}
+                ]},
+                {icon: 'fa-tachometer', state: 'dashboard', label: 'Dashboard'}
             ]
         };
 

@@ -1,0 +1,35 @@
+<link rel="import" href="../bower_components/px-ts-chart/px-ts-chart.html"/>
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html"/>
+
+<section class="m+">
+
+  <h2 class="epsilon">Time Series Charts</h2>
+
+  <section>
+    <h5>Simple, data-bound configuration</h5>
+    <px-ts-chart>
+      <px-chart-series id="temperature"
+                       series-obj="{{simpleTimeSeries.queries}}"
+                       series-obj-data-key="values"></px-chart-series>
+    </px-ts-chart>
+  </section>
+
+  <section>
+    <h5>More complex</h5>
+    <px-ts-chart>
+      <px-ts-chart-controls data-controls></px-ts-chart-controls>
+      <px-chart-yaxis id="firstAxis" offset="0"></px-chart-yaxis>
+      <px-chart-yaxis id="anotherAxis" opposite="true" offset="-2.5"></px-chart-yaxis>
+      <px-chart-series id="delta-egt-cruise" axis-id="firstAxis" upper-threshold="30.5" lower-threshold="6.25">
+        <iron-ajax
+            url="../sample-data/delta-egt-cruise.json"
+            handle-as="json"></iron-ajax>
+      </px-chart-series>
+      <px-chart-series id="fan-vibration-cruise" axis-id="anotherAxis">
+        <iron-ajax
+            url="../sample-data/fan-vibration-cruise.json"
+            handle-as="json"></iron-ajax>
+      </px-chart-series>
+    </px-ts-chart>
+  </section>
+</section>

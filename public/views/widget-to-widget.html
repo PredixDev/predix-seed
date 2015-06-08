@@ -1,2 +1,75 @@
+<link rel="import" href="../bower_components/px-ts-chart/px-ts-chart.html"/>
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html"/>
 
-<widget-to-widget-card context="{{context}}"></widget-to-widget-card>
+<section class="m+">
+
+  <h2 class="epsilon">Widget to widget communication</h2>
+
+  <section>
+    <h5>Via a card as a mediator</h5>
+    <widget-to-widget-card id="sample" context="{{context}}"></widget-to-widget-card>
+  </section>
+
+
+  <section>
+    <h5>Data-bound widgets</h5>
+    <template is="dom-bind">
+      <section>
+        <px-ts-chart chart-state={{sharedState}}>
+          <px-ts-chart-controls data-controls></px-ts-chart-controls>
+          <px-chart-yaxis id="firstAxis" offset="0"></px-chart-yaxis>
+          <px-chart-yaxis id="anotherAxis" opposite="true" offset="-2.5"></px-chart-yaxis>
+          <px-chart-series id="delta-egt-cruise" axis-id="firstAxis">
+            <iron-ajax
+                url="../sample-data/delta-egt-cruise.json"
+                handle-as="json"></iron-ajax>
+          </px-chart-series>
+          <px-chart-series id="fan-vibration-cruise" axis-id="anotherAxis">
+            <iron-ajax
+                url="../sample-data/fan-vibration-cruise.json"
+                handle-as="json"></iron-ajax>
+          </px-chart-series>
+        </px-ts-chart>
+      </section>
+
+      <section>
+        <px-ts-chart chart-state={{sharedState}}>
+          <px-ts-chart-controls data-controls></px-ts-chart-controls>
+          <px-chart-yaxis id="firstAxis" offset="0"></px-chart-yaxis>
+          <px-chart-yaxis id="anotherAxis" opposite="true" offset="-2.5"></px-chart-yaxis>
+          <px-chart-series id="delta-egt-cruise" axis-id="firstAxis">
+            <iron-ajax
+                url="../sample-data/delta-egt-cruise.json"
+                handle-as="json"></iron-ajax>
+          </px-chart-series>
+          <px-chart-series id="fan-vibration-cruise" axis-id="anotherAxis">
+            <iron-ajax
+                url="../sample-data/fan-vibration-cruise.json"
+                handle-as="json"></iron-ajax>
+          </px-chart-series>
+        </px-ts-chart>
+
+      </section>
+
+      <section>
+        <px-ts-chart chart-state={{sharedState}}>
+          <px-ts-chart-controls data-controls></px-ts-chart-controls>
+          <px-chart-yaxis id="firstAxis" offset="0"></px-chart-yaxis>
+          <px-chart-yaxis id="anotherAxis" opposite="true" offset="-2.5"></px-chart-yaxis>
+          <px-chart-series id="delta-egt-cruise" axis-id="firstAxis">
+            <iron-ajax
+                url="../sample-data/delta-egt-cruise.json"
+                handle-as="json"></iron-ajax>
+          </px-chart-series>
+          <px-chart-series id="fan-vibration-cruise" axis-id="anotherAxis">
+            <iron-ajax
+                url="../sample-data/fan-vibration-cruise.json"
+                handle-as="json"></iron-ajax>
+          </px-chart-series>
+        </px-ts-chart>
+
+      </section>
+
+    </template>
+  </section>
+</section>
