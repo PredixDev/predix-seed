@@ -52,12 +52,12 @@ define([
             tabs: [
                 {icon: 'fa-home', state: 'home', label: 'Home'},
                 {icon: 'fa-bar-chart', state: 'components', label: 'Components', subitems: [
-                  {state: 'timeSeries', label: 'Time series'},
-                  {state: 'w2w', label: 'Component communication'}
+                    {state: 'timeSeries', label: 'Time series'},
+                    {state: 'w2w', label: 'Component communication'}
                 ]},
                 {icon: 'fa-th', state: 'sampleCards', label: 'Cards', subitems: [
-                  {state: 'c2c', label: 'Card communication'},
-                  {state: 'fetchData', label: 'Fetching data'}
+                    {state: 'c2c', label: 'Card communication'},
+                    {state: 'fetchData', label: 'Fetching data'}
                 ]},
                 {icon: 'fa-tachometer', state: 'dashboard', label: 'Dashboard'}
             ]

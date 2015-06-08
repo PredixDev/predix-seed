@@ -26,9 +26,9 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
                 controller: 'WidgetsCtrl'
             })
             .state('timeSeries', {
-              url: '/timeSeries',
-              templateUrl: 'views/timeSeries.html',
-              controller: 'WidgetsCtrl'
+                url: '/timeSeries',
+                templateUrl: 'views/timeSeries.html',
+                controller: 'WidgetsCtrl'
             })
             .state('dashboard', {
                 url: '/dashboard',
