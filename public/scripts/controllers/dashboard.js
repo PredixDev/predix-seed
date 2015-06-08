@@ -13,26 +13,54 @@ define(['angular',
     // Controller definition
     controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', function(VCAP_SERVICES, $scope, $q) {
 
-        $scope.selectedView = 'views/sample-cards.html';
+        var decksByClassification = {
+            'farmEquipment': ['sample-cards', 'fetch-data'],
+            'turbine': ['card-to-card']
+        };
 
-        $scope.switchDeck = function(url) {
-            $scope.selectedView = url;
+        var viewDefinitions = {
+            'sample-cards': {
+                name: 'SampleCards',
+                url: 'views/sample-cards.html'
+            },
+            'fetch-data': {
+                name: 'FetchData',
+                url: 'views/fetch-data.html'
+            },
+            'card-to-card': {
+                name: 'CardToCard',
+                url: 'views/card-to-card.html'
+            }
         };
 
         $scope.context = {
-            name: 'Turbine 1234'
+            name: 'Tractor 1234',
+            classification: 'farmEquipment'
         };
+
+        $scope.getViewList = function(classification){
+            $scope.decks = [];
+
+            decksByClassification[classification].forEach(function(deckId){
+                $scope.decks.push(viewDefinitions[deckId]);
+            });
+
+            $scope.selectedDeck = $scope.decks[0].url;
+        };
+
+        $scope.getViewList($scope.context.classification);
 
         $scope.changeContext = function() {
             //fetch related views
 
             $scope.context = {
-                name: 'Turbine 5678'
+                name: 'Turbine 5678',
+                classification: 'turbine'
             };
+
+            $scope.getViewList($scope.context.classification);
+
         };
-
-
-        //document.querySelector('px-dashboard').context = $scope.context;
 
         $scope.contextSelectorConfig = {
             baseUrl: VCAP_SERVICES.predixAssetExp2 + '/services', // the base uri where your asset instance is
