@@ -1,4 +1,6 @@
-<button ng-click="changeContext()">Change context</button>
+<button ng-click="changeContext(1)">Change to context1</button>
+<button ng-click="changeContext(2)">Change to context2</button>
+
 <px-context-selector class="clearfix" data-config="contextSelectorConfig"></px-context-selector>
 
 <select ng-model="selectedDeck" ng-options="deck.url as deck.name for deck in decks"></select>

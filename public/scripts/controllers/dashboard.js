@@ -13,54 +13,36 @@ define(['angular',
     // Controller definition
     controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', function(VCAP_SERVICES, $scope, $q) {
 
-        var decksByClassification = {
-            'farmEquipment': ['sample-cards', 'fetch-data'],
-            'turbine': ['card-to-card']
-        };
-
-        var viewDefinitions = {
-            'sample-cards': {
-                name: 'SampleCards',
-                url: 'views/sample-cards.html'
-            },
-            'fetch-data': {
-                name: 'FetchData',
-                url: 'views/fetch-data.html'
-            },
-            'card-to-card': {
-                name: 'CardToCard',
-                url: 'views/card-to-card.html'
-            }
-        };
-
-        $scope.context = {
+        var context1 = {
             name: 'Tractor 1234',
             classification: 'farmEquipment'
         };
+        var context2 = {
+            name: 'Turbine 5678',
+            classification: 'turbine'
+        };
 
-        $scope.getViewList = function(classification){
-            $scope.decks = [];
+        window.px.dealer.init();
 
-            decksByClassification[classification].forEach(function(deckId){
-                $scope.decks.push(viewDefinitions[deckId]);
-            });
+        $scope.context = context1;
 
+        $scope.decks = window.px.dealer.getDecksByClassification($scope.context.classification);
+        $scope.selectedDeck = $scope.decks[0].url;
+
+        $scope.changeContext = function(num) {
+            //fetch related views
+
+            if(num === 1) {
+                $scope.context = context1;
+            }
+            else {
+                $scope.context = context2;
+            }
+
+            $scope.decks = window.px.dealer.getDecksByClassification($scope.context.classification);
             $scope.selectedDeck = $scope.decks[0].url;
         };
 
-        $scope.getViewList($scope.context.classification);
-
-        $scope.changeContext = function() {
-            //fetch related views
-
-            $scope.context = {
-                name: 'Turbine 5678',
-                classification: 'turbine'
-            };
-
-            $scope.getViewList($scope.context.classification);
-
-        };
 
         $scope.contextSelectorConfig = {
             baseUrl: VCAP_SERVICES.predixAssetExp2 + '/services', // the base uri where your asset instance is
