@@ -27,7 +27,7 @@
     "px-datasource": "git://github.build.ge.com/Predix-Experience/px-datasource.git#develop",
     "px-contextual-dashboard": "git://github.build.ge.com/Predix-Experience/px-contextual-dashboard.git#develop",
     "px-app-nav": "git://github.build.ge.com/PXC/px-app-nav.git#master",
-    "px-theme": "git://github.build.ge.com/PXc/px-theme.git#~v0.1.10",
+    "px-theme": "git://github.build.ge.com/PXc/px-theme.git#~v0.1.13",
     "px-card": "git://github.build.ge.com/Predix-Experience/px-card.git#master",
     "px": "git://github.build.ge.com/Predix-Experience/px.git",
     "es6-promise": "git://github.com/jakearchibald/es6-promise.git",
