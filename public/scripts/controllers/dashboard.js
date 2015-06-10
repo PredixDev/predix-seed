@@ -13,26 +13,43 @@ define(['angular',
     // Controller definition
     controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', function(VCAP_SERVICES, $scope, $q) {
 
-        $scope.selectedView = 'views/sample-cards.html';
-
-        $scope.switchDeck = function(url) {
-            $scope.selectedView = url;
+        var context1 = {
+            name: 'Tractor 1234',
+            classification: 'farmEquipment'
+        };
+        var context2 = {
+            name: 'Turbine 5678',
+            classification: 'turbine'
+        };
+        var context3 = {
+            name: 'Plane 23',
+            classification: 'plane'
         };
 
-        $scope.context = {
-            name: 'Turbine 1234'
-        };
+        window.px.dealer.init();
 
-        $scope.changeContext = function() {
+        $scope.context = context1;
+
+        $scope.decks = window.px.dealer.getDecksByClassification($scope.context.classification);
+        $scope.selectedDeck = $scope.decks[0].url;
+
+        $scope.changeContext = function(num) {
             //fetch related views
 
-            $scope.context = {
-                name: 'Turbine 5678'
-            };
+            if (num === 1) {
+                $scope.context = context1;
+            }
+            else if (num === 2) {
+                $scope.context = context2;
+            }
+            else {
+                $scope.context = context3;
+            }
+
+            $scope.decks = window.px.dealer.getDecksByClassification($scope.context.classification);
+            $scope.selectedDeck = $scope.decks[0].url;
         };
 
-
-        //document.querySelector('px-dashboard').context = $scope.context;
 
         $scope.contextSelectorConfig = {
             baseUrl: VCAP_SERVICES.predixAssetExp2 + '/services', // the base uri where your asset instance is
