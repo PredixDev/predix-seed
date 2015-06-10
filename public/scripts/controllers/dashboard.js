@@ -21,6 +21,10 @@ define(['angular',
             name: 'Turbine 5678',
             classification: 'turbine'
         };
+        var context3 = {
+            name: 'Plane 23',
+            classification: 'plane'
+        };
 
         window.px.dealer.init();
 
@@ -32,11 +36,14 @@ define(['angular',
         $scope.changeContext = function(num) {
             //fetch related views
 
-            if(num === 1) {
+            if (num === 1) {
                 $scope.context = context1;
             }
-            else {
+            else if (num === 2) {
                 $scope.context = context2;
+            }
+            else {
+                $scope.context = context3;
             }
 
             $scope.decks = window.px.dealer.getDecksByClassification($scope.context.classification);
