@@ -36,7 +36,7 @@ define(['angular',
 
         $scope.contextSelectorConfig = {
             //baseUrl: VCAP_SERVICES.predixAssetExp2 + '/services', // the base uri where your asset instance is
-            baseUrl: 'http://predix-asset-mvp2-exp1.grc-apps.svc.ice.ge.com/api', // the base uri where your asset instance is
+            baseUrl: 'http://predix-asset-mvp2-exp1.grc-apps.svc.ice.ge.com/api/asset', // the base uri where your asset instance is
             rootEntityId: null, // the root of the context browser
             onOpenContext: function(contextDetails) { // callback when the open button is hit in the context browser
                 $scope.$apply(function() {
