@@ -13,44 +13,8 @@ define(['angular',
     // Controller definition
     controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', function(VCAP_SERVICES, $scope, $q) {
 
-        var context1 = {
-            name: 'Tractor 1234',
-            classification: 'farmEquipment'
-        };
-        var context2 = {
-            name: 'Turbine 5678',
-            classification: 'turbine'
-        };
-        var context3 = {
-            name: 'Plane 23',
-            classification: 'plane'
-        };
-
         window.px.dealer.init();
-
-        $scope.context = context1;
-
-        $scope.decks = window.px.dealer.getDecksByClassification($scope.context.classification);
-        $scope.selectedDeck = $scope.decks[0].url;
-
-        $scope.changeContext = function(num) {
-            //fetch related views
-
-            if (num === 1) {
-                $scope.context = context1;
-            }
-            else if (num === 2) {
-                $scope.context = context2;
-            }
-            else {
-                $scope.context = context3;
-            }
-
-            $scope.decks = window.px.dealer.getDecksByClassification($scope.context.classification);
-            $scope.selectedDeck = $scope.decks[0].url;
-        };
-
-
+        
         $scope.contextSelectorConfig = {
             //baseUrl: VCAP_SERVICES.predixAssetExp2 + '/services', // the base uri where your asset instance is
             baseUrl: 'http://predix-asset-mvp2-exp1.grc-apps.svc.ice.ge.com/api/asset', // the base uri where your asset instance is
@@ -65,6 +29,9 @@ define(['angular',
                     newContext.parent = [];
 
                     $scope.context = newContext;
+
+                    $scope.decks = window.px.dealer.getDecksByClassification($scope.context.classification);
+                    $scope.selectedDeck = $scope.decks[0].url;
 
                 });
             },
