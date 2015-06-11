@@ -7,55 +7,48 @@
 /* jshint unused: false */
 define(['angular',
     'sample-module'
-], function(angular, controllers) {
+], function (angular, controllers) {
     'use strict';
 
     // Controller definition
-    controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', function(VCAP_SERVICES, $scope, $q) {
+    controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', function (VCAP_SERVICES, $scope, $q) {
 
-        var context1 = {
-            name: 'Tractor 1234',
-            classification: 'farmEquipment'
-        };
-        var context2 = {
-            name: 'Turbine 5678',
-            classification: 'turbine'
-        };
-        var context3 = {
-            name: 'Plane 23',
-            classification: 'plane'
-        };
-
-        window.px.dealer.init();
-
-        $scope.context = context1;
-
-        $scope.decks = window.px.dealer.getDecksByClassification($scope.context.classification);
-        $scope.selectedDeck = $scope.decks[0].url;
-
-        $scope.changeContext = function(num) {
-            //fetch related views
-
-            if (num === 1) {
-                $scope.context = context1;
+        var deckDefinition = {
+            'sample-cards': {
+                name: 'SampleCards',
+                url: 'views/sample-cards.html'
+            },
+            'fetch-data': {
+                name: 'FetchData',
+                url: 'views/fetch-data.html'
+            },
+            'card-to-card': {
+                name: 'CardToCard',
+                url: 'views/card-to-card.html'
             }
-            else if (num === 2) {
-                $scope.context = context2;
-            }
-            else {
-                $scope.context = context3;
-            }
-
-            $scope.decks = window.px.dealer.getDecksByClassification($scope.context.classification);
-            $scope.selectedDeck = $scope.decks[0].url;
         };
 
+        var decksByClassification = {
+            'dashboard1': {
+                '/classification/country': ['sample-cards', 'fetch-data'],
+                'state': ['card-to-card'],
+                'county': ['sample-cards', 'card-to-card', 'fetch-data']
+            },
+            'dashboard2': {
+                '/classification/country': ['sample-cards', 'fetch-data'],
+                'state': ['card-to-card'],
+                'county': ['sample-cards', 'card-to-card', 'fetch-data']
+            }
+        };
+
+        window.px.dealer.init(deckDefinition, decksByClassification);
 
         $scope.contextSelectorConfig = {
-            baseUrl: VCAP_SERVICES.predixAssetExp2 + '/services', // the base uri where your asset instance is
+            //baseUrl: VCAP_SERVICES.predixAssetExp2 + '/services', // the base uri where your asset instance is
+            baseUrl: 'http://predix-asset-mvp2-exp1.grc-apps.svc.ice.ge.com/api/asset', // the base uri where your asset instance is
             rootEntityId: null, // the root of the context browser
-            onOpenContext: function(contextDetails) { // callback when the open button is hit in the context browser
-                $scope.$apply(function() {
+            onOpenContext: function (contextDetails) { // callback when the open button is hit in the context browser
+                $scope.$apply(function () {
 
                     // need to clean up the context details so it doesn't have the infinite parent/children cycle,
                     // which causes problems later (can't interpolate: {{context}} TypeError: Converting circular structure to JSON)
@@ -65,9 +58,16 @@ define(['angular',
 
                     $scope.context = newContext;
 
+                    window.px.dealer.getDecksByClassification('dashboard1', $scope.context.classification).then(function(decks){
+                        $scope.decks = decks;
+
+                        if ($scope.decks.length) {
+                            $scope.selectedDeck = $scope.decks[0].url;
+                        }
+                    });
                 });
             },
-            transformSelectedEntityDetails: function(entity) { // configure key value pairs to show in the entity info panel in the context browser (the selected entity)
+            transformSelectedEntityDetails: function (entity) { // configure key value pairs to show in the entity info panel in the context browser (the selected entity)
                 return [
                     {label: 'Tom Edison'},  // (ex: {label: entity[0].attributes['Customer Name'].value})
                     {label: '12/24/2001'},
@@ -75,7 +75,7 @@ define(['angular',
                     {label: 'Serial Number', value: '345hwfher2wh3f8h47f'}
                 ];
             },
-            transformPinnedEntityDetails: function(entity) { // configure key value pairs to show in the entity info panel in dashboard (the pinned entity)
+            transformPinnedEntityDetails: function (entity) { // configure key value pairs to show in the entity info panel in dashboard (the pinned entity)
                 return [
                     {label: 'Tom Edison'},  // (ex: {label: entity[0].attributes['Customer Name'].value})
                     {label: '12/24/2001'},
