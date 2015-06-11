@@ -58,12 +58,13 @@ define(['angular',
 
                     $scope.context = newContext;
 
-                    $scope.decks = window.px.dealer.getDecksByClassification('dashboard1', $scope.context.classification);
-                    if ($scope.decks.length) {
-                        $scope.selectedDeck = $scope.decks[0].url;
-                    }
+                    window.px.dealer.getDecksByClassification('dashboard1', $scope.context.classification).then(function(decks){
+                        $scope.decks = decks;
 
-
+                        if ($scope.decks.length) {
+                            $scope.selectedDeck = $scope.decks[0].url;
+                        }
+                    });
                 });
             },
             transformSelectedEntityDetails: function (entity) { // configure key value pairs to show in the entity info panel in the context browser (the selected entity)
