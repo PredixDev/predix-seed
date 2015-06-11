@@ -263,54 +263,10 @@ module.exports = function(grunt) {
                         cwd: 'public',
                         expand: true,
                         src: [
-                            'index.html', //Main Index.html
-                            'stylesheets/*.css', //minified CSS
-                            'views/*.html',
-                            'cards/*.html',
-                            'images/*.*',
-                            'type/**',
-                            'locales/**'
-                        ],
-                        dest: '<%= config.dist %>/'
-                    },
-                    {
-                        cwd: 'public',
-                        expand: true,
-                        src: [
-                            'bower_components/requirejs-plugins/src/**',
-                            'bower_components/requirejs-plugins/lib/text.js',
-                            'bower_components/require-css/css.js',
-                            'bower_components/requirejs/require.js',
-
-                            'bower_components/px-oauth/dist/views/*.html',
-
-                            'bower_components/px-app-nav/**',
-
-                            'bower_components/px-ts-chart/**',
-                            'bower_components/highstock-release/**',
-                            'bower_components/annotations/**',
-                            'bower_components/moment/**',
-
-                            'bower_components/px-card/**',
-
-                            'bower_components/px/**',
-                            'bower_components/es6-promise/dist/**',
-
-                            'bower_components/px-context-browser/**',
-
-                            'bower_components/l20n/**',
-
-                            'bower_components/webcomponentsjs/**',
-                            'bower_components/web-animations-js/**',
-                            'bower_components/px-l10n-mixin/**',
-                            'bower_components/px-theme/**',
-                            'bower_components/polymer/**',
-
-                            'bower_components/font-awesome/fonts/**'
+                            '**'
                         ],
                         dest: '<%= config.dist %>/'
                     }
-
                 ]
             }
         },
