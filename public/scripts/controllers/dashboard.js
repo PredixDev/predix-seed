@@ -31,7 +31,10 @@ define(['angular',
                     $scope.context = newContext;
 
                     $scope.decks = window.px.dealer.getDecksByClassification($scope.context.classification);
-                    $scope.selectedDeck = $scope.decks[0].url;
+                    if ($scope.decks.length){
+                        $scope.selectedDeck = $scope.decks[0].url;
+                    }
+
 
                 });
             },
