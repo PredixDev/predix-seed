@@ -95,8 +95,18 @@
     </div>
   </footer>
 </body>
-
-<script data-main='scripts/bootstrapper.js'
-        src='bower_components/requirejs/require.js'></script>
+<script>
+// IE11 workaround: We can't rely on IE's load order for scripts that are loaded outside of require.js (might
+//  be an issue with the web components polyfill), so we wait for the HTMLImportsLoaded event to ensure our 
+//  web components' scripts have loaded.
+window.addEventListener('HTMLImportsLoaded', function(e) {
+    var elScript = document.createElement('script');
+    elScript.setAttribute('src', 'bower_components/requirejs/require.js');
+    elScript.setAttribute('data-main', 'scripts/bootstrapper.js');
+    document.getElementsByTagName('body')[0].appendChild(elScript);
+});
+</script>
+<!--script data-main='scripts/bootstrapper.js'
+        src='bower_components/requirejs/require.js'></script-->
 
 </html>
