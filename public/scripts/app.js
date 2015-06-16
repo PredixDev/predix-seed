@@ -54,7 +54,7 @@ define([
                 {icon: 'fa-tachometer', state: 'dashboard', label: 'Dashboard'},
                 {icon: 'fa-th', state: 'sampleCards', label: 'Cards', subitems: [
                     {state: 'c2c', label: 'Interactions'},
-                    {state: 'fetchData', label: 'Data binding'}
+                    {state: 'fetchData', label: 'Data Control'}
                 ]},
                 {icon: 'fa-bar-chart', state: 'components', label: 'Components', subitems: [
                     {state: 'timeSeries', label: 'Time series'},
