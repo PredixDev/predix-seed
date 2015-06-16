@@ -85,51 +85,6 @@ define(['angular',
                     {label: 'Part', value: '34wtefh8cdx'}
                 ];
 
-            },
-            getEntityChildren: function (parentId, rangeStart, meta) {
-                var self = this;
-                var numberOfRecords = 100;
-                var deferred = $q.defer();
-                var childrenUrl = this.baseUrl + '?pageSize=' + numberOfRecords + '&filter=topLevelOnly=true:parent=' + parentId;
-
-                if (meta && meta.link && meta.link !== '') {
-                    //overwrite url if there is cursorstate
-                    childrenUrl = meta.link;
-                }
-
-                $http.get(childrenUrl)
-                    .success(function (data, status, headers) {
-                        //mvp 1
-                        var contentRange = headers('Content-Range');
-                        var total = 0;
-
-                        if (contentRange) {
-                            // There are more children available.
-                            var slashIndex = contentRange.lastIndexOf('/');
-                            total = parseInt(contentRange.substring(slashIndex + 1, contentRange.length));
-                        }
-                        else {
-                            // We got all the results in one fetch.
-                            total = data.length;
-                        }
-
-                        //mvp 2
-                        var link = headers('link');
-                        if (!link) {
-                            link = '';
-                        }
-
-                        var childEntities = {
-                            meta: {link: link},
-                            data: data
-                        };
-                        deferred.resolve(childEntities);
-                    })
-                    .error(function (data, status, headers, config) {
-                        deferred.reject('Error fetching asset with id ' + parentId);
-                    });
-
-                return deferred.promise;
             }
         };
 
