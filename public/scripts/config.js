@@ -111,6 +111,9 @@ require.config({
         },
         'px-datasource': {
             deps: ['angular', 'underscore']
+        },
+        'app': {
+            deps: ['angular']
         }
 
     }
