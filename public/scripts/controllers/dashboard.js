@@ -11,7 +11,7 @@ define(['angular',
     'use strict';
 
     // Controller definition
-    controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', function (VCAP_SERVICES, $scope, $q) {
+    controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', '$http', function (VCAP_SERVICES, $scope, $q, $http) {
 
         var deckDefinition = {
             'sample-cards': {
@@ -45,7 +45,7 @@ define(['angular',
 
         $scope.contextSelectorConfig = {
             //baseUrl: VCAP_SERVICES.predixAssetExp2 + '/services', // the base uri where your asset instance is
-            baseUrl: 'http://predix-asset-mvp2-exp1.grc-apps.svc.ice.ge.com/api/asset', // the base uri where your asset instance is
+            baseUrl: 'http://predix-asset-mvp2-secure.grc-apps.svc.ice.ge.com/api/asset', // the base uri where your asset instance is
             rootEntityId: null, // the root of the context browser
             onOpenContext: function (contextDetails) { // callback when the open button is hit in the context browser
                 $scope.$apply(function () {
@@ -58,7 +58,7 @@ define(['angular',
 
                     $scope.context = newContext;
 
-                    window.px.dealer.getDecksByClassification('dashboard1', $scope.context.classification).then(function(decks){
+                    window.px.dealer.getDecksByClassification('dashboard1', $scope.context.classification).then(function (decks) {
                         $scope.decks = decks;
 
                         if ($scope.decks.length) {
@@ -85,8 +85,54 @@ define(['angular',
                     {label: 'Part', value: '34wtefh8cdx'}
                 ];
 
+            },
+            getEntityChildren: function (parentId, rangeStart, meta) {
+                var self = this;
+                var numberOfRecords = 100;
+                var deferred = $q.defer();
+                var childrenUrl = this.baseUrl + '?pageSize=' + numberOfRecords + '&filter=topLevelOnly=true:parent=' + parentId;
+
+                if (meta && meta.link && meta.link !== '') {
+                    //overwrite url if there is cursorstate
+                    childrenUrl = meta.link;
+                }
+
+                $http.get(childrenUrl)
+                    .success(function (data, status, headers) {
+                        //mvp 1
+                        var contentRange = headers('Content-Range');
+                        var total = 0;
+
+                        if (contentRange) {
+                            // There are more children available.
+                            var slashIndex = contentRange.lastIndexOf('/');
+                            total = parseInt(contentRange.substring(slashIndex + 1, contentRange.length));
+                        }
+                        else {
+                            // We got all the results in one fetch.
+                            total = data.length;
+                        }
+
+                        //mvp 2
+                        var link = headers('link');
+                        if (!link) {
+                            link = '';
+                        }
+
+                        var childEntities = {
+                            meta: {link: link},
+                            data: data
+                        };
+                        deferred.resolve(childEntities);
+                    })
+                    .error(function (data, status, headers, config) {
+                        deferred.reject('Error fetching asset with id ' + parentId);
+                    });
+
+                return deferred.promise;
             }
         };
+
 
         /*
          * Optional
