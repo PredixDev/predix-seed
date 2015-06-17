@@ -1,3 +1,35 @@
 <px-deck context="{{context}}">
-    <time-series-card class="px-card" id="tsc"></time-series-card>
+    <!-- <time-series-card class="px-card" id="tsc"></time-series-card> -->
+    <px-card header-text="Description of a Card: This is a Card!">
+        <p>
+A Card is an editable container that is composed by the application developer and resides within a
+larger container we call a View. A View is simply the background area of the screen where your content
+is displayed. The white area on this page is the view. The individual cards are the sections of content
+that sit within the view. In this section cards will be shown with these double ended arrows.
+        </p>
+    </px-card>
+    <px-card header-text="Description of a Deck of Cards">
+        <p>
+            A Deck is comprised of a series of Cards that are organized by you the develop
+        </p>
+    </px-card>
+    <px-card header-text="Making Decks and Cards">
+        Making Decks and Cards are easy. Here is an example of the markup used to construct this Deck of these three Cards.
+
+        <figure class="code">
+            <code>
+                &lt;section&gt;
+                    <br>&lt;widget-to-widget-card id=&quot;sample&quot; context=&quot;&quot;&gt;
+                        <br>&lt;px-card class=&quot;style-scope widget-to-widget-card&quot;&gt;
+                            <br>&lt;px-card-header class=&quot;style-scope px-card&quot; header-text=&quot;Card Header&quot;&gt;&lt;/px-card-header&gt;
+                            <br>&lt;div class=&quot;m style-scope px-card&quot;&gt;&lt;/div&gt;
+                        <br>&lt;/px-card&gt;
+                     <br>&lt;/widget-to-widget-card&gt;
+                 <br>&lt;/section&gt;
+            </code>
+        </figure>
+
+
+
+    </px-card>
 </px-deck>
