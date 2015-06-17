@@ -112,11 +112,11 @@ define(['angular',
         //            name: entity.assetId, // Displayed name in the context browser
         //            id: entity.uri, // Unique ID (could be a URI for example)
         //            parentId: entity.parent, // Parent ID. Used to place the children under the corresponding parent in the browser.
-        //            classification: entity.specification, // Classification used for fetching the views.
+        //            classification: entity.classification, // Classification used for fetching the views.
         //            isOpenable: !(entity.attributes && entity.attributes.isNotOpenable) // Is the open button displayed?
         //        };
         //    },
-        //    getEntityChildren: function(parentId, rangeStart) { // override fetching the children if you're not using Predix Asset by passing parentId and rangeStart (starting row number of the next batch of child entities) which supports pagination.
+        //    getEntityChildren: function(parentId, options) { // override fetching the children if you're not using Predix Asset by passing parentId and options.rangeStart (starting row number of the next batch of child entities) which supports pagination.
         //        var deferred = $q.defer();
         //        // customize your url here
         //        var childrenUrl = this.baseUrl + '/asset?filter=topLevelOnly=true:parent=' + parentId;
