@@ -11,18 +11,18 @@ define(['angular',
     'use strict';
 
     // Controller definition
-    controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', function (VCAP_SERVICES, $scope, $q) {
+    controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', '$http', function (VCAP_SERVICES, $scope, $q, $http) {
 
         var deckDefinition = {
-            'sample-cards': {
+            'sample-cards-deck': {
                 name: 'SampleCards',
                 url: 'views/sample-cards.html'
             },
-            'fetch-data': {
+            'fetch-data-deck': {
                 name: 'FetchData',
                 url: 'views/fetch-data.html'
             },
-            'card-to-card': {
+            'card-to-card-deck': {
                 name: 'CardToCard',
                 url: 'views/card-to-card.html'
             }
@@ -30,14 +30,14 @@ define(['angular',
 
         var decksByClassification = {
             'dashboard1': {
-                '/classification/country': ['sample-cards', 'fetch-data'],
-                'state': ['card-to-card'],
-                'county': ['sample-cards', 'card-to-card', 'fetch-data']
+                '/classification/country': ['sample-cards-deck', 'fetch-data-deck'],
+                'state': ['card-to-card-deck'],
+                'county': ['sample-cards-deck', 'card-to-card-deck', 'fetch-data-deck']
             },
             'dashboard2': {
-                '/classification/country': ['sample-cards', 'fetch-data'],
-                'state': ['card-to-card'],
-                'county': ['sample-cards', 'card-to-card', 'fetch-data']
+                '/classification/country': ['sample-deck', 'fetch-data-deck'],
+                'state': ['card-to-card-deck'],
+                'county': ['sample-cards-deck', 'card-to-card-deck', 'fetch-data-deck']
             }
         };
 
@@ -45,7 +45,7 @@ define(['angular',
 
         $scope.contextSelectorConfig = {
             //baseUrl: VCAP_SERVICES.predixAssetExp2 + '/services', // the base uri where your asset instance is
-            baseUrl: 'http://predix-asset-mvp2-exp1.grc-apps.svc.ice.ge.com/api/asset', // the base uri where your asset instance is
+            baseUrl: 'http://predix-asset-mvp2-no-api.grc-apps.svc.ice.ge.com/asset', // the base uri where your asset instance is
             rootEntityId: null, // the root of the context browser
             onOpenContext: function (contextDetails) { // callback when the open button is hit in the context browser
                 $scope.$apply(function () {
@@ -58,12 +58,13 @@ define(['angular',
 
                     $scope.context = newContext;
 
-                    window.px.dealer.getDecksByClassification('dashboard1', $scope.context.classification).then(function(decks){
+                    window.px.dealer.getDecksByClassification('dashboard1', $scope.context.classification).then(function (decks) {
                         $scope.decks = decks;
 
                         if ($scope.decks.length) {
                             $scope.selectedDeck = $scope.decks[0].url;
                         }
+                        $scope.$digest();
                     });
                 });
             },
@@ -88,6 +89,7 @@ define(['angular',
             }
         };
 
+
         /*
          * Optional
          * You can disable the context browser by setting $scope.disabled to true and passing the disabled attribute to context browser.
@@ -111,11 +113,11 @@ define(['angular',
         //            name: entity.assetId, // Displayed name in the context browser
         //            id: entity.uri, // Unique ID (could be a URI for example)
         //            parentId: entity.parent, // Parent ID. Used to place the children under the corresponding parent in the browser.
-        //            classification: entity.specification, // Classification used for fetching the views.
+        //            classification: entity.classification, // Classification used for fetching the views.
         //            isOpenable: !(entity.attributes && entity.attributes.isNotOpenable) // Is the open button displayed?
         //        };
         //    },
-        //    getEntityChildren: function(parentId, rangeStart) { // override fetching the children if you're not using Predix Asset by passing parentId and rangeStart (starting row number of the next batch of child entities) which supports pagination.
+        //    getEntityChildren: function(parentId, options) { // override fetching the children if you're not using Predix Asset by passing parentId and options.rangeStart (starting row number of the next batch of child entities) which supports pagination.
         //        var deferred = $q.defer();
         //        // customize your url here
         //        var childrenUrl = this.baseUrl + '/asset?filter=topLevelOnly=true:parent=' + parentId;
