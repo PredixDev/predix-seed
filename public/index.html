@@ -34,10 +34,10 @@
     <link rel="import" href="bower_components/px-card/px-dashboard.html"/>
     <link rel="import" href="bower_components/px-card/px-deck.html"/>
 
-    <link rel="import" href="bower_components/px-card/widget-to-widget-card.html"/>
+    <link rel="import" href="bower_components/px-sample-cards/widget-to-widget-card.html"/>
     <link rel="import" href="bower_components/px-card/fetch-data-card.html"/>
-    <link rel="import" href="bower_components/px-card/sample-card.html"/>
-    <link rel="import" href="bower_components/px-card/time-series-card.html"/>
+    <link rel="import" href="bower_components/px-sample-cards/sample-card.html"/>
+    <link rel="import" href="bower_components/px-sample-cards/time-series-card.html"/>
 </head>
 
 <body class="app" data-ng-controller="MainCtrl">
@@ -97,7 +97,7 @@
 </body>
 <script>
 // IE11 workaround: We can't rely on IE's load order for scripts that are loaded outside of require.js (might
-//  be an issue with the web components polyfill), so we wait for the HTMLImportsLoaded event to ensure our 
+//  be an issue with the web components polyfill), so we wait for the HTMLImportsLoaded event to ensure our
 //  web components' scripts have loaded.
 window.addEventListener('HTMLImportsLoaded', function(e) {
     var elScript = document.createElement('script');

@@ -31,7 +31,8 @@
     "px-card": "https://github.build.ge.com/Predix-Experience/px-card.git#master",
     "px": "https://github.build.ge.com/Predix-Experience/px.git",
     "es6-promise": "https://github.com/jakearchibald/es6-promise.git",
-    "polymer": "v1.0"
+    "polymer": "v1.0",
+    "px-sample-cards": "https://github.build.ge.com/PXc/px-sample-cards.git"
   },
   "resolutions": {
     "angular": "~1.3.12",
