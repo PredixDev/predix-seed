@@ -1,21 +1,19 @@
 <link rel="import" href="../bower_components/px-ts-chart/px-ts-chart.html"/>
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html"/>
 
-<section class="u-m+">
+<px-card id=time-series icon="fa-suitcase" header-text="Time Series Charts">
 
-  <h2 class="epsilon">Time Series Charts</h2>
-
-  <section>
-    <h5>Simple, data-bound configuration</h5>
+  <px-card>
+    <h4>Simple, data-bound configuration</h4>
     <px-ts-chart>
       <px-chart-series id="temperature"
                        series-obj="{{simpleTimeSeries.queries}}"
                        series-obj-data-key="values"></px-chart-series>
     </px-ts-chart>
-  </section>
+  </px-card>
 
-  <section class="minimal-config-example u-mb+">
-    <h5>Minimal Configuration</h5>
+  <px-card class="minimal-config-example">
+    <h4>Minimal Configuration</h4>
     <px-ts-chart export-server-url="http://export.highcharts.com"> <!-- WARNING, export.highcharts.com is a public server for demo only -->
       <px-ts-chart-controls data-controls show-export="true" zoom-buttons="[]"></px-ts-chart-controls>
       <px-chart-series id="fan-vibration-cruise">
@@ -26,11 +24,11 @@
             handle-as="json"></iron-ajax>
       </px-chart-series>
     </px-ts-chart>
-  </section>
+  </px-card>
 
-  <section class="full-config-example u-mt+">
+  <px-card class="full-config-example">
 
-    <h5>Full Configuration</h5>
+    <h4>Full Configuration</h4>
 
     <px-ts-chart>
       <px-ts-chart-controls data-controls show-refresh="true" show-date-range="true"></px-ts-chart-controls>
@@ -62,7 +60,7 @@
       <button class="btn" onclick="removeSeries('core-vibe-rear-cruise')">Remove Core Vibration Series</button>
     </p>
 
-  </section>
+  </px-card>
 
   <script>
     //register series refresh listener for full config chart:
@@ -120,4 +118,4 @@
       }
     }
   </script>
-</section>
+</px-card>
