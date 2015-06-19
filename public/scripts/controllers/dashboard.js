@@ -16,7 +16,7 @@ define(['angular',
         var deckDefinition = {
             'sample-cards-deck': {
                 name: 'SampleCards',
-                url: 'views/sample-cards.html'
+                url: 'bower_components/px-sample-cards/dashboard-card.html'
             },
             'fetch-data-deck': {
                 name: 'FetchData',
