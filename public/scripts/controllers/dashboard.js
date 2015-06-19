@@ -14,15 +14,15 @@ define(['angular',
     controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', '$http', function (VCAP_SERVICES, $scope, $q, $http) {
 
         var deckDefinition = {
-            'sample-cards': {
+            'sample-cards-deck': {
                 name: 'SampleCards',
                 url: 'views/sample-cards.html'
             },
-            'fetch-data': {
+            'fetch-data-deck': {
                 name: 'FetchData',
                 url: 'views/fetch-data.html'
             },
-            'card-to-card': {
+            'card-to-card-deck': {
                 name: 'CardToCard',
                 url: 'views/card-to-card.html'
             }
@@ -30,14 +30,14 @@ define(['angular',
 
         var decksByClassification = {
             'dashboard1': {
-                '/classification/country': ['sample-cards', 'fetch-data'],
-                'state': ['card-to-card'],
-                'county': ['sample-cards', 'card-to-card', 'fetch-data']
+                '/classification/country': ['sample-cards-deck', 'fetch-data-deck'],
+                'state': ['card-to-card-deck'],
+                'county': ['sample-cards-deck', 'card-to-card-deck', 'fetch-data-deck']
             },
             'dashboard2': {
-                '/classification/country': ['sample-cards', 'fetch-data'],
-                'state': ['card-to-card'],
-                'county': ['sample-cards', 'card-to-card', 'fetch-data']
+                '/classification/country': ['sample-deck', 'fetch-data-deck'],
+                'state': ['card-to-card-deck'],
+                'county': ['sample-cards-deck', 'card-to-card-deck', 'fetch-data-deck']
             }
         };
 
@@ -45,7 +45,7 @@ define(['angular',
 
         $scope.contextSelectorConfig = {
             //baseUrl: VCAP_SERVICES.predixAssetExp2 + '/services', // the base uri where your asset instance is
-            baseUrl: 'http://predix-asset-mvp2-no-api.grc-apps.svc.ice.ge.com/asset ', // the base uri where your asset instance is
+            baseUrl: 'http://predix-asset-mvp2-no-api.grc-apps.svc.ice.ge.com/asset', // the base uri where your asset instance is
             rootEntityId: null, // the root of the context browser
             onOpenContext: function (contextDetails) { // callback when the open button is hit in the context browser
                 $scope.$apply(function () {
