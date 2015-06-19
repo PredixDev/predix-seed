@@ -83,15 +83,10 @@ module.exports = function(grunt) {
             },
             scripts: {
                 files: [
-                    '<%= config.test %>/e2e/**/*.js',
-                    '<%= config.test %>/spec/**/*.js',
-                    '<%= config.app %>/scripts/**/*.js'
+                    '<%= config.app %>/scripts/**/*.js',
+                    '<%= config.test %>/e2e/**/*.js'
                 ],
                 tasks: ['jshint', 'karma']
-            },
-            test: {
-                files: ['test/spec/**/*.js'],
-                tasks: ['karma']
             }
         },
 
