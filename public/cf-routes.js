@@ -19,7 +19,7 @@
         "predix-asset": [
             {
                 "credentials": {
-                    "uri": "predix-asset-mvp2-no-api.grc-apps.svc.ice.ge.com"
+                    "uri": "predix-asset-mvp2-seed-app.grc-apps.svc.ice.ge.com"
                 },
                 "label": "predix-asset",
                 "name": "predixAssetExp2",
