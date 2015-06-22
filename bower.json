@@ -27,7 +27,7 @@
     "px-datasource": "https://github.build.ge.com/Predix-Experience/px-datasource.git#develop",
     "px-contextual-dashboard": "https://github.build.ge.com/Predix-Experience/px-contextual-dashboard.git#develop",
     "px-app-nav": "https://github.build.ge.com/PXC/px-app-nav.git#master",
-    "px-theme": "https://github.build.ge.com/PXc/px-theme.git#~v0.2.0",
+    "px-theme": "https://github.build.ge.com/PXc/px-theme.git#~v0.2.4",
     "px-card": "https://github.build.ge.com/Predix-Experience/px-card.git#master",
     "px": "https://github.build.ge.com/Predix-Experience/px.git",
     "es6-promise": "https://github.com/jakearchibald/es6-promise.git",
@@ -37,7 +37,6 @@
   "resolutions": {
     "angular": "~1.3.12",
     "underscore": "~1.8.3",
-    "px-theme": "~v0.2.0",
     "polymer": "^1.0.0",
     "px-card": "master"
   }
