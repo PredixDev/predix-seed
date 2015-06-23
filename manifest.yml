@@ -4,4 +4,5 @@ applications:
     buildpack: https://github.com/sabithksme/staticfile-buildpack.git
     path: dist
     memory: 64M
-
+    services:
+            - predixAssetExp2
