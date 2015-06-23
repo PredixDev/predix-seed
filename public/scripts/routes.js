@@ -58,6 +58,9 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
 
 
         $urlRouterProvider
-            .otherwise('home');
+            .otherwise(function(){
+                document.querySelector('px-app-nav').markSelected('/home');
+                return 'home';
+            });
     }]);
 });
