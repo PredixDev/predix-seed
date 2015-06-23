@@ -1,8 +1,15 @@
-<link rel="import" href="bower_components/px-sample-cards/temperature-card.html"/>
+<link rel="import" href="bower_components/px-sample-cards/widget-to-widget-card.html"/>
 
-<px-deck context="{{context}}">
+<px-deck>
 
-        <temperature-card class="px-card" id="temp-card"></temperature-card>
-        <sample-card class="px-card" id="card2"></sample-card>
+<px-card header-text="Description of Card Interactions">
+    <p>
+        Now that you know what Cards are (see examples), now see what they can do. Here are some examlpes of Card behaviours when acted upon by items outside of Cards, Items within Cards and between Cards themselves.
+    </p>
+    <button class="btn"><i class="fa fa-github u-mr--"></i><a href="https://github.build.ge.com/PXc/px-sample-cards">Github Repo</a></button>
+</px-card>
+
+<widget-to-widget-card id="w2w">
+</widget-to-widget-card>
 
 </px-deck>
