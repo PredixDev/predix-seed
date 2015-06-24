@@ -42,7 +42,7 @@ define([
      * This controller is the top most level controller that allows for all
      * child controllers to access properties defined on the $rootScope.
      */
-    predixApp.controller('MainCtrl', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
+    predixApp.controller('MainCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
 
         //Global application object
         window.App = $rootScope.App = {
@@ -50,23 +50,22 @@ define([
             name: 'Predix Seed',
             session: {},
             tabs: [
-                {icon: 'fa-home', state: 'home', label: 'About'},
+                {icon: 'fa-home', state: 'about', label: 'About'},
                 {icon: 'fa-tachometer', state: 'dashboard', label: 'Dashboard'},
-                {icon: 'fa-th', state: 'sampleCards', label: 'Cards', subitems: [
-                    {state: 'c2c', label: 'Interactions'},
-                    {state: 'fetchData', label: 'Data Control'}
+                {icon: 'fa-th', state: 'cards', label: 'Cards', subitems: [
+                    {state: 'interactions', label: 'Interactions'},
+                    {state: 'dataControl', label: 'Data Control'}
                 ]},
-                {icon: 'fa-bar-chart', state: 'components', label: 'Components', subitems: [
-                    {state: 'timeSeries', label: 'Time series'},
-                    {state: 'w2w', label: 'Component communication'}
-                ]}
+                {icon: 'fa-bar-chart', state: 'components', label: 'Components'}
             ]
         };
 
         // Example UAA Configuration
+        /*
         $scope.site = 'https://uaa-staging.nurego.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
         $scope.clientId = 'experience_seed_app';         // Your app id that you registered with Cloud Foundry.
         $scope.redirectUri = $location.absUrl();         // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
+        */
     }]);
 
 
