@@ -1,13 +1,10 @@
 
 <px-context-selector class="clearfix" data-config="contextSelectorConfig"></px-context-selector>
 
-<select ng-model="selectedDeck" ng-options="deck.url as deck.name for deck in decks"></select>
+<!--
+    To install the view selector dropdown example:
+
+    <select ng-model="selectedDeck" ng-options="deck.url as deck.name for deck in decks"></select>
+-->
 
 <px-dashboard selected-deck="{{selectedDeck}}" context="{{context}}"></px-dashboard>
-
-<style>
-    .scroll-y {
-        height: 150px;
-        overflow-y: auto;
-    }
-</style>
