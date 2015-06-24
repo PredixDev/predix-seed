@@ -15,52 +15,38 @@ define(['angular', 'angular-ui-router', 'px-oauth'], function(angular) {
          * This is where the name of the route is matched to the controller and view template.
          */
         $stateProvider
-            .state('home', {
-                url: '/home',
-                templateUrl: 'views/home.html',
-                controller: 'HomeCtrl'
-            })
-            .state('components', {
-                url: '/components',
-                templateUrl: 'views/widgets.html',
-                controller: 'WidgetsCtrl'
-            })
-            .state('timeSeries', {
-                url: '/timeSeries',
-                templateUrl: 'views/timeSeries.html',
-                controller: 'WidgetsCtrl'
+            .state('about', {
+                url: '/about',
+                templateUrl: 'views/about.html'
             })
             .state('dashboard', {
                 url: '/dashboard',
                 templateUrl: 'views/dashboard.html',
                 controller: 'DashboardCtrl'
             })
-            .state('c2c', {
-                url: '/c2c',
-                templateUrl: 'views/card-to-card.html',
-                controller: 'CardToCardCtrl'
+            .state('cards', {
+                url: '/cards',
+                templateUrl: 'views/cards.html'
             })
-            .state('w2w', {
-                url: '/w2w',
-                templateUrl: 'views/widget-to-widget.html',
-                controller: 'WidgetToWidgetCtrl'
+            .state('interactions', {
+                url: '/interactions',
+                templateUrl: 'views/interactions.html'
             })
-            .state('fetchData', {
-                url: '/fetchData',
-                templateUrl: 'views/fetch-data.html',
-                controller: 'FetchData'
+            .state('dataControl', {
+                url: '/dataControl',
+                templateUrl: 'views/data-control.html',
+                controller: 'DataControlCtrl'
             })
-            .state('sampleCards', {
-                url: '/sampleCards',
-                templateUrl: 'views/sample-cards.html',
-                controller: 'SampleCardsCtrl'
+            .state('components', {
+                url: '/components',
+                templateUrl: 'views/components.html'
             });
 
 
         $urlRouterProvider
             .otherwise(function(){
-                document.querySelector('px-app-nav').markSelected('/home');
-                return 'home';
+                document.querySelector('px-app-nav').markSelected('/about');
+                return 'about';
             });
     }]);
 });
