@@ -13,36 +13,6 @@ define(['angular',
     // Controller definition
     controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', '$http', function (VCAP_SERVICES, $scope, $q, $http) {
 
-        var deckDefinition = {
-            'sample-cards-deck': {
-                name: 'SampleCards',
-                url: 'bower_components/px-sample-cards/dashboard-card.html'
-            },
-            'fetch-data-deck': {
-                name: 'FetchData',
-                url: 'views/fetch-data.html'
-            },
-            'card-to-card-deck': {
-                name: 'CardToCard',
-                url: 'views/card-to-card.html'
-            }
-        };
-
-        var decksByClassification = {
-            'dashboard1': {
-                '/classification/country': ['sample-cards-deck', 'fetch-data-deck'],
-                'state': ['card-to-card-deck'],
-                'county': ['sample-cards-deck', 'card-to-card-deck', 'fetch-data-deck']
-            },
-            'dashboard2': {
-                '/classification/country': ['sample-deck', 'fetch-data-deck'],
-                'state': ['card-to-card-deck'],
-                'county': ['sample-cards-deck', 'card-to-card-deck', 'fetch-data-deck']
-            }
-        };
-
-        window.px.dealer.init(deckDefinition, decksByClassification);
-
         $scope.contextSelectorConfig = {
             // baseUrl: VCAP_SERVICES.predixAssetExp2,
             baseUrl: 'http://predix-asset-mvp2-seed-app.grc-apps.svc.ice.ge.com/asset',  //the base uri where your asset instance is
@@ -58,45 +28,11 @@ define(['angular',
 
                     $scope.context = newContext;
 
-                    window.px.dealer.getDecksByClassification('dashboard1', $scope.context.classification).then(function (decks) {
-                        $scope.decks = decks;
-
-                        if ($scope.decks.length) {
-                            $scope.selectedDeck = $scope.decks[0].url;
-                        }
-                        $scope.$digest();
-                    });
+                    $scope.selectedDeck = 'bower_components/px-sample-cards/dashboard-card.html';
                 });
-            },
-            transformSelectedEntityDetails: function (entity) { // configure key value pairs to show in the entity info panel in the context browser (the selected entity)
-                return [
-                    {label: 'Tom Edison'},  // (ex: {label: entity[0].attributes['Customer Name'].value})
-                    {label: '12/24/2001'},
-                    {label: 'Williamsburg Contract'},
-                    {label: 'Serial Number', value: '345hwfher2wh3f8h47f'}
-                ];
-            },
-            transformPinnedEntityDetails: function (entity) { // configure key value pairs to show in the entity info panel in dashboard (the pinned entity)
-                return [
-                    {label: 'Tom Edison'},  // (ex: {label: entity[0].attributes['Customer Name'].value})
-                    {label: '12/24/2001'},
-                    {label: 'Williamsburg Contract'},
-                    {label: 'Serial Number', value: '345hwfher2wh3f8h47f'},
-                    {label: 'Part Number', value: 32434},
-                    {label: 'Part', value: '34wtefh8cdx'}
-                ];
-
             }
         };
 
-
-        /*
-         * Optional
-         * You can disable the context browser by setting $scope.disabled to true and passing the disabled attribute to context browser.
-         * <px-context-selector data-disabled="disabled" ...></px-context-selector>
-         *
-         $scope.disabled = true;
-         */
 
         /*
          * Optional
@@ -120,7 +56,7 @@ define(['angular',
         //    getEntityChildren: function(parentId, options) { // override fetching the children if you're not using Predix Asset by passing parentId and options.rangeStart (starting row number of the next batch of child entities) which supports pagination.
         //        var deferred = $q.defer();
         //        // customize your url here
-        //        var childrenUrl = this.baseUrl + '/asset?filter=topLevelOnly=true:parent=' + parentId;
+        //        var childrenUrl = this.baseUrl + '?filter=parent=' + parentId;
         //
         //        // get your data from your url
         //        $http.get(childrenUrl, {headers: headers})
@@ -138,38 +74,6 @@ define(['angular',
         //            });
         //
         //        return deferred.promise;
-        //    },
-        //    getEntityDetails: function(entityId) { // override for fetching details about an entity, out of the box we don't do any fetching for entity details... you must implement this to fetch
-        //        var deferred = $q.defer();
-        //        var entityDetailUrl = this.baseUrl + entityId;
-        //
-        //        $http.get(entityDetailUrl)
-        //            .success(function(data) {
-        //                deferred.resolve(data); // just resolve with the details returned, you're responsible for transforming them in transformSelectedEntityDetails and transformPinnedEntityDetails method anyway
-        //            })
-        //            .error(function(data, status, headers, config) {
-        //                deferred.reject('Error fetching asset detail with id ' + entityId);
-        //            });
-        //
-        //        return deferred.promise;
-        //    },
-        //    transformSelectedEntityDetails: function(entity) { // Configure key-value pairs to show in the entity info panel in the context browser (the selected entity)
-        //        return [
-        //            {label: 'John Doe'},  // (ex: {label: entity.attributes['Customer Name'].value})
-        //            {label: '12/24/2001'},
-        //            {label: 'Williamsburg Contract'},  // when you just pass a label, displayed as Label
-        //            {label: 'Serial Number', value: '345hwfher2wh3f8h47f'}  // when you pass a label and a value, displayed as Label : Value
-        //        ];
-        //    },
-        //    transformPinnedEntityDetails: function(entity) { // Configure key-value pairs to show in the entity info panel in dashboard (the pinned entity)
-        //        return [
-        //            {label: 'John Doe'},  // (ex: {label: entity.attributes['Customer Name'].value})
-        //            {label: '12/24/2001'},
-        //            {label: 'Williamsburg Contract'},
-        //            {label: 'Serial Number', value: '345hwfher2wh3f8h47f'},
-        //            {label: 'Part Number', value: 32434},
-        //            {label: 'Part', value: '34wtefh8cdx'}
-        //        ];
         //    }
         //};
 
