@@ -28,7 +28,7 @@ define(['angular',
 
                     $scope.context = newContext;
 
-                    $scope.selectedDeck = 'bower_components/px-sample-cards/dashboard-card.html';
+                    $scope.selectedDeck = 'bower_components/px-sample-cards/sample-deck.html';
                 });
             }
         };
