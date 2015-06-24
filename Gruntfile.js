@@ -86,7 +86,7 @@ module.exports = function(grunt) {
                     '<%= config.app %>/scripts/**/*.js',
                     '<%= config.test %>/e2e/**/*.js'
                 ],
-                tasks: ['jshint', 'karma']
+                tasks: ['jshint']
             }
         },
 
