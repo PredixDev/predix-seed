@@ -42,7 +42,7 @@ define([
      * This controller is the top most level controller that allows for all
      * child controllers to access properties defined on the $rootScope.
      */
-    predixApp.controller('MainCtrl', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
+    predixApp.controller('MainCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
 
         //Global application object
         window.App = $rootScope.App = {

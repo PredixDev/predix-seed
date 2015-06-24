@@ -7,7 +7,7 @@ define(['angular-mocks', 'app'], function(mocks, app) {
 
         var $scope, ctrl;
 
-         beforeEach(inject(function($rootScope, $controller) {
+        beforeEach(inject(function($rootScope, $controller) {
             $scope = $rootScope.$new();
             ctrl = $controller('DataControlCtrl', {
                 $scope: $scope
