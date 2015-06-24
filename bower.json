@@ -23,7 +23,6 @@
     "angular-bootstrap": "0.8.0",
     "lodash": "2.4.1",
     "px-ts-chart": "https://github.build.ge.com/PXc/px-time-series.git#master",
-    "px-oauth": "https://github.build.ge.com/Predix-Experience/px-oauth.git#develop",
     "px-datasource": "https://github.build.ge.com/Predix-Experience/px-datasource.git#develop",
     "px-contextual-dashboard": "https://github.build.ge.com/Predix-Experience/px-contextual-dashboard.git#develop",
     "px-app-nav": "https://github.build.ge.com/PXC/px-app-nav.git#master",

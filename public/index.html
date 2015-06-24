@@ -54,16 +54,7 @@
   <div class="viewport">
     <div class="layout layout--full layout--flush">
       <link rel="import" href="bower_components/px-app-nav/px-app-nav.html"/>
-      <px-app-nav class="layout__item" nav-items="{{App.tabs}}" path-prefix="/" path-key="state">
-        <div class="auth">
-          <!-- commented out auth per Sean O'Connor -->
-          <!--<px-oauth-->
-                  <!--site="site"-->
-                  <!--client-id="clientId"-->
-                  <!--redirect-uri="redirectUri">-->
-          <!--</px-oauth>-->
-        </div>
-      </px-app-nav>
+      <px-app-nav class="layout__item" nav-items="{{App.tabs}}" path-prefix="/" path-key="state"></px-app-nav>
       <main class="layout__item u-pt-- u-pr-- u-pl--" role="main">
         <!-- MAIN CONTENT -->
         <section class="u-1/1" role="region" ui-view>
