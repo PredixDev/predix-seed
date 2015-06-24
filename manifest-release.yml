@@ -1,6 +1,7 @@
 ---
 applications:
   - name: predix-seed
+    host: predix-seed
     buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
     path: dist
     memory: 64M
