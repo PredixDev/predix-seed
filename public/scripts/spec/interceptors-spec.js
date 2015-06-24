@@ -8,7 +8,6 @@ define(['angular-mocks', 'interceptors'], function (mocks, interceptors) {
         beforeEach(inject(function ($httpBackend, $http) {
             httpBackend = $httpBackend;
             http = $http;
-            spyOn(LogoutService, 'hardLogout').andCallThrough();
         }));
 
         describe('When getting 200 response', function () {
