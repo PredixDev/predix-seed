@@ -1,6 +1,6 @@
 ---
 applications:
-  - name: predix-experience-seed-2
-    buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+  - name: predix-seed-dev
+    buildpack: https://github.com/sabithksme/staticfile-buildpack.git
     path: dist
     memory: 64M
