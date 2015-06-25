@@ -11,80 +11,76 @@ define(['angular',
     'use strict';
 
     // Controller definition
-    controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', '$http', function (VCAP_SERVICES, $scope, $q, $http) {
+    controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', '$http', 'ContextBrowserService', function (VCAP_SERVICES, $scope, $q, $http, ContextBrowserService) {
 
-        $scope.contextSelectorConfig = {
-            // baseUrl: VCAP_SERVICES.predixAssetExp2,
-            baseUrl: 'http://predix-asset-mvp2-seed-app.grc-apps.svc.ice.ge.com/asset',  //the base uri where your asset instance is
-            rootEntityId: null, // the root of the context browser
-            onOpenContext: function (contextDetails) { // callback when the open button is hit in the context browser
-                $scope.$apply(function () {
 
-                    // need to clean up the context details so it doesn't have the infinite parent/children cycle,
-                    // which causes problems later (can't interpolate: {{context}} TypeError: Converting circular structure to JSON)
-                    var newContext = angular.copy(contextDetails);
-                    newContext.children = [];
-                    newContext.parent = [];
+        $scope.ContextBrowserServiceInstance = ContextBrowserService.getInstance({});
 
-                    $scope.context = newContext;
+        // default to 3 display levels if none are passed in
+        $scope.displayLevels = $scope.displayLevels || 3;
 
-                    $scope.selectedDeck = 'bower_components/px-sample-cards/sample-deck.html';
-                });
-            },
-            transformChildren: function(entity) { // transform your entity to context browser entity format
-                return {
-                    name: entity.assetId, // Displayed name in the context browser
-                    id: entity.uri, // Unique ID (could be a URI for example)
-                    parentId: entity.parent, // Parent ID. Used to place the children under the corresponding parent in the browser.
-                    classification: entity.classification, // Classification used for fetching the views.
-                    isOpenable: true
-                };
-            }
+        // the name to display in the context browser
+        $scope.labelField = $scope.labelField || 'name';
+
+        // the parent/child fields to matchup when checking if data should be added to the tree
+        // (only add data if the child's parentId matches the parent's id)
+        $scope.parentIdField = $scope.parentIdField || 'parentId';
+        $scope.idField = $scope.idField || 'id';
+
+        $scope.ContextBrowserServiceInstance.loadContextTree().then(function(initialContext) {
+            $scope.initialContexts = initialContext;
+        }, function(message) {
+            $log.error(message);
+        });
+
+        // callback for when the Open button is clicked
+        $scope.openEntity = function(openedContext, breadcrumbs) {
+            //if (breadcrumbs.length > 0) {
+            //    // px-tree-navigation always returns an empty string as the first element in the breadcrumbs
+            //    breadcrumbs = breadcrumbs.slice(1);
+            //}
+
+            $scope.openContext(openedContext);
+
+            //angular.element('.context-browser-dropdown').removeClass('open');
         };
 
 
-        /*
-         * Optional
-         * This is a "kitchen-sink" context selector configuration object. It shows you examples for all possible overrides.
-         */
-        //$scope.contextSelectorConfig = {
-        //    baseUrl: '/services', // the base uri where your asset instance is
-        //    rootEntityId: null, // the root of the context browser
-        //    onOpenContext: function(contextDetails) { // callback when the open button is hit in the context browser
-        //        $scope.context = contextDetails;
-        //    },
-        //    transformChildren: function(entity) { // transform your entity to context browser entity format
-        //        return {
-        //            name: entity.assetId, // Displayed name in the context browser
-        //            id: entity.uri, // Unique ID (could be a URI for example)
-        //            parentId: entity.parent, // Parent ID. Used to place the children under the corresponding parent in the browser.
-        //            classification: entity.classification, // Classification used for fetching the views.
-        //            isOpenable: !(entity.attributes && entity.attributes.isNotOpenable) // Is the open button displayed?
-        //        };
-        //    },
-        //    getEntityChildren: function(parentId, options) { // override fetching the children if you're not using Predix Asset by passing parentId and options.rangeStart (starting row number of the next batch of child entities) which supports pagination.
-        //        var deferred = $q.defer();
-        //        // customize your url here
-        //        var childrenUrl = this.baseUrl + '?filter=parent=' + parentId;
-        //
-        //        // get your data from your url
-        //        $http.get(childrenUrl, {headers: headers})
-        //            .success(function(data, status, headers) {
-        //
-        //                // resolve the promise with the child entity with the object format below
-        //                var childEntities = {
-        //                    meta: { total: numberOfChildrenTotal }, // the total number of child entities, NOT the number returned (this allows support for pagination)
-        //                    data: data // child entities (can be only 1 page)
-        //                };
-        //                deferred.resolve(childEntities);
-        //            })
-        //            .error(function(data, status, headers, config) {
-        //                deferred.reject('Error fetching asset with id ' + parentId);
-        //            });
-        //
-        //        return deferred.promise;
-        //    }
-        //};
+        $scope.openContext = function (contextDetails) { // callback when the open button is hit in the context browser
+            $scope.$apply(function () {
+
+                // need to clean up the context details so it doesn't have the infinite parent/children cycle,
+                // which causes problems later (can't interpolate: {{context}} TypeError: Converting circular structure to JSON)
+                var newContext = angular.copy(contextDetails);
+                newContext.children = [];
+                newContext.parent = [];
+
+                $scope.context = newContext;
+
+                $scope.selectedDeck = 'bower_components/px-sample-cards/sample-deck.html';
+            });
+        };
+
+        $scope.getChildren = function(parentId, options) {
+            return $scope.ContextBrowserServiceInstance.getChildren(parentId, options);
+        };
+
+        $scope.isOpenable = function(node) {
+            if (node && node.isOpenable) {
+                return node.isOpenable;
+            }
+            else {
+                $log.log('node.isOpenable does not exist, returning false for isOpenable');
+                return false;
+            }
+        };
+
+        $scope.handlers = {
+            itemOpenHandler: $scope.openEntity,
+            isOpenable: $scope.isOpenable,
+            getChildren: $scope.getChildren
+            // (optional) click handler: itemClickHandler: $scope.clickHandler
+        };
 
     }]);
 });

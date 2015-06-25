@@ -9,7 +9,6 @@ define([
     'main',
     'routes',
     'interceptors',
-    'px-dashboard',
     'px-datasource',
     'widgets-module'
 ], function ($, angular) {
@@ -25,8 +24,7 @@ define([
         'app.interceptors',
         'sample.module',
         'predix.widgets',
-        'predix.datasource',
-        'predix.configurable-dashboard'
+        'predix.datasource'
     ]);
 
     /**

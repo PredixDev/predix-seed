@@ -31,7 +31,6 @@ require.config({
     },
     paths: {
         'bower_components': '../bower_components',
-        'px-dashboard': '../bower_components/px-contextual-dashboard/dist/px-contextual-dashboard',
         'px-datasource': '../bower_components/px-datasource/dist/px-datasource.min',
 
         directives: './directives',
