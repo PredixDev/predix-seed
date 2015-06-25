@@ -30,6 +30,15 @@ define(['angular',
 
                     $scope.selectedDeck = 'bower_components/px-sample-cards/sample-deck.html';
                 });
+            },
+            transformChildren: function(entity) { // transform your entity to context browser entity format
+                return {
+                    name: entity.assetId, // Displayed name in the context browser
+                    id: entity.uri, // Unique ID (could be a URI for example)
+                    parentId: entity.parent, // Parent ID. Used to place the children under the corresponding parent in the browser.
+                    classification: entity.classification, // Classification used for fetching the views.
+                    isOpenable: true
+                };
             }
         };
 

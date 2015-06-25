@@ -33,12 +33,7 @@
 
     <link rel="import" href="bower_components/px-card/px-dashboard.html"/>
     <link rel="import" href="bower_components/px-card/px-deck.html"/>
-
-    <link rel="import" href="bower_components/px-sample-cards/widget-to-widget-card.html"/>
-    <link rel="import" href="bower_components/px-sample-cards/fetch-data-card.html"/>
-    <link rel="import" href="bower_components/px-sample-cards/sample-card.html"/>
-    <link rel="import" href="bower_components/px-sample-cards/time-series-card.html"/>
-    <link rel="import" href="bower_components/px-sample-cards/dashboard-description.html"/>
+    <link rel="import" href="bower_components/px-card/px-card.html"/>
 
 </head>
 
@@ -54,16 +49,7 @@
   <div class="viewport">
     <div class="layout layout--full layout--flush">
       <link rel="import" href="bower_components/px-app-nav/px-app-nav.html"/>
-      <px-app-nav class="layout__item" nav-items="{{App.tabs}}" path-prefix="/" path-key="state">
-        <div class="auth">
-          <!-- commented out auth per Sean O'Connor -->
-          <!--<px-oauth-->
-                  <!--site="site"-->
-                  <!--client-id="clientId"-->
-                  <!--redirect-uri="redirectUri">-->
-          <!--</px-oauth>-->
-        </div>
-      </px-app-nav>
+      <px-app-nav class="layout__item" nav-items="{{App.tabs}}" path-prefix="/" path-key="state"></px-app-nav>
       <main class="layout__item u-pt-- u-pr-- u-pl--" role="main">
         <!-- MAIN CONTENT -->
         <section class="u-1/1" role="region" ui-view>
@@ -77,19 +63,10 @@
       <nav class="flex flex--right flex--middle" role="navigation">
         <ul class="list-inline">
           <li class="u-mh-">
-            <a href="#">Privacy</a>
+            <a href="http://www.ge.com/privacy" target="_blank">Privacy</a>
           </li>
           <li class="u-mh-">
-            <a href="#">Terms</a>
-          </li>
-          <li class="u-mh-">
-            <a href="#">Contact</a>
-          </li>
-          <li class="u-mh-">
-            <a href="#">Accessibility</a>
-          </li>
-          <li class="u-mh-">
-            <a href="#">Cookies</a>
+            <a href="http://www.ge.com/terms" target="_blank">Terms</a>
           </li>
         </ul>
         <small class="u-ml+">©2015 General Electric</small>

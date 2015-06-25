@@ -9,7 +9,6 @@ define([
     'main',
     'routes',
     'interceptors',
-    'px-oauth',
     'px-dashboard',
     'px-datasource',
     'widgets-module'
@@ -26,7 +25,6 @@ define([
         'app.interceptors',
         'sample.module',
         'predix.widgets',
-        'predix.oauth',
         'predix.datasource',
         'predix.configurable-dashboard'
     ]);
@@ -60,12 +58,6 @@ define([
             ]
         };
 
-        // Example UAA Configuration
-        /*
-        $scope.site = 'https://uaa-staging.nurego.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
-        $scope.clientId = 'experience_seed_app';         // Your app id that you registered with Cloud Foundry.
-        $scope.redirectUri = $location.absUrl();         // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
-        */
     }]);
 
 
