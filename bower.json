@@ -24,7 +24,7 @@
     "lodash": "2.4.1",
     "px-ts-chart": "https://github.build.ge.com/PXc/px-time-series.git#v0.3.3",
     "px-datasource": "https://github.build.ge.com/Predix-Experience/px-datasource.git#v1.1",
-    "px-contextual-dashboard": "https://github.build.ge.com/Predix-Experience/px-contextual-dashboard.git#v0.0.2",
+    "px-contextual-dashboard": "https://github.build.ge.com/Predix-Experience/px-contextual-dashboard.git#v0.0.4",
     "px-app-nav": "https://github.build.ge.com/PXC/px-app-nav.git#v0.3.4",
     "px-theme": "https://github.build.ge.com/PXc/px-theme.git#~v0.2.4",
     "px-card": "https://github.build.ge.com/Predix-Experience/px-card.git#v0.0.4",
