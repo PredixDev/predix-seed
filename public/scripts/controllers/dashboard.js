@@ -11,21 +11,9 @@ define(['angular',
     'use strict';
 
     // Controller definition
-    controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', '$q', '$http', 'ContextBrowserService', function (VCAP_SERVICES, $scope, $q, $http, ContextBrowserService) {
-
+    controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', 'ContextBrowserService', function (VCAP_SERVICES, $scope, ContextBrowserService) {
 
         $scope.ContextBrowserServiceInstance = ContextBrowserService.getInstance({});
-
-        // default to 3 display levels if none are passed in
-        $scope.displayLevels = $scope.displayLevels || 3;
-
-        // the name to display in the context browser
-        $scope.labelField = $scope.labelField || 'name';
-
-        // the parent/child fields to matchup when checking if data should be added to the tree
-        // (only add data if the child's parentId matches the parent's id)
-        $scope.parentIdField = $scope.parentIdField || 'parentId';
-        $scope.idField = $scope.idField || 'id';
 
         $scope.ContextBrowserServiceInstance.loadContextTree().then(function(initialContext) {
             $scope.initialContexts = initialContext;
@@ -34,19 +22,8 @@ define(['angular',
         });
 
         // callback for when the Open button is clicked
-        $scope.openEntity = function(openedContext, breadcrumbs) {
-            //if (breadcrumbs.length > 0) {
-            //    // px-tree-navigation always returns an empty string as the first element in the breadcrumbs
-            //    breadcrumbs = breadcrumbs.slice(1);
-            //}
+        $scope.openContext = function(contextDetails, breadcrumbs) {
 
-            $scope.openContext(openedContext);
-
-            //angular.element('.context-browser-dropdown').removeClass('open');
-        };
-
-
-        $scope.openContext = function (contextDetails) { // callback when the open button is hit in the context browser
             $scope.$apply(function () {
 
                 // need to clean up the context details so it doesn't have the infinite parent/children cycle,
@@ -76,7 +53,7 @@ define(['angular',
         };
 
         $scope.handlers = {
-            itemOpenHandler: $scope.openEntity,
+            itemOpenHandler: $scope.openContext,
             isOpenable: $scope.isOpenable,
             getChildren: $scope.getChildren
             // (optional) click handler: itemClickHandler: $scope.clickHandler
