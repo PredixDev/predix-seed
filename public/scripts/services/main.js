@@ -1,6 +1,6 @@
 /*
  * load angular app.services files - angular.module("app.services");
  */
-define(['./sample-service','./context-browser-service'], function() {
+define(['./sample-service','./predix-asset-service'], function() {
 
 });

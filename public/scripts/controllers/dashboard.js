@@ -11,11 +11,9 @@ define(['angular',
     'use strict';
 
     // Controller definition
-    controllers.controller('DashboardCtrl', ['VCAP_SERVICES', '$scope', 'ContextBrowserService', function (VCAP_SERVICES, $scope, ContextBrowserService) {
+    controllers.controller('DashboardCtrl', ['$scope', 'PredixAssetService', function ($scope, PredixAssetService) {
 
-        $scope.ContextBrowserServiceInstance = ContextBrowserService.getInstance({});
-
-        $scope.ContextBrowserServiceInstance.loadContextTree().then(function(initialContext) {
+        PredixAssetService.getAssetsByParentId(null).then(function(initialContext) {
             $scope.initialContexts = initialContext;
         }, function(message) {
             $log.error(message);
@@ -39,7 +37,7 @@ define(['angular',
         };
 
         $scope.getChildren = function(parentId, options) {
-            return $scope.ContextBrowserServiceInstance.getChildren(parentId, options);
+            return PredixAssetService.getAssetsByParentId(parentId, options);
         };
 
         $scope.isOpenable = function(node) {
