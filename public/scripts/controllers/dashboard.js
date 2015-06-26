@@ -20,7 +20,7 @@ define(['angular',
         });
 
         // callback for when the Open button is clicked
-        $scope.openContext = function (contextDetails, breadcrumbs) {
+        $scope.openContext = function (contextDetails) {
 
             $scope.$apply(function () {
 
