@@ -11,16 +11,16 @@ define(['angular',
     'use strict';
 
     // Controller definition
-    controllers.controller('DashboardCtrl', ['$scope', 'PredixAssetService', function ($scope, PredixAssetService) {
+    controllers.controller('DashboardCtrl', ['$scope', '$log', 'PredixAssetService', function ($scope, $log, PredixAssetService) {
 
-        PredixAssetService.getAssetsByParentId(null).then(function(initialContext) {
+        PredixAssetService.getAssetsByParentId(null).then(function (initialContext) {
             $scope.initialContexts = initialContext;
-        }, function(message) {
+        }, function (message) {
             $log.error(message);
         });
 
         // callback for when the Open button is clicked
-        $scope.openContext = function(contextDetails, breadcrumbs) {
+        $scope.openContext = function (contextDetails, breadcrumbs) {
 
             $scope.$apply(function () {
 
@@ -36,11 +36,11 @@ define(['angular',
             });
         };
 
-        $scope.getChildren = function(parentId, options) {
+        $scope.getChildren = function (parentId, options) {
             return PredixAssetService.getAssetsByParentId(parentId, options);
         };
 
-        $scope.isOpenable = function(node) {
+        $scope.isOpenable = function (node) {
             if (node && node.isOpenable) {
                 return node.isOpenable;
             }

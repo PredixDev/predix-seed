@@ -13,7 +13,7 @@ define(['angular', 'sample-module'], function (angular, module) {
         /**
          * this method transforms asset entity into an object format consumable by px-context-browser item
          */
-        var transformChildren = function(entity) { // transform your entity to context browser entity format
+        var transformChildren = function (entity) { // transform your entity to context browser entity format
             return {
                 name: entity.assetId, // Displayed name in the context browser
                 id: entity.uri, // Unique ID (could be a URI for example)
@@ -26,8 +26,7 @@ define(['angular', 'sample-module'], function (angular, module) {
         /**
          * this method fetch asset children by parentId
          */
-        var getEntityChildren =  function (parentId, options) {
-            var self = this;
+        var getEntityChildren = function (parentId, options) {
             var numberOfRecords = 100;
             var deferred = $q.defer();
             var childrenUrl = baseUrl + '?pageSize=' + numberOfRecords + '&topLevelOnly=true&filter=parent=' + parentId;
@@ -50,7 +49,7 @@ define(['angular', 'sample-module'], function (angular, module) {
                 .success(function (data, status, headers) {
                     var linkHeader = headers('Link');
                     var link = '';
-                    if (data.length !== 0){
+                    if (data.length !== 0) {
                         if (linkHeader && linkHeader !== '') {
                             var posOfGt = linkHeader.indexOf('>');
                             if (posOfGt !== -1) {
@@ -65,7 +64,7 @@ define(['angular', 'sample-module'], function (angular, module) {
                     };
                     deferred.resolve(childEntities);
                 })
-                .error(function (data, status, headers, config) {
+                .error(function () {
                     deferred.reject('Error fetching asset with id ' + parentId);
                 });
 
@@ -76,7 +75,6 @@ define(['angular', 'sample-module'], function (angular, module) {
          * get asset by parent id
          */
         var getAssetsByParentId = function (parentId, options) {
-            var self = this;
             var deferred = $q.defer();
 
             getEntityChildren(parentId, options).then(function (results) {
