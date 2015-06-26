@@ -1,32 +1,34 @@
 define(['angular', 'angular-mocks', 'app'], function (angular, undefined) {
+    'use strict';
+
     var topLevelData = [
         {
-            "assetId": '001-1',
-            "description": "Mustang",
-            "uri": "001-1",
-            "classification": "car",
-            "parent": null,
-            "attributes": {
+            'assetId': '001-1',
+            'description': 'Mustang',
+            'uri': '001-1',
+            'classification': 'car',
+            'parent': null,
+            'attributes': {
                 isNotOpenable: false
             }
         },
         {
-            "assetId": '001-2',
-            "description": "Sandy",
-            "uri": "001-2",
-            "classification": "car",
-            "parent": null,
-            "attributes": {
+            'assetId': '001-2',
+            'description': 'Sandy',
+            'uri': '001-2',
+            'classification': 'car',
+            'parent': null,
+            'attributes': {
                 isNotOpenable: false
             }
         },
         {
-            "assetId": '001-3',
-            "description": "Nothing",
-            "uri": "001-3",
-            "classification": "car",
-            "parent": null,
-            "attributes": {
+            'assetId': '001-3',
+            'description': 'Nothing',
+            'uri': '001-3',
+            'classification': 'car',
+            'parent': null,
+            'attributes': {
                 isNotOpenable: false
             }
         }
@@ -34,22 +36,22 @@ define(['angular', 'angular-mocks', 'app'], function (angular, undefined) {
 
     var secondLevelData = [
         {
-            "assetId": '001-1-1',
-            "description": "Wheels",
-            "uri": "001-1-1",
-            "classification": "car",
-            "parent": '001-1',
-            "attributes": {
+            'assetId': '001-1-1',
+            'description': 'Wheels',
+            'uri': '001-1-1',
+            'classification': 'car',
+            'parent': '001-1',
+            'attributes': {
                 isNotOpenable: false
             }
         },
         {
-            "assetId": '001-1-2',
-            "description": "Brakes",
-            "uri": "001-1-2",
-            "classification": "car",
-            "parent": '001-1',
-            "attributes": {
+            'assetId': '001-1-2',
+            'description': 'Brakes',
+            'uri': '001-1-2',
+            'classification': 'car',
+            'parent': '001-1',
+            'attributes': {
                 isNotOpenable: false
             }
         }
@@ -58,99 +60,99 @@ define(['angular', 'angular-mocks', 'app'], function (angular, undefined) {
     var baseUrl = 'http://predix-asset-mvp2-seed-app.grc-apps.svc.ice.ge.com';
 
 
-	describe('The Predix Asset Service', function () {
-		var PredixAssetService, $log, $httpBackend, q, successCallback, errorCallback, successCallback2, errorCallback2, $rootScope;
+    describe('The Predix Asset Service', function () {
+        var PredixAssetService, $log, $httpBackend, q, successCallback, errorCallback, $rootScope;
 
-		beforeEach(module('predixApp'));
+        beforeEach(module('predixApp'));
 
-		beforeEach(function () {
-			angular.module('testModule', ['predixApp']);
-			module('testModule');
-		});
+        beforeEach(function () {
+            angular.module('testModule', ['predixApp']);
+            module('testModule');
+        });
 
-		beforeEach(inject(function (_PredixAssetService_, _$httpBackend_, _$rootScope_, $q, _$log_) {
-			PredixAssetService = _PredixAssetService_;
-			$httpBackend = _$httpBackend_;
-			$rootScope = _$rootScope_;
-			q = $q;
-			$log = _$log_;
-		}));
+        beforeEach(inject(function (_PredixAssetService_, _$httpBackend_, _$rootScope_, $q, _$log_) {
+            PredixAssetService = _PredixAssetService_;
+            $httpBackend = _$httpBackend_;
+            $rootScope = _$rootScope_;
+            q = $q;
+            $log = _$log_;
+        }));
 
-		describe('with predix asset service', function () {
+        describe('with predix asset service', function () {
 
-			describe('when getting asset root', function () {
+            describe('when getting asset root', function () {
 
-				beforeEach(function () {
-					successCallback = jasmine.createSpy("successCallback");
-					errorCallback = jasmine.createSpy("errorCallback");
+                beforeEach(function () {
+                    successCallback = jasmine.createSpy('successCallback');
+                    errorCallback = jasmine.createSpy('errorCallback');
 
-					$httpBackend.when('GET', baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=null').respond(topLevelData);
-					PredixAssetService.getAssetsByParentId(null).then(successCallback, errorCallback);
-				});
+                    $httpBackend.when('GET', baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=null').respond(topLevelData);
+                    PredixAssetService.getAssetsByParentId(null).then(successCallback, errorCallback);
+                });
 
-				it('will fetch context root with default url and rootEntityId null', function () {
-					$httpBackend.expectGET(baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=null');
-					$httpBackend.flush();
-				});
+                it('will fetch context root with default url and rootEntityId null', function () {
+                    $httpBackend.expectGET(baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=null');
+                    $httpBackend.flush();
+                });
 
-				it('will resolve the promise with the default transformed data', function () {
-					$httpBackend.flush();
+                it('will resolve the promise with the default transformed data', function () {
+                    $httpBackend.flush();
 
-					var context = successCallback.calls[0].args[0].data;
-					var assetData = topLevelData[0];
+                    var context = successCallback.calls[0].args[0].data;
+                    var assetData = topLevelData[0];
 
-					expect(context.length).toBe(topLevelData.length);
-					expect(context[0].name).toBe(assetData.assetId);
-					expect(context[0].id).toBe(assetData.uri);
-					expect(context[0].classification).toBe(assetData.classification);
-					expect(context[0].parentId).toBe(assetData.parent);
-					expect(context[0].isOpenable).toBe(!(assetData.attributes && assetData.attributes.isNotOpenable));
-				});
-			});
+                    expect(context.length).toBe(topLevelData.length);
+                    expect(context[0].name).toBe(assetData.assetId);
+                    expect(context[0].id).toBe(assetData.uri);
+                    expect(context[0].classification).toBe(assetData.classification);
+                    expect(context[0].parentId).toBe(assetData.parent);
+                    expect(context[0].isOpenable).toBe(!(assetData.attributes && assetData.attributes.isNotOpenable));
+                });
+            });
 
-			describe('when response fails getting asset root', function () {
+            describe('when response fails getting asset root', function () {
 
-				beforeEach(function () {
-					successCallback = jasmine.createSpy("successCallback");
-					errorCallback = jasmine.createSpy("errorCallback");
+                beforeEach(function () {
+                    successCallback = jasmine.createSpy('successCallback');
+                    errorCallback = jasmine.createSpy('errorCallback');
 
-					$httpBackend.when('GET', baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=null').respond(500);
-					PredixAssetService.getAssetsByParentId(null).then(successCallback, errorCallback);
-					$httpBackend.flush();
-				});
+                    $httpBackend.when('GET', baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=null').respond(500);
+                    PredixAssetService.getAssetsByParentId(null).then(successCallback, errorCallback);
+                    $httpBackend.flush();
+                });
 
-				it('reject promise if the GET fails', function () {
-					expect(errorCallback).toHaveBeenCalledWith('Error fetching asset with id ' + null);
-				});
-			});
+                it('reject promise if the GET fails', function () {
+                    expect(errorCallback).toHaveBeenCalledWith('Error fetching asset with id ' + null);
+                });
+            });
 
-			describe('when getting the children of an asset', function () {
+            describe('when getting the children of an asset', function () {
 
-				beforeEach(function () {
-					successCallback = jasmine.createSpy("successCallback");
-					errorCallback = jasmine.createSpy("errorCallback");
+                beforeEach(function () {
+                    successCallback = jasmine.createSpy('successCallback');
+                    errorCallback = jasmine.createSpy('errorCallback');
 
-					$httpBackend.when('GET', baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=24').respond(secondLevelData);
-					PredixAssetService.getAssetsByParentId(24).then(successCallback, errorCallback);
-				});
+                    $httpBackend.when('GET', baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=24').respond(secondLevelData);
+                    PredixAssetService.getAssetsByParentId(24).then(successCallback, errorCallback);
+                });
 
-				it('will fetch asset root with default url and rootEntityId 24', function () {
-					$httpBackend.expectGET(baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=24');
-					$httpBackend.flush();
-				});
+                it('will fetch asset root with default url and rootEntityId 24', function () {
+                    $httpBackend.expectGET(baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=24');
+                    $httpBackend.flush();
+                });
 
-				it('will resolve the promise with the default transformed data', function () {
-					$httpBackend.flush();
+                it('will resolve the promise with the default transformed data', function () {
+                    $httpBackend.flush();
 
-					var context = successCallback.calls[0].args[0].data;
-					var assetData = secondLevelData[0];
-					expect(context.length).toBe(secondLevelData.length);
-					expect(context[0].name).toBe(assetData.assetId);
-					expect(context[0].id).toBe(assetData.uri);
-					expect(context[0].classification).toBe(assetData.classification);
-					expect(context[0].parentId).toBe(assetData.parent);
-					expect(context[0].isOpenable).toBe(!(assetData.attributes && assetData.attributes.isNotOpenable));
-				});
+                    var context = successCallback.calls[0].args[0].data;
+                    var assetData = secondLevelData[0];
+                    expect(context.length).toBe(secondLevelData.length);
+                    expect(context[0].name).toBe(assetData.assetId);
+                    expect(context[0].id).toBe(assetData.uri);
+                    expect(context[0].classification).toBe(assetData.classification);
+                    expect(context[0].parentId).toBe(assetData.parent);
+                    expect(context[0].isOpenable).toBe(!(assetData.attributes && assetData.attributes.isNotOpenable));
+                });
 
                 it('will resolve the promise with empty string in meta.link', function () {
                     $httpBackend.flush();
@@ -158,14 +160,14 @@ define(['angular', 'angular-mocks', 'app'], function (angular, undefined) {
                     var meta = successCallback.calls[0].args[0].meta;
                     expect(meta.link).toBe('');
                 });
-			});
+            });
 
             describe('when getting more children of a node with cursor state and more records to follow', function () {
                 var options = {link: baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=24&cursorState=myCursorState'};
 
                 beforeEach(function () {
-                    successCallback = jasmine.createSpy("successCallback");
-                    errorCallback = jasmine.createSpy("errorCallback");
+                    successCallback = jasmine.createSpy('successCallback');
+                    errorCallback = jasmine.createSpy('errorCallback');
 
                     $httpBackend.when('GET', options.link).respond(secondLevelData, {link: '<http://abc.com>;rel=next'});
                     PredixAssetService.getAssetsByParentId(24, options).then(successCallback, errorCallback);
@@ -184,12 +186,12 @@ define(['angular', 'angular-mocks', 'app'], function (angular, undefined) {
                 });
             });
 
-            describe('when getting children with option link is empty', function(){
+            describe('when getting children with option link is empty', function () {
                 var options = {link: ''};
 
                 beforeEach(function () {
-                    successCallback = jasmine.createSpy("successCallback");
-                    errorCallback = jasmine.createSpy("errorCallback");
+                    successCallback = jasmine.createSpy('successCallback');
+                    errorCallback = jasmine.createSpy('errorCallback');
 
                     PredixAssetService.getAssetsByParentId(24, options).then(successCallback, errorCallback);
                     $rootScope.$apply();
@@ -202,22 +204,22 @@ define(['angular', 'angular-mocks', 'app'], function (angular, undefined) {
                 });
             });
 
-			describe('when response fails getting the children of a node', function () {
+            describe('when response fails getting the children of a node', function () {
 
-				beforeEach(function () {
-					successCallback = jasmine.createSpy("successCallback");
-					errorCallback = jasmine.createSpy("errorCallback");
+                beforeEach(function () {
+                    successCallback = jasmine.createSpy('successCallback');
+                    errorCallback = jasmine.createSpy('errorCallback');
 
-					$httpBackend.when('GET', baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=24').respond(500);
-					PredixAssetService.getAssetsByParentId(24).then(successCallback, errorCallback);
-					$httpBackend.flush();
-				});
+                    $httpBackend.when('GET', baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=24').respond(500);
+                    PredixAssetService.getAssetsByParentId(24).then(successCallback, errorCallback);
+                    $httpBackend.flush();
+                });
 
-				it('reject promise if the GET fails', function () {
-					expect(errorCallback).toHaveBeenCalledWith('Error fetching asset with id 24');
-				});
-			});
+                it('reject promise if the GET fails', function () {
+                    expect(errorCallback).toHaveBeenCalledWith('Error fetching asset with id 24');
+                });
+            });
 
-		});
-	});
+        });
+    });
 });
