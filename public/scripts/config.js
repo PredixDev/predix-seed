@@ -40,7 +40,6 @@ require.config({
         app: './app',
 
         //Angular App Modules
-        'widgets-module': './widget-module',
         'sample-module': './sample-module',
 
         // angularjs + modules
@@ -49,7 +48,6 @@ require.config({
         'angular-resource': '../bower_components/angular-resource/angular-resource',
         'angular-route': '../bower_components/angular-route/angular-route',
         'angular-sanitize': '../bower_components/angular-sanitize/angular-sanitize',
-        'angular-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap.min',
 
         // angular ui router
         'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router.min',
@@ -79,8 +77,7 @@ require.config({
         'jquery',
         'angular',
         'angular-resource',
-        'angular-route',
-        'bootstrap'
+        'angular-route'
     ],
     shim: {
         'angular': {
@@ -97,15 +94,6 @@ require.config({
         'angular-ui-router': ['angular'],
         underscore: {
             exports: '_'
-        },
-        'angular-bootstrap': {
-            deps: ['angular']
-        },
-        'px-oauth': {
-            deps: ['angular', 'angular-ui-router']
-        },
-        'px-dashboard': {
-            deps: ['angular', 'jquery', 'angular-bootstrap', 'angular-sanitize', 'angular-ui-router', 'px-datasource']
         },
         'px-datasource': {
             deps: ['angular', 'underscore']
