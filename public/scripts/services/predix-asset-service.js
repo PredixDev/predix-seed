@@ -45,28 +45,28 @@ define(['angular', 'sample-module'], function (angular, module) {
                 }
             }
 
-            $http.get(childrenUrl, {headers: {'x-tenant': 'experience_seed_app' }})
-                .success(function (data, status, headers) {
-                    var linkHeader = headers('Link');
-                    var link = '';
-                    if (data.length !== 0) {
-                        if (linkHeader && linkHeader !== '') {
-                            var posOfGt = linkHeader.indexOf('>');
-                            if (posOfGt !== -1) {
-                                link = linkHeader.substring(1, posOfGt);
+                $http.get(childrenUrl, {headers: {'x-tenant': 'experience_seed_app'}})
+                    .success(function(data, status, headers) {
+                        var linkHeader = headers('Link');
+                        var link = '';
+                        if (data.length !== 0) {
+                            if (linkHeader && linkHeader !== '') {
+                                var posOfGt = linkHeader.indexOf('>');
+                                if (posOfGt !== -1) {
+                                    link = linkHeader.substring(1, posOfGt);
+                                }
                             }
                         }
-                    }
 
-                    childEntities = {
-                        meta: {link: link},
-                        data: data
-                    };
-                    deferred.resolve(childEntities);
-                })
-                .error(function () {
-                    deferred.reject('Error fetching asset with id ' + parentId);
-                });
+                        childEntities = {
+                            meta: {link: link, parentId: parentId},
+                            data: data
+                        };
+                        deferred.resolve(childEntities);
+                    })
+                    .error(function() {
+                        deferred.reject('Error fetching asset with id ' + parentId);
+                    });
 
             return deferred.promise;
         };
