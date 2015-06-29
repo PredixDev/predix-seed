@@ -4,12 +4,12 @@
 Clone or fork this project to start your own Predictivity application. Documentation and more info can be found at [predix.sw.ge.com](http://predix.sw.ge.com)
 
 The predix-seed is a starter project that contains the following Predix components:
-- [px-contextual-dashboard](https://github.sw.ge.com/PX/px-contextual-dashboard)
-- [px-oauth](https://github.sw.ge.com/Predix-Experience/px-oauth)
-- [px-datasource](https://github.sw.ge.com/Predix-Experience/px-datasource)
-- [px-time-series](https://github.sw.ge.com/PredixWidgetCatalog/px-time-series)
-- [px-datagrid](https://github.sw.ge.com/PredixWidgetCatalog/px-datagrid)
-- [px-tree-navigation](https://github.sw.ge.com/PX/px-3-column-browser)
+- [px-datasource](https://github.build.ge.com/Predix-Experience/px-datasource)
+- [px-app-nav](https://github.build.ge.com/Pxc/px-app-nav)
+- [px-context-browser](https://github.build.ge.com/Pxc/px-context-browser)
+- [px-ts-chart](https://github.build.ge.com/PXc/px-time-series)
+- [px-card](https://github.build.ge.com/Predix-Experience/px-card)
+
   	  
 ## To Run
 
@@ -44,9 +44,6 @@ Then use the credentials provided by the UAA server to log in. (Default username
 
 This application gives you a great starting point right out of the box, which includes the following:
 - Contextual Dashboard
-- Internationalization Support
-- User Authentication
-- Proxy
 - Cloud Foundry Deploy Support
 
 ### Views
@@ -54,7 +51,7 @@ The public/ directory contains the main entry points to the application, which i
 - index.html - This file is the main view that includes all application client-side dependencies. 
 
 ### Angular Configuration
-Visualization projects use the AngularJS framework with RequireJS which allows Grunt to
+The dashboard seed uses the AngularJS framework with RequireJS which allows Grunt to
 minify and concatenate all JavaScript files without using any extra tools.
 
 [RequireJS](http://requirejs.org/) is used to load the Angular files which are a modified 
@@ -63,10 +60,8 @@ version of the files created by the Yeoman Angular community generator.
 The public/scripts/app.js file is the main entry point to the AngularJS application, 
 which does the following:
 - Dynamically injects all AngularJS modules using RequireJS.
-- Configures application's providers for widgets and contextual dashboard's view and metadata services.
 - Defines client-side routing for the application.
 - Defines the MainCtrl.
-- Defines UAA configuration.
 
 The public/scripts/routes.js file defines all the routes for the application.
 
@@ -105,72 +100,6 @@ scripts is in the config.js file.
 #### Optimizer
 Grunt will use RequireJS to compress your scripts during production mode thru 
 the [r.js optimizer](http://requirejs.org/docs/optimization.html#basics). This can be configured in requirejs task of your Gruntfile.js.
-
-
-### Authentication
-This application uses [px-oauth](https://github.sw.ge.com/Predix-Experience/px-oauth) for handling [implicit grant oauth](http://oauthlib.readthedocs.org/en/latest/oauth2/grants/implicit.html). The endpoint to authorize against can be changed in your app.js
-
-```
-// Example UAA Configuration
-$scope.site = 'https://predixuaa.grc-apps.svc.ice.ge.com';  // The location of your UAA server. The /oauth/token routes will be added by predix.oauth.
-$scope.clientId = 'app';                                    // Your app id that you registered with Cloud Foundry.
-$scope.redirectUri = $location.absUrl();                    // Where the UAA server should redirect the user on successful login. Typically, the last page the user was visiting.
-
-```
-The px-oauth directive will store the token in Session Storage and will pass it with each data source request in the `Authorization` header. The interceptor is registered with $http automatically.
-
-
-### Binding to View Service 
-
-Now the predix-seed app can be bound to be services like ``` View Service ``` to save view
-
-
-```unix
-
-cf m | grep -i "View Service Free" 
-View Service Free        Free View Service*                                       Allows user to create up to  views
-
-# Creating Service  (Can be run once in a space or more —If really reqd)
-cf cs "View Service Free" "free-view-service” viewPersistence
-
-#Binding to the application
-cf bs dev-exp-seed viewPersistence
-
-# Validating the binding
-cf env dev-exp-seed
-
-
-```
-The output should look like something below
-
-```json
-{
- "VCAP_SERVICES": {
-  "View Service Free": [
-   {
-    "credentials": {
-     "url": "dev-dashboard-server.grc-apps.svc.ice.ge.com"
-    },
-    "label": "View Service Free",
-    "name": "viewPersistence",
-    "plan": "Free View Service",
-    "syslog_drain_url": "",
-    "tags": []
-   }
-  ]
- }
-}
-
-```
-
-Now in your application ``` app.js ```, you can add ``` 'VCAP_SERVICES' ``` as a dependency and then use it whereever you want to get the url
-
-```javascript
-
-   ViewServiceProvider.setViewUrl(VCAP_SERVICES.viewPersistence);
-
-```
-
 
 ### Deploying
 To create a dist build run the following command from inside of your projects root directory:
