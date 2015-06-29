@@ -1,7 +1,21 @@
-<link rel="import" href="bower_components/px-sample-cards/fetch-data-card.html"/>
+<link rel="import" href="bower_components/px-sample-cards/description-card.html"/>
+<description-card id="data-control-description-card">
+  <!-- Content -->
+  <h2 class="epsilon u-mt0 u-pt+">Data Control</h2>
+  <div class="flex">
+    <div class="flex__item u-5/6">
+      This section provides an overview of how to fetch data, bind to data sources, and display your data within cards.
+    </div>
+    <div class="flex__item u-1/6">
+      <a class="btn btn--huge" href="https://github.build.ge.com/Predix-Experience/px-card"><i class="fa fa-github mr--"></i> Github</a>
+    </div>
+  </div>
+</description-card>
 
+<link rel="import" href="bower_components/px-sample-cards/temperature-card.html"/>
+<temperature-card id="temperature-card"></temperature-card>
+
+<link rel="import" href="bower_components/px-sample-cards/fetch-data-card.html"/>
 <px-deck context="{{context}}">
   <fetch-data-card class="px-card" id="mycard"></fetch-data-card>
 </px-deck>
-
-
