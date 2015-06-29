@@ -45,7 +45,7 @@ define(['angular', 'sample-module'], function (angular, module) {
                 }
             }
 
-            $http.get(childrenUrl, {headers: {'x-tenant': 'experience_seed_app' }})
+            $http.get(childrenUrl, {headers: {'x-tenant': 'experience_seed_app'}})
                 .success(function (data, status, headers) {
                     var linkHeader = headers('Link');
                     var link = '';
@@ -59,7 +59,7 @@ define(['angular', 'sample-module'], function (angular, module) {
                     }
 
                     childEntities = {
-                        meta: {link: link},
+                        meta: {link: link, parentId: parentId},
                         data: data
                     };
                     deferred.resolve(childEntities);
@@ -67,6 +67,7 @@ define(['angular', 'sample-module'], function (angular, module) {
                 .error(function () {
                     deferred.reject('Error fetching asset with id ' + parentId);
                 });
+
 
             return deferred.promise;
         };
