@@ -22,18 +22,18 @@ define(['angular',
         // callback for when the Open button is clicked
         $scope.openContext = function (contextDetails) {
 
-            $scope.$apply(function () {
+            // need to clean up the context details so it doesn't have the infinite parent/children cycle,
+            // which causes problems later (can't interpolate: {{context}} TypeError: Converting circular structure to JSON)
+            var newContext = angular.copy(contextDetails);
+            newContext.children = [];
+            newContext.parent = [];
 
-                // need to clean up the context details so it doesn't have the infinite parent/children cycle,
-                // which causes problems later (can't interpolate: {{context}} TypeError: Converting circular structure to JSON)
-                var newContext = angular.copy(contextDetails);
-                newContext.children = [];
-                newContext.parent = [];
+            $scope.context = newContext;
 
-                $scope.context = newContext;
+            $scope.selectedDeck = 'bower_components/px-sample-cards/sample-deck.html';
 
-                $scope.selectedDeck = 'bower_components/px-sample-cards/sample-deck.html';
-            });
+            $scope.$digest();
+
         };
 
         $scope.getChildren = function (parentId, options) {
