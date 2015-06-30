@@ -1,29 +1,25 @@
 <px-deck>
-    <px-card header-text="What can I do with Cards?">
-      <div class=flex>
-        <p>Cards can interact with other cards, UI elements outside of themselves, and also allow interactions between widgets within an individual card.
-You can show and hide cards as needed. Below are examples of what cards can do.</p>
-        <p class=u-1/6>
-          <a target="_blank" href="https://github.build.ge.com/PXc/px-sample-cards" class="btn"><i class="fa fa-github u-mr--"></i>Github Repo</a>
-        </p>
-      </div>
-    </px-card>
 
-    <widget-to-widget-card id="w2w">
-    </widget-to-widget-card>
+  <description-card
+    id="interactions-description-card"
+    head="What can I do with Cards?"
+    body="Cards can interact with other cards, UI elements outside of themselves, and also allow interactions between widgets within an individual card. You can show and hide cards as needed. Below are examples of what cards can do."
+    repo-url="https://github.build.ge.com/PXc/px-sample-cards">
+  </description-card>
 
-    <px-deck id="my-deck">
-        <card-to-card id="card-to-card-1">
-            <h3>Card A</h3>
-        </card-to-card>
-        <card-to-card id="card-to-card-2">
-            <h3>Card B</h3>
-        </card-to-card>
-    </px-deck>
+  <widget-to-widget-card id="w2w"></widget-to-widget-card>
 
-    <toggle-card id="toggle-card">
-    </toggle-card>
+  <px-deck id="my-deck">
+    <card-to-card id="card-to-card-1">
+      <h3>Card A</h3>
+    </card-to-card>
+    <card-to-card id="card-to-card-2">
+      <h3>Card B</h3>
+    </card-to-card>
+  </px-deck>
 
-    <hide-card id="hide-card">
-    </hide-card>
+  <toggle-card id="toggle-card"></toggle-card>
+
+  <hide-card id="hide-card"></hide-card>
+
 </px-deck>

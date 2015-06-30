@@ -5,4 +5,12 @@
 
 <px-dashboard selected-deck="{{selectedDeck}}" context="{{context}}"></px-dashboard>
 
-<dashboard-description selected-deck="{{selectedDeck}}" context="{{context}}"></dashboard-description>
+<description-card
+  id="dashboard-description-card"
+  head="What is a Dashboard?"
+  body="The dashboard is comprised of multiple components, which, when combined with your organization's data provides an overview of the health of your operations."
+  body2="Click the <img src='images/select_context.png' alt='Select Context' /> drop-down and you will see a group of countries listed. You can drill down further to states, counties and citys as well. Make a selection by clicking the <strong>OPEN</strong> button. A time series component will then appear on your dasboard. This <strong>Context Browser</strong> and <strong>Time Series Component</strong> has been filled by example data to illustrate how you may add, select and view, your organization’s own asset hiarchy and monitoring components. For details read the getting started Github repo here."
+  repo-url="https://github.build.ge.com/Predix-Experience/predix-seed"
+  selected-deck="{{selectedDeck}}"
+  context="{{context}}">
+</description-card>
