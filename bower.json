@@ -32,6 +32,6 @@
     "px": "https://github.build.ge.com/Predix-Experience/px.git#v1.0.2",
     "es6-promise": "https://github.com/jakearchibald/es6-promise.git#2.3.0",
     "polymer": "v1.0.4",
-    "px-sample-cards": "https://github.build.ge.com/PXc/px-sample-cards.git#v0.0.8"
+    "px-sample-cards": "https://github.build.ge.com/PXc/px-sample-cards.git#v0.0.10"
   }
 }
