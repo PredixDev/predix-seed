@@ -57,7 +57,7 @@ define(['angular', 'angular-mocks', 'app'], function (angular, undefined) {
         }
     ];
 
-    var baseUrl = 'http://predix-asset-mvp2-seed-app.grc-apps.svc.ice.ge.com';
+    var baseUrl = 'https://predix-asset-mvp2-seed-app.grc-apps.svc.ice.ge.com';
 
 
     describe('The Predix Asset Service', function () {
