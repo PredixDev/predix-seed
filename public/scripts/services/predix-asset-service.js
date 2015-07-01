@@ -8,7 +8,7 @@ define(['angular', 'sample-module'], function (angular, module) {
         /**
          * predix asset server base url
          */
-        var baseUrl = 'http://predix-asset-mvp2-seed-app.grc-apps.svc.ice.ge.com/asset';  //VCAP_SERVICES.predixExpAsset2
+        var baseUrl = 'https://predix-asset-mvp2-seed-app.grc-apps.svc.ice.ge.com/asset';  //VCAP_SERVICES.predixExpAsset2
 
         /**
          * this method transforms asset entity into an object format consumable by px-context-browser item
