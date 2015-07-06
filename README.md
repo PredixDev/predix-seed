@@ -1,4 +1,4 @@
-[![Build Status](http://sjc1jenkins01.crd.ge.com:8080/buildStatus/icon?job=Predix-Experience/predix-seed)](http://sjc1jenkins01.crd.ge.com:8080/job/Predix-Experience/job/predix-seed/)
+[![Build Status](http://sjc1jenkins01.crd.ge.com:8080/buildStatus/icon?job=Predix-Experience/predix.io/predix.io-build-develop)](http://sjc1jenkins01.crd.ge.com:8080/job/Predix-Experience/job/predix.io/job/predix.io-build-develop/)
 
 #Predix Experience 2.0 Seed
 Clone or fork this project to start your own Predictivity application. Documentation and more info can be found at [predix.sw.ge.com](http://predix.sw.ge.com)
