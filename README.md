@@ -113,8 +113,8 @@ cf push;
 You might want to revisit the dist/nginx.conf folder to check on nginx configuration
 
 ## Questions?
-- Ask questions on [AnswerHub](https://answers.sw.ge.com/spaces/53/experience.html)
-- File tickets for [support](https://gesoftware.service-now.com/Predix/)
+- Ask questions on <a href="https://answers.sw.ge.com/spaces/53/experience.html" target="_blank">AnswerHub</a>
+- File tickets for <a href="https://gesoftware.service-now.com/Predix/" target="_blank">support</a>
 
 # Copyright
 Copyright &copy; 2015 GE Global Research. All rights reserved.
