@@ -2,6 +2,8 @@ Develop : [![Build Status](http://sjc1jenkins01.crd.ge.com:8080/buildStatus/icon
 
 Master :  [![Build Status](http://sjc1jenkins01.crd.ge.com:8080/buildStatus/icon?job=Predix-Experience/Client-Side/Predix-Seed/predix-seed-build-master)](http://sjc1jenkins01.crd.ge.com:8080/job/Predix-Experience/job/Client-Side/job/Predix-Seed/job/predix-seed-build-master/)
 
+<a href="https://predix-io.grc-apps.svc.ice.ge.com/docs/#HJtkI0Uq" target="_blank">Documentation</a>
+
 #Predix Experience 2.0 Seed
 Clone or fork this project to start your own Predictivity application. Documentation and more info can be found at [predix.sw.ge.com](http://predix.sw.ge.com)
 
