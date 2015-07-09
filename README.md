@@ -1,4 +1,8 @@
-[![Build Status](http://sjc1jenkins01.crd.ge.com:8080/buildStatus/icon?job=Predix-Experience/predix-seed)](http://sjc1jenkins01.crd.ge.com:8080/job/Predix-Experience/job/predix-seed/)
+Develop : [![Build Status](http://sjc1jenkins01.crd.ge.com:8080/buildStatus/icon?job=Predix-Experience/Client-Side/Predix-Seed/predix-seed)](http://sjc1jenkins01.crd.ge.com:8080/job/Predix-Experience/job/Client-Side/job/Predix-Seed/job/predix-seed/)
+
+Master :  [![Build Status](http://sjc1jenkins01.crd.ge.com:8080/buildStatus/icon?job=Predix-Experience/Client-Side/Predix-Seed/predix-seed-build-master)](http://sjc1jenkins01.crd.ge.com:8080/job/Predix-Experience/job/Client-Side/job/Predix-Seed/job/predix-seed-build-master/)
+
+<a href="https://predix-io.grc-apps.svc.ice.ge.com/docs/#HJtkI0Uq" target="_blank">Documentation</a>
 
 #Predix Experience 2.0 Seed
 Clone or fork this project to start your own Predictivity application. Documentation and more info can be found at [predix.sw.ge.com](http://predix.sw.ge.com)
@@ -111,8 +115,8 @@ cf push;
 You might want to revisit the dist/nginx.conf folder to check on nginx configuration
 
 ## Questions?
-- Ask questions on [AnswerHub](https://answers.sw.ge.com/spaces/53/experience.html)
-- File tickets for [support](https://gesoftware.service-now.com/Predix/)
+- Ask questions on <a href="https://answers.sw.ge.com/spaces/53/experience.html" target="_blank">AnswerHub</a>
+- File tickets for <a href="https://gesoftware.service-now.com/Predix/" target="_blank">support</a>
 
 # Copyright
 Copyright &copy; 2015 GE Global Research. All rights reserved.

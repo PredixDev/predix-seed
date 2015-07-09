@@ -40,19 +40,8 @@ define(['angular',
             return PredixAssetService.getAssetsByParentId(parentId, options);
         };
 
-        $scope.isOpenable = function (node) {
-            if (node && node.isOpenable) {
-                return node.isOpenable;
-            }
-            else {
-                $log.log('node.isOpenable does not exist, returning false for isOpenable');
-                return false;
-            }
-        };
-
         $scope.handlers = {
             itemOpenHandler: $scope.openContext,
-            isOpenable: $scope.isOpenable,
             getChildren: $scope.getChildren
             // (optional) click handler: itemClickHandler: $scope.clickHandler
         };
