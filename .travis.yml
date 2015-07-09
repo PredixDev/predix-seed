@@ -19,4 +19,4 @@ script:
   - npm install
   - bower --allow-root install
   - grunt -V
-  - grunt -v
+  - grunt dist -v
