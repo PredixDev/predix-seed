@@ -23,18 +23,15 @@
     "angular-mocks": "~1.3.16",
     "angular-ui-router": "0.2.13",
     "lodash": "2.4.1",
-    "px-ts-chart": "https://github.build.ge.com/PXc/px-time-series.git#v0.3.5",
+    "px-ts-chart": "https://github.build.ge.com/PXc/px-time-series.git#v0.3.6",
     "px-datasource": "https://github.build.ge.com/Predix-Experience/px-datasource.git#v1.1",
-    "px-context-browser": "https://github.build.ge.com/pxc/px-context-browser.git#v0.4.3",
-    "px-app-nav": "https://github.build.ge.com/PXC/px-app-nav.git#v0.3.5",
+    "px-context-browser": "https://github.build.ge.com/pxc/px-context-browser.git#v0.4.4",
+    "px-app-nav": "https://github.build.ge.com/PXC/px-app-nav.git#v0.3.7",
     "px-theme": "https://github.build.ge.com/PXc/px-theme.git#v0.2.6",
-    "px-card": "https://github.build.ge.com/Predix-Experience/px-card.git#v0.0.5",
-    "px": "https://github.build.ge.com/Predix-Experience/px.git#v1.0.2",
+    "px-card": "https://github.build.ge.com/Predix-Experience/px-card.git#v0.0.7",
+    "px": "https://github.build.ge.com/Predix-Experience/px.git#v1.0.3",
+    "px-sample-cards": "https://github.build.ge.com/PXc/px-sample-cards.git#0.0.11",
     "es6-promise": "https://github.com/jakearchibald/es6-promise.git#2.3.0",
-    "polymer": "v1.0.4",
-    "px-sample-cards": "https://github.build.ge.com/PXc/px-sample-cards.git#v0.0.10"
-  },
-  "resolutions": {
-    "underscore": "~1.8.3"
+    "polymer": "v1.0.4"
   }
 }
