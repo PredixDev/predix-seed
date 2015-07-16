@@ -58,5 +58,8 @@ module.exports = {
     },
     hasValidSession: function(){
         return !!this.accessToken;
+    },
+    deleteSession: function(){
+        this.accessToken=null;
     }
 }

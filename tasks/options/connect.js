@@ -55,6 +55,10 @@ module.exports = {
                         }else{
                             res.end(JSON.stringify({error: "unknown_user"}));
                         }
+                    }else if(req.url.match('/logout'))
+                    {
+                        uaa.deleteSession();
+                        next();
                     }else
                     {
                         next();
