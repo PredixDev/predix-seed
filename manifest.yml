@@ -1,6 +1,6 @@
 ---
 applications:
   - name: predix-seed-dev
-    buildpack: https://github.com/sabithksme/staticfile-buildpack.git
+    buildpack: https://github.com/muymoo/staticfile-buildpack.git
     path: dist
     memory: 64M
