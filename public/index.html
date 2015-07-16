@@ -13,8 +13,6 @@
     <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="bower_components/polymer/polymer.html"/>
 
-    <script type='application/javascript' src='cf-routes.js'></script>
-
     <script type='application/javascript' src='https://dev-messages.grc-apps.svc.ice.ge.com/messages.js'></script>
 
     <link rel="localization" href="locales/manifest.json">
@@ -24,6 +22,8 @@
     <link rel="import" href="bower_components/px-theme/px-app.html">
     <!-- import component theme css variables. -->
     <link rel="import" href="bower_components/px-theme/px-theme.html"/>
+
+    <link rel="import" href="bower_components/px-login/px-login.html"/>
 
     <script type='application/javascript' src='bower_components/px/dist/px.min.js'></script>
 
@@ -58,7 +58,9 @@
   <div class="viewport">
     <div class="layout layout--full layout--flush">
       <link rel="import" href="bower_components/px-app-nav/px-app-nav.html"/>
-      <px-app-nav class="layout__item" nav-items="{{App.tabs}}" path-prefix="/" path-key="state"></px-app-nav>
+      <px-app-nav class="layout__item" nav-items="{{App.tabs}}" path-prefix="/" path-key="state">
+          <px-login></px-login>
+      </px-app-nav>
       <main class="layout__item u-pt-- u-pr-- u-pl--" role="main">
         <!-- MAIN CONTENT -->
         <section class="u-1/1" role="region" ui-view>

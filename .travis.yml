@@ -5,18 +5,10 @@ before_script:
   - git config --global http.sslVerify "false"
   - git config --global http.proxy http://sjc1intproxy01.crd.ge.com:8080
   - git config --global https.proxy http://sjc1intproxy01.crd.ge.com:8080
-  - npm config set proxy http://sjc1intproxy01.crd.ge.com:8080/
-  - npm config set https-proxy http://sjc1intproxy01.crd.ge.com:8080/
-
+  
 script:
   - rm -rf /root/.npm/*.lock.STALE
-  - node -v
-  - npm -v
-  - npm config delete proxy
-  - npm config delete https-proxy
   - npm config set registry http://GIS05808.devcloud.ge.com:9095
-  - rm -rf public/bower_components
   - npm install
   - bower --allow-root install
-  - grunt -V
   - grunt dist -v

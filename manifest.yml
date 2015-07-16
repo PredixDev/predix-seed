@@ -4,3 +4,8 @@ applications:
     buildpack: https://github.com/muymoo/staticfile-buildpack.git
     path: dist
     memory: 64M
+    services:
+            - predix-seed-session-store
+            - predix_seed_asset_ga
+    env:
+      UAA_SERVER_URL: https://stc.predix-uaa-test.grc-apps.svc.ice.ge.com
