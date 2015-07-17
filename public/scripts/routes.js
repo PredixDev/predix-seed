@@ -19,9 +19,9 @@ define(['angular', 'angular-ui-router'], function(angular) {
                 template: '<ui-view/>',
                 abstract: true,
                 resolve: {
-                    authenticated: ['$q', '$http', function ($q, $http) {
+                    authenticated: ['$q', 'PredixUserService', function ($q, predixUserService) {
                         var deferred = $q.defer();
-                        $http.get('/userinfo').then(function(){
+                        predixUserService.isAuthenticated().then(function(){
                             deferred.resolve();
                         }, function(){
                             deferred.reject({code: 'UNAUTHORIZED'});

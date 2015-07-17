@@ -53,7 +53,7 @@ module.exports = {
                         if( uaa.hasValidSession()) {
                             res.end(JSON.stringify({email: "testuser@ge.com", user_name: "Test User"}));
                         }else{
-                            res.end(JSON.stringify({error: "unknown_user"}));
+                            next(401);
                         }
                     }else if(req.url.match('/logout'))
                     {

@@ -30,7 +30,7 @@ define([
      * This controller is the top most level controller that allows for all
      * child controllers to access properties defined on the $rootScope.
      */
-    predixApp.controller('MainCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
+    predixApp.controller('MainCtrl', ['$scope', '$rootScope', 'PredixUserService', function ($scope, $rootScope, predixUserService) {
 
         //Global application object
         window.App = $rootScope.App = {
@@ -53,6 +53,7 @@ define([
                 switch (error.code) {
                     case 'UNAUTHORIZED':
                         //redirect
+                        predixUserService.login(toState);
                         break;
                     default:
                         //go to other error state
