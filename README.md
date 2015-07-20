@@ -25,13 +25,14 @@ bower install
 
 3. In your ~/.bower_profile or ~/.profile proxy settings, in the no_proxy make sure you included ".ice.ge.com" inorder to make sure predix-seed authintication works with the cloud foundry authentication UAAC endpoint.  If you haven't set your proxy already, below is a sample proxy settings...
 
+```
 export HTTPS_PROXY="http://proxy-src.research.ge.com:8080"
 export https_proxy="http://proxy-src.research.ge.com:8080"
 export HTTP_PROXY="http://proxy-src.research.ge.com:8080"
 export http_proxy="http://proxy-src.research.ge.com:8080"
 
 export no_proxy="devcloud.sw.ge.com, openge.ge.com, design.sw.ge.com, .swcoe.ge.com, .sw.ge.com, .ice.ge.com, .build.ge.com"
-
+```
 
 ### Running the app
 In the root directory, run:
