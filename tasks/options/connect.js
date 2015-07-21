@@ -18,8 +18,8 @@ module.exports = {
     },
     rules: [
         {
-            from: '^/login',
-            to: uaa.serverUrl + '/oauth/authorize?response_type=code&client_id=predix-seed&redirect_uri=http%3A%2F%2Flocalhost%3A9000%2Fcallback&state=/about',
+            from: '^/login(.*)$',
+            to: uaa.serverUrl + '/oauth/authorize$1&response_type=code&client_id=predix-seed&redirect_uri=http%3A%2F%2Flocalhost%3A9000%2Fcallback',
             redirect: 'permanent'
         },
         {
@@ -43,7 +43,11 @@ module.exports = {
                         var params = url.parse(req.url, true).query;
                         uaa.getAccessToken(params.code, function (token) {
                             console.log('uaa access token: ',token);
-                            next();
+                            params.state = params.state || '/about';
+                            var url  = req._parsedUrl.pathname.replace("/callback", params.state);
+                            res.statusCode = 301;
+                            res.setHeader('Location', url);
+                            res.end();
                         }, function(err){
                             console.error('error getting access token: ',err);
                             next(err);
