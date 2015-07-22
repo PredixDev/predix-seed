@@ -3,32 +3,14 @@ var qs = require('querystring');
 
 module.exports = {
     init: function (options) {
-        this.clientSecret = 'U2GoXJPsG4jYx2G3Bn0k99Fle0+yNSqt7D92po40RvU=';
-        this.clientId = 'predix-seed';
-        this.serverUrl = 'https://stc.predix-uaa-test.grc-apps.svc.ice.ge.com';
+        options = options || {}
+        this.clientId = options.clientId || 'predix-seed';
+        this.serverUrl = options.serverUrl || 'https://etc.predix-uaa-staging.grc-apps.svc.ice.ge.com';
         this.accessToken = null;
-        this.defaultClientRoute = '/about';
-        this.base64Credential = 'Basic ' + new Buffer(this.clientId + ':' + this.clientSecret).toString('base64');
-
-        if (options) {
-            if (options.clientSecret) {
-                this.clientSecret = options.clientSecret;
-            }
-            if (options.clientId) {
-                this.clientId = options.clientId;
-            }
-            if (options.serverUrl) {
-                this.serverUrl = options.serverUrl;
-            }
-            if (options.defaultClientRoute) {
-                this.defaultClientRoute = options.defaultClientRoute;
-            }
-            if (options.base64Credential) {
-                this.base64Credential = options.base64Credential
-            }
-        }
+        this.defaultClientRoute = options.defaultClientRoute || '/about';
+        this.base64ClientCredential = options.base64ClientCredential || 'cHJlZGl4LXNlZWQ6TTBhVzdrTmZRRndyTTZ3ZHJpV2h3bVc2ck1HQ045Q0x1cnI5VnI3elc0cz0=';
     },
-    getAccessToken: function (authCode, successCallback, errorCallback) {
+    getAccessTokenFromCode: function (authCode, successCallback, errorCallback) {
         var request = require('request');
         var self = this;
         var options = {
@@ -41,7 +23,7 @@ module.exports = {
                 'state': this.defautClientRoute
             },
             headers: {
-                'Authorization': this.base64Credential
+                'Authorization': 'Basic '+this.base64ClientCredential
             }
         };
 

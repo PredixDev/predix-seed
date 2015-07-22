@@ -2,7 +2,12 @@ var querystring = require('querystring');
 var url = require('url');
 var uaa = require('../uaa.js');
 
-uaa.init({base64Credential: "Basic cHJlZGl4LXNlZWQ6TTBhVzdrTmZRRndyTTZ3ZHJpV2h3bVc2ck1HQ045Q0x1cnI5VnI3elc0cz0="});
+uaa.init({
+    clientId : 'predix-seed',
+    serverUrl: 'https://etc.predix-uaa-staging.grc-apps.svc.ice.ge.com',
+    defaultClientRoute: '/about',
+    base64ClientCredential: 'cHJlZGl4LXNlZWQ6TTBhVzdrTmZRRndyTTZ3ZHJpV2h3bVc2ck1HQ045Q0x1cnI5VnI3elc0cz0='
+});
 
 // Connect - static directory
 var mountFolder = function (connect, dir) {
@@ -19,7 +24,7 @@ module.exports = {
     rules: [
         {
             from: '^/login(.*)$',
-            to: uaa.serverUrl + '/oauth/authorize$1&response_type=code&client_id=predix-seed&redirect_uri=http%3A%2F%2Flocalhost%3A9000%2Fcallback',
+            to: uaa.serverUrl + '/oauth/authorize$1&response_type=code&scope=&client_id=predix-seed&redirect_uri=http%3A%2F%2Flocalhost%3A9000%2Fcallback',
             redirect: 'permanent'
         },
         {
@@ -41,7 +46,7 @@ module.exports = {
                 middlewares.push(function (req, res, next) {
                     if (req.url.match('/callback')) {
                         var params = url.parse(req.url, true).query;
-                        uaa.getAccessToken(params.code, function (token) {
+                        uaa.getAccessTokenFromCode(params.code, function (token) {
                             console.log('uaa access token: ',token);
                             params.state = params.state || '/about';
                             var url  = req._parsedUrl.pathname.replace("/callback", params.state);
@@ -61,7 +66,11 @@ module.exports = {
                         }
                     }else if(req.url.match('/logout'))
                     {
+                        console.log("\n\nDeleiting user sesssion");
                         uaa.deleteSession();
+                        next();
+                    }else if(req.url.match('/api')){
+                        req.headers['Authorization'] = uaa.accessToken;
                         next();
                     }else
                     {
@@ -74,9 +83,6 @@ module.exports = {
                     proxy: {
                         forward: {
                             '/api/asset(.*)': 'https://predix-asset-ga.grc-apps.svc.ice.ge.com/asset$1'
-                        },
-                        headers: {
-                            'Authorization': uaa.accessToken
                         }
                     }
                 };
