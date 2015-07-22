@@ -15,11 +15,27 @@ define(['angular', 'angular-ui-router'], function(angular) {
          * This is where the name of the route is matched to the controller and view template.
          */
         $stateProvider
+            .state('secure', {
+                template: '<ui-view/>',
+                abstract: true,
+                resolve: {
+                    authenticated: ['$q', 'PredixUserService', function ($q, predixUserService) {
+                        var deferred = $q.defer();
+                        predixUserService.isAuthenticated().then(function(){
+                            deferred.resolve();
+                        }, function(){
+                            deferred.reject({code: 'UNAUTHORIZED'});
+                        });
+                        return deferred.promise;
+                    }]
+                }
+            })
             .state('about', {
                 url: '/about',
                 templateUrl: 'views/about.html'
             })
             .state('dashboard', {
+                parent: 'secure',
                 url: '/dashboard',
                 templateUrl: 'views/dashboard.html',
                 controller: 'DashboardCtrl'
@@ -48,5 +64,6 @@ define(['angular', 'angular-ui-router'], function(angular) {
                 document.querySelector('px-app-nav').markSelected('/about');
                 return 'about';
             });
+
     }]);
 });

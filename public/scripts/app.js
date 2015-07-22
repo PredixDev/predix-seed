@@ -26,17 +26,11 @@ define([
     ]);
 
     /**
-     * Define constants here. This gives you access to you services registered in Cloud Foundry.
-     * You can access the url VCAP_SERVICES.myServiceName.
-     */
-    predixApp.constant('VCAP_SERVICES', window.getRoutes());
-
-    /**
      * Main Controller
      * This controller is the top most level controller that allows for all
      * child controllers to access properties defined on the $rootScope.
      */
-    predixApp.controller('MainCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
+    predixApp.controller('MainCtrl', ['$scope', '$rootScope', 'PredixUserService', function ($scope, $rootScope, predixUserService) {
 
         //Global application object
         window.App = $rootScope.App = {
@@ -54,6 +48,21 @@ define([
             ]
         };
 
+        $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+            if (angular.isObject(error) && angular.isString(error.code)) {
+                switch (error.code) {
+                    case 'UNAUTHORIZED':
+                        //redirect
+                        predixUserService.login(toState);
+                        break;
+                    default:
+                        //go to other error state
+                }
+            }
+            else {
+                // unexpected error
+            }
+        });
     }]);
 
 

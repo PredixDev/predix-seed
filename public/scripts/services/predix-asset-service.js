@@ -4,12 +4,11 @@ define(['angular', 'sample-module'], function (angular, module) {
     /**
      * PredixAssetService is a sample angular service that integrates with Predix Asset Server API
      */
-    module.factory('PredixAssetService', ['VCAP_SERVICES', '$q', '$http', function (VCAP_SERVICES, $q, $http) {
+    module.factory('PredixAssetService', ['$q', '$http', function ($q, $http) {
         /**
          * predix asset server base url
          */
-        var baseUrl = 'https://predix-asset-mvp2-seed-app.grc-apps.svc.ice.ge.com/asset';  //VCAP_SERVICES.predixExpAsset2
-
+        var baseUrl = '/api/asset';
         /**
          * this method transforms asset entity into an object format consumable by px-context-browser item
          */

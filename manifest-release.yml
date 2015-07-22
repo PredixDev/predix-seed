@@ -2,6 +2,11 @@
 applications:
   - name: predix-seed
     host: predix-seed
-    buildpack: https://github.com/sabithksme/staticfile-buildpack.git
+    buildpack: https://github.com/muymoo/staticfile-buildpack.git
     path: dist
     memory: 64M
+    services:
+            - predix-seed-session-store
+            - predix_seed_asset_ga
+    env:
+      UAA_SERVER_URL: https://etc.predix-uaa-staging.grc-apps.svc.ice.ge.com
