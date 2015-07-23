@@ -59,11 +59,11 @@ define(['angular', 'angular-ui-router'], function(angular) {
             });
 
 
-        $urlRouterProvider
-            .otherwise(function(){
-                document.querySelector('px-app-nav').markSelected('/about');
-                return 'about';
-            });
+        $urlRouterProvider.otherwise(function ($injector) {
+            var $state = $injector.get('$state');
+            document.querySelector('px-app-nav').markSelected('/about');
+            $state.go('about');
+        });
 
     }]);
 });
