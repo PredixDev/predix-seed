@@ -2,12 +2,23 @@ var querystring = require('querystring');
 var url = require('url');
 var uaa = require('../uaa.js');
 
+/**
+ * This uaa helper object simulates NGINX uaa integration using Grunt allowing secure cloudfoundry service integration in local development without deploying your application to cloudfoundry.
+ * Please update the following uaa configuration for your solution
+ */
 uaa.init({
     clientId: 'predix-seed',
     serverUrl: 'https://etc.predix-uaa-staging.grc-apps.svc.ice.ge.com',
     defaultClientRoute: '/about',
     base64ClientCredential: 'cHJlZGl4LXNlZWQ6TTBhVzdrTmZRRndyTTZ3ZHJpV2h3bVc2ck1HQ045Q0x1cnI5VnI3elc0cz0='
 });
+
+/**
+ * Please update the following object add your secure routes
+ */
+var secureProxyRoutes = {
+    '/api/asset(.*)': 'https://predix-asset-ga.grc-apps.svc.ice.ge.com/asset$1'
+};
 
 // Connect - static directory
 var mountFolder = function (connect, dir) {
@@ -75,12 +86,13 @@ module.exports = {
                     }
                 });
 
-                //secure routes are defined here
+                /**
+                 * Please add the secure service redirect below
+                 * All secure cf service url is prefix with route /api
+                 */
                 var proxyConfig = {
                     proxy: {
-                        forward: {
-                            '/api/asset(.*)': 'https://predix-asset-ga.grc-apps.svc.ice.ge.com/asset$1'
-                        }
+                        forward: secureProxyRoutes
                     }
                 };
 
