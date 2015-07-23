@@ -5,6 +5,7 @@ applications:
     buildpack: https://github.com/muymoo/staticfile-buildpack.git
     path: dist
     memory: 64M
+    stack: cflinuxfs2
     services:
             - predix-seed-session-store
             - predix_seed_asset_ga
