@@ -24,7 +24,7 @@ module.exports = {
     rules: [
         {
             from: '^/login(.*)$',
-            to: uaa.serverUrl + '/oauth/authorize$1&response_type=code&scope=&client_id=predix-seed&redirect_uri=http%3A%2F%2Flocalhost%3A9000%2Fcallback',
+            to: uaa.serverUrl + '/oauth/authorize$1&response_type=code&scope=&client_id=' + uaa.clientId +'&redirect_uri=http%3A%2F%2Flocalhost%3A9000%2Fcallback',
             redirect: 'permanent'
         },
         {
