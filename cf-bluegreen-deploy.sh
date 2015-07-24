@@ -33,7 +33,7 @@ function create_services(){
 
 function push_app_to_cf(){
 	status "Pushing $APP_ID to CF"
-	CF_TRACE=true cf push $APP_ID -f $MANIFEST -i $INSTANCE
+	cf push $APP_ID -f $MANIFEST -i $INSTANCE
 	if [ $? -ne 0 ]; then
 	    status "Could not stage the application as expected, Please find below the logs"
     	cf logs $APP_ID --recent
