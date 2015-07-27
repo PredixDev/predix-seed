@@ -21,8 +21,8 @@ define(['angular', 'angular-ui-router'], function(angular) {
                 resolve: {
                     authenticated: ['$q', 'PredixUserService', function ($q, predixUserService) {
                         var deferred = $q.defer();
-                        predixUserService.isAuthenticated().then(function(){
-                            deferred.resolve();
+                        predixUserService.isAuthenticated().then(function(userInfo){
+                            deferred.resolve(userInfo);
                         }, function(){
                             deferred.reject({code: 'UNAUTHORIZED'});
                         });
