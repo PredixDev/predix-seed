@@ -14,8 +14,8 @@ define(['angular', 'sample-module'], function (angular, module) {
             },
             getUserInfo: function(){
                 var deferred = $q.defer();
-                window.px.auth.getUserInfo().then(function(){
-                    deferred.resolve();
+                window.px.auth.getUserInfo().then(function(userInfo){
+                    deferred.resolve(userInfo);
                 }, function(){
                     deferred.reject();
                 });
