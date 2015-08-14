@@ -1,5 +1,5 @@
 #Predix Experience 2.0 Seed
-Sample application that uses <a href="https://github.build.ge.com/pages/PXc/pxc-demos/" target="_blank">Px Web Components</a> and <a href="https://github.build.ge.com/pages/PXd/px-library-design/" target="_blank">Px UI Elements</a> inside an Angular application.  See the running <a href="http://predix-seed.grc-apps.svc.ice.ge.com/" target="_blank">demo</a>.
+Dashboard Seed is an application that uses <a href="https://github.build.ge.com/pages/PXc/pxc-demos/" target="_blank">Px Web Components</a> and <a href="https://github.build.ge.com/pages/PXd/px-library-design/" target="_blank">Px UI Elements</a> inside an Angular application.  See the running <a href="http://predix-seed.grc-apps.svc.ice.ge.com/" target="_blank">demo</a>.
 
 [Troubleshooting Guide](https://github.build.ge.com/Predix-Experience/predix-seed/wiki/Troubleshooting-Guide)
 
