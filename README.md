@@ -1,7 +1,7 @@
 #Predix Experience 2.0 Seed
-Dashboard seed is a sample application that uses <a href="https://github.build.ge.com/pages/PXc/pxc-demos/" target="_blank">Px Web Components</a> and <a href="https://github.build.ge.com/pages/PXd/px-library-design/" target="_blank">Px UI Elements</a> inside an Angular application.  See the running <a href="http://predix-seed.grc-apps.svc.ice.ge.com/" target="_blank">demo</a>.
+Sample application that uses <a href="https://github.build.ge.com/pages/PXc/pxc-demos/" target="_blank">Px Web Components</a> and <a href="https://github.build.ge.com/pages/PXd/px-library-design/" target="_blank">Px UI Elements</a> inside an Angular application.  See the running <a href="http://predix-seed.grc-apps.svc.ice.ge.com/" target="_blank">demo</a>.
 
-[TroubleShooting Guide](https://github.build.ge.com/Predix-Experience/predix-seed/wiki/Troubleshooting-Guide)
+[Troubleshooting Guide](https://github.build.ge.com/Predix-Experience/predix-seed/wiki/Troubleshooting-Guide)
 
 [![Build Status](http://sjc1jenkins01.crd.ge.com:8080/buildStatus/icon?job=Predix-Experience/Client-Side/Predix-Seed/predix-seed)](http://sjc1jenkins01.crd.ge.com:8080/job/Predix-Experience/job/Client-Side/job/Predix-Seed/job/predix-seed/)
   	  
@@ -27,7 +27,7 @@ npm install -g grunt-cli
 bower install
 ```
 
-3. In your ~/.bower_profile or ~/.profile proxy settings, in the no_proxy make sure you included ".ice.ge.com" inorder to make sure predix-seed authintication works with the cloud foundry authentication UAAC endpoint.  If you haven't set your proxy already, below is a sample proxy settings...
+3. In your proxy settings in `~/.bower_profile` or `~/.profile`, include `.ice.ge.com` in your `no_proxy` to ensure predix-seed authentication works with the Cloud Foundry authentication UAAC endpoint.  If you haven't set your proxy already, here are some sample settings:
 
 ```
 export HTTPS_PROXY="http://proxy-src.research.ge.com:8080"
@@ -45,16 +45,16 @@ grunt serve
 ```
 
 ### Deploying to Cloud Foundry
-To create a dist build run the following command from inside of your projects root directory:
+To create a `dist` build run the following command from inside your project's root directory:
 ```unix
 grunt dist
 cf push <your-application-name>
 ```
 
-You might want to revisit the dist/nginx.conf folder to check on nginx configuration
+You might want to check your nginx configuration in the `dist/nginx.conf` folder.
 
 ## Questions?
-- Ask questions & file tickets on <a href="https://predix.ge.com/community/" target="_blank">predix.ge.com/community</a>
+- Ask questions and file tickets on <a href="https://predix.ge.com/community/" target="_blank">predix.ge.com/community</a>.
 
 # Copyright
 Copyright &copy; 2015 GE Global Research. All rights reserved.
