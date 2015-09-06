@@ -17,7 +17,8 @@ uaa.init({
  * Please update the following object add your secure routes
  */
 var secureProxyRoutes = {
-    '/api/asset(.*)': 'https://predix-asset-ga.grc-apps.svc.ice.ge.com/asset$1'
+    '/api/asset(.*)': 'https://predix-asset-ga.grc-apps.svc.ice.ge.com/asset$1',
+    '/api/views(.*)': 'http://px-view-service-exp.grc-apps.svc.ice.ge.com/api$1'
 };
 
 // Connect - static directory

@@ -11,7 +11,7 @@ define(['angular',
     'use strict';
 
     // Controller definition
-    controllers.controller('DashboardCtrl', ['$scope', '$log', 'PredixAssetService', function ($scope, $log, PredixAssetService) {
+    controllers.controller('DashboardCtrl', ['$scope', '$log', 'PredixAssetService', 'PredixViewService', function ($scope, $log, PredixAssetService, PredixViewService) {
 
         PredixAssetService.getAssetsByParentId(null).then(function (initialContext) {
             $scope.initialContexts = initialContext;
@@ -46,5 +46,9 @@ define(['angular',
             // (optional) click handler: itemClickHandler: $scope.clickHandler
         };
 
+        PredixViewService.getDecksByTags('Contra Costa')
+            .then(function(res){
+                console.log(res);
+            });
     }]);
 });
