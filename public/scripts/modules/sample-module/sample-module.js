@@ -1,6 +1,3 @@
-/*
- * Define Angular controllers module
- */
 define(['angular'], function(angular) {
     'use strict';
 

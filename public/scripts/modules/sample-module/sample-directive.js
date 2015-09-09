@@ -1,4 +1,4 @@
-define(['angular', 'sample-module'], function(angular, sampleModule) {
+define(['angular', './sample-module'], function(angular, sampleModule) {
     'use strict';
 
     sampleModule.directive('appVersion', ['version', function(version) {

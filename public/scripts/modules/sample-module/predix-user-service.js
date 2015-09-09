@@ -1,4 +1,4 @@
-define(['angular', 'sample-module'], function(angular, module) {
+define(['angular', './sample-module'], function(angular, module) {
     'use strict';
 
     /**

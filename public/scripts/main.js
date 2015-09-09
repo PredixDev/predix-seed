@@ -1,3 +1,3 @@
-define(['controllers/main', 'directives/main', 'filters/main', 'services/main'], function() {
+define(['modules/sample-module/main'], function() {
 
 });

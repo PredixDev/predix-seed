@@ -1,3 +1,0 @@
-define(['./sample-filter'], function() {
-
-});

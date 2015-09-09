@@ -2,7 +2,6 @@
  * Router Config
  * This is the router definition that defines all application routes.
  */
-/*global define */
 define(['angular'], function (angular) {
     'use strict';
     /**
