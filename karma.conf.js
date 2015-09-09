@@ -13,19 +13,14 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            {pattern: 'public/cf-routes.js', included: true},
-
             {pattern: 'public/scripts/config.js', included: true},
             {pattern: 'test/test-config.js', included: true},
 
             //App Bower components
             {pattern: 'public/bower_components/**/*.js', included: false},
-            {pattern: 'public/bower_components/**/*.tmpl', included: false},
 
             //App src files
-            {pattern: 'public/scripts/*.js', included: false},
             {pattern: 'public/scripts/**/*.js', included: false},
-            {pattern: 'public/stylesheets/**/*.*', included: false},
             {pattern: 'public/images/**/*.*', included: false},
             {pattern: 'public/views/**/*.*', included: false}
         ],

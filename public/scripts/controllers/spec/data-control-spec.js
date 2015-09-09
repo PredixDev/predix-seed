@@ -1,7 +1,7 @@
-/* jshint unused:false */
-define(['angular-mocks', 'app'], function(mocks, app) {
+define(['angular-mocks', 'app'], function() {
     'use strict';
-    describe('Testing DataControlCtrl:', function() {
+
+    describe('DataControlCtrl', function() {
 
         beforeEach(module('predixApp'));
 
@@ -14,8 +14,15 @@ define(['angular-mocks', 'app'], function(mocks, app) {
             });
         }));
 
-        it('should have correct name on $scope', function() {
-            //expect($scope.name).toBe('About');
+        /**
+         * Sample test for your Angular controller logic.
+         *
+         * For more info about testing your Angular code, see: https://docs.angularjs.org/guide/unit-testing
+         */
+        it('should set the url on the context', function() {
+            expect($scope.context.url).toBe('http://api.wunderground.com/api/e77862ea276e303e/conditions/q/CA/San_Ramon.json?callback=JSON_CALLBACK');
         });
+
     });
+
 });

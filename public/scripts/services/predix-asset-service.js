@@ -1,18 +1,19 @@
-/*global define */
-define(['angular', 'sample-module'], function (angular, module) {
+define(['angular', 'sample-module'], function(angular, module) {
     'use strict';
+
     /**
-     * PredixAssetService is a sample angular service that integrates with Predix Asset Server API
+     * PredixAssetService is a sample service that integrates with Predix Asset Server API
      */
-    module.factory('PredixAssetService', ['$q', '$http', function ($q, $http) {
+    module.factory('PredixAssetService', ['$q', '$http', function($q, $http) {
         /**
-         * predix asset server base url
+         * Predix Asset server base url
          */
         var baseUrl = '/api/asset';
+
         /**
-         * this method transforms asset entity into an object format consumable by px-context-browser item
+         * transform the asset entity into an object format consumable by px-context-browser item
          */
-        var transformChildren = function (entity) { // transform your entity to context browser entity format
+        var transformChildren = function(entity) { // transform your entity to context browser entity format
             return {
                 name: entity.assetId, // Displayed name in the context browser
                 id: entity.uri, // Unique ID (could be a URI for example)
@@ -23,9 +24,9 @@ define(['angular', 'sample-module'], function (angular, module) {
         };
 
         /**
-         * this method fetch asset children by parentId
+         * fetch the asset children by parentId
          */
-        var getEntityChildren = function (parentId, options) {
+        var getEntityChildren = function(parentId, options) {
             var numberOfRecords = 100;
             var deferred = $q.defer();
             var childrenUrl = baseUrl + '?pageSize=' + numberOfRecords + '&topLevelOnly=true&filter=parent=' + parentId;
@@ -45,7 +46,7 @@ define(['angular', 'sample-module'], function (angular, module) {
             }
 
             $http.get(childrenUrl, {headers: {'x-tenant': 'experience_seed_app'}})
-                .success(function (data, status, headers) {
+                .success(function(data, status, headers) {
                     var linkHeader = headers('Link');
                     var link = '';
                     if (data.length !== 0) {
@@ -63,7 +64,7 @@ define(['angular', 'sample-module'], function (angular, module) {
                     };
                     deferred.resolve(childEntities);
                 })
-                .error(function () {
+                .error(function() {
                     deferred.reject('Error fetching asset with id ' + parentId);
                 });
 
@@ -74,10 +75,10 @@ define(['angular', 'sample-module'], function (angular, module) {
         /**
          * get asset by parent id
          */
-        var getAssetsByParentId = function (parentId, options) {
+        var getAssetsByParentId = function(parentId, options) {
             var deferred = $q.defer();
 
-            getEntityChildren(parentId, options).then(function (results) {
+            getEntityChildren(parentId, options).then(function(results) {
                 var transformedChildren = [];
                 for (var i = 0; i < results.data.length; i++) {
                     transformedChildren.push(transformChildren(results.data[i]));
@@ -87,7 +88,7 @@ define(['angular', 'sample-module'], function (angular, module) {
 
                 deferred.resolve(results);
 
-            }, function () {
+            }, function() {
                 deferred.reject('Error fetching asset with id ' + parentId);
             });
 

@@ -1,22 +1,22 @@
-/*global define */
-define(['angular', 'sample-module'], function (angular, module) {
+define(['angular', 'sample-module'], function(angular, module) {
     'use strict';
+
     /**
-     * PredixAssetService is a sample angular service that integrates with Predix Asset Server API
+     * PredixUserService is a sample service which returns information about the user and if they are logged in
      */
-    module.factory('PredixUserService', ['$q', function ($q) {
+    module.factory('PredixUserService', ['$q', function($q) {
         return {
-            isAuthenticated: function(){
+            isAuthenticated: function() {
                 return this.getUserInfo();
             },
-            login: function(uiState){
+            login: function(uiState) {
                 window.px.auth.login(uiState);
             },
-            getUserInfo: function(){
+            getUserInfo: function() {
                 var deferred = $q.defer();
-                window.px.auth.getUserInfo().then(function(userInfo){
+                window.px.auth.getUserInfo().then(function(userInfo) {
                     deferred.resolve(userInfo);
-                }, function(){
+                }, function() {
                     deferred.reject();
                 });
                 return deferred.promise;
