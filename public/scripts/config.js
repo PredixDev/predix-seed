@@ -69,7 +69,7 @@ require.config({
         'css-builder': '../bower_components/require-css/css-builder',
         'normalize': '../bower_components/require-css/normalize',
 
-        underscore: '../bower_components/underscore/underscore',
+        lodash: '../bower_components/lodash/dist/lodash.min',
         jquery: '../bower_components/jquery/dist/jquery.min',
 
     },
@@ -96,7 +96,7 @@ require.config({
             exports: '_'
         },
         'px-datasource': {
-            deps: ['angular', 'underscore']
+            deps: ['angular', 'lodash']
         },
         'app': {
             deps: ['angular']
