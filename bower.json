@@ -34,6 +34,7 @@
     "px-sample-cards": "https://github.build.ge.com/PXc/px-sample-cards.git#0.0.12",
     "px-login": "https://github.build.ge.com/PXc/px-login.git",
     "es6-promise": "https://github.com/jakearchibald/es6-promise.git#2.3.0",
+    "google-analytics": "~0.1.0",
     "polymer": "v1.0.4"
   }
 }
