@@ -1,6 +1,9 @@
 /**
- * @description I am the Projects Gruntfile that contains tasks to build, test and deploy a project.
- * @namespace my-test-app
+ * @description Gruntfile that contains tasks to build, test and deploy a project.
+ *
+ * Configure all your tasks in the /tasks folder.
+ *
+ * For more help, see: http://gruntjs.com/getting-started
  */
 module.exports = function(grunt) {
     'use strict';

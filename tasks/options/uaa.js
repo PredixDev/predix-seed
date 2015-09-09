@@ -1,8 +1,13 @@
+/**
+ * UAA integration helper object.
+ *
+ * You shouldn't need to touch this file - work in /tasks/options/connect.js instead.
+ */
 var qs = require('querystring');
 
 module.exports = {
     init: function (options) {
-        options = options || {}
+        options = options || {};
         this.clientId = options.clientId || 'predix-seed';
         this.serverUrl = options.serverUrl || 'https://etc.predix-uaa-staging.grc-apps.svc.ice.ge.com';
         this.accessToken = null;
@@ -43,4 +48,4 @@ module.exports = {
     deleteSession: function(){
         this.accessToken=null;
     }
-}
+};

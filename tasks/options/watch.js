@@ -1,17 +1,16 @@
+/**
+ * Configure which files to watch and what to do when they change.
+ */
 module.exports = {
     options: {
         nospawn: true,
         livereload: true
     },
-    less: {
-        files: ['public/stylesheets/app.less'],
-        tasks: ['less','cssmin']
-    },
     scripts: {
         files: [
-            'public/scripts/**/*.js',
+            'public/scripts/**/*.js',  // watch these files
             'test/e2e/**/*.js'
         ],
-        tasks: ['jshint', 'karma']
+        tasks: ['jshint', 'karma']  // run these commands
     }
-}
+};

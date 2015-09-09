@@ -1,8 +1,15 @@
+/**
+ * Live-reloading server integrated with UAA and simulating the NGINX layer for development time.
+ *
+ * You'll need to configure this server for your UAA instance and your secure routes below.
+ */
 var querystring = require('querystring');
 var url = require('url');
-var uaa = require('../uaa.js');
+var uaa = require('./uaa.js');
 
 /**
+ * --------- ADD YOUR UAA CONFIGURATION HERE ---------
+ *
  * This uaa helper object simulates NGINX uaa integration using Grunt allowing secure cloudfoundry service integration in local development without deploying your application to cloudfoundry.
  * Please update the following uaa configuration for your solution
  */
@@ -14,6 +21,8 @@ uaa.init({
 });
 
 /**
+ * --------- ADD YOUR SECURE ROUTES HERE ------------
+ *
  * Please update the following object add your secure routes
  */
 var secureProxyRoutes = {
@@ -86,10 +95,6 @@ module.exports = {
                     }
                 });
 
-                /**
-                 * Please add the secure service redirect below
-                 * All secure cf service url is prefix with route /api
-                 */
                 var proxyConfig = {
                     proxy: {
                         forward: secureProxyRoutes
@@ -124,4 +129,4 @@ module.exports = {
             }
         }
     }
-}
+};
