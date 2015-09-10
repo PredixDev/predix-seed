@@ -1,26 +1,17 @@
-/**
- * Renders all the widgets on the tab and triggers the datasources that are used by the widgets.
- * Customize your widgets by:
- *  - Overriding or extending widget API methods
- *  - Changing widget settings or options
- */
-/* jshint unused: false */
-define(['angular',
-    'sample-module'
-], function (angular, controllers) {
+define(['angular', './sample-module'], function(angular, controllers) {
     'use strict';
 
     // Controller definition
-    controllers.controller('DashboardCtrl', ['$scope', '$log', 'PredixAssetService', function ($scope, $log, PredixAssetService) {
+    controllers.controller('DashboardCtrl', ['$scope', '$log', 'PredixAssetService', function($scope, $log, PredixAssetService) {
 
-        PredixAssetService.getAssetsByParentId(null).then(function (initialContext) {
+        PredixAssetService.getAssetsByParentId(null).then(function(initialContext) {
             $scope.initialContexts = initialContext;
-        }, function (message) {
+        }, function(message) {
             $log.error(message);
         });
 
         // callback for when the Open button is clicked
-        $scope.openContext = function (contextDetails) {
+        $scope.openContext = function(contextDetails) {
 
             // need to clean up the context details so it doesn't have the infinite parent/children cycle,
             // which causes problems later (can't interpolate: {{context}} TypeError: Converting circular structure to JSON)
@@ -33,10 +24,9 @@ define(['angular',
             $scope.selectedDeck = 'bower_components/px-sample-cards/sample-deck.html';
 
             $scope.$digest();
-
         };
 
-        $scope.getChildren = function (parentId, options) {
+        $scope.getChildren = function(parentId, options) {
             return PredixAssetService.getAssetsByParentId(parentId, options);
         };
 

@@ -1,3 +1,8 @@
+/**
+ * Configure which files to run jshint on.
+ *
+ * Feel free to adjust the jshint rules in .jshintrc.  http://jshint.com/docs/options/
+ */
 module.exports = {
     options: {
         jshintrc: '.jshintrc'
@@ -6,7 +11,7 @@ module.exports = {
         'public/scripts/**/*.js'
     ],
     test: [
-        'test/e2e/**/*.js',
-        'test/spec/**/*.js'
+        'public/scripts/**/spec/*.js',
+        'test/e2e/**/*.js'
     ]
-}
+};

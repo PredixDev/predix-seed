@@ -33,21 +33,15 @@ require.config({
         'bower_components': '../bower_components',
         'px-datasource': '../bower_components/px-datasource/dist/px-datasource.min',
 
-        directives: './directives',
-
         // Named References
         config: './config',
         app: './app',
-
-        //Angular App Modules
-        'sample-module': './sample-module',
 
         // angularjs + modules
         angular: '../bower_components/angular/angular',
         'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
         'angular-resource': '../bower_components/angular-resource/angular-resource',
         'angular-route': '../bower_components/angular-route/angular-route',
-        'angular-sanitize': '../bower_components/angular-sanitize/angular-sanitize',
 
         // angular ui router
         'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router.min',
@@ -69,7 +63,7 @@ require.config({
         'css-builder': '../bower_components/require-css/css-builder',
         'normalize': '../bower_components/require-css/normalize',
 
-        underscore: '../bower_components/underscore/underscore',
+        lodash: '../bower_components/lodash/dist/lodash.min',
         jquery: '../bower_components/jquery/dist/jquery.min',
 
     },
@@ -96,7 +90,7 @@ require.config({
             exports: '_'
         },
         'px-datasource': {
-            deps: ['angular', 'underscore']
+            deps: ['angular', 'lodash']
         },
         'app': {
             deps: ['angular']

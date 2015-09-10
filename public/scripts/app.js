@@ -1,4 +1,3 @@
-/** global angular, require */
 /**
  * Load controllers, directives, filters, services before bootstrapping the application.
  * NOTE: These are named references that are defined inside of the config.js RequireJS configuration file.
