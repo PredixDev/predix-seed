@@ -9,35 +9,12 @@
 
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 
-    <!-- Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports -->
-    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="bower_components/polymer/polymer.html"/>
-
     <script type='application/javascript' src='bower_components/px/dist/px.min.js'></script>
-
-    <!-- import page level css. -->
-    <link rel="import" href="bower_components/px-theme/px-app.html">
-    <!-- import component theme css variables. -->
-    <link rel="import" href="bower_components/px-theme/px-theme.html"/>
-
-    <link rel="import" href="bower_components/px-login/px-login.html"/>
 
     <!-- Just needed for IE -->
     <script src="bower_components/es6-promise/dist/es6-promise.min.js"></script>
 
-    <link rel="import" href="bower_components/px-card/px-dashboard.html"/>
-    <link rel="import" href="bower_components/px-card/px-deck.html"/>
-    <link rel="import" href="bower_components/px-card/px-card.html"/>
-
-    <link rel="import" href="bower_components/px-context-browser/px-context-browser.html"/>
-    <link rel="import" href="bower_components/px-sample-cards/time-series-card.html"/>
-    <link rel="import" href="bower_components/px-sample-cards/widget-to-widget-card.html"/>
-    <link rel="import" href="bower_components/px-sample-cards/hide-card.html"/>
-    <link rel="import" href="bower_components/px-sample-cards/toggle-card.html"/>
-    <link rel="import" href="bower_components/px-sample-cards/card-to-card.html"/>
-    <link rel="import" href="bower_components/px-sample-cards/description-card.html"/>
-    <link rel="import" href="bower_components/px-sample-cards/fetch-data-card.html"/>
-    <link rel="import" href="bower_components/px-sample-cards/temperature-card.html"/>
+    <link rel="import" href="polymer-loader.vulcanized.html">
 
 </head>
 
@@ -52,7 +29,6 @@
   </header>
   <div class="viewport">
     <div class="layout layout--full layout--flush">
-      <link rel="import" href="bower_components/px-app-nav/px-app-nav.html"/>
       <px-app-nav class="layout__item" nav-items="{{App.tabs}}" path-prefix="/" path-key="state">
           <px-login></px-login>
       </px-app-nav>
