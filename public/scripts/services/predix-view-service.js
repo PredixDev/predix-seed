@@ -8,7 +8,7 @@ define(['angular', 'sample-module'], function (angular, module) {
         return {
             getDecksByTags: function (tags) {
                 var deferred = $q.defer();
-                $http.get('api/views/decks/tags?values=' + tags, {headers: {'predix-zone-id': 'c8918695-f515-41e2-ba86-cdea84848cc5'}})
+                $http.get('/api/views/decks/tags?values=' + tags)
                     .then(function (res) {
                         deferred.resolve(res.data);
                     },
