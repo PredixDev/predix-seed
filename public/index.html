@@ -20,15 +20,14 @@
     <!-- import component theme css variables. -->
     <link rel="import" href="bower_components/px-theme/px-theme.html"/>
 
-    <link rel="import" href="bower_components/px-login/px-login.html"/>
-
     <!-- Just needed for IE -->
     <script src="bower_components/es6-promise/dist/es6-promise.min.js"></script>
 
+    <link rel="import" href="bower_components/px-app-nav/px-app-nav.html"/>
+    <link rel="import" href="bower_components/px-login/px-login.html"/>
     <link rel="import" href="bower_components/px-card/px-dashboard.html"/>
     <link rel="import" href="bower_components/px-card/px-deck.html"/>
     <link rel="import" href="bower_components/px-card/px-card.html"/>
-
     <link rel="import" href="bower_components/px-context-browser/px-context-browser.html"/>
     <link rel="import" href="bower_components/px-sample-cards/time-series-card.html"/>
     <link rel="import" href="bower_components/px-sample-cards/widget-to-widget-card.html"/>
@@ -39,7 +38,6 @@
     <link rel="import" href="bower_components/px-sample-cards/fetch-data-card.html"/>
     <link rel="import" href="bower_components/px-sample-cards/temperature-card.html"/>
     <link rel="import" href="bower_components/google-analytics/google-analytics.html">
-
 
 </head>
 
@@ -54,16 +52,12 @@
     </div>
   </header>
   <div class="viewport">
-    <div class="layout layout--full layout--flush">
-      <link rel="import" href="bower_components/px-app-nav/px-app-nav.html"/>
-      <px-app-nav class="layout__item" nav-items="{{App.tabs}}" path-prefix="/" path-key="state">
-          <px-login></px-login>
+    <div class="content-wrapper">
+      <px-app-nav class="navbar" nav-items="{{App.tabs}}" path-prefix="/" path-key="state">
+        <px-login class="sticky"></px-login>
       </px-app-nav>
-      <main class="layout__item u-pt-- u-pr-- u-pl--" role="main">
-        <!-- MAIN CONTENT -->
-        <section class="u-1/1" role="region" ui-view>
-          <!-- This is the container where the tabs will render -->
-        </section>
+      <main class="u-pt-- u-pr-- u-pl--" role="main">
+        <section role="region" ui-view></section>
       </main>
     </div>
   </div>
