@@ -1,3 +1,6 @@
+/**
+ * Configure r.js minification of Angular code
+ */
 module.exports = {
     compile: {
         options: {

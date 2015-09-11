@@ -11,6 +11,6 @@ module.exports = {
             'public/scripts/**/*.js',  // watch these files
             'test/e2e/**/*.js'
         ],
-        tasks: ['jshint', 'karma']  // run these commands
+        tasks: ['jshint', 'karma', 'vulcanize']  // run these commands
     }
 };
