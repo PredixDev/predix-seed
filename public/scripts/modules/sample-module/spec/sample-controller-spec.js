@@ -1,7 +1,7 @@
 define(['angular-mocks', 'app'], function() {
     'use strict';
 
-    describe('DataControlCtrl', function() {
+    describe('Sample controller', function() {
 
         beforeEach(module('predixApp'));
 
@@ -9,7 +9,7 @@ define(['angular-mocks', 'app'], function() {
 
         beforeEach(inject(function($rootScope, $controller) {
             $scope = $rootScope.$new();
-            ctrl = $controller('DataControlCtrl', {
+            ctrl = $controller('SampleCtrl', {
                 $scope: $scope
             });
         }));

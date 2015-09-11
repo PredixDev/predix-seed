@@ -1,4 +1,4 @@
 define(['./sample-module', './sample-directive', './sample-filter', './sample-service', './dashboard-controller',
-    './data-control-controller', './predix-asset-service', './predix-user-service'], function() {
+    './sample-controller', './predix-asset-service', './predix-user-service', './cards-for-dashboard'], function() {
 
 });

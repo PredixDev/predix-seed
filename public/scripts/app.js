@@ -37,13 +37,11 @@ define([
             name: 'Predix Seed',
             session: {},
             tabs: [
-                {icon: 'fa-home', state: 'about', label: 'About'},
-                {icon: 'fa-tachometer', state: 'dashboard', label: 'Dashboard'},
-                {icon: 'fa-th', state: 'cards', label: 'Cards', subitems: [
-                    {state: 'interactions', label: 'Interactions'},
-                    {state: 'dataControl', label: 'Data Control'}
+                {icon: 'fa-tachometer', state: 'dashboards', label: 'Dashboards'},
+                {icon: 'fa-file-o', state: 'blankpage', label: 'Blank Page', subitems: [
+                    {state: 'blanksubpage', label: 'Blank Sub Page'}
                 ]},
-                {icon: 'fa-bar-chart', state: 'components', label: 'Components'}
+                {icon: 'fa-bar-chart', state: 'cardsfordashboard', label: 'Cards4Dashboard'}
             ]
         };
 
