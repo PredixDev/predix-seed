@@ -5557,7 +5557,8 @@ main {
 
 <style is="custom-style">
 
-  /*------------------------------------*    #PX-COLORS-DESIGN
+  @charset "UTF-8";
+/*------------------------------------*    #PX-COLORS-DESIGN
 \*------------------------------------*/
 /**
  * Brand Colors
@@ -5595,6 +5596,1812 @@ main {
 /**
      * Dark
      */
+/*!
+ *  Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+/* FONT PATH
+ * -------------------------- */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("bower_components/font-awesome/fonts/fontawesome-webfont.eot?v=4.3.0");
+  src: url("bower_components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"), url("bower_components/font-awesome/fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"), url("bower_components/font-awesome/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"), url("bower_components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"), url("bower_components/font-awesome/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0); }
+
+/* makes the font 33% larger relative to the icon container */
+.fa-lg {
+  font-size: 1.3333333333em;
+  line-height: 0.75em;
+  vertical-align: -15%; }
+
+.fa-2x {
+  font-size: 2em; }
+
+.fa-3x {
+  font-size: 3em; }
+
+.fa-4x {
+  font-size: 4em; }
+
+.fa-5x {
+  font-size: 5em; }
+
+.fa-fw {
+  width: 1.2857142857em;
+  text-align: center; }
+
+.fa-ul {
+  padding-left: 0;
+  margin-left: 2.1428571429em;
+  list-style-type: none; }
+  .fa-ul > li {
+    position: relative; }
+
+.fa-li {
+  position: absolute;
+  left: -2.1428571429em;
+  width: 2.1428571429em;
+  top: 0.1428571429em;
+  text-align: center; }
+  .fa-li.fa-lg {
+    left: -1.8571428571em; }
+
+.fa-border {
+  padding: 0.2em 0.25em 0.15em;
+  border: solid 0.08em #eee;
+  border-radius: .1em; }
+
+.pull-right {
+  float: right; }
+
+.pull-left {
+  float: left; }
+
+.fa.pull-left {
+  margin-right: .3em; }
+
+.fa.pull-right {
+  margin-left: .3em; }
+
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear; }
+
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+  animation: fa-spin 1s infinite steps(8); }
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+.fa-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg); }
+
+.fa-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
+.fa-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg); }
+
+.fa-flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1); }
+
+.fa-flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: scale(1, -1);
+  transform: scale(1, -1); }
+
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical {
+  -webkit-filter: none;
+          filter: none; }
+
+.fa-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle; }
+
+.fa-stack-1x, .fa-stack-2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center; }
+
+.fa-stack-1x {
+  line-height: inherit; }
+
+.fa-stack-2x {
+  font-size: 2em; }
+
+.fa-inverse {
+  color: #fff; }
+
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
+.fa-glass:before {
+  content: ""; }
+
+.fa-music:before {
+  content: ""; }
+
+.fa-search:before {
+  content: ""; }
+
+.fa-envelope-o:before {
+  content: ""; }
+
+.fa-heart:before {
+  content: ""; }
+
+.fa-star:before {
+  content: ""; }
+
+.fa-star-o:before {
+  content: ""; }
+
+.fa-user:before {
+  content: ""; }
+
+.fa-film:before {
+  content: ""; }
+
+.fa-th-large:before {
+  content: ""; }
+
+.fa-th:before {
+  content: ""; }
+
+.fa-th-list:before {
+  content: ""; }
+
+.fa-check:before {
+  content: ""; }
+
+.fa-remove:before,
+.fa-close:before,
+.fa-times:before {
+  content: ""; }
+
+.fa-search-plus:before {
+  content: ""; }
+
+.fa-search-minus:before {
+  content: ""; }
+
+.fa-power-off:before {
+  content: ""; }
+
+.fa-signal:before {
+  content: ""; }
+
+.fa-gear:before,
+.fa-cog:before {
+  content: ""; }
+
+.fa-trash-o:before {
+  content: ""; }
+
+.fa-home:before {
+  content: ""; }
+
+.fa-file-o:before {
+  content: ""; }
+
+.fa-clock-o:before {
+  content: ""; }
+
+.fa-road:before {
+  content: ""; }
+
+.fa-download:before {
+  content: ""; }
+
+.fa-arrow-circle-o-down:before {
+  content: ""; }
+
+.fa-arrow-circle-o-up:before {
+  content: ""; }
+
+.fa-inbox:before {
+  content: ""; }
+
+.fa-play-circle-o:before {
+  content: ""; }
+
+.fa-rotate-right:before,
+.fa-repeat:before {
+  content: ""; }
+
+.fa-refresh:before {
+  content: ""; }
+
+.fa-list-alt:before {
+  content: ""; }
+
+.fa-lock:before {
+  content: ""; }
+
+.fa-flag:before {
+  content: ""; }
+
+.fa-headphones:before {
+  content: ""; }
+
+.fa-volume-off:before {
+  content: ""; }
+
+.fa-volume-down:before {
+  content: ""; }
+
+.fa-volume-up:before {
+  content: ""; }
+
+.fa-qrcode:before {
+  content: ""; }
+
+.fa-barcode:before {
+  content: ""; }
+
+.fa-tag:before {
+  content: ""; }
+
+.fa-tags:before {
+  content: ""; }
+
+.fa-book:before {
+  content: ""; }
+
+.fa-bookmark:before {
+  content: ""; }
+
+.fa-print:before {
+  content: ""; }
+
+.fa-camera:before {
+  content: ""; }
+
+.fa-font:before {
+  content: ""; }
+
+.fa-bold:before {
+  content: ""; }
+
+.fa-italic:before {
+  content: ""; }
+
+.fa-text-height:before {
+  content: ""; }
+
+.fa-text-width:before {
+  content: ""; }
+
+.fa-align-left:before {
+  content: ""; }
+
+.fa-align-center:before {
+  content: ""; }
+
+.fa-align-right:before {
+  content: ""; }
+
+.fa-align-justify:before {
+  content: ""; }
+
+.fa-list:before {
+  content: ""; }
+
+.fa-dedent:before,
+.fa-outdent:before {
+  content: ""; }
+
+.fa-indent:before {
+  content: ""; }
+
+.fa-video-camera:before {
+  content: ""; }
+
+.fa-photo:before,
+.fa-image:before,
+.fa-picture-o:before {
+  content: ""; }
+
+.fa-pencil:before {
+  content: ""; }
+
+.fa-map-marker:before {
+  content: ""; }
+
+.fa-adjust:before {
+  content: ""; }
+
+.fa-tint:before {
+  content: ""; }
+
+.fa-edit:before,
+.fa-pencil-square-o:before {
+  content: ""; }
+
+.fa-share-square-o:before {
+  content: ""; }
+
+.fa-check-square-o:before {
+  content: ""; }
+
+.fa-arrows:before {
+  content: ""; }
+
+.fa-step-backward:before {
+  content: ""; }
+
+.fa-fast-backward:before {
+  content: ""; }
+
+.fa-backward:before {
+  content: ""; }
+
+.fa-play:before {
+  content: ""; }
+
+.fa-pause:before {
+  content: ""; }
+
+.fa-stop:before {
+  content: ""; }
+
+.fa-forward:before {
+  content: ""; }
+
+.fa-fast-forward:before {
+  content: ""; }
+
+.fa-step-forward:before {
+  content: ""; }
+
+.fa-eject:before {
+  content: ""; }
+
+.fa-chevron-left:before {
+  content: ""; }
+
+.fa-chevron-right:before {
+  content: ""; }
+
+.fa-plus-circle:before {
+  content: ""; }
+
+.fa-minus-circle:before {
+  content: ""; }
+
+.fa-times-circle:before {
+  content: ""; }
+
+.fa-check-circle:before {
+  content: ""; }
+
+.fa-question-circle:before {
+  content: ""; }
+
+.fa-info-circle:before {
+  content: ""; }
+
+.fa-crosshairs:before {
+  content: ""; }
+
+.fa-times-circle-o:before {
+  content: ""; }
+
+.fa-check-circle-o:before {
+  content: ""; }
+
+.fa-ban:before {
+  content: ""; }
+
+.fa-arrow-left:before {
+  content: ""; }
+
+.fa-arrow-right:before {
+  content: ""; }
+
+.fa-arrow-up:before {
+  content: ""; }
+
+.fa-arrow-down:before {
+  content: ""; }
+
+.fa-mail-forward:before,
+.fa-share:before {
+  content: ""; }
+
+.fa-expand:before {
+  content: ""; }
+
+.fa-compress:before {
+  content: ""; }
+
+.fa-plus:before {
+  content: ""; }
+
+.fa-minus:before {
+  content: ""; }
+
+.fa-asterisk:before {
+  content: ""; }
+
+.fa-exclamation-circle:before {
+  content: ""; }
+
+.fa-gift:before {
+  content: ""; }
+
+.fa-leaf:before {
+  content: ""; }
+
+.fa-fire:before {
+  content: ""; }
+
+.fa-eye:before {
+  content: ""; }
+
+.fa-eye-slash:before {
+  content: ""; }
+
+.fa-warning:before,
+.fa-exclamation-triangle:before {
+  content: ""; }
+
+.fa-plane:before {
+  content: ""; }
+
+.fa-calendar:before {
+  content: ""; }
+
+.fa-random:before {
+  content: ""; }
+
+.fa-comment:before {
+  content: ""; }
+
+.fa-magnet:before {
+  content: ""; }
+
+.fa-chevron-up:before {
+  content: ""; }
+
+.fa-chevron-down:before {
+  content: ""; }
+
+.fa-retweet:before {
+  content: ""; }
+
+.fa-shopping-cart:before {
+  content: ""; }
+
+.fa-folder:before {
+  content: ""; }
+
+.fa-folder-open:before {
+  content: ""; }
+
+.fa-arrows-v:before {
+  content: ""; }
+
+.fa-arrows-h:before {
+  content: ""; }
+
+.fa-bar-chart-o:before,
+.fa-bar-chart:before {
+  content: ""; }
+
+.fa-twitter-square:before {
+  content: ""; }
+
+.fa-facebook-square:before {
+  content: ""; }
+
+.fa-camera-retro:before {
+  content: ""; }
+
+.fa-key:before {
+  content: ""; }
+
+.fa-gears:before,
+.fa-cogs:before {
+  content: ""; }
+
+.fa-comments:before {
+  content: ""; }
+
+.fa-thumbs-o-up:before {
+  content: ""; }
+
+.fa-thumbs-o-down:before {
+  content: ""; }
+
+.fa-star-half:before {
+  content: ""; }
+
+.fa-heart-o:before {
+  content: ""; }
+
+.fa-sign-out:before {
+  content: ""; }
+
+.fa-linkedin-square:before {
+  content: ""; }
+
+.fa-thumb-tack:before {
+  content: ""; }
+
+.fa-external-link:before {
+  content: ""; }
+
+.fa-sign-in:before {
+  content: ""; }
+
+.fa-trophy:before {
+  content: ""; }
+
+.fa-github-square:before {
+  content: ""; }
+
+.fa-upload:before {
+  content: ""; }
+
+.fa-lemon-o:before {
+  content: ""; }
+
+.fa-phone:before {
+  content: ""; }
+
+.fa-square-o:before {
+  content: ""; }
+
+.fa-bookmark-o:before {
+  content: ""; }
+
+.fa-phone-square:before {
+  content: ""; }
+
+.fa-twitter:before {
+  content: ""; }
+
+.fa-facebook-f:before,
+.fa-facebook:before {
+  content: ""; }
+
+.fa-github:before {
+  content: ""; }
+
+.fa-unlock:before {
+  content: ""; }
+
+.fa-credit-card:before {
+  content: ""; }
+
+.fa-rss:before {
+  content: ""; }
+
+.fa-hdd-o:before {
+  content: ""; }
+
+.fa-bullhorn:before {
+  content: ""; }
+
+.fa-bell:before {
+  content: ""; }
+
+.fa-certificate:before {
+  content: ""; }
+
+.fa-hand-o-right:before {
+  content: ""; }
+
+.fa-hand-o-left:before {
+  content: ""; }
+
+.fa-hand-o-up:before {
+  content: ""; }
+
+.fa-hand-o-down:before {
+  content: ""; }
+
+.fa-arrow-circle-left:before {
+  content: ""; }
+
+.fa-arrow-circle-right:before {
+  content: ""; }
+
+.fa-arrow-circle-up:before {
+  content: ""; }
+
+.fa-arrow-circle-down:before {
+  content: ""; }
+
+.fa-globe:before {
+  content: ""; }
+
+.fa-wrench:before {
+  content: ""; }
+
+.fa-tasks:before {
+  content: ""; }
+
+.fa-filter:before {
+  content: ""; }
+
+.fa-briefcase:before {
+  content: ""; }
+
+.fa-arrows-alt:before {
+  content: ""; }
+
+.fa-group:before,
+.fa-users:before {
+  content: ""; }
+
+.fa-chain:before,
+.fa-link:before {
+  content: ""; }
+
+.fa-cloud:before {
+  content: ""; }
+
+.fa-flask:before {
+  content: ""; }
+
+.fa-cut:before,
+.fa-scissors:before {
+  content: ""; }
+
+.fa-copy:before,
+.fa-files-o:before {
+  content: ""; }
+
+.fa-paperclip:before {
+  content: ""; }
+
+.fa-save:before,
+.fa-floppy-o:before {
+  content: ""; }
+
+.fa-square:before {
+  content: ""; }
+
+.fa-navicon:before,
+.fa-reorder:before,
+.fa-bars:before {
+  content: ""; }
+
+.fa-list-ul:before {
+  content: ""; }
+
+.fa-list-ol:before {
+  content: ""; }
+
+.fa-strikethrough:before {
+  content: ""; }
+
+.fa-underline:before {
+  content: ""; }
+
+.fa-table:before {
+  content: ""; }
+
+.fa-magic:before {
+  content: ""; }
+
+.fa-truck:before {
+  content: ""; }
+
+.fa-pinterest:before {
+  content: ""; }
+
+.fa-pinterest-square:before {
+  content: ""; }
+
+.fa-google-plus-square:before {
+  content: ""; }
+
+.fa-google-plus:before {
+  content: ""; }
+
+.fa-money:before {
+  content: ""; }
+
+.fa-caret-down:before {
+  content: ""; }
+
+.fa-caret-up:before {
+  content: ""; }
+
+.fa-caret-left:before {
+  content: ""; }
+
+.fa-caret-right:before {
+  content: ""; }
+
+.fa-columns:before {
+  content: ""; }
+
+.fa-unsorted:before,
+.fa-sort:before {
+  content: ""; }
+
+.fa-sort-down:before,
+.fa-sort-desc:before {
+  content: ""; }
+
+.fa-sort-up:before,
+.fa-sort-asc:before {
+  content: ""; }
+
+.fa-envelope:before {
+  content: ""; }
+
+.fa-linkedin:before {
+  content: ""; }
+
+.fa-rotate-left:before,
+.fa-undo:before {
+  content: ""; }
+
+.fa-legal:before,
+.fa-gavel:before {
+  content: ""; }
+
+.fa-dashboard:before,
+.fa-tachometer:before {
+  content: ""; }
+
+.fa-comment-o:before {
+  content: ""; }
+
+.fa-comments-o:before {
+  content: ""; }
+
+.fa-flash:before,
+.fa-bolt:before {
+  content: ""; }
+
+.fa-sitemap:before {
+  content: ""; }
+
+.fa-umbrella:before {
+  content: ""; }
+
+.fa-paste:before,
+.fa-clipboard:before {
+  content: ""; }
+
+.fa-lightbulb-o:before {
+  content: ""; }
+
+.fa-exchange:before {
+  content: ""; }
+
+.fa-cloud-download:before {
+  content: ""; }
+
+.fa-cloud-upload:before {
+  content: ""; }
+
+.fa-user-md:before {
+  content: ""; }
+
+.fa-stethoscope:before {
+  content: ""; }
+
+.fa-suitcase:before {
+  content: ""; }
+
+.fa-bell-o:before {
+  content: ""; }
+
+.fa-coffee:before {
+  content: ""; }
+
+.fa-cutlery:before {
+  content: ""; }
+
+.fa-file-text-o:before {
+  content: ""; }
+
+.fa-building-o:before {
+  content: ""; }
+
+.fa-hospital-o:before {
+  content: ""; }
+
+.fa-ambulance:before {
+  content: ""; }
+
+.fa-medkit:before {
+  content: ""; }
+
+.fa-fighter-jet:before {
+  content: ""; }
+
+.fa-beer:before {
+  content: ""; }
+
+.fa-h-square:before {
+  content: ""; }
+
+.fa-plus-square:before {
+  content: ""; }
+
+.fa-angle-double-left:before {
+  content: ""; }
+
+.fa-angle-double-right:before {
+  content: ""; }
+
+.fa-angle-double-up:before {
+  content: ""; }
+
+.fa-angle-double-down:before {
+  content: ""; }
+
+.fa-angle-left:before {
+  content: ""; }
+
+.fa-angle-right:before {
+  content: ""; }
+
+.fa-angle-up:before {
+  content: ""; }
+
+.fa-angle-down:before {
+  content: ""; }
+
+.fa-desktop:before {
+  content: ""; }
+
+.fa-laptop:before {
+  content: ""; }
+
+.fa-tablet:before {
+  content: ""; }
+
+.fa-mobile-phone:before,
+.fa-mobile:before {
+  content: ""; }
+
+.fa-circle-o:before {
+  content: ""; }
+
+.fa-quote-left:before {
+  content: ""; }
+
+.fa-quote-right:before {
+  content: ""; }
+
+.fa-spinner:before {
+  content: ""; }
+
+.fa-circle:before {
+  content: ""; }
+
+.fa-mail-reply:before,
+.fa-reply:before {
+  content: ""; }
+
+.fa-github-alt:before {
+  content: ""; }
+
+.fa-folder-o:before {
+  content: ""; }
+
+.fa-folder-open-o:before {
+  content: ""; }
+
+.fa-smile-o:before {
+  content: ""; }
+
+.fa-frown-o:before {
+  content: ""; }
+
+.fa-meh-o:before {
+  content: ""; }
+
+.fa-gamepad:before {
+  content: ""; }
+
+.fa-keyboard-o:before {
+  content: ""; }
+
+.fa-flag-o:before {
+  content: ""; }
+
+.fa-flag-checkered:before {
+  content: ""; }
+
+.fa-terminal:before {
+  content: ""; }
+
+.fa-code:before {
+  content: ""; }
+
+.fa-mail-reply-all:before,
+.fa-reply-all:before {
+  content: ""; }
+
+.fa-star-half-empty:before,
+.fa-star-half-full:before,
+.fa-star-half-o:before {
+  content: ""; }
+
+.fa-location-arrow:before {
+  content: ""; }
+
+.fa-crop:before {
+  content: ""; }
+
+.fa-code-fork:before {
+  content: ""; }
+
+.fa-unlink:before,
+.fa-chain-broken:before {
+  content: ""; }
+
+.fa-question:before {
+  content: ""; }
+
+.fa-info:before {
+  content: ""; }
+
+.fa-exclamation:before {
+  content: ""; }
+
+.fa-superscript:before {
+  content: ""; }
+
+.fa-subscript:before {
+  content: ""; }
+
+.fa-eraser:before {
+  content: ""; }
+
+.fa-puzzle-piece:before {
+  content: ""; }
+
+.fa-microphone:before {
+  content: ""; }
+
+.fa-microphone-slash:before {
+  content: ""; }
+
+.fa-shield:before {
+  content: ""; }
+
+.fa-calendar-o:before {
+  content: ""; }
+
+.fa-fire-extinguisher:before {
+  content: ""; }
+
+.fa-rocket:before {
+  content: ""; }
+
+.fa-maxcdn:before {
+  content: ""; }
+
+.fa-chevron-circle-left:before {
+  content: ""; }
+
+.fa-chevron-circle-right:before {
+  content: ""; }
+
+.fa-chevron-circle-up:before {
+  content: ""; }
+
+.fa-chevron-circle-down:before {
+  content: ""; }
+
+.fa-html5:before {
+  content: ""; }
+
+.fa-css3:before {
+  content: ""; }
+
+.fa-anchor:before {
+  content: ""; }
+
+.fa-unlock-alt:before {
+  content: ""; }
+
+.fa-bullseye:before {
+  content: ""; }
+
+.fa-ellipsis-h:before {
+  content: ""; }
+
+.fa-ellipsis-v:before {
+  content: ""; }
+
+.fa-rss-square:before {
+  content: ""; }
+
+.fa-play-circle:before {
+  content: ""; }
+
+.fa-ticket:before {
+  content: ""; }
+
+.fa-minus-square:before {
+  content: ""; }
+
+.fa-minus-square-o:before {
+  content: ""; }
+
+.fa-level-up:before {
+  content: ""; }
+
+.fa-level-down:before {
+  content: ""; }
+
+.fa-check-square:before {
+  content: ""; }
+
+.fa-pencil-square:before {
+  content: ""; }
+
+.fa-external-link-square:before {
+  content: ""; }
+
+.fa-share-square:before {
+  content: ""; }
+
+.fa-compass:before {
+  content: ""; }
+
+.fa-toggle-down:before,
+.fa-caret-square-o-down:before {
+  content: ""; }
+
+.fa-toggle-up:before,
+.fa-caret-square-o-up:before {
+  content: ""; }
+
+.fa-toggle-right:before,
+.fa-caret-square-o-right:before {
+  content: ""; }
+
+.fa-euro:before,
+.fa-eur:before {
+  content: ""; }
+
+.fa-gbp:before {
+  content: ""; }
+
+.fa-dollar:before,
+.fa-usd:before {
+  content: ""; }
+
+.fa-rupee:before,
+.fa-inr:before {
+  content: ""; }
+
+.fa-cny:before,
+.fa-rmb:before,
+.fa-yen:before,
+.fa-jpy:before {
+  content: ""; }
+
+.fa-ruble:before,
+.fa-rouble:before,
+.fa-rub:before {
+  content: ""; }
+
+.fa-won:before,
+.fa-krw:before {
+  content: ""; }
+
+.fa-bitcoin:before,
+.fa-btc:before {
+  content: ""; }
+
+.fa-file:before {
+  content: ""; }
+
+.fa-file-text:before {
+  content: ""; }
+
+.fa-sort-alpha-asc:before {
+  content: ""; }
+
+.fa-sort-alpha-desc:before {
+  content: ""; }
+
+.fa-sort-amount-asc:before {
+  content: ""; }
+
+.fa-sort-amount-desc:before {
+  content: ""; }
+
+.fa-sort-numeric-asc:before {
+  content: ""; }
+
+.fa-sort-numeric-desc:before {
+  content: ""; }
+
+.fa-thumbs-up:before {
+  content: ""; }
+
+.fa-thumbs-down:before {
+  content: ""; }
+
+.fa-youtube-square:before {
+  content: ""; }
+
+.fa-youtube:before {
+  content: ""; }
+
+.fa-xing:before {
+  content: ""; }
+
+.fa-xing-square:before {
+  content: ""; }
+
+.fa-youtube-play:before {
+  content: ""; }
+
+.fa-dropbox:before {
+  content: ""; }
+
+.fa-stack-overflow:before {
+  content: ""; }
+
+.fa-instagram:before {
+  content: ""; }
+
+.fa-flickr:before {
+  content: ""; }
+
+.fa-adn:before {
+  content: ""; }
+
+.fa-bitbucket:before {
+  content: ""; }
+
+.fa-bitbucket-square:before {
+  content: ""; }
+
+.fa-tumblr:before {
+  content: ""; }
+
+.fa-tumblr-square:before {
+  content: ""; }
+
+.fa-long-arrow-down:before {
+  content: ""; }
+
+.fa-long-arrow-up:before {
+  content: ""; }
+
+.fa-long-arrow-left:before {
+  content: ""; }
+
+.fa-long-arrow-right:before {
+  content: ""; }
+
+.fa-apple:before {
+  content: ""; }
+
+.fa-windows:before {
+  content: ""; }
+
+.fa-android:before {
+  content: ""; }
+
+.fa-linux:before {
+  content: ""; }
+
+.fa-dribbble:before {
+  content: ""; }
+
+.fa-skype:before {
+  content: ""; }
+
+.fa-foursquare:before {
+  content: ""; }
+
+.fa-trello:before {
+  content: ""; }
+
+.fa-female:before {
+  content: ""; }
+
+.fa-male:before {
+  content: ""; }
+
+.fa-gittip:before,
+.fa-gratipay:before {
+  content: ""; }
+
+.fa-sun-o:before {
+  content: ""; }
+
+.fa-moon-o:before {
+  content: ""; }
+
+.fa-archive:before {
+  content: ""; }
+
+.fa-bug:before {
+  content: ""; }
+
+.fa-vk:before {
+  content: ""; }
+
+.fa-weibo:before {
+  content: ""; }
+
+.fa-renren:before {
+  content: ""; }
+
+.fa-pagelines:before {
+  content: ""; }
+
+.fa-stack-exchange:before {
+  content: ""; }
+
+.fa-arrow-circle-o-right:before {
+  content: ""; }
+
+.fa-arrow-circle-o-left:before {
+  content: ""; }
+
+.fa-toggle-left:before,
+.fa-caret-square-o-left:before {
+  content: ""; }
+
+.fa-dot-circle-o:before {
+  content: ""; }
+
+.fa-wheelchair:before {
+  content: ""; }
+
+.fa-vimeo-square:before {
+  content: ""; }
+
+.fa-turkish-lira:before,
+.fa-try:before {
+  content: ""; }
+
+.fa-plus-square-o:before {
+  content: ""; }
+
+.fa-space-shuttle:before {
+  content: ""; }
+
+.fa-slack:before {
+  content: ""; }
+
+.fa-envelope-square:before {
+  content: ""; }
+
+.fa-wordpress:before {
+  content: ""; }
+
+.fa-openid:before {
+  content: ""; }
+
+.fa-institution:before,
+.fa-bank:before,
+.fa-university:before {
+  content: ""; }
+
+.fa-mortar-board:before,
+.fa-graduation-cap:before {
+  content: ""; }
+
+.fa-yahoo:before {
+  content: ""; }
+
+.fa-google:before {
+  content: ""; }
+
+.fa-reddit:before {
+  content: ""; }
+
+.fa-reddit-square:before {
+  content: ""; }
+
+.fa-stumbleupon-circle:before {
+  content: ""; }
+
+.fa-stumbleupon:before {
+  content: ""; }
+
+.fa-delicious:before {
+  content: ""; }
+
+.fa-digg:before {
+  content: ""; }
+
+.fa-pied-piper:before {
+  content: ""; }
+
+.fa-pied-piper-alt:before {
+  content: ""; }
+
+.fa-drupal:before {
+  content: ""; }
+
+.fa-joomla:before {
+  content: ""; }
+
+.fa-language:before {
+  content: ""; }
+
+.fa-fax:before {
+  content: ""; }
+
+.fa-building:before {
+  content: ""; }
+
+.fa-child:before {
+  content: ""; }
+
+.fa-paw:before {
+  content: ""; }
+
+.fa-spoon:before {
+  content: ""; }
+
+.fa-cube:before {
+  content: ""; }
+
+.fa-cubes:before {
+  content: ""; }
+
+.fa-behance:before {
+  content: ""; }
+
+.fa-behance-square:before {
+  content: ""; }
+
+.fa-steam:before {
+  content: ""; }
+
+.fa-steam-square:before {
+  content: ""; }
+
+.fa-recycle:before {
+  content: ""; }
+
+.fa-automobile:before,
+.fa-car:before {
+  content: ""; }
+
+.fa-cab:before,
+.fa-taxi:before {
+  content: ""; }
+
+.fa-tree:before {
+  content: ""; }
+
+.fa-spotify:before {
+  content: ""; }
+
+.fa-deviantart:before {
+  content: ""; }
+
+.fa-soundcloud:before {
+  content: ""; }
+
+.fa-database:before {
+  content: ""; }
+
+.fa-file-pdf-o:before {
+  content: ""; }
+
+.fa-file-word-o:before {
+  content: ""; }
+
+.fa-file-excel-o:before {
+  content: ""; }
+
+.fa-file-powerpoint-o:before {
+  content: ""; }
+
+.fa-file-photo-o:before,
+.fa-file-picture-o:before,
+.fa-file-image-o:before {
+  content: ""; }
+
+.fa-file-zip-o:before,
+.fa-file-archive-o:before {
+  content: ""; }
+
+.fa-file-sound-o:before,
+.fa-file-audio-o:before {
+  content: ""; }
+
+.fa-file-movie-o:before,
+.fa-file-video-o:before {
+  content: ""; }
+
+.fa-file-code-o:before {
+  content: ""; }
+
+.fa-vine:before {
+  content: ""; }
+
+.fa-codepen:before {
+  content: ""; }
+
+.fa-jsfiddle:before {
+  content: ""; }
+
+.fa-life-bouy:before,
+.fa-life-buoy:before,
+.fa-life-saver:before,
+.fa-support:before,
+.fa-life-ring:before {
+  content: ""; }
+
+.fa-circle-o-notch:before {
+  content: ""; }
+
+.fa-ra:before,
+.fa-rebel:before {
+  content: ""; }
+
+.fa-ge:before,
+.fa-empire:before {
+  content: ""; }
+
+.fa-git-square:before {
+  content: ""; }
+
+.fa-git:before {
+  content: ""; }
+
+.fa-hacker-news:before {
+  content: ""; }
+
+.fa-tencent-weibo:before {
+  content: ""; }
+
+.fa-qq:before {
+  content: ""; }
+
+.fa-wechat:before,
+.fa-weixin:before {
+  content: ""; }
+
+.fa-send:before,
+.fa-paper-plane:before {
+  content: ""; }
+
+.fa-send-o:before,
+.fa-paper-plane-o:before {
+  content: ""; }
+
+.fa-history:before {
+  content: ""; }
+
+.fa-genderless:before,
+.fa-circle-thin:before {
+  content: ""; }
+
+.fa-header:before {
+  content: ""; }
+
+.fa-paragraph:before {
+  content: ""; }
+
+.fa-sliders:before {
+  content: ""; }
+
+.fa-share-alt:before {
+  content: ""; }
+
+.fa-share-alt-square:before {
+  content: ""; }
+
+.fa-bomb:before {
+  content: ""; }
+
+.fa-soccer-ball-o:before,
+.fa-futbol-o:before {
+  content: ""; }
+
+.fa-tty:before {
+  content: ""; }
+
+.fa-binoculars:before {
+  content: ""; }
+
+.fa-plug:before {
+  content: ""; }
+
+.fa-slideshare:before {
+  content: ""; }
+
+.fa-twitch:before {
+  content: ""; }
+
+.fa-yelp:before {
+  content: ""; }
+
+.fa-newspaper-o:before {
+  content: ""; }
+
+.fa-wifi:before {
+  content: ""; }
+
+.fa-calculator:before {
+  content: ""; }
+
+.fa-paypal:before {
+  content: ""; }
+
+.fa-google-wallet:before {
+  content: ""; }
+
+.fa-cc-visa:before {
+  content: ""; }
+
+.fa-cc-mastercard:before {
+  content: ""; }
+
+.fa-cc-discover:before {
+  content: ""; }
+
+.fa-cc-amex:before {
+  content: ""; }
+
+.fa-cc-paypal:before {
+  content: ""; }
+
+.fa-cc-stripe:before {
+  content: ""; }
+
+.fa-bell-slash:before {
+  content: ""; }
+
+.fa-bell-slash-o:before {
+  content: ""; }
+
+.fa-trash:before {
+  content: ""; }
+
+.fa-copyright:before {
+  content: ""; }
+
+.fa-at:before {
+  content: ""; }
+
+.fa-eyedropper:before {
+  content: ""; }
+
+.fa-paint-brush:before {
+  content: ""; }
+
+.fa-birthday-cake:before {
+  content: ""; }
+
+.fa-area-chart:before {
+  content: ""; }
+
+.fa-pie-chart:before {
+  content: ""; }
+
+.fa-line-chart:before {
+  content: ""; }
+
+.fa-lastfm:before {
+  content: ""; }
+
+.fa-lastfm-square:before {
+  content: ""; }
+
+.fa-toggle-off:before {
+  content: ""; }
+
+.fa-toggle-on:before {
+  content: ""; }
+
+.fa-bicycle:before {
+  content: ""; }
+
+.fa-bus:before {
+  content: ""; }
+
+.fa-ioxhost:before {
+  content: ""; }
+
+.fa-angellist:before {
+  content: ""; }
+
+.fa-cc:before {
+  content: ""; }
+
+.fa-shekel:before,
+.fa-sheqel:before,
+.fa-ils:before {
+  content: ""; }
+
+.fa-meanpath:before {
+  content: ""; }
+
+.fa-buysellads:before {
+  content: ""; }
+
+.fa-connectdevelop:before {
+  content: ""; }
+
+.fa-dashcube:before {
+  content: ""; }
+
+.fa-forumbee:before {
+  content: ""; }
+
+.fa-leanpub:before {
+  content: ""; }
+
+.fa-sellsy:before {
+  content: ""; }
+
+.fa-shirtsinbulk:before {
+  content: ""; }
+
+.fa-simplybuilt:before {
+  content: ""; }
+
+.fa-skyatlas:before {
+  content: ""; }
+
+.fa-cart-plus:before {
+  content: ""; }
+
+.fa-cart-arrow-down:before {
+  content: ""; }
+
+.fa-diamond:before {
+  content: ""; }
+
+.fa-ship:before {
+  content: ""; }
+
+.fa-user-secret:before {
+  content: ""; }
+
+.fa-motorcycle:before {
+  content: ""; }
+
+.fa-street-view:before {
+  content: ""; }
+
+.fa-heartbeat:before {
+  content: ""; }
+
+.fa-venus:before {
+  content: ""; }
+
+.fa-mars:before {
+  content: ""; }
+
+.fa-mercury:before {
+  content: ""; }
+
+.fa-transgender:before {
+  content: ""; }
+
+.fa-transgender-alt:before {
+  content: ""; }
+
+.fa-venus-double:before {
+  content: ""; }
+
+.fa-mars-double:before {
+  content: ""; }
+
+.fa-venus-mars:before {
+  content: ""; }
+
+.fa-mars-stroke:before {
+  content: ""; }
+
+.fa-mars-stroke-v:before {
+  content: ""; }
+
+.fa-mars-stroke-h:before {
+  content: ""; }
+
+.fa-neuter:before {
+  content: ""; }
+
+.fa-facebook-official:before {
+  content: ""; }
+
+.fa-pinterest-p:before {
+  content: ""; }
+
+.fa-whatsapp:before {
+  content: ""; }
+
+.fa-server:before {
+  content: ""; }
+
+.fa-user-plus:before {
+  content: ""; }
+
+.fa-user-times:before {
+  content: ""; }
+
+.fa-hotel:before,
+.fa-bed:before {
+  content: ""; }
+
+.fa-viacoin:before {
+  content: ""; }
+
+.fa-train:before {
+  content: ""; }
+
+.fa-subway:before {
+  content: ""; }
+
+.fa-medium:before {
+  content: ""; }
+
+[dir=rtl] .fa-chevron-left,
+[dir=rtl] .fa-chevron-right,
+[dir=rtl] .fa-chevron-circle-left,
+[dir=rtl] .fa-chevron-circle-right,
+[dir=rtl] .fa-angle-left,
+[dir=rtl] .fa-angle-right,
+[dir=rtl] .fa-angle-double-left,
+[dir=rtl] .fa-angle-double-right,
+[dir=rtl] .fa-arrow-circle-left,
+[dir=rtl] .fa-arrow-circle-right,
+[dir=rtl] .fa-arrow-circle-o-left,
+[dir=rtl] .fa-arrow-circle-o-right {
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1); }
+
 @font-face {
   font-family: "GE Inspira";
   font-weight: normal;
@@ -87761,14 +89568,14 @@ html {
     });
 
 </script>
-<dom-module id="px-chart-series" assetpath="bower_components/px-ts-chart/">
+<dom-module id="px-chart-series-line" assetpath="bower_components/px-chart/">
 
 </dom-module>
 
 <script>
 Polymer({
 
-  is: 'px-chart-series',
+  is: 'px-chart-series-line',
 
   /**
    * Properties block, expose attribute values to the DOM via 'reflect'
@@ -88059,14 +89866,307 @@ Polymer({
 });
 
 </script>
-<dom-module id="px-histogram-series" assetpath="bower_components/px-ts-chart/">
+<dom-module id="px-chart-series-scatter" assetpath="bower_components/px-chart/">
+
+</dom-module>
+
+<script>
+  Polymer({
+
+    is: 'px-chart-series-scatter',
+
+    /**
+     * Properties block, expose attribute values to the DOM via 'reflect'
+     *
+     * @property properties
+     * @type Object
+     */
+    properties: {
+
+      /**
+       * The data associated with the series, an Array of Arrays with the first value of each inner Array being a unix
+       * timestamp and the second value being the value.
+       *
+       * Fires a "data-changed" event via the "notify" flag when the data changes, the assumption is that the chart will
+       * listen for this event.
+       *
+       * @type {Array}
+       */
+      data: {
+        type: Array,
+        notify: true
+      },
+
+      /**
+       * Events associated with the series, an Array of Objects with the keys:
+       *
+       * * "time" {Number}, a unix timestamp of the event time
+       * * "id" {String}, unique id of the event
+       * * "label" {String}, the text label associated with the event
+       *
+       * Fires a "dataEvents-changed" event via the "notify" flag when the events changes, the assumption is that the chart will
+       * listen for this event.
+       *
+       * @type {Array}
+       */
+      dataEvents: {
+        type: Array,
+        notify: true
+      },
+
+      /**
+       * Unique id of this series
+       *
+       * Can only be statically configured (not data-bindable).
+       *
+       * @type {String}
+       */
+      id: {
+        type: String
+      },
+
+      /**
+       * Display name of the series, defaults to id
+       *
+       * Can only be statically configured (not data-bindable).
+       *
+       * @type {String}
+       */
+      name: {
+        type: String
+      },
+
+      /**
+       * The width of the line for this series
+       *
+       * Can only be statically configured (not data-bindable).
+       *
+       * @type {Number}
+       * @default 1
+       */
+      lineWidth : {
+        type: Number
+      },
+
+      /**
+       * Config for each plotted point on the line
+       *
+       *    <px-chart-series marker='{"enabled": false, "radius": 15}'
+       *
+       * Can only be statically configured (not data-bindable).
+       *
+       * @type {Object}
+       */
+      marker : {
+        type: Object
+      },
+
+      /**
+       * Config for the tooltip for each point
+       *
+       *     <px-chart-series id="my-series" tooltip='{"valueDecimals": 3}' ...
+       *
+       * Can only be statically configured (not data-bindable).
+       *
+       * @type {Object}
+       */
+      tooltip: {
+        type: Object,
+        value: {
+          valueDecimals: 2
+        }
+      },
+
+      /**
+       * Optional object that contains members that map to #name and #data via the seriesObjDataKey and seriesObjNameKey,
+       *
+       * e.g. seriesObj[seriesObjDataKey] and seriesObj[seriesObjNameKey]
+       *
+       * @type {Object}
+       */
+      seriesObj: {
+        type: Object,
+        observer: 'seriesObjObserver'
+      },
+
+      /**
+       * Key in the optional seriesObj to be used for #data
+       *
+       * Can only be statically configured (not data-bindable).
+       *
+       * @type {String}
+       * @default "series"
+       */
+      seriesObjDataKey: {
+        type: String,
+        value: 'series'
+      },
+
+      /**
+       * Key in the optional seriesObj to be used for #name
+       *
+       * Can only be statically configured (not data-bindable).
+       *
+       * @type {String}
+       * @default "name"
+       */
+      seriesObjNameKey: {
+        type: String,
+        value: 'name'
+      },
+
+      /**
+       * Key in the optional seriesObj to be used for #events
+       *
+       * Can only be statically configured (not data-bindable).
+       *
+       * @type {String}
+       * @default "events"
+       */
+      seriesObjDataEventsKey: {
+        type: String,
+        value: 'events'
+      },
+
+      /**
+       * Optional declaration of which y axis id this series should be plotted against, if more than one.
+       *
+       * Can only be statically configured (not data-bindable).
+       *
+       * @type {String}
+       */
+      axisId: {
+        type: String
+      },
+
+      /**
+       * Optional. Upper value beyond which the data should be shown as "above threshold".
+       *
+       * Can only be statically configured (not data-bindable).
+       *
+       * @type {Number}
+       */
+      upperThreshold: {
+        type: Number
+      },
+
+      /**
+       * Optional. Lower value beyond which the data should be shown as "above threshold".
+       *
+       * Can only be statically configured (not data-bindable).
+       *
+       * @type {Number}
+       */
+      lowerThreshold: {
+        type: Number
+      }
+
+      /**
+       * Whether to show this series in the navigator. Default behavior if this property is not set is that the first
+       * series of the chart is shown unless this flag is set to override.
+       *
+       * @type {Boolean}
+       TODO: implement...but confused by how series are added to the navigator...
+       showInNavigator: {
+      type: Boolean
+    }
+       */
+    },
+
+    /**
+     * Lifecycle callback to look for and register iron-ajax elements configured inside the series.  Note that doing so is
+     * only one way to populate the series with data.  You can always set the 'data' or 'series-obj' attributes/properties
+     * directly from outside this component.
+     */
+    ready: function() {
+      this.fire("series-ready");
+      this.seriesReady = true;
+
+      //Fire ajax requests, if configured...TODO: make this more declarative, but don't know how to get 'on-response' event declaration of handler to call a function on this parent comp.
+      var ironAjaxEl = Polymer.dom(this.root).querySelector("iron-ajax");
+      if (ironAjaxEl) {
+        this.fireAjax(ironAjaxEl);
+      }
+    },
+
+    /**
+     * @private
+     */
+    fireAjax: function(ironAjaxEl) {
+      var _this = this;
+      var fireFn = function(ironAjaxEl) {
+        if (ironAjaxEl.generateRequest && ironAjaxEl.activeRequests) {
+          ironAjaxEl.addEventListener("response", function(evt) {
+            _this.seriesObj = evt.detail.response;
+          });
+          ironAjaxEl.generateRequest();
+        }
+        else {
+          setTimeout(function() {fireFn(ironAjaxEl)}, 100);
+        }
+      };
+      fireFn(ironAjaxEl);
+    },
+
+    /**
+     * Observer on the 'seriesObj' property. When called will look at new seriesObj and set the 'data' and 'name'
+     * values via the configured 'seriesObjDataKey' and 'seriesObjNameKey'
+     *
+     * @param newObj
+     * @param oldObj
+     *
+     * @private
+     */
+    seriesObjObserver: function(newObj, oldObj) {
+      if (!newObj) {
+        this.data = null;
+      }
+      else {
+        if (newObj[this.seriesObjNameKey]) {
+          this.name = newObj[this.seriesObjNameKey];
+        }
+        this.data = newObj[this.seriesObjDataKey];
+        if (newObj[this.seriesObjDataEventsKey]) {
+          this.dataEvents = newObj[this.seriesObjDataEventsKey];
+        }
+      }
+    },
+
+    /**
+     * Builds a returns an object to be passed into highcharts for this series
+     *
+     * @return {Object}
+     *
+     * @private
+     */
+    buildConfig: function() {
+      var config = {};
+      var props = this.properties;
+      var _this = this;
+      Object.keys(props).forEach(function(key) {
+        if (props.hasOwnProperty(key) && key !== "seriesObj" && typeof _this[key] !== "undefined") {
+          config[key] = _this[key];
+        }
+      });
+
+      //backfill a few things highcharts expects
+      if (typeof config.name === "undefined") {
+        config.name = config.id;
+      }
+      return config;
+    }
+
+  });
+
+</script>
+<dom-module id="px-chart-series-histogram" assetpath="bower_components/px-chart/">
 </dom-module>
 
 
 <script>
 Polymer({
 
-  is: 'px-histogram-series',
+  is: 'px-chart-series-histogram',
 
   /**
    * Properties block, expose attribute values to the DOM via 'reflect'
@@ -88076,6 +90176,9 @@ Polymer({
    */
   properties: {
 
+    /**
+     * @private
+     */
     rawdata: {
       type: Array,
       notify: true
@@ -88420,14 +90523,14 @@ Polymer({
 });
 
 </script>
-<dom-module id="px-bar-series" assetpath="bower_components/px-ts-chart/">
+<dom-module id="px-chart-series-bar" assetpath="bower_components/px-chart/">
 </dom-module>
 
 
 <script>
 Polymer({
 
-  is: 'px-bar-series',
+  is: 'px-chart-series-bar',
 
   /**
    * Properties block, expose attribute values to the DOM via 'reflect'
@@ -101811,7 +103914,7 @@ button.btn {
 
   });
 </script>
-<dom-module id="px-ts-chart-controls" assetpath="bower_components/px-ts-chart/">
+<dom-module id="px-chart-controls" assetpath="bower_components/px-chart/">
   <style>
 @charset "UTF-8";
 /*
@@ -102359,8 +104462,8 @@ html {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("bower_components/px-ts-chart/font-awesome/fonts/fontawesome-webfont.eot?v=4.3.0");
-  src: url("bower_components/px-ts-chart/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"), url("bower_components/px-ts-chart/font-awesome/fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"), url("bower_components/px-ts-chart/font-awesome/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"), url("bower_components/px-ts-chart/font-awesome/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"), url("bower_components/px-ts-chart/font-awesome/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
+  src: url("bower_components/px-chart/font-awesome/fonts/fontawesome-webfont.eot?v=4.3.0");
+  src: url("bower_components/px-chart/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"), url("bower_components/px-chart/font-awesome/fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"), url("bower_components/px-chart/font-awesome/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"), url("bower_components/px-chart/font-awesome/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"), url("bower_components/px-chart/font-awesome/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -104475,7 +106578,7 @@ button.btn {
 header {
   position: relative;
   z-index: 1;
-  margin-bottom: -6.4rem; }
+  margin-bottom: -3.7333333333rem; }
 
 figure .fa {
   cursor: pointer; }
@@ -104486,13 +106589,30 @@ figure .fa {
 px-rangepicker {
   text-align: left; }
 
-/*------------------------------------*    #PX-CLEARFIX-DESIGN
+.px-chart-tooltip {
+  min-width: 400px;
+  text-align: right; }
+  .px-chart-tooltip span {
+    display: inline-block;
+    padding-left: 15px;
+    text-align: left; }
+  .px-chart-tooltip .value {
+    font-size: 15px;
+    padding: 0;
+    margin-bottom: -10px; }
+  .px-chart-tooltip .name {
+    position: relative;
+    top: -2px;
+    font-size: 12px;
+    text-transform: capitalize; }
+
+/*------------------------------------*    #CLEARFIX
 \*------------------------------------*/
 /**
-   * Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
-   * Extend the clearfix class with Sass to avoid the `.clearfix` class appearing
-   * over and over in your markup.
-   */
+ * Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
+ * Extend the clearfix class with Sass to avoid the `.clearfix` class appearing
+ * over and over in your markup.
+ */
 .clearfix:after {
   content: "";
   display: table;
@@ -105079,30 +107199,19 @@ px-rangepicker {
 </style>
   <template>
     <div>
-      <template is="dom-if" if="{{showDateRange}}">
-        <px-rangepicker range="{{rangeDisplay}}" class="float--right"></px-rangepicker>
-      </template>
-
       <template is="dom-if" if="{{showExport}}">
         <button class="btn btn--icon u-ml- float--right" on-click="_exportHandler" title="Export chart">
           <i class="fa fa-share-square-o"></i>
         </button>
       </template>
+
+      <template is="dom-if" if="{{showDateRange}}">
+        <px-rangepicker id="rangepicker" range="{{rangeDisplay}}" preset-ranges="{{presetsForRangepicker}}" class="float--right"></px-rangepicker>
+      </template>
     </div>
 
-    <div class="clearfix"></div>
-
-    <template is="dom-if" if="{{hasZoomButtons}}">
-      <p class="u-mb+ float--right">
-        <span class="u-mr-">Zoom</span>
-        <span>
-          <template is="dom-repeat" items="[[zoomButtons]]">
-            <button on-click="_setRangeFromPresent" data-time-value$="[[item.value]]" data-unit$="[[item.unit]]" class="btn">[[item.label]]</button>
-          </template>
-        </span>
-      </p>
-    </template>
     <content></content>
+
   </template>
 </dom-module>
 
@@ -105117,7 +107226,7 @@ Nd.millisecond=Nd.milliseconds=Md,Nd.utcOffset=Na,Nd.utc=Pa,Nd.local=Qa,Nd.parse
 <script>
   Polymer({
 
-    is: 'px-ts-chart-controls',
+    is: 'px-chart-controls',
 
     /**
      * Properties block, expose attribute values to the DOM via 'reflect'
@@ -105154,19 +107263,18 @@ Nd.millisecond=Nd.milliseconds=Md,Nd.utcOffset=Na,Nd.utc=Pa,Nd.local=Qa,Nd.parse
       },
 
       /**
-       * Array of object representing the time zoom buttons.  Each object in the Array has the following members:
+       * Array of object representing the range presets.  Each object in the Array has the following members:
        *
        * * "label" {String} The text in the button, e.g. "3 m"
        * * "value" {Number} The time value, e.g. 3
        * * "unit" {String} A momentjs unit string, e.g. "months"
        *
-       * Can only be statically configured (not data-bindable).
-       *
        * @type {Array}
        * @default [{label: "1 m", value: 1, unit: "months"},{label: "3 m", value: 3, unit: "months"},{label: "6 m", value: 6, unit: "months"},{label: "1 y", value: 1, unit: "year"}]
        */
-      zoomButtons: {
+      presetRanges: {
         type: Array,
+        observer: '_changePresetRanges',
         value: [
           {label: "1 m", value: 1, unit: "months"},
           {label: "3 m", value: 3, unit: "months"},
@@ -105174,15 +107282,6 @@ Nd.millisecond=Nd.milliseconds=Md,Nd.utcOffset=Na,Nd.utc=Pa,Nd.local=Qa,Nd.parse
           {label: "1 y", value: 1, unit: "year"},
           {label: "YTD", value: Date.now() - moment().startOf("year").valueOf(), unit: "ms"}
         ]
-      },
-
-      /**
-       * Whether the zoomButtons array is empty
-       * @private
-       */
-      hasZoomButtons: {
-        type: Boolean,
-        computed: '_zoomButtonsNotEmpty(zoomButtons)'
       },
 
       /**
@@ -105208,10 +107307,6 @@ Nd.millisecond=Nd.milliseconds=Md,Nd.utcOffset=Na,Nd.utc=Pa,Nd.local=Qa,Nd.parse
       '_submitRange(rangeDisplay)'
     ],
 
-    _zoomButtonsNotEmpty: function(zoomButtons) {
-      return zoomButtons && zoomButtons.length > 0;
-    },
-
     _updateRange: function() {
       var startMoment = moment(this.rangeMs.from, 'x');
       var endMoment = moment(this.rangeMs.to, 'x');
@@ -105230,23 +107325,27 @@ Nd.millisecond=Nd.milliseconds=Md,Nd.utcOffset=Na,Nd.utc=Pa,Nd.local=Qa,Nd.parse
       }
     },
 
+    _changePresetRanges: function(presetRanges) {
+
+      var presetsForRangepicker = presetRanges.map(function(presetRange) {
+        var preset = {};
+        preset.displayText = presetRange.label;
+        preset.startDateTime = moment().subtract(presetRange.value, presetRange.unit).toISOString();
+        preset.endDateTime = moment().toISOString();
+        return preset;
+      });
+
+      if(presetsForRangepicker.length < 1) {
+        presetsForRangepicker = null; // if no presets, don't show preset section at all (empty array will still display that section)
+      }
+
+      this.set('presetsForRangepicker', presetsForRangepicker);
+    },
+
     _submitRange: function() {
       var newStartMs = moment(this.rangeDisplay.from, moment.ISO_8601).format('x');
       var newEndMs = moment(this.rangeDisplay.to, moment.ISO_8601).format('x');
       Polymer.dom(this).parentNode.setExtremesIfChanged(newStartMs, newEndMs);
-    },
-
-    _setRangeFromPresent: function(evt) {
-      var value = evt.target.getAttribute("data-time-value");
-      var unit = evt.target.getAttribute("data-unit");
-
-      var now = moment();
-      var fromTime = moment(now).subtract(value, unit);
-
-      this.set('rangeMs', {
-        to: now.format('x'),
-        from: fromTime.format('x')
-      });
     },
 
     _exportHandler: function(evt) {
@@ -105254,7 +107353,7 @@ Nd.millisecond=Nd.milliseconds=Md,Nd.utcOffset=Na,Nd.utc=Pa,Nd.local=Qa,Nd.parse
     }
   });
 </script>
-<dom-module id="px-chart-yaxis" assetpath="bower_components/px-ts-chart/">
+<dom-module id="px-chart-yaxis" assetpath="bower_components/px-chart/">
 
 </dom-module>
 
@@ -105503,7 +107602,7 @@ Nd.millisecond=Nd.milliseconds=Md,Nd.utcOffset=Na,Nd.utc=Pa,Nd.local=Qa,Nd.parse
 
 
 </script>
-<dom-module id="px-ts-chart" assetpath="bower_components/px-ts-chart/">
+<dom-module id="px-chart" assetpath="bower_components/px-chart/">
   <style>
 @charset "UTF-8";
 /*
@@ -106051,8 +108150,8 @@ html {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("bower_components/px-ts-chart/font-awesome/fonts/fontawesome-webfont.eot?v=4.3.0");
-  src: url("bower_components/px-ts-chart/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"), url("bower_components/px-ts-chart/font-awesome/fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"), url("bower_components/px-ts-chart/font-awesome/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"), url("bower_components/px-ts-chart/font-awesome/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"), url("bower_components/px-ts-chart/font-awesome/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
+  src: url("bower_components/px-chart/font-awesome/fonts/fontawesome-webfont.eot?v=4.3.0");
+  src: url("bower_components/px-chart/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"), url("bower_components/px-chart/font-awesome/fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"), url("bower_components/px-chart/font-awesome/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"), url("bower_components/px-chart/font-awesome/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"), url("bower_components/px-chart/font-awesome/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -108167,7 +110266,7 @@ button.btn {
 header {
   position: relative;
   z-index: 1;
-  margin-bottom: -6.4rem; }
+  margin-bottom: -3.7333333333rem; }
 
 figure .fa {
   cursor: pointer; }
@@ -108178,13 +110277,30 @@ figure .fa {
 px-rangepicker {
   text-align: left; }
 
-/*------------------------------------*    #PX-CLEARFIX-DESIGN
+.px-chart-tooltip {
+  min-width: 400px;
+  text-align: right; }
+  .px-chart-tooltip span {
+    display: inline-block;
+    padding-left: 15px;
+    text-align: left; }
+  .px-chart-tooltip .value {
+    font-size: 15px;
+    padding: 0;
+    margin-bottom: -10px; }
+  .px-chart-tooltip .name {
+    position: relative;
+    top: -2px;
+    font-size: 12px;
+    text-transform: capitalize; }
+
+/*------------------------------------*    #CLEARFIX
 \*------------------------------------*/
 /**
-   * Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
-   * Extend the clearfix class with Sass to avoid the `.clearfix` class appearing
-   * over and over in your markup.
-   */
+ * Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
+ * Extend the clearfix class with Sass to avoid the `.clearfix` class appearing
+ * over and over in your markup.
+ */
 .clearfix:after {
   content: "";
   display: table;
@@ -108783,24 +110899,31 @@ px-rangepicker {
 
 <script type="text/javascript">Polymer({
 
-  is: 'px-ts-chart',
+  is: 'px-chart',
 
   /**
-  * Properties block, expose attribute values to the DOM via 'reflect'
-  *
-  * @property properties
-  * @type Object
-  */
+   * Properties block, expose attribute values to the DOM via 'reflect'
+   *
+   * @property properties
+   * @type Object
+   */
   properties: {
 
     /**
-    * Determines that what type of chart to display. Note that chart type influences the series type for the navigator.
-    *
-    * Can only be statically configured (not data-bindable). Accepts values of 'line', 'scatter' or 'bar'.
-    *
-    * @type {String}
-    * @default line
-    */
+     * Determines that what type of chart to display.
+     *
+     * This type influences the series type for the navigator, the x-axis display, etc.
+     *
+     * This does NOT affect the type of the series displayed on the graph.  To change the type of series, change
+     * the <px-chart-series-*> web component to line, bar, histogram, etc.
+     *
+     * Can only be statically configured (not data-bindable).
+     *
+     * Accepts values of 'line', 'scatter' or 'bar'.
+     *
+     * @type {String}
+     * @default line
+     */
 
     type: {
       type: String,
@@ -108808,24 +110931,24 @@ px-rangepicker {
     },
 
     /**
-    * Whether to show the zoom-able / scroll-able area at the bottom of the chart.
-    *
-    * Can only be statically configured (not data-bindable).
-    *
-    * @type {Boolean}
-    * @default false
-    */
+     * Whether to show the zoom-able / scroll-able area at the bottom of the chart.
+     *
+     * Can only be statically configured (not data-bindable).
+     *
+     * @type {Boolean}
+     * @default false
+     */
     navigatorDisabled: {
       type: Boolean,
       value: false
     },
 
     /**
-    * See http://api.highcharts.com/highcharts#chart.resetZoomButton
-    *
-    * @default
-    * @private
-    */
+     * See http://api.highcharts.com/highcharts#chart.resetZoomButton
+     *
+     * @default
+     * @private
+     */
     resetZoomButton: {
       type: Object,
       value: {
@@ -108836,8 +110959,8 @@ px-rangepicker {
     },
 
     /**
-    * @private
-    */
+     * @private
+     */
     chartZoomed: {
       type: Boolean,
       value: false,
@@ -108847,11 +110970,11 @@ px-rangepicker {
     },
 
     /**
-    * See http://api.highcharts.com/highcharts#chart.events
-    *
-    * @default redraw function()
-    * @private
-    */
+     * See http://api.highcharts.com/highcharts#chart.events
+     *
+     * @default redraw function()
+     * @private
+     */
     events: {
       type: Object,
       value: {
@@ -108868,91 +110991,91 @@ px-rangepicker {
                   end: extremes.max
                 };
               }, 250);
-            }
-          },
-          selection: function(evt) {
-            if (evt.originalEvent && evt.originalEvent.shiftKey) {
-              return true;
-            }
-            else if (evt.xAxis) {
-              var axis = evt.xAxis[0];
-              this.xAxis[0].removePlotBand("selection");
-              this.xAxis[0].addPlotBand({
-                color: 'rgba(245,245,245,0.4)',
-                borderColor: 'rgb(38, 93, 171)',
-                borderWidth: 2,
-                from: axis.min,
-                to: axis.max,
-                id: "selection",
-                zIndex: 5,
+          }
+        },
+        selection: function(evt) {
+          if (evt.originalEvent && evt.originalEvent.shiftKey) {
+            return true;
+          }
+          else if (evt.xAxis) {
+            var axis = evt.xAxis[0];
+            this.xAxis[0].removePlotBand("selection");
+            this.xAxis[0].addPlotBand({
+              color: 'rgba(245,245,245,0.4)',
+              borderColor: 'rgb(38, 93, 171)',
+              borderWidth: 2,
+              from: axis.min,
+              to: axis.max,
+              id: "selection",
+              zIndex: 5,
 
-                label: {
-                  align: "right",
-                  useHTML: true,
-                  /* <i class='fa fa-lg u-mr- fa-pencil style-scope px-ts-chart' onclick='alert(this.innerHTML)' title='Annotate'></i> */
-                  text: "<i class='fa fa-lg fa-search-plus u-mr- style-scope px-ts-chart'" +
-                  "onclick='" +
-                  "var wc=this;" +
-                  "while(!wc.chart) {" +
-                  "wc = wc.parentNode" +
-                  "}" +
-                  "wc.chart.xAxis[0].setExtremes(" + evt.xAxis[0].min + ", " + evt.xAxis[0].max + ");" +
-                  "wc.chart.xAxis[0].removePlotBand(\"selection\");" +
-                  "wc.setZoom(true);" +
-                  "'" +
-                  "title='Zoom to " +
-                  moment(evt.xAxis[0].min).format('LLL') + " to " +
-                  moment(evt.xAxis[0].max).format('LLL') + ";'>" +
-                  "</i>" +
-                  "<i class='fa fa-lg u-mr- fa-times style-scope px-ts-chart'" +
-                  "onclick='" +
-                  "var wc=this;" +
-                  "while(!wc.chart) {" +
-                  "wc = wc.parentNode" +
-                  "}" +
-                  "wc.chart.xAxis[0].removePlotBand(\"selection\");" +
-                  "'" +
-                  "title='Close selection'>" +
-                  "</i>"
-                }
-              });
-              return false;
-            }
+              label: {
+                align: "right",
+                useHTML: true,
+                /* <i class='fa fa-lg u-mr- fa-pencil style-scope px-ts-chart' onclick='alert(this.innerHTML)' title='Annotate'></i> */
+                text: "<i class='fa fa-lg fa-search-plus u-mr- style-scope px-chart'" +
+                "onclick='" +
+                "var wc=this;" +
+                "while(!wc.chart) {" +
+                "wc = wc.parentNode" +
+                "}" +
+                "wc.chart.xAxis[0].setExtremes(" + evt.xAxis[0].min + ", " + evt.xAxis[0].max + ");" +
+                "wc.chart.xAxis[0].removePlotBand(\"selection\");" +
+                "wc.setZoom(true);" +
+                "'" +
+                "title='Zoom to " +
+                moment(evt.xAxis[0].min).format('LLL') + " to " +
+                moment(evt.xAxis[0].max).format('LLL') + ";'>" +
+                "</i>" +
+                "<i class='fa fa-lg u-mr- fa-times style-scope px-chart'" +
+                "onclick='" +
+                "var wc=this;" +
+                "while(!wc.chart) {" +
+                "wc = wc.parentNode" +
+                "}" +
+                "wc.chart.xAxis[0].removePlotBand(\"selection\");" +
+                "'" +
+                "title='Close selection'>" +
+                "</i>"
+              }
+            });
+            return false;
           }
         }
-      },
+      }
+    },
 
-      /**
-      * See http://api.highcharts.com/highcharts#plotOptions.series.events
-      *
-      * @default show & hide series function()
-      * @private
-      */
-      seriesEvents: {
-        type: Object,
-        value: {
-          show: function() {
-            var tsChart = Polymer.dom(this.chart.renderTo).parentNode.parentNode;
-            // tsChart.chartState.seriesState = this.chart.series;
-            tsChart.set('chartState.seriesState', this.chart.series)
-          },
-          hide: function() {
-            var tsChart = Polymer.dom(this.chart.renderTo).parentNode.parentNode;
-            // tsChart.chartState.seriesState = this.chart.series;
-            tsChart.set('chartState.seriesState', this.chart.series)
-          }
+    /**
+     * See http://api.highcharts.com/highcharts#plotOptions.series.events
+     *
+     * @default show & hide series function()
+     * @private
+     */
+    seriesEvents: {
+      type: Object,
+      value: {
+        show: function() {
+          var tsChart = Polymer.dom(this.chart.renderTo).parentNode.parentNode;
+          // tsChart.chartState.seriesState = this.chart.series;
+          tsChart.set('chartState.seriesState', this.chart.series)
+        },
+        hide: function() {
+          var tsChart = Polymer.dom(this.chart.renderTo).parentNode.parentNode;
+          // tsChart.chartState.seriesState = this.chart.series;
+          tsChart.set('chartState.seriesState', this.chart.series)
         }
-      },
+      }
+    },
 
-      /**
-      * See http://api.highcharts.com/highcharts#legend
-      *
-      * Note that a default legend will be enabled but can set this as an override.
-      *
-      * Can only be statically configured (not data-bindable).
-      *
-      * ```
-      *    <px-ts-chart legend='{
+    /**
+     * See http://api.highcharts.com/highcharts#legend
+     *
+     * Note that a default legend will be enabled but can set this as an override.
+     *
+     * Can only be statically configured (not data-bindable).
+     *
+     * ```
+     *    <px-ts-chart legend='{
       *      "enabled": true,
       *      "useHTML": true,
       *      "layout": "vertical",
@@ -108963,943 +111086,967 @@ px-rangepicker {
       *      "itemMarginTop": 5,
       *      "itemMarginBottom": 5
       *      }'
-      *      ...
-      *```
-      *
-      * @type Object
-      * @default variable depending on the legendRight property
-      */
-      legend: {
-        type: Object
-      },
-
-      /**
-      * Whether the legend appears to the right of the chart.
-      *
-      * Can only be statically configured (not data-bindable).
-      *
-      * @type Boolean
-      * @default false
-      */
-      legendRight: {
-        type: Boolean,
-        value: false
-      },
-
-      /**
-      * See http://api.highcharts.com/highcharts#chart.height
-      *
-      * Can only be statically configured (not data-bindable).
-      *
-      * @default 400
-      */
-      height: {
-        type: Number,
-        value: 400
-      },
-
-      /**
-      * See http://api.highcharts.com/highcharts#chart.margin
-      *
-      * Can only be statically configured (not data-bindable).
-      *
-      * @default [50,20,30,40] or [100,20,30,40] if zoom buttons exist
-      */
-      margin: {
-        type: Array,
-        value: [50, 20, 30, 40]
-      },
-
-      /**
-      * See http://api.highcharts.com/highcharts#chart.plotBorderWidth
-      *
-      * Can only be statically configured (not data-bindable).
-      *
-      * @default 1
-      */
-      plotBorderWidth: {
-        type: Number,
-        value: 1
-      },
-
-      /**
-      * See http://api.highcharts.com/highcharts#chart.zoomType
-      *
-      * Can only be statically configured (not data-bindable).
-      *
-      * @default "x"
-      */
-      zoomType: {
-        type: String,
-        value: 'x'
-      },
-
-      /**
-      * URL for the chart export server (converts to image / pdf / etc). Default is null.  Can use "http://export.highcharts.com"
-      * for demo purposes only...no intellectual property should go through that server.
-      *
-      * Can only be statically configured (not data-bindable).
-      */
-      exportServerUrl: {
-        type: String
-      },
-
-      /**
-      * Holds chart state for binding between charts & serialising chart settings.
-      *
-      * See the synchronized charts demo (demo-sync.html) for an example.
-      *
-      * @default {}
-      */
-      chartState: {
-        type: Object,
-        value: function() {
-          return {};
-        },
-        notify: true
-      },
-
-      /**
-      * Mapping of color name to rgb value for use in datavis (axis, navigator, series, etc. colors)
-      *
-      * Can only be statically configured (not data-bindable).
-      *
-      * @type {Object}
-      * @default Same is datavis colors in px-colors-design
-      */
-      dataVisColors: {
-        type: Object,
-        value: {
-          "dv-basic-blue": "rgb(93, 165, 218)",
-          "dv-basic-orange": "rgb(250, 164, 58)",
-          "dv-basic-green": "rgb(96, 189, 104)",
-          "dv-basic-pink": "rgb(241, 124, 176)",
-          "dv-basic-brown": "rgb(178, 145, 47)",
-          "dv-basic-purple": "rgb(178, 118, 178)",
-          "dv-basic-yellow": "rgb(222, 207, 63)",
-          "dv-basic-red": "rgb(241, 88, 84)",
-          "dv-basic-gray": "rgb(59,59,63)",
-
-          "dv-light-blue": "rgb(136, 189, 230)",
-          "dv-light-orange": "rgb(251, 178, 88)",
-          "dv-light-green": "rgb(144, 205, 151)",
-          "dv-light-pink": "rgb(246, 170, 201)",
-          "dv-light-brown": "rgb(191, 165, 84)",
-          "dv-light-purple": "rgb(188, 153, 199)",
-          "dv-light-yellow": "rgb(237, 221, 70)",
-          "dv-light-red": "rgb(240, 126, 110)",
-          "dv-dark-black": "rgb(228,228,234)",
-
-          "dv-dark-blue": "rgb(38, 93, 171)",
-          "dv-dark-orange": "rgb(223, 92, 36)",
-          "dv-dark-green": "rgb(5, 151, 72)",
-          "dv-dark-pink": "rgb(229, 18, 111)",
-          "dv-dark-brown": "rgb(157, 114, 42)",
-          "dv-dark-purple": "rgb(123, 58, 150)",
-          "dv-dark-yellow": "rgb(199, 180, 46)",
-          "dv-dark-red": "rgb(203, 32, 39)",
-          "dv-dark-gray": "rgb(0, 0, 0)",
-          "dv-dark-black": "rgb(0,0,0)"
-        }
-      },
-
-      /**
-      * Mapping of color names (from dataVisColors map) in the order they should be applied to chart series.
-      *
-      * Can only be statically configured (not data-bindable).
-      *
-      * ```
-      *   <px-ts-chart series-color-order='[
-      *       "dv-light-pink",
-      *       "dv-light-brown",
-      *       "dv-light-purple",
-      *       "dv-light-yellow"
-      *     ]',
-      *     ...
-      * ```
-      *
-      * @type {Array}
-      */
-      seriesColorOrder: {
-        type: Array,
-        value: [
-          "dv-basic-blue",
-          "dv-basic-orange",
-          "dv-basic-green",
-          "dv-basic-pink",
-          "dv-basic-brown",
-          "dv-basic-purple",
-          "dv-basic-yellow",
-          "dv-basic-red",
-          "dv-basic-gray",
-
-          "dv-light-blue",
-          "dv-light-orange",
-          "dv-light-green",
-          "dv-light-pink",
-          "dv-light-brown",
-          "dv-light-purple",
-          "dv-light-yellow",
-          "dv-light-red",
-          "dv-light-gray",
-
-          "dv-dark-blue",
-          "dv-dark-orange",
-          "dv-dark-green",
-          "dv-dark-pink",
-          "dv-dark-brown",
-          "dv-dark-purple",
-          "dv-dark-yellow",
-          "dv-dark-red",
-          "dv-dark-gray"
-        ]
-      }
+     *      ...
+     *```
+     *
+     * @type Object
+     * @default variable depending on the legendRight property
+     */
+    legend: {
+      type: Object
     },
 
-    observers: [
-      'chartStateUpdated(chartState.*)',
-      '_rangeObserver(rangeMs)'
-    ],
+    /**
+     * Whether the legend appears to the right of the chart.
+     *
+     * Can only be statically configured (not data-bindable).
+     *
+     * @type Boolean
+     * @default false
+     */
+    legendRight: {
+      type: Boolean,
+      value: false
+    },
 
     /**
-    * @private
-    */
-    defaultYAxisConfig: null,
+     * See http://api.highcharts.com/highcharts#chart.height
+     *
+     * Can only be statically configured (not data-bindable).
+     *
+     * @default 400
+     */
+    height: {
+      type: Number,
+      value: 400
+    },
 
     /**
-    * @private
-    */
-    defaultSeriesConfig: null,
+     * See http://api.highcharts.com/highcharts#chart.margin
+     *
+     * Can only be statically configured (not data-bindable).
+     *
+     * @default [50,20,30,40] or [100,20,30,40] if zoom buttons exist
+     */
+    margin: {
+      type: Array,
+      value: [50, 20, 30, 40]
+    },
 
     /**
-    * @private
-    */
-    defaultLegendTop: {
-      enabled: true,
-      useHTML: true,
-      verticalAlign: 'top',
-      align: 'left',
-      layout: 'vertical',
-      floating: true,
-      itemStyle: {
-        fontSize: 'inherit',
-        fontWeight: 'normal'
+     * See http://api.highcharts.com/highcharts#chart.plotBorderWidth
+     *
+     * Can only be statically configured (not data-bindable).
+     *
+     * @default 1
+     */
+    plotBorderWidth: {
+      type: Number,
+      value: 1
+    },
+
+    /**
+     * See http://api.highcharts.com/highcharts#chart.zoomType
+     *
+     * Can only be statically configured (not data-bindable).
+     *
+     * @default "x"
+     */
+    zoomType: {
+      type: String,
+      value: 'x'
+    },
+
+    /**
+     * URL for the chart export server (converts to image / pdf / etc). Default is null.  Can use "http://export.highcharts.com"
+     * for demo purposes only...no intellectual property should go through that server.
+     *
+     * Can only be statically configured (not data-bindable).
+     */
+    exportServerUrl: {
+      type: String
+    },
+
+    /**
+     * Holds chart state for binding between charts & serialising chart settings.
+     *
+     * See the synchronized charts demo (demo-sync.html) for an example.
+     *
+     * @default {}
+     */
+    chartState: {
+      type: Object,
+      value: function() {
+        return {};
+      },
+      notify: true
+    },
+
+    /**
+     * Mapping of color name to rgb value for use in datavis (axis, navigator, series, etc. colors)
+     *
+     * Can only be statically configured (not data-bindable).
+     *
+     * @type {Object}
+     * @default Same is datavis colors in px-colors-design
+     */
+    dataVisColors: {
+      type: Object,
+      value: {
+        "dv-basic-blue": "rgb(93, 165, 218)",
+        "dv-basic-orange": "rgb(250, 164, 58)",
+        "dv-basic-green": "rgb(96, 189, 104)",
+        "dv-basic-pink": "rgb(241, 124, 176)",
+        "dv-basic-brown": "rgb(178, 145, 47)",
+        "dv-basic-purple": "rgb(178, 118, 178)",
+        "dv-basic-yellow": "rgb(222, 207, 63)",
+        "dv-basic-red": "rgb(241, 88, 84)",
+        "dv-basic-gray": "rgb(59,59,63)",
+
+        "dv-light-blue": "rgb(136, 189, 230)",
+        "dv-light-orange": "rgb(251, 178, 88)",
+        "dv-light-green": "rgb(144, 205, 151)",
+        "dv-light-pink": "rgb(246, 170, 201)",
+        "dv-light-brown": "rgb(191, 165, 84)",
+        "dv-light-purple": "rgb(188, 153, 199)",
+        "dv-light-yellow": "rgb(237, 221, 70)",
+        "dv-light-red": "rgb(240, 126, 110)",
+
+        "dv-dark-blue": "rgb(38, 93, 171)",
+        "dv-dark-orange": "rgb(223, 92, 36)",
+        "dv-dark-green": "rgb(5, 151, 72)",
+        "dv-dark-pink": "rgb(229, 18, 111)",
+        "dv-dark-brown": "rgb(157, 114, 42)",
+        "dv-dark-purple": "rgb(123, 58, 150)",
+        "dv-dark-yellow": "rgb(199, 180, 46)",
+        "dv-dark-red": "rgb(203, 32, 39)",
+        "dv-dark-gray": "rgb(0, 0, 0)"
       }
     },
 
     /**
-    * @private
-    */
-    defaultLegendRight: {
-      enabled: true,
-      verticalAlign: 'top',
-      align: 'right',
-      layout: 'vertical',
-      y: 50,
-      x: -125,
-      floating: false,
-      itemStyle: {
-        fontSize: 'inherit',
-        fontWeight: 'normal'
-      }
-    },
+     * Mapping of color names (from dataVisColors map) in the order they should be applied to chart series.
+     *
+     * Can only be statically configured (not data-bindable).
+     *
+     * ```
+     *   <px-ts-chart series-color-order='[
+     *       "dv-light-pink",
+     *       "dv-light-brown",
+     *       "dv-light-purple",
+     *       "dv-light-yellow"
+     *     ]',
+     *     ...
+     * ```
+     *
+     * @type {Array}
+     */
+    seriesColorOrder: {
+      type: Array,
+      value: [
+        "dv-basic-blue",
+        "dv-basic-orange",
+        "dv-basic-green",
+        "dv-basic-pink",
+        "dv-basic-brown",
+        "dv-basic-purple",
+        "dv-basic-yellow",
+        "dv-basic-red",
+        "dv-basic-gray",
 
-    /**
-    * @private
-    */
-    chartStateUpdated: function(evt) {
-      var chartExtremesHaveChanged = function(self) {
-        var currentChartExtremes = self.chart.xAxis[0].getExtremes();
-        return (currentChartExtremes.max !== evt.value.chartZoom.max || currentChartExtremes.min !== evt.value.chartZoom.min);
-      };
+        "dv-light-blue",
+        "dv-light-orange",
+        "dv-light-green",
+        "dv-light-pink",
+        "dv-light-brown",
+        "dv-light-purple",
+        "dv-light-yellow",
+        "dv-light-red",
+        "dv-light-gray",
 
-      var chartAndEventAreValid = function(self) {
-        return (self.chart && evt.value.srcElement);
-      };
+        "dv-dark-blue",
+        "dv-dark-orange",
+        "dv-dark-green",
+        "dv-dark-pink",
+        "dv-dark-brown",
+        "dv-dark-purple",
+        "dv-dark-yellow",
+        "dv-dark-red",
+        "dv-dark-gray"
+      ]
+    }
+  },
 
-      if (chartAndEventAreValid(this)) {
-        if (chartExtremesHaveChanged(this)) {
-          if (evt.value.srcElement !== this) {
-            this.chart.xAxis[0].setExtremes(evt.value.chartZoom.min, evt.value.chartZoom.max, true);
-          }
+  observers: [
+    'chartStateUpdated(chartState.*)',
+    '_rangeObserver(rangeMs)'
+  ],
+
+  /**
+   * @private
+   */
+  defaultYAxisConfig: null,
+
+  /**
+   * @private
+   */
+  defaultSeriesConfig: null,
+
+  /**
+   * @private
+   */
+  defaultLegendTop: {
+    enabled: true,
+    useHTML: true,
+    verticalAlign: 'top',
+    align: 'left',
+    layout: 'vertical',
+    floating: true,
+    itemStyle: {
+      fontSize: 'inherit',
+      fontWeight: 'normal'
+    }
+  },
+
+  /**
+   * @private
+   */
+  defaultLegendRight: {
+    enabled: true,
+    verticalAlign: 'top',
+    align: 'right',
+    layout: 'vertical',
+    y: 50,
+    x: -125,
+    floating: false,
+    itemStyle: {
+      fontSize: 'inherit',
+      fontWeight: 'normal'
+    }
+  },
+
+  /**
+   * @private
+   */
+  chartStateUpdated: function(evt) {
+    var chartExtremesHaveChanged = function(self) {
+      var currentChartExtremes = self.chart.xAxis[0].getExtremes();
+      return (currentChartExtremes.max !== evt.value.chartZoom.max || currentChartExtremes.min !== evt.value.chartZoom.min);
+    };
+
+    var chartAndEventAreValid = function(self) {
+      return (self.chart && evt.value.srcElement);
+    };
+
+    if (chartAndEventAreValid(this)) {
+      if (chartExtremesHaveChanged(this)) {
+        if (evt.value.srcElement !== this) {
+          this.chart.xAxis[0].setExtremes(evt.value.chartZoom.min, evt.value.chartZoom.max, true);
         }
       }
-    },
+    }
+  },
 
-    _rangeObserver: function() {
-      var controlsEl = Polymer.dom(this).querySelector("[data-controls]");
-      if (controlsEl && controlsEl.set && this.rangeMs.start !== null && this.rangeMs.end !== null) {
-        controlsEl.set("rangeMs", {
-          from: this.rangeMs.start,
-          to: this.rangeMs.end
-        });
-      }
-    },
+  _rangeObserver: function() {
+    var controlsEl = Polymer.dom(this).querySelector("[data-controls]");
+    if (controlsEl && controlsEl.set && this.rangeMs.start !== null && this.rangeMs.end !== null) {
+      controlsEl.set("rangeMs", {
+        from: this.rangeMs.start,
+        to: this.rangeMs.end
+      });
+    }
+  },
 
-    _initializeMargins: function() {
-      var margin = this.margin;
-      if (margin && margin[0] === 50) {//adjust top margin if zoom controls not present
-        var controls = Polymer.dom(this).querySelector('px-ts-chart-controls');
-        if (controls && controls.getAttribute('zoom-buttons') !== 'null' && controls.getAttribute('zoom-buttons') !== '[]') {
-          this.margin = [100, margin[1], margin[2], margin[3]];
-          if (this.legend && this.legend.align === 'right') {
-            this.legend.y = 100;
-          }
-        }
-      }
-
-      margin = this.margin;
-      if (margin && margin[1] === 20) {//null out the right margin if default right margin and legend-right so highcharts can use default spacing
+  _initializeMargins: function() {
+    var margin = this.margin;
+    if (margin && margin[0] === 50) {//adjust top margin if zoom controls not present
+      var controls = Polymer.dom(this).querySelector('px-chart-controls');
+      if (controls && controls.getAttribute('zoom-buttons') !== 'null' && controls.getAttribute('zoom-buttons') !== '[]') {
+        this.margin = [100, margin[1], margin[2], margin[3]];
         if (this.legend && this.legend.align === 'right') {
-          this.margin = [margin[0], null, margin[2], margin[3]];
+          this.legend.y = 100;
         }
       }
-    },
+    }
 
-    _addAxisAndSeries: function() {
-
-      var _this = this;
-
-      var axisEls = Polymer.dom(this).querySelectorAll("px-chart-yaxis");
-      var axisElsProcessed = 0;
-      if (!axisEls || axisEls.length === 0) {
-        //update the default yAxis with our own default options...
-        this.defaultYAxisConfig = this.defaultYAxisConfig || document.createElement("px-chart-yaxis");
-        this.chart.yAxis[0].update(this.defaultYAxisConfig.buildConfig(this.dataVisColors["dv-dark-black"]), /*redraw*/false);
-
-        this.addInitialSeries();
+    margin = this.margin;
+    if (margin && margin[1] === 20) {//null out the right margin if default right margin and legend-right so highcharts can use default spacing
+      if (this.legend && this.legend.align === 'right') {
+        this.margin = [margin[0], null, margin[2], margin[3]];
       }
-      else {
-        axisEls.forEach(function(axisEl) {
-          var yAxisReadyHandler = function(yAxisOrEvt) {
-            var axis = yAxisOrEvt.target || yAxisOrEvt;
-            var axisConfig = axis.buildConfig(_this.dataVisColors["dv-dark-black"]);
-            _this.addYAxis(axisConfig, /*noRedraw*/true);
-            axisElsProcessed++;
-            if (axisElsProcessed === axisEls.length) {
-              _this.addInitialSeries();
-            }
-          };
-          axisEl.axisReady ? yAxisReadyHandler(axisEl) : axisEl.addEventListener("y-axis-ready", yAxisReadyHandler);
+    }
+  },
+
+  _addAxisAndSeries: function() {
+
+    var _this = this;
+
+    var axisEls = Polymer.dom(this).querySelectorAll("px-chart-yaxis");
+    var axisElsProcessed = 0;
+    if (!axisEls || axisEls.length === 0) {
+      //update the default yAxis with our own default options...
+      this.defaultYAxisConfig = this.defaultYAxisConfig || document.createElement("px-chart-yaxis");
+      this.chart.yAxis[0].update(this.defaultYAxisConfig.buildConfig(this.dataVisColors["dv-dark-gray"]), /*redraw*/false);
+
+      this.addInitialSeries();
+    }
+    else {
+      axisEls.forEach(function(axisEl) {
+        var yAxisReadyHandler = function(yAxisOrEvt) {
+          var axis = yAxisOrEvt.target || yAxisOrEvt;
+          var axisConfig = axis.buildConfig(_this.dataVisColors["dv-dark-gray"]);
+          _this.addYAxis(axisConfig, /*noRedraw*/true);
+          axisElsProcessed++;
+          if (axisElsProcessed === axisEls.length) {
+            _this.addInitialSeries();
+          }
+        };
+        axisEl.axisReady ? yAxisReadyHandler(axisEl) : axisEl.addEventListener("y-axis-ready", yAxisReadyHandler);
+      });
+    }
+
+  },
+
+  /**
+   * Lifecycle callback to create the Highchart 'chart' object and consume the config / series elements
+   *
+   * This is in attached because the size of the parent container for the Highchart is set in attached
+   */
+  attached: function() {
+
+    if (!this.legend) {
+      this.legend = this.legendRight ? this.defaultLegendRight : this.defaultLegendTop;
+    }
+
+    this._initializeMargins();
+
+    this.chart = new Highcharts.StockChart(this.buildConfig());
+
+    this._addAxisAndSeries();
+  },
+
+  listeners: {
+    'after-set-extremes': 'firechartStateUpdated'
+  },
+
+  /**
+   * Notify end-user developers values of extremes
+   * @private
+   */
+  firechartStateUpdated: function(evt) {
+    var extremes = this.chart.xAxis[0].getExtremes();
+    var tsChart = Polymer.dom(this).node;
+    tsChart.debounce(
+      'set-chart-state', function() {
+        this.set('chartState', {chartZoom: extremes, srcElement: this});
+      }, 250);
+  },
+
+  /**
+   * Internal callback for Highcharts config ready
+   * @private
+   */
+  addInitialSeries: function() {
+    //find series elements in light dom ("Polymer.dom(this)" vs. "Polymer.dom(this.root)", which would be shadow dom)
+
+    var _this = this;
+    var seriesEls = [];
+    ["px-chart-series-line", "px-chart-series-histogram", "px-chart-series-bar", "px-chart-series-scatter"].forEach(function(series) {
+      var nodelist = Polymer.dom(_this).querySelectorAll(series);
+      if (nodelist) {
+        nodelist.forEach(function(node) {
+          seriesEls.push(node)
         });
-      }
-
-    },
-
-    /**
-    * Lifecycle callback to create the Highchart 'chart' object and consume the config / series elements
-    *
-    * This is in attached because the size of the parent container for the Highchart is set in attached
-    */
-    attached: function() {
-
-      if (!this.legend) {
-        this.legend = this.legendRight ? this.defaultLegendRight : this.defaultLegendTop;
-      }
-
-      this._initializeMargins();
-
-      this.chart = new Highcharts.StockChart(this.buildConfig());
-
-      this._addAxisAndSeries();
-    },
-
-    listeners: {
-      'after-set-extremes': 'firechartStateUpdated'
-    },
-
-    /**
-    * Notify end-user developers values of extremes
-    * @private
-    */
-    firechartStateUpdated: function(evt) {
-      var extremes = this.chart.xAxis[0].getExtremes();
-      var tsChart = Polymer.dom(this).node;
-      tsChart.debounce(
-        'set-chart-state', function() {
-          this.set('chartState', {chartZoom: extremes, srcElement: this});
-        }, 250);
-      },
-
-      /**
-      * Internal callback for Highcharts config ready
-      * @private
-      */
-      addInitialSeries: function() {
-        //find series elements in light dom ("Polymer.dom(this)" vs. "Polymer.dom(this.root)", which would be shadow dom)
-
-        var _this = this;
-        var seriesEls = [];
-        ["px-chart-series", "px-histogram-series", "px-bar-series", "px-chart-series-scatter"].forEach(function(series) {
-          var nodelist = Polymer.dom(_this).querySelectorAll(series);
-          if (nodelist) {
-            nodelist.forEach(function(node) {
-              seriesEls.push(node)
-            });
-          }
-        });
-
-        var seriesElReadyHandler = function(seriesElOrEvt) {
-          var seriesEl = seriesElOrEvt.target || seriesElOrEvt;
-          _this.addSeries(seriesEl.buildConfig(), /*noRedraw*/false);
-          seriesEl.addEventListener("data-changed", function(evt) {
-            console.log('px-ts-chart: data-changed event. ');
-            _this.updateSeries(seriesEl.id, evt.detail.value, /*noRedraw*/false);
-          });
-          seriesEl.addEventListener("data-events-changed", function(evt) {
-            console.log('px-ts-chart: data-events-changed event. ');
-            _this.updateSeriesEvents({id: seriesEl.id}, evt.detail.value, /*noRedraw*/false);
-          });
-        };
-
-        seriesEls.forEach(function(seriesEl) {
-          seriesEl.seriesReady ? seriesElReadyHandler(seriesEl) : seriesEl.addEventListener("series-ready", seriesElReadyHandler);
-        });
-
-
-      },
-
-      addYAxis: function(axisConfig, defaultColor, noRedraw) {
-        if (!axisConfig) {
-          this.defaultYAxisConfig = this.defaultYAxisConfig || document.createElement("px-chart-yaxis");
-          this.defaultYAxisConfig.offset = this.defaultYAxisConfig.offset + 10;
-          axisConfig = this.defaultYAxisConfig.buildConfig(defaultColor || this.dataVisColors["dv-dark-black"]);
-        }
-        this.chart.addAxis(axisConfig, /*isX*/false, !noRedraw);
-      },
-
-      /**
-      * Adds a series to the chart, adding a yAxis as needed
-      *
-      * @param {Object} seriesConfig
-      * * {String} id
-      * * {Array} data
-      * * {Number} yAxis Optional. The axis index to which the series should be bound. Defaults to 0.
-      * * {Number} lineWidth Optional.
-      * * {Object} marker. Optional. Highcharts marker config
-      * * {Object} tooltip. Optional. Highcharts tooltip config
-      * @param {Boolean} noRedraw Optional. If true, does not force a chart redraw() after adding or updating the series
-      */
-      addSeries: function(seriesConfig, noRedraw) {
-        if (seriesConfig && this.hasSeries(seriesConfig.id)) {
-          this.updateAxisThreshold(seriesConfig, seriesConfig.upperThreshold, "upperThreshold");
-          this.updateAxisThreshold(seriesConfig, seriesConfig.lowerThreshold, "lowerThreshold");
-          this.updateSeriesEvents(seriesConfig, seriesConfig.dataEvents, /*noRedraw*/true);
-          this.updateSeries(seriesConfig.id, seriesConfig.data, noRedraw);
-        }
-        else {
-          if (!seriesConfig) {
-            this.defaultSeriesConfig = this.defaultSeriesConfig || document.createElement("px-chart-series");
-            seriesConfig = this.defaultSeriesConfig.buildConfig();
-          }
-          if (!seriesConfig.id) {
-            seriesConfig.id = this.chart.series.length;
-          }
-          if (seriesConfig.axisId) {//associate with yAxis
-            for (var i = 0; i < this.chart.yAxis.length; i++) {
-              if (this.chart.yAxis[i].userOptions.id === seriesConfig.axisId) {
-                seriesConfig.yAxis = i;
-                break;
-              }
-            }
-            if (typeof seriesConfig.yAxis === "undefined") {
-              throw new Error("Tried to associate series " + seriesConfig.id + " to yAxis id " + seriesConfig.axisId + " but it doesn't exist.");
-            }
-          }
-          else if (typeof seriesConfig.yAxis === "undefined") {
-            seriesConfig.yAxis = 0;//apply to default yAxis...
-          }
-          this.updateAxisThreshold(seriesConfig, seriesConfig.upperThreshold, "upperThreshold");
-          this.updateAxisThreshold(seriesConfig, seriesConfig.lowerThreshold, "lowerThreshold");
-          this.updateSeriesEvents(seriesConfig, seriesConfig.dataEvents, /*noRedraw*/true);
-          this.chart.addSeries(seriesConfig, !noRedraw);
-          if (!noRedraw) {
-            this.chart.redraw();
-          }
-        }
-      },
-
-      /**
-      * Threshold lines are optionally bound to series. This function processes threshold values on a given series and
-      * applies them on the y-axis that is associated with the given series.
-      *
-      * @param seriesConfig
-      * @param thresholdValue
-      * @param id
-      */
-      updateAxisThreshold: function(seriesConfig, thresholdValue, id) {
-        var yAxisIndex = seriesConfig.yAxis || 0;
-        var yAxis = this.chart.yAxis[yAxisIndex];
-        yAxis.removePlotLine(id);
-        if (typeof thresholdValue !== "undefined") {
-          var seriesColor = seriesConfig.color;
-          if (!seriesColor) {
-            if (this.hasSeries(seriesConfig.id)) {
-              seriesColor = this.chart.get(seriesConfig.id).options.color;
-            }
-            else {
-              seriesColor = this.chart.options.colors[this.chart.series.length];
-            }
-          }
-          var thresholdConfig = {
-            dashStyle: "ShortDash",
-            color: seriesColor,
-            value: thresholdValue,
-            id: id,
-            width: 1,
-            label: {
-              align: yAxis.options.opposite ? "right" : "left",
-              style: {
-                fontSize: '0.8rem',
-                color: seriesColor
-              },
-              text: thresholdValue
-            }
-          };
-          yAxis.addPlotLine(thresholdConfig);
-        }
-      },
-
-      /**
-      * Updates a series on the chart, adding a default series as needed.
-      *
-      * @param {String} seriesId
-      * @param {Array} data
-      * @param {Boolean} noRedraw Optional. If true, does not force a chart redraw() after adding or updating the series
-      */
-      updateSeries: function(seriesId, data, noRedraw) {
-        if (!this.hasSeries(seriesId)) {
-          this.addSeries(/*seriesConfig*/null, /*noRedraw*/true);
-        }
-        this.chart.get(seriesId).setData(data, !noRedraw);
-        if (!noRedraw) {
-          this.chart.redraw();
-        }
-      },
-
-      /**
-      * Updates series events on the chart
-      *
-      * @param {Object} seriesConfig
-      * @param {Array} events
-      * @param {Boolean} noRedraw Optional. If true, does not force a chart redraw() after adding or updating the events
-      *
-      * @private
-      */
-      updateSeriesEvents: function(seriesConfig, events, noRedraw) {
-        if (events) {
-          var _this = this;
-          events.forEach(function(event) {
-            var eventConfig = {
-              color: _this.dataVisColors["dv-dark-black"],
-              value: event.time,
-              id: event.id,
-              width: 2,
-              textAlign: "left",
-              label: {
-                align: "top",
-                useHTML: true,
-                rotation: 0,
-                style: {
-                  fontSize: '0.8rem',
-                  color: _this.dataVisColors["dv-basic-red"]
-                },
-                text: "<span class='style-scope px-ts-chart data-event-icon' title='" + event.label + "' style='cursor:pointer; display:block; margin-top: -1.10rem; margin-left:-0.87rem'><i class='fa fa-lg fa-exclamation-triangle style-scope px-ts-chart'></i> </span>"
-              }
-            };
-            _this.chart.xAxis[0].addPlotLine(eventConfig);
-          });
-        }
-        if (!noRedraw) {
-          this.chart.redraw();
-        }
-      },
-
-      /**
-      * Removes a series from the chart
-      *
-      * @param {String} seriesId
-      */
-      removeSeries: function(seriesId) {
-        this.chart.get(seriesId).remove();
-        this.resetNavSeries();
-      },
-
-      /**
-      * @private
-      */
-      resetNavSeries: function() {
-        var nav = this.chart.get('nav');
-        var series = null;
-        nav.setData([]);
-        if (this.chart.series.length === 0) {
-          // no series
-        } else if (this.chart.series[0].name === "Navigator") {
-          series = this.chart.series[1];
-        } else {
-          series = this.chart.series[0];
-        }
-        if (series) {
-          nav.setData(series.options.data, true);
-        }
-      },
-
-      /**
-      * Returns true if the chart has a series with the given id
-      *
-      * @param {String} seriesId
-      * @return {Boolean}
-      */
-      hasSeries: function(seriesId) {
-        return (this.chart.get(seriesId) != null);
-      },
-
-      /**
-      * Toggles display of points on the chart
-      *
-      * @param {Array} seriesIds Optional. seriesIds ids of the series to update, or null for all
-      */
-      togglePointMarkers: function(seriesIds) {
-        var _this = this;
-        var seriesToUpdate = seriesIds ? seriesIds.map(function(id) {
-          return _this.chart.get(id)
-        }) : this.chart.series;
-        seriesToUpdate.forEach(function(series) {
-          var existingMarkerOpts = series.options.marker;
-          series.update({marker: {enabled: (!existingMarkerOpts || !existingMarkerOpts.enabled)}}, /*redraw*/false);
-        });
-        this.chart.redraw();
-      },
-
-      /**
-      * Returns true of rangeStart / end has changed
-      *
-      * @param {Number} start Range start time in milliseconds since the epoch
-      * @param {Number} end Range end time in milliseconds since the epoch
-      * @return {Boolean}
-      *
-      * @private
-      */
-      hasExtremeChanged: function(start, end) {
-        if(this.chart && this.chart.xAxis && this.chart.xAxis.length > 0) {
-          var extremes = this.chart.xAxis[0].getExtremes();
-          return extremes.min !== start || extremes.max !== end;
-        }
-        return false;
-      },
-
-      /**
-      * Fires one "refresh-series" event for each series on the chart, each event has the id of the series.
-      */
-      refreshAllSeries: function() {
-        var _this = this;
-        this.chart.series.forEach(function(series) {
-          _this.fire("refresh-series", series.options.id);
-        });
-      },
-
-
-      /**
-      * Sets chart extremes to given start and end times
-      *
-      * @private
-      */
-      setExtremesIfChanged: function(x, y) {
-        var startTime = parseInt(x);
-        var endTime = parseInt(y);
-        if (this.hasExtremeChanged(startTime, endTime)) {
-          this.rangeMs = {
-            start: startTime,
-            end: endTime
-          };
-          this.chart.xAxis[0].setExtremes(this.rangeMs.start, this.rangeMs.end);
-        }
-      },
-
-      /**
-      * @private
-      * @param value
-      */
-      setZoom: function(value) {
-        this.set('chartZoomed', value);
-      },
-
-      /**
-      * @private
-      */
-      setZoomFalse: function() {
-        this.setZoom(false);
-      },
-
-      /**
-      * @private
-      */
-      chartZoomedObserver: function() {
-        var topMargin = this.margin ? this.margin[0] : 0;
-        this.$.resetZoom.style.top = (topMargin + 10) + 'px';
-        this.$.resetZoom.style.display = this.chartZoomed ? 'block' : 'none';
-        if (this.chart && this.chartZoomed === false) {
-          this.chart.zoomOut();
-        }
-        ;
-      },
-
-      /**
-      * Builds up highcharts config object
-      * @private
-      */
-      buildConfig: function() {
-        var self = this;
-
-        var createSeriesColorsArray = function(colors, keysInOrder) {
-          return keysInOrder.map(function(key) {
-            var color = colors[key];
-            if (color) {
-              return color;
-            }
-          });
-        };
-
-        /**
-        * @private
-        */
-        var defaultNavSeries = {
-          type: 'line',
-          marker: {
-            enabled: false
-          },
-          id: 'nav',
-          color: 'transparent',
-          lineColor: this.dataVisColors["dv-dark-blue"],
-          lineWidth: 1
-        };
-
-        /**
-        * @private
-        */
-        var scatterNavSeries = {
-          type: this.type,
-          marker: {
-            enabled: true
-          },
-          id: 'nav',
-          lineColor: this.dataVisColors["dv-dark-blue"],
-          lineWidth: 0
-        };
-
-        var barNavSeries = {
-          type: 'column',
-          marker: {
-            enabled: true
-          },
-          id: 'nav',
-          lineColor: this.dataVisColors["dv-dark-blue"],
-          lineWidth: 0
-        };
-
-        var getNavSeries = function(tsChartType) {
-          switch (tsChartType) {
-            case 'scatter':
-              return scatterNavSeries;
-            case 'histogram':
-            case 'bar':
-              return barNavSeries;
-            default:
-              return defaultNavSeries;
-          }
-        };
-
-        var getHighchartsChartType = function(tsChartType) {
-          switch (tsChartType) {
-            case 'histogram':
-            case 'bar':
-              return 'column';
-            default:
-              return tsChartType;
-          }
-        };
-
-        var getXaxisLabelsOptions = function(tsChartType) {
-          switch(tsChartType) {
-            case 'histogram':
-              return {
-                align: "left",
-                style: {
-                  fontSize: '0.8rem',
-                  color: self.dataVisColors["dv-dark-black"]
-                },
-                x: 3,
-                y: 12,
-                formatter: function() {
-                  return this.value;
-                }
-              };
-            default:
-              return {
-                align: "left",
-                style: {
-                  fontSize: '0.8rem',
-                  color: self.dataVisColors["dv-dark-black"]
-                },
-                x: 3,
-                y: 12
-              };
-          }
-        };
-
-        return {
-
-          colors: createSeriesColorsArray(this.dataVisColors, this.seriesColorOrder),
-          annotationsOptions: {
-            enabledButtons: false
-          },
-          chart: {
-            type: getHighchartsChartType(this.type),
-            events: this.events,
-            height: this.height,
-            margin: this.margin,
-            plotBorderColor: this.dataVisColors["dv-dark-black"],
-            plotBorderWidth: this.plotBorderWidth,
-            renderTo: this.$.container,
-            //spacingRight: 200,
-            style: {
-              fontFamily: 'inherit',
-              fontSize: 'inherit'
-            },
-            zoomType: this.zoomType,
-            resetZoomButton: this.resetZoomButton,
-            selectionMarkerFill: "rgba(200,231,251,0.5)"
-          },
-
-
-          exporting: {
-            chartOptions: {
-              rangeSelector: {
-                enabled: false
-              }
-            },
-            buttons: {
-              enabled: true
-            },
-            url: this.exportServerUrl || "javascript:alert('No export-server-url attribute configrued on this chart')"
-          },
-
-          credits: {
-            enabled: false
-          },
-          legend: this.legend,
-          navigation: {
-            buttonOptions: {
-              enabled: false
-            }
-          },
-          navigator: {
-            enabled: !this.navigatorDisabled,
-            adaptToUpdatedData: true,
-            height: 50,
-            margin: 15,
-            outlineColor: this.dataVisColors["dv-dark-black"],
-            maskFill: 'rgba(200,231,251,0.3)',
-            series: getNavSeries(this.type),
-            xAxis: {
-              gridLineWidth: 0,
-              lineColor: this.dataVisColors["dv-dark-blue"],
-              lineWidth: 1,
-              labels: {
-                style: {
-                  fontSize: '0.8rem',
-                  color: this.dataVisColors["dv-dark-black"]
-                },
-                y: 15
-              }
-            },
-            yAxis: {
-              lineColor: this.dataVisColors["dv-dark-blue"],
-              lineWidth: 1
-            }
-          },
-          plotOptions: {
-            line: {
-              lineWidth: 1,
-              states: {
-                hover: {
-                  lineWidth: 1
-                }
-              }
-            },
-            scatter: {
-              marker: {
-                enabled: true
-              }
-            },
-            column: {
-              borderWidth: 0,
-              pointPadding: 0.0
-            },
-            series: {
-              marker: {},
-              events: this.seriesEvents
-            }
-          },
-          rangeSelector: {
-            enabled: false
-          },
-
-          scrollbar: {
-            enabled: false
-          },
-          title: {
-            text: null
-          },
-          tooltip: {
-            backgroundColor: "white",
-            borderColor: this.dataVisColors["dv-dark-black"],
-            shadow: false,
-            style: {
-              fontFamily: 'inherit',
-              fontSize: '0.8rem'
-            },
-            headerFormat: "",
-            pointFormat: '<span><span style="color:{point.color};">\u25CF</span> {series.name} </span> <span style="font-weight: bold;">{point.y}</span><br/>'
-          },
-          yAxis: {
-            lineColor: this.dataVisColors["dv-dark-black"],
-            tickColor: this.dataVisColors["dv-dark-black"],
-            labels: {
-              style: {
-                color: this.dataVisColors["dv-dark-black"]
-              }
-            }
-          },
-          xAxis: {
-            events: {
-              afterSetExtremes: function(event) {
-                self.fire('after-set-extremes', event);
-              }
-            },
-            labels: getXaxisLabelsOptions(this.type),
-            lineColor: this.dataVisColors["dv-dark-black"],
-            tickColor: this.dataVisColors["dv-dark-black"],
-            showFirstLabel: true,
-            showLastLabel: true,
-            startOnTick: true,
-            title: {
-              text: null
-            }
-          }
-        };
       }
     });
+
+    var seriesElReadyHandler = function(seriesElOrEvt) {
+      var seriesEl = seriesElOrEvt.target || seriesElOrEvt;
+      _this.addSeries(seriesEl.buildConfig(), /*noRedraw*/false);
+      seriesEl.addEventListener("data-changed", function(evt) {
+        _this.updateSeries(seriesEl.id, evt.detail.value, /*noRedraw*/false);
+      });
+      seriesEl.addEventListener("data-events-changed", function(evt) {
+        _this.updateSeriesEvents({id: seriesEl.id}, evt.detail.value, /*noRedraw*/false);
+      });
+    };
+
+    seriesEls.forEach(function(seriesEl) {
+      seriesEl.seriesReady ? seriesElReadyHandler(seriesEl) : seriesEl.addEventListener("series-ready", seriesElReadyHandler);
+    });
+
+
+  },
+
+  addYAxis: function(axisConfig, defaultColor, noRedraw) {
+    if (!axisConfig) {
+      this.defaultYAxisConfig = this.defaultYAxisConfig || document.createElement("px-chart-yaxis");
+      this.defaultYAxisConfig.offset = this.defaultYAxisConfig.offset + 10;
+      axisConfig = this.defaultYAxisConfig.buildConfig(defaultColor || this.dataVisColors["dv-dark-gray"]);
+    }
+    this.chart.addAxis(axisConfig, /*isX*/false, !noRedraw);
+  },
+
+  /**
+   * Adds a series to the chart, adding a yAxis as needed
+   *
+   * @param {Object} seriesConfig
+   * * {String} id
+   * * {Array} data
+   * * {Number} yAxis Optional. The axis index to which the series should be bound. Defaults to 0.
+   * * {Number} lineWidth Optional.
+   * * {Object} marker. Optional. Highcharts marker config
+   * * {Object} tooltip. Optional. Highcharts tooltip config
+   * @param {Boolean} noRedraw Optional. If true, does not force a chart redraw() after adding or updating the series
+   */
+  addSeries: function(seriesConfig, noRedraw) {
+    if (seriesConfig && this.hasSeries(seriesConfig.id)) {
+      this.updateAxisThreshold(seriesConfig, seriesConfig.upperThreshold, "upperThreshold");
+      this.updateAxisThreshold(seriesConfig, seriesConfig.lowerThreshold, "lowerThreshold");
+      this.updateSeriesEvents(seriesConfig, seriesConfig.dataEvents, /*noRedraw*/true);
+      this.updateSeries(seriesConfig.id, seriesConfig.data, noRedraw);
+    }
+    else {
+      if (!seriesConfig) {
+        this.defaultSeriesConfig = this.defaultSeriesConfig || document.createElement("px-chart-series");
+        seriesConfig = this.defaultSeriesConfig.buildConfig();
+      }
+      if (!seriesConfig.id) {
+        seriesConfig.id = this.chart.series.length;
+      }
+      if (seriesConfig.axisId) {//associate with yAxis
+        for (var i = 0; i < this.chart.yAxis.length; i++) {
+          if (this.chart.yAxis[i].userOptions.id === seriesConfig.axisId) {
+            seriesConfig.yAxis = i;
+            break;
+          }
+        }
+        if (typeof seriesConfig.yAxis === "undefined") {
+          throw new Error("Tried to associate series " + seriesConfig.id + " to yAxis id " + seriesConfig.axisId + " but it doesn't exist.");
+        }
+      }
+      else if (typeof seriesConfig.yAxis === "undefined") {
+        seriesConfig.yAxis = 0;//apply to default yAxis...
+      }
+      this.updateAxisThreshold(seriesConfig, seriesConfig.upperThreshold, "upperThreshold");
+      this.updateAxisThreshold(seriesConfig, seriesConfig.lowerThreshold, "lowerThreshold");
+      this.updateSeriesEvents(seriesConfig, seriesConfig.dataEvents, /*noRedraw*/true);
+      this.chart.addSeries(seriesConfig, !noRedraw);
+      if (!noRedraw) {
+        this.chart.redraw();
+      }
+    }
+  },
+
+  /**
+   * Threshold lines are optionally bound to series. This function processes threshold values on a given series and
+   * applies them on the y-axis that is associated with the given series.
+   *
+   * @param seriesConfig
+   * @param thresholdValue
+   * @param id
+   */
+  updateAxisThreshold: function(seriesConfig, thresholdValue, id) {
+    var yAxisIndex = seriesConfig.yAxis || 0;
+    var yAxis = this.chart.yAxis[yAxisIndex];
+    yAxis.removePlotLine(id);
+    if (typeof thresholdValue !== "undefined") {
+      var seriesColor = seriesConfig.color;
+      if (!seriesColor) {
+        if (this.hasSeries(seriesConfig.id)) {
+          seriesColor = this.chart.get(seriesConfig.id).options.color;
+        }
+        else {
+          seriesColor = this.chart.options.colors[this.chart.series.length];
+        }
+      }
+      var thresholdConfig = {
+        dashStyle: "ShortDash",
+        color: seriesColor,
+        value: thresholdValue,
+        id: id,
+        width: 1,
+        label: {
+          align: yAxis.options.opposite ? "right" : "left",
+          style: {
+            fontSize: '0.8rem',
+            color: seriesColor
+          },
+          text: thresholdValue
+        }
+      };
+      yAxis.addPlotLine(thresholdConfig);
+    }
+  },
+
+  /**
+   * Updates a series on the chart, adding a default series as needed.
+   *
+   * @param {String} seriesId
+   * @param {Array} data
+   * @param {Boolean} noRedraw Optional. If true, does not force a chart redraw() after adding or updating the series
+   */
+  updateSeries: function(seriesId, data, noRedraw) {
+    if (!this.hasSeries(seriesId)) {
+      this.addSeries(/*seriesConfig*/null, /*noRedraw*/true);
+    }
+    this.chart.get(seriesId).setData(data, !noRedraw);
+    if (!noRedraw) {
+      this.chart.redraw();
+    }
+  },
+
+  /**
+   * Updates series events on the chart
+   *
+   * @param {Object} seriesConfig
+   * @param {Array} events
+   * @param {Boolean} noRedraw Optional. If true, does not force a chart redraw() after adding or updating the events
+   *
+   * @private
+   */
+  updateSeriesEvents: function(seriesConfig, events, noRedraw) {
+    if (events) {
+      var _this = this;
+      events.forEach(function(event) {
+        var eventConfig = {
+          color: _this.dataVisColors["dv-basic-gray"],
+          value: event.time,
+          id: event.id,
+          width: 2,
+          textAlign: "left",
+          label: {
+            align: "top",
+            useHTML: true,
+            rotation: 0,
+            style: {
+              fontSize: '0.8rem',
+              color: _this.dataVisColors["dv-basic-red"]
+            },
+            text: "<span class='style-scope px-chart data-event-icon' title='" + event.label + "' style='cursor:pointer; display:block; margin-top: -1.10rem; margin-left:-0.87rem'><i class='fa fa-lg fa-exclamation-triangle style-scope px-chart'></i> </span>"
+          }
+        };
+        _this.chart.xAxis[0].addPlotLine(eventConfig);
+      });
+    }
+    if (!noRedraw) {
+      this.chart.redraw();
+    }
+  },
+
+  /**
+   * Removes a series from the chart
+   *
+   * @param {String} seriesId
+   */
+  removeSeries: function(seriesId) {
+    this.chart.get(seriesId).remove();
+    this.resetNavSeries();
+  },
+
+  /**
+   * @private
+   */
+  resetNavSeries: function() {
+    var nav = this.chart.get('nav');
+    var series = null;
+    nav.setData([]);
+    if (this.chart.series.length === 0) {
+      // no series
+    } else if (this.chart.series[0].name === "Navigator") {
+      series = this.chart.series[1];
+    } else {
+      series = this.chart.series[0];
+    }
+    if (series) {
+      nav.setData(series.options.data, true);
+    }
+  },
+
+  /**
+   * Returns true if the chart has a series with the given id
+   *
+   * @param {String} seriesId
+   * @return {Boolean}
+   */
+  hasSeries: function(seriesId) {
+    return (this.chart.get(seriesId) != null);
+  },
+
+  /**
+   * Toggles display of points on the chart
+   *
+   * @param {Array} seriesIds Optional. seriesIds ids of the series to update, or null for all
+   */
+  togglePointMarkers: function(seriesIds) {
+    var _this = this;
+    var seriesToUpdate = seriesIds ? seriesIds.map(function(id) {
+      return _this.chart.get(id)
+    }) : this.chart.series;
+    seriesToUpdate.forEach(function(series) {
+      var existingMarkerOpts = series.options.marker;
+      series.update({marker: {enabled: (!existingMarkerOpts || !existingMarkerOpts.enabled)}}, /*redraw*/false);
+    });
+    this.chart.redraw();
+  },
+
+  /**
+   * Returns true of rangeStart / end has changed
+   *
+   * @param {Number} start Range start time in milliseconds since the epoch
+   * @param {Number} end Range end time in milliseconds since the epoch
+   * @return {Boolean}
+   *
+   * @private
+   */
+  hasExtremeChanged: function(start, end) {
+    if (this.chart && this.chart.xAxis && this.chart.xAxis.length > 0) {
+      var extremes = this.chart.xAxis[0].getExtremes();
+      return extremes.min !== start || extremes.max !== end;
+    }
+    return false;
+  },
+
+  /**
+   * Fires one "refresh-series" event for each series on the chart, each event has the id of the series.
+   */
+  refreshAllSeries: function() {
+    var _this = this;
+    this.chart.series.forEach(function(series) {
+      _this.fire("refresh-series", series.options.id);
+    });
+  },
+
+
+  /**
+   * Sets chart extremes to given start and end times
+   *
+   * @private
+   */
+  setExtremesIfChanged: function(x, y) {
+    var startTime = parseInt(x);
+    var endTime = parseInt(y);
+    if (this.hasExtremeChanged(startTime, endTime)) {
+      this.rangeMs = {
+        start: startTime,
+        end: endTime
+      };
+      this.chart.xAxis[0].setExtremes(this.rangeMs.start, this.rangeMs.end);
+    }
+  },
+
+  /**
+   * @private
+   * @param value
+   */
+  setZoom: function(value) {
+    this.set('chartZoomed', value);
+  },
+
+  /**
+   * @private
+   */
+  setZoomFalse: function() {
+    this.setZoom(false);
+  },
+
+  /**
+   * @private
+   */
+  chartZoomedObserver: function() {
+    var topMargin = this.margin ? this.margin[0] : 0;
+    this.$.resetZoom.style.top = (topMargin + 10) + 'px';
+    this.$.resetZoom.style.display = this.chartZoomed ? 'block' : 'none';
+    if (this.chart && this.chartZoomed === false) {
+      this.chart.zoomOut();
+    }
+    ;
+  },
+
+  /**
+   * Builds up highcharts config object
+   * @private
+   */
+  buildConfig: function() {
+    var self = this;
+
+    var createSeriesColorsArray = function(colors, keysInOrder) {
+      return keysInOrder.map(function(key) {
+        var color = colors[key];
+        if (color) {
+          return color;
+        }
+      });
+    };
+
+    /**
+     * @private
+     */
+    var defaultNavSeries = {
+      type: 'line',
+      marker: {
+        enabled: false
+      },
+      id: 'nav',
+      color: 'transparent',
+      lineColor: this.dataVisColors["dv-dark-blue"],
+      lineWidth: 1
+    };
+
+    /**
+     * @private
+     */
+    var scatterNavSeries = {
+      type: this.type,
+      marker: {
+        enabled: true
+      },
+      id: 'nav',
+      lineColor: this.dataVisColors["dv-dark-blue"],
+      lineWidth: 0
+    };
+
+    var barNavSeries = {
+      type: 'column',
+      marker: {
+        enabled: true
+      },
+      id: 'nav',
+      lineColor: this.dataVisColors["dv-dark-blue"],
+      lineWidth: 0
+    };
+
+    var getNavSeries = function(tsChartType) {
+      switch (tsChartType) {
+        case 'scatter':
+          return scatterNavSeries;
+        case 'histogram':
+        case 'bar':
+          return barNavSeries;
+        default:
+          return defaultNavSeries;
+      }
+    };
+
+    var getHighchartsChartType = function(tsChartType) {
+      switch (tsChartType) {
+        case 'histogram':
+        case 'bar':
+          return 'column';
+        default:
+          return tsChartType;
+      }
+    };
+
+    var getXaxisLabelsOptions = function(tsChartType) {
+      switch (tsChartType) {
+        case 'histogram':
+          return {
+            align: "left",
+            style: {
+              fontSize: '0.8rem',
+              color: self.dataVisColors["dv-dark-gray"]
+            },
+            x: 3,
+            y: 12,
+            formatter: function() {
+              return this.value;
+            }
+          };
+        default:
+          return {
+            align: "left",
+            style: {
+              fontSize: '0.8rem',
+              color: self.dataVisColors["dv-dark-gray"]
+            },
+            x: 3,
+            y: 12
+          };
+      }
+    };
+
+    return {
+
+      colors: createSeriesColorsArray(this.dataVisColors, this.seriesColorOrder),
+      annotationsOptions: {
+        enabledButtons: false
+      },
+      chart: {
+        type: getHighchartsChartType(this.type),
+        events: this.events,
+        height: this.height,
+        margin: this.margin,
+        plotBorderColor: this.dataVisColors["dv-basic-gray"],
+        plotBorderWidth: this.plotBorderWidth,
+        renderTo: this.$.container,
+        //spacingRight: 200,
+        style: {
+          fontFamily: 'inherit',
+          fontSize: 'inherit'
+        },
+        zoomType: this.zoomType,
+        resetZoomButton: this.resetZoomButton,
+        selectionMarkerFill: "rgba(200,231,251,0.5)"
+      },
+
+
+      exporting: {
+        chartOptions: {
+          rangeSelector: {
+            enabled: false
+          }
+        },
+        buttons: {
+          enabled: true
+        },
+        url: this.exportServerUrl || "javascript:alert('No export-server-url attribute configrued on this chart')"
+      },
+
+      credits: {
+        enabled: false
+      },
+      legend: this.legend,
+      navigation: {
+        buttonOptions: {
+          enabled: false
+        }
+      },
+      navigator: {
+        enabled: !this.navigatorDisabled,
+        adaptToUpdatedData: true,
+        height: 50,
+        margin: 15,
+        outlineColor: this.dataVisColors["dv-basic-gray"],
+        maskFill: 'rgba(200,231,251,0.3)',
+        series: getNavSeries(this.type),
+        xAxis: {
+          gridLineWidth: 0,
+          lineColor: this.dataVisColors["dv-basic-blue"],
+          lineWidth: 1,
+          labels: {
+            style: {
+              fontSize: '0.8rem',
+              color: this.dataVisColors["dv-dark-gray"]
+            },
+            y: 15
+          }
+        },
+        yAxis: {
+          lineColor: this.dataVisColors["dv-dark-blue"],
+          lineWidth: 1
+        }
+      },
+      plotOptions: {
+        line: {
+          lineWidth: 1,
+          states: {
+            hover: {
+              lineWidth: 1
+            }
+          }
+        },
+        scatter: {
+          marker: {
+            enabled: true
+          }
+        },
+        column: {
+          borderWidth: 0,
+          pointPadding: 0.0
+        },
+        series: {
+          marker: {},
+          events: this.seriesEvents
+        }
+      },
+      rangeSelector: {
+        enabled: false
+      },
+
+      scrollbar: {
+        enabled: false
+      },
+      title: {
+        text: null
+      },
+      tooltip: {
+        backgroundColor: "white",
+        borderColor: this.dataVisColors["dv-dark-gray"],
+        shadow: false,
+        style: {
+          fontFamily: 'inherit',
+          fontSize: '0.8rem'
+        },
+        headerFormat: "",
+        pointFormat: '<span><span style="color:{point.color};">\u25CF</span> {series.name} </span> <span style="font-weight: bold;">{point.y}</span><br/>'
+      },
+      yAxis: {
+        lineColor: this.dataVisColors["dv-basic-gray"],
+        tickColor: this.dataVisColors["dv-basic-gray"],
+        labels: {
+          style: {
+            color: this.dataVisColors["dv-dark-gray"]
+          }
+        }
+      },
+      xAxis: {
+        events: {
+          afterSetExtremes: function(event) {
+            self.fire('after-set-extremes', event);
+          }
+        },
+        labels: getXaxisLabelsOptions(this.type),
+        lineColor: this.dataVisColors["dv-basic-gray"],
+        tickColor: this.dataVisColors["dv-basic-gray"],
+        showFirstLabel: true,
+        showLastLabel: true,
+        startOnTick: true,
+        title: {
+          text: null
+        }
+      },
+      tooltip: {
+        shared: true,
+        useHTML: true,
+        backgroundColor: 'none',
+        borderWidth: 0,
+        shadow: false,
+        padding: 0,
+        style: {
+          'width': '400px',
+          'background-color': 'red'
+        },
+        formatter: function() {
+          var s = '<div class="px-chart-tooltip">';
+          for (var i = 0; i < this.points.length; i++) {
+            s += '<span><b class="value">' + Math.round(this.points[i].y * 100) / 100 + '</b><br/><b style="color: ' + this.points[i].series.color + '" class="name">' + this.points[i].series.name + '</b></span>';
+          }
+          s += '</div>';
+          return s;
+        },
+        positioner: function(labelWidth, labelHeight, point) {
+          tooltipX = this.chart.chartWidth - (labelWidth + 10);
+          tooltipY = this.chart.plotTop - 60;
+          return {
+            x: tooltipX,
+            y: tooltipY
+          };
+        }
+      }
+    };
+  }
+});
 </script>
 <dom-module id="time-series-card" assetpath="bower_components/px-sample-cards/">
   <template>
     <px-card header-text="{{context.name}}">
 
-      <px-ts-chart id="tsChart">
-        <px-ts-chart-controls data-controls="" show-refresh="true" show-date-range="true"></px-ts-chart-controls>
+      <px-chart id="tsChart">
+        <px-chart-controls data-controls="" show-refresh="true" show-date-range="true"></px-chart-controls>
         <px-chart-yaxis id="firstAxis" offset="0"></px-chart-yaxis>
         <px-chart-yaxis id="anotherAxis" opposite="true" offset="-2.5"></px-chart-yaxis>
-      </px-ts-chart>
+      </px-chart>
 
     </px-card>
   </template>

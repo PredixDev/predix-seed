@@ -26,14 +26,13 @@
         "lodash": "2.4.1",
         "es6-promise": "https://github.com/jakearchibald/es6-promise.git#2.3.0",
         "polymer": "v1.0.4",
-        "px-ts-chart": "https://github.build.ge.com/PXc/px-time-series.git#~v0.3.10",
         "px-datasource": "https://github.build.ge.com/Predix-Experience/px-datasource.git#v1.1",
         "px-context-browser": "https://github.build.ge.com/pxc/px-context-browser.git#~v0.4.9",
         "px-app-nav": "https://github.build.ge.com/PXC/px-app-nav.git#~v0.3.12",
-        "px-theme": "https://github.build.ge.com/PXc/px-theme.git#~v0.2.12",
+        "px-theme": "https://github.build.ge.com/PXc/px-theme.git#~v0.3.0",
         "px-card": "https://github.build.ge.com/Predix-Experience/px-card.git#v0.0.13",
         "px": "https://github.build.ge.com/Predix-Experience/px.git#v1.0.3",
-        "px-sample-cards": "https://github.build.ge.com/PXc/px-sample-cards.git#0.0.12",
+        "px-sample-cards": "https://github.build.ge.com/PXc/px-sample-cards.git#~v0.1.0",
         "px-login": "https://github.build.ge.com/PXc/px-login.git#~v0.0.1"
     }
 }
