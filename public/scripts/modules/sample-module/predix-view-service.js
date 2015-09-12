@@ -1,8 +1,8 @@
 /*global define */
-define(['angular', 'sample-module'], function (angular, module) {
+define(['angular', './sample-module'], function (angular, module) {
     'use strict';
     /**
-    * PredixAssetService is a sample angular service that integrates with Predix Asset Server API
+    * PredixViewService is a sample angular service that integrates with Predix View Service API
     */
     module.factory('PredixViewService', ['$http', '$q', function ($http, $q) {
         return {
