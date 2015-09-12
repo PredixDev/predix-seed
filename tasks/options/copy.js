@@ -13,6 +13,7 @@ module.exports = {
                     'images/*',
                     'sample-data/*',
                     'views/*',
+                    'bower_components/webcomponentsjs/webcomponents-lite.js',
                     'bower_components/px/dist/px.min.js',
                     'bower_components/es6-promise/dist/es6-promise.min.js',
                     'bower_components/requirejs/require.js',
