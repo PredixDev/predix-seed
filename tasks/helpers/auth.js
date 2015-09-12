@@ -10,6 +10,8 @@ module.exports = {
     this.accessToken = null;
     this.defaultClientRoute = options.defaultClientRoute || '/about';
     this.base64ClientCredential = options.base64ClientCredential || 'cHJlZGl4LXNlZWQ6TTBhVzdrTmZRRndyTTZ3ZHJpV2h3bVc2ck1HQ045Q0x1cnI5VnI3elc0cz0=';
+
+    return this.getMiddlewares();
   },
   getAccessTokenFromCode: function (authCode, successCallback, errorCallback) {
     var request = require('request');

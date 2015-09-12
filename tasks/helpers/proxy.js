@@ -1,8 +1,10 @@
+var auth = require('./auth');
+
 var serviceProxy = {
-  init: function (uaa, proxyConfig) {
-    return this.middlewareRoutes(uaa, proxyConfig);
+  init: function (proxyConfig) {
+    return this.getMiddlewareRoutes(proxyConfig);
   },
-  middlewareRoutes : function(uaa, proxyConfig){
+  getMiddlewareRoutes : function(proxyConfig){
     var middlewares = [];
     var routes = Object.keys(proxyConfig);
     var secureProxyRoutes = {};
@@ -18,12 +20,9 @@ var serviceProxy = {
         var i = 0;
         while (!urlFound) {
           if (req.url.match(routes[i])) {
-
-            req.headers['authorization'] = uaa.accessToken;
+            req.headers['authorization'] = auth.accessToken;
             req.headers['predix-zone-id'] = proxyConfig[routes[i]].instanceId;
-
             console.log('proxy headers', req.headers);
-
             urlFound = true;
           }
           i++;
@@ -40,17 +39,12 @@ var serviceProxy = {
     for (var routeIndex = 0; routeIndex < routes.length; routeIndex++){
       secureProxyRoutes[routes[routeIndex]] = proxyConfig[routes[routeIndex]].url;
     }
-    /**
-     * Please add the secure service redirect below
-     * All secure cf service url is prefix with route /api
-     */
+
     var config = {
       proxy: {
         forward: secureProxyRoutes
       }
     };
-
-    console.log('proxy', config);
 
     middlewares.push(require('json-proxy').initialize(config));
 
