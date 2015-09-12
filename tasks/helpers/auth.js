@@ -1,6 +1,7 @@
 var qs = require('querystring');
 var url = require('url');
 var rewriteModule = require('http-rewrite-middleware');
+var request = require('request');
 
 module.exports = {
   init: function (options) {
@@ -10,7 +11,7 @@ module.exports = {
     this.accessToken = null;
     this.defaultClientRoute = options.defaultClientRoute || '/about';
     this.base64ClientCredential = options.base64ClientCredential || 'cHJlZGl4LXNlZWQ6TTBhVzdrTmZRRndyTTZ3ZHJpV2h3bVc2ck1HQ045Q0x1cnI5VnI3elc0cz0=';
-
+    this.user = null;
     return this.getMiddlewares();
   },
   getAccessTokenFromCode: function (authCode, successCallback, errorCallback) {
@@ -34,7 +35,22 @@ module.exports = {
       if (!err && response.statusCode == 200) {
         var res = JSON.parse(body);
         self.accessToken = res.token_type + ' ' + res.access_token;
-        successCallback(self.accessToken);
+
+        //get user info
+        request({
+          method: 'post',
+          url: self.serverUrl + '/check_token',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': 'Basic ' + self.base64ClientCredential
+          },
+          form: {
+            'token': res.access_token
+          }
+        }, function (error, response, body) {
+          self.user = JSON.parse(body);
+          successCallback(self.accessToken);
+        });
       }
       else {
         errorCallback(body);
@@ -79,7 +95,7 @@ module.exports = {
         });
       } else if (req.url.match('/userinfo')) {
         if (uaa.hasValidSession()) {
-          res.end(JSON.stringify({email: "testuser@ge.com", user_name: "Test User"}));
+          res.end(JSON.stringify({email: uaa.user.email, user_name: uaa.user.user_name}));
         } else {
           next(401);
         }
