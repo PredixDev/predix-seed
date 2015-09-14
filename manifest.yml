@@ -9,6 +9,7 @@ applications:
             - predix_seed_session_store
             - predix_seed_asset_ga
             - newrelic
+            - predix_seed_view_service_exp
     env:
       UAA_SERVER_URL: https://etc.predix-uaa-staging.grc-apps.svc.ice.ge.com
       NEW_RELIC_APP_NAME: predix-seed-dev

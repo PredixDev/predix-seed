@@ -2,7 +2,7 @@ define(['angular', './sample-module'], function(angular, controllers) {
     'use strict';
 
     // Controller definition
-    controllers.controller('DashboardsCtrl', ['$scope', '$log', 'PredixAssetService', function($scope, $log, PredixAssetService) {
+    controllers.controller('DashboardsCtrl', ['$scope', '$log', 'PredixAssetService', 'PredixViewService', function ($scope, $log, PredixAssetService, PredixViewService) {
 
         PredixAssetService.getAssetsByParentId(null).then(function(initialContext) {
             $scope.initialContexts = initialContext;
@@ -36,5 +36,9 @@ define(['angular', './sample-module'], function(angular, controllers) {
             // (optional) click handler: itemClickHandler: $scope.clickHandler
         };
 
+        PredixViewService.getDecksByTags('Contra Costa')
+            .then(function(res){
+                console.log(res);
+            });
     }]);
 });
