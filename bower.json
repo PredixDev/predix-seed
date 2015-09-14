@@ -24,6 +24,7 @@
         "angular-mocks": "~1.3.16",
         "angular-ui-router": "0.2.13",
         "lodash": "2.4.1",
+        "google-analytics": "~0.1.0",
         "es6-promise": "https://github.com/jakearchibald/es6-promise.git#2.3.0",
         "polymer": "v1.0.4",
         "px-datasource": "https://github.build.ge.com/Predix-Experience/px-datasource.git#v1.1",
@@ -34,5 +35,9 @@
         "px": "https://github.build.ge.com/Predix-Experience/px.git#v1.0.3",
         "px-sample-cards": "https://github.build.ge.com/PXc/px-sample-cards.git#~v0.1.0",
         "px-login": "https://github.build.ge.com/PXc/px-login.git#~v0.0.1"
+    },
+    "resolutions": {
+      "px-theme":  "~v0.3.0",
+      "moment" : "~2.10.6"
     }
 }
