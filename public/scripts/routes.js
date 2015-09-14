@@ -52,7 +52,7 @@ define(['angular', 'angular-ui-router'], function(angular) {
 
         $urlRouterProvider.otherwise(function ($injector) {
             var $state = $injector.get('$state');
-            document.querySelector('px-app-nav').markSelected('/about');
+            document.querySelector('px-app-nav').markSelected('/blankpage');
             $state.go('blankpage');
         });
 

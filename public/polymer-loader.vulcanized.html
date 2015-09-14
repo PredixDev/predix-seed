@@ -140731,6 +140731,9 @@ Predix branding rules go in px-simple-line-chart-predix.scss, not in this file.
   stroke-width: 1;
   fill: none; }
 
+rect.chartBottom {
+  fill: #ffffff; }
+
 rect.axisBar {
   fill: #F7F7FC; }
 
@@ -140751,9 +140754,6 @@ text.axisLabel {
 
 .newClass {
   stroke: #000; }
-
-body {
-  background: black; }
 
 </style>
     <template>
@@ -140778,17 +140778,63 @@ body {
             * Format: [ [7, 11], [10, 4], [15, 10] ... ]
             */
             lineData: {
-                type: Object,
+                type: Array,
                 observer: 'drawChartDebounced'
+                // value: function() {return [[0,0]];}
             },
             /**
             * threshold
             *
-            * Format: Number
+            * Format: String
             */
             threshold: {
-                type: Number,
-                observer: 'drawChartDebounced'
+                type: String,
+                value: null
+            },
+            /**
+            * thresholdLabel
+            *
+            * Format: String
+            */
+            thresholdLabel: {
+                type: String,
+                value: ''
+            },
+            /**
+            * max
+            *
+            * Format: String
+            */
+            max: {
+                type: String,
+                value: null
+            },
+            /**
+            * min
+            *
+            * Format: String
+            */
+            min: {
+                type: String,
+                value: null
+            },
+            /**
+            * max
+            *
+            * Format: String
+            */
+            maxLabel: {
+                type: String,
+                value: ''
+            },
+            /**
+            * min
+            *
+            * Format: String
+            */
+            minLabel: {
+                type: String,
+                value: ''
             },
             /**
             * width
@@ -140829,38 +140875,75 @@ body {
                 type: Number,
                 observer: 'drawChartDebounced',
                 value: 7
+            },
+            /**
+            * High
+            *
+            * Format: Number
+            */
+            padding: {
+                type: String,
+                value: ''
+            },
+
+            maxDataPoints: {
+                type: Number,
+                value: 25
             }
+        },
+
+        addPoint: function(point) {
+            if (this.lineData.length >= this.maxDataPoints) {
+                this.splice('lineData', 0, 1);
+            }
+            this.push('lineData', point);
+            this.drawChartDebounced();
         },
 
         setSizes: function() {
             // calculate target column width including extra column for axis bar
-            this.barWidth = parseInt(this.getAxisLabelWidth() + 14);
-            this.chartWidth = this.width - this.barWidth;
+            this.barWidth = 0;
+            this.fullWidth = this.widthValue;
+            if(this.thresholdLabel || this.minLabel || this.maxLabel) {
+                this.barWidth = parseInt(this.getAxisLabelWidth() + 14);
+            };
+            this.chartWidth = this.widthValue - this.barWidth;
             this.columnWidth = parseInt(this.chartWidth / ( this.columns ));
-            this.barWidth += this.chartWidth % this.columns;
-            this.chartHeight = this.height;
-            this.rowHeight = parseInt(this.height / this.rows);
-            this.chartHeight = this.chartHeight - (this.height % this.rows);
+            if(this.barWidth) {
+                this.barWidth += this.chartWidth % this.columns;
+            } else {
+                this.fullWidth = this.fullWidth -
+                    (this.chartWidth % this.columns);
+            }
+            this.chartHeight = this.heightValue;
+            this.rowHeight = parseInt(this.heightValue / this.rows);
+            this.chartHeight = this.chartHeight - (this.heightValue % this.rows);
         },
 
         extentWithPadding: function(data) {
-            var e = d3.extent(data, function(d) { return d[1]; });
-            var diff = Math.abs(e[0] - e[1]);
-            var pad = diff * 0.1; // pad vertical by 10%
-            return [ e[0] - pad, e[1] + pad ];
+            var extent = d3.extent(data, function(d) { return d[1]; });
+            extent[0] = this.minValue ? this.minValue : extent[0];
+            extent[1] = this.maxValue ? this.maxValue : extent[1];
+            if(this.paddingValue) {
+                var diff = Math.abs(extent[0] - extent[1]);
+                var pad = diff * 0.05; // pad vertical by 5%
+                extent[0] -= pad;
+                extent[1] += pad;
+            }
+            return extent;
         },
 
         drawChartDebounced: function(data, previous) {
             this.debounce('drawChart', function() {
                 this.drawChart();
-            }, 200);
+            }, 50);
         },
 
         attachSVG: function() {
             // select the svg element
             this.svg = d3.select(this.$$(".px-simple-line-chart-svg"))
-                .attr("width", this.width)
-                .attr("height", this.height);
+                .attr("width", this.widthValue)
+                .attr("height", this.heightValue);
             // Remove previous child elements
             this.svg.text("");
         },
@@ -140875,33 +140958,138 @@ body {
 
         setScales: function() {
             this.xScale = d3.scale.linear()
-                .range([this.barWidth+0.5, this.width-0.5])
+                .range([this.barWidth+0.5, this.fullWidth-0.5])
                 .domain(d3.extent(this.lineData, function(d) { return d[0]; }));
             this.yScale = d3.scale.linear()
                 .range([this.chartHeight, 0])
                 .domain(this.extentWithPadding(this.lineData));
         },
 
+        typeofToString: function(a) {
+            return (typeof a).toString().toLowerCase();
+        },
+
+        reconcileMinOrMax: function(value, type) {
+            // value may be: number, number as string, 'auto', or empty string
+            // type is 'min' or 'max'
+            this.autoMinMax = false;
+            if(this.typeofToString(value) === 'string') {
+                if(value.length === 0) {
+                    this.autoMinMax = true; // empty string means 'auto' by default
+                } else if(value === 'auto') {
+                    this.autoMinMax = true;
+                };
+            };
+            if(this.autoMinMax) {
+                // automatic calculation
+                var valueFunction = (type === 'max') ? d3.max : d3.min;
+                return valueFunction(
+                    this.lineData, function(d) { return d[1]; }
+                );
+            } else if(value==='false') {
+                return false; // hide
+            } else if(parseFloat(value)){
+                // number as string
+                return parseFloat(value);
+            } else {
+                return false; // hide
+            };
+        },
+
+        reconcileThreshold: function(value) {
+            if(parseFloat(value) || parseFloat(value) === 0) {
+                return parseFloat(value);
+            } else {
+                return false; // empty string evaluates to false
+            }
+        },
+
+        isInt: function(n){
+            return Number(n) === n && n % 1 === 0;
+        },
+
+        isFloat: function(n){
+            return n === Number(n) && n % 1 !== 0;
+        },
+
+        reconcileValue: function(value, defaultValue) {
+            if(value === '' || value == false || value == undefined) {
+                return defaultValue;
+            } else if(value === 'false') {
+                return false;
+            } else if(this.isFloat(value)) {
+                return parseFloat(value);
+            } else if(this.isInt(value)) {
+                return parseInt(value);
+            } else {
+                return value;
+            };
+        },
+
+        reconcileValues: function() {
+            this.widthValue = this.reconcileValue(this.width, 283);
+            this.heightValue = this.reconcileValue(this.height, 150);
+            this.columns = this.reconcileValue(this.columns, 7);
+            this.rows = this.reconcileValue(this.rows, 7);
+            this.paddingValue = this.reconcileValue(this.padding, true);
+            this.minValue = this.reconcileMinOrMax(this.min, 'min');
+            this.maxValue = this.reconcileMinOrMax(this.max, 'max');
+            this.thresholdValue = this.reconcileThreshold(this.threshold);
+            this.minLabel = this.reconcileValue(this.minLabel, false);
+            this.maxLabel = this.reconcileValue(this.maxLabel, false);
+            if(this.minLabel && !this.minValue) {
+                // if label exists without value
+                this.minValue = this.reconcileMinOrMax('auto', 'min');
+            };
+            if(this.maxLabel && !this.maxValue) {
+                // if label exists without value
+                this.maxValue = this.reconcileMinOrMax('auto', 'max');
+            };
+            if(this.thresholdLabel && (!this.thresholdValue && this.thresholdValue !== 0)) {
+                // if label exists without value
+                this.thresholdLabel = '';
+            };
+            if(this.minValue) {
+                this.minLabel = this.minLabel !== false ? this.minLabel : this.minValue.toString();
+            };
+            if(this.maxValue) {
+                this.maxLabel = this.maxLabel !== false ? this.maxLabel : this.maxValue.toString();
+            };
+            if(this.thresholdValue || this.thresholdValue === 0) {
+                this.thresholdLabel = this.thresholdLabel !== '' ? this.thresholdLabel : this.thresholdValue.toString();
+            };
+            if ((this.thresholdValue || this.minValue || this.maxValue) ||
+                (this.thresholdValue === 0 || this.minValue === 0 || this.maxValue === 0)) {
+                this.requireAxisBar = true;
+            };
+        },
+
         drawChart: function() {
             if(this.lineData) {
+                this.reconcileValues();
                 this.attachSVG();
                 this.setSizes();
                 this.setScales();
                 this.setChartLineFunction();
                 this.setLinearLineFunction();
                 this.addGridLines();
-                this.addAxisBar();
-                this.addChartBorders();
-                this.drawThresholdLine();
+                if(this.requireAxisBar) {
+                    this.addAxisBar();
+                    this.drawAxisLabels();
+                    if(this.thresholdValue || this.thresholdValue === 0) {
+                        this.drawThresholdLine();
+                    };
+                };
                 this.drawChartLine();
-                this.drawAxisLabel();
+                this.addChartBorders();
                 this.addStyleScope();
-            } else {
-                var that = this;
-                var timeout = setTimeout(function(){
-                    that.drawChart();
-                }, 100);
             }
+            // else {
+            //     var that = this;
+            //     var timeout = setTimeout(function(){
+            //         that.drawChart();
+            //     }, 100);
+            // }
         },
 
         // Fired on attached event
@@ -140910,11 +141098,11 @@ body {
         },
 
         addStyleScope: function() {
-            // polymer does not apply the local style-scope classes to svg child nodes
-            // so we need to add .px-simple-line-chart-svg here
+            // polymer does not apply the local style-scope classes to svg
+            // so we need to add .px-simple-line-chart to every svg element
             if(this.svg[0] && this.svg[0][0]) {
                 d3.selectAll(this.svg[0][0].childNodes)
-                    .classed("px-simple-line-chart", true);
+                    .classed(this.is, true); // this.is returns element name
             }
         },
 
@@ -140927,25 +141115,50 @@ body {
                 .attr("height", this.chartHeight);
         },
 
-        drawAxisLabel: function() {
-            var y = parseInt(this.yScale(this.threshold));
-            this.barLabel = this.svg.append("text")
-                .attr("class", "axisLabel")
-                .attr("text-anchor", "middle")
-                .text(this.threshold.toString())
-                .attr("x", this.barWidth/2)
-                .attr("y", y + 5);
+        drawAxisLabels: function() {
+            if(this.thresholdLabel) {
+                this.thresholdLabelSVG = this.svg.append("text")
+                    .attr("class", "axisLabel")
+                    .attr("text-anchor", "middle")
+                    .text(this.thresholdLabel)
+                    .attr("x", this.barWidth/2)
+                    .attr("y", parseInt(this.yScale(this.thresholdValue)) + 5);
+            };
+            if(this.minLabel) {
+                this.minLabelSVG = this.svg.append("text")
+                    .attr("class", "axisLabel")
+                    .attr("text-anchor", "middle")
+                    .text(this.minLabel.toString())
+                    .attr("x", this.barWidth/2)
+                    .attr("y", this.chartHeight - 8);
+            };
+            if(this.maxLabel && this.maxValue) {
+                this.maxLabelSVG = this.svg.append("text")
+                    .attr("class", "axisLabel")
+                    .attr("text-anchor", "middle")
+                    .text(this.maxLabel.toString())
+                    .attr("x", this.barWidth/2)
+                    .attr("y", 18);
+            };
         },
 
         getAxisLabelWidth: function() {
+            var labelStrings = [
+                this.thresholdLabel || '',
+                this.minLabel || '',
+                this.maxLabel || ''
+            ];
+            var longestString = labelStrings.sort(function (a, b) {
+                return b.length - a.length;
+            })[0];
             this.barLabel = this.svg.append("text")
                 .attr("class", "axisLabel")
                 .attr("text-anchor", "middle")
-                .text(this.threshold.toString());
+                .text(longestString);
             var labelWidth = parseInt(
                 this.barLabel.style("width").split('px')[0]
             );
-            var barLabel = this.barLabel.remove(); // cleanup, we will redraw it later on
+            var barLabel = this.barLabel.remove(); // cleanup, we will redraw it
             return labelWidth;
         },
 
@@ -140969,7 +141182,7 @@ body {
                 .attr("class", "chartBorder")
                 .attr("d", this.linearLineFunction([
                     { "x": 0, "y": 0.5 },
-                    { "x": this.width, "y": 0.5 }
+                    { "x": this.fullWidth, "y": 0.5 }
                 ])
             );
             // Bottom line
@@ -140977,9 +141190,17 @@ body {
                 .attr("class", "chartBorder")
                 .attr("d", this.linearLineFunction([
                     { "x": 0, "y": this.chartHeight - 0.5 },
-                    { "x": this.width, "y": this.chartHeight - 0.5 }
+                    { "x": this.fullWidth, "y": this.chartHeight - 0.5 }
                 ])
             );
+            // Bottom white cover
+            this.svg.append("rect")
+                .attr("class", "chartBottom")
+                .attr("x", 0)
+                .attr("y", this.chartHeight - 0.5)
+                .attr("fill", "#FFFFFF")
+                .attr("width", this.widthValue)
+                .attr("height", Math.abs(this.chartHeight - this.heightValue) + 1);
         },
 
         addGridLines: function() {
@@ -141017,7 +141238,7 @@ body {
                         "y": i*this.rowHeight+0.5
                     },
                     {
-                        "x": this.width,
+                        "x": this.fullWidth,
                         "y": i*this.rowHeight+0.5
                     }
                 ]);
@@ -141032,7 +141253,7 @@ body {
 
         drawThresholdLine: function() {
             if(this.svg) {
-                var y = parseInt(this.yScale(this.threshold));
+                var y = parseInt(this.yScale(this.thresholdValue));
                 var path = this.svg.select('.thresholdLine');
                 if(path.empty()) {
                     path = this.svg.append("path");
@@ -141044,7 +141265,7 @@ body {
                             "y": y + 0.5
                         },
                         {
-                            "x": this.width,
+                            "x": this.fullWidth,
                             "y": y + 0.5
                         }
                     ])
@@ -142256,7 +142477,7 @@ html {
           </div>
         </div>
 
-        <px-simple-line-chart id="demo-line-chart" line-data="{{outputCapacityData}}" threshold="100" columns="8" rows="8">
+        <px-simple-line-chart id="demo-line-chart" line-data="{{outputCapacityData}}" threshold="100" columns="8" rows="8" min="1" max="150" min-label="" max-label="">
         </px-simple-line-chart>
 
         <div>
