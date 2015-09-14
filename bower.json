@@ -33,11 +33,10 @@
         "px-theme": "https://github.build.ge.com/PXc/px-theme.git#~v0.3.0",
         "px-card": "https://github.build.ge.com/Pxc/px-card.git#v0.0.13",
         "px": "https://github.build.ge.com/Pxc/px.git#v1.0.3",
-        "px-sample-cards": "https://github.build.ge.com/PXc/px-sample-cards.git#~v0.1.0",
+        "px-sample-cards": "https://github.build.ge.com/PXc/px-sample-cards.git#~v0.1.1",
         "px-login": "https://github.build.ge.com/PXc/px-login.git#~v0.0.1"
     },
     "resolutions": {
-      "px-theme":  "~v0.3.0",
-      "moment" : "~2.10.6"
+      "px-theme":  "~v0.3.0"
     }
 }
