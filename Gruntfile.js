@@ -34,5 +34,4 @@ module.exports = function(grunt) {
     grunt.initConfig(config);
 
     require('load-grunt-tasks')(grunt);
-
 };
