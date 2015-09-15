@@ -2,7 +2,7 @@
 applications:
   - name: predix-seed
     host: predix-seed
-    buildpack: https://github.com/muymoo/staticfile-buildpack.git
+    buildpack: predix_openresty_buildpack
     path: dist
     memory: 64M
     stack: cflinuxfs2
