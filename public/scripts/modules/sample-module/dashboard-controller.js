@@ -25,11 +25,12 @@ define(['angular', './sample-module'], function (angular, controllers) {
 
             $scope.context = newContext;
 
-            console.log(newContext);
+            console.log(newContext.classification);
 
             //Tag string can be classification from contextDetails
             PredixViewService.getDecksByTags(newContext.classification) // gets all decks for this context
                 .then(function (decks) {
+                    $scope.decks = [];
                     decks.forEach(function (deck) {
                         $scope.decks.push({name: deck.title, url: '/api/views/decks/' + deck.id + '?filter[include][cards]'});
                     });
