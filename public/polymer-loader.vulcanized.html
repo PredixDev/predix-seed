@@ -88280,10 +88280,17 @@ html {
           align-self: baseline; }
 
 .viewport {
-  width: 100%;
+  width: 98%;
   max-width: 80rem;
   margin-right: auto;
-  margin-left: auto; }
+  margin-left: auto;
+  padding-right: 1%;
+  padding-left: 1%; }
+  @media screen and (min-width: 80rem) {
+    .viewport {
+      width: 100%;
+      padding-right: 0;
+      padding-left: 0; } }
 
 .viewport--full-height {
   min-height: 100vh; }
@@ -88309,7 +88316,6 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-transform: translate(0, 0);
-      -ms-transform: translate(0, 0);
           transform: translate(0, 0); }
 
 /* makes the font 33% larger relative to the icon container */
@@ -88394,31 +88400,26 @@ html {
 .fa-rotate-90 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
   -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
   transform: rotate(90deg); }
 
 .fa-rotate-180 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
   transform: rotate(180deg); }
 
 .fa-rotate-270 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
   -webkit-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
   transform: rotate(270deg); }
 
 .fa-flip-horizontal {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
   -webkit-transform: scale(-1, 1);
-  -ms-transform: scale(-1, 1);
   transform: scale(-1, 1); }
 
 .fa-flip-vertical {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   -webkit-transform: scale(1, -1);
-  -ms-transform: scale(1, -1);
   transform: scale(1, -1); }
 
 :root .fa-rotate-90,
@@ -90098,7 +90099,6 @@ html {
 [dir=rtl] .fa-arrow-circle-o-left,
 [dir=rtl] .fa-arrow-circle-o-right {
   -webkit-transform: scale(-1, 1);
-      -ms-transform: scale(-1, 1);
           transform: scale(-1, 1); }
 
 /*------------------------------------*    #PX-COLORS-DESIGN
@@ -90345,9 +90345,11 @@ textarea {
   .btn:link,
   .btn:visited,
   .btn:hover,
+  .btn:focus,
   .btn:active {
     color: black; }
-  .btn:hover {
+  .btn:hover,
+  .btn:focus {
     border-color: #9999a3;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
     background-color: #b1b1bc; }
@@ -90355,7 +90357,8 @@ textarea {
     border-color: #7c7c84;
     box-shadow: none;
     background-color: #9999a3; }
-  .btn:active {
+  .btn:active,
+  .btn:focus {
     outline: none; }
 
 button.btn {
@@ -90378,9 +90381,11 @@ button.btn {
   .btn--tertiary:link,
   .btn--tertiary:visited,
   .btn--tertiary:hover,
+  .btn--tertiary:focus,
   .btn--tertiary:active {
     color: #3e87e8; }
-  .btn--tertiary:hover {
+  .btn--tertiary:hover,
+  .btn--tertiary:focus {
     border-color: #9999a3;
     box-shadow: none;
     background-color: #e4e4ea; }
@@ -90406,7 +90411,7 @@ button.btn {
   font-size: 1rem;
   line-height: 1.3333333333;
   width: 6rem;
-  margin-left: 0.3333333333rem;
+  margin-left: 0.6666666667rem;
   font-family: var(--px-font-family); }
 
 .range-field__field label {
@@ -90418,32 +90423,6 @@ button.btn {
  *
  * `.u-(m|p)(t|r|b|l|h|v)(-|+|0) {}` = utility - margin/padding top/right/bottom/left/horizontal/vertical less/more/none
  */
-/**
-     * Add tiny margins.
-     */
-.u-m-- {
-  margin: 0.3333333333rem !important; }
-
-.u-mt-- {
-  margin-top: 0.3333333333rem !important; }
-
-.u-mr-- {
-  margin-right: 0.3333333333rem !important; }
-
-.u-mb-- {
-  margin-bottom: 0.3333333333rem !important; }
-
-.u-ml-- {
-  margin-left: 0.3333333333rem !important; }
-
-.u-mh-- {
-  margin-right: 0.3333333333rem !important;
-  margin-left: 0.3333333333rem !important; }
-
-.u-mv-- {
-  margin-top: 0.3333333333rem !important;
-  margin-bottom: 0.3333333333rem !important; }
-
 /**
      * Add small margins.
      */
@@ -91127,10 +91106,17 @@ html {
           align-self: baseline; }
 
 .viewport {
-  width: 100%;
+  width: 98%;
   max-width: 80rem;
   margin-right: auto;
-  margin-left: auto; }
+  margin-left: auto;
+  padding-right: 1%;
+  padding-left: 1%; }
+  @media screen and (min-width: 80rem) {
+    .viewport {
+      width: 100%;
+      padding-right: 0;
+      padding-left: 0; } }
 
 .viewport--full-height {
   min-height: 100vh; }
@@ -91156,7 +91142,6 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-transform: translate(0, 0);
-      -ms-transform: translate(0, 0);
           transform: translate(0, 0); }
 
 /* makes the font 33% larger relative to the icon container */
@@ -91241,31 +91226,26 @@ html {
 .fa-rotate-90 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
   -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
   transform: rotate(90deg); }
 
 .fa-rotate-180 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
   transform: rotate(180deg); }
 
 .fa-rotate-270 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
   -webkit-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
   transform: rotate(270deg); }
 
 .fa-flip-horizontal {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
   -webkit-transform: scale(-1, 1);
-  -ms-transform: scale(-1, 1);
   transform: scale(-1, 1); }
 
 .fa-flip-vertical {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   -webkit-transform: scale(1, -1);
-  -ms-transform: scale(1, -1);
   transform: scale(1, -1); }
 
 :root .fa-rotate-90,
@@ -92945,7 +92925,6 @@ html {
 [dir=rtl] .fa-arrow-circle-o-left,
 [dir=rtl] .fa-arrow-circle-o-right {
   -webkit-transform: scale(-1, 1);
-      -ms-transform: scale(-1, 1);
           transform: scale(-1, 1); }
 
 /*------------------------------------*    #PX-COLORS-DESIGN
@@ -93192,9 +93171,11 @@ textarea {
   .btn:link,
   .btn:visited,
   .btn:hover,
+  .btn:focus,
   .btn:active {
     color: black; }
-  .btn:hover {
+  .btn:hover,
+  .btn:focus {
     border-color: #9999a3;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
     background-color: #b1b1bc; }
@@ -93202,7 +93183,8 @@ textarea {
     border-color: #7c7c84;
     box-shadow: none;
     background-color: #9999a3; }
-  .btn:active {
+  .btn:active,
+  .btn:focus {
     outline: none; }
 
 button.btn {
@@ -93225,9 +93207,11 @@ button.btn {
   .btn--tertiary:link,
   .btn--tertiary:visited,
   .btn--tertiary:hover,
+  .btn--tertiary:focus,
   .btn--tertiary:active {
     color: #3e87e8; }
-  .btn--tertiary:hover {
+  .btn--tertiary:hover,
+  .btn--tertiary:focus {
     border-color: #9999a3;
     box-shadow: none;
     background-color: #e4e4ea; }
@@ -93253,7 +93237,7 @@ button.btn {
   font-size: 1rem;
   line-height: 1.3333333333;
   width: 6rem;
-  margin-left: 0.3333333333rem;
+  margin-left: 0.6666666667rem;
   font-family: var(--px-font-family); }
 
 .range-field__field label {
@@ -93265,32 +93249,6 @@ button.btn {
  *
  * `.u-(m|p)(t|r|b|l|h|v)(-|+|0) {}` = utility - margin/padding top/right/bottom/left/horizontal/vertical less/more/none
  */
-/**
-     * Add tiny margins.
-     */
-.u-m-- {
-  margin: 0.3333333333rem !important; }
-
-.u-mt-- {
-  margin-top: 0.3333333333rem !important; }
-
-.u-mr-- {
-  margin-right: 0.3333333333rem !important; }
-
-.u-mb-- {
-  margin-bottom: 0.3333333333rem !important; }
-
-.u-ml-- {
-  margin-left: 0.3333333333rem !important; }
-
-.u-mh-- {
-  margin-right: 0.3333333333rem !important;
-  margin-left: 0.3333333333rem !important; }
-
-.u-mv-- {
-  margin-top: 0.3333333333rem !important;
-  margin-bottom: 0.3333333333rem !important; }
-
 /**
      * Add small margins.
      */
@@ -93332,16 +93290,16 @@ button.btn {
     <div class="form flex flex--middle">
       <div id="fromFields" class="flex flex--middle text-input">
         <span class="a11y">From</span>
-        <px-range-field id="fromDate" moment="{{fromWorkingCopy}}" date-or-time="Date" class="flex u-mr-">
+        <px-range-field id="fromDate" moment="{{fromWorkingCopy}}" date-or-time="Date" class="u-mr-">
         </px-range-field>
-        <px-range-field id="fromTime" moment="{{fromWorkingCopy}}" date-or-time="Time" class="flex">
+        <px-range-field id="fromTime" moment="{{fromWorkingCopy}}" date-or-time="Time">
         </px-range-field>
       </div>
       <span class="caps u-mh-">to</span>
       <div id="toFields" class="flex flex--middle text-input">
-        <px-range-field id="toDate" moment="{{toWorkingCopy}}" date-or-time="Date" class="flex u-mr-">
+        <px-range-field id="toDate" moment="{{toWorkingCopy}}" date-or-time="Date" class="u-mr-">
         </px-range-field>
-        <px-range-field id="toTime" moment="{{toWorkingCopy}}" date-or-time="Time" class="flex">
+        <px-range-field id="toTime" moment="{{toWorkingCopy}}" date-or-time="Time">
         </px-range-field>
       </div>
       <input class="btn btn--tertiary u-ml-" type="submit" value="Submit" on-click="_submit">
@@ -93831,10 +93789,17 @@ html {
   visibility: hidden !important; }
 
 .viewport {
-  width: 100%;
+  width: 98%;
   max-width: 80rem;
   margin-right: auto;
-  margin-left: auto; }
+  margin-left: auto;
+  padding-right: 1%;
+  padding-left: 1%; }
+  @media screen and (min-width: 80rem) {
+    .viewport {
+      width: 100%;
+      padding-right: 0;
+      padding-left: 0; } }
 
 .viewport--full-height {
   min-height: 100vh; }
@@ -94673,10 +94638,17 @@ html {
           align-self: baseline; }
 
 .viewport {
-  width: 100%;
+  width: 98%;
   max-width: 80rem;
   margin-right: auto;
-  margin-left: auto; }
+  margin-left: auto;
+  padding-right: 1%;
+  padding-left: 1%; }
+  @media screen and (min-width: 80rem) {
+    .viewport {
+      width: 100%;
+      padding-right: 0;
+      padding-left: 0; } }
 
 .viewport--full-height {
   min-height: 100vh; }
@@ -94724,9 +94696,9 @@ html {
 </style>
   <template>
     <div class="flex flex--center flex--middle">
-      <px-time-input id="fromTime" time="{{fromTime}}" class="flex"></px-time-input>
-      <span class="flex u-mh--">–</span>
-      <px-time-input id="toTime" time="{{toTime}}" class="flex"></px-time-input>
+      <px-time-input id="fromTime" time="{{fromTime}}"></px-time-input>
+      <span class="u-mh--">–</span>
+      <px-time-input id="toTime" time="{{toTime}}"></px-time-input>
     </div>
   </template>
 </dom-module>
@@ -94891,7 +94863,6 @@ ul, ol, dl,
 blockquote, p, address,
 hr,
 table,
-.table,
 fieldset, figure,
 pre {
   margin-bottom: 1rem; }
@@ -95142,10 +95113,17 @@ html {
   visibility: hidden !important; }
 
 .viewport {
-  width: 100%;
+  width: 98%;
   max-width: 80rem;
   margin-right: auto;
-  margin-left: auto; }
+  margin-left: auto;
+  padding-right: 1%;
+  padding-left: 1%; }
+  @media screen and (min-width: 80rem) {
+    .viewport {
+      width: 100%;
+      padding-right: 0;
+      padding-left: 0; } }
 
 .viewport--full-height {
   min-height: 100vh; }
@@ -95193,22 +95171,15 @@ html {
   border-collapse: collapse;
   border-spacing: 0; }
   .table th,
-  .table .th,
-  .table td,
-  .table .td {
+  .table td {
     border: 1px solid #d1d0d8;
     padding: 0.6666666667rem; }
-  .table th,
-  .table .th {
-    text-align: left; }
 
 /**
    * Remove borders around a `table`.
    */
 .table--no-cells th,
-.table--no-cells .th,
-.table--no-cells td,
-.table--no-cells .td {
+.table--no-cells td {
   border: 0; }
 
 .btn {
@@ -95232,9 +95203,11 @@ html {
   .btn:link,
   .btn:visited,
   .btn:hover,
+  .btn:focus,
   .btn:active {
     color: black; }
-  .btn:hover {
+  .btn:hover,
+  .btn:focus {
     border-color: #9999a3;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
     background-color: #b1b1bc; }
@@ -95242,7 +95215,8 @@ html {
     border-color: #7c7c84;
     box-shadow: none;
     background-color: #9999a3; }
-  .btn:active {
+  .btn:active,
+  .btn:focus {
     outline: none; }
 
 button.btn {
@@ -95280,11 +95254,13 @@ button.btn {
 .btn--disabled:visited,
 .btn--disabled:hover,
 .btn--disabled:active,
+.btn--disabled:focus,
 .btn[disabled],
 .btn[disabled]:link,
 .btn[disabled]:visited,
 .btn[disabled]:hover,
-.btn[disabled]:active {
+.btn[disabled]:active,
+.btn[disabled]:focus {
   border-color: #d1d0d8;
   box-shadow: none;
   cursor: not-allowed;
@@ -95292,37 +95268,24 @@ button.btn {
   color: #d1d0d8; }
 
 button[hidden] {
-  visibility: hidden; }
+  display: none; }
 
-.table {
-  display: table; }
-
-.caption {
+caption {
   margin-bottom: 1rem;
   font-weight: bold;
   text-align: center;
-  text-transform: uppercase;
-  display: table-caption; }
-
-.th {
-  display: table-cell;
-  font-weight: bold; }
-
-.tr {
-  display: table-row; }
-
-.td {
-  display: table-cell; }
+  text-transform: uppercase; }
 
 .table {
   margin-bottom: 0; }
-  .table .th, .table .td {
+  .table th, .table td {
     box-sizing: content-box;
     min-width: 1.6rem;
-    padding: 0;
-    vertical-align: middle; }
+    padding: 0; }
+    .table th:empty, .table td:empty {
+      height: 2rem; }
 
-.calendar-cell {
+div {
   height: 1.7333333333rem;
   margin-top: 2px;
   margin-bottom: 2px;
@@ -95393,8 +95356,7 @@ button[hidden] {
 
 .btn--bare:hover, .btn--bare:focus {
   background-color: #3e87e8;
-  color: white;
-  outline: none; }
+  color: white; }
 
 .is-selected .btn--bare {
   background-color: #0a9ec1;
@@ -95411,7 +95373,7 @@ button[hidden] {
 </style>
   <template>
     <div class$="{{cellStyles}}">
-      <button class$="{{btnStyles}}" value="{{day}}" on-click="_selectDate" disabled="{{isDisabled}}" hidden$="{{!isValidDate}}">{{day}}</button>
+      <button class$="{{btnStyles}}" value="{{day}}" on-click="_selectDate" disabled="{{isDisabled}}" hidden="{{!isValidDate}}">{{day}}</button>
     </div>
   </template>
 </dom-module>
@@ -95460,13 +95422,11 @@ button[hidden] {
 
     _updateDate: function() {
 
-      var cellStyles = 'calendar-cell';
+      var cellStyles = '';
       var btnStyles = 'btn btn--bare';
       var isDisabled = false;
 
-      this.set('isValidDate', this.displayDate.isValid());
-
-      if (!this.isValidDate) {
+      if (this.displayDate === null) {
         // if the cell is a blank cell of calendar (before/after start of month)
         cellStyles += ' is-empty';
         this.set('day', '');
@@ -95507,6 +95467,7 @@ button[hidden] {
       this.set('btnStyles', btnStyles);
       this.set('isDisabled', isDisabled);
       this.set('cellStyles', cellStyles);
+      this.set('isValidDate', this.displayDate.isValid());
 
     },
 
@@ -95700,7 +95661,6 @@ ul, ol, dl,
 blockquote, p, address,
 hr,
 table,
-.table,
 fieldset, figure,
 pre {
   margin-bottom: 1rem; }
@@ -95951,10 +95911,17 @@ html {
   visibility: hidden !important; }
 
 .viewport {
-  width: 100%;
+  width: 98%;
   max-width: 80rem;
   margin-right: auto;
-  margin-left: auto; }
+  margin-left: auto;
+  padding-right: 1%;
+  padding-left: 1%; }
+  @media screen and (min-width: 80rem) {
+    .viewport {
+      width: 100%;
+      padding-right: 0;
+      padding-left: 0; } }
 
 .viewport--full-height {
   min-height: 100vh; }
@@ -96002,22 +95969,15 @@ html {
   border-collapse: collapse;
   border-spacing: 0; }
   .table th,
-  .table .th,
-  .table td,
-  .table .td {
+  .table td {
     border: 1px solid #d1d0d8;
     padding: 0.6666666667rem; }
-  .table th,
-  .table .th {
-    text-align: left; }
 
 /**
    * Remove borders around a `table`.
    */
 .table--no-cells th,
-.table--no-cells .th,
-.table--no-cells td,
-.table--no-cells .td {
+.table--no-cells td {
   border: 0; }
 
 .btn {
@@ -96041,9 +96001,11 @@ html {
   .btn:link,
   .btn:visited,
   .btn:hover,
+  .btn:focus,
   .btn:active {
     color: black; }
-  .btn:hover {
+  .btn:hover,
+  .btn:focus {
     border-color: #9999a3;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
     background-color: #b1b1bc; }
@@ -96051,7 +96013,8 @@ html {
     border-color: #7c7c84;
     box-shadow: none;
     background-color: #9999a3; }
-  .btn:active {
+  .btn:active,
+  .btn:focus {
     outline: none; }
 
 button.btn {
@@ -96089,11 +96052,13 @@ button.btn {
 .btn--disabled:visited,
 .btn--disabled:hover,
 .btn--disabled:active,
+.btn--disabled:focus,
 .btn[disabled],
 .btn[disabled]:link,
 .btn[disabled]:visited,
 .btn[disabled]:hover,
-.btn[disabled]:active {
+.btn[disabled]:active,
+.btn[disabled]:focus {
   border-color: #d1d0d8;
   box-shadow: none;
   cursor: not-allowed;
@@ -96101,37 +96066,24 @@ button.btn {
   color: #d1d0d8; }
 
 button[hidden] {
-  visibility: hidden; }
+  display: none; }
 
-.table {
-  display: table; }
-
-.caption {
+caption {
   margin-bottom: 1rem;
   font-weight: bold;
   text-align: center;
-  text-transform: uppercase;
-  display: table-caption; }
-
-.th {
-  display: table-cell;
-  font-weight: bold; }
-
-.tr {
-  display: table-row; }
-
-.td {
-  display: table-cell; }
+  text-transform: uppercase; }
 
 .table {
   margin-bottom: 0; }
-  .table .th, .table .td {
+  .table th, .table td {
     box-sizing: content-box;
     min-width: 1.6rem;
-    padding: 0;
-    vertical-align: middle; }
+    padding: 0; }
+    .table th:empty, .table td:empty {
+      height: 2rem; }
 
-.calendar-cell {
+div {
   height: 1.7333333333rem;
   margin-top: 2px;
   margin-bottom: 2px;
@@ -96202,8 +96154,7 @@ button[hidden] {
 
 .btn--bare:hover, .btn--bare:focus {
   background-color: #3e87e8;
-  color: white;
-  outline: none; }
+  color: white; }
 
 .is-selected .btn--bare {
   background-color: #0a9ec1;
@@ -96219,27 +96170,32 @@ button[hidden] {
 
 </style>
   <template>
-    <div class="table table--no-cells text--center" id="calendar">
-      <div class="caption">
+    <table class="table table--no-cells text--center" id="calendar">
+      <caption>
         <span>{{month}}</span>
         <span>{{year}}</span>
-      </div>
-      <div class="tr">
-        <template is="dom-repeat" items="{{daysOfTheWeek}}" as="dayOfTheWeek">
-          <span class="th caps u-pt0">{{dayOfTheWeek}}</span>
-        </template>
-      </div>
-      <template is="dom-repeat" items="{{calendar}}" as="week">
-        <div class="tr">
-          <template is="dom-repeat" items="{{week}}" as="date">
-              <div class="td">
+      </caption>
+      <thead>
+        <tr>
+          <template is="dom-repeat" items="{{daysOfTheWeek}}" as="dayOfTheWeek">
+            <th class="caps u-pt0">{{dayOfTheWeek}}</th>
+          </template>
+        </tr>
+      </thead>
+      <tbody>
+        <template is="dom-repeat" items="{{calendar}}" as="week">
+          <tr>
+            <template is="dom-repeat" items="{{week}}" as="date">
+              <td>
                 <px-calendar-cell display-date="{{date}}" first-range-date="{{firstRangeDate}}" second-range-date="{{secondRangeDate}}" allow-future-dates="{{allowFutureDates}}">
                 </px-calendar-cell>
-              </div>
-          </template>
-        </div>
-      </template>
-    </div>
+              </td>
+            </template>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+
   </template>
 </dom-module>
 
@@ -96344,16 +96300,16 @@ button[hidden] {
       var date = 1;
       var month = [];
 
-      for (var weekCount = 0; weekCount < numberOfWeeks; weekCount++) {
+      for(var weekCount = 0; weekCount < numberOfWeeks; weekCount++) {
 
         var week = [];
 
-        while (daysBeforeMonthStartsCount < dayBeginningOfMonth) {
+        while(daysBeforeMonthStartsCount < dayBeginningOfMonth) {
           week.push(moment(null)); // push empty cells on before the 1st of the month
           daysBeforeMonthStartsCount++;
         }
 
-        while (week.length < 7) {
+        while(week.length < 7) {
           if (date <= numberOfDaysInMonth) {
             week.push(moment(this.displayMonthYear.date(date)));
             date++;
@@ -96724,10 +96680,17 @@ html {
           align-self: baseline; }
 
 .viewport {
-  width: 100%;
+  width: 98%;
   max-width: 80rem;
   margin-right: auto;
-  margin-left: auto; }
+  margin-left: auto;
+  padding-right: 1%;
+  padding-left: 1%; }
+  @media screen and (min-width: 80rem) {
+    .viewport {
+      width: 100%;
+      padding-right: 0;
+      padding-left: 0; } }
 
 .viewport--full-height {
   min-height: 100vh; }
@@ -96753,7 +96716,6 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-transform: translate(0, 0);
-      -ms-transform: translate(0, 0);
           transform: translate(0, 0); }
 
 /* makes the font 33% larger relative to the icon container */
@@ -96838,31 +96800,26 @@ html {
 .fa-rotate-90 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
   -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
   transform: rotate(90deg); }
 
 .fa-rotate-180 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
   transform: rotate(180deg); }
 
 .fa-rotate-270 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
   -webkit-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
   transform: rotate(270deg); }
 
 .fa-flip-horizontal {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
   -webkit-transform: scale(-1, 1);
-  -ms-transform: scale(-1, 1);
   transform: scale(-1, 1); }
 
 .fa-flip-vertical {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   -webkit-transform: scale(1, -1);
-  -ms-transform: scale(1, -1);
   transform: scale(1, -1); }
 
 :root .fa-rotate-90,
@@ -98542,7 +98499,6 @@ html {
 [dir=rtl] .fa-arrow-circle-o-left,
 [dir=rtl] .fa-arrow-circle-o-right {
   -webkit-transform: scale(-1, 1);
-      -ms-transform: scale(-1, 1);
           transform: scale(-1, 1); }
 
 /*------------------------------------*    #PX-COLORS-DESIGN
@@ -98604,9 +98560,11 @@ html {
   .btn:link,
   .btn:visited,
   .btn:hover,
+  .btn:focus,
   .btn:active {
     color: black; }
-  .btn:hover {
+  .btn:hover,
+  .btn:focus {
     border-color: #9999a3;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
     background-color: #b1b1bc; }
@@ -98614,7 +98572,8 @@ html {
     border-color: #7c7c84;
     box-shadow: none;
     background-color: #9999a3; }
-  .btn:active {
+  .btn:active,
+  .btn:focus {
     outline: none; }
 
 button.btn {
@@ -98655,9 +98614,11 @@ button.btn {
   .btn--primary:link,
   .btn--primary:visited,
   .btn--primary:hover,
+  .btn--primary:focus,
   .btn--primary:active {
     color: white; }
-  .btn--primary:hover {
+  .btn--primary:hover,
+  .btn--primary:focus {
     border-color: transparent;
     background-color: #3573c5; }
   .btn--primary:active {
@@ -98672,11 +98633,13 @@ button.btn {
 .btn--disabled:visited,
 .btn--disabled:hover,
 .btn--disabled:active,
+.btn--disabled:focus,
 .btn[disabled],
 .btn[disabled]:link,
 .btn[disabled]:visited,
 .btn[disabled]:hover,
-.btn[disabled]:active {
+.btn[disabled]:active,
+.btn[disabled]:focus {
   border-color: #d1d0d8;
   box-shadow: none;
   cursor: not-allowed;
@@ -98685,9 +98648,6 @@ button.btn {
 
 :host {
   display: block; }
-
-.btn--bare:hover, .btn--bare:focus {
-  outline: none; }
 
 /**
  * Margin and padding helper classes. Use these to tweak layout on a micro
@@ -99459,10 +99419,17 @@ html {
           align-self: baseline; }
 
 .viewport {
-  width: 100%;
+  width: 98%;
   max-width: 80rem;
   margin-right: auto;
-  margin-left: auto; }
+  margin-left: auto;
+  padding-right: 1%;
+  padding-left: 1%; }
+  @media screen and (min-width: 80rem) {
+    .viewport {
+      width: 100%;
+      padding-right: 0;
+      padding-left: 0; } }
 
 .viewport--full-height {
   min-height: 100vh; }
@@ -99526,9 +99493,11 @@ html {
   .btn:link,
   .btn:visited,
   .btn:hover,
+  .btn:focus,
   .btn:active {
     color: black; }
-  .btn:hover {
+  .btn:hover,
+  .btn:focus {
     border-color: #9999a3;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
     background-color: #b1b1bc; }
@@ -99536,7 +99505,8 @@ html {
     border-color: #7c7c84;
     box-shadow: none;
     background-color: #9999a3; }
-  .btn:active {
+  .btn:active,
+  .btn:focus {
     outline: none; }
 
 button.btn {
@@ -99577,9 +99547,11 @@ button.btn {
   .btn--primary:link,
   .btn--primary:visited,
   .btn--primary:hover,
+  .btn--primary:focus,
   .btn--primary:active {
     color: white; }
-  .btn--primary:hover {
+  .btn--primary:hover,
+  .btn--primary:focus {
     border-color: transparent;
     background-color: #3573c5; }
   .btn--primary:active {
@@ -99590,15 +99562,6 @@ button.btn {
   margin: 0;
   padding: 0;
   list-style: none; }
-
-:host {
-  text-align: left; }
-
-:host[hidden] {
-  visibility: hidden; }
-
-.btn--bare:hover, .btn--bare:focus {
-  outline: none; }
 
 .rangepicker__box {
   position: absolute;
@@ -100324,10 +100287,17 @@ html {
           align-self: baseline; }
 
 .viewport {
-  width: 100%;
+  width: 98%;
   max-width: 80rem;
   margin-right: auto;
-  margin-left: auto; }
+  margin-left: auto;
+  padding-right: 1%;
+  padding-left: 1%; }
+  @media screen and (min-width: 80rem) {
+    .viewport {
+      width: 100%;
+      padding-right: 0;
+      padding-left: 0; } }
 
 .viewport--full-height {
   min-height: 100vh; }
@@ -100391,9 +100361,11 @@ html {
   .btn:link,
   .btn:visited,
   .btn:hover,
+  .btn:focus,
   .btn:active {
     color: black; }
-  .btn:hover {
+  .btn:hover,
+  .btn:focus {
     border-color: #9999a3;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
     background-color: #b1b1bc; }
@@ -100401,7 +100373,8 @@ html {
     border-color: #7c7c84;
     box-shadow: none;
     background-color: #9999a3; }
-  .btn:active {
+  .btn:active,
+  .btn:focus {
     outline: none; }
 
 button.btn {
@@ -100442,9 +100415,11 @@ button.btn {
   .btn--primary:link,
   .btn--primary:visited,
   .btn--primary:hover,
+  .btn--primary:focus,
   .btn--primary:active {
     color: white; }
-  .btn--primary:hover {
+  .btn--primary:hover,
+  .btn--primary:focus {
     border-color: transparent;
     background-color: #3573c5; }
   .btn--primary:active {
@@ -100455,15 +100430,6 @@ button.btn {
   margin: 0;
   padding: 0;
   list-style: none; }
-
-:host {
-  text-align: left; }
-
-:host[hidden] {
-  visibility: hidden; }
-
-.btn--bare:hover, .btn--bare:focus {
-  outline: none; }
 
 .rangepicker__box {
   position: absolute;
@@ -100621,7 +100587,7 @@ button.btn {
           </px-time-rangepicker>
         </div>
         <template is="dom-if" if="{{presetRanges}}">
-          <px-rangepicker-presets id="presets" class="flex flex--col border--left u-p+" preset-ranges="{{presetRanges}}">
+          <px-rangepicker-presets id="presets" class="border--left u-p+" preset-ranges="{{presetRanges}}">
           </px-rangepicker-presets>
         </template>
       </div>
@@ -100691,13 +100657,7 @@ button.btn {
        *
        * @default no presets
        */
-      presetRanges: Object,
-
-      /**
-       * True if the modal is hidden.  Must be declared as a property to reference (below) in IE 10.
-       * @private
-       */
-      hidden: Boolean
+      presetRanges: Object
 
     },
 
@@ -100743,819 +100703,6 @@ button.btn {
   });
 </script>
 <dom-module id="px-rangepicker" assetpath="bower_components/px-rangepicker/">
-  <style>
-@charset "UTF-8";
-/*
- * Copyright (c) 2014 GE Global Research. All rights reserved.
- *
- * The copyright to the computer software herein is the property of
- * GE Global Research. The software may be used and/or copied only
- * with the written permission of GE Global Research or in accordance
- * with the terms and conditions stipulated in the agreement/contract
- * under which the software has been supplied.
- */
-/*
-THIS FILE SHOULD CONTAIN ONLY RULES SPECIFIC TO PREDIX BRANDING
-common/abstract rules go in px-rangepicker-sketch.scss, not in this file.
-*/
-/*
- * Copyright (c) 2014 GE Global Research. All rights reserved.
- *
- * The copyright to the computer software herein is the property of
- * GE Global Research. The software may be used and/or copied only
- * with the written permission of GE Global Research or in accordance
- * with the terms and conditions stipulated in the agreement/contract
- * under which the software has been supplied.
- */
-/*
-THIS FILE SHOULD CONTAIN ONLY ABSTRACT/'SKETCH' THEME RULES, NOT SPECIFIC TO PREDIX BRANDING
-Predix branding rules go in px-rangepicker-predix.scss, not in this file.
-*/
-/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
-/**
- *
- * 1. Set the default `font-size` and `line-height` for the entire project,
- *    sourced from our default variables. The `font-size` is calculated to exist
- *    in ems, the `line-height` is calculated to exist unitlessly.
- * 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
- *    navigating between pages that do/do not have enough content to produce
- *    scrollbars naturally.
- * 3. Ensure the page always fills at least the entire height of the viewport.
- * 4. Prevent certain mobile browsers from automatically zooming fonts.
- * 5. Fonts on OSX will look more consistent with other systems that do not
- *    render text using sub-pixel anti-aliasing.
- */
-html {
-  font-size: 0.9375em;
-  /* [1] */
-  line-height: 1.3333333333;
-  /* [1] */
-  background-color: white;
-  color: black;
-  overflow-y: scroll;
-  /* [2] */
-  min-height: 100%;
-  /* [3] */
-  -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
-          text-size-adjust: 100%;
-  /* [4] */
-  -moz-osx-font-smoothing: grayscale;
-  /* [5] */
-  -webkit-font-smoothing: antialiased;
-  /* [5] */ }
-
-/**
- * Remove default margin.
- */
-body {
-  margin: 0; }
-
-/* HTML5 display definitions
-   ========================================================================== */
-/**
- * Correct `block` display not defined for any HTML5 element in IE 8/9.
- * Correct `block` display not defined for `details` or `summary` in IE 10/11
- * and Firefox.
- * Correct `block` display not defined for `main` in IE 11.
- */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section,
-summary {
-  display: block; }
-
-/**
- * 1. Correct `inline-block` display not defined in IE 8/9.
- * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
- */
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-  /* 1 */
-  vertical-align: baseline;
-  /* 2 */ }
-
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-audio:not([controls]) {
-  display: none;
-  height: 0; }
-
-/**
- * Address `[hidden]` styling not present in IE 8/9/10.
- * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
- */
-[hidden],
-template {
-  display: none; }
-
-/* Margins
-   ========================================================================== */
-/**
- * Where `margin-bottom` is concerned,this value will be the same as the
- * base line-height. This allows us to keep a consistent vertical rhythm.
- * As per: csswizardry.com/2012/06/single-direction-margin-declarations
- */
-h1, h2, h3, h4, h5, h6,
-ul, ol, dl,
-blockquote, p, address,
-hr,
-table,
-fieldset, figure,
-pre {
-  margin-bottom: 1rem; }
-
-/**
- * Remove extra vertical spacing when nesting lists.
- */
-li > ul,
-li > ol {
-  margin-bottom: 0; }
-
-/**
- * Where `margin-left` is concerned we want to try and indent certain elements
- * by a consistent amount. Define that amount once,here.
- */
-ul, ol, dd {
-  margin-left: 2rem; }
-
-/* Embedded content
-   ========================================================================== */
-/**
- * Remove border when inside `a` element in IE 8/9/10. Make images shrink from their largest size.
- */
-img {
-  max-width: 100%;
-  border: 0; }
-
-/**
- * Correct overflow not hidden in IE 9/10/11.
- */
-svg:not(:root) {
-  overflow: hidden; }
-
-/* Grouping content
-   ========================================================================== */
-/**
- * Zero margins for figure.
- */
-figure {
-  margin: 0; }
-
-/**
- * Address differences between Firefox and other browsers.
- */
-hr {
-  box-sizing: content-box;
-  height: 0; }
-
-/**
- * Contain overflow in all browsers.
- */
-pre {
-  overflow: auto; }
-
-/**
- * Set the global `box-sizing` state to `border-box`.
- *
- * css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
- * paulirish.com/2012/box-sizing-border-box-ftw
- */
-html {
-  box-sizing: border-box; }
-
-:host {
-  /*! Comment to prevent cssmin munging this rule with html above and borking Safari */
-  box-sizing: border-box; }
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit; }
-
-/**
- * A series of helper classes to use arbitrarily. Only use a helper class if an
- * element/component doesn’t already have a class to which you could apply this
- * styling, e.g. if you need to float `.main-nav` left then add `float:left;` to
- * that ruleset as opposed to adding the `.float--left` class to the markup.
- *
- * A lot of these classes carry `!important` as you will always want them to win
- * out over other selectors.
- */
-/**
- * Add/remove floats
- */
-.float--right {
-  float: right !important; }
-
-.float--left {
-  float: left !important; }
-
-.float--none {
-  float: none !important; }
-
-/**
- * Text alignment
- */
-.text--left {
-  text-align: left !important; }
-
-.text--center {
-  text-align: center !important; }
-
-.text--right {
-  text-align: right !important; }
-
-/**
- * Full height element
- */
-.full-height {
-  height: 100% !important; }
-
-/**
- * Add a help cursor to any element that gives the user extra information on
- * `:hover`.
- */
-.informative {
-  cursor: help !important; }
-
-/**
- * Mute an object by reducing its opacity.
- */
-.muted {
-  opacity: 0.5 !important; }
-
-/**
- * Align items to the right where they imply progression/movement forward, e.g.:
- *
-   <p class=proceed><a href=#>Read more...</a></p>
- *
- */
-.proceed {
-  text-align: right !important; }
-
-/**
- * Apply capital case to an element (usually a `strong`).
- */
-.caps {
-  text-transform: uppercase !important; }
-
-/**
- * Hide visually and from screen readers:
- * http://juicystudio.com/article/screen-readers-display-none.php
- */
-.hidden {
-  display: none !important;
-  visibility: hidden; }
-
-/**
- * Hide content off-screen without resorting to `display:none;`
- */
-.a11y,
-.visuallyhidden {
-  position: absolute !important;
-  overflow: hidden !important;
-  width: 1px !important;
-  height: 1px !important;
-  margin: -1px !important;
-  border: 0 !important;
-  padding: 0 !important;
-  clip: rect(0 0 0 0) !important; }
-
-.a11y.focusable:active,
-.a11y.focusable:focus,
-.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
-  position: static;
-  overflow: visible;
-  width: auto;
-  height: auto;
-  margin: 0;
-  clip: auto; }
-
-@media screen and (max-width: 44.9375em) {
-  .a11y-palm,
-  .visuallyhidden-palm {
-    position: absolute !important;
-    overflow: hidden !important;
-    width: 1px !important;
-    height: 1px !important;
-    margin: -1px !important;
-    border: 0 !important;
-    padding: 0 !important;
-    clip: rect(0 0 0 0) !important; } }
-
-@media screen and (min-width: 45em) and (max-width: 63.9375em) {
-  .a11y-lap,
-  .visuallyhidden-lap {
-    position: absolute !important;
-    overflow: hidden !important;
-    width: 1px !important;
-    height: 1px !important;
-    margin: -1px !important;
-    border: 0 !important;
-    padding: 0 !important;
-    clip: rect(0 0 0 0) !important; } }
-
-@media screen and (min-width: 45em) {
-  .a11y-lap-and-up,
-  .visuallyhidden-lap-and-up {
-    position: absolute !important;
-    overflow: hidden !important;
-    width: 1px !important;
-    height: 1px !important;
-    margin: -1px !important;
-    border: 0 !important;
-    padding: 0 !important;
-    clip: rect(0 0 0 0) !important; } }
-
-@media screen and (max-width: 63.9375em) {
-  .a11y-portable,
-  .visuallyhidden-portable {
-    position: absolute !important;
-    overflow: hidden !important;
-    width: 1px !important;
-    height: 1px !important;
-    margin: -1px !important;
-    border: 0 !important;
-    padding: 0 !important;
-    clip: rect(0 0 0 0) !important; } }
-
-@media screen and (min-width: 64em) {
-  .a11y-desk,
-  .visuallyhidden-desk {
-    position: absolute !important;
-    overflow: hidden !important;
-    width: 1px !important;
-    height: 1px !important;
-    margin: -1px !important;
-    border: 0 !important;
-    padding: 0 !important;
-    clip: rect(0 0 0 0) !important; } }
-
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-  .a11y-retina,
-  .visuallyhidden-retina {
-    position: absolute !important;
-    overflow: hidden !important;
-    width: 1px !important;
-    height: 1px !important;
-    margin: -1px !important;
-    border: 0 !important;
-    padding: 0 !important;
-    clip: rect(0 0 0 0) !important; } }
-
-/**
- * Hide visually and from screen readers, but maintain layout
- */
-.invisible {
-  visibility: hidden !important; }
-
-.flex {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex; }
-
-.flex--row {
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row; }
-
-.flex--row--rev {
-  -webkit-flex-direction: row-reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse; }
-
-.flex--col {
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column; }
-
-.flex--col--rev {
-  -webkit-flex-direction: column-reverse;
-      -ms-flex-direction: column-reverse;
-          flex-direction: column-reverse; }
-
-.flex--nowrap {
-  -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap; }
-
-.flex--wrap {
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
-
-.flex--wrap--rev {
-  -webkit-flex-wrap: wrap-reverse;
-      -ms-flex-wrap: wrap-reverse;
-          flex-wrap: wrap-reverse; }
-
-.flex--left {
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start; }
-
-.flex--center {
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
-
-.flex--right {
-  -webkit-justify-content: flex-end;
-      -ms-flex-pack: end;
-          justify-content: flex-end; }
-
-.flex--justify {
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between; }
-
-.flex--spaced {
-  -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-          justify-content: space-around; }
-
-.flex--top {
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start; }
-
-.flex--middle {
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center; }
-
-.flex--bottom {
-  -webkit-align-items: flex-end;
-      -ms-flex-align: end;
-          align-items: flex-end; }
-
-.flex--stretch {
-  -webkit-align-items: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch; }
-
-.flex--baseline {
-  -webkit-align-items: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline; }
-
-.flex--top--multi {
-  -webkit-align-content: flex-start;
-      -ms-flex-line-pack: start;
-          align-content: flex-start; }
-
-.flex--middle--multi {
-  -webkit-align-content: center;
-      -ms-flex-line-pack: center;
-          align-content: center; }
-
-.flex--bottom--multi {
-  -webkit-align-content: flex-end;
-      -ms-flex-line-pack: end;
-          align-content: flex-end; }
-
-.flex--stretch--multi {
-  -webkit-align-content: stretch;
-      -ms-flex-line-pack: stretch;
-          align-content: stretch; }
-
-.flex--justify--multi {
-  -webkit-align-content: space-between;
-      -ms-flex-line-pack: justify;
-          align-content: space-between; }
-
-.flex--spaced--multi {
-  -webkit-align-content: space-around;
-      -ms-flex-line-pack: distribute;
-          align-content: space-around; }
-
-.flex__item {
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1; }
-
-.flex__item--top {
-  -webkit-align-self: flex-start;
-      -ms-flex-item-align: start;
-          align-self: flex-start; }
-
-.flex__item--middle {
-  -webkit-align-self: center;
-      -ms-flex-item-align: center;
-          align-self: center; }
-
-.flex__item--bottom {
-  -webkit-align-self: flex-end;
-      -ms-flex-item-align: end;
-          align-self: flex-end; }
-
-.flex__item--baseline {
-  -webkit-align-self: baseline;
-      -ms-flex-item-align: baseline;
-          align-self: baseline; }
-
-.viewport {
-  width: 100%;
-  max-width: 80rem;
-  margin-right: auto;
-  margin-left: auto; }
-
-.viewport--full-height {
-  min-height: 100vh; }
-
-/*------------------------------------*    #PX-COLORS-DESIGN
-\*------------------------------------*/
-/**
- * Brand Colors
- */
-/**
-     * Primary
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
-/**
- * Monochromatic (gray10 is darkest, gray1 is lightest)
- */
-/**
- * Buttons
- */
-/**
- * Selection
- */
-/**
- * Alerts
- */
-/**
- * Data Visualization
- */
-/**
-     * Basic
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
-.btn {
-  display: inline-block;
-  overflow: visible;
-  margin: 0;
-  border: 1px solid #b1b1bc;
-  border-radius: 3px;
-  padding: 0 1em;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-  font: inherit;
-  line-height: calc(2em - 2px);
-  -webkit-font-smoothing: antialiased;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  text-transform: none;
-  white-space: nowrap;
-  background-color: #e4e4ea; }
-  .btn,
-  .btn:link,
-  .btn:visited,
-  .btn:hover,
-  .btn:active {
-    color: black; }
-  .btn:hover {
-    border-color: #9999a3;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
-    background-color: #b1b1bc; }
-  .btn:active {
-    border-color: #7c7c84;
-    box-shadow: none;
-    background-color: #9999a3; }
-  .btn:active {
-    outline: none; }
-
-button.btn {
-  -webkit-appearance: button; }
-
-/**
-* Establish default space between adjacent buttons
-*/
-.btn + .btn {
-  margin-left: 0.6666666667rem; }
-
-/**
-   * Buttons with no styles (good a11y practice to use <button> for actions rather than <a>).
-   */
-.btn--bare {
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-  line-height: inherit; }
-  .btn--bare,
-  .btn--bare:link,
-  .btn--bare:visited,
-  .btn--bare:hover,
-  .btn--bare:active,
-  .btn--bare:focus {
-    box-shadow: none;
-    background: none;
-    color: inherit; }
-
-/**
-   * Change button colors for primary buttons
-   */
-.btn--primary {
-  border-color: #2b5ea2;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
-  background-color: #3e87e8; }
-  .btn--primary,
-  .btn--primary:link,
-  .btn--primary:visited,
-  .btn--primary:hover,
-  .btn--primary:active {
-    color: white; }
-  .btn--primary:hover {
-    border-color: transparent;
-    background-color: #3573c5; }
-  .btn--primary:active {
-    border-color: transparent;
-    background-color: #2b5ea2; }
-
-.list-bare {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-
-:host {
-  text-align: left; }
-
-:host[hidden] {
-  visibility: hidden; }
-
-.btn--bare:hover, .btn--bare:focus {
-  outline: none; }
-
-.rangepicker__box {
-  position: absolute;
-  z-index: 20;
-  display: inline-block;
-  margin-top: 0.6666666667rem;
-  border: 1px solid;
-  border-radius: 3px; }
-
-.border--top {
-  border-top: 1px solid; }
-
-.border--left {
-  border-left: 1px solid; }
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: 100%;
-  height: 100%; }
-
-/**
- * Margin and padding helper classes. Use these to tweak layout on a micro
- * level.
- *
- * `.u-(m|p)(t|r|b|l|h|v)(-|+|0) {}` = utility - margin/padding top/right/bottom/left/horizontal/vertical less/more/none
- */
-/**
-     * Add small margins.
-     */
-.u-m- {
-  margin: 0.6666666667rem !important; }
-
-.u-mt- {
-  margin-top: 0.6666666667rem !important; }
-
-.u-mr- {
-  margin-right: 0.6666666667rem !important; }
-
-.u-mb- {
-  margin-bottom: 0.6666666667rem !important; }
-
-.u-ml- {
-  margin-left: 0.6666666667rem !important; }
-
-.u-mh- {
-  margin-right: 0.6666666667rem !important;
-  margin-left: 0.6666666667rem !important; }
-
-.u-mv- {
-  margin-top: 0.6666666667rem !important;
-  margin-bottom: 0.6666666667rem !important; }
-
-/**
-     * Remove margins.
-     */
-.u-m0 {
-  margin: 0 !important; }
-
-.u-mt0 {
-  margin-top: 0 !important; }
-
-.u-mr0 {
-  margin-right: 0 !important; }
-
-.u-mb0 {
-  margin-bottom: 0 !important; }
-
-.u-ml0 {
-  margin-left: 0 !important; }
-
-.u-mh0 {
-  margin-right: 0 !important;
-  margin-left: 0 !important; }
-
-.u-mv0 {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important; }
-
-/**
-     * Add small paddings.
-     */
-.u-p- {
-  padding: 0.6666666667rem !important; }
-
-.u-pt- {
-  padding-top: 0.6666666667rem !important; }
-
-.u-pr- {
-  padding-right: 0.6666666667rem !important; }
-
-.u-pb- {
-  padding-bottom: 0.6666666667rem !important; }
-
-.u-pl- {
-  padding-left: 0.6666666667rem !important; }
-
-.u-ph- {
-  padding-right: 0.6666666667rem !important;
-  padding-left: 0.6666666667rem !important; }
-
-.u-pv- {
-  padding-top: 0.6666666667rem !important;
-  padding-bottom: 0.6666666667rem !important; }
-
-/**
-     * Add large paddings.
-     */
-.u-p\00002b {
-  padding: 1.3333333333rem !important; }
-
-.u-pt\00002b {
-  padding-top: 1.3333333333rem !important; }
-
-.u-pr\00002b {
-  padding-right: 1.3333333333rem !important; }
-
-.u-pb\00002b {
-  padding-bottom: 1.3333333333rem !important; }
-
-.u-pl\00002b {
-  padding-left: 1.3333333333rem !important; }
-
-.u-ph\00002b {
-  padding-right: 1.3333333333rem !important;
-  padding-left: 1.3333333333rem !important; }
-
-.u-pv\00002b {
-  padding-top: 1.3333333333rem !important;
-  padding-bottom: 1.3333333333rem !important; }
-
-.rangepicker__box {
-  border-color: #d1d0d8;
-  background-color: white; }
-  .rangepicker__box span {
-    color: #b1b1bc; }
-
-.border--top, .border--left {
-  border-color: #d1d0d8; }
-
-.overlay {
-  background-color: rgba(0, 0, 0, 0.1); }
-
-</style>
   <template>
     <px-range-fields id="rangeFields" from="{{fromMoment}}" to="{{toMoment}}">
     </px-range-fields>
