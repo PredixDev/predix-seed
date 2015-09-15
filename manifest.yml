@@ -7,7 +7,6 @@ applications:
     stack: cflinuxfs2
     services:
             - predix_seed_session_store
-            - predix_seed_asset_ga
             - newrelic
             - predix_seed_view_service_exp
     env:

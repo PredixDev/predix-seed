@@ -8,7 +8,6 @@ applications:
     stack: cflinuxfs2
     services:
             - predix_seed_session_store
-            - predix_seed_asset_ga
             - newrelic
     env:
       UAA_SERVER_URL: https://etc.predix-uaa-staging.grc-apps.svc.ice.ge.com
