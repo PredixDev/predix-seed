@@ -8,7 +8,6 @@ before_script:
   
 script:
   - rm -rf /root/.npm/*.lock.STALE
-  - npm config set registry http://GIS05808.devcloud.ge.com:9095
   - npm install
   - bower --allow-root install
   - grunt dist -v
