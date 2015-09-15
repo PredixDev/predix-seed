@@ -29,39 +29,31 @@ define(['angular', 'angular-ui-router'], function(angular) {
                     }]
                 }
             })
-            .state('about', {
-                url: '/about',
-                templateUrl: 'views/about.html'
-            })
-            .state('dashboard', {
+            .state('dashboards', {
                 parent: 'secure',
-                url: '/dashboard',
-                templateUrl: 'views/dashboard.html',
-                controller: 'DashboardCtrl'
+                url: '/dashboards',
+                templateUrl: 'views/dashboards.html',
+                controller: 'DashboardsCtrl'
             })
-            .state('cards', {
-                url: '/cards',
-                templateUrl: 'views/cards.html'
+            .state('blankpage', {
+                url: '/blankpage',
+                templateUrl: 'views/blank-page.html'
             })
-            .state('interactions', {
-                url: '/interactions',
-                templateUrl: 'views/interactions.html'
+            .state('blanksubpage', {
+                url: '/blanksubpage',
+                templateUrl: 'views/blank-sub-page.html'
             })
-            .state('dataControl', {
-                url: '/dataControl',
-                templateUrl: 'views/data-control.html',
-                controller: 'DataControlCtrl'
-            })
-            .state('components', {
-                url: '/components',
-                templateUrl: 'views/components.html'
+            .state('cardsfordashboard', {
+                url: '/cardsfordashboard',
+                templateUrl: 'views/cards-for-dashboard.html',
+                controller: 'CardsForDashCtrl'
             });
 
 
         $urlRouterProvider.otherwise(function ($injector) {
             var $state = $injector.get('$state');
-            document.querySelector('px-app-nav').markSelected('/about');
-            $state.go('about');
+            document.querySelector('px-app-nav').markSelected('/blankpage');
+            $state.go('blankpage');
         });
 
     }]);

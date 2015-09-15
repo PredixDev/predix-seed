@@ -2,7 +2,7 @@ define(['angular', './sample-module'], function(angular, controllers) {
     'use strict';
 
     // Controller definition
-    controllers.controller('DashboardCtrl', ['$scope', '$log', 'PredixAssetService', 'PredixViewService', function ($scope, $log, PredixAssetService, PredixViewService) {
+    controllers.controller('DashboardsCtrl', ['$scope', '$log', 'PredixAssetService', 'PredixViewService', function ($scope, $log, PredixAssetService, PredixViewService) {
 
         PredixAssetService.getAssetsByParentId(null).then(function(initialContext) {
             $scope.initialContexts = initialContext;
