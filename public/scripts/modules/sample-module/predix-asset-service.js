@@ -45,7 +45,7 @@ define(['angular', './sample-module'], function(angular, module) {
                 }
             }
 
-            $http.get(childrenUrl, {headers: {'x-tenant': 'experience_seed_app'}})
+            $http.get(childrenUrl)
                 .success(function(data, status, headers) {
                     var linkHeader = headers('Link');
                     var link = '';
