@@ -1,0 +1,9 @@
+[
+    {
+        "uri": "child",
+        "classification": "child",
+        "description": "Child Asset",
+        "assetId": "Child Asset",
+        "parent": null
+    }
+]

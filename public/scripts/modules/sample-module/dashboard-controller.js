@@ -5,14 +5,14 @@ define(['angular', './sample-module'], function (angular, controllers) {
     // Controller definition
     controllers.controller('DashboardsCtrl', ['$scope', '$log', 'PredixAssetService', 'PredixViewService', function ($scope, $log, PredixAssetService, PredixViewService) {
 
-        PredixAssetService.getAssetsByParentId(null).then(function (initialContext) {
+        PredixAssetService.getAssetsByParentId('root').then(function (initialContext) {
             $scope.initialContexts = initialContext;
         }, function (message) {
             $log.error(message);
         });
 
         $scope.decks = [];
-        $scope.selectedDeck = null;//$scope.decks[0].url;'/api/views/decks/1?filter[include][cards]';
+        $scope.selectedDeck = null;//$scope.decks[0].url;
 
         // callback for when the Open button is clicked
         $scope.openContext = function (contextDetails) {
@@ -31,11 +31,10 @@ define(['angular', './sample-module'], function (angular, controllers) {
             PredixViewService.getDecksByTags(newContext.classification) // gets all decks for this context
                 .then(function (decks) {
                     decks.forEach(function (deck) {
-                        $scope.decks.push({name: deck.title, url: '/api/decks/' + deck.id + '?filter[include][cards]'});
+                        $scope.decks.push({name: deck.title, url: '/api/views/decks/' + deck.id + '?filter[include][cards]'});
                     });
+                    $scope.selectedDeck = $scope.decks[0].url;
                 });
-
-            $scope.$digest();
         };
 
         $scope.getChildren = function (parentId, options) {

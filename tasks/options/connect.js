@@ -20,10 +20,6 @@ var config = {
    * Please update the following object add your secure routes
    */
   proxy: {
-    '/api/asset(.*)': {
-      url: 'http://predix-asset-rc.grc-apps.svc.ice.ge.com/asset$1',
-      instanceId: '30f26f9f-f649-4889-bec5-27b441c2f094'
-    },
     '/api/views(.*)': {
       url: 'http://px-view-service-exp.grc-apps.svc.ice.ge.com/api$1',
       instanceId: 'c8918695-f515-41e2-ba86-cdea84848cc5'
