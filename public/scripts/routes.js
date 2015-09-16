@@ -42,11 +42,6 @@ define(['angular', 'angular-ui-router'], function(angular) {
             .state('blanksubpage', {
                 url: '/blanksubpage',
                 templateUrl: 'views/blank-sub-page.html'
-            })
-            .state('cardsfordashboard', {
-                url: '/cardsfordashboard',
-                templateUrl: 'views/cards-for-dashboard.html',
-                controller: 'CardsForDashCtrl'
             });
 
 

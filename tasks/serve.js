@@ -11,5 +11,5 @@
  *
  */
 module.exports = function(grunt) {
-    grunt.registerTask('serve', ['clean:build', 'connect:server', 'watch']);
+    grunt.registerTask('serve', ['clean:build',  'copy:serve', 'connect:server', 'watch']);
 }

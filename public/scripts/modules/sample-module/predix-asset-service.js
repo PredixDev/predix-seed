@@ -8,7 +8,7 @@ define(['angular', './sample-module'], function(angular, module) {
         /**
          * Predix Asset server base url
          */
-        var baseUrl = '/api/asset';
+        var baseUrl = '/sample-data';
 
         /**
          * transform the asset entity into an object format consumable by px-context-browser item
@@ -27,9 +27,8 @@ define(['angular', './sample-module'], function(angular, module) {
          * fetch the asset children by parentId
          */
         var getEntityChildren = function(parentId, options) {
-            var numberOfRecords = 100;
             var deferred = $q.defer();
-            var childrenUrl = baseUrl + '?pageSize=' + numberOfRecords + '&topLevelOnly=true&filter=parent=' + parentId;
+            var childrenUrl = baseUrl + '/sample-asset-'+parentId+'.json'; //'?pageSize=' + numberOfRecords + '&topLevelOnly=true&filter=parent=' + parentId;
             var childEntities = {
                 meta: {link: ''},
                 data: []
@@ -45,7 +44,7 @@ define(['angular', './sample-module'], function(angular, module) {
                 }
             }
 
-            $http.get(childrenUrl, {headers: {'x-tenant': 'experience_seed_app'}})
+            $http.get(childrenUrl)
                 .success(function(data, status, headers) {
                     var linkHeader = headers('Link');
                     var link = '';

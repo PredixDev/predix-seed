@@ -60,9 +60,6 @@ define(['angular', 'angular-mocks', 'app'], function(angular) {
         }
     ];
 
-    var baseUrl = '/api';
-
-
     describe('The Predix Asset Service', function() {
         var PredixAssetService, $log, $httpBackend, q, successCallback, errorCallback, $rootScope;
 
@@ -89,12 +86,12 @@ define(['angular', 'angular-mocks', 'app'], function(angular) {
                     successCallback = jasmine.createSpy('successCallback');
                     errorCallback = jasmine.createSpy('errorCallback');
 
-                    $httpBackend.when('GET', baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=null').respond(topLevelData);
+                    $httpBackend.when('GET', '/sample-data/sample-asset-null.json').respond(topLevelData);
                     PredixAssetService.getAssetsByParentId(null).then(successCallback, errorCallback);
                 });
 
                 it('will fetch context root with default url and rootEntityId null', function() {
-                    $httpBackend.expectGET(baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=null');
+                    $httpBackend.expectGET('/sample-data/sample-asset-null.json');
                     $httpBackend.flush();
                 });
 
@@ -119,7 +116,7 @@ define(['angular', 'angular-mocks', 'app'], function(angular) {
                     successCallback = jasmine.createSpy('successCallback');
                     errorCallback = jasmine.createSpy('errorCallback');
 
-                    $httpBackend.when('GET', baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=null').respond(500);
+                    $httpBackend.when('GET', '/sample-data/sample-asset-null.json').respond(500);
                     PredixAssetService.getAssetsByParentId(null).then(successCallback, errorCallback);
                     $httpBackend.flush();
                 });
@@ -135,12 +132,12 @@ define(['angular', 'angular-mocks', 'app'], function(angular) {
                     successCallback = jasmine.createSpy('successCallback');
                     errorCallback = jasmine.createSpy('errorCallback');
 
-                    $httpBackend.when('GET', baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=24').respond(secondLevelData);
+                    $httpBackend.when('GET', '/sample-data/sample-asset-24.json').respond(secondLevelData);
                     PredixAssetService.getAssetsByParentId(24).then(successCallback, errorCallback);
                 });
 
                 it('will fetch asset root with default url and rootEntityId 24', function() {
-                    $httpBackend.expectGET(baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=24');
+                    $httpBackend.expectGET('/sample-data/sample-asset-24.json');
                     $httpBackend.flush();
                 });
 
@@ -162,30 +159,6 @@ define(['angular', 'angular-mocks', 'app'], function(angular) {
 
                     var meta = successCallback.calls[0].args[0].meta;
                     expect(meta.link).toBe('');
-                });
-            });
-
-            describe('when getting more children of a node with cursor state and more records to follow', function() {
-                var options = {link: baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=24&cursorState=myCursorState'};
-
-                beforeEach(function() {
-                    successCallback = jasmine.createSpy('successCallback');
-                    errorCallback = jasmine.createSpy('errorCallback');
-
-                    $httpBackend.when('GET', options.link).respond(secondLevelData, {link: '<http://abc.com>;rel=next'});
-                    PredixAssetService.getAssetsByParentId(24, options).then(successCallback, errorCallback);
-                });
-
-                it('will fetch context root with option link url and rootEntityId 24', function() {
-                    $httpBackend.expectGET(baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=24&cursorState=myCursorState');
-                    $httpBackend.flush();
-                });
-
-                it('will resolve the promise with url in meta.link', function() {
-                    $httpBackend.flush();
-
-                    var meta = successCallback.calls[0].args[0].meta;
-                    expect(meta.link).toBe('http://abc.com');
                 });
             });
 
@@ -213,7 +186,7 @@ define(['angular', 'angular-mocks', 'app'], function(angular) {
                     successCallback = jasmine.createSpy('successCallback');
                     errorCallback = jasmine.createSpy('errorCallback');
 
-                    $httpBackend.when('GET', baseUrl + '/asset?pageSize=100&topLevelOnly=true&filter=parent=24').respond(500);
+                    $httpBackend.when('GET', '/sample-data/sample-asset-24.json').respond(500);
                     PredixAssetService.getAssetsByParentId(24).then(successCallback, errorCallback);
                     $httpBackend.flush();
                 });

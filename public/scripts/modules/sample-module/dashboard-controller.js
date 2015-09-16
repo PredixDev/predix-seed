@@ -1,17 +1,21 @@
-define(['angular', './sample-module'], function(angular, controllers) {
+define(['angular', './sample-module'], function (angular, controllers) {
     'use strict';
+
 
     // Controller definition
     controllers.controller('DashboardsCtrl', ['$scope', '$log', 'PredixAssetService', 'PredixViewService', function ($scope, $log, PredixAssetService, PredixViewService) {
 
-        PredixAssetService.getAssetsByParentId(null).then(function(initialContext) {
+        PredixAssetService.getAssetsByParentId('root').then(function (initialContext) {
             $scope.initialContexts = initialContext;
-        }, function(message) {
+        }, function (message) {
             $log.error(message);
         });
 
+        $scope.decks = [];
+        $scope.selectedDeck = null;//$scope.decks[0].url;
+
         // callback for when the Open button is clicked
-        $scope.openContext = function(contextDetails) {
+        $scope.openContext = function (contextDetails) {
 
             // need to clean up the context details so it doesn't have the infinite parent/children cycle,
             // which causes problems later (can't interpolate: {{context}} TypeError: Converting circular structure to JSON)
@@ -21,12 +25,18 @@ define(['angular', './sample-module'], function(angular, controllers) {
 
             $scope.context = newContext;
 
-            $scope.selectedDeck = 'bower_components/px-sample-cards/sample-deck.html';
-
-            $scope.$digest();
+            //Tag string can be classification from contextDetails
+            PredixViewService.getDecksByTags(newContext.classification) // gets all decks for this context
+                .then(function (decks) {
+                    $scope.decks = [];
+                    decks.forEach(function (deck) {
+                        $scope.decks.push({name: deck.title, url: '/api/views/decks/' + deck.id + '?filter[include][cards]'});
+                    });
+                    $scope.selectedDeck = $scope.decks[0].url;
+                });
         };
 
-        $scope.getChildren = function(parentId, options) {
+        $scope.getChildren = function (parentId, options) {
             return PredixAssetService.getAssetsByParentId(parentId, options);
         };
 
@@ -35,10 +45,5 @@ define(['angular', './sample-module'], function(angular, controllers) {
             getChildren: $scope.getChildren
             // (optional) click handler: itemClickHandler: $scope.clickHandler
         };
-
-        PredixViewService.getDecksByTags('Contra Costa')
-            .then(function(res){
-                console.log(res);
-            });
     }]);
 });

@@ -40,8 +40,7 @@ define([
                 {icon: 'fa-tachometer', state: 'dashboards', label: 'Dashboards'},
                 {icon: 'fa-file-o', state: 'blankpage', label: 'Blank Page', subitems: [
                     {state: 'blanksubpage', label: 'Blank Sub Page'}
-                ]},
-                {icon: 'fa-bar-chart', state: 'cardsfordashboard', label: 'Cards4Dashboard'}
+                ]}
             ]
         };
 
