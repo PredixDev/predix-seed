@@ -81711,11 +81711,11 @@ header .list-inline {
             }
         },
         _buildDeck: function (deck) {
-            var deckElement = document.createElement(deck.tagName);
+            var deckElement = document.createElement(deck.slug);
             deckElement.setAttribute('id', 'deck-'+deck.id);
             if (deck.cards.constructor == Array) {
                 deck.cards.forEach(function (card) {
-                    deckElement.addCard(card.tagName, card.id, card.title, card.attributes);
+                    deckElement.addCard(card.slug, card.id, card.title, card.attributes);
                 });
             }
             return deckElement;
