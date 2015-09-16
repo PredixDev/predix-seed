@@ -13,7 +13,7 @@ define(['angular', './sample-module'], function (angular, module) {
                         deferred.resolve(res.data);
                     },
                     function () {
-                        deferred.reject();
+                        deferred.reject('Error fetching decks with tags ' + tags);
                     });
                 return deferred.promise;
             }
