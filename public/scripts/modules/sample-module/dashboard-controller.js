@@ -25,8 +25,6 @@ define(['angular', './sample-module'], function (angular, controllers) {
 
             $scope.context = newContext;
 
-            console.log(newContext.classification);
-
             //Tag string can be classification from contextDetails
             PredixViewService.getDecksByTags(newContext.classification) // gets all decks for this context
                 .then(function (decks) {
