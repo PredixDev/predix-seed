@@ -1,7 +1,6 @@
 define(['angular', './sample-module'], function (angular, controllers) {
     'use strict';
 
-
     // Controller definition
     controllers.controller('DashboardsCtrl', ['$scope', '$log', 'PredixAssetService', 'PredixViewService', function ($scope, $log, PredixAssetService, PredixViewService) {
 
@@ -12,7 +11,11 @@ define(['angular', './sample-module'], function (angular, controllers) {
         });
 
         $scope.decks = [];
-        $scope.selectedDeck = null;//$scope.decks[0].url;
+        $scope.selectedDeckUrl = null;
+
+        $scope.$watch('selectedDeckUrl', function(newVal) {
+            console.log('USDFS ', newVal);
+        });
 
         // callback for when the Open button is clicked
         $scope.openContext = function (contextDetails) {
@@ -32,7 +35,7 @@ define(['angular', './sample-module'], function (angular, controllers) {
                     decks.forEach(function (deck) {
                         $scope.decks.push({name: deck.title, url: '/api/views/decks/' + deck.id + '?filter[include][cards]'});
                     });
-                    $scope.selectedDeck = $scope.decks[0].url;
+                    $scope.selectedDeckUrl = $scope.decks[0].url;
                 });
         };
 

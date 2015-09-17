@@ -8,7 +8,8 @@ define([
     'main',
     'routes',
     'interceptors',
-    'px-datasource'
+    'px-datasource',
+    'angular-bind-polymer'
 ], function ($, angular) {
     'use strict';
 
@@ -21,7 +22,8 @@ define([
         'app.routes',
         'app.interceptors',
         'sample.module',
-        'predix.datasource'
+        'predix.datasource',
+        'eee-c.angularBindPolymer'
     ]);
 
     /**
