@@ -27,8 +27,9 @@
     "px": "https://github.build.ge.com/Pxc/px.git#v1.0.3",
     "px-app-nav": "https://github.build.ge.com/PXC/px-app-nav.git#~v0.3.12",
     "px-card": "https://github.build.ge.com/Pxc/px-card.git#v0.0.15",
-    "px-context-browser": "https://github.build.ge.com/pxc/px-context-browser.git#feature/adding-centered-content",
-    "px-deck-selector": "https://github.build.ge.com/pxc/px-deck-selector.git#master",
+    "px-context-browser": "https://github.build.ge.com/pxc/px-context-browser.git#~v0.4.12",
+    "ng-bind-polymer": "https://github.build.ge.com/pxc/ng-bind-polymer.git#~v0.0.1",
+    "px-deck-selector": "https://github.build.ge.com/pxc/px-deck-selector.git#~v0.0.1",
     "px-datasource": "https://github.build.ge.com/Predix-Experience/px-datasource.git#v1.1",
     "px-login": "https://github.build.ge.com/PXc/px-login.git#~v0.0.1",
     "px-sample-cards": "https://github.build.ge.com/PXc/px-sample-cards.git#~v0.1.2",
@@ -38,6 +39,7 @@
     "requirejs-plugins": "1.0.2"
   },
   "resolutions": {
-    "px-theme": "~v0.3.4"
+    "px-theme": "~v0.3.4",
+    "polymer":  "~1.0.4"
   }
 }
