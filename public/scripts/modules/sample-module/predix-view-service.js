@@ -8,7 +8,7 @@ define(['angular', './sample-module'], function (angular, module) {
         return {
             getDecksByTags: function (tags) {
                 var deferred = $q.defer();
-                $http.get('/api/views/decks/tags?values=' + tags)
+                $http.get('/api/view-service/decks/tags?values=' + tags)
                     .then(function (res) {
                         deferred.resolve(res.data);
                     },

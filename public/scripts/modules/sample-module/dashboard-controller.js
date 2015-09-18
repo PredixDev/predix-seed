@@ -11,7 +11,7 @@ define(['angular', './sample-module'], function (angular, controllers) {
         });
 
         $scope.decks = [];
-        $scope.selectedViewUrl = null;
+        $scope.selectedDeckUrl = null;
 
         // callback for when the Open button is clicked
         $scope.openContext = function (contextDetails) {
@@ -28,10 +28,13 @@ define(['angular', './sample-module'], function (angular, controllers) {
             PredixViewService.getDecksByTags(newContext.classification) // gets all decks for this context
                 .then(function (decks) {
                     $scope.decks = [];
-                    decks.forEach(function (deck) {
-                        $scope.decks.push({name: deck.title, url: '/api/views/decks/' + deck.id + '?filter[include][cards]'});
-                    });
-                    $scope.selectedViewUrl = $scope.decks[0].url;
+
+                    if(decks && decks.length > 0) {
+                        decks.forEach(function (deck) {
+                            $scope.decks.push({name: deck.title, url: '/api/view-service/decks/' + deck.id + '?filter[include][cards]'});
+                        });
+                        $scope.selectedDeckUrl = $scope.decks[0].url;
+                    }
                 });
         };
 

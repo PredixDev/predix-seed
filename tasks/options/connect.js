@@ -18,9 +18,11 @@ var config = {
    * --------- ADD YOUR SECURE ROUTES HERE ------------
    *
    * Please update the following object add your secure routes
+   *
+   * Note: Keep the /api in front of your services here to tell the proxy to add authorization headers.
    */
   proxy: {
-    '/api/views(.*)': {
+    '/api/view-service(.*)': {
       url: 'http://px-view-service-exp.grc-apps.svc.ice.ge.com/api$1',
       instanceId: 'c8918695-f515-41e2-ba86-cdea84848cc5'
     }
