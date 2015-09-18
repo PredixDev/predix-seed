@@ -39,8 +39,8 @@ define(['angular', './sample-module'], function (angular, controllers) {
                 });
         };
 
-        $scope.getChildren = function (parentId, options) {
-            return PredixAssetService.getAssetsByParentId(parentId, options);
+        $scope.getChildren = function (parent, options) {
+            return PredixAssetService.getAssetsByParentId(parent.id, options);
         };
 
         $scope.handlers = {
