@@ -2,7 +2,7 @@
         initial-contexts='{{initialContexts}}'
         handlers="ngScope:handlers"
         opened-item-name="Select Context">
-	<px-view-selector bind-polymer views="{{decks}}" selecteddeckurl="{{selectedDeckUrl}}"></px-view-selector>
+	<px-view-selector ng-bind-polymer views="{{decks}}" selected-view-url="{{selectedViewUrl}}"></px-view-selector>
 </px-context-browser>
 
-<px-dashboard selected-deck="{{selectedDeckUrl}}" context="{{context}}"></px-dashboard>
+<px-dashboard selected-deck="{{selectedViewUrl}}" context="{{context}}"></px-dashboard>

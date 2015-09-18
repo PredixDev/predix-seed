@@ -11,11 +11,7 @@ define(['angular', './sample-module'], function (angular, controllers) {
         });
 
         $scope.decks = [];
-        $scope.selectedDeckUrl = null;
-
-        $scope.$watch('selectedDeckUrl', function(newVal) {
-            console.log('USDFS ', newVal);
-        });
+        $scope.selectedViewUrl = null;
 
         // callback for when the Open button is clicked
         $scope.openContext = function (contextDetails) {
@@ -35,7 +31,7 @@ define(['angular', './sample-module'], function (angular, controllers) {
                     decks.forEach(function (deck) {
                         $scope.decks.push({name: deck.title, url: '/api/views/decks/' + deck.id + '?filter[include][cards]'});
                     });
-                    $scope.selectedDeckUrl = $scope.decks[0].url;
+                    $scope.selectedViewUrl = $scope.decks[0].url;
                 });
         };
 
