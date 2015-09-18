@@ -43,12 +43,12 @@ define(['angular', 'angular-mocks', 'app'], function(angular) {
                     successCallback = jasmine.createSpy('successCallback');
                     errorCallback = jasmine.createSpy('errorCallback');
 
-                    $httpBackend.when('GET', '/api/views/decks/tags?values=test').respond(decks);
+                    $httpBackend.when('GET', '/api/view-service/decks/tags?values=test').respond(decks);
                     PredixViewService.getDecksByTags('test').then(successCallback, errorCallback);
                 });
 
                 it('will fetch deck by tag values', function() {
-                    $httpBackend.expectGET('/api/views/decks/tags?values=test');
+                    $httpBackend.expectGET('/api/view-service/decks/tags?values=test');
                     $httpBackend.flush();
                 });
 
@@ -70,7 +70,7 @@ define(['angular', 'angular-mocks', 'app'], function(angular) {
                     successCallback = jasmine.createSpy('successCallback');
                     errorCallback = jasmine.createSpy('errorCallback');
 
-                    $httpBackend.when('GET', '/api/views/decks/tags?values=test').respond(500);
+                    $httpBackend.when('GET', '/api/view-service/decks/tags?values=test').respond(500);
                     PredixViewService.getDecksByTags('test').then(successCallback, errorCallback);
                 });
 
@@ -78,6 +78,11 @@ define(['angular', 'angular-mocks', 'app'], function(angular) {
                     $httpBackend.flush();
                     expect(errorCallback).toHaveBeenCalledWith('Error fetching decks with tags test');
                 });
+            });
+
+            it('get the url for getting cards for a given deck id', function() {
+                var url = PredixViewService.getUrlForFetchingCardsForDeckId(1357);
+                expect(url).toBe('/api/view-service/decks/1357?filter[include][cards]');
             });
         });
     });

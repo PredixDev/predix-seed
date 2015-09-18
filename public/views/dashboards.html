@@ -2,10 +2,7 @@
         initial-contexts='{{initialContexts}}'
         handlers="ngScope:handlers"
         opened-item-name="Select Context">
+	<px-deck-selector ng-bind-polymer decks="{{decks}}" selected-deck-url="{{selectedDeckUrl}}"></px-deck-selector>
 </px-context-browser>
 
-<select name="viewSelector" ng-model="selectedDeck">
-    <option ng-repeat="deck in decks" value="{{deck.url}}">{{deck.name}}</option>
-</select>
-
-<px-dashboard selected-deck="{{selectedDeck}}" context="{{context}}"></px-dashboard>
+<px-dashboard selected-deck="{{selectedDeckUrl}}" context="{{context}}"></px-dashboard>

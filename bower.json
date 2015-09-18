@@ -1,41 +1,45 @@
 {
-    "name": "predix-seed",
-    "version": "1.1.3",
-    "private": true,
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "public/bower_components",
-        "test",
-        "tests",
-        "target",
-        "test-target",
-        "sass"
-    ],
-    "dependencies": {
-        "requirejs": "https://github.com/jrburke/requirejs.git#2.1.18",
-        "jquery": "2.1.3",
-        "require-css": "0.1.1",
-        "requirejs-plugins": "1.0.2",
-        "angular": "~1.3.16",
-        "angular-route": "~1.3.16",
-        "angular-resource": "~1.3.16",
-        "angular-mocks": "~1.3.16",
-        "angular-ui-router": "0.2.13",
-        "lodash": "2.4.1",
-        "es6-promise": "https://github.com/jakearchibald/es6-promise.git#2.3.0",
-        "polymer": "v1.0.4",
-        "px-datasource": "https://github.build.ge.com/Predix-Experience/px-datasource.git#v1.1",
-        "px-context-browser": "https://github.build.ge.com/pxc/px-context-browser.git#~v0.4.9",
-        "px-app-nav": "https://github.build.ge.com/PXC/px-app-nav.git#~v0.3.12",
-        "px-theme": "https://github.build.ge.com/PXc/px-theme.git#~v0.3.4",
-        "px-card": "https://github.build.ge.com/Pxc/px-card.git#v0.0.15",
-        "px": "https://github.build.ge.com/Pxc/px.git#v1.0.3",
-        "px-sample-cards": "https://github.build.ge.com/PXc/px-sample-cards.git#~v0.1.2",
-        "px-login": "https://github.build.ge.com/PXc/px-login.git#~v0.0.1"
-    },
-    "resolutions": {
-      "px-theme":  "~v0.3.4"
-    }
+  "name": "predix-seed",
+  "version": "1.1.3",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests",
+    "target",
+    "test-target",
+    "sass"
+  ],
+  "dependencies": {
+    "angular": "~1.3.16",
+    "angular-bind-polymer": "~0.1.2",
+    "angular-mocks": "~1.3.16",
+    "angular-resource": "~1.3.16",
+    "angular-route": "~1.3.16",
+    "angular-ui-router": "0.2.13",
+    "es6-promise": "https://github.com/jakearchibald/es6-promise.git#2.3.0",
+    "jquery": "2.1.3",
+    "lodash": "2.4.1",
+    "polymer": "v1.0.4",
+    "px": "https://github.build.ge.com/Pxc/px.git#v1.0.3",
+    "px-app-nav": "https://github.build.ge.com/PXC/px-app-nav.git#~v0.3.12",
+    "px-card": "https://github.build.ge.com/Pxc/px-card.git#v0.0.15",
+    "px-context-browser": "https://github.build.ge.com/pxc/px-context-browser.git#~v0.4.12",
+    "ng-bind-polymer": "https://github.build.ge.com/pxc/ng-bind-polymer.git#~v0.0.1",
+    "px-deck-selector": "https://github.build.ge.com/pxc/px-deck-selector.git#~v0.0.1",
+    "px-datasource": "https://github.build.ge.com/Predix-Experience/px-datasource.git#v1.1",
+    "px-login": "https://github.build.ge.com/PXc/px-login.git#~v0.0.1",
+    "px-sample-cards": "https://github.build.ge.com/PXc/px-sample-cards.git#~v0.1.2",
+    "px-theme": "https://github.build.ge.com/PXc/px-theme.git#~v0.3.4",
+    "require-css": "0.1.1",
+    "requirejs": "https://github.com/jrburke/requirejs.git#2.1.18",
+    "requirejs-plugins": "1.0.2"
+  },
+  "resolutions": {
+    "px-theme": "~v0.3.4",
+    "polymer":  "~1.0.4"
+  }
 }

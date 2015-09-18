@@ -1,7 +1,6 @@
 define(['angular', './sample-module'], function (angular, controllers) {
     'use strict';
 
-
     // Controller definition
     controllers.controller('DashboardsCtrl', ['$scope', '$log', 'PredixAssetService', 'PredixViewService', function ($scope, $log, PredixAssetService, PredixViewService) {
 
@@ -12,7 +11,7 @@ define(['angular', './sample-module'], function (angular, controllers) {
         });
 
         $scope.decks = [];
-        $scope.selectedDeck = null;//$scope.decks[0].url;
+        $scope.selectedDeckUrl = null;
 
         // callback for when the Open button is clicked
         $scope.openContext = function (contextDetails) {
@@ -29,15 +28,18 @@ define(['angular', './sample-module'], function (angular, controllers) {
             PredixViewService.getDecksByTags(newContext.classification) // gets all decks for this context
                 .then(function (decks) {
                     $scope.decks = [];
-                    decks.forEach(function (deck) {
-                        $scope.decks.push({name: deck.title, url: '/api/views/decks/' + deck.id + '?filter[include][cards]'});
-                    });
-                    $scope.selectedDeck = $scope.decks[0].url;
+
+                    if(decks && decks.length > 0) {
+                        decks.forEach(function (deck) {
+                            $scope.decks.push({name: deck.title, url: PredixViewService.getUrlForFetchingCardsForDeckId(deck.id)});
+                        });
+                        $scope.selectedDeckUrl = $scope.decks[0].url;
+                    }
                 });
         };
 
-        $scope.getChildren = function (parentId, options) {
-            return PredixAssetService.getAssetsByParentId(parentId, options);
+        $scope.getChildren = function (parent, options) {
+            return PredixAssetService.getAssetsByParentId(parent.id, options);
         };
 
         $scope.handlers = {
