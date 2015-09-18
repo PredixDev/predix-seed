@@ -31,7 +31,7 @@ define(['angular', './sample-module'], function (angular, controllers) {
 
                     if(decks && decks.length > 0) {
                         decks.forEach(function (deck) {
-                            $scope.decks.push({name: deck.title, url: '/api/view-service/decks/' + deck.id + '?filter[include][cards]'});
+                            $scope.decks.push({name: deck.title, url: PredixViewService.getUrlForFetchingCardsForDeckId(deck.id)});
                         });
                         $scope.selectedDeckUrl = $scope.decks[0].url;
                     }

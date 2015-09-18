@@ -16,6 +16,9 @@ define(['angular', './sample-module'], function (angular, module) {
                         deferred.reject('Error fetching decks with tags ' + tags);
                     });
                 return deferred.promise;
+            },
+            getUrlForFetchingCardsForDeckId: function(deckId) {
+                return '/api/view-service/decks/' + deckId + '?filter[include][cards]';
             }
         };
     }]);

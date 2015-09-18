@@ -33,6 +33,8 @@ require.config({
         'bower_components': '../bower_components',
         'px-datasource': '../bower_components/px-datasource/dist/px-datasource.min',
 
+        'ng-bind-polymer': '../bower_components/ng-bind-polymer/ng-bind-polymer',
+
         // Named References
         config: './config',
         app: './app',
