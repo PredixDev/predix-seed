@@ -25,7 +25,7 @@
     "lodash": "2.4.1",
     "polymer": "v1.0.4",
     "px": "https://github.build.ge.com/Pxc/px.git#v1.0.3",
-    "px-app-nav": "https://github.build.ge.com/PXC/px-app-nav.git#~v0.3.12",
+    "px-app-nav": "https://github.build.ge.com/PXC/px-app-nav.git#~v0.4.1",
     "px-card": "https://github.build.ge.com/Pxc/px-card.git#v0.0.15",
     "px-context-browser": "https://github.build.ge.com/pxc/px-context-browser.git#~v0.4.12",
     "ng-bind-polymer": "https://github.build.ge.com/pxc/ng-bind-polymer.git#~v0.0.1",
