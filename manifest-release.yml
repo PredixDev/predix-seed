@@ -1,0 +1,16 @@
+# This is the seed's manifest.yml, left here as an example.
+---
+applications:
+  - buildpack: predix_openresty_buildpack
+    path: dist
+    memory: 64M
+    stack: cflinuxfs2
+    services:
+            - test_session
+            #- test_vs putting back to existing instance temporarily until we can create a view-service instance
+            - predix_seed_view_service_exp
+            - test_newrelic
+            # - test_logstash taking out temporarily due to Docker error in build
+    env:
+      UAA_SERVER_URL: https://etc.predix-uaa-staging.grc-apps.svc.ice.ge.com
+      # NEW_RELIC_APP_NAME: predix-seed-release
