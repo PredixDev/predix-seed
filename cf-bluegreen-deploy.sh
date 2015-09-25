@@ -24,7 +24,7 @@ function create_service_if_not_exists(){
 
 function create_services(){
 	create_service_if_not_exists $REDIS $REDIS_PLAN "test_session"
-	# create_service_if_not_exists $VIEWSERVICE $VIEWSERVICE_PLAN "test_vs" TODO broken
+	create_service_if_not_exists $VIEWSERVICE $VIEWSERVICE_PLAN "test_vs"
 	# create_service_if_not_exists $LOGSTASH $LOGSTASH_PLAN "test_logstash"
 	create_service_if_not_exists $NEWRELIC $NEWRELIC_PLAN "test_newrelic"
 }
