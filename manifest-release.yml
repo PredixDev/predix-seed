@@ -11,5 +11,5 @@ applications:
             - predix_seed_new_relic
             # - test_logstash taking out temporarily due to Docker error in build
     env:
-      UAA_SERVER_URL: https://etc.predix-uaa-staging.grc-apps.svc.ice.ge.com
+      UAA_SERVER_URL: https://adce68cf-a0a3-4460-a3f4-077b59fb9c6a.predix-uaa-sysint.grc-apps.svc.ice.ge.com
       # NEW_RELIC_APP_NAME: predix-seed-release
