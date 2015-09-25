@@ -22,9 +22,19 @@ function create_service_if_not_exists(){
 	fi
 }
 
+function create_secure_service_if_not_exists(){
+	cf service $3
+	# Check the status of the previous command
+	if [ $? -ne 0 ]; then
+	    status "$1 instance not found. Creating new $1 instance"
+	    cf cs $1 $2 $3 -c '{"trustedIssuerIds": ["$TRUSTED_ISSUERS"]}'
+	    exit_if_error $? "Could not create $3 instance  from '$1 $2'"
+	fi
+}
+
 function create_services(){
 	create_service_if_not_exists $REDIS $REDIS_PLAN "predix_seed_session_store"
-	create_service_if_not_exists $VIEWSERVICE $VIEWSERVICE_PLAN "predix_seed_view_service"
+	create_secure_service_if_not_exists $VIEWSERVICE $VIEWSERVICE_PLAN "predix_seed_view_service"
 	# create_service_if_not_exists $LOGSTASH $LOGSTASH_PLAN "predix_seed_logstash"
 	create_service_if_not_exists $NEWRELIC $NEWRELIC_PLAN "predix_seed_new_relic"
 }
@@ -135,6 +145,9 @@ function get_args(){
 	    ;;
 	    i) 
 			INSTANCE=$OPTARG
+	    ;;
+	    t) 
+			TRUSTED_ISSUERS=$OPTARG
 	    ;;
 	    \?) 
 			echo "Invalid option -$OPTARG"
