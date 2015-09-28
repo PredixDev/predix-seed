@@ -27,7 +27,7 @@ function create_secure_service_if_not_exists(){
 	# Check the status of the previous command
 	if [ $? -ne 0 ]; then
 	    status "$1 instance not found. Creating new $1 instance"
-	    cf cs $1 $2 $3 -c '{"trustedIssuerIds": ["$TRUSTED_ISSUERS"]}'
+	    cf cs $1 $2 $3 -c '{"trustedIssuerIds": ["${UAA_URL}/oauth/token"]}'
 	    exit_if_error $? "Could not create $3 instance  from '$1 $2'"
 	fi
 }
@@ -48,8 +48,8 @@ function push_app_to_cf(){
     	exit 1;
 	fi
 
-	status "Setting UAA_SERVER_URL to ${TRUSTED_ISSUERS}"
-	cf set-env $APP_ID UAA_SERVER_URL $TRUSTED_ISSUERS
+	status "Setting UAA_SERVER_URL to ${UAA_URL}"
+	cf set-env $APP_ID UAA_SERVER_URL $UAA_URL
 
 	cf start $APP_ID
 	if [ $? -ne 0 ]; then
@@ -157,7 +157,7 @@ function get_args(){
 			INSTANCE=$OPTARG
 	    ;;
 	    t) 
-			TRUSTED_ISSUERS=$OPTARG
+			UAA_URL=$OPTARG
 	    ;;
 	    \?) 
 			echo "Invalid option -$OPTARG"
