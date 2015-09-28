@@ -41,15 +41,22 @@ function create_services(){
 
 function push_app_to_cf(){
 	status "Pushing $APP_ID to CF"
-	cf push $APP_ID -f $MANIFEST -i $INSTANCE
+	cf push $APP_ID -f $MANIFEST -i $INSTANCE --no-start
 	if [ $? -ne 0 ]; then
-	    status "Could not stage the application as expected, Please find below the logs"
+	    status "Could not push the application as expected, Please find below the logs"
     	cf logs $APP_ID --recent
     	exit 1;
 	fi
 
 	status "Setting UAA_SERVER_URL to ${TRUSTED_ISSUERS}"
 	cf set-env $APP_ID UAA_SERVER_URL $TRUSTED_ISSUERS
+
+	cf start $APP_ID
+	if [ $? -ne 0 ]; then
+	    status "Could not start the application as expected, Please find below the logs"
+    	cf logs $APP_ID --recent
+    	exit 1;
+	fi
 }
 
 function delete_if_old_app(){
@@ -128,7 +135,7 @@ function cleanup(){
 }
 
 function get_args(){
-	while getopts "f:s:b:d:i:" opt; do
+	while getopts "f:s:b:d:i:t:" opt; do
 	  case $opt in
 	  	h) 
 			show_help
