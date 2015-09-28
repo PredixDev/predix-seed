@@ -22,18 +22,38 @@ function create_service_if_not_exists(){
 	fi
 }
 
+function create_secure_service_if_not_exists(){
+	cf service $3
+	# Check the status of the previous command
+	if [ $? -ne 0 ]; then
+	    status "$1 instance not found. Creating new $1 instance"
+	    cf cs $1 $2 $3 -c '{"trustedIssuerIds": ["${UAA_URL}/oauth/token"]}'
+	    exit_if_error $? "Could not create $3 instance  from '$1 $2'"
+	fi
+}
+
 function create_services(){
-	create_service_if_not_exists $REDIS $REDIS_PLAN "test_session"
-	# create_service_if_not_exists $VIEWSERVICE $VIEWSERVICE_PLAN "test_vs" TODO broken
-	# create_service_if_not_exists $LOGSTASH $LOGSTASH_PLAN "test_logstash"
-	create_service_if_not_exists $NEWRELIC $NEWRELIC_PLAN "test_newrelic"
+	create_service_if_not_exists $REDIS $REDIS_PLAN "predix_seed_session_store"
+	create_secure_service_if_not_exists $VIEWSERVICE $VIEWSERVICE_PLAN "predix_seed_view_service"
+	# create_service_if_not_exists $LOGSTASH $LOGSTASH_PLAN "predix_seed_logstash"
+	create_service_if_not_exists $NEWRELIC $NEWRELIC_PLAN "predix_seed_new_relic"
 }
 
 function push_app_to_cf(){
 	status "Pushing $APP_ID to CF"
-	cf push $APP_ID -f $MANIFEST -i $INSTANCE
+	cf push $APP_ID -f $MANIFEST -i $INSTANCE --no-start
 	if [ $? -ne 0 ]; then
-	    status "Could not stage the application as expected, Please find below the logs"
+	    status "Could not push the application as expected, Please find below the logs"
+    	cf logs $APP_ID --recent
+    	exit 1;
+	fi
+
+	status "Setting UAA_SERVER_URL to ${UAA_URL}"
+	cf set-env $APP_ID UAA_SERVER_URL $UAA_URL
+
+	cf start $APP_ID
+	if [ $? -ne 0 ]; then
+	    status "Could not start the application as expected, Please find below the logs"
     	cf logs $APP_ID --recent
     	exit 1;
 	fi
@@ -115,7 +135,7 @@ function cleanup(){
 }
 
 function get_args(){
-	while getopts "f:s:b:d:i:" opt; do
+	while getopts "f:s:b:d:i:t:" opt; do
 	  case $opt in
 	  	h) 
 			show_help
@@ -135,6 +155,9 @@ function get_args(){
 	    ;;
 	    i) 
 			INSTANCE=$OPTARG
+	    ;;
+	    t) 
+			UAA_URL=$OPTARG
 	    ;;
 	    \?) 
 			echo "Invalid option -$OPTARG"

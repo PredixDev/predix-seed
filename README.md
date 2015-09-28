@@ -21,6 +21,13 @@ In the root directory, run:
 grunt serve
 ```
 
+### Log in
+The /dashboards (and default /) route is protected, so you'll need to login:
+```
+username: rocket
+password: Gu@rdian5
+```
+
 ### Deploying to Cloud Foundry
 To create a `dist` build run the following command from inside your project's root directory:
 ```unix
