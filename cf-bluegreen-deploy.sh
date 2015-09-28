@@ -47,6 +47,9 @@ function push_app_to_cf(){
     	cf logs $APP_ID --recent
     	exit 1;
 	fi
+
+	status "Setting UAA_SERVER_URL to ${TRUSTED_ISSUERS}"
+	cf set-env $APP_ID UAA_SERVER_URL $TRUSTED_ISSUERS
 }
 
 function delete_if_old_app(){
