@@ -26,8 +26,10 @@ function create_secure_service_if_not_exists(){
 	cf service $3
 	# Check the status of the previous command
 	if [ $? -ne 0 ]; then
+	    set $UAA_GET_TOKEN_URL = "${UAA_URL}/oauth/token" 
+	    set $TRUSTED_ISSUER_IDS = '{"trustedIssuerIds": ["${UAA_GET_TOKEN_URL}"]}'
 	    status "$1 instance not found. Creating new $1 instance"
-	    cf cs $1 $2 $3 -c '{"trustedIssuerIds": ["${UAA_URL}/oauth/token"]}'
+	    cf cs $1 $2 $3 -c $TRUSTED_ISSUER_IDS
 	    exit_if_error $? "Could not create $3 instance  from '$1 $2'"
 	fi
 }
