@@ -10,7 +10,8 @@ function M.connect_to_redis ()
 
     local vcap_services = cjson.decode(os.getenv("VCAP_SERVICES"))
 
-    local redis_credentials = vcap_services["p-redis"][1].credentials;
+    local redis_service_name = os.getenv("REDIS")
+    local redis_credentials = vcap_services[redis_service_name][1].credentials;
     local redis_host = redis_credentials.host
     local redis_port = redis_credentials.port
     local redis_password = redis_credentials.password
