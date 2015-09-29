@@ -35,7 +35,7 @@ function create_secure_service_if_not_exists(){
 function create_services(){
 	create_service_if_not_exists $REDIS $REDIS_PLAN "predix_seed_session_store"
 	create_secure_service_if_not_exists $VIEWSERVICE $VIEWSERVICE_PLAN "predix_seed_view_service"
-	# create_service_if_not_exists $LOGSTASH $LOGSTASH_PLAN "predix_seed_logstash"
+	create_service_if_not_exists $LOGSTASH $LOGSTASH_PLAN "predix_seed_logstash"
 	create_service_if_not_exists $NEWRELIC $NEWRELIC_PLAN "predix_seed_new_relic"
 }
 
@@ -50,6 +50,9 @@ function push_app_to_cf(){
 
 	status "Setting UAA_SERVER_URL to ${UAA_URL}"
 	cf set-env $APP_ID UAA_SERVER_URL $UAA_URL
+	
+	status "Setting REDIS for common.lua to ${REDIS}"
+	cf set-env $APP_ID REDIS $REDIS
 
 	cf start $APP_ID
 	if [ $? -ne 0 ]; then
