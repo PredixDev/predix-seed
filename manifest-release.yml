@@ -9,4 +9,4 @@ applications:
             - predix_seed_session_store
             - predix_seed_view_service
             - predix_seed_new_relic
-            # - test_logstash taking out temporarily due to Docker error in build
+            - predix_seed_logstash
