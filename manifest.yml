@@ -8,5 +8,6 @@ applications:
     services:
             - your_redis_instance # change this to your redis service instance name
             - your_view_service_instance # change this to your view service instance name
-    # env:
-      # UAA_SERVER_URL: https://your-uaa-instance.grc-apps.svc.ice.ge.com
+    env:
+      UAA_SERVER_URL: https://your-uaa-instance.grc-apps.svc.ice.ge.com # change to your UAA instance url
+      REDIS: redis

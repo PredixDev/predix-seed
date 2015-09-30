@@ -54,6 +54,9 @@ function push_app_to_cf(){
 	status "Setting REDIS for common.lua to ${REDIS}"
 	cf set-env $APP_ID REDIS $REDIS
 
+	status "Setting NEW_RELIC_APP_NAME to ${NEW_RELIC_APP_NAME}"
+	cf set-env $APP_ID NEW_RELIC_APP_NAME $NEW_RELIC_APP_NAME
+
 	cf start $APP_ID
 	if [ $? -ne 0 ]; then
 	    status "Could not start the application as expected, Please find below the logs"
@@ -138,7 +141,7 @@ function cleanup(){
 }
 
 function get_args(){
-	while getopts "f:s:b:d:i:t:" opt; do
+	while getopts "f:s:b:d:i:t:n:" opt; do
 	  case $opt in
 	  	h) 
 			show_help
@@ -162,6 +165,9 @@ function get_args(){
 	    t) 
 			UAA_URL=$OPTARG
 	    ;;
+	    n)
+			NEW_RELIC_APP_NAME=$OPTARG
+		;;
 	    \?) 
 			echo "Invalid option -$OPTARG"
 			show_help
