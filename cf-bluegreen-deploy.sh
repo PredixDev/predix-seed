@@ -21,11 +21,11 @@ function create_kibana_if_not_exists_and_bind_to_logstash(){
 	    cd kibana-me-logs
 	    cf push $1 --no-start --random-route -b https://github.com/heroku/heroku-buildpack-go.git
 		exit_if_error $? "Could not push $1 instance"
+		cf bind-service $1 $2
+		exit_if_error $? "Could not create bind $1 to $2"
 		cf start $1
 		exit_if_error $? "Could not start $1 instance"
 	fi
-	cf bind-service $1 $2
-	exit_if_error $? "Could not create bind $1 to $2"
 }
 
 function create_service_if_not_exists(){
