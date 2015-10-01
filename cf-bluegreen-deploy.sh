@@ -25,6 +25,7 @@ function create_kibana_if_not_exists_and_bind_to_logstash(){
 		exit_if_error $? "Could not create bind $1 to $2"
 		cf start $1
 		exit_if_error $? "Could not start $1 instance"
+		cd ..
 	fi
 }
 
