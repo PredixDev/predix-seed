@@ -12,6 +12,23 @@ function exit_if_error(){
     fi
 }
 
+function create_kibana_if_not_exists_and_bind_to_logstash(){
+	cf app $1
+	# Check the status of the previous command
+	if [ $? -ne 0 ]; then
+	    status "$1 not found. Creating new Kibana app"
+	    git clone https://github.com/cloudfoundry-community/kibana-me-logs.git
+	    cd kibana-me-logs
+	    cf push $1 --no-start --random-route -b https://github.com/heroku/heroku-buildpack-go.git
+		exit_if_error $? "Could not push $1 instance"
+		cf bind-service $1 $2
+		exit_if_error $? "Could not create bind $1 to $2"
+		cf start $1
+		exit_if_error $? "Could not start $1 instance"
+		cd ..
+	fi
+}
+
 function create_service_if_not_exists(){
 	cf service $3
 	# Check the status of the previous command
@@ -35,8 +52,9 @@ function create_secure_service_if_not_exists(){
 function create_services(){
 	create_service_if_not_exists $REDIS $REDIS_PLAN "predix_seed_session_store"
 	create_secure_service_if_not_exists $VIEWSERVICE $VIEWSERVICE_PLAN "predix_seed_view_service"
-	create_service_if_not_exists $LOGSTASH $LOGSTASH_PLAN "predix_seed_logstash"
 	create_service_if_not_exists $NEWRELIC $NEWRELIC_PLAN "predix_seed_new_relic"
+	create_service_if_not_exists $LOGSTASH $LOGSTASH_PLAN "predix_seed_logstash"
+	create_kibana_if_not_exists_and_bind_to_logstash $KIBANA_APP "predix_seed_logstash"
 }
 
 function push_app_to_cf(){
@@ -141,7 +159,7 @@ function cleanup(){
 }
 
 function get_args(){
-	while getopts "f:s:b:d:i:t:n:" opt; do
+	while getopts "f:s:b:d:i:t:n:k:" opt; do
 	  case $opt in
 	  	h) 
 			show_help
@@ -167,6 +185,9 @@ function get_args(){
 	    ;;
 	    n)
 			NEW_RELIC_APP_NAME=$OPTARG
+		;;
+		k)
+			KIBANA_APP=$OPTARG
 		;;
 	    \?) 
 			echo "Invalid option -$OPTARG"
