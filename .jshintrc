@@ -1,0 +1,50 @@
+{
+	"node": true,
+	"browser": true,
+	"jquery": true,
+	"devel": true,
+	"esnext": true,
+	"bitwise": true,
+	"camelcase": true,
+	"curly": true,
+	"eqeqeq": true,
+	"immed": true,
+	"indent": 4,
+	"latedef": true,
+	"newcap": true,
+	"noarg": true,
+	"quotmark": "single",
+	"regexp": true,
+	"undef": true,
+	"unused": true,
+	"strict": true,
+	"trailing": true,
+	"smarttabs": true,
+	"white": false,
+	"globals": {
+		/* requirejs */
+		"window": false,
+		"define": false,
+		"vRuntime": false,
+        "Promise": false,
+		/* ANGULAR MOCKS */
+		"inject": false,
+		"module": false,
+		"expect": false,
+		"element": false,
+		/* PROTRACTOR */
+        "protractor": false,
+		"browser": false,
+		"by" : false,
+		/* MOCHA */
+		"describe": false,
+		"xdescribe": false,
+		"it": false,
+		"xit": false,
+		"before": false,
+		"beforeEach": false,
+		"after": false,
+		"afterEach": false,
+        "jasmine": false
+	}
+}

@@ -1,0 +1,12 @@
+# This is the seed's manifest.yml, left here as an example.
+---
+applications:
+  - buildpack: predix_openresty_buildpack
+    path: dist
+    memory: 64M
+    stack: cflinuxfs2
+    services:
+            - predix_seed_session_store
+            - predix_seed_view_service
+            - predix_seed_new_relic
+            - predix_seed_logstash
