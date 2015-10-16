@@ -4,11 +4,9 @@ Dashboard Seed is an application that uses Px Web Components and <a href="https:
 ## To Run
 
 ### Install Framework
-```
 Skip this step in DevBox
-```
-2. Node ^0.10.28: http://nodejs.org/download/ 
 
+Node ^0.10.28: http://nodejs.org/download/ 
 
 ### Install Dependencies
 ```
