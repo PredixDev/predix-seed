@@ -80,13 +80,16 @@ Now that you have the required services created, we can push to the cloud for th
 	```
 	set $session_secret <my-session-secret>;
 	```
-4. Push to the cloud
-	
+4. Push to the cloud. 
+
 	```
 	cf push
 	```
-5. If your app is started successfully, go to the url that is printed out.  You should see your app running, and it will try to redirect to the login page, but you will not see the username and password fields.
-
+	
+    If your app is started successfully, go to the url that is printed out. You should see your app running, and it will redirect to a page with a message __"Uh oh. Something went amiss"__.  
+    
+    * Note: This is just the first time pushing your application to cloudfoundry. You will need to push a few more times before completing the setup. 
+    
 ## Get Views service url and instance id
 The cf env command for your app will provide you the details of the services your app is bound to.
 ```
