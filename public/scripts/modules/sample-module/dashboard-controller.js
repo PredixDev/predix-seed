@@ -31,12 +31,14 @@ define(['angular', './sample-module'], function (angular, controllers) {
 
                     if(decks && decks.length > 0) {
                         decks.forEach(function (deck) {
-                            $scope.decks.push({name: deck.title, url: PredixViewService.getUrlForFetchingCardsForDeckId(deck.id)});
+                            $scope.decks.push({name: deck.title, id: deck.id});
                         });
-                        $scope.selectedDeckUrl = $scope.decks[0].url;
+                        $scope.selectedDeckId = $scope.decks[0].id;
                     }
                 });
         };
+
+        $scope.viewServiceBaseUrl = PredixViewService.baseUrl;
 
         $scope.getChildren = function (parent, options) {
             return PredixAssetService.getAssetsByParentId(parent.id, options);
