@@ -79,11 +79,6 @@ define(['angular', 'angular-mocks', 'app'], function(angular) {
                     expect(errorCallback).toHaveBeenCalledWith('Error fetching decks with tags test');
                 });
             });
-
-            it('get the url for getting cards for a given deck id', function() {
-                var url = PredixViewService.getUrlForFetchingCardsForDeckId(1357);
-                expect(url).toBe('/api/view-service/decks/1357?filter[include][cards]');
-            });
         });
     });
 });
