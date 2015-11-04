@@ -53,7 +53,7 @@ module.exports = {
         });
       }
       else {
-        errorCallback(body);
+          errorCallback(err, response, body);
       }
     });
   },
