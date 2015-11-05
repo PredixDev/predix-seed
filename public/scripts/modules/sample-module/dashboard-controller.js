@@ -33,7 +33,6 @@ define(['angular', './sample-module'], function (angular, controllers) {
                         decks.forEach(function (deck) {
                             $scope.decks.push({name: deck.title, id: deck.id});
                         });
-                        $scope.selectedDeckId = $scope.decks[0].id;
                     }
                 });
         };

@@ -23,8 +23,8 @@ var config = {
    */
   proxy: {
     '/api/view-service(.*)': {
-      url: 'http://px-view-service-exp.grc-apps.svc.ice.ge.com/api$1',
-      instanceId: 'c8918695-f515-41e2-ba86-cdea84848cc5'
+      url: 'http://predix-views-dev.grc-apps.svc.ice.ge.com/api$1',
+      instanceId: '49a92fd6-df7b-45f6-925e-0bca94be7313'
     }
   }
 };
