@@ -132,7 +132,7 @@ Follow [these steps](https://www.predix.io/docs/?r=913171#JA5oCs7).  You will ne
 	```
 	Generate the UAA authorization header for your client by base64 encoding your client and client's secret.
 	```
-	base64(<client-name>:<client secret>)
+	base64 encode the following string: "<client-name>:<client secret>"
 	```
 	Finally, set the $uaa_authorization_header to Basic authentication with this header.
 	```
