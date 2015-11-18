@@ -37,6 +37,7 @@ define(['angular', 'angular-ui-router'], function(angular) {
             })
             .state('blankpage', {
                 url: '/blankpage',
+                controller: 'SampleCtrl',
                 templateUrl: 'views/blank-page.html'
             })
             .state('blanksubpage', {

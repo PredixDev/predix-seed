@@ -15,7 +15,7 @@
     <script src="bower_components/es6-promise/dist/es6-promise.min.js"></script>
 
     <!-- Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports -->
-    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
 
     <link rel="import" href="polymer-loader.vulcanized.html">
 
@@ -36,9 +36,9 @@
     </header>
     <div class="viewport">
         <div class="content-wrapper">
-            <px-app-nav class="navbar" nav-items="{{App.tabs}}" path-prefix="/" path-key="state">
-                <px-login class="sticky"></px-login>
-            </px-app-nav>
+            <!--<px-app-nav class="navbar" nav-items="{{App.tabs}}" path-prefix="/" path-key="state">-->
+                <!--<px-login class="sticky"></px-login>-->
+            <!--</px-app-nav>-->
             <main class="u-pt-- u-pr-- u-pl--" role="main">
                 <section role="region" ui-view></section>
             </main>

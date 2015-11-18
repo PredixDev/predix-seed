@@ -1,1 +1,36 @@
 <blank-card id="my-card"></blank-card>
+
+<px-card>
+	<button ng-click="doSomethingWithSelectedRows()">Do something with selected rows</button>
+    <!-- <px-data-table></px-data-table> -->
+    <px-data-table id="myDataTable" filterable selectable striped table-data="{{myData}}">
+        <px-data-table-column
+            name="first"
+            filterable
+            sortable
+            filter-function-name="filterWholeWord">
+        </px-data-table-column>
+        <px-data-table-column
+            name="last"
+            sortable>
+        </px-data-table-column>
+        <px-data-table-column
+            name="email"
+            sort-function-name="sortByEmailDomain"
+            sortable>
+        </px-data-table-column>
+        <px-data-table-column
+            name="color"
+            type="html"
+            filterable
+            filter-function-name="filterMarkupVal">
+        </px-data-table-column>
+        <px-data-table-column
+            name="date"
+            max-column-character-width="30"
+            ellipsis-clip-position="right">
+        </px-data-table-column>
+    </px-data-table>
+</px-card>
+
+<div>{{allSelectedRows}}</div>
