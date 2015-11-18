@@ -6,9 +6,10 @@ define(['angular', './sample-module'], function (angular, module) {
     */
     module.factory('PredixViewService', ['$http', '$q', function ($http, $q) {
         return {
+            baseUrl: '/api/view-service',
             getDecksByTags: function (tags) {
                 var deferred = $q.defer();
-                $http.get('/api/view-service/decks/tags?values=' + tags)
+                $http.get(this.baseUrl + '/decks/tags?values=' + tags + '&filter[order]=createTimeStamp ASC')
                     .then(function (res) {
                         deferred.resolve(res.data);
                     },
@@ -16,9 +17,6 @@ define(['angular', './sample-module'], function (angular, module) {
                         deferred.reject('Error fetching decks with tags ' + tags);
                     });
                 return deferred.promise;
-            },
-            getUrlForFetchingCardsForDeckId: function(deckId) {
-                return '/api/view-service/decks/' + deckId + '?filter[include][cards]';
             }
         };
     }]);
