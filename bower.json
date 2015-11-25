@@ -29,6 +29,7 @@
     "px-card": "https://github.com/PredixDev/px-card.git#~v0.1.0",
     "px-context-browser": "https://github.com/PredixDev/px-context-browser.git#~v0.4.12",
     "ng-bind-polymer": "https://github.com/PredixDev/ng-bind-polymer.git#~v0.0.1",
+    "px-context-browser": "https://github.com/PredixDev/px-context-browser.git#~v0.5.0",
     "px-deck-selector": "https://github.com/PredixDev/px-deck-selector.git#~v1.0.0",
     "px-datasource": "https://github.com/PredixDev/px-datasource.git#~v1.1",
     "px-login": "https://github.com/PredixDev/px-login.git#~v0.0.1",
