@@ -3,12 +3,12 @@
 <px-card>
 	<button ng-click="doSomethingWithSelectedRows()">Do something with selected rows</button>
     <!-- <px-data-table></px-data-table> -->
-    <px-data-table id="myDataTable" filterable selectable striped table-data="{{myData}}">
+    <px-data-table ng-bind-polymer id="myDataTable" filterable selectable striped table-data="{{myData}}">
         <px-data-table-column
             name="first"
             filterable
             sortable
-            filter-function-name="filterWholeWord">
+            filter-function-name="mySampleDataTableCustomFunctions.filterWholeWord">
         </px-data-table-column>
         <px-data-table-column
             name="last"
@@ -16,14 +16,14 @@
         </px-data-table-column>
         <px-data-table-column
             name="email"
-            sort-function-name="sortByEmailDomain"
+            sort-function-name="mySampleDataTableCustomFunctions.sortByEmailDomain"
             sortable>
         </px-data-table-column>
         <px-data-table-column
             name="color"
             type="html"
             filterable
-            filter-function-name="filterMarkupVal">
+            filter-function-name="mySampleDataTableCustomFunctions.filterMarkupVal">
         </px-data-table-column>
         <px-data-table-column
             name="date"
