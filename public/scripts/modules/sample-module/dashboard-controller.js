@@ -22,14 +22,22 @@ define(['angular', './sample-module'], function (angular, controllers) {
             newContext.children = [];
             newContext.parent = [];
 
+            newContext.urls = {
+                'core-vibe-rear-cruise': '/sample-data/core-vibe-rear-cruise.json',
+                'delta-egt-cruise': '/sample-data/delta-egt-cruise.json',
+                'fan-vibration-cruise': '/sample-data/fan-vibration-cruise.json',
+                'fan-vibration-cruise2': '/sample-data/fan-vibration-cruise2.json'
+            };
+
             $scope.context = newContext;
+
 
             //Tag string can be classification from contextDetails
             PredixViewService.getDecksByTags(newContext.classification) // gets all decks for this context
                 .then(function (decks) {
                     $scope.decks = [];
 
-                    if(decks && decks.length > 0) {
+                    if (decks && decks.length > 0) {
                         decks.forEach(function (deck) {
                             $scope.decks.push({name: deck.title, id: deck.id});
                         });
