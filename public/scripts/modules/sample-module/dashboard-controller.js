@@ -5,7 +5,14 @@ define(['angular', './sample-module'], function (angular, controllers) {
     controllers.controller('DashboardsCtrl', ['$scope', '$log', 'PredixAssetService', 'PredixViewService', function ($scope, $log, PredixAssetService, PredixViewService) {
 
         PredixAssetService.getAssetsByParentId('root').then(function (initialContext) {
+
+            //pre-select the 1st asset
+            initialContext.data[0].selectedAsset = true;
             $scope.initialContexts = initialContext;
+            $scope.initialContextName = initialContext.data[0].name;
+
+            //load view selector
+            $scope.openContext($scope.initialContexts.data[0]);
         }, function (message) {
             $log.error(message);
         });
@@ -33,7 +40,6 @@ define(['angular', './sample-module'], function (angular, controllers) {
             };
 
             $scope.context = newContext;
-
 
             //Tag string can be classification from contextDetails
             PredixViewService.getDecksByTags(newContext.classification) // gets all decks for this context

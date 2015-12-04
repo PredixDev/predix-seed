@@ -1,6 +1,6 @@
 {
   "name": "predix-seed",
-  "version": "1.1.15",
+  "version": "1.1.16",
   "private": true,
   "engines": {
     "node": ">=0.10.0"
