@@ -22,11 +22,14 @@ define(['angular', './sample-module'], function (angular, controllers) {
             newContext.children = [];
             newContext.parent = [];
 
+            // url end point can change from context to context
+            // so the same card can display different data from different contexts
             newContext.urls = {
                 'core-vibe-rear-cruise': '/sample-data/core-vibe-rear-cruise.json',
                 'delta-egt-cruise': '/sample-data/delta-egt-cruise.json',
                 'fan-vibration-cruise': '/sample-data/fan-vibration-cruise.json',
-                'fan-vibration-cruise2': '/sample-data/fan-vibration-cruise2.json'
+                'fan-vibration-cruise2': '/sample-data/fan-vibration-cruise2.json',
+                'datagrid-data': '/sample-data/datagrid-data.json'
             };
 
             $scope.context = newContext;
