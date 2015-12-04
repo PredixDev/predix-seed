@@ -17,6 +17,7 @@ define(['angular', './sample-module'], function(angular, module) {
             return {
                 name: entity.assetId, // Displayed name in the context browser
                 id: entity.uri, // Unique ID (could be a URI for example)
+                identifier: entity.uri, // Unique ID (could be a URI for example)
                 parentId: entity.parent, // Parent ID. Used to place the children under the corresponding parent in the browser.
                 classification: entity.classification, // Classification used for fetching the views.
                 isOpenable: true
