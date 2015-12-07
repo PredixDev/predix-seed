@@ -32,7 +32,7 @@
     "px-datasource": "https://github.com/PredixDev/px-datasource.git#~v1.1",
     "px-login": "https://github.com/PredixDev/px-login.git#~v0.1.0",
     "px-sample-cards": "https://github.com/PredixDev/px-sample-cards.git#~v0.2.2",
-    "px-theme": "https://github.com/PredixDev/px-theme.git#~v0.4.0",
+    "px-theme": "https://github.com/PredixDev/px-theme.git#~v0.4.1",
     "require-css": "0.1.1",
     "requirejs": "https://github.com/jrburke/requirejs.git#2.1.18",
     "requirejs-plugins": "1.0.2"
