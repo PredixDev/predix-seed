@@ -10,7 +10,7 @@ define(['angular', './sample-module'], function (angular, controllers) {
             initialContext.data[0].selectedAsset = true;
             $scope.initialContexts = initialContext;
             $scope.initialContextName = initialContext.data[0].name;
-
+            console.log('init', initialContext);
             //load view selector
             $scope.openContext($scope.initialContexts.data[0]);
         }, function (message) {

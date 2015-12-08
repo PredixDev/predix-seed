@@ -4,6 +4,15 @@
         "classification": "parent",
         "description": "Parent Asset",
         "assetId": "Parent Asset",
-        "parent": null
+        "parent": null,
+        "children": [
+            {
+                "uri": "child",
+                "classification": "child",
+                "description": "Child Asset",
+                "assetId": "Child Asset",
+                "parent": null
+            }
+        ]
     }
 ]
