@@ -40,6 +40,8 @@
   "resolutions": {
     "es6-promise": "~v3.0.2",
     "px": "~v1.3.0",
-    "px-theme": "~v0.4.1"
+    "px-theme": "~v0.4.1",
+    "polymer": "~1.2.3",
+    "px-card": "~v0.2.0"
   }
 }
