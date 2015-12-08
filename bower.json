@@ -1,10 +1,10 @@
 {
   "name": "predix-seed",
-  "version": "1.1.17",
+  "version": "1.1.18",
   "private": true,
   "ignore": [
     "**/.*",
-    "node_modules",
+    "node_modules"
     "bower_components",
     "public/bower_components",
     "test",
@@ -28,7 +28,7 @@
     "px-card": "https://github.com/PredixDev/px-card.git#~v0.2.0",
     "px-context-browser": "https://github.com/PredixDev/px-context-browser.git#~v0.7.4",
     "ng-bind-polymer": "https://github.com/PredixDev/ng-bind-polymer.git#~v0.0.3",
-    "px-deck-selector": "https://github.com/PredixDev/px-deck-selector.git#~v1.1.0",
+    "px-deck-selector": "https://github.com/PredixDev/px-deck-selector.git#~v1.1.1",
     "px-datasource": "https://github.com/PredixDev/px-datasource.git#~v1.1",
     "px-login": "https://github.com/PredixDev/px-login.git#~v0.1.0",
     "px-sample-cards": "https://github.com/PredixDev/px-sample-cards.git#~v0.2.4",
@@ -42,6 +42,7 @@
     "px": "~v1.3.0",
     "px-theme": "~v0.4.1",
     "polymer": "~1.2.3",
-    "px-card": "~v0.2.0"
+    "px-card": "~v0.2.0",
+    "px-widget-cards": "v1.2.3"
   }
 }
