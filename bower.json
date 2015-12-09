@@ -42,7 +42,6 @@
     "px": "~v1.3.0",
     "px-theme": "~v0.4.1",
     "polymer": "~1.2.3",
-    "px-card": "~v0.2.0",
-    "px-widget-cards": "v1.2.3"
+    "px-card": "~v0.2.0"
   }
 }
