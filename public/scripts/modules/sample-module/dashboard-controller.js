@@ -10,7 +10,7 @@ define(['angular', './sample-module'], function (angular, controllers) {
             initialContext.data[0].selectedAsset = true;
             $scope.initialContexts = initialContext;
             $scope.initialContextName = initialContext.data[0].name;
-            console.log('init', initialContext);
+
             //load view selector
             $scope.openContext($scope.initialContexts.data[0]);
         }, function (message) {
@@ -33,22 +33,24 @@ define(['angular', './sample-module'], function (angular, controllers) {
             // so the same card can display different data from different contexts
 
             var url = {
-                'Child Asset': {
-                    'core-vibe-rear-cruise': '/sample-data/core-vibe-rear-cruise.json',
-                    'delta-egt-cruise': '/sample-data/delta-egt-cruise.json',
-                    'fan-vibration-cruise': '/sample-data/fan-vibration-cruise.json',
-                    'fan-vibration-cruise2': '/sample-data/fan-vibration-cruise2.json',
+                'parent': {
                     'datagrid-data': '/sample-data/datagrid-data.json'
                 },
-                'Child Asset 2': {
-                    'core-vibe-rear-cruise': '/sample-data/core-vibe-rear-cruise0.json'
+                'child': {
+                    'core-vibe-rear-cruise': '/sample-data/core-vibe-rear-cruise.json',
+                    'delta-egt-cruise': '/sample-data/delta-egt-cruise.json'
                 },
-                'Child Asset 3': {
-                    'core-vibe-rear-cruise': '/sample-data/core-vibe-rear-cruise1.json'
+                'child2': {
+                    'core-vibe-rear-cruise': '/sample-data/core-vibe-rear-cruise0.json',
+                    'delta-egt-cruise': '/sample-data/delta-egt-cruise.json'
+                },
+                'child3': {
+                    'core-vibe-rear-cruise': '/sample-data/core-vibe-rear-cruise1.json',
+                    'delta-egt-cruise': '/sample-data/delta-egt-cruise.json'
                 }
             };
 
-            newContext.urls = url[newContext.name];
+            newContext.urls = url[newContext.id];
 
             $scope.context = newContext;
 
