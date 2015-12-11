@@ -5,5 +5,19 @@
         "description": "Child Asset",
         "assetId": "Child Asset",
         "parent": null
+    },
+    {
+        "uri": "child2",
+        "classification": "child",
+        "description": "Child Asset 2",
+        "assetId": "Child Asset 2",
+        "parent": null
+    },
+    {
+        "uri": "child3",
+        "classification": "child",
+        "description": "Child Asset 3",
+        "assetId": "Child Asset 3",
+        "parent": null
     }
 ]
