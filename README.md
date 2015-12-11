@@ -132,7 +132,7 @@ Follow [these steps](https://www.predix.io/docs/?r=913171#JA5oCs7).  You will ne
 	```
 	Generate the UAA authorization header for your client by base64 encoding your client and client's secret.
 	```
-	base64(<client-name>:<client secret>)
+	base64 encode the following string: "<client-name>:<client secret>"
 	```
 	Finally, set the $uaa_authorization_header to Basic authentication with this header.
 	```
@@ -250,14 +250,14 @@ example: https://my-views-service.predix.io/api/decks
 
 You should get a 500 response because you are missing two mandatory headers.
 
-1. predix_zone_id header
+1. predix-zone-id header
 
-	The predix_zone_id header is used for multi-tenancy; it specifies which views service instance is yours.
+	The predix-zone-id header is used for multi-tenancy; it specifies which views service instance is yours.
 
-	Set the predix_zone_id header to your Views instance id that you pulled earlier from VCAP_SERVICES.
+	Set the predix-zone-id header to your Views instance id that you pulled earlier from VCAP_SERVICES.
 	
 	```
-	predix_zone_id : <your-views-instance-id>
+	predix-zone-id : <your-views-instance-id>
 	```
 
 2. Authorization header

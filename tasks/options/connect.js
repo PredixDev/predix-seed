@@ -23,7 +23,7 @@ var config = {
    */
   proxy: {
     '/api/view-service(.*)': {
-      url: 'http://predix-views-dev.grc-apps.svc.ice.ge.com/api$1',
+      url: 'http://predix-views-dev.grc-apps.svc.ice.ge.com/v1$1',
       instanceId: '49a92fd6-df7b-45f6-925e-0bca94be7313'
     }
   }

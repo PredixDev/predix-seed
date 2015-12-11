@@ -9,7 +9,7 @@ define(['angular', './sample-module'], function (angular, module) {
             baseUrl: '/api/view-service',
             getDecksByTags: function (tags) {
                 var deferred = $q.defer();
-                $http.get(this.baseUrl + '/decks/tags?values=' + tags)
+                $http.get(this.baseUrl + '/decks/tags?values=' + tags + '&filter[order]=createTimeStamp ASC')
                     .then(function (res) {
                         deferred.resolve(res.data);
                     },
