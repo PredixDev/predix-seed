@@ -12,7 +12,6 @@ git clone
 ### Install the dependencies
 ```
 npm install
-bower install
 ```
 
 ### Create a dist version
