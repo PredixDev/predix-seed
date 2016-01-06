@@ -1,0 +1,35 @@
+////
+/// PX-ICONOGRAPHY-DESIGN
+/// Defines styles for sets of icons.
+/// @group px-iconography-design
+////
+
+/// @type String [default] - Path to FontAwesome fonts
+$fa-font-path : "../font-awesome/fonts" !default;
+
+@import "font-awesome/scss/font-awesome.scss";
+
+[dir=rtl] {
+  .fa-chevron-left,
+  .fa-chevron-right,
+  .fa-chevron-circle-left,
+  .fa-chevron-circle-right,
+  .fa-angle-left,
+  .fa-angle-right,
+  .fa-angle-double-left,
+  .fa-angle-double-right,
+  .fa-arrow-circle-left,
+  .fa-arrow-circle-right,
+  .fa-arrow-circle-o-left,
+  .fa-arrow-circle-o-right {
+    transform: scale(-1, 1);
+  }
+
+  //TODO: replace the above whitelist with the variable driven Sass below....Polymer 0.8.0-rcX currently chokes on this
+//  [class~=fa] {
+//    &[class*="-left"],
+//    &[class*="-right"] {
+//      transform: scale(-1, 1);
+//    }
+//  }
+}

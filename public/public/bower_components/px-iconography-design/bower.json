@@ -1,0 +1,29 @@
+{
+  "name": "px-iconography-design",
+  "version": "0.2.7",
+  "authors": [
+    "General Electric"
+  ],
+  "description": "Base icon styles for Predix Experience",
+  "main": "_base.iconography.scss",
+  "keywords": [
+    "px",
+    "sass",
+    "iconography",
+    "icons",
+    "font-awesome"
+  ],
+  "license": "Apache 2",
+  "homepage": "https://github.com/PredixDev/px-iconography-design.git",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.4.0"
+  }
+}

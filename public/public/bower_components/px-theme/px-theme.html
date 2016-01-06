@@ -1,0 +1,1714 @@
+<style is="custom-style">
+
+  @charset "UTF-8";
+/*------------------------------------*    #PX-COLORS-DESIGN
+\*------------------------------------*/
+/**
+ * Brand Colors
+ */
+/**
+     * Primary
+     */
+/**
+     * Light
+     */
+/**
+     * Dark
+     */
+/**
+ * Monochromatic (gray10 is darkest, gray1 is lightest)
+ */
+/**
+ * Buttons
+ */
+/**
+ * Selection
+ */
+/**
+ * Alerts
+ */
+/**
+ * Data Visualization
+ */
+/**
+     * Basic
+     */
+/**
+     * Light
+     */
+/**
+     * Dark
+     */
+:root {
+  /*!
+ *  Font Awesome 4.4.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+  /* FONT PATH
+ * -------------------------- */
+  /* makes the font 33% larger relative to the icon container */
+  /* Deprecated as of 4.4.0 */
+  /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
+  /**
+ * Font weights
+ */
+  /* Text-level semantics
+   ========================================================================== */
+  /**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+  /**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+  /**
+ * Address styling not present in Safari and Chrome.
+ */
+  /**
+ * Address styling not present in IE 8/9.
+ */
+  /**
+ * Address inconsistent and variable font size in all browsers.
+ */
+  /**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+  --px-app-nav-background-color: #242326;
+  --px-app-nav-link-text-color: white;
+  --px-app-nav-link-selected-color: #086e87;
+  --px-app-nav-link-selected-active-color: #0986a4;
+  --px-app-nav-link-hover-color: #525156;
+  --px-app-nav-link-active-color: #3573c5;
+  --px-font-family: "GE Inspira Sans", sans-serif; }
+
+@font-face {
+  :root {
+    font-family: 'FontAwesome';
+    src: url("../font-awesome/fonts/fontawesome-webfont.eot?v=4.4.0");
+    src: url("../font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.4.0") format("embedded-opentype"), url("../font-awesome/fonts/fontawesome-webfont.woff2?v=4.4.0") format("woff2"), url("../font-awesome/fonts/fontawesome-webfont.woff?v=4.4.0") format("woff"), url("../font-awesome/fonts/fontawesome-webfont.ttf?v=4.4.0") format("truetype"), url("../font-awesome/fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular") format("svg");
+    font-weight: normal;
+    font-style: normal; } }
+  :root .fa {
+    display: inline-block;
+    font: normal normal normal 14px / 1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
+  :root .fa-lg {
+    font-size: 1.3333333333em;
+    line-height: 0.75em;
+    vertical-align: -15%; }
+  :root .fa-2x {
+    font-size: 2em; }
+  :root .fa-3x {
+    font-size: 3em; }
+  :root .fa-4x {
+    font-size: 4em; }
+  :root .fa-5x {
+    font-size: 5em; }
+  :root .fa-fw {
+    width: 1.2857142857em;
+    text-align: center; }
+  :root .fa-ul {
+    padding-left: 0;
+    margin-left: 2.1428571429em;
+    list-style-type: none; }
+    :root .fa-ul > li {
+      position: relative; }
+  :root .fa-li {
+    position: absolute;
+    left: -2.1428571429em;
+    width: 2.1428571429em;
+    top: 0.1428571429em;
+    text-align: center; }
+    :root .fa-li.fa-lg {
+      left: -1.8571428571em; }
+  :root .fa-border {
+    padding: .2em .25em .15em;
+    border: solid 0.08em #eee;
+    border-radius: .1em; }
+  :root .fa-pull-left {
+    float: left; }
+  :root .fa-pull-right {
+    float: right; }
+  :root .fa.fa-pull-left {
+    margin-right: .3em; }
+  :root .fa.fa-pull-right {
+    margin-left: .3em; }
+  :root .pull-right {
+    float: right; }
+  :root .pull-left {
+    float: left; }
+  :root .fa.pull-left {
+    margin-right: .3em; }
+  :root .fa.pull-right {
+    margin-left: .3em; }
+  :root .fa-spin {
+    -webkit-animation: fa-spin 2s infinite linear;
+    animation: fa-spin 2s infinite linear; }
+  :root .fa-pulse {
+    -webkit-animation: fa-spin 1s infinite steps(8);
+    animation: fa-spin 1s infinite steps(8); }
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+  :root .fa-rotate-90 {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg); }
+  :root .fa-rotate-180 {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  :root .fa-rotate-270 {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg); }
+  :root .fa-flip-horizontal {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+    -webkit-transform: scale(-1, 1);
+    transform: scale(-1, 1); }
+  :root .fa-flip-vertical {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    -webkit-transform: scale(1, -1);
+    transform: scale(1, -1); }
+  :root :root .fa-rotate-90,
+  :root :root .fa-rotate-180,
+  :root :root .fa-rotate-270,
+  :root :root .fa-flip-horizontal,
+  :root :root .fa-flip-vertical {
+    -webkit-filter: none;
+            filter: none; }
+  :root .fa-stack {
+    position: relative;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    vertical-align: middle; }
+  :root .fa-stack-1x, :root .fa-stack-2x {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center; }
+  :root .fa-stack-1x {
+    line-height: inherit; }
+  :root .fa-stack-2x {
+    font-size: 2em; }
+  :root .fa-inverse {
+    color: #fff; }
+  :root .fa-glass:before {
+    content: ""; }
+  :root .fa-music:before {
+    content: ""; }
+  :root .fa-search:before {
+    content: ""; }
+  :root .fa-envelope-o:before {
+    content: ""; }
+  :root .fa-heart:before {
+    content: ""; }
+  :root .fa-star:before {
+    content: ""; }
+  :root .fa-star-o:before {
+    content: ""; }
+  :root .fa-user:before {
+    content: ""; }
+  :root .fa-film:before {
+    content: ""; }
+  :root .fa-th-large:before {
+    content: ""; }
+  :root .fa-th:before {
+    content: ""; }
+  :root .fa-th-list:before {
+    content: ""; }
+  :root .fa-check:before {
+    content: ""; }
+  :root .fa-remove:before,
+  :root .fa-close:before,
+  :root .fa-times:before {
+    content: ""; }
+  :root .fa-search-plus:before {
+    content: ""; }
+  :root .fa-search-minus:before {
+    content: ""; }
+  :root .fa-power-off:before {
+    content: ""; }
+  :root .fa-signal:before {
+    content: ""; }
+  :root .fa-gear:before,
+  :root .fa-cog:before {
+    content: ""; }
+  :root .fa-trash-o:before {
+    content: ""; }
+  :root .fa-home:before {
+    content: ""; }
+  :root .fa-file-o:before {
+    content: ""; }
+  :root .fa-clock-o:before {
+    content: ""; }
+  :root .fa-road:before {
+    content: ""; }
+  :root .fa-download:before {
+    content: ""; }
+  :root .fa-arrow-circle-o-down:before {
+    content: ""; }
+  :root .fa-arrow-circle-o-up:before {
+    content: ""; }
+  :root .fa-inbox:before {
+    content: ""; }
+  :root .fa-play-circle-o:before {
+    content: ""; }
+  :root .fa-rotate-right:before,
+  :root .fa-repeat:before {
+    content: ""; }
+  :root .fa-refresh:before {
+    content: ""; }
+  :root .fa-list-alt:before {
+    content: ""; }
+  :root .fa-lock:before {
+    content: ""; }
+  :root .fa-flag:before {
+    content: ""; }
+  :root .fa-headphones:before {
+    content: ""; }
+  :root .fa-volume-off:before {
+    content: ""; }
+  :root .fa-volume-down:before {
+    content: ""; }
+  :root .fa-volume-up:before {
+    content: ""; }
+  :root .fa-qrcode:before {
+    content: ""; }
+  :root .fa-barcode:before {
+    content: ""; }
+  :root .fa-tag:before {
+    content: ""; }
+  :root .fa-tags:before {
+    content: ""; }
+  :root .fa-book:before {
+    content: ""; }
+  :root .fa-bookmark:before {
+    content: ""; }
+  :root .fa-print:before {
+    content: ""; }
+  :root .fa-camera:before {
+    content: ""; }
+  :root .fa-font:before {
+    content: ""; }
+  :root .fa-bold:before {
+    content: ""; }
+  :root .fa-italic:before {
+    content: ""; }
+  :root .fa-text-height:before {
+    content: ""; }
+  :root .fa-text-width:before {
+    content: ""; }
+  :root .fa-align-left:before {
+    content: ""; }
+  :root .fa-align-center:before {
+    content: ""; }
+  :root .fa-align-right:before {
+    content: ""; }
+  :root .fa-align-justify:before {
+    content: ""; }
+  :root .fa-list:before {
+    content: ""; }
+  :root .fa-dedent:before,
+  :root .fa-outdent:before {
+    content: ""; }
+  :root .fa-indent:before {
+    content: ""; }
+  :root .fa-video-camera:before {
+    content: ""; }
+  :root .fa-photo:before,
+  :root .fa-image:before,
+  :root .fa-picture-o:before {
+    content: ""; }
+  :root .fa-pencil:before {
+    content: ""; }
+  :root .fa-map-marker:before {
+    content: ""; }
+  :root .fa-adjust:before {
+    content: ""; }
+  :root .fa-tint:before {
+    content: ""; }
+  :root .fa-edit:before,
+  :root .fa-pencil-square-o:before {
+    content: ""; }
+  :root .fa-share-square-o:before {
+    content: ""; }
+  :root .fa-check-square-o:before {
+    content: ""; }
+  :root .fa-arrows:before {
+    content: ""; }
+  :root .fa-step-backward:before {
+    content: ""; }
+  :root .fa-fast-backward:before {
+    content: ""; }
+  :root .fa-backward:before {
+    content: ""; }
+  :root .fa-play:before {
+    content: ""; }
+  :root .fa-pause:before {
+    content: ""; }
+  :root .fa-stop:before {
+    content: ""; }
+  :root .fa-forward:before {
+    content: ""; }
+  :root .fa-fast-forward:before {
+    content: ""; }
+  :root .fa-step-forward:before {
+    content: ""; }
+  :root .fa-eject:before {
+    content: ""; }
+  :root .fa-chevron-left:before {
+    content: ""; }
+  :root .fa-chevron-right:before {
+    content: ""; }
+  :root .fa-plus-circle:before {
+    content: ""; }
+  :root .fa-minus-circle:before {
+    content: ""; }
+  :root .fa-times-circle:before {
+    content: ""; }
+  :root .fa-check-circle:before {
+    content: ""; }
+  :root .fa-question-circle:before {
+    content: ""; }
+  :root .fa-info-circle:before {
+    content: ""; }
+  :root .fa-crosshairs:before {
+    content: ""; }
+  :root .fa-times-circle-o:before {
+    content: ""; }
+  :root .fa-check-circle-o:before {
+    content: ""; }
+  :root .fa-ban:before {
+    content: ""; }
+  :root .fa-arrow-left:before {
+    content: ""; }
+  :root .fa-arrow-right:before {
+    content: ""; }
+  :root .fa-arrow-up:before {
+    content: ""; }
+  :root .fa-arrow-down:before {
+    content: ""; }
+  :root .fa-mail-forward:before,
+  :root .fa-share:before {
+    content: ""; }
+  :root .fa-expand:before {
+    content: ""; }
+  :root .fa-compress:before {
+    content: ""; }
+  :root .fa-plus:before {
+    content: ""; }
+  :root .fa-minus:before {
+    content: ""; }
+  :root .fa-asterisk:before {
+    content: ""; }
+  :root .fa-exclamation-circle:before {
+    content: ""; }
+  :root .fa-gift:before {
+    content: ""; }
+  :root .fa-leaf:before {
+    content: ""; }
+  :root .fa-fire:before {
+    content: ""; }
+  :root .fa-eye:before {
+    content: ""; }
+  :root .fa-eye-slash:before {
+    content: ""; }
+  :root .fa-warning:before,
+  :root .fa-exclamation-triangle:before {
+    content: ""; }
+  :root .fa-plane:before {
+    content: ""; }
+  :root .fa-calendar:before {
+    content: ""; }
+  :root .fa-random:before {
+    content: ""; }
+  :root .fa-comment:before {
+    content: ""; }
+  :root .fa-magnet:before {
+    content: ""; }
+  :root .fa-chevron-up:before {
+    content: ""; }
+  :root .fa-chevron-down:before {
+    content: ""; }
+  :root .fa-retweet:before {
+    content: ""; }
+  :root .fa-shopping-cart:before {
+    content: ""; }
+  :root .fa-folder:before {
+    content: ""; }
+  :root .fa-folder-open:before {
+    content: ""; }
+  :root .fa-arrows-v:before {
+    content: ""; }
+  :root .fa-arrows-h:before {
+    content: ""; }
+  :root .fa-bar-chart-o:before,
+  :root .fa-bar-chart:before {
+    content: ""; }
+  :root .fa-twitter-square:before {
+    content: ""; }
+  :root .fa-facebook-square:before {
+    content: ""; }
+  :root .fa-camera-retro:before {
+    content: ""; }
+  :root .fa-key:before {
+    content: ""; }
+  :root .fa-gears:before,
+  :root .fa-cogs:before {
+    content: ""; }
+  :root .fa-comments:before {
+    content: ""; }
+  :root .fa-thumbs-o-up:before {
+    content: ""; }
+  :root .fa-thumbs-o-down:before {
+    content: ""; }
+  :root .fa-star-half:before {
+    content: ""; }
+  :root .fa-heart-o:before {
+    content: ""; }
+  :root .fa-sign-out:before {
+    content: ""; }
+  :root .fa-linkedin-square:before {
+    content: ""; }
+  :root .fa-thumb-tack:before {
+    content: ""; }
+  :root .fa-external-link:before {
+    content: ""; }
+  :root .fa-sign-in:before {
+    content: ""; }
+  :root .fa-trophy:before {
+    content: ""; }
+  :root .fa-github-square:before {
+    content: ""; }
+  :root .fa-upload:before {
+    content: ""; }
+  :root .fa-lemon-o:before {
+    content: ""; }
+  :root .fa-phone:before {
+    content: ""; }
+  :root .fa-square-o:before {
+    content: ""; }
+  :root .fa-bookmark-o:before {
+    content: ""; }
+  :root .fa-phone-square:before {
+    content: ""; }
+  :root .fa-twitter:before {
+    content: ""; }
+  :root .fa-facebook-f:before,
+  :root .fa-facebook:before {
+    content: ""; }
+  :root .fa-github:before {
+    content: ""; }
+  :root .fa-unlock:before {
+    content: ""; }
+  :root .fa-credit-card:before {
+    content: ""; }
+  :root .fa-feed:before,
+  :root .fa-rss:before {
+    content: ""; }
+  :root .fa-hdd-o:before {
+    content: ""; }
+  :root .fa-bullhorn:before {
+    content: ""; }
+  :root .fa-bell:before {
+    content: ""; }
+  :root .fa-certificate:before {
+    content: ""; }
+  :root .fa-hand-o-right:before {
+    content: ""; }
+  :root .fa-hand-o-left:before {
+    content: ""; }
+  :root .fa-hand-o-up:before {
+    content: ""; }
+  :root .fa-hand-o-down:before {
+    content: ""; }
+  :root .fa-arrow-circle-left:before {
+    content: ""; }
+  :root .fa-arrow-circle-right:before {
+    content: ""; }
+  :root .fa-arrow-circle-up:before {
+    content: ""; }
+  :root .fa-arrow-circle-down:before {
+    content: ""; }
+  :root .fa-globe:before {
+    content: ""; }
+  :root .fa-wrench:before {
+    content: ""; }
+  :root .fa-tasks:before {
+    content: ""; }
+  :root .fa-filter:before {
+    content: ""; }
+  :root .fa-briefcase:before {
+    content: ""; }
+  :root .fa-arrows-alt:before {
+    content: ""; }
+  :root .fa-group:before,
+  :root .fa-users:before {
+    content: ""; }
+  :root .fa-chain:before,
+  :root .fa-link:before {
+    content: ""; }
+  :root .fa-cloud:before {
+    content: ""; }
+  :root .fa-flask:before {
+    content: ""; }
+  :root .fa-cut:before,
+  :root .fa-scissors:before {
+    content: ""; }
+  :root .fa-copy:before,
+  :root .fa-files-o:before {
+    content: ""; }
+  :root .fa-paperclip:before {
+    content: ""; }
+  :root .fa-save:before,
+  :root .fa-floppy-o:before {
+    content: ""; }
+  :root .fa-square:before {
+    content: ""; }
+  :root .fa-navicon:before,
+  :root .fa-reorder:before,
+  :root .fa-bars:before {
+    content: ""; }
+  :root .fa-list-ul:before {
+    content: ""; }
+  :root .fa-list-ol:before {
+    content: ""; }
+  :root .fa-strikethrough:before {
+    content: ""; }
+  :root .fa-underline:before {
+    content: ""; }
+  :root .fa-table:before {
+    content: ""; }
+  :root .fa-magic:before {
+    content: ""; }
+  :root .fa-truck:before {
+    content: ""; }
+  :root .fa-pinterest:before {
+    content: ""; }
+  :root .fa-pinterest-square:before {
+    content: ""; }
+  :root .fa-google-plus-square:before {
+    content: ""; }
+  :root .fa-google-plus:before {
+    content: ""; }
+  :root .fa-money:before {
+    content: ""; }
+  :root .fa-caret-down:before {
+    content: ""; }
+  :root .fa-caret-up:before {
+    content: ""; }
+  :root .fa-caret-left:before {
+    content: ""; }
+  :root .fa-caret-right:before {
+    content: ""; }
+  :root .fa-columns:before {
+    content: ""; }
+  :root .fa-unsorted:before,
+  :root .fa-sort:before {
+    content: ""; }
+  :root .fa-sort-down:before,
+  :root .fa-sort-desc:before {
+    content: ""; }
+  :root .fa-sort-up:before,
+  :root .fa-sort-asc:before {
+    content: ""; }
+  :root .fa-envelope:before {
+    content: ""; }
+  :root .fa-linkedin:before {
+    content: ""; }
+  :root .fa-rotate-left:before,
+  :root .fa-undo:before {
+    content: ""; }
+  :root .fa-legal:before,
+  :root .fa-gavel:before {
+    content: ""; }
+  :root .fa-dashboard:before,
+  :root .fa-tachometer:before {
+    content: ""; }
+  :root .fa-comment-o:before {
+    content: ""; }
+  :root .fa-comments-o:before {
+    content: ""; }
+  :root .fa-flash:before,
+  :root .fa-bolt:before {
+    content: ""; }
+  :root .fa-sitemap:before {
+    content: ""; }
+  :root .fa-umbrella:before {
+    content: ""; }
+  :root .fa-paste:before,
+  :root .fa-clipboard:before {
+    content: ""; }
+  :root .fa-lightbulb-o:before {
+    content: ""; }
+  :root .fa-exchange:before {
+    content: ""; }
+  :root .fa-cloud-download:before {
+    content: ""; }
+  :root .fa-cloud-upload:before {
+    content: ""; }
+  :root .fa-user-md:before {
+    content: ""; }
+  :root .fa-stethoscope:before {
+    content: ""; }
+  :root .fa-suitcase:before {
+    content: ""; }
+  :root .fa-bell-o:before {
+    content: ""; }
+  :root .fa-coffee:before {
+    content: ""; }
+  :root .fa-cutlery:before {
+    content: ""; }
+  :root .fa-file-text-o:before {
+    content: ""; }
+  :root .fa-building-o:before {
+    content: ""; }
+  :root .fa-hospital-o:before {
+    content: ""; }
+  :root .fa-ambulance:before {
+    content: ""; }
+  :root .fa-medkit:before {
+    content: ""; }
+  :root .fa-fighter-jet:before {
+    content: ""; }
+  :root .fa-beer:before {
+    content: ""; }
+  :root .fa-h-square:before {
+    content: ""; }
+  :root .fa-plus-square:before {
+    content: ""; }
+  :root .fa-angle-double-left:before {
+    content: ""; }
+  :root .fa-angle-double-right:before {
+    content: ""; }
+  :root .fa-angle-double-up:before {
+    content: ""; }
+  :root .fa-angle-double-down:before {
+    content: ""; }
+  :root .fa-angle-left:before {
+    content: ""; }
+  :root .fa-angle-right:before {
+    content: ""; }
+  :root .fa-angle-up:before {
+    content: ""; }
+  :root .fa-angle-down:before {
+    content: ""; }
+  :root .fa-desktop:before {
+    content: ""; }
+  :root .fa-laptop:before {
+    content: ""; }
+  :root .fa-tablet:before {
+    content: ""; }
+  :root .fa-mobile-phone:before,
+  :root .fa-mobile:before {
+    content: ""; }
+  :root .fa-circle-o:before {
+    content: ""; }
+  :root .fa-quote-left:before {
+    content: ""; }
+  :root .fa-quote-right:before {
+    content: ""; }
+  :root .fa-spinner:before {
+    content: ""; }
+  :root .fa-circle:before {
+    content: ""; }
+  :root .fa-mail-reply:before,
+  :root .fa-reply:before {
+    content: ""; }
+  :root .fa-github-alt:before {
+    content: ""; }
+  :root .fa-folder-o:before {
+    content: ""; }
+  :root .fa-folder-open-o:before {
+    content: ""; }
+  :root .fa-smile-o:before {
+    content: ""; }
+  :root .fa-frown-o:before {
+    content: ""; }
+  :root .fa-meh-o:before {
+    content: ""; }
+  :root .fa-gamepad:before {
+    content: ""; }
+  :root .fa-keyboard-o:before {
+    content: ""; }
+  :root .fa-flag-o:before {
+    content: ""; }
+  :root .fa-flag-checkered:before {
+    content: ""; }
+  :root .fa-terminal:before {
+    content: ""; }
+  :root .fa-code:before {
+    content: ""; }
+  :root .fa-mail-reply-all:before,
+  :root .fa-reply-all:before {
+    content: ""; }
+  :root .fa-star-half-empty:before,
+  :root .fa-star-half-full:before,
+  :root .fa-star-half-o:before {
+    content: ""; }
+  :root .fa-location-arrow:before {
+    content: ""; }
+  :root .fa-crop:before {
+    content: ""; }
+  :root .fa-code-fork:before {
+    content: ""; }
+  :root .fa-unlink:before,
+  :root .fa-chain-broken:before {
+    content: ""; }
+  :root .fa-question:before {
+    content: ""; }
+  :root .fa-info:before {
+    content: ""; }
+  :root .fa-exclamation:before {
+    content: ""; }
+  :root .fa-superscript:before {
+    content: ""; }
+  :root .fa-subscript:before {
+    content: ""; }
+  :root .fa-eraser:before {
+    content: ""; }
+  :root .fa-puzzle-piece:before {
+    content: ""; }
+  :root .fa-microphone:before {
+    content: ""; }
+  :root .fa-microphone-slash:before {
+    content: ""; }
+  :root .fa-shield:before {
+    content: ""; }
+  :root .fa-calendar-o:before {
+    content: ""; }
+  :root .fa-fire-extinguisher:before {
+    content: ""; }
+  :root .fa-rocket:before {
+    content: ""; }
+  :root .fa-maxcdn:before {
+    content: ""; }
+  :root .fa-chevron-circle-left:before {
+    content: ""; }
+  :root .fa-chevron-circle-right:before {
+    content: ""; }
+  :root .fa-chevron-circle-up:before {
+    content: ""; }
+  :root .fa-chevron-circle-down:before {
+    content: ""; }
+  :root .fa-html5:before {
+    content: ""; }
+  :root .fa-css3:before {
+    content: ""; }
+  :root .fa-anchor:before {
+    content: ""; }
+  :root .fa-unlock-alt:before {
+    content: ""; }
+  :root .fa-bullseye:before {
+    content: ""; }
+  :root .fa-ellipsis-h:before {
+    content: ""; }
+  :root .fa-ellipsis-v:before {
+    content: ""; }
+  :root .fa-rss-square:before {
+    content: ""; }
+  :root .fa-play-circle:before {
+    content: ""; }
+  :root .fa-ticket:before {
+    content: ""; }
+  :root .fa-minus-square:before {
+    content: ""; }
+  :root .fa-minus-square-o:before {
+    content: ""; }
+  :root .fa-level-up:before {
+    content: ""; }
+  :root .fa-level-down:before {
+    content: ""; }
+  :root .fa-check-square:before {
+    content: ""; }
+  :root .fa-pencil-square:before {
+    content: ""; }
+  :root .fa-external-link-square:before {
+    content: ""; }
+  :root .fa-share-square:before {
+    content: ""; }
+  :root .fa-compass:before {
+    content: ""; }
+  :root .fa-toggle-down:before,
+  :root .fa-caret-square-o-down:before {
+    content: ""; }
+  :root .fa-toggle-up:before,
+  :root .fa-caret-square-o-up:before {
+    content: ""; }
+  :root .fa-toggle-right:before,
+  :root .fa-caret-square-o-right:before {
+    content: ""; }
+  :root .fa-euro:before,
+  :root .fa-eur:before {
+    content: ""; }
+  :root .fa-gbp:before {
+    content: ""; }
+  :root .fa-dollar:before,
+  :root .fa-usd:before {
+    content: ""; }
+  :root .fa-rupee:before,
+  :root .fa-inr:before {
+    content: ""; }
+  :root .fa-cny:before,
+  :root .fa-rmb:before,
+  :root .fa-yen:before,
+  :root .fa-jpy:before {
+    content: ""; }
+  :root .fa-ruble:before,
+  :root .fa-rouble:before,
+  :root .fa-rub:before {
+    content: ""; }
+  :root .fa-won:before,
+  :root .fa-krw:before {
+    content: ""; }
+  :root .fa-bitcoin:before,
+  :root .fa-btc:before {
+    content: ""; }
+  :root .fa-file:before {
+    content: ""; }
+  :root .fa-file-text:before {
+    content: ""; }
+  :root .fa-sort-alpha-asc:before {
+    content: ""; }
+  :root .fa-sort-alpha-desc:before {
+    content: ""; }
+  :root .fa-sort-amount-asc:before {
+    content: ""; }
+  :root .fa-sort-amount-desc:before {
+    content: ""; }
+  :root .fa-sort-numeric-asc:before {
+    content: ""; }
+  :root .fa-sort-numeric-desc:before {
+    content: ""; }
+  :root .fa-thumbs-up:before {
+    content: ""; }
+  :root .fa-thumbs-down:before {
+    content: ""; }
+  :root .fa-youtube-square:before {
+    content: ""; }
+  :root .fa-youtube:before {
+    content: ""; }
+  :root .fa-xing:before {
+    content: ""; }
+  :root .fa-xing-square:before {
+    content: ""; }
+  :root .fa-youtube-play:before {
+    content: ""; }
+  :root .fa-dropbox:before {
+    content: ""; }
+  :root .fa-stack-overflow:before {
+    content: ""; }
+  :root .fa-instagram:before {
+    content: ""; }
+  :root .fa-flickr:before {
+    content: ""; }
+  :root .fa-adn:before {
+    content: ""; }
+  :root .fa-bitbucket:before {
+    content: ""; }
+  :root .fa-bitbucket-square:before {
+    content: ""; }
+  :root .fa-tumblr:before {
+    content: ""; }
+  :root .fa-tumblr-square:before {
+    content: ""; }
+  :root .fa-long-arrow-down:before {
+    content: ""; }
+  :root .fa-long-arrow-up:before {
+    content: ""; }
+  :root .fa-long-arrow-left:before {
+    content: ""; }
+  :root .fa-long-arrow-right:before {
+    content: ""; }
+  :root .fa-apple:before {
+    content: ""; }
+  :root .fa-windows:before {
+    content: ""; }
+  :root .fa-android:before {
+    content: ""; }
+  :root .fa-linux:before {
+    content: ""; }
+  :root .fa-dribbble:before {
+    content: ""; }
+  :root .fa-skype:before {
+    content: ""; }
+  :root .fa-foursquare:before {
+    content: ""; }
+  :root .fa-trello:before {
+    content: ""; }
+  :root .fa-female:before {
+    content: ""; }
+  :root .fa-male:before {
+    content: ""; }
+  :root .fa-gittip:before,
+  :root .fa-gratipay:before {
+    content: ""; }
+  :root .fa-sun-o:before {
+    content: ""; }
+  :root .fa-moon-o:before {
+    content: ""; }
+  :root .fa-archive:before {
+    content: ""; }
+  :root .fa-bug:before {
+    content: ""; }
+  :root .fa-vk:before {
+    content: ""; }
+  :root .fa-weibo:before {
+    content: ""; }
+  :root .fa-renren:before {
+    content: ""; }
+  :root .fa-pagelines:before {
+    content: ""; }
+  :root .fa-stack-exchange:before {
+    content: ""; }
+  :root .fa-arrow-circle-o-right:before {
+    content: ""; }
+  :root .fa-arrow-circle-o-left:before {
+    content: ""; }
+  :root .fa-toggle-left:before,
+  :root .fa-caret-square-o-left:before {
+    content: ""; }
+  :root .fa-dot-circle-o:before {
+    content: ""; }
+  :root .fa-wheelchair:before {
+    content: ""; }
+  :root .fa-vimeo-square:before {
+    content: ""; }
+  :root .fa-turkish-lira:before,
+  :root .fa-try:before {
+    content: ""; }
+  :root .fa-plus-square-o:before {
+    content: ""; }
+  :root .fa-space-shuttle:before {
+    content: ""; }
+  :root .fa-slack:before {
+    content: ""; }
+  :root .fa-envelope-square:before {
+    content: ""; }
+  :root .fa-wordpress:before {
+    content: ""; }
+  :root .fa-openid:before {
+    content: ""; }
+  :root .fa-institution:before,
+  :root .fa-bank:before,
+  :root .fa-university:before {
+    content: ""; }
+  :root .fa-mortar-board:before,
+  :root .fa-graduation-cap:before {
+    content: ""; }
+  :root .fa-yahoo:before {
+    content: ""; }
+  :root .fa-google:before {
+    content: ""; }
+  :root .fa-reddit:before {
+    content: ""; }
+  :root .fa-reddit-square:before {
+    content: ""; }
+  :root .fa-stumbleupon-circle:before {
+    content: ""; }
+  :root .fa-stumbleupon:before {
+    content: ""; }
+  :root .fa-delicious:before {
+    content: ""; }
+  :root .fa-digg:before {
+    content: ""; }
+  :root .fa-pied-piper:before {
+    content: ""; }
+  :root .fa-pied-piper-alt:before {
+    content: ""; }
+  :root .fa-drupal:before {
+    content: ""; }
+  :root .fa-joomla:before {
+    content: ""; }
+  :root .fa-language:before {
+    content: ""; }
+  :root .fa-fax:before {
+    content: ""; }
+  :root .fa-building:before {
+    content: ""; }
+  :root .fa-child:before {
+    content: ""; }
+  :root .fa-paw:before {
+    content: ""; }
+  :root .fa-spoon:before {
+    content: ""; }
+  :root .fa-cube:before {
+    content: ""; }
+  :root .fa-cubes:before {
+    content: ""; }
+  :root .fa-behance:before {
+    content: ""; }
+  :root .fa-behance-square:before {
+    content: ""; }
+  :root .fa-steam:before {
+    content: ""; }
+  :root .fa-steam-square:before {
+    content: ""; }
+  :root .fa-recycle:before {
+    content: ""; }
+  :root .fa-automobile:before,
+  :root .fa-car:before {
+    content: ""; }
+  :root .fa-cab:before,
+  :root .fa-taxi:before {
+    content: ""; }
+  :root .fa-tree:before {
+    content: ""; }
+  :root .fa-spotify:before {
+    content: ""; }
+  :root .fa-deviantart:before {
+    content: ""; }
+  :root .fa-soundcloud:before {
+    content: ""; }
+  :root .fa-database:before {
+    content: ""; }
+  :root .fa-file-pdf-o:before {
+    content: ""; }
+  :root .fa-file-word-o:before {
+    content: ""; }
+  :root .fa-file-excel-o:before {
+    content: ""; }
+  :root .fa-file-powerpoint-o:before {
+    content: ""; }
+  :root .fa-file-photo-o:before,
+  :root .fa-file-picture-o:before,
+  :root .fa-file-image-o:before {
+    content: ""; }
+  :root .fa-file-zip-o:before,
+  :root .fa-file-archive-o:before {
+    content: ""; }
+  :root .fa-file-sound-o:before,
+  :root .fa-file-audio-o:before {
+    content: ""; }
+  :root .fa-file-movie-o:before,
+  :root .fa-file-video-o:before {
+    content: ""; }
+  :root .fa-file-code-o:before {
+    content: ""; }
+  :root .fa-vine:before {
+    content: ""; }
+  :root .fa-codepen:before {
+    content: ""; }
+  :root .fa-jsfiddle:before {
+    content: ""; }
+  :root .fa-life-bouy:before,
+  :root .fa-life-buoy:before,
+  :root .fa-life-saver:before,
+  :root .fa-support:before,
+  :root .fa-life-ring:before {
+    content: ""; }
+  :root .fa-circle-o-notch:before {
+    content: ""; }
+  :root .fa-ra:before,
+  :root .fa-rebel:before {
+    content: ""; }
+  :root .fa-ge:before,
+  :root .fa-empire:before {
+    content: ""; }
+  :root .fa-git-square:before {
+    content: ""; }
+  :root .fa-git:before {
+    content: ""; }
+  :root .fa-y-combinator-square:before,
+  :root .fa-yc-square:before,
+  :root .fa-hacker-news:before {
+    content: ""; }
+  :root .fa-tencent-weibo:before {
+    content: ""; }
+  :root .fa-qq:before {
+    content: ""; }
+  :root .fa-wechat:before,
+  :root .fa-weixin:before {
+    content: ""; }
+  :root .fa-send:before,
+  :root .fa-paper-plane:before {
+    content: ""; }
+  :root .fa-send-o:before,
+  :root .fa-paper-plane-o:before {
+    content: ""; }
+  :root .fa-history:before {
+    content: ""; }
+  :root .fa-circle-thin:before {
+    content: ""; }
+  :root .fa-header:before {
+    content: ""; }
+  :root .fa-paragraph:before {
+    content: ""; }
+  :root .fa-sliders:before {
+    content: ""; }
+  :root .fa-share-alt:before {
+    content: ""; }
+  :root .fa-share-alt-square:before {
+    content: ""; }
+  :root .fa-bomb:before {
+    content: ""; }
+  :root .fa-soccer-ball-o:before,
+  :root .fa-futbol-o:before {
+    content: ""; }
+  :root .fa-tty:before {
+    content: ""; }
+  :root .fa-binoculars:before {
+    content: ""; }
+  :root .fa-plug:before {
+    content: ""; }
+  :root .fa-slideshare:before {
+    content: ""; }
+  :root .fa-twitch:before {
+    content: ""; }
+  :root .fa-yelp:before {
+    content: ""; }
+  :root .fa-newspaper-o:before {
+    content: ""; }
+  :root .fa-wifi:before {
+    content: ""; }
+  :root .fa-calculator:before {
+    content: ""; }
+  :root .fa-paypal:before {
+    content: ""; }
+  :root .fa-google-wallet:before {
+    content: ""; }
+  :root .fa-cc-visa:before {
+    content: ""; }
+  :root .fa-cc-mastercard:before {
+    content: ""; }
+  :root .fa-cc-discover:before {
+    content: ""; }
+  :root .fa-cc-amex:before {
+    content: ""; }
+  :root .fa-cc-paypal:before {
+    content: ""; }
+  :root .fa-cc-stripe:before {
+    content: ""; }
+  :root .fa-bell-slash:before {
+    content: ""; }
+  :root .fa-bell-slash-o:before {
+    content: ""; }
+  :root .fa-trash:before {
+    content: ""; }
+  :root .fa-copyright:before {
+    content: ""; }
+  :root .fa-at:before {
+    content: ""; }
+  :root .fa-eyedropper:before {
+    content: ""; }
+  :root .fa-paint-brush:before {
+    content: ""; }
+  :root .fa-birthday-cake:before {
+    content: ""; }
+  :root .fa-area-chart:before {
+    content: ""; }
+  :root .fa-pie-chart:before {
+    content: ""; }
+  :root .fa-line-chart:before {
+    content: ""; }
+  :root .fa-lastfm:before {
+    content: ""; }
+  :root .fa-lastfm-square:before {
+    content: ""; }
+  :root .fa-toggle-off:before {
+    content: ""; }
+  :root .fa-toggle-on:before {
+    content: ""; }
+  :root .fa-bicycle:before {
+    content: ""; }
+  :root .fa-bus:before {
+    content: ""; }
+  :root .fa-ioxhost:before {
+    content: ""; }
+  :root .fa-angellist:before {
+    content: ""; }
+  :root .fa-cc:before {
+    content: ""; }
+  :root .fa-shekel:before,
+  :root .fa-sheqel:before,
+  :root .fa-ils:before {
+    content: ""; }
+  :root .fa-meanpath:before {
+    content: ""; }
+  :root .fa-buysellads:before {
+    content: ""; }
+  :root .fa-connectdevelop:before {
+    content: ""; }
+  :root .fa-dashcube:before {
+    content: ""; }
+  :root .fa-forumbee:before {
+    content: ""; }
+  :root .fa-leanpub:before {
+    content: ""; }
+  :root .fa-sellsy:before {
+    content: ""; }
+  :root .fa-shirtsinbulk:before {
+    content: ""; }
+  :root .fa-simplybuilt:before {
+    content: ""; }
+  :root .fa-skyatlas:before {
+    content: ""; }
+  :root .fa-cart-plus:before {
+    content: ""; }
+  :root .fa-cart-arrow-down:before {
+    content: ""; }
+  :root .fa-diamond:before {
+    content: ""; }
+  :root .fa-ship:before {
+    content: ""; }
+  :root .fa-user-secret:before {
+    content: ""; }
+  :root .fa-motorcycle:before {
+    content: ""; }
+  :root .fa-street-view:before {
+    content: ""; }
+  :root .fa-heartbeat:before {
+    content: ""; }
+  :root .fa-venus:before {
+    content: ""; }
+  :root .fa-mars:before {
+    content: ""; }
+  :root .fa-mercury:before {
+    content: ""; }
+  :root .fa-intersex:before,
+  :root .fa-transgender:before {
+    content: ""; }
+  :root .fa-transgender-alt:before {
+    content: ""; }
+  :root .fa-venus-double:before {
+    content: ""; }
+  :root .fa-mars-double:before {
+    content: ""; }
+  :root .fa-venus-mars:before {
+    content: ""; }
+  :root .fa-mars-stroke:before {
+    content: ""; }
+  :root .fa-mars-stroke-v:before {
+    content: ""; }
+  :root .fa-mars-stroke-h:before {
+    content: ""; }
+  :root .fa-neuter:before {
+    content: ""; }
+  :root .fa-genderless:before {
+    content: ""; }
+  :root .fa-facebook-official:before {
+    content: ""; }
+  :root .fa-pinterest-p:before {
+    content: ""; }
+  :root .fa-whatsapp:before {
+    content: ""; }
+  :root .fa-server:before {
+    content: ""; }
+  :root .fa-user-plus:before {
+    content: ""; }
+  :root .fa-user-times:before {
+    content: ""; }
+  :root .fa-hotel:before,
+  :root .fa-bed:before {
+    content: ""; }
+  :root .fa-viacoin:before {
+    content: ""; }
+  :root .fa-train:before {
+    content: ""; }
+  :root .fa-subway:before {
+    content: ""; }
+  :root .fa-medium:before {
+    content: ""; }
+  :root .fa-yc:before,
+  :root .fa-y-combinator:before {
+    content: ""; }
+  :root .fa-optin-monster:before {
+    content: ""; }
+  :root .fa-opencart:before {
+    content: ""; }
+  :root .fa-expeditedssl:before {
+    content: ""; }
+  :root .fa-battery-4:before,
+  :root .fa-battery-full:before {
+    content: ""; }
+  :root .fa-battery-3:before,
+  :root .fa-battery-three-quarters:before {
+    content: ""; }
+  :root .fa-battery-2:before,
+  :root .fa-battery-half:before {
+    content: ""; }
+  :root .fa-battery-1:before,
+  :root .fa-battery-quarter:before {
+    content: ""; }
+  :root .fa-battery-0:before,
+  :root .fa-battery-empty:before {
+    content: ""; }
+  :root .fa-mouse-pointer:before {
+    content: ""; }
+  :root .fa-i-cursor:before {
+    content: ""; }
+  :root .fa-object-group:before {
+    content: ""; }
+  :root .fa-object-ungroup:before {
+    content: ""; }
+  :root .fa-sticky-note:before {
+    content: ""; }
+  :root .fa-sticky-note-o:before {
+    content: ""; }
+  :root .fa-cc-jcb:before {
+    content: ""; }
+  :root .fa-cc-diners-club:before {
+    content: ""; }
+  :root .fa-clone:before {
+    content: ""; }
+  :root .fa-balance-scale:before {
+    content: ""; }
+  :root .fa-hourglass-o:before {
+    content: ""; }
+  :root .fa-hourglass-1:before,
+  :root .fa-hourglass-start:before {
+    content: ""; }
+  :root .fa-hourglass-2:before,
+  :root .fa-hourglass-half:before {
+    content: ""; }
+  :root .fa-hourglass-3:before,
+  :root .fa-hourglass-end:before {
+    content: ""; }
+  :root .fa-hourglass:before {
+    content: ""; }
+  :root .fa-hand-grab-o:before,
+  :root .fa-hand-rock-o:before {
+    content: ""; }
+  :root .fa-hand-stop-o:before,
+  :root .fa-hand-paper-o:before {
+    content: ""; }
+  :root .fa-hand-scissors-o:before {
+    content: ""; }
+  :root .fa-hand-lizard-o:before {
+    content: ""; }
+  :root .fa-hand-spock-o:before {
+    content: ""; }
+  :root .fa-hand-pointer-o:before {
+    content: ""; }
+  :root .fa-hand-peace-o:before {
+    content: ""; }
+  :root .fa-trademark:before {
+    content: ""; }
+  :root .fa-registered:before {
+    content: ""; }
+  :root .fa-creative-commons:before {
+    content: ""; }
+  :root .fa-gg:before {
+    content: ""; }
+  :root .fa-gg-circle:before {
+    content: ""; }
+  :root .fa-tripadvisor:before {
+    content: ""; }
+  :root .fa-odnoklassniki:before {
+    content: ""; }
+  :root .fa-odnoklassniki-square:before {
+    content: ""; }
+  :root .fa-get-pocket:before {
+    content: ""; }
+  :root .fa-wikipedia-w:before {
+    content: ""; }
+  :root .fa-safari:before {
+    content: ""; }
+  :root .fa-chrome:before {
+    content: ""; }
+  :root .fa-firefox:before {
+    content: ""; }
+  :root .fa-opera:before {
+    content: ""; }
+  :root .fa-internet-explorer:before {
+    content: ""; }
+  :root .fa-tv:before,
+  :root .fa-television:before {
+    content: ""; }
+  :root .fa-contao:before {
+    content: ""; }
+  :root .fa-500px:before {
+    content: ""; }
+  :root .fa-amazon:before {
+    content: ""; }
+  :root .fa-calendar-plus-o:before {
+    content: ""; }
+  :root .fa-calendar-minus-o:before {
+    content: ""; }
+  :root .fa-calendar-times-o:before {
+    content: ""; }
+  :root .fa-calendar-check-o:before {
+    content: ""; }
+  :root .fa-industry:before {
+    content: ""; }
+  :root .fa-map-pin:before {
+    content: ""; }
+  :root .fa-map-signs:before {
+    content: ""; }
+  :root .fa-map-o:before {
+    content: ""; }
+  :root .fa-map:before {
+    content: ""; }
+  :root .fa-commenting:before {
+    content: ""; }
+  :root .fa-commenting-o:before {
+    content: ""; }
+  :root .fa-houzz:before {
+    content: ""; }
+  :root .fa-vimeo:before {
+    content: ""; }
+  :root .fa-black-tie:before {
+    content: ""; }
+  :root .fa-fonticons:before {
+    content: ""; }
+  :root [dir=rtl] .fa-chevron-left,
+  :root [dir=rtl] .fa-chevron-right,
+  :root [dir=rtl] .fa-chevron-circle-left,
+  :root [dir=rtl] .fa-chevron-circle-right,
+  :root [dir=rtl] .fa-angle-left,
+  :root [dir=rtl] .fa-angle-right,
+  :root [dir=rtl] .fa-angle-double-left,
+  :root [dir=rtl] .fa-angle-double-right,
+  :root [dir=rtl] .fa-arrow-circle-left,
+  :root [dir=rtl] .fa-arrow-circle-right,
+  :root [dir=rtl] .fa-arrow-circle-o-left,
+  :root [dir=rtl] .fa-arrow-circle-o-right {
+    -webkit-transform: scale(-1, 1);
+            transform: scale(-1, 1); }
+
+@font-face {
+  :root {
+    font-family: "GE Inspira";
+    font-weight: normal;
+    font-style: normal;
+    src: url("../px-typography-design/type/GEInspMd.eot");
+    src: url("../px-typography-design/type/GEInspMd.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspMd.woff") format("woff"), url("../px-typography-design/type/GEInspMd.ttf") format("truetype"), url("../px-typography-design/type/GEInspMd.svg#GE Inspira") format("svg"); } }
+
+@font-face {
+  :root {
+    font-family: "GE Inspira";
+    font-weight: normal;
+    font-style: italic;
+    src: url("../px-typography-design/type/GEInspMdIt.eot");
+    src: url("../px-typography-design/type/GEInspMdIt.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspMdIt.woff") format("woff"), url("../px-typography-design/type/GEInspMdIt.ttf") format("truetype"), url("../px-typography-design/type/GEInspMdIt.svg#GE Inspira") format("svg"); } }
+
+@font-face {
+  :root {
+    font-family: "GE Inspira";
+    font-weight: bold;
+    font-style: normal;
+    src: url("../px-typography-design/type/GEInspBd.eot");
+    src: url("../px-typography-design/type/GEInspBd.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspBd.woff") format("woff"), url("../px-typography-design/type/GEInspBd.ttf") format("truetype"), url("../px-typography-design/type/GEInspBd.svg#GE Inspira") format("svg"); } }
+
+@font-face {
+  :root {
+    font-family: "GE Inspira";
+    font-weight: bold;
+    font-style: italic;
+    src: url("../px-typography-design/type/GEInspBI.eot");
+    src: url("../px-typography-design/type/GEInspBI.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspBI.woff") format("woff"), url("../px-typography-design/type/GEInspBI.ttf") format("truetype"), url("../px-typography-design/type/GEInspBI.svg#GE Inspira") format("svg"); } }
+
+@font-face {
+  :root {
+    font-family: "GE Inspira Sans";
+    font-weight: normal;
+    font-style: normal;
+    src: url("../px-typography-design/type/GEInspiraSans-Regular-v01.eot");
+    src: url("../px-typography-design/type/GEInspiraSans-Regular-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSans-Regular-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSans-Regular-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSans-Regular-v01.svg#GE Inspira Sans") format("svg"); } }
+
+@font-face {
+  :root {
+    font-family: "GE Inspira Sans";
+    font-weight: normal;
+    font-style: italic;
+    src: url("../px-typography-design/type/GEInspiraSans-Italic-v01.eot");
+    src: url("../px-typography-design/type/GEInspiraSans-Italic-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSans-Italic-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSans-Italic-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSans-Italic-v01.svg#GE Inspira Sans") format("svg"); } }
+
+@font-face {
+  :root {
+    font-family: "GE Inspira Sans";
+    font-weight: bold;
+    font-style: normal;
+    src: url("../px-typography-design/type/GEInspiraSans-Bold-v01.eot");
+    src: url("../px-typography-design/type/GEInspiraSans-Bold-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSans-Bold-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSans-Bold-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSans-Bold-v01.svg#GE Inspira Sans") format("svg"); } }
+
+@font-face {
+  :root {
+    font-family: "GE Inspira Sans";
+    font-weight: bold;
+    font-style: italic;
+    src: url("../px-typography-design/type/GEInspiraSans-BoldItalic-v01.eot");
+    src: url("../px-typography-design/type/GEInspiraSans-BoldItalic-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSans-BoldItalic-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSans-BoldItalic-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSans-BoldItalic-v01.svg#GE Inspira Sans") format("svg"); } }
+
+@font-face {
+  :root {
+    font-family: "GE Inspira Serif";
+    font-weight: normal;
+    font-style: normal;
+    src: url("../px-typography-design/type/GEInspiraSerif-Regular-v01.eot");
+    src: url("../px-typography-design/type/GEInspiraSerif-Regular-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSerif-Regular-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSerif-Regular-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSerif-Regular-v01.svg#GE Inspira Serif") format("svg"); } }
+
+@font-face {
+  :root {
+    font-family: "GE Inspira Serif";
+    font-weight: normal;
+    font-style: italic;
+    src: url("../px-typography-design/type/GEInspiraSerif-Italic-v01.eot");
+    src: url("../px-typography-design/type/GEInspiraSerif-Italic-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSerif-Italic-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSerif-Italic-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSerif-Italic-v01.svg#GE Inspira Serif") format("svg"); } }
+
+@font-face {
+  :root {
+    font-family: "GE Inspira Serif";
+    font-weight: bold;
+    font-style: normal;
+    src: url("../px-typography-design/type/GEInspiraSerif-Bold-v01.eot");
+    src: url("../px-typography-design/type/GEInspiraSerif-Bold-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSerif-Bold-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSerif-Bold-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSerif-Bold-v01.svg#GE Inspira Serif") format("svg"); } }
+
+@font-face {
+  :root {
+    font-family: "GE Inspira Serif";
+    font-weight: bold;
+    font-style: italic;
+    src: url("../px-typography-design/type/GEInspiraSerif-BoldItalic-v01.eot");
+    src: url("../px-typography-design/type/GEInspiraSerif-BoldItalic-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSerif-BoldItalic-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSerif-BoldItalic-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSerif-BoldItalic-v01.svg#GE Inspira Serif") format("svg"); } }
+  :root html {
+    font-family: "GE Inspira Sans", sans-serif; }
+  :root :host {
+    font-family: "GE Inspira Sans", sans-serif; }
+  :root .weight--light {
+    font-weight: 300 !important; }
+  :root .weight--normal {
+    font-weight: 400 !important; }
+  :root .weight--semibold {
+    font-weight: 600 !important; }
+  :root abbr[title] {
+    border-bottom: 1px dotted; }
+  :root b,
+  :root strong {
+    font-weight: bold; }
+  :root dfn {
+    font-style: italic; }
+  :root mark {
+    background: #ff0;
+    color: #000; }
+  :root small {
+    font-size: 80%; }
+  :root sub,
+  :root sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline; }
+  :root sup {
+    top: -0.5em; }
+  :root sub {
+    bottom: -0.25em; }
+
+@font-face {
+  font-family: "GE Inspira";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../px-typography-design/type/GEInspMd.eot");
+  src: url("../px-typography-design/type/GEInspMd.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspMd.woff") format("woff"), url("../px-typography-design/type/GEInspMd.ttf") format("truetype"), url("../px-typography-design/type/GEInspMd.svg#GE Inspira") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira";
+  font-weight: normal;
+  font-style: italic;
+  src: url("../px-typography-design/type/GEInspMdIt.eot");
+  src: url("../px-typography-design/type/GEInspMdIt.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspMdIt.woff") format("woff"), url("../px-typography-design/type/GEInspMdIt.ttf") format("truetype"), url("../px-typography-design/type/GEInspMdIt.svg#GE Inspira") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira";
+  font-weight: bold;
+  font-style: normal;
+  src: url("../px-typography-design/type/GEInspBd.eot");
+  src: url("../px-typography-design/type/GEInspBd.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspBd.woff") format("woff"), url("../px-typography-design/type/GEInspBd.ttf") format("truetype"), url("../px-typography-design/type/GEInspBd.svg#GE Inspira") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira";
+  font-weight: bold;
+  font-style: italic;
+  src: url("../px-typography-design/type/GEInspBI.eot");
+  src: url("../px-typography-design/type/GEInspBI.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspBI.woff") format("woff"), url("../px-typography-design/type/GEInspBI.ttf") format("truetype"), url("../px-typography-design/type/GEInspBI.svg#GE Inspira") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../px-typography-design/type/GEInspiraSans-Regular-v01.eot");
+  src: url("../px-typography-design/type/GEInspiraSans-Regular-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSans-Regular-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSans-Regular-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSans-Regular-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: normal;
+  font-style: italic;
+  src: url("../px-typography-design/type/GEInspiraSans-Italic-v01.eot");
+  src: url("../px-typography-design/type/GEInspiraSans-Italic-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSans-Italic-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSans-Italic-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSans-Italic-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: bold;
+  font-style: normal;
+  src: url("../px-typography-design/type/GEInspiraSans-Bold-v01.eot");
+  src: url("../px-typography-design/type/GEInspiraSans-Bold-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSans-Bold-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSans-Bold-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSans-Bold-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: bold;
+  font-style: italic;
+  src: url("../px-typography-design/type/GEInspiraSans-BoldItalic-v01.eot");
+  src: url("../px-typography-design/type/GEInspiraSans-BoldItalic-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSans-BoldItalic-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSans-BoldItalic-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSans-BoldItalic-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../px-typography-design/type/GEInspiraSerif-Regular-v01.eot");
+  src: url("../px-typography-design/type/GEInspiraSerif-Regular-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSerif-Regular-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSerif-Regular-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSerif-Regular-v01.svg#GE Inspira Serif") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: normal;
+  font-style: italic;
+  src: url("../px-typography-design/type/GEInspiraSerif-Italic-v01.eot");
+  src: url("../px-typography-design/type/GEInspiraSerif-Italic-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSerif-Italic-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSerif-Italic-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSerif-Italic-v01.svg#GE Inspira Serif") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: bold;
+  font-style: normal;
+  src: url("../px-typography-design/type/GEInspiraSerif-Bold-v01.eot");
+  src: url("../px-typography-design/type/GEInspiraSerif-Bold-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSerif-Bold-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSerif-Bold-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSerif-Bold-v01.svg#GE Inspira Serif") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: bold;
+  font-style: italic;
+  src: url("../px-typography-design/type/GEInspiraSerif-BoldItalic-v01.eot");
+  src: url("../px-typography-design/type/GEInspiraSerif-BoldItalic-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSerif-BoldItalic-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSerif-BoldItalic-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSerif-BoldItalic-v01.svg#GE Inspira Serif") format("svg"); }
+
+html {
+  font-family: "GE Inspira Sans", sans-serif; }
+
+:host {
+  font-family: "GE Inspira Sans", sans-serif; }
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("../font-awesome/fonts/fontawesome-webfont.eot?v=4.4.0");
+  src: url("../font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.4.0") format("embedded-opentype"), url("../font-awesome/fonts/fontawesome-webfont.woff2?v=4.4.0") format("woff2"), url("../font-awesome/fonts/fontawesome-webfont.woff?v=4.4.0") format("woff"), url("../font-awesome/fonts/fontawesome-webfont.ttf?v=4.4.0") format("truetype"), url("../font-awesome/fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+
+</style>

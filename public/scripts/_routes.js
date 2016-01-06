@@ -4,7 +4,9 @@
  */
 define(['angular', 'angular-ui-router'], function(angular) {
     'use strict';
-    return angular.module('app.routes', ['ui.router']).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
+    return angular.module('app.routes', ['ui.router']).config(['$stateProvider',
+        '$urlRouterProvider', '$locationProvider',
+        function($stateProvider, $urlRouterProvider, $locationProvider) {
 
         //Turn on or off HTML5 mode which uses the # hash
         $locationProvider.html5Mode(true).hashPrefix('!');
@@ -43,7 +45,6 @@ define(['angular', 'angular-ui-router'], function(angular) {
                 url: '/blanksubpage',
                 templateUrl: 'views/blank-sub-page.html'
             });
-
 
         $urlRouterProvider.otherwise(function ($injector) {
             var $state = $injector.get('$state');

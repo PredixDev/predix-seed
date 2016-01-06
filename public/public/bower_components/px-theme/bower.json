@@ -1,0 +1,30 @@
+{
+  "name": "px-theme",
+  "version": "0.4.2",
+  "main": [
+    "px-theme.html"
+  ],
+  "ignore": [
+    ".*",
+    "npm-debug.log",
+    "Gruntfile.js",
+    "sass",
+    "bower_components",
+    "node_modules",
+    "test"
+  ],
+  "dependencies": {
+    "polymer": "~v1.2.3",
+    "px-iconography-design": "https://github.com/PredixDev/px-iconography-design.git#~0.2.0",
+    "px-typography-design": "https://github.com/PredixDev/px-typography-design.git#~0.3.1"
+  },
+  "devDependencies": {
+    "px-buttons-design": "https://github.com/PredixDev/px-buttons-design.git#~0.4.0",
+    "px-code-design": "https://github.com/PredixDev/px-code-design.git#~0.2.0",
+    "px-colors-design": "https://github.com/PredixDev/px-colors-design.git#~0.2.0",
+    "px-headings-design": "https://github.com/PredixDev/px-headings-design.git#~0.2.0",
+    "px-layout-design": "https://github.com/PredixDev/px-layout-design.git#~0.3.0",
+    "px-meta-lists-design": "https://github.com/PredixDev/px-meta-lists-design.git#~0.3.0",
+    "px-starter-kit-design": "https://github.com/PredixDev/px-starter-kit-design.git#~0.4.0"
+  }
+}

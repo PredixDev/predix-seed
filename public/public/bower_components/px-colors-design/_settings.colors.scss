@@ -1,0 +1,130 @@
+/*------------------------------------*\
+    #PX-COLORS-DESIGN
+\*------------------------------------*/
+
+/**
+ * Brand Colors
+ */
+
+    /**
+     * Primary
+     */
+    
+    $red                            : rgb(227,37,51);
+    $blue                           : rgb(0,92,185);
+    $green                          : rgb(70,173,0);
+    $purple                         : rgb(134,105,255);
+    $orange                         : rgb(255,152,33);
+    $yellow                         : rgb(255,237,69);
+    
+    /**
+     * Light
+     */
+    
+    $red-light                      : rgb(255,92,92);
+    $blue-light                     : rgb(54,147,248);
+    $green-light                    : rgb(117,216,53);
+    $purple-light                   : rgb(156,151,255);
+    $orange-light                   : rgb(255,187,102);
+    $yellow-light                   : rgb(255,249,141);
+    
+    /**
+     * Dark
+     */
+    
+    $red-dark                       : rgb(182,18,37);
+    $blue-dark                      : rgb(0,54,110);
+    $green-dark                     : rgb(29,95,17);
+    $purple-dark                    : rgb(89,81,148);
+    $orange-dark                    : rgb(229,92,0);
+    $yellow-dark                    : rgb(255,207,69);
+
+/**
+ * Monochromatic (gray10 is darkest, gray1 is lightest)
+ */
+
+$black                          : rgb(0,0,0);
+$gray10                         : rgb(36,35,38);
+$gray9                          : rgb(59,59,63);
+$gray8                          : rgb(82,81,86);
+$gray7                          : rgb(124,124,132);
+$gray6                          : rgb(153,153,163);
+$gray5                          : rgb(177,177,188);
+$gray4                          : rgb(209,208,216);
+$gray3                          : rgb(228,228,234);
+$gray2                          : rgb(239,239,244);
+$gray1                          : rgb(247,247,252);
+$white                          : rgb(255,255,255);
+
+$graybg                         : rgb(139,141,143);
+
+/**
+ * Buttons
+ */
+
+$primary-blue                   : rgb(62,135,232);
+$primary-blue-hover             : rgb(53,115,197);
+$primary-blue-pressed           : rgb(43,94,162);
+
+/**
+ * Selection
+ */
+
+$select-blue-default            : rgb(10,158,193);
+$select-blue-hover              : rgb(9,134,164);
+$select-blue-pressed            : rgb(8,110,135);
+
+/**
+ * Alerts
+ */
+
+$alert-red                      : rgb(229,56,56);
+$alert-orange                   : rgb(221,107,31);
+$alert-yellow                   : rgb(232,167,54);
+$alert-blue                     : rgb(67,100,221);
+
+/**
+ * Data Visualization
+ */
+
+    /**
+     * Basic
+     */
+    
+    $dv-basic-gray                  : rgb(77,77,77);
+    $dv-basic-blue                  : rgb(93,165,218);
+    $dv-basic-orange                : rgb(250,164,58);
+    $dv-basic-green                 : rgb(96,189,104);
+    $dv-basic-pink                  : rgb(241,124,176);
+    $dv-basic-brown                 : rgb(178,145,47);
+    $dv-basic-purple                : rgb(178,118,178);
+    $dv-basic-yellow                : rgb(222,207,63);
+    $dv-basic-red                   : rgb(241,88,84);
+    
+    /**
+     * Light
+     */
+    
+    $dv-light-gray                  : rgb(140,140,140);
+    $dv-light-blue                  : rgb(136,189,230);
+    $dv-light-orange                : rgb(251,178,88);
+    $dv-light-green                 : rgb(144,205,151);
+    $dv-light-pink                  : rgb(246,170,201);
+    $dv-light-brown                 : rgb(191,165,84);
+    $dv-light-purple                : rgb(188,153,199);
+    $dv-light-yellow                : rgb(237,221,70);
+    $dv-light-red                   : rgb(240,126,110);
+    
+    /**
+     * Dark
+     */
+    
+    $dv-dark-gray                   : $black;
+    $dv-dark-blue                   : rgb(38,93,171);
+    $dv-dark-orange                 : rgb(223,92,36);
+    $dv-dark-green                  : rgb(5,151,72);
+    $dv-dark-pink                   : rgb(229,18,111);
+    $dv-dark-brown                  : rgb(157,114,42);
+    $dv-dark-purple                 : rgb(123,58,150);
+    $dv-dark-yellow                 : rgb(199,180,46);
+    $dv-dark-red                    : rgb(203,32,39);

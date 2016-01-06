@@ -1,0 +1,33 @@
+{
+  "name": "px-colors-design",
+  "version": "0.2.9",
+  "authors": [
+    "General Electric"
+  ],
+  "description": "PX color palette",
+  "main": "_settings.colors.scss",
+  "keywords": [
+    "sass",
+    "px",
+    "colors"
+  ],
+  "license": "Apache 2",
+  "homepage": "https://github.com/PredixDev/px-colors-design.git",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.2.9",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.9",
+    "commit": "00ebae8b1b2b06d9b0f962a384a2376afbfab14d"
+  },
+  "_source": "https://github.com/PredixDev/px-colors-design.git",
+  "_target": "~0.2.0",
+  "_originalSource": "https://github.com/PredixDev/px-colors-design.git"
+}

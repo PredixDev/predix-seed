@@ -1,0 +1,90 @@
+<!--
+  We use Page.js for routing. This is a Micro client-side router inspired by the Express router
+  More info: https://visionmedia.github.io/page.js/
+-->
+<script src="../bower_components/page/page.js"></script>
+<script>
+  // Setup routes for the application
+  var initRouting = function() {
+
+    // find the px-login element
+    var pxLogin = app.$.login;
+
+    // Removes end / from app.baseUrl which page.base requires for production
+    if (window.location.port === '') {  // if production
+      page.base(app.baseUrl.replace(/\/$/, ''));
+    };
+
+    var ensureLogin = function(ctx, next) {
+      if(pxLogin.isAuthenticated !== true) {
+        console.log(ctx);
+        pxLogin.login(ctx);
+      } else {
+        next();
+      }
+    };
+    /*
+    var ensureSecure = function(ctx, next) {
+      // check for isAuthenticated flag
+      if(pxLogin.isAuthenticated === true) {
+        pxLogin.addEventListener('is-authenticated-changed', checkAuthenticated, false);
+        next();
+      } else {
+        // listen for property changed event
+        pxLogin.addEventListener('is-authenticated-changed', ensureSecure(ctx, next), false);
+      };
+    };
+    */
+
+    // Routes
+    // Catch-all route which first runs middleware, then continue to next()
+
+    page('/home', ensureLogin, function(ctx, next) {
+      console.log(ctx);
+      console.log('home')
+    });
+
+    page('/', ensureLogin, function() {
+      console.log('home');
+      app.route = 'home';
+    });
+
+    page(app.baseUrl, ensureLogin, function() {
+      app.route = 'home';
+        console.log('home');
+    });
+
+    page('/dashboards', function() {
+      app.route = 'dashboards';
+      console.log('dashboards');
+    });
+
+    page('/blank-page', function(data) {
+      app.route = 'blank-page';
+    });
+
+    page('/blanksubpage', function() {
+      app.route = 'blank-sub-page';
+    });
+
+    // 404
+    page('*', function() {
+      console.log('* 404');
+      page.redirect(app.baseUrl);
+    });
+
+    // add #! before urls
+    page({
+      hashbang: true
+    });
+
+  };
+
+  // Ensure webcomponents.js is loaded and ready, then initilize routing
+  if(app.webComponentsReady === true) {
+    initRouting();
+  } else {
+    window.addEventListener('WebComponentsReady', initRouting);
+  };
+
+</script>

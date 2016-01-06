@@ -1,0 +1,36 @@
+{
+  "name": "px-mixins-design",
+  "version": "0.2.4",
+  "authors": [
+    "General Electric"
+  ],
+  "description": "Sass mixins for Predix Experience",
+  "main": "_tools.mixins.scss",
+  "keywords": [
+    "px",
+    "sass",
+    "mixins"
+  ],
+  "license": "Apache 2",
+  "homepage": "https://github.com/PredixDev/px-mixins-design.git",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "px-defaults-design": "https://github.com/PredixDev/px-defaults-design.git#~0.2.0"
+  },
+  "_release": "0.2.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.4",
+    "commit": "9550133ea4c2912a422d14206ddac8ad1c6f8539"
+  },
+  "_source": "https://github.com/PredixDev/px-mixins-design.git",
+  "_target": "~0.2.0",
+  "_originalSource": "https://github.com/PredixDev/px-mixins-design.git"
+}

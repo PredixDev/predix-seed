@@ -1,88 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Predix Seed</title>
-    <base href="/">
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
-
-    <script type='application/javascript' src='bower_components/px/dist/px.min.js'></script>
-
-    <!-- Just needed for IE -->
-    <script src="bower_components/es6-promise/dist/es6-promise.min.js"></script>
-
-    <!-- Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports -->
-    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-
-    <link rel="import" href="polymer-loader.vulcanized.html">
-
-</head>
-
-<body unresolved class="app">
-    <app-router>
-      <!-- matches an exact path -->
-      <app-route path="/secure" import="/views/secure.html"></app-route>
-      <app-route path="/dashboards" import"/views/dashboards.html"></app-route>
-      <app-route path="/blankpage" import="/views/blank-page.html"></app-route>
-      <app-route path="/blanksubpage" import="/views/blank-sub-page.html"></app-route>
-      <!-- matches everything else -->
-      <app-route path="*" import="/views/404.html"></app-route>
-    </app-router>
-
-    <header role="banner" class="flex flex--middle">
-        <div class="viewport">
-            <h1>
-                <svg class="u-mr--" xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="24" height="24"
-                     viewBox="-280 372 50 50">
-                    <path
-                        d="M-255 422c-13.8 0-25-11.1-25-25 0-13.8 11.2-25 25-25s25 11.2 25 25C-230 410.9-241.2 422-255 422zM-255 373.2c-13.1 0-23.8 10.7-23.8 23.8s10.7 23.8 23.8 23.8 23.8-10.7 23.8-23.8S-241.8 373.2-255 373.2zM-233.8 404.1c0 0 0 0-0.1 0s-0.1 0-0.1-0.1c0 0 0.8-2.5 0.8-5.3 0-3-1.3-4.9-2.8-4.9 -1 0-1.7 0.7-1.7 1.7 0 1.9 2.3 2 2.3 6.1 0 1.7-0.4 3.3-0.9 5 -2.6 8.7-10.7 12.7-18.7 12.7 -3.7 0-6.3-0.8-7.1-1.1v-0.1l0.1-0.1c0.3 0.1 2.5 0.8 5.3 0.8 3 0 4.8-1.3 4.8-2.8 0-1-0.8-1.7-1.7-1.7 -1.9 0-2 2.4-6 2.4 -1.7 0-3.3-0.4-5.1-0.9 -8.6-2.6-12.7-10.7-12.7-18.8 0-3.9 1.1-7 1.1-7.1h0.1c0.1 0 0.1 0.1 0.1 0.1 -0.1 0.3-0.8 2.5-0.8 5.3 0 3 1.3 4.8 2.8 4.8 0.9 0 1.7-0.7 1.7-1.7 0-1.9-2.3-2.1-2.3-6.1 0-1.7 0.4-3.3 0.9-5.1 2.6-8.6 10.7-12.6 18.7-12.7 3.7 0 6.9 1.1 7.1 1.2v0.1c0 0.1-0.1 0.1-0.1 0.1s-2.1-0.9-5.3-0.9c-3 0-4.8 1.3-4.8 2.8 0 0.9 0.7 1.7 1.7 1.7 1.9 0 2-2.3 6-2.3 1.7 0 3.3 0.4 5.1 0.9 8.7 2.6 12.6 10.8 12.7 18.7C-232.6 401-233.8 404.1-233.8 404.1zM-245.7 398.2c-2.4 0-4.2 1.7-4.2 3.8 0 1.7 1 3.1 2.4 3.1 0.5 0 1-0.3 1-0.9 0-0.9-1.2-1.1-1.1-2.5 0-0.9 0.9-1.5 1.7-1.5 1.7 0 2.4 1.6 2.4 3.3 -0.1 2.6-2 4.3-4.2 4.3 -2.9 0-4.8-2.8-4.8-5.8 0-4.4 2.9-6.2 4.4-6.6 0 0 4 0.7 3.8-1 0-0.8-1.2-1.1-2-1.1 -0.9 0-1.8 0.3-1.8 0.3 -0.5-0.2-0.8-0.7-1-1.3 2.8-2.1 4.8-4.2 4.8-6.6 0-1.3-0.8-2.4-2.4-2.4 -2.8 0-5 3.6-5 6.8 0 0.5 0 1.1 0.1 1.6 -1.8 1.3-3.1 2.1-5.6 3.6 0-0.3 0.1-1.1 0.3-2.1 0.8-0.9 2-2.2 2-3.3 0-0.5-0.3-0.9-0.8-0.9 -1.4 0-2.4 2.1-2.7 3.5 -0.6 0.8-1.9 1.7-2.9 1.7 -0.8 0-1.1-0.8-1.2-1 2.6-0.9 5.9-4.5 5.9-7.8 0-0.7-0.3-2.2-2.4-2.2 -3.1 0-5.7 4.7-5.7 8.2 -1.1 0-1.5-1.2-1.5-2.1s0.4-1.8 0.4-2.1c0-0.3-0.1-0.6-0.5-0.6 -1 0-1.7 1.4-1.7 3 0.1 2.2 1.5 3.6 3.5 3.7 0.3 1.3 1.5 2.5 2.9 2.5 0.9 0 2-0.3 2.8-1 -0.1 0.5-0.1 0.9-0.2 1.3 -3 1.6-5.3 2.7-7.3 4.5 -1.6 1.5-2.5 3.4-2.5 4.9 0 2.1 1.3 4 4 4 3.2 0 5.6-2.5 6.8-6.1 0.6-1.7 0.8-4.1 0.9-6.3 3.2-1.8 4.7-2.8 6.4-4 0.2 0.4 0.4 0.6 0.7 0.8 -1.5 0.8-4.9 2.9-4.9 8 0 3.6 2.4 7.6 7.2 7.6 3.9 0 6.7-3.3 6.7-6.4C-241 400.8-242.6 398.2-245.7 398.2zM-264.7 407.9c-1 0-1.7-0.6-1.7-1.7 0-3 4.1-5.8 7.2-7.3C-259.8 403-261.2 407.7-264.7 407.9zM-262.4 391.5c0-2.3 2.3-6.6 3.6-6.2C-257.2 385.9-260.2 390.3-262.4 391.5zM-249.4 390.5c0-2.8 1.9-5.6 3-5.1C-245.2 386-247.3 388.7-249.4 390.5z"></path>
-                </svg>
-                Seed Application
-            </h1>
-            <h2>
-                Powered by Predix
-            </h2>
-        </div>
-    </header>
-    <div class="viewport">
-        <div class="content-wrapper">
-            <px-app-nav class="navbar" nav-items="{{App.tabs}}" path-prefix="/" path-key="state">
-                <px-login class="sticky"></px-login>
-            </px-app-nav>
-            <main class="u-pt-- u-pr-- u-pl--" role="main">
-                <section role="region" ui-view></section>
-            </main>
-        </div>
-    </div>
-    <footer class="flex flex--middle" role="contentinfo">
-        <div class="viewport">
-            <nav class="flex flex--right flex--middle" role="navigation">
-                <ul class="list-inline">
-                    <li class="u-mh-">
-                        <a href="http://www.ge.com/privacy" target="_blank">Privacy</a>
-                    </li>
-                    <li class="u-mh-">
-                        <a href="http://www.ge.com/terms" target="_blank">Terms</a>
-                    </li>
-                </ul>
-                <small class="u-ml+">©2015 General Electric</small>
-            </nav>
-        </div>
-    </footer>
-</body>
-
-
-<script>
-    window.onload = init;
-
-    function init(){
-        console.log("init");
+  <style>
+    body {
+      background: white;
     }
+    body.loading #splash {
+      opacity: 1;
+    }
+    #splash {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: opacity 300ms cubic-bezier(0,0,0.2,1);
+      opacity: 0;
+      will-change: opacity;
+      z-index: 1;
+      background: hotpink;
+    }
+  </style>
 
-</script>
+  <!-- 1. Async HTML Imports do not block rending. Benefit of keeping it declarative
+       (instead of dynamically loading it later in JS) is that the parser can go
+       to town pre-fetching resources, etc. -->
+  <link rel="import" id="elements" href="elements/elements.html" async>
+</head>
+<!-- 2. Don't use <body unresolved>. It's a simple FOUC (Flash of Unstyled Content) solution,
+     however it hides all of the page, causing a FONC "Flash of No Content" until the imports and
+     Polymer are loaded. Intead, control FOUC manually with a splash screen. -->
+<body class="loading">
+  <!-- 3. Light weight splash screen is outside of Polymer/imports and styled by
+       the main page. 1st paint is fast, even on polyfilled browsers. Alternatively,
+       one could create an "app shell" and style the page's un-upgraded elements
+       similar to their final upgraded version. -->
+  <div id="splash"></div>
 
+  <!-- Elements wait on the page and are upgraded when elements.html loads. -->
+  <template is="dom-bind" id="app">
+    <h1>app.webComponentsReady: {{webComponentsReady}}</h1>
+    <px-login id="login" login-url="login-demo.html" logout-url="logout-demo.html"
+      user-info-url="userinfo.json"
+      menu-items='[
+        { "url": "/system-preferences", "label": "System Preferences"},
+        { "url": "/group-preferences", "label": "Group Preferences"},
+        { "url": "/user-preferences", "label": "User Preferences"}
+      ]'>
+    </px-login>
+  </template>
+  <!--
+  <paper-drawer-panel>
+    ...
+  </paper-drawer-panel>
+  -->
 
+  <script src="scripts/app.js" async></script>
+</body>
 </html>

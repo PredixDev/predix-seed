@@ -1,0 +1,117 @@
+////
+/// PX-TYPOGRAPHY-DESIGN
+/// Defines styles for typography.
+/// @group px-typography-design
+////
+
+/// @type String [default] - Predix font-family
+$predix-font-family: "GE Inspira Sans", sans-serif !default;
+
+/// @type String [default] - Webfont path
+$inuit-webfont-path: '../px-typography-design/type' !default;
+
+@import "px-defaults-design/_settings.defaults.scss";
+@import "px-colors-design/_settings.colors.scss";
+@import "px-mixins-design/_tools.mixins.scss";
+
+@include font-face('GE Inspira', '#{$inuit-webfont-path}/GEInspMd');
+@include font-face('GE Inspira', '#{$inuit-webfont-path}/GEInspMdIt', normal, italic);
+@include font-face('GE Inspira', '#{$inuit-webfont-path}/GEInspBd', bold, normal);
+@include font-face('GE Inspira', '#{$inuit-webfont-path}/GEInspBI', bold, italic);
+@include font-face('GE Inspira Sans', '#{$inuit-webfont-path}/GEInspiraSans-Regular-v01');
+@include font-face('GE Inspira Sans', '#{$inuit-webfont-path}/GEInspiraSans-Italic-v01', normal, italic);
+@include font-face('GE Inspira Sans', '#{$inuit-webfont-path}/GEInspiraSans-Bold-v01', bold, normal);
+@include font-face('GE Inspira Sans', '#{$inuit-webfont-path}/GEInspiraSans-BoldItalic-v01', bold, italic);
+@include font-face('GE Inspira Serif', '#{$inuit-webfont-path}/GEInspiraSerif-Regular-v01');
+@include font-face('GE Inspira Serif', '#{$inuit-webfont-path}/GEInspiraSerif-Italic-v01', normal, italic);
+@include font-face('GE Inspira Serif', '#{$inuit-webfont-path}/GEInspiraSerif-Bold-v01', bold, normal);
+@include font-face('GE Inspira Serif', '#{$inuit-webfont-path}/GEInspiraSerif-BoldItalic-v01', bold, italic);
+
+html {
+  font-family: $predix-font-family;
+}
+
+:host {
+  font-family: $predix-font-family;
+}
+
+/**
+ * Font weights
+ */
+ 
+.weight--light {
+  font-weight: 300!important;
+}
+
+.weight--normal {
+  font-weight: 400!important;
+}
+
+.weight--semibold {
+  font-weight: 600!important;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}

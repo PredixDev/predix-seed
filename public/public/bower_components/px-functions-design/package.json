@@ -1,0 +1,23 @@
+{
+  "name": "px-functions-design",
+  "version": "0.2.6",
+  "description": "Sass functions for Predix Experience",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PredixDev/px-functions-design.git"
+  },
+  "author": "General Electric",
+  "license": "Apache 2",
+  "devDependencies": {
+    "glob": "^5.0.10",
+    "grunt": "^0.4.5",
+    "grunt-sassdoc": "^2.0.1"
+  },
+  "dependencies": {
+    "load-grunt-tasks": "^3.2.0"
+  }
+}

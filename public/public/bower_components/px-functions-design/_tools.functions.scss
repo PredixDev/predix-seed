@@ -1,0 +1,31 @@
+////
+/// PX-FUNCTIONS-DESIGN
+/// Defines Sass Functions
+/// @group px-functions-design
+////
+
+@import "inuit-functions/_tools.functions.scss";
+
+/// @name calculateRem
+/// @param {Number} $size - pixel font size
+/// @return {Number} rem font size equivalent
+@function calculateRem($size) {
+  $remSize: $size / $inuit-base-font-size;
+  $remUnit: 1rem;
+
+  @return $remSize * $remUnit;
+}
+
+/// @name third
+/// @param {Number} $inuit-number - value to be converted to a third
+/// @return {Number} value converted to a third
+@function third($inuit-number) {
+  @return round($inuit-number / 3);
+}
+
+/// @name triple
+/// @param {Number} $inuit-number - value to be tripled
+/// @return {Number} value tripled
+@function triple($inuit-number) {
+  @return round($inuit-number * 3);
+}

@@ -1,0 +1,37 @@
+////
+/// PX-DEFAULTS-DESIGN
+/// These variables are Px defaults; they should not be modified or adjusted directly; you should predefine the variables in your own project.
+/// @group px-defaults-design
+////
+
+@import "px-functions-design/_tools.functions.scss";
+
+/// @type Number [default] - Base font size
+$inuit-base-font-size           : 15px !default;
+
+/// @type Number [default] - Base line height (leading)
+$inuit-base-line-height         : 20px !default;
+
+/// @type Color [default] - Base text color
+$inuit-base-text-color          : rgb(0,0,0) !default;
+
+/// @type Color [default] - Base background color
+$inuit-base-background-color    : rgb(255,255,255) !default;
+
+/// @type String [default] - Would you like inuitcss’ classes to be prepended with a namespace? If so, define it here.
+$inuit-namespace                : null !default;
+
+/// @type Number [default] - Base spacing unit (same as $inuit base-font-size)
+$inuit-base-spacing-unit        : calculateRem($inuit-base-font-size);
+
+/// @type Number [default] - Tiny base spacing unit (quarter of $inuit-base-line-height)
+$inuit-base-spacing-unit--tiny  : calculateRem(round($inuit-base-line-height / 4));
+
+/// @type Number [default] - Small base spacing unit (half of $inuit-base-line-height divided by 2)
+$inuit-base-spacing-unit--small : calculateRem(round($inuit-base-line-height / 2));
+
+/// @type Number [default] - Large base spacing unit (same as $inuit-base-line-height)
+$inuit-base-spacing-unit--large : calculateRem($inuit-base-line-height);
+
+/// @type Number [default] - Huge base spacing unit (one and a half times $inuit-base-line-height)
+$inuit-base-spacing-unit--huge  : calculateRem(round($inuit-base-line-height * 1.5));

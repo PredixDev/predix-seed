@@ -1,0 +1,37 @@
+{
+  "name": "px-defaults-design",
+  "version": "0.2.6",
+  "authors": [
+    "General Electric",
+    "Harry Roberts"
+  ],
+  "description": "PXd's default settings",
+  "main": "_settings.defaults.scss",
+  "keywords": [
+    "PXd",
+    "Sass",
+    "defaults"
+  ],
+  "license": "Apache 2",
+  "homepage": "https://github.com/PredixDev/px-defaults-design.git",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "px-functions-design": "https://github.com/PredixDev/px-functions-design.git#~0.2.0"
+  },
+  "_release": "0.2.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.6",
+    "commit": "60b85fabd95b971befc04bd96e4104647bc3200e"
+  },
+  "_source": "https://github.com/PredixDev/px-defaults-design.git",
+  "_target": "~0.2.0",
+  "_originalSource": "https://github.com/PredixDev/px-defaults-design.git"
+}
