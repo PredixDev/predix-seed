@@ -1,6 +1,6 @@
 {
   "name": "predix-seed",
-  "version": "1.1.27",
+  "version": "1.1.28",
   "private": true,
   "ignore": [
     "**/.*",
@@ -35,7 +35,8 @@
     "px-theme": "https://github.com/PredixDev/px-theme.git#~v0.4.2",
     "require-css": "0.1.1",
     "requirejs": "https://github.com/jrburke/requirejs.git#2.1.18",
-    "requirejs-plugins": "1.0.2"
+    "requirejs-plugins": "1.0.2",
+    "google-analytics": "~0.1.0"
   },
   "resolutions": {
     "es6-promise": "~v3.0.2",
