@@ -7,56 +7,44 @@
   // Setup routes for the application
   var initRouting = function() {
 
-    // find the px-login element
-    var pxLogin = app.$.login;
-
     // Removes end / from app.baseUrl which page.base requires for production
     if (window.location.port === '') {  // if production
-      page.base(app.baseUrl.replace(/\/$/, ''));
+        page.base(app.baseUrl.replace(/\/$/, ''));
     };
 
+    // route middleware function to ensure that users are logged in
     var ensureLogin = function(ctx, next) {
-      if(pxLogin.isAuthenticated !== true) {
-        console.log(ctx);
-        pxLogin.login(ctx);
-      } else {
+      var pxLogin = app.$.login;
+      if(pxLogin.isAuthenticated === true) {
+        // user is authenticaed, go ahead!
         next();
+      } else {
+        // send login method call to pxLogin
+        pxLogin.login(ctx);
       }
     };
-    /*
-    var ensureSecure = function(ctx, next) {
-      // check for isAuthenticated flag
-      if(pxLogin.isAuthenticated === true) {
-        pxLogin.addEventListener('is-authenticated-changed', checkAuthenticated, false);
-        next();
-      } else {
-        // listen for property changed event
-        pxLogin.addEventListener('is-authenticated-changed', ensureSecure(ctx, next), false);
-      };
-    };
-    */
 
     // Routes
+
     // Catch-all route which first runs middleware, then continue to next()
+    page('*', function(ctx, next) {
+      next();
+    });
 
     page('/home', ensureLogin, function(ctx, next) {
-      console.log(ctx);
-      console.log('home')
+      app.route = 'home';
     });
 
     page('/', ensureLogin, function() {
-      console.log('home');
       app.route = 'home';
     });
 
     page(app.baseUrl, ensureLogin, function() {
       app.route = 'home';
-        console.log('home');
     });
 
-    page('/dashboards', function() {
+    page('/dashboards', ensureLogin, function() {
       app.route = 'dashboards';
-      console.log('dashboards');
     });
 
     page('/blank-page', function(data) {
@@ -69,7 +57,7 @@
 
     // 404
     page('*', function() {
-      console.log('* 404');
+      console.log('Route not found - 404');
       page.redirect(app.baseUrl);
     });
 

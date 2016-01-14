@@ -1,60 +1,156 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    body {
-      background: white;
-    }
-    body.loading #splash {
-      opacity: 1;
-    }
-    #splash {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      transition: opacity 300ms cubic-bezier(0,0,0.2,1);
-      opacity: 0;
-      will-change: opacity;
-      z-index: 1;
-      background: hotpink;
-    }
-  </style>
+    <!-- TEMP -->
+    <style>
+        html, body {
+            background: #3b3b3f;
+        }
+        body.loading #splash {
+            opacity: 1;
+        }
+        #splash {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transition: opacity 1200ms cubic-bezier(0,0,0.2,1);
+            opacity: 0;
+            will-change: opacity;
+            z-index: 1;
+            background: #3b3b3f;
+        }
+    </style>
 
-  <!-- 1. Async HTML Imports do not block rending. Benefit of keeping it declarative
+    <!-- 1. Async HTML Imports do not block rending. Benefit of keeping it declarative
        (instead of dynamically loading it later in JS) is that the parser can go
        to town pre-fetching resources, etc. -->
-  <link rel="import" id="elements" href="elements/elements.html" async>
+    <link rel="import" id="elements" href="elements/elements.html" async>
+
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
 </head>
-<!-- 2. Don't use <body unresolved>. It's a simple FOUC (Flash of Unstyled Content) solution,
+
+<!-- 2. We add 'loading' class to <body> and avoid <body unresolved>.
+     The unresolved flag is a simple solution to FOUC (Flash of Unstyled Content),
      however it hides all of the page, causing a FONC "Flash of No Content" until the imports and
-     Polymer are loaded. Intead, control FOUC manually with a splash screen. -->
+     Polymer are loaded. Instead, we control FOUC manually with a splash screen. -->
 <body class="loading">
-  <!-- 3. Light weight splash screen is outside of Polymer/imports and styled by
-       the main page. 1st paint is fast, even on polyfilled browsers. Alternatively,
-       one could create an "app shell" and style the page's un-upgraded elements
-       similar to their final upgraded version. -->
-  <div id="splash"></div>
 
-  <!-- Elements wait on the page and are upgraded when elements.html loads. -->
-  <template is="dom-bind" id="app">
-    <h1>app.webComponentsReady: {{webComponentsReady}}</h1>
-    <px-login id="login" login-url="login-demo.html" logout-url="logout-demo.html"
-      user-info-url="userinfo.json"
-      menu-items='[
-        { "url": "/system-preferences", "label": "System Preferences"},
-        { "url": "/group-preferences", "label": "Group Preferences"},
-        { "url": "/user-preferences", "label": "User Preferences"}
-      ]'>
-    </px-login>
-  </template>
-  <!--
-  <paper-drawer-panel>
-    ...
-  </paper-drawer-panel>
-  -->
+    <!-- 3. Light weight splash screen is outside of Polymer/imports and styled by
+       the main page. 1st paint is fast, even on polyfilled browsers. -->
+    <div id="splash"></div>
 
-  <script src="scripts/app.js" async></script>
+    <!-- Elements wait on the page and are upgraded when elements.html loads. -->
+    <template is="dom-bind" id="app">
+
+        <header role="banner" class="flex flex--middle">
+            <div class="viewport">
+                <h1>
+                    <ge-svg-logo></ge-svg-logo>
+                    Seed Application
+                </h1>
+                <h2>
+                    Powered by Predix
+                </h2>
+            </div>
+        </header>
+        <div class="viewport">
+            <div class="content-wrapper">
+                <px-app-nav class="navbar" nav-items="[[tabs]]" path-prefix="/"
+                    path-key="state">
+                    <px-login
+                        id="login"
+                        login-url="login-demo.html"
+                        logout-url="logout-demo.html"
+                        user-info-url="userinfo.json"
+                        menu-items='[
+                            { "url": "/system-preferences", "label": "System Preferences"},
+                            { "url": "/group-preferences", "label": "Group Preferences"},
+                            { "url": "/user-preferences", "label": "User Preferences"}
+                        ]'>
+                    </px-login>
+                </px-app-nav>
+                <main class="u-pt-- u-pr-- u-pl--" role="main">
+                    <section role="region" ui-view></section>
+                </main>
+            </div>
+        </div>
+
+        <footer class="flex flex--middle" role="contentinfo">
+            <div class="viewport">
+                <nav class="flex flex--right flex--middle" role="navigation">
+                    <ul class="list-inline">
+                        <li class="u-mh-">
+                            <a href="http://www.ge.com/privacy" target="_blank">Privacy</a>
+                        </li>
+                        <li class="u-mh-">
+                            <a href="http://www.ge.com/terms" target="_blank">Terms</a>
+                        </li>
+                    </ul>
+                    <small class="u-ml+">©2015 General Electric</small>
+                </nav>
+            </div>
+        </footer>
+
+    </template>
+
+  <script>
+
+    // Grab a reference to our auto-binding template and give it some initial binding values
+    var app = document.querySelector('#app');
+
+    // Sets app default base URL
+    app.baseUrl = '/';
+
+    app.addEventListener('dom-change', function() {
+        console.log('dom-change event');
+        app.tabs = [{"path": "", "icon": "fa-warning", "label":"Alerts","subitems": [{"label": "Sub Category 1"}, {"label": "Sub Category 2"}]},{"path": "tab2", "icon": "fa-briefcase", "label": "Cases"}];
+    });
+    //Global application object
+    app.global = {
+        version: '1.0',
+        name: 'Predix Seed',
+        session: {}
+    };
+
+    // load webcomponents.js
+    /*
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'bower_components/webcomponentsjs/webcomponents-lite.min.js';
+    script.onload = finishLazyLoading;
+    document.head.appendChild(script);
+    */
+
+    finishLazyLoading();
+
+    function finishLazyLoading() {
+
+      // Fade splash screen, then remove.
+      var onImportLoaded = function() {
+        var splashEl = document.getElementById('splash');
+        splashEl.addEventListener('transitionend', splashEl.remove);
+        document.body.classList.remove('loading');
+        // App is visible and ready to load some data!
+      };
+
+      // 5. Go if the async Import loaded quickly. Otherwise wait for it.
+      var elements = document.querySelector('#elements');
+      if (elements.import && elements.import.readyState === 'complete') {
+        onImportLoaded();
+      } else {
+        elements.addEventListener('load', onImportLoaded);
+      };
+
+    };
+
+    window.addEventListener('WebComponentsReady', function() {
+      app.webComponentsReady = true;
+    });
+
+
+  </script>
 </body>
 </html>

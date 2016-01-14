@@ -14,20 +14,9 @@
     "sass"
   ],
   "dependencies": {
-    "angular": "~1.3.16",
-    "angular-mocks": "~1.3.16",
-    "angular-resource": "~1.3.16",
-    "angular-route": "~1.3.16",
-    "angular-ui-router": "0.2.13",
-    "require-css": "0.1.1",
-    "requirejs": "https://github.com/jrburke/requirejs.git#2.1.18",
-    "requirejs-plugins": "1.0.2",
-
-
-    
     "px-bundle": "https://github.com/PredixDev/px-bundle.git#1.0.0",
-    "app-router": "~2.6.1",
-    "iron-ajax": "PolymerElements/iron-ajax#~1.1.1"
+    "iron-ajax": "PolymerElements/iron-ajax#~1.1.1",
+    "page": "visionmedia/page.js#~1.6.4"
   },
   "resolutions": {
     "es6-promise": "~v3.0.2",

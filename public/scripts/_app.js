@@ -47,7 +47,8 @@ define([
         };
 
         $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-            if (angular.isObject(error) && angular.isString(error.code)) {
+            console.log(event);
+                if (angular.isObject(error) && angular.isString(error.code)) {
                 switch (error.code) {
                     case 'UNAUTHORIZED':
                         //redirect
