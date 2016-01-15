@@ -23,7 +23,7 @@
         }
     </style>
 
-    <!-- 1. Async HTML Imports do not block rending. Benefit of keeping it declarative
+    <!-- Async HTML Imports do not block rending. Benefit of keeping it declarative
        (instead of dynamically loading it later in JS) is that the parser can go
        to town pre-fetching resources, etc. -->
     <link rel="import" id="elements" href="elements/elements.html" async>
@@ -32,13 +32,13 @@
 
 </head>
 
-<!-- 2. We add 'loading' class to <body> and avoid <body unresolved>.
+<!-- We add 'loading' class to <body> and avoid <body unresolved>.
      The unresolved flag is a simple solution to FOUC (Flash of Unstyled Content),
      however it hides all of the page, causing a FONC "Flash of No Content" until the imports and
      Polymer are loaded. Instead, we control FOUC manually with a splash screen. -->
 <body class="loading">
 
-    <!-- 3. Light weight splash screen is outside of Polymer/imports and styled by
+    <!-- Light weight splash screen is outside of Polymer/imports and styled by
        the main page. 1st paint is fast, even on polyfilled browsers. -->
     <div id="splash"></div>
 
@@ -56,9 +56,13 @@
                 </h2>
             </div>
         </header>
+
         <div class="viewport">
             <div class="content-wrapper">
-                <px-app-nav class="navbar" nav-items="[[tabs]]" path-prefix="/"
+                <px-app-nav
+                    class="navbar"
+                    nav-items$="{{tabs}}"
+                    path-prefix="/"
                     path-key="state">
                     <px-login
                         id="login"
