@@ -78,79 +78,14 @@
             </div>
         </div>
 
-        <footer class="flex flex--middle" role="contentinfo">
-            <div class="viewport">
-                <nav class="flex flex--right flex--middle" role="navigation">
-                    <ul class="list-inline">
-                        <li class="u-mh-">
-                            <a href="http://www.ge.com/privacy" target="_blank">Privacy</a>
-                        </li>
-                        <li class="u-mh-">
-                            <a href="http://www.ge.com/terms" target="_blank">Terms</a>
-                        </li>
-                    </ul>
-                    <small class="u-ml+">©2015 General Electric</small>
-                </nav>
-            </div>
-        </footer>
+        <seed-footer footer-links='[
+            { "href": "http://www.ge.com/privacy", "target": "_blank" },
+            { "href": "http://www.ge.com/terms", "target": "_blank"}
+        ]'></seed-footer>
 
     </template>
 
-  <script>
+  <script src="scripts/app-loader.js"></script>
 
-    // Grab a reference to our auto-binding template and give it some initial binding values
-    var app = document.querySelector('#app');
-
-    // Sets app default base URL
-    app.baseUrl = '/';
-
-    app.addEventListener('dom-change', function() {
-        console.log('dom-change event');
-        app.tabs = [{"path": "", "icon": "fa-warning", "label":"Alerts","subitems": [{"label": "Sub Category 1"}, {"label": "Sub Category 2"}]},{"path": "tab2", "icon": "fa-briefcase", "label": "Cases"}];
-    });
-    //Global application object
-    app.global = {
-        version: '1.0',
-        name: 'Predix Seed',
-        session: {}
-    };
-
-    // load webcomponents.js
-    /*
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = 'bower_components/webcomponentsjs/webcomponents-lite.min.js';
-    script.onload = finishLazyLoading;
-    document.head.appendChild(script);
-    */
-
-    finishLazyLoading();
-
-    function finishLazyLoading() {
-
-      // Fade splash screen, then remove.
-      var onImportLoaded = function() {
-        var splashEl = document.getElementById('splash');
-        splashEl.addEventListener('transitionend', splashEl.remove);
-        document.body.classList.remove('loading');
-        // App is visible and ready to load some data!
-      };
-
-      // 5. Go if the async Import loaded quickly. Otherwise wait for it.
-      var elements = document.querySelector('#elements');
-      if (elements.import && elements.import.readyState === 'complete') {
-        onImportLoaded();
-      } else {
-        elements.addEventListener('load', onImportLoaded);
-      };
-
-    };
-
-    window.addEventListener('WebComponentsReady', function() {
-      app.webComponentsReady = true;
-    });
-
-
-  </script>
 </body>
 </html>
