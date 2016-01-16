@@ -16,7 +16,20 @@
   "dependencies": {
     "px-bundle": "https://github.com/PredixDev/px-bundle.git#1.0.0",
     "iron-ajax": "PolymerElements/iron-ajax#~1.1.1",
-    "page": "visionmedia/page.js#~1.6.4"
+    "page": "visionmedia/page.js#~1.6.4",
+    "px-flexbox-design": "https://github.com/PredixDev/px-flexbox-design.git#~0.3.5",
+    "px-viewport-design": "https://github.com/PredixDev/px-viewport-design.git#~0.2.7",
+    "px-list-inline-design": "https://github.com/PredixDev/px-list-inline-design.git#~0.2.8",
+    "px-defaults-design": "https://github.com/PredixDev/px-defaults-design.git#~0.2.6",
+    "px-normalize-design": "https://github.com/PredixDev/px-normalize-design.git#~0.3.6",
+    "px-colors-design": "https://github.com/PredixDev/px-colors-design.git#~0.2.9",
+    "px-box-sizing-design": "https://github.com/PredixDev/px-box-sizing-design.git#~0.2.4",
+    "px-helpers-design": "https://github.com/PredixDev/px-helpers-design.git#~0.3.2",
+    "px-meta-lists-design": "https://github.com/PredixDev/px-meta-lists-design.git#~0.3.2",
+    "px-starter-kit-design": "https://github.com/PredixDev/px-starter-kit-design.git#~0.4.9",
+    "px-code-design": "https://github.com/PredixDev/px-code-design.git#~0.2.8",
+    "px-headings-design": "https://github.com/PredixDev/px-headings-design.git#~0.2.10",
+    "px-buttons-design": "https://github.com/PredixDev/px-buttons-design.git#~0.4.17"
   },
   "resolutions": {
     "es6-promise": "~v3.0.2",

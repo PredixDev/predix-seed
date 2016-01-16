@@ -1,0 +1,44 @@
+// Settings
+
+// Generic
+@import "px-helpers-design/_generic.helpers.scss";
+
+// Base
+@import "px-viewport-design/_base.viewport.scss";
+@import "px-flexbox-design/_base.flexbox.scss";
+
+// Meta
+@import "px-meta-lists-design/_meta.lists.scss";
+
+@import "px-mixins-design/_tools.mixins.scss";
+
+$inuit-webfont-path: '../px-typography-design/type' !default;
+$predix-font-family : "GE Inspira Sans", sans-serif !default;
+
+:host {
+  font-family: $predix-font-family;
+}
+
+$px-page-link-color: $gray5;
+
+[role=contentinfo] {
+  height: calculateRem(60px);
+  @include inuit-font-size(12px);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: $px-page-link-color;
+  a {
+    text-decoration: none;
+    color: $px-page-link-color;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Trumps
+$inuit-enable-margins--small: true;
+$inuit-enable-margins--large: true;
+
+@import "px-spacing-design/_trumps.spacing.scss";
