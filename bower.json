@@ -16,6 +16,7 @@
   "dependencies": {
     "px-seed-bundle": "https://github.com/PredixDev/px-seed-bundle.git#1.0.0",
     "iron-ajax": "PolymerElements/iron-ajax#~1.1.1",
+    "iron-pages": "PolymerElements/iron-pages",
     "page": "visionmedia/page.js#~1.6.4",
     "px-flexbox-design": "https://github.com/PredixDev/px-flexbox-design.git#~0.3.5",
     "px-viewport-design": "https://github.com/PredixDev/px-viewport-design.git#~0.2.7",

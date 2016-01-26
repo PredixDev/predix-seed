@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Predix Seed 2.0</title>
+  <base href="/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 
-    <title>Predix Seed 2.0</title>
-    <base href="/">
+  <!-- Temporary #splash grey screen styles -->
+  <style>
+    html, body {
+        background: #3b3b3f;
+    }
+    body.loading #splash {
+        opacity: 1;
+    }
+    #splash {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transition: opacity 500ms cubic-bezier(0,0,0.2,1);
+        opacity: 0;
+        will-change: opacity;
+        z-index: 1;
+        background: #3b3b3f;
+    }
+  </style>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
-
-    <!-- Temporary #splash grey screen styles -->
-    <style>
-        html, body {
-            background: #3b3b3f;
-        }
-        body.loading #splash {
-            opacity: 1;
-        }
-        #splash {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            transition: opacity 500ms cubic-bezier(0,0,0.2,1);
-            opacity: 0;
-            will-change: opacity;
-            z-index: 1;
-            background: #3b3b3f;
-        }
-    </style>
-
-    <!-- Async HTML Imports do not block rending. Benefit of keeping it declarative
-       (instead of dynamically loading it later in JS) is that the parser can go
-       to town pre-fetching resources, etc. -->
-    <link rel="import" id="elements" href="elements/elements.html" async>
+  <!-- Async HTML Imports do not block rending. Benefit of keeping it declarative
+       (instead of dynamically loading it later in JS) is that the parser can go to
+       town pre-fetching resources, etc. -->
+  <link rel="import" id="elements" href="elements/elements.html" async>
 
 </head>
 
@@ -45,58 +42,82 @@
      Polymer are loaded. Instead, we control FOUC manually with a splash screen. -->
 <body class="loading">
 
-    <!-- Light weight splash screen is outside of Polymer/imports and styled by
+  <!-- Light weight splash screen is outside of Polymer/imports and styled by
        the main page. 1st paint is fast, even on polyfilled browsers. -->
-    <div id="splash"></div>
+  <div id="splash"></div>
 
-    <!-- Elements wait on the page and are upgraded when elements.html loads. -->
-    <template is="dom-bind" id="app">
+  <!-- Elements wait on the page and are upgraded when elements.html loads. -->
+  <template is="dom-bind" id="app">
 
-        <header role="banner" class="flex flex--middle">
-            <div class="viewport">
-                <h1>
-                    <ge-svg-logo></ge-svg-logo>
-                    Seed Application
-                </h1>
-                <h2>
-                    Powered by Predix
-                </h2>
-            </div>
-        </header>
+    <header role="banner" class="flex flex--middle">
+      <div class="viewport">
+        <h1>
+          <ge-svg-logo></ge-svg-logo> Seed Application
+        </h1>
+        <h2>
+          Powered by Predix
+        </h2>
+      </div>
+    </header>
 
-        <div class="viewport">
-            <div class="content-wrapper">
-                <px-app-nav
-                    class="navbar"
-                    nav-items$="{{tabs}}"
-                    path-prefix="/"
-                    path-key="state">
-                    <px-login
-                        id="login"
-                        login-url="login-demo.html"
-                        logout-url="logout-demo.html"
-                        user-info-url="userinfo.json"
-                        menu-items='[
-                            { "url": "/system-preferences", "label": "System Preferences"},
-                            { "url": "/group-preferences", "label": "Group Preferences"},
-                            { "url": "/user-preferences", "label": "User Preferences"}
-                        ]'>
-                    </px-login>
-                </px-app-nav>
-                <main class="u-pt-- u-pr-- u-pl--" role="main">
-                    <section role="region" ui-view></section>
-                </main>
-            </div>
-        </div>
+    <div class="viewport">
 
-        <seed-footer footer-links='[
-            { "label": "Privacy", "href": "http://www.ge.com/privacy", "target": "_blank" },
-            { "label": "Terms", "href": "http://www.ge.com/terms", "target": "_blank"}
-        ]'></seed-footer>
+      <div class="content-wrapper">
+
+        <px-app-nav
+          class="navbar"
+          nav-items$="{{tabs}}"
+          path-prefix="/"
+          path-key="state">
+          <px-login
+            id="login"
+            login-url="login-demo.html"
+            logout-url="logout-demo.html"
+            user-info-url="userinfo.json"
+            menu-items='[
+              { "url": "/system-preferences", "label": "System Preferences"},
+              { "url": "/group-preferences", "label": "Group Preferences"},
+              { "url": "/user-preferences", "label": "User Preferences"}
+            ]'></px-login>
+        </px-app-nav>
+
+        <main class="u-pt-- u-pr-- u-pl--" role="main">
+          <px-view
+            preload="false"
+            selected="{{route}}"
+            route="home"
+            tag="home-view"
+            url="/elements/views/home-view.html"></px-view>
+          <px-view
+            preload="false"
+            selected="{{route}}"
+            name="dashboards"
+            tag="dashboards-view"
+            url="/elements/views/dashboards-view.html"></px-view>
+          <px-view
+            preload="true"
+            selected="{{route}}"
+            route="blank-page"
+            tag="blank-page-view"
+            url="/elements/views/blank-page-view.html"></px-view>
+          <px-view
+            preload="false"
+            selected="{{route}}"
+            route="blank-sub-page"
+            tag="blank-sub-page-view"
+            url="/elements/views/blank-sub-page-view.html"></px-view>
+        </main>
+
+      </div>
+
+      <seed-footer footer-links='[
+          { "label": "Privacy", "href": "http://www.ge.com/privacy", "target": "_blank" },
+          { "label": "Terms", "href": "http://www.ge.com/terms", "target": "_blank"}
+      ]'></seed-footer>
 
     </template>
 
-  <script src="scripts/app-loader.js"></script>
+    <script src="scripts/app-loader.js"></script>
 
 </body>
 </html>

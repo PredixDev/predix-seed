@@ -1,0 +1,28 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<!-- this element loads another element and appends it to #element -->
+<dom-module id="px-hot-loader">
+
+    <template>
+        <div id="element"></div>
+    </template>
+    <script>
+        Polymer({
+            is: 'px-hot-loader',
+            properties: {
+                url: String,
+                name: String
+            },
+            ready: function() {
+                this.importHref(this.url, function(e) {
+                    var newElement = document.createElement(this.name);
+                    this.$.element.appendChild(newElement);
+                }, function(e) {
+                    console.log('failure', e);
+                    // loading error
+                });
+            }
+        });
+    </script>
+
+</dom-module>

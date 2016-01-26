@@ -1,29 +1,27 @@
 <!--
-  We use Page.js for routing. This is a Micro client-side router inspired by the Express router
+  Page.js is used for routing
+  Page.js is a micro client-side router inspired by the Express router
   More info: https://visionmedia.github.io/page.js/
 -->
 <script src="../bower_components/page/page.js"></script>
 <script>
   // Setup routes for the application
   var initRouting = function() {
-
     // Removes end / from app.baseUrl which page.base requires for production
     if (window.location.port === '') {  // if production
         page.base(app.baseUrl.replace(/\/$/, ''));
     };
-
     // route middleware function to ensure that users are logged in
     var ensureLogin = function(ctx, next) {
       var pxLogin = app.$.login;
       if(pxLogin.isAuthenticated === true) {
-        // user is authenticaed, go ahead!
+        // user is authenticated, go ahead!
         next();
       } else {
         // send login method call to pxLogin
         pxLogin.login(ctx);
       }
     };
-
     // Routes
 
     // Catch-all route which first runs middleware, then continue to next()
@@ -31,27 +29,28 @@
       next();
     });
 
-    page('/home', ensureLogin, function(ctx, next) {
-      app.route = 'home';
-    });
-
+    // Root
     page('/', ensureLogin, function() {
       app.route = 'home';
     });
 
+    // baseUrl set on index.html
     page(app.baseUrl, ensureLogin, function() {
       app.route = 'home';
     });
 
+    // Dashboards (see views/dashboards)
     page('/dashboards', ensureLogin, function() {
       app.route = 'dashboards';
     });
 
+    // Blank page test (see views/blank-page)
     page('/blank-page', function(data) {
       app.route = 'blank-page';
     });
 
-    page('/blanksubpage', function() {
+    // Blank Sub-page test (see views/blank-page)
+    page('/blank-sub-page', function() {
       app.route = 'blank-sub-page';
     });
 

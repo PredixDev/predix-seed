@@ -46,6 +46,7 @@ define([
             ]
         };
 
+        // ERIC: This forces login when error is "UNAUTHORIZED" state change error 
         $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
             console.log(event);
                 if (angular.isObject(error) && angular.isString(error.code)) {

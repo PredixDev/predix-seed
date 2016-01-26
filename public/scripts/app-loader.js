@@ -23,6 +23,9 @@ app.tabs = [
 ];
 // Sets app default base URL
 app.baseUrl = '/';
+app.isEqual = function(a, b) {
+    return a === b;
+}
 
 // Listen for dom change and set app.tabs
 app.addEventListener('dom-change', function() {
@@ -58,8 +61,6 @@ script.onload = function(){
     }
 };
 document.head.appendChild(script);
-
-
 
 // listen for WebComponentsReady event and set flag
 window.addEventListener('WebComponentsReady', function() {

@@ -1,0 +1,87 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<!-- this element does two things: -->
+<!-- conditionally show/hide content -->
+<!-- conditionally load content -->
+<dom-module id="px-view">
+  <template>
+    <!-- element will be inserted here -->
+  </template>
+  <script>
+    Polymer({
+
+      is: 'px-view',
+
+      properties: {
+        preload: {
+          type: Boolean,
+          value: false
+        },
+        status: {
+          type: String,
+          observer: '_checkStatus',
+          value: 'unloaded' // unloaded -> loading -> loaded -> attached
+        },
+        selected: {
+          type: String,
+          observer: '_checkRoute',
+          value: null
+        },
+        route: String,
+        tag: String,
+        url: String
+      },
+
+      ready: function() {
+        this._checkRoute();
+      },
+
+      _checkRoute: function() {
+        // this route is selected
+        if(this.route === this.selected) {
+          console.log(this.route + ' === ' + this.selected);
+          this._attachElement();
+        };
+      },
+
+      _attachElement: function() {
+        if(this.status === 'loaded') {
+          var newElement = document.createElement(this.tag);
+          this.appendChild(newElement);
+          this.status = 'attached';
+        } else if(this.status !== 'attached') {
+          this._loadElement();
+        };
+      },
+
+      _loadElement: function() {
+        if(this.status === 'unloaded') {
+          this.importHref(this.url, function(e) {
+            this.status = 'loaded';
+          }, function(e) {
+            console.log('failure to load ' + this.url, e);
+          });
+        };
+      },
+
+      _checkStatus: function() {
+        switch(this.status) {
+          case 'attached':
+            console.log(this.tag + ' attached');
+            // element is attached
+            break;
+          case 'loaded':
+            console.log(this.tag + ' loaded');
+            this._attachElement();
+            break;
+          case 'loading':
+            // loading
+            console.log(this.tag + ' loading');
+            break;
+          default:
+            console.log('default');
+        }
+      }
+
+    });
+  </script>
+</dom-module>
