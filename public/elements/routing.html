@@ -7,10 +7,12 @@
 <script>
   // Setup routes for the application
   var initRouting = function() {
+
     // Removes end / from app.baseUrl which page.base requires for production
     if (window.location.port === '') {  // if production
         page.base(app.baseUrl.replace(/\/$/, ''));
     };
+
     // route middleware function to ensure that users are logged in
     var ensureLogin = function(ctx, next) {
       var pxLogin = app.$.login;
@@ -22,6 +24,8 @@
         pxLogin.login(ctx);
       }
     };
+
+
     // Routes
 
     // Catch-all route which first runs middleware, then continue to next()

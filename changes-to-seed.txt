@@ -1,0 +1,106 @@
+---
+A. Main application loading (index.html)
+  A1. px.js library
+    - 1.0 px.js is loaded in the synchronously head.
+    - 2.0 px.js can be loaded async
+  A2. es6-promise.js polyfill
+    - 1.0 es6-promise polyfill is loaded synchronously in the head
+    - 2.0 es6-promise polyfill can be loaded async
+  A3. webcomponents-lite.js polyfill
+    - 1.0 webcomponents-lite polyfill is loaded synchronously in the head
+    - 2.0 webcomponents-lite polyfill can be loaded async
+  A4. Polymer elements bundle (vulcanized)
+    - 1.0 polymer-loader.vulcanized.html loaded synchronously in the head
+    - 2.0 elements.html loaded async in head
+
+---
+B. Main Application
+  B1. "Flash of Unstyled Content" solution
+    - 1.0 <body unresolved> flag is used to avoid FOUC
+    - 2.0 <body class="loading"> and <div id="splash"> to avoid FOUC and "Flash of No Content"
+  B2. Main application object
+    - 1.0 Angular "MainCtrl" for seed app is attached to body
+    - 2.0 Following Polymer standards adding <template> with "dom-bind" for main app object
+
+---
+C. Routes and Routing
+  C1. Route capture
+    - 1.0 Routing is handled by Angular UI Router
+    - 2.0 Routing is handled by Page.js (according to Polymer team recommendation)
+    - 2.1 Migration to carbon-router will be possible when Polymer team releases (Q1, 2016)
+  C2. Secure routes
+    - 1.0 Login is forced on parent 'secure' state provider defined in routes.js
+    - 2.0 Login is forced on routes with 'ensureLogin' function added to route definition
+  C3. Route data & conditional loading
+    - 1.0 Route data is passed through stateProvider to Angular controller via ui-view
+    - 2.0 Route data is assigned to app.route
+  C4. Route-conditional view loading
+    - 1.0 ui-view conditionally loads Angular controller and templates associated with route
+    - 2.0 px-view conditionally loads Polymer view element
+
+---
+D. Application structure
+  D1. Application-level elements
+    - 1.0 Angular Controllers, Directives and others, loaded via Require.js
+    - 2.0 Polymer elements in public/elements directory, loaded via elements.html imports
+  D2. Application state
+    - 1.0 Angular $scope and $rootScope passed around Angular controllers and directives
+    - 2.0 Polymer element nesting
+  D3. Sample module
+    - 1.0 Angular $controllerProvider, $compileProvider, $provide, service, factory, value,
+        $filterProvider are used
+    - 2.0 Polymer TBD
+  D4. Predix Datasource
+    - 1.0 Angular Predix Datasource created using Restangular
+    - 2.0 Polymer TBD
+  D5. ngBindPolymer
+    - 1.0 ngBindPolymer is imported to be used to connect Polymer elements to Angular data
+    - 2.0 ngBindPolymer loaded into Polymer elements that depend on Angular
+  D6. Bootstrapper
+    - 1.0 Starts the angular application by bootstrapping app to body
+    - 2.0 No longer necessary
+
+---
+E. Library and Module loading
+  E1. Library definition
+    - 1.0 config.js is used to define require config
+    - 2.0 elements.html is used to import Polymer elements that import external libraries as needed
+  E2. Module loading
+    - 1.0 uses Require.js
+    - 2.0 used HTML Imports (Web components standard w/ Polymer polyfill)
+
+---
+F. Controller & Directive Migration
+  F1. Dashboard Controller
+    - 1.0 Angular DashboardsCtrl
+    - 2.0 Polymer element DashboardsView
+  F2. Predix Asset Service
+    - 1.0 Angular PredixAssetService
+    - 2.0 Polymer element PredixAssetService
+  F3. Predix User Service
+    - 1.0 Angular PredixUserService
+    - 2.0 Polymer element PredixUserService
+  F3. Predix View Service
+    - 1.0 Angular PredixViewService
+    - 2.0 Polymer element PredixViewService
+  F4. Sample Controller
+    - 1.0 Angular SampleCtrl (San Ramon weather data)
+    - 2.0 Polymer element Sample Element (San Ramon weather data)
+  F5. Sample Directive
+    - 1.0 Angular appVersion
+    - 2.0 app.version
+  F6. Sample Module
+    - 1.0 slugify filter
+    - 2.0 px.slugify
+  F7. Sample Service
+    - 1.0 sampleModule.value('version', '0.1');
+    - 2.0 app.version = 0.1
+
+---
+G. Sub-dependencies
+  G1. Px-Login
+    1.0 Using Angular $http
+    2.0 Migrate to Polymer and iron-ajax
+  G2. Px-card
+    1.0 Using Angular $http for getData method
+    2.0 Migrate to Polymer using iron-ajax

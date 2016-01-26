@@ -31,7 +31,8 @@ define([
      * This controller is the top most level controller that allows for all
      * child controllers to access properties defined on the $rootScope.
      */
-    predixApp.controller('MainCtrl', ['$scope', '$rootScope', 'PredixUserService', function ($scope, $rootScope, predixUserService) {
+    predixApp.controller('MainCtrl', ['$scope', '$rootScope', 'PredixUserService',
+      function ($scope, $rootScope, predixUserService) {
 
         //Global application object
         window.App = $rootScope.App = {
@@ -46,8 +47,9 @@ define([
             ]
         };
 
-        // ERIC: This forces login when error is "UNAUTHORIZED" state change error 
-        $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+        // ERIC: This forces login when error is "UNAUTHORIZED" state change error
+        $rootScope.$on('$stateChangeError',
+          function (event, toState, toParams, fromState, fromParams, error) {
             console.log(event);
                 if (angular.isObject(error) && angular.isString(error.code)) {
                 switch (error.code) {
