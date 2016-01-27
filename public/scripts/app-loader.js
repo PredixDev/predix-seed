@@ -39,10 +39,6 @@ app.global = {
   session: {}
 };
 
-var onAppLoaded = function() {
-  console.log('onAppLoaded');
-};
-
 var loadWebComponents = function() {
   // load webcomponents.js
   var script = document.createElement('script');
@@ -69,7 +65,12 @@ var onImportLoaded = function() {
     splashEl.parentNode.removeChild(splashEl); // IE 10 doesn't support el.remove()
   });
   document.body.classList.remove('loading');
+  onAppLoaded();
+};
+
+var onAppLoaded = function() {
   // App is visible and ready to load some data!
+  console.log('onAppLoaded');
 };
 
 // listen for WebComponentsReady event and set flag
