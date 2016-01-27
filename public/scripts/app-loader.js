@@ -34,35 +34,43 @@ app.addEventListener('dom-change', function() {
 
 //Global application object
 app.global = {
-    version: '1.0',
-    name: 'Predix Seed',
-    session: {}
+  version: '1.0',
+  name: 'Predix Seed',
+  session: {}
+};
+
+var onAppLoaded = function() {
+  console.log('onAppLoaded');
+};
+
+var loadWebComponents = function() {
+  // load webcomponents.js
+  var script = document.createElement('script');
+  script.async = true;
+  script.src = 'bower_components/webcomponentsjs/webcomponents-lite.min.js';
+  script.onload = onWebComponentsLoaded;
+  document.head.appendChild(script);
+};
+
+var onWebComponentsLoaded = function() {
+  // Wait for elements.html async load, then fire onImportLoaded
+  var elements = document.querySelector('#elements');
+  if (elements.import && elements.import.readyState === 'complete') {
+    onImportLoaded();
+  } else {
+    elements.addEventListener('load', onImportLoaded);
+  }
 };
 
 var onImportLoaded = function() {
-    // Fade splash screen, then remove.
-    var splashEl = document.getElementById('splash');
-    splashEl.addEventListener('transitionend', function() {
-      splashEl.parentNode.removeChild(splashEl); // IE 10 doesn't support el.remove()
-    });
-    document.body.classList.remove('loading');
-    // App is visible and ready to load some data!
+  // Fade splash screen, then remove.
+  var splashEl = document.getElementById('splash');
+  splashEl.addEventListener('transitionend', function() {
+    splashEl.parentNode.removeChild(splashEl); // IE 10 doesn't support el.remove()
+  });
+  document.body.classList.remove('loading');
+  // App is visible and ready to load some data!
 };
-
-// load webcomponents.js
-var script = document.createElement('script');
-script.async = true;
-script.src = 'bower_components/webcomponentsjs/webcomponents-lite.min.js';
-script.onload = function(){
-    // Wait for elements.html async load, then fire onImportLoaded
-    var elements = document.querySelector('#elements');
-    if (elements.import && elements.import.readyState === 'complete') {
-        onImportLoaded();
-    } else {
-        elements.addEventListener('load', onImportLoaded);
-    }
-};
-document.head.appendChild(script);
 
 // listen for WebComponentsReady event and set flag
 window.addEventListener('WebComponentsReady', function() {
