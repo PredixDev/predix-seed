@@ -31,16 +31,16 @@
           observer: '_checkRoute',
           value: null
         },
-        route: String,
-        tag: String,
-        url: String,
         element: {
           type: Object,
           value: null
-        }
+        },
+        route: String,
+        tag: String,
+        url: String
       },
 
-      ready: function() {
+      attached: function() {
         if(this.preload === true) {
           this._loadElement();
         };
@@ -50,6 +50,7 @@
       _checkRoute: function() {
         // this route is selected
         if(this.route === this.selected) {
+          console.log(this.route + ' === ' + this.selected);
           this.visible = true;
           this._attachElement();
         };
@@ -93,16 +94,17 @@
             break;
           case 'loaded':
             console.log(this.tag + ' loaded');
-            this._attachElement();
+            this._checkRoute();
             break;
           case 'loading':
             // loading
             console.log(this.tag + ' loading');
             break;
           case 'attached':
-
+            console.log(this.tag + ' attached');
+            break;
           default:
-            console.log('default');
+            console.log(this.tag +  ' default');
         }
       }
 

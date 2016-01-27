@@ -117,7 +117,42 @@
 
     </template>
 
-    <script src="scripts/app-loader.js"></script>
+    <script>
+      // Predix application loading script
+      // Asyncronously loads webcomponents-lite and Polymer elements
+      // then removes #splash div to reveal application UI in #app
+      (function(){
+
+        // Wait for async loading of elements.html bundle
+        var onWebComponentsLoaded = function() {
+          var elements = document.querySelector('#elements');
+          if (elements.import && elements.import.readyState === 'complete') {
+            onElementsLoaded();
+          } else {
+            elements.addEventListener('load', onElementsLoaded);
+          }
+        };
+
+        // Remove #splash div and 'loading' class from body
+        var onElementsLoaded = function() {
+          // Fade splash screen, then remove
+          var splashEl = document.getElementById('splash');
+          splashEl.addEventListener('transitionend', function() {
+            splashEl.parentNode.removeChild(splashEl); // IE 10 doesn't support el.remove()
+          });
+          document.body.classList.remove('loading');
+          // Applicaiton is now visible and ready!
+        };
+
+        // Async loading of webcomponents polyfill
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'bower_components/webcomponentsjs/webcomponents-lite.min.js';
+        script.onload = onWebComponentsLoaded;
+        document.head.appendChild(script);
+
+      }());
+    </script>
 
 </body>
 </html>

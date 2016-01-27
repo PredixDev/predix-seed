@@ -1,32 +1,41 @@
-// APP
+// Grab a reference to our auto-binding template and give it some initial binding values
+var app = document.querySelector('#app');
 
-// Main... what does it do? Main application logic and declarations?
-
-// Routes (handled by routing)
-
-// Interceptors ... no longer necessary
-
-// px-datasource ... ?
-
-// Dashboards controller
-
-// ?
-
-/*
 //Global application object
-window.App = $rootScope.App = {
-    version: '1.0',
-    name: 'Predix Seed',
-    session: {},
-    tabs: [
-        {icon: 'fa-tachometer', state: 'dashboards', label: 'Dashboards'},
-        {icon: 'fa-file-o', state: 'blankpage', label: 'Blank Page', subitems: [
-            {state: 'blanksubpage', label: 'Blank Sub Page'}
-        ]}
-    ]
+app.global = {
+  version: '1.0',
+  name: 'Predix Seed',
+  session: {}
 };
-*/
 
-// Tabs
+app.tabs = [
+    {
+        'path': '',
+        'icon': 'fa-warning',
+        'label': 'Alerts',
+        'subitems': [
+            {
+                'label': 'Sub Category 1'
+            }, {
+                'label': 'Sub Category 2'
+            }
+        ]
+    },
+    {
+        'path': 'tab2',
+        'icon': 'fa-briefcase',
+        'label': 'Cases'
+    }
+];
+// Sets app default base URL
+app.baseUrl = '/';
 
-//
+// Listen for dom change and set app.tabs
+app.addEventListener('dom-change', function() {
+    // console.log('dom-change event');
+});
+
+// listen for WebComponentsReady event and set flag
+window.addEventListener('WebComponentsReady', function() {
+    app.webComponentsReady = true;
+});
