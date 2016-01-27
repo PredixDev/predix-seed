@@ -83,25 +83,22 @@
 
         <main class="u-pt-- u-pr-- u-pl--" role="main">
           <px-view
-            preload="false"
+            preload
             selected="{{route}}"
             route="home"
             tag="home-view"
             url="/elements/views/home-view.html"></px-view>
           <px-view
-            preload="false"
             selected="{{route}}"
             name="dashboards"
             tag="dashboards-view"
             url="/elements/views/dashboards-view.html"></px-view>
           <px-view
-            preload="false"
             selected="{{route}}"
             route="blank-page"
             tag="blank-page-view"
             url="/elements/views/blank-page-view.html"></px-view>
           <px-view
-            preload="false"
             selected="{{route}}"
             route="blank-sub-page"
             tag="blank-sub-page-view"
@@ -153,6 +150,9 @@
 
       }());
     </script>
+
+    <!-- Predix Seed example app -->
+    <script src="scripts/app.js"></script>
 
 </body>
 </html>

@@ -18,7 +18,7 @@
         },
         status: {
           type: String,
-          observer: '_checkStatus',
+          observer: '_checkRoute',
           value: 'unloaded' // unloaded -> loading -> loaded -> attached
         },
         visible: {
@@ -35,22 +35,36 @@
           type: Object,
           value: null
         },
+        tag: {
+          type: String,
+          value: null
+        },
         route: String,
-        tag: String,
+
         url: String
       },
 
-      attached: function() {
-        if(this.preload === true) {
-          this._loadElement();
+      ready: function() {
+        this._initializeView();
+      },
+
+      _initializeView: function() {
+        if(this.tag !== null) {
+          if(this.preload) {
+            this._loadElement();
+          };
+          this._checkRoute();
+        } else {
+          // call back when the component is truly ready
+          this.async(function() {
+            this._initializeView();
+          }, null, 500);
         };
-        this._checkRoute();
       },
 
       _checkRoute: function() {
         // this route is selected
-        if(this.route === this.selected) {
-          console.log(this.route + ' === ' + this.selected);
+        if(this.route === this.selected && this.tag !== null) {
           this.visible = true;
           this._attachElement();
         };
@@ -84,28 +98,6 @@
           });
           this.status = 'loading';
         };
-      },
-
-      _checkStatus: function() {
-        switch(this.status) {
-          case 'attached':
-            console.log(this.tag + ' attached');
-            // element is attached
-            break;
-          case 'loaded':
-            console.log(this.tag + ' loaded');
-            this._checkRoute();
-            break;
-          case 'loading':
-            // loading
-            console.log(this.tag + ' loading');
-            break;
-          case 'attached':
-            console.log(this.tag + ' attached');
-            break;
-          default:
-            console.log(this.tag +  ' default');
-        }
       }
 
     });
