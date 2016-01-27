@@ -47,6 +47,17 @@
         this._checkRoute();
       },
 
+      _loadElement: function() {
+        if(this.status === 'unloaded') {
+          this.importHref(this.url, function(e) {
+            this.status = 'loaded';
+          }, function(e) {
+            console.log('failure to load ' + this.url, e);
+          });
+          this.status = 'loading';
+        };
+      },
+
       _checkRoute: function() {
         // this route is selected
         if(this.route === this.selected) {
@@ -74,17 +85,6 @@
         };
       },
 
-      _loadElement: function() {
-        if(this.status === 'unloaded') {
-          this.importHref(this.url, function(e) {
-            this.status = 'loaded';
-          }, function(e) {
-            console.log('failure to load ' + this.url, e);
-          });
-          this.status = 'loading';
-        };
-      },
-
       _checkStatus: function() {
         switch(this.status) {
           case 'attached':
@@ -92,17 +92,18 @@
             // element is attached
             break;
           case 'loaded':
-            console.log(this.tag + ' loaded');
             this._attachElement();
+            console.log(this.tag + ' loaded');
             break;
           case 'loading':
             // loading
             console.log(this.tag + ' loading');
             break;
           case 'attached':
-
+            console.log(this.tag + ' attached');
+            break;
           default:
-            console.log('default');
+            console.log(this.tag + 'default');
         }
       }
 

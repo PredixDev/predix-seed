@@ -1,3 +1,6 @@
+/*
+Clement is working on a PX-INTERCEPTORS component that modifies XMLHTTPRequest at the root level
+*/
 /**
  * Router Config
  * This is the router definition that defines all application routes.
