@@ -42,7 +42,9 @@ app.global = {
 var onImportLoaded = function() {
     // Fade splash screen, then remove.
     var splashEl = document.getElementById('splash');
-    splashEl.addEventListener('transitionend', splashEl.remove);
+    splashEl.addEventListener('transitionend', function() {
+      splashEl.parentNode.removeChild(splashEl); // IE 10 doesn't support el.remove()
+    });
     document.body.classList.remove('loading');
     // App is visible and ready to load some data!
 };
