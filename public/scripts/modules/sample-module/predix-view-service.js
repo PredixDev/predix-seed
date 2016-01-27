@@ -1,3 +1,6 @@
+// TALKING TO THE VIEW Service
+// getting the decks by tags, just like you would with angular
+
 /*global define */
 define(['angular', './sample-module'], function (angular, module) {
     'use strict';

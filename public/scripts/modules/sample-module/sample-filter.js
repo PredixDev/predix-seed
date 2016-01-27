@@ -1,3 +1,5 @@
+// same... sample filter to produce slugs
+// move into px utils
 define(['angular', './sample-module'], function(angular, sampleModule) {
     'use strict';
 

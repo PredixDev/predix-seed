@@ -1,3 +1,7 @@
+// USED FOR : wrapping auth
+// Angular service to wrap authentication
+// could be replaced by polymer "px-user-auth-service" element
+// or use window.px directly (avoid bloat of px library)
 define(['angular', './sample-module'], function(angular, module) {
     'use strict';
 

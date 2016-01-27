@@ -1,3 +1,4 @@
+// sample angular-specific lazy-loading of modules
 define(['angular'], function(angular) {
     'use strict';
 

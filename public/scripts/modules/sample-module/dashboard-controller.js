@@ -1,3 +1,5 @@
+// all the code to run the dashboard page
+// can be added to the dashboards view elements
 define(['angular', './sample-module'], function (angular, controllers) {
     'use strict';
 
@@ -97,7 +99,7 @@ define(['angular', './sample-module'], function (angular, controllers) {
         // want to have a function that gives you a context like ID... the pass in custom functions
         // data-table has a similar thing, also context browser, validating a cell
         // ASK MARTIN about it...
-        
+
         $scope.getChildren = function (parent, options) {
             return PredixAssetService.getAssetsByParentId(parent.id, options);
         };

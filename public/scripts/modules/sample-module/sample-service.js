@@ -1,3 +1,4 @@
+// the world's simplest service... just an example
 define(['angular', './sample-module'], function(angular, sampleModule) {
     'use strict';
 

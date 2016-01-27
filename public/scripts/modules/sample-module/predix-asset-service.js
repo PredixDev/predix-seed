@@ -1,3 +1,7 @@
+// THIS IS A DEMO OF HOW TO INTERFACE WITH PREDIX Asset
+// what does it specifically do? TBD
+// Was not used in last release soo... could get rid of it, no problemo
+
 define(['angular', './sample-module'], function(angular, module) {
     'use strict';
 

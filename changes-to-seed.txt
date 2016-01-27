@@ -104,3 +104,12 @@ G. Sub-dependencies
   G2. Px-card
     1.0 Using Angular $http for getData method
     2.0 Migrate to Polymer using iron-ajax
+
+---
+H. Specs and tests
+  H1. Sample Module tests
+    1.0 Angular tests are in scripts/modules/sample-module/spec
+    2.0 Polymer WebCompontentTester should be used for individual module elements
+  H2. End-to-End Tests
+    1.0 Angular End-to-End testing using Protractor
+    2.0 Polymer end-to-end testing using Protractor or WCT
