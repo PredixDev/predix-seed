@@ -21,6 +21,11 @@
           observer: '_checkStatus',
           value: 'unloaded' // unloaded -> loading -> loaded -> attached
         },
+        visible: {
+          type: Boolean,
+          observer: '_checkVisibility',
+          value: false
+        },
         selected: {
           type: String,
           observer: '_checkRoute',
@@ -28,26 +33,42 @@
         },
         route: String,
         tag: String,
-        url: String
+        url: String,
+        element: {
+          type: Object,
+          value: null
+        }
       },
 
       ready: function() {
+        if(this.preload === true) {
+          this._loadElement();
+        };
         this._checkRoute();
       },
 
       _checkRoute: function() {
         // this route is selected
         if(this.route === this.selected) {
-          console.log(this.route + ' === ' + this.selected);
+          this.visible = true;
           this._attachElement();
         };
       },
 
+      _checkVisibility: function() {
+        if(this.visible === true && this.element !== null && this.status === 'attached') {
+          this.element.style.display = "block";
+        } else if(this.element !== null && this.status === 'attached'){
+          this.element.style.display = "none";
+        }
+      },
+
       _attachElement: function() {
         if(this.status === 'loaded') {
-          var newElement = document.createElement(this.tag);
-          this.appendChild(newElement);
+          this.element = document.createElement(this.tag);
+          this.appendChild(this.element);
           this.status = 'attached';
+          this._checkVisibility();
         } else if(this.status !== 'attached') {
           this._loadElement();
         };
@@ -60,6 +81,7 @@
           }, function(e) {
             console.log('failure to load ' + this.url, e);
           });
+          this.status = 'loading';
         };
       },
 
@@ -77,6 +99,8 @@
             // loading
             console.log(this.tag + ' loading');
             break;
+          case 'attached':
+
           default:
             console.log('default');
         }

@@ -35,18 +35,18 @@
   <link rel="import" id="elements" href="elements/elements.html" async>
 
 </head>
-
-<!-- We add 'loading' class to <body> and avoid <body unresolved>.
-     The unresolved flag is a simple solution to FOUC (Flash of Unstyled Content),
-     however it hides all of the page, causing a FONC "Flash of No Content" until the imports and
-     Polymer are loaded. Instead, we control FOUC manually with a splash screen. -->
 <body class="loading">
+  <!-- We add 'loading' class to the body tag and avoid the unresolved flag.
+       The unresolved flag is a simple solution to FOUC (Flash of Unstyled Content),
+       however it hides all of the page, causing a FONC "Flash of No Content" until the imports
+       and Polymer are loaded. Instead, we control FOUC manually with a splash screen. -->
 
+
+  <div id="splash"></div>
   <!-- Light weight splash screen is outside of Polymer/imports and styled by
        the main page. 1st paint is fast, even on polyfilled browsers. -->
-  <div id="splash"></div>
 
-  <!-- Elements wait on the page and are upgraded when elements.html loads. -->
+  <!-- Elements wait on the page and are upgraded after elements.html is loaded. -->
   <template is="dom-bind" id="app">
 
     <header role="banner" class="flex flex--middle">
@@ -95,13 +95,13 @@
             tag="dashboards-view"
             url="/elements/views/dashboards-view.html"></px-view>
           <px-view
-            preload="true"
+            preload="false"
             selected="{{route}}"
             route="blank-page"
             tag="blank-page-view"
             url="/elements/views/blank-page-view.html"></px-view>
           <px-view
-            preload="true"
+            preload="false"
             selected="{{route}}"
             route="blank-sub-page"
             tag="blank-sub-page-view"
