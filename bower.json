@@ -1,6 +1,6 @@
 {
   "name": "predix-seed",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "private": true,
   "ignore": [
     "**/.*",
@@ -26,7 +26,7 @@
     "px": "https://github.com/PredixDev/px.git#~v1.3.0",
     "px-app-nav": "https://github.com/PredixDev/px-app-nav.git#~v1.0.2",
     "px-card": "https://github.com/PredixDev/px-card.git#~v0.2.0",
-    "px-context-browser": "https://github.com/PredixDev/px-context-browser.git#~v0.7.4",
+    "px-context-browser": "https://github.com/PredixDev/px-context-browser.git#~v0.8.0",
     "ng-bind-polymer": "https://github.com/PredixDev/ng-bind-polymer.git#~v0.0.3",
     "px-deck-selector": "https://github.com/PredixDev/px-deck-selector.git#~v1.1.1",
     "px-datasource": "https://github.com/PredixDev/px-datasource.git#~v1.1",
