@@ -24,7 +24,7 @@
     "lodash": "2.4.1",
     "polymer": "~v1.2.3",
     "px": "https://github.com/PredixDev/px.git#~v1.3.0",
-    "px-app-nav": "https://github.com/PredixDev/px-app-nav.git#~v1.0.2",
+    "px-app-nav": "https://github.com/PredixDev/px-app-nav.git#~v1.0.3",
     "px-card": "https://github.com/PredixDev/px-card.git#~v0.2.0",
     "px-context-browser": "https://github.com/PredixDev/px-context-browser.git#~v0.8.0",
     "ng-bind-polymer": "https://github.com/PredixDev/ng-bind-polymer.git#~v0.0.3",
