@@ -22,9 +22,9 @@
 </head>
 
 <body unresolved class="app" data-ng-controller="MainCtrl">
-    <header role="banner" class="flex flex--middle">
+    <header role="banner">
         <div class="viewport">
-            <h1>
+            <h1 class="float--left">
                 <svg class="u-mr--" xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="24" height="24"
                      viewBox="-280 372 50 50">
                     <path
@@ -32,7 +32,7 @@
                 </svg>
                 Seed Application
             </h1>
-            <h2>
+            <h2 class="float--right">
                 Powered by Predix
             </h2>
         </div>
@@ -62,6 +62,7 @@
             </nav>
         </div>
     </footer>
+    <google-analytics code="UA-72329845-1"></google-analytics>
 </body>
 <script>
     // IE11 workaround: We can't rely on IE's load order for scripts that are loaded outside of require.js (might
