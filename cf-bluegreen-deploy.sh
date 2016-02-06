@@ -53,19 +53,19 @@ function create_services(){
 	create_service_if_not_exists $REDIS $REDIS_PLAN "predix_seed_session_store"
 	create_secure_service_if_not_exists $VIEWSERVICE $VIEWSERVICE_PLAN "predix_seed_view_service"
 	
-	if [ -z $LOGSTASH ]; then
-	    echo "LOGSTASH is undefined, disabling logstash & Kibana"
-	else
+#	if [ -z $LOGSTASH ]; then#
+#	    echo "LOGSTASH is undefined, disabling logstash & Kibana"
+#	else
 	    create_service_if_not_exists $LOGSTASH $LOGSTASH_PLAN "predix-platform-logstash"; #"predix_seed_logstash"
 	    create_kibana_if_not_exists_and_bind_to_logstash $KIBANA_APP  "predix-platform-logstash"; #"predix_seed_logstash"
-	fi
+#	fi
 	
-	if [ -z $NEWRELIC ]; then
-      echo "NEWRELIC is undefined, disabling NEWRELIC"
-    else
-      echo "create_services:NEWRELIC:" $NEWRELIC
+#	if [ -z $NEWRELIC ]; then
+#      echo "NEWRELIC is undefined, disabling NEWRELIC"
+#    else
+#      echo "create_services:NEWRELIC:" $NEWRELIC
       create_service_if_not_exists $NEWRELIC $NEWRELIC_PLAN "predix-platform-newrelic"; #"predix_seed_new_relic"
-    fi
+#    fi
 }
 
 function push_app_to_cf(){
