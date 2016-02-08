@@ -28,6 +28,7 @@ C. Routes and Routing
     - 1.0 Routing is handled by Angular UI Router
     - 2.0 Routing is handled by Page.js (according to Polymer team recommendation)
     - 2.1 Migration to carbon-router will be possible when Polymer team releases (Q1, 2016)
+    - 2.2 Research Resourceful routing scheme and tech
   C2. Secure routes
     - 1.0 Login is forced on parent 'secure' state provider defined in routes.js
     - 2.0 Login is forced on routes with 'ensureLogin' function added to route definition
