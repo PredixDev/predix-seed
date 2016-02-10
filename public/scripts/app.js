@@ -9,24 +9,30 @@ app.global = {
 };
 
 app.tabs = [
-    {
-        'path': '',
-        'icon': 'fa-warning',
-        'label': 'Alerts',
-        'subitems': [
-            {
-                'label': 'Sub Category 1'
-            }, {
-                'label': 'Sub Category 2'
-            }
-        ]
-    },
-    {
-        'path': 'tab2',
-        'icon': 'fa-briefcase',
-        'label': 'Cases'
-    }
+  {
+    'label': 'Alerts',
+    'path': '',
+    'icon': 'fa-warning',
+    'subitems': [
+      {
+        'label': 'Sub Category 1'
+      }, {
+        'label': 'Sub Category 2'
+      }
+    ]
+  },
+  {
+    'label': 'Cases',
+    'path': 'tab2',
+    'icon': 'fa-briefcase'
+  },
+  {
+    'label': 'Angular',
+    'path': 'angular',
+    'icon': 'fa-briefcase'
+  }
 ];
+
 // Sets app default base URL
 app.baseUrl = '/';
 
