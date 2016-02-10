@@ -198,9 +198,29 @@ function get_args(){
 	done
 }
 
+function save_build_info(){
+  printf "{
+    'APP': '$APP' ,
+    'APP_ID': '$APP_ID' ,
+    'MANIFEST': '$MANIFEST' ,
+    'NEWRELIC': '$NEWRELIC' ,
+    'LOGSTASH': '$LOGSTASH' ,
+    'LOGSTASH_PLAN':'$LOGSTASH_PLAN',
+    'NEWRELIC_PLAN':'$NEWRELIC_PLAN',
+    'POSTGRES_DB': '$POSTGRES_DB' ,
+    'POSTGRES_DB_PLAN':'$POSTGRES_DB_PLAN',
+    'POSTGRES_DB_INSTANCE' : '$POSTGRES_DB_INSTANCE',
+    'ARTIFACTORY_BUILD_NUMBER': '$ARTIFACTORY_BUILD_NUMBER',
+    'CF_DOMAIN': '$CF_DOMAIN' ,
+    'CF_SPACE': '$CF_SPACE' ,
+    'CF_ORG': '$CF_ORG' ,
+    'INSTANCE': '$INSTANCE'
+  }" > artifact.json
+}
 
 function main(){
 	get_args $*
+	save_build_info
 	validate_inputs
 	create_services
 	push_app_to_cf
