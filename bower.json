@@ -1,6 +1,6 @@
 {
   "name": "predix-seed",
-  "version": "1.2.4",
+  "version": "1.2.9",
   "private": true,
   "ignore": [
     "**/.*",
@@ -24,24 +24,25 @@
     "lodash": "2.4.1",
     "polymer": "~v1.2.3",
     "px": "https://github.com/PredixDev/px.git#~v1.3.0",
-    "px-app-nav": "https://github.com/PredixDev/px-app-nav.git#~v1.0.0",
-    "px-card": "https://github.com/PredixDev/px-card.git#~v0.2.0",
+    "px-app-nav": "https://github.com/PredixDev/px-app-nav.git#~v1.0.5",
+    "px-card": "https://github.com/PredixDev/px-card.git#~v0.2.3",
     "px-context-browser": "https://github.com/PredixDev/px-context-browser.git#~v0.8.0",
     "ng-bind-polymer": "https://github.com/PredixDev/ng-bind-polymer.git#~v0.0.3",
     "px-deck-selector": "https://github.com/PredixDev/px-deck-selector.git#~v1.1.1",
     "px-datasource": "https://github.com/PredixDev/px-datasource.git#~v1.1",
     "px-login": "https://github.com/PredixDev/px-login.git#~v0.1.1",
-    "px-sample-cards": "https://github.com/PredixDev/px-sample-cards.git#~v0.2.12",
-    "px-theme": "https://github.com/PredixDev/px-theme.git#~v0.5.1",
+    "px-sample-cards": "https://github.com/PredixDev/px-sample-cards.git#~v0.2.15",
+    "px-theme": "https://github.com/PredixDev/px-theme.git#~v0.6.1",
     "require-css": "0.1.1",
     "requirejs": "https://github.com/jrburke/requirejs.git#2.1.18",
-    "requirejs-plugins": "1.0.2"
+    "requirejs-plugins": "1.0.2",
+    "google-analytics": "~0.1.0"
   },
   "resolutions": {
     "es6-promise": "~v3.0.2",
     "px": "~v1.3.0",
-    "px-theme": "~v0.4.1",
+    "px-theme": "~v0.6.1",
     "polymer": "~1.2.3",
-    "px-card": "~v0.2.0"
+    "px-card": "~v0.2.2"
   }
 }
