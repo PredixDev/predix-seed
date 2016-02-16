@@ -201,14 +201,10 @@ function get_args(){
 		k)
 			KIBANA_APP=$OPTARG
 		;;
-<<<<<<< HEAD
-	    \?)
-=======
 		l)
       LOGSTASH=$OPTARG
     ;;
 	  \?)
->>>>>>> develop
 			echo "Invalid option -$OPTARG"
 			show_help
 	  ;;
