@@ -53,18 +53,18 @@ function create_services(){
 	create_service_if_not_exists $REDIS $REDIS_PLAN "predix_seed_session_store"
 	create_secure_service_if_not_exists $VIEWSERVICE $VIEWSERVICE_PLAN "predix_seed_view_service"
 
-  if [ -z $LOGSTASH ]; then
+	if [ -z $LOGSTASH ]; then
 	    echo "LOGSTASH is undefined, disabling logstash & Kibana"
   else
-	  create_service_if_not_exists $LOGSTASH $LOGSTASH_PLAN "predix_seed_logstash"; #"predix_seed_logstash"
-	  create_kibana_if_not_exists_and_bind_to_logstash $KIBANA_APP  "predix_seed_logstash"; #"predix_seed_logstash"
+	  create_service_if_not_exists $LOGSTASH $LOGSTASH_PLAN "predix-platform-logstash"; #"predix_seed_logstash"
+	  create_kibana_if_not_exists_and_bind_to_logstash $KIBANA_APP  "predix-platform-logstash"; #"predix_seed_logstash"
 	fi
 
 	if [ -z $NEWRELIC ]; then
     echo "NEWRELIC is undefined, disabling NEWRELIC"
   else
     echo "create_services:NEWRELIC:" $NEWRELIC
-    create_service_if_not_exists $NEWRELIC $NEWRELIC_PLAN "predix_seed_new_relic"; #"predix_seed_new_relic"
+    create_service_if_not_exists $NEWRELIC $NEWRELIC_PLAN "predix-platform-newrelic"; #"predix_seed_new_relic"
   fi
 }
 
@@ -84,8 +84,8 @@ function push_app_to_cf(){
 	status "Setting REDIS for common.lua to ${REDIS}"
 	cf set-env $APP_ID REDIS $REDIS
 
-	status "Setting NEW_RELIC_APP_NAME to ${NEW_RELIC_APP_NAME}"
-	cf set-env $APP_ID NEW_RELIC_APP_NAME $NEW_RELIC_APP_NAME
+	#status "Setting NEW_RELIC_APP_NAME to ${NEW_RELIC_APP_NAME}"
+	#cf set-env $APP_ID NEW_RELIC_APP_NAME $NEW_RELIC_APP_NAME
 
 	cf start $APP_ID
 	if [ $? -ne 0 ]; then
@@ -171,7 +171,7 @@ function cleanup(){
 }
 
 function get_args(){
-	while getopts "f:s:b:d:i:t:n:k:" opt; do
+	while getopts "f:s:b:d:i:t:n:k:l:" opt; do
 	  case $opt in
 	  	h)
 			show_help
@@ -201,10 +201,17 @@ function get_args(){
 		k)
 			KIBANA_APP=$OPTARG
 		;;
+<<<<<<< HEAD
 	    \?)
+=======
+		l)
+      LOGSTASH=$OPTARG
+    ;;
+	  \?)
+>>>>>>> develop
 			echo "Invalid option -$OPTARG"
 			show_help
-	    ;;
+	  ;;
 	  esac
 	done
 }
