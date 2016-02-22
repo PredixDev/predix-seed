@@ -55,17 +55,17 @@ function create_services(){
 
 	if [ -z $LOGSTASH ]; then
 	    echo "LOGSTASH is undefined, disabling logstash & Kibana"
-  else
-	  create_service_if_not_exists $LOGSTASH $LOGSTASH_PLAN "predix-platform-logstash"; #"predix_seed_logstash"
-	  create_kibana_if_not_exists_and_bind_to_logstash $KIBANA_APP  "predix-platform-logstash"; #"predix_seed_logstash"
+    else
+        create_service_if_not_exists $LOGSTASH $LOGSTASH_PLAN "predix-platform-logstash"; #"predix_seed_logstash"
+	    create_kibana_if_not_exists_and_bind_to_logstash $KIBANA_APP  "predix-platform-logstash"; #"predix_seed_logstash"
 	fi
 
 	if [ -z $NEWRELIC ]; then
-    echo "NEWRELIC is undefined, disabling NEWRELIC"
-  else
-    echo "create_services:NEWRELIC:" $NEWRELIC
-    create_service_if_not_exists $NEWRELIC $NEWRELIC_PLAN "predix-platform-newrelic"; #"predix_seed_new_relic"
-  fi
+        echo "NEWRELIC is undefined, disabling NEWRELIC"
+    else
+        echo "create_services:NEWRELIC:" $NEWRELIC
+        create_service_if_not_exists $NEWRELIC $NEWRELIC_PLAN "predix-platform-newrelic"; #"predix_seed_new_relic"
+    fi
 }
 
 
