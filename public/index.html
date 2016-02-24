@@ -66,9 +66,8 @@
 
         <px-app-nav
           class="navbar"
-          nav-items$="{{tabs}}"
-          path-prefix="/"
-          path-key="state">
+          nav-items="{{tabs}}"
+          path-prefix="#!/">
           <px-login
             id="login"
             login-url="login-demo.html"
@@ -90,7 +89,7 @@
             url="/elements/views/home-view.html"></px-view>
           <px-view
             selected="{{route}}"
-            name="dashboards"
+            route="dashboards"
             tag="dashboards-view"
             url="/elements/views/dashboards-view.html"></px-view>
           <px-view
