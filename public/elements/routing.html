@@ -48,13 +48,18 @@
     });
 
     // Blank page test (see views/blank-page)
-    page('/blank-page', function(data) {
-      app.route = 'blank-page';
+    page('/blankpage', function(data) {
+      app.route = 'blankpage';
     });
 
     // Blank Sub-page test (see views/blank-page)
-    page('/blank-sub-page', function() {
-      app.route = 'blank-sub-page';
+    page('/blanksubpage', function() {
+      app.route = 'blanksubpage';
+    });
+
+    // Blank Sub-page test (see views/blank-page)
+    page('/angular', function() {
+      app.route = 'angular';
     });
 
     // 404
