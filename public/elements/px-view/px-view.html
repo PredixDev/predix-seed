@@ -89,7 +89,7 @@
       },
 
       _loadElement: function() {
-        if(this.status === 'unloaded') {
+        if(this.status === 'unloaded' && typeof this.url !== 'undefined') {
           this.importHref(this.url, function(e) {
             this.status = 'loaded';
           }, function(e) {
