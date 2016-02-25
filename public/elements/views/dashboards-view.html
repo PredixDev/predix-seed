@@ -10,7 +10,7 @@
                 browser-context='{{initialContexts}}'
                 handlers="ngScope:handlers"
                 opened-item-name="{{initialContextName}}">
-            <px-deck-selector ng-bind-polymer decks="{{decks}}" selected-deck="{{selectedDeck}}" ></px-deck-selector>
+            <px-deck-selector decks="{{decks}}" selected-deck="{{selectedDeck}}" ></px-deck-selector>
         </px-context-browser>
         <px-dashboard view-service-base-url="{{viewServiceBaseUrl}}" selected-deck-id="{{selectedDeck.id}}" context="{{context}}"></px-dashboard>
     </template>

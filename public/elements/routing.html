@@ -28,37 +28,46 @@
     // Routes
 
     // Catch-all route which first runs middleware, then continue to next()
+    /*
     page('*', function(ctx, next) {
+      console.log(ctx.path);
       next();
     });
+    */
 
     // Root
-    page('/', ensureLogin, function() {
+    page('/', ensureLogin, function(ctx, next) {
+      console.log('/', ctx.path);
       app.route = 'home';
     });
 
     // baseUrl set on index.html
-    page(app.baseUrl, ensureLogin, function() {
+    page(app.baseUrl, ensureLogin, function(ctx, next) {
+      console.log('home: ', ctx.path);
       app.route = 'home';
     });
 
-    // Dashboards (see views/dashboards)
-    page('/dashboards', ensureLogin, function() {
+    // Dashboards (dashboards-view.html)
+    page('/dashboards', ensureLogin, function(ctx, next) {
+      console.log('dashboards: ', ctx.path);
       app.route = 'dashboards';
     });
 
-    // Blank page test (see views/blank-page)
-    page('/blankpage', function(data) {
+    // Blank page test (blankpage-view.html)
+    page('/blankpage', function(ctx, next) {
+      console.log('blankpage: ', ctx.path);
       app.route = 'blankpage';
     });
 
-    // Blank Sub-page test (see views/blank-page)
-    page('/blanksubpage', function() {
+    // Blank Sub-page test (blanksubpage-view.html)
+    page('/blanksubpage', function(ctx, next) {
+      console.log('blanksubpage: ', ctx.path);
       app.route = 'blanksubpage';
     });
 
     // Blank Sub-page test (see views/blank-page)
-    page('/angular', function() {
+    page('/angular', function(ctx, next) {
+      console.log('angular: ', ctx.path);
       app.route = 'angular';
     });
 
