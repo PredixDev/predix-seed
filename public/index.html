@@ -10,25 +10,24 @@
   <!-- Temporary #splash grey screen styles -->
   <style>
     html, body {
-        background: #3b3b3f;
+      background: #3b3b3f;
     }
     body.loading #splash {
-        opacity: 1;
+      opacity: 1;
     }
     #splash {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        transition: opacity 500ms cubic-bezier(0,0,0.2,1);
-        opacity: 0;
-        will-change: opacity;
-        z-index: 1;
-        background: #3b3b3f;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: opacity 500ms cubic-bezier(0,0,0.2,1);
+      opacity: 0;
+      will-change: opacity;
+      z-index: 1;
+      background: #3b3b3f;
     }
   </style>
-
   <!-- Async HTML Imports do not block rending. Benefit of keeping it declarative
        (instead of dynamically loading it later in JS) is that the parser can go to
        town pre-fetching resources, etc. -->
@@ -48,7 +47,7 @@
 
   <!-- Elements wait on the page and are upgraded after elements.html is loaded. -->
   <template is="dom-bind" id="app">
-
+    <h1 style="color:white;">{{route}}</h1>
     <header role="banner" class="flex flex--middle">
       <div class="viewport">
         <h1>
@@ -98,29 +97,28 @@
 
         <main class="u-pt-- u-pr-- u-pl--" role="main">
           <px-view
-            preload
-            selected="{{route}}"
-            route="home"
+            route="{{route}}"
+            match="home"
             tag="home-view"
             url="/elements/views/home-view.html"></px-view>
           <px-view
-            selected$="{{route}}"
-            route="dashboards"
+            route="{{route}}"
+            match="dashboards"
             tag="dashboards-view"
             url="/elements/views/dashboards-view.html"></px-view>
           <px-view
-            selected="{{route}}"
-            route="blank-page"
-            tag="blank-page-view"
-            url="/elements/views/blank-page-view.html"></px-view>
+            route="{{route}}"
+            match="blank-page"
+            tag="blankpage-view"
+            url="/elements/views/blankpage-view.html"></px-view>
           <px-view
-            selected="{{route}}"
-            route="blank-sub-page"
-            tag="blank-sub-page-view"
-            url="/elements/views/blank-sub-page-view.html"></px-view>
+            route="{{route}}"
+            match="blanksub-page"
+            tag="blanksubpage-view"
+            url="/elements/views/blanksubpage-view.html"></px-view>
           <px-view
-            selected="{{route}}"
-            route="angular"
+            route="{{route}}"
+            match="angular"
             tag="angular-view"
             url="/elements/views/angular-view.html"></px-view>
         </main>

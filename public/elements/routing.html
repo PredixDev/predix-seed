@@ -34,41 +34,48 @@
       next();
     });
     */
+    var printPath = function(ctx, next) {
+      console.log('ctx.path ', ctx.path);
+      next();
+    };
 
     // Root
-    page('/', ensureLogin, function(ctx, next) {
-      console.log('/', ctx.path);
+    page('/', ensureLogin, printPath, function(ctx, next) {
       app.route = 'home';
+      app.set('route', 'home')
+      console.log(this);
     });
 
     // baseUrl set on index.html
-    page(app.baseUrl, ensureLogin, function(ctx, next) {
-      console.log('home: ', ctx.path);
+    page(app.baseUrl, ensureLogin, printPath, function(ctx, next) {
       app.route = 'home';
+      app.set('route', 'home');
+      console.log(this);
     });
 
     // Dashboards (dashboards-view.html)
-    page('/dashboards', ensureLogin, function(ctx, next) {
-      console.log('dashboards: ', ctx.path);
-      app.route = 'dashboards';
+    page('/dashboards', ensureLogin, printPath, function(ctx, next) {
+      //app.route = 'dashboards';
+      app.set('route', 'dashboards')
+      console.log(this);
     });
 
     // Blank page test (blankpage-view.html)
-    page('/blankpage', function(ctx, next) {
-      console.log('blankpage: ', ctx.path);
+    page('/blankpage', printPath, function(ctx, next) {
       app.route = 'blankpage';
+      app.set('route', 'blankpage');
     });
 
     // Blank Sub-page test (blanksubpage-view.html)
-    page('/blanksubpage', function(ctx, next) {
-      console.log('blanksubpage: ', ctx.path);
+    page('/blanksubpage', printPath, function(ctx, next) {
       app.route = 'blanksubpage';
+      app.set('route', 'blanksubpage');
     });
 
     // Blank Sub-page test (see views/blank-page)
-    page('/angular', function(ctx, next) {
-      console.log('angular: ', ctx.path);
+    page('/angular', printPath, function(ctx, next) {
       app.route = 'angular';
+        app.set('route', 'angular');
     });
 
     // 404

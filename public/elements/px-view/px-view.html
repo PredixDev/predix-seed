@@ -4,7 +4,7 @@
 <!-- conditionally load content -->
 <dom-module id="px-view">
   <template>
-    <!-- element will be inserted here -->
+    <!-- view element will be inserted here -->
   </template>
   <script>
     Polymer({
@@ -18,7 +18,7 @@
         },
         status: {
           type: String,
-          observer: '_checkRoute',
+          // observer: '_checkRoute',
           value: 'unloaded' // unloaded -> loading -> loaded -> attached
         },
         visible: {
@@ -26,10 +26,10 @@
           observer: '_checkVisibility',
           value: false
         },
-        selected: {
+        route: {
           type: String,
           observer: '_checkRoute',
-          value: null
+          value: ""
         },
         element: {
           type: Object,
@@ -37,10 +37,16 @@
         },
         tag: {
           type: String,
-          value: null
+          value: ""
         },
-        route: String,
-        url: String
+        match: {
+          type: String,
+          value: ""
+        },
+        url: {
+          type: String,
+          value: ""
+        }
       },
 
       ready: function() {
@@ -61,11 +67,27 @@
         };
       },
 
-      _checkRoute: function() {
-        // this route is selected
-        if(this.route === this.selected && this.tag !== null) {
-          this.visible = true;
-          this._attachElement();
+      _checkRoute: function(newValue) {
+
+        console.group();
+          console.log('new Value:', newValue );
+          console.log('app.route', app.route);
+          console.log('this.match: ', this.match);
+          console.log(', this.route: ', this.route);
+          console.log(', this.tag: ', this.tag);
+          console.log(app);
+        console.groupEnd();
+
+        // this route is route
+        // console.log(this.match);
+        if(this.match === this.route) {
+          if(this.tag) {
+            console.log('tag yo', this.tag)
+            this.visible = true;
+            this._attachElement();
+          };
+        } else {
+          this.visible = false;
         };
       },
 
@@ -79,7 +101,7 @@
 
       _attachElement: function() {
         if(this.status === 'loaded') {
-          this.element = document.createElement(this.tag);
+          this.element = document.createElement(this.tag); // <home-view>
           this.appendChild(this.element);
           this.status = 'attached';
           this._checkVisibility();

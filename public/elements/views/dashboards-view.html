@@ -3,28 +3,26 @@
 <!-- this element loads another element and appends it to #element -->
 <dom-module id="dashboards-view">
 
-    <template>
-        <!-- ERIC: Work with Runn on this excellent componentry -->
-        <h1>Dashboards View</h1>
-        <px-context-browser
-                browser-context='{{initialContexts}}'
-                handlers="ngScope:handlers"
-                opened-item-name="{{initialContextName}}">
-            <px-deck-selector decks="{{decks}}" selected-deck="{{selectedDeck}}" ></px-deck-selector>
-        </px-context-browser>
-        <px-dashboard view-service-base-url="{{viewServiceBaseUrl}}" selected-deck-id="{{selectedDeck.id}}" context="{{context}}"></px-dashboard>
-    </template>
+  <template>
+    <!-- ERIC: Work with Runn on this excellent componentry -->
+    <h1>Dashboards View</h1>
+    <px-context-browser
+      browser-context='{{initialContexts}}'
+      handlers="ngScope:handlers"
+      opened-item-name="{{initialContextName}}">
+      <px-deck-selector decks="{{decks}}" selected-deck="{{selectedDeck}}"></px-deck-selector>
+    </px-context-browser>
+    <px-dashboard view-service-base-url="{{viewServiceBaseUrl}}" selected-deck-id="{{selectedDeck.id}}" context="{{context}}"></px-dashboard>
+  </template>
 
-    <script>
-        Polymer({
-            is: 'dashboards-view',
-            properties: {
-
-            },
-            ready: function() {
-                console.log('dashboards-view', this);
-            }
-        });
-    </script>
+  <script>
+    Polymer({
+      is: 'dashboards-view',
+      properties: {},
+      ready: function() {
+        // console.log('dashboards-view', this);
+      }
+    });
+  </script>
 
 </dom-module>
