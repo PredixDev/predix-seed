@@ -1,5 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<!-- this element does two things: -->
+<!-- the px-view component does two things: -->
 <!-- conditionally show/hide content -->
 <!-- conditionally load content -->
 <dom-module id="px-view">
@@ -18,22 +18,18 @@
         },
         status: {
           type: String,
-          // observer: '_checkRoute',
+          observer: '_checkStatus',
           value: 'unloaded' // unloaded -> loading -> loaded -> attached
         },
         visible: {
           type: Boolean,
-          observer: '_checkVisibility',
-          value: false
+          computed: '_computeVisible(route, match, status)',
+          observer: '_checkVisible'
         },
         route: {
           type: String,
           observer: '_checkRoute',
           value: ""
-        },
-        element: {
-          type: Object,
-          value: null
         },
         tag: {
           type: String,
@@ -48,6 +44,8 @@
           value: ""
         }
       },
+
+      viewElement: null, // reference to the loaded view element
 
       ready: function() {
         this._initializeView();
@@ -67,47 +65,66 @@
         };
       },
 
+      // unloaded -> loading -> loaded -> attached
+      _checkStatus: function(newValue) {
+        switch (newValue) {
+          case 'unloaded':
+
+            break;
+          case 'loading':
+
+            break;
+          case 'loaded':
+            if(this.match === this.route) {
+              this._attachElement();
+            };
+            break;
+          case 'attached':
+
+            break;
+          default:
+
+        }
+      },
+
       _checkRoute: function(newValue) {
-
-        console.group();
-          console.log('new Value:', newValue );
-          console.log('app.route', app.route);
-          console.log('this.match: ', this.match);
-          console.log(', this.route: ', this.route);
-          console.log(', this.tag: ', this.tag);
-          console.log(app);
-        console.groupEnd();
-
         // this route is route
         // console.log(this.match);
         if(this.match === this.route) {
           if(this.tag) {
-            console.log('tag yo', this.tag)
-            this.visible = true;
+            console.group();
+              console.log('is match?   ', this.match === this.route);
+              console.log('new Value:  ', newValue );
+              console.log('app.route:  ', app.route);
+              console.log('this.match: ', this.match);
+              console.log('this.route: ', this.route);
+              console.log('this.tag:   ', this.tag);
+            console.groupEnd();
+            if(this.status === 'loaded') {
+              
+            };
             this._attachElement();
           };
         } else {
-          this.visible = false;
+          this.set('visible', false);
         };
       },
 
-      _checkVisibility: function() {
-        if(this.visible === true && this.element !== null && this.status === 'attached') {
-          this.element.style.display = "block";
-        } else if(this.element !== null && this.status === 'attached'){
-          this.element.style.display = "none";
-        }
+      _computeVisible: function(route, match, status) {
+        return (route === match && status === 'attached');
+      },
+
+      // observer to visible, set style.display of viewElement
+      _checkVisible: function(visible) {
+        if(this.status === 'attached') {
+          this.viewElement.style.display = visible ? "block" : "none";
+        };
       },
 
       _attachElement: function() {
-        if(this.status === 'loaded') {
-          this.element = document.createElement(this.tag); // <home-view>
-          this.appendChild(this.element);
-          this.status = 'attached';
-          this._checkVisibility();
-        } else if(this.status !== 'attached') {
-          this._loadElement();
-        };
+        this.viewElement = document.createElement(this.tag);
+        this.appendChild(this.viewElement);
+        this.status = 'attached';
       },
 
       _loadElement: function() {
