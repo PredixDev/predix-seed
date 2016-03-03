@@ -35,12 +35,12 @@
     });
     */
     var printPath = function(ctx, next) {
-      console.log('path: ', ctx.path);
+      // console.log('routing.html ctx.path: ', ctx.path);
       next();
     };
 
     var getRoute = function(ctx, next) {
-      console.log('getRoute: ', app.get('route'));
+      // console.log('routing.html getRoute: ', app.get('route'));
     };
 
     // Root
@@ -81,7 +81,7 @@
 
     // 404
     page('*', function() {
-      console.log('Route not found - 404');
+      // console.log('routing.html: Route not found - 404');
       page.redirect(app.baseUrl);
     });
 

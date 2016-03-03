@@ -62,19 +62,24 @@ Polymer({
     };
   },
 
-  _attachConditions: function() {
-    console.log('match: ', this.match, ', route: ', this.route);
+  _routeMatches: function() {
     return (this.route === this.match);
   },
 
   _loadConditions: function() {
-    return (this.url && this.tag && (this._attachConditions() || this.preload));
+    return (this.url &&
+            this.tag && (
+              this._routeMatches() ||
+              this.preload
+           ));
   },
 
   // unloaded -> loading -> loaded -> attached
   _checkStatus: function(newValue) {
+    // console.log(this.match, newValue);
     switch (newValue) {
       case 'unloaded':
+        // console.log('this._loadConditions()', this._loadConditions());
         if(this._loadConditions()) {
           this._loadElement();
         };
@@ -82,7 +87,7 @@ Polymer({
       case 'loading':
         break;
       case 'loaded':
-        if (this._attachConditions()) {
+        if (this._routeMatches()) {
           this._attachElement();
         };
         break;
@@ -93,7 +98,7 @@ Polymer({
   },
 
   _checkRoute: function(newValue) {
-    // this route is route
+    this.route = newValue;
     if (this.match === newValue) {
       this._checkStatus(this.status);
     };
