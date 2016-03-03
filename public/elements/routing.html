@@ -35,45 +35,49 @@
     });
     */
     var printPath = function(ctx, next) {
-      console.log('ctx.path ', ctx.path);
+      console.log('path: ', ctx.path);
       next();
+    };
+
+    var getRoute = function(ctx, next) {
+      console.log('getRoute: ', app.get('route'));
     };
 
     // Root
     page('/', ensureLogin, printPath, function(ctx, next) {
-      app.route = 'home';
-      app.set('route', 'home')
-    });
+      app.set('route', 'home');
+      next();
+    }, getRoute);
 
     // baseUrl set on index.html
     page(app.baseUrl, ensureLogin, printPath, function(ctx, next) {
-      app.route = 'home';
       app.set('route', 'home');
-    });
+      next();
+    }, getRoute);
 
     // Dashboards (dashboards-view.html)
     page('/dashboards', ensureLogin, printPath, function(ctx, next) {
-      //app.route = 'dashboards';
-      app.set('route', 'dashboards')
-    });
+      app.set('route', 'dashboards');
+      next();
+    }, getRoute);
 
     // Blank page test (blankpage-view.html)
     page('/blankpage', printPath, function(ctx, next) {
-      app.route = 'blankpage';
       app.set('route', 'blankpage');
-    });
+      next();
+    }, getRoute);
 
     // Blank Sub-page test (blanksubpage-view.html)
     page('/blanksubpage', printPath, function(ctx, next) {
-      app.route = 'blanksubpage';
       app.set('route', 'blanksubpage');
-    });
+      next();
+    }, getRoute);
 
     // Blank Sub-page test (see views/blank-page)
     page('/angular', printPath, function(ctx, next) {
-      app.route = 'angular';
-        app.set('route', 'angular');
-    });
+      app.set('route', 'angular');
+      next();
+    }, getRoute);
 
     // 404
     page('*', function() {
