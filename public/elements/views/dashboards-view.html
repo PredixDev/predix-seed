@@ -7,10 +7,11 @@
     <!-- ERIC: Work with Runn on this excellent componentry -->
     <h1>Dashboards View</h1>
     <px-context-browser
-      browser-context='{{initialContexts}}'
-      handlers="ngScope:handlers"
+      browser-context="{{initialContexts}}"
       opened-item-name="{{initialContextName}}">
-      <px-deck-selector decks="{{decks}}" selected-deck="{{selectedDeck}}"></px-deck-selector>
+      <px-deck-selector
+        decks="{{decks}}"
+        selected-deck="{{selectedDeck}}"></px-deck-selector>
     </px-context-browser>
     <px-dashboard view-service-base-url="{{viewServiceBaseUrl}}" selected-deck-id="{{selectedDeck.id}}" context="{{context}}"></px-dashboard>
   </template>
@@ -20,7 +21,7 @@
       is: 'dashboards-view',
       properties: {},
       ready: function() {
-        // console.log('dashboards-view', this);
+        console.log('dashboards-view', this);
       }
     });
   </script>

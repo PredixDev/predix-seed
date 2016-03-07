@@ -76,10 +76,8 @@ Polymer({
 
   // unloaded -> loading -> loaded -> attached
   _checkStatus: function(newValue) {
-    // console.log(this.match, newValue);
     switch (newValue) {
       case 'unloaded':
-        // console.log('this._loadConditions()', this._loadConditions());
         if(this._loadConditions()) {
           this._loadElement();
         };
