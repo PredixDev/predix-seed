@@ -9,9 +9,7 @@
   var initRouting = function() {
 
     // Removes end / from app.baseUrl which page.base requires for production
-    if (window.location.port === '') {  // if production
-        page.base(app.baseUrl.replace(/\/$/, ''));
-    };
+    page.base(app.baseUrl.replace(/\/$/, ''));
 
     // route middleware function to ensure that users are logged in
     var ensureLogin = function(ctx, next) {
@@ -87,7 +85,7 @@
 
     // add #! before urls
     page({
-      hashbang: true
+      hashbang: false
     });
 
   };

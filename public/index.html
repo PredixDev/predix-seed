@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Predix Seed 2.0</title>
-  <base href="/">
+  <base href="/#!">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/png" href="images/favicon.png">
@@ -47,6 +47,12 @@
 
   <!-- Elements wait on the page and are upgraded after elements.html is loaded. -->
   <template is="dom-bind" id="app">
+    <br />
+    &nbsp;&nbsp;
+    &nbsp;&nbsp;
+    <a href="/#!/dashboards">Dashboards</a>
+    <br />
+    <br />
     <header role="banner" class="flex flex--middle">
       <div class="viewport">
         <h1>
@@ -81,7 +87,7 @@
             "path": "angular",
             "icon": "fa-briefcase"
           }]'
-          path-prefix="">
+          path-prefix="#!">
           <px-login
             id="login"
             login-url="login-demo.html"
