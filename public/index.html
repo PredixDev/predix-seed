@@ -40,19 +40,12 @@
        however it hides all of the page, causing a FONC "Flash of No Content" until the imports
        and Polymer are loaded. Instead, we control FOUC manually with a splash screen. -->
 
-
   <div id="splash"></div>
   <!-- Light weight splash screen is outside of Polymer/imports and styled by
        the main page. 1st paint is fast, even on polyfilled browsers. -->
 
   <!-- Elements wait on the page and are upgraded after elements.html is loaded. -->
   <template is="dom-bind" id="app">
-    <br />
-    &nbsp;&nbsp;
-    &nbsp;&nbsp;
-    <a href="/#!/dashboards">Dashboards</a>
-    <br />
-    <br />
     <header role="banner" class="flex flex--middle">
       <div class="viewport">
         <h1>
