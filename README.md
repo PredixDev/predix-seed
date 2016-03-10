@@ -241,7 +241,7 @@ The first thing we need to do is give our dummy user permission to see the views
 	```
 5. Update your client authorities to include this group
 	
-    Use uaac to get your current client autoapprove, and add the group you just created to this list.
+    Use uaac to get your current client authorities, and add the group you just created to this list.
 	```
 	uaac client get <your-client> 
 	uaac client update <your-client> --authorities views.zones.<your-views-instance-id>.user,<other>,<authorities>
