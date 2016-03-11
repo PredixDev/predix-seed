@@ -13,14 +13,26 @@ define(['angular', './sample-module'], function(angular, module) {
         /**
          * transform the asset entity into an object format consumable by px-context-browser item
          */
-        var transformChildren = function(entity) { // transform your entity to context browser entity format
-            return {
-                name: entity.assetId, // Displayed name in the context browser
-                id: entity.uri, // Unique ID (could be a URI for example)
-                parentId: entity.parent, // Parent ID. Used to place the children under the corresponding parent in the browser.
-                classification: entity.classification, // Classification used for fetching the views.
-                isOpenable: true
-            };
+        var transformChildren = function(entities) { // transform your entity to context browser entity format
+            var result = [];
+            for (var i = 0; i < entities.length; i++) {
+                var entity = entities[i];
+                var transformedEntity =  {
+                    name: entity.assetId, // Displayed name in the context browser
+                    id: entity.uri, // Unique ID (could be a URI for example)
+                    identifier: entity.uri, // Unique ID (could be a URI for example)
+                    parentId: entity.parent, // Parent ID. Used to place the children under the corresponding parent in the browser.
+                    classification: entity.classification, // Classification used for fetching the views.
+                    isOpenable: true
+                };
+
+                if (entity.children){
+                    transformedEntity.children = transformChildren(entity.children);
+                }
+
+                result.push(transformedEntity);
+            }
+            return result;
         };
 
         /**
@@ -78,12 +90,7 @@ define(['angular', './sample-module'], function(angular, module) {
             var deferred = $q.defer();
 
             getEntityChildren(parentId, options).then(function(results) {
-                var transformedChildren = [];
-                for (var i = 0; i < results.data.length; i++) {
-                    transformedChildren.push(transformChildren(results.data[i]));
-                }
-
-                results.data = transformedChildren;
+                results.data = transformChildren(results.data);
 
                 deferred.resolve(results);
 

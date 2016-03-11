@@ -52,9 +52,21 @@ function create_secure_service_if_not_exists(){
 function create_services(){
 	create_service_if_not_exists $REDIS $REDIS_PLAN "predix_seed_session_store"
 	create_secure_service_if_not_exists $VIEWSERVICE $VIEWSERVICE_PLAN "predix_seed_view_service"
-	create_service_if_not_exists $NEWRELIC $NEWRELIC_PLAN "predix_seed_new_relic"
-	create_service_if_not_exists $LOGSTASH $LOGSTASH_PLAN "predix_seed_logstash"
-	create_kibana_if_not_exists_and_bind_to_logstash $KIBANA_APP "predix_seed_logstash"
+
+
+	if [ -z $LOGSTASH ]; then
+	    echo "LOGSTASH is undefined, disabling logstash & Kibana"
+  else
+	  create_service_if_not_exists $LOGSTASH $LOGSTASH_PLAN "predix-platform-logstash"; #"predix_seed_logstash"
+	  create_kibana_if_not_exists_and_bind_to_logstash $KIBANA_APP  "predix-platform-logstash"; #"predix_seed_logstash"
+	fi
+
+	if [ -z $NEWRELIC ]; then
+    echo "NEWRELIC is undefined, disabling NEWRELIC"
+  else
+    echo "create_services:NEWRELIC:" $NEWRELIC
+    create_service_if_not_exists $NEWRELIC $NEWRELIC_PLAN "predix-platform-newrelic"; #"predix_seed_new_relic"
+  fi
 }
 
 function push_app_to_cf(){
@@ -68,12 +80,12 @@ function push_app_to_cf(){
 
 	status "Setting UAA_SERVER_URL to ${UAA_URL}"
 	cf set-env $APP_ID UAA_SERVER_URL $UAA_URL
-	
+
 	status "Setting REDIS for common.lua to ${REDIS}"
 	cf set-env $APP_ID REDIS $REDIS
 
-	status "Setting NEW_RELIC_APP_NAME to ${NEW_RELIC_APP_NAME}"
-	cf set-env $APP_ID NEW_RELIC_APP_NAME $NEW_RELIC_APP_NAME
+	#status "Setting NEW_RELIC_APP_NAME to ${NEW_RELIC_APP_NAME}"
+	#cf set-env $APP_ID NEW_RELIC_APP_NAME $NEW_RELIC_APP_NAME
 
 	cf start $APP_ID
 	if [ $? -ne 0 ]; then
@@ -85,7 +97,7 @@ function push_app_to_cf(){
 
 function delete_if_old_app(){
 	build_number=$(echo $1| sed "s/$APP_NAME-//")
-	if [ "$build_number" = "$ARTIFACTORY_BUILD_NUMBER" ]; then 
+	if [ "$build_number" = "$ARTIFACTORY_BUILD_NUMBER" ]; then
 		return;
 	fi
 	status "Deleting the old build of the app '$APP_NAME' : $1"
@@ -103,7 +115,7 @@ function delete_older_apps(){
 function do_zero_downtime_deployment(){
 	cf map-route $APP_ID $CF_DOMAIN -n $APP_NAME
 	exit_if_error $? "Unable to map route for $APP_NAME.$CF_DOMAIN to $APP_ID"
-	
+
 	if [ ${#CF_SPACE} -eq 0 ]
 		then
 		 cf map-route $APP_ID predix.ge.com
@@ -126,7 +138,7 @@ function validate_inputs(){
 		show_help
 		exit_if_error 1 "Domain not set"
 	fi
-	
+
 	if [ ${#CF_SPACE} -eq 0 ]
 		then
 		APP_NAME=$APP
@@ -159,28 +171,28 @@ function cleanup(){
 }
 
 function get_args(){
-	while getopts "f:s:b:d:i:t:n:k:" opt; do
+	while getopts "f:s:b:d:i:t:n:k:l:" opt; do
 	  case $opt in
-	  	h) 
+	  	h)
 			show_help
 			exit_if_error 1 "Exiting"
 	    ;;
-	    f) 
+	    f)
 			MANIFEST=$OPTARG
 	    ;;
-	    b) 
+	    b)
 			ARTIFACTORY_BUILD_NUMBER=$OPTARG
 	    ;;
-	    s) 
+	    s)
 			CF_SPACE=$(echo "$OPTARG" | tr '[:upper:]' '[:lower:]')
 	    ;;
-	    d) 
+	    d)
 			CF_DOMAIN=$(echo "$OPTARG" | tr '[:upper:]' '[:lower:]')
 	    ;;
-	    i) 
+	    i)
 			INSTANCE=$OPTARG
 	    ;;
-	    t) 
+	    t)
 			UAA_URL=$OPTARG
 	    ;;
 	    n)
@@ -189,17 +201,40 @@ function get_args(){
 		k)
 			KIBANA_APP=$OPTARG
 		;;
-	    \?) 
+		l)
+      LOGSTASH=$OPTARG
+    ;;
+	  \?)
 			echo "Invalid option -$OPTARG"
 			show_help
-	    ;;
+	  ;;
 	  esac
 	done
 }
 
+function save_build_info(){
+  printf "{
+    'APP': '$APP' ,
+    'APP_ID': '$APP_ID' ,
+    'MANIFEST': '$MANIFEST' ,
+    'NEWRELIC': '$NEWRELIC' ,
+    'LOGSTASH': '$LOGSTASH' ,
+    'LOGSTASH_PLAN':'$LOGSTASH_PLAN',
+    'NEWRELIC_PLAN':'$NEWRELIC_PLAN',
+    'POSTGRES_DB': '$POSTGRES_DB' ,
+    'POSTGRES_DB_PLAN':'$POSTGRES_DB_PLAN',
+    'POSTGRES_DB_INSTANCE' : '$POSTGRES_DB_INSTANCE',
+    'ARTIFACTORY_BUILD_NUMBER': '$ARTIFACTORY_BUILD_NUMBER',
+    'CF_DOMAIN': '$CF_DOMAIN' ,
+    'CF_SPACE': '$CF_SPACE' ,
+    'CF_ORG': '$CF_ORG' ,
+    'INSTANCE': '$INSTANCE'
+  }" > artifact.json
+}
 
 function main(){
 	get_args $*
+	save_build_info
 	validate_inputs
 	create_services
 	push_app_to_cf
