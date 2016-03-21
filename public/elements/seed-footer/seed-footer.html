@@ -5,20 +5,20 @@
   <link rel="import" type="css" href="../../css/seed-footer.css"/>
 
   <template>
-      <footer class="flex flex--middle" role="contentinfo">
-          <div class="viewport">
-              <nav class="flex flex--right flex--middle" role="navigation">
-                  <ul class="list-inline">
-                      <template is="dom-repeat" items="{{footerLinks}}">
-                          <li class="u-mh-">
-                              <a href="{{item.href}}" target="{{item.target}}">{{item.label}}</a>
-                          </li>
-                      </template>
-                  </ul>
-                  <small class="u-ml+">©2015 General Electric</small>
-              </nav>
-          </div>
-      </footer>
+    <footer class="flex flex--middle" role="contentinfo">
+      <div class="viewport">
+        <nav class="flex flex--right flex--middle" role="navigation">
+          <ul class="list-inline">
+            <template is="dom-repeat" items="{{footerLinks}}">
+              <li class="u-mh-">
+                <a href="{{item.href}}" target="{{item.target}}">{{item.label}}</a>
+              </li>
+            </template>
+          </ul>
+          <small class="u-ml+">©2015 General Electric</small>
+        </nav>
+      </div>
+    </footer>
   </template>
 
   <script>
@@ -30,7 +30,7 @@
         footerLinks: {
           type: Array,
           value: function() {
-              return [];
+            return [];
           }
         }
       }
