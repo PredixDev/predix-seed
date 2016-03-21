@@ -30,7 +30,7 @@
     "iron-pages": "PolymerElements/iron-pages#1.0.7",
     "page": "visionmedia/page.js#~1.6.4",
     "px-flexbox-design": "https://github.com/PredixDev/px-flexbox-design.git#~0.3.5",
-    "px-viewport-design": "https://github.com/PredixDev/px-viewport-design.git#~0.2.7",
+    "px-viewport-design": "https://github.com/PredixDev/px-viewport-design.git#~0.4.3",
     "px-list-inline-design": "https://github.com/PredixDev/px-list-inline-design.git#~0.2.8",
     "px-defaults-design": "https://github.com/PredixDev/px-defaults-design.git#~0.2.6",
     "px-normalize-design": "https://github.com/PredixDev/px-normalize-design.git#~0.3.6",
@@ -50,6 +50,7 @@
     "px-theme": "v0.6.4",
     "px-card": "v0.2.4",
     "lodash": "^4.6.1",
-    "iron-ajax": "1.2.0"
+    "iron-ajax": "1.2.0",
+    "px-viewport-design": "~0.4.3"
   }
 }

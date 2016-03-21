@@ -3,6 +3,10 @@
 // Generic
 @import "px-helpers-design/_generic.helpers.scss";
 
+$desk-wide-width: auto; // defaults to 100%
+$desk-wide-max-width: none; // defaults to 80rem
+$viewport-margin: 2rem; // defaults to auto
+
 // Base
 @import "px-viewport-design/_base.viewport.scss";
 @import "px-flexbox-design/_base.flexbox.scss";
@@ -22,11 +26,9 @@ $predix-font-family : "GE Inspira Sans", sans-serif !default;
 $px-page-link-color: $gray5;
 
 [role=contentinfo] {
+  margin-top: 5px;
   height: calculateRem(60px);
   @include inuit-font-size(12px);
-  position: absolute;
-  bottom: 0;
-  width: 100%;
   color: $px-page-link-color;
   a {
     text-decoration: none;

@@ -237,10 +237,10 @@ a {
   visibility: hidden !important; }
 
 .viewport {
-  width: 100%;
-  max-width: 80rem;
-  margin-right: auto;
-  margin-left: auto; }
+  width: auto;
+  max-width: none;
+  margin-right: 2rem;
+  margin-left: 2rem; }
 
 .viewport--full-height {
   min-height: 100vh; }
@@ -404,12 +404,10 @@ a {
   font-family: "GE Inspira Sans", sans-serif; }
 
 [role=contentinfo] {
+  margin-top: 5px;
   height: 4rem;
   font-size: 0.8rem;
   line-height: 1.66667;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
   color: #b1b1bc; }
   [role=contentinfo] a {
     text-decoration: none;
