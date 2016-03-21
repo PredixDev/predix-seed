@@ -9,7 +9,8 @@
   var initRouting = function() {
 
     // Removes end / from app.baseUrl which page.base requires for production
-    page.base(app.baseUrl.replace(/\/$/, ''));
+    // page.base(app.baseUrl.replace(/\/$/, ''));
+    page.base(app.routingBaseUrl);
 
     // route middleware function to ensure that users are logged in
     var ensureLogin = function(ctx, next) {
@@ -26,12 +27,11 @@
     // Routes
 
     // Catch-all route which first runs middleware, then continue to next()
-    /*
+
     page('*', function(ctx, next) {
-      console.log(ctx.path);
       next();
     });
-    */
+
     var printPath = function(ctx, next) {
       // console.log('routing.html ctx.path: ', ctx.path);
       next();
@@ -78,8 +78,8 @@
     }, getRoute);
 
     // 404
-    page('*', function() {
-      // console.log('routing.html: Route not found - 404');
+    page('*', function(ctx, next) {
+      console.log('routing.html: Route not found - 404');
       page.redirect(app.baseUrl);
     });
 

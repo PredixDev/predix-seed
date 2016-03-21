@@ -27,7 +27,11 @@ app.tabs = [{
 }];
 
 // Sets app default base URL
-app.baseUrl = '/#!';
+app.baseUrl = '#!';
+// routing.html page.js requires slash at the beginning
+app.routingBaseUrl = '/' + app.baseUrl;
+// px-app-nav requires slash at the end
+app.pathPrefixUrl = app.baseUrl + '/';
 
 // Listen for dom change and set app.tabs
 app.addEventListener('dom-change', function() {
