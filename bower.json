@@ -20,7 +20,7 @@
     "px": "https://github.com/PredixDev/px.git#polymer-element",
     "px-app-nav": "https://github.com/PredixDev/px-app-nav.git#1.0.10",
     "px-card": "https://github.com/PredixDev/px-card.git#v0.2.4",
-    "px-context-browser": "https://github.com/PredixDev/px-context-browser.git#~v0.7.4",
+    "px-context-browser": "https://github.com/PredixDev/px-context-browser.git#~v0.8.3",
     "px-deck-selector": "https://github.com/PredixDev/px-deck-selector.git#~v1.1.1",
     "px-datasource": "https://github.com/PredixDev/px-datasource.git#~v1.1",
     "px-login": "https://github.com/PredixDev/px-login.git#bundle",

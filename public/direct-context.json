@@ -1,0 +1,78 @@
+{
+"data": [
+    {
+        "identifier": "001-1",
+        "name": "Lots of Children",
+        "isOpenable" : true,
+        "hasChildren": true
+    },
+    {
+      "identifier": "001-2",
+      "name": "Deep nested",
+      "isOpenable" : true,
+      "children": [
+            {
+                "identifier": "001-2a",
+                "name": "Nested Child 1",
+                "isOpenable" : true,
+                "children": [
+                  {
+                    "identifier": "001-2aa",
+                    "name": "Nested Grandchild 1",
+                    "isOpenable" : true,
+                    "children" : [{
+                      "identifier": "001-2aba",
+                      "name": "Nested Great Grandchild 1",
+                      "isOpenable" : true
+                    },
+                    {
+                      "identifier": "001-2abb",
+                      "name": "Nested Great Grandchild 2",
+                      "isOpenable" : true
+                    },
+                    {
+                      "identifier": "001-2abc",
+                      "name": "Nested Great Grandchild 3",
+                      "isOpenable" : true,
+                      "selectedAsset": true
+                    }],
+                    "meta": { "parentId": "001-2ab" }
+                  },
+                  {
+                    "identifier": "001-2ab",
+                    "name": "Nested Grandchild 2",
+                    "isOpenable" : true
+                  },
+                  {
+                    "identifier": "001-2ac",
+                    "name": "Nested Grandchild 3",
+                    "isOpenable" : true
+                  }
+                ],
+                "meta": { "parentId": "001-2a" }
+            },
+            {
+              "identifier": "001-2b",
+              "name": "Nested Child 2",
+              "isOpenable" : true
+            },
+            {
+              "identifier": "001-2c",
+              "name": "Nested Child 3",
+              "isOpenable" : true
+            }
+        ],
+        "meta": { "parentId": "001-2" }
+    },
+    {
+    "identifier": "001-3",
+    "name": "Nothing Below Me",
+    "isOpenable" : true
+    },
+    {
+    "identifier": "001-4",
+    "name": "Nothing Below, Not openable"
+   }
+],
+"meta": { "parentId": null }
+}
