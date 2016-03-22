@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 
-  <!-- Temporary #splash grey screen styles -->
+  <!-- Temporary #splash div which covers page content during load. -->
   <style>
     html, body {
       background: #3b3b3f;
@@ -35,10 +35,8 @@
 
 </head>
 <body class="loading">
-  <!-- We add 'loading' class to the body tag and avoid the unresolved flag.
-       The unresolved flag is a simple solution to FOUC (Flash of Unstyled Content),
-       however it hides all of the page, causing a FONC "Flash of No Content" until the imports
-       and Polymer are loaded. Instead, we control FOUC manually with a splash screen. -->
+  <!-- 'loading' class on <body> to avoid a "Flash of Unstyled Concent"
+       and a "Flash of No Content" -->
 
   <div id="splash"></div>
   <!-- Light weight splash screen is outside of Polymer/imports and styled by

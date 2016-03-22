@@ -10,6 +10,11 @@
     "parentId": null,
     "classification": "parent",
     "isOpenable": true,
+    "data-urls": [{
+      "uri": "http://assetdata.ge.com/asset1/asset-data.json",
+      "name": "core-vibe-rear-cruise",
+      "description": "This is the data that describe the vibration of rear cruise..."
+    }],
     "children": [{
       "name": "Child Asset",
       "id": "child",

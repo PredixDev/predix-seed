@@ -9,6 +9,7 @@
 <dom-module id="dashboards-view">
 
   <template>
+    <script src="../../bower_components/q/q.js"></script>
     <iron-ajax url="/old-seed-context-data.json" last-response="{{browserContext}}" auto></iron-ajax>
     <px-context-browser
       browser-context="[[browserContext]]">
@@ -36,6 +37,37 @@
         };
       },
       itemOpenHandler: function(newContext) {
+
+
+
+        newContext.children = [];
+            newContext.parent = [];
+
+            // url end point can change from context to context
+            // so the same card can display different data from different contexts
+
+            var url = {
+                'parent': {
+                    'datagrid-data': '/sample-data/datagrid-data.json'
+                },
+                'child': {
+                    'core-vibe-rear-cruise': '/sample-data/core-vibe-rear-cruise.json',
+                    'delta-egt-cruise': '/sample-data/delta-egt-cruise.json'
+                },
+                'child2': {
+                    'core-vibe-rear-cruise': '/sample-data/core-vibe-rear-cruise0.json',
+                    'delta-egt-cruise': '/sample-data/delta-egt-cruise.json'
+                },
+                'child3': {
+                    'core-vibe-rear-cruise': '/sample-data/core-vibe-rear-cruise1.json',
+                    'delta-egt-cruise': '/sample-data/delta-egt-cruise.json'
+                }
+            };
+
+            newContext.urls = url[newContext.id];
+
+            $scope.context = newContext;
+
         console.log(newContext);
       },
       getChildren : function(node) {
