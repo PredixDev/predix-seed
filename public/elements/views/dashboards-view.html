@@ -9,10 +9,9 @@
 <dom-module id="dashboards-view">
 
   <template>
-    <h1>Dashboards View</h1>
-    <iron-ajax url="/direct-context.json" last-response="{{browserContext}}" auto></iron-ajax>
+    <iron-ajax url="/old-seed-context-data.json" last-response="{{browserContext}}" auto></iron-ajax>
     <px-context-browser
-      browser-context="{{browserContext}}">
+      browser-context="[[browserContext]]">
       <px-deck-selector
         decks="{{decks}}"
         selected-deck="{{selectedDeck}}"></px-deck-selector>
@@ -26,8 +25,54 @@
       properties: {},
       ready: function() {
         // console.log('dashboards-view', this);
+        this.assignGetChildren();
+      },
+      assignGetChildren: function() {
+        var contextBrowser = Polymer.dom(this.root).querySelector('px-context-browser');
+
+        contextBrowser.handlers = {
+          getChildren:this.getChildren,
+          itemOpenHandler: this.itemOpenHandler
+        };
+      },
+      itemOpenHandler: function(newContext) {
+        console.log(newContext);
+      },
+      getChildren : function(node) {
+        var nodeId = node.identifier,
+            deferred = Q.defer(),
+            children,
+            response,
+            ironAjaxEl = document.createElement('iron-ajax'),
+            nodeIds = {
+              "parent": "lotsOfChildren.json",
+              "child": "deepNestedChildren.json",
+              "child2":"deepNestedGrandchildren.json",
+              "child3": "deepNestedGreatGrandchild.json"
+            };
+
+        ironAjaxEl.handleAs = "json";
+        ironAjaxEl.addEventListener('response', function(evt) {
+          if(evt.detail.response) {
+           children  = evt.detail.response;
+           deferred.resolve(children);
+          } else {
+           return;
+          }
+        });
+        //get our url - if there's no valid nodeId, resolve an empty promise.
+        if (nodeIds[nodeId]) {
+            ironAjaxEl.url = nodeIds[nodeId];
+            //and generate the promise.
+            ironAjaxEl.generateRequest();
+        } else {
+          deferred.resolve({ data: [], meta: { parentId: nodeId } });
+        }
+
+        //don't forget to return the promise!
+        return deferred.promise;
       }
-    });
+  });
   </script>
 
 </dom-module>
