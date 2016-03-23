@@ -1,0 +1,13 @@
+[{
+  "parent": "/group/enterprise-predix",
+  "description": "South Africa - Cape Town",
+  "uri": "/group/site-capetown",
+  "level": "site",
+  "name": "South Africa, Cape Town"
+}, {
+  "parent": "/group/enterprise-predix",
+  "description": "Richmond",
+  "uri": "/group/site-richmond",
+  "level": "site",
+  "name": "Richmond"
+}]

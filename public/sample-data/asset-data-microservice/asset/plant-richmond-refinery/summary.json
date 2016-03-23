@@ -1,0 +1,24 @@
+{
+  "kpis": [{
+    "value": "10.0",
+    "label": "Output (avg)",
+    "uom": "psi"
+  }, {
+    "value": "10.0",
+    "label": "crank-frame-compressionratio (avg)",
+    "uom": null
+  }, {
+    "value": "60.0",
+    "label": "Reliability",
+    "uom": "%"
+  }, {
+    "value": "66.0",
+    "label": "Availability",
+    "uom": "%"
+  }],
+  "overall": {
+    "title": "KPI Health",
+    "subtitle": "plant-richmond-refinery",
+    "percentage": 66.0
+  }
+}
