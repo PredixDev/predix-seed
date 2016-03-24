@@ -10,12 +10,14 @@
 
   <template>
     <script src="../../bower_components/q/q.js"></script>
-    <iron-ajax url="/old-seed-context-data.json" last-response="{{browserContext}}" auto></iron-ajax>
+    <iron-ajax id="iron-ajax-get-browser-context" url="/sample-data/asset-data-microservice/group/root/root.json" last-response="{{browserContext}}" auto></iron-ajax>
     <px-context-browser
       browser-context="[[browserContext]]">
+      <!--
       <px-deck-selector
         decks="{{decks}}"
         selected-deck="{{selectedDeck}}"></px-deck-selector>
+      -->
     </px-context-browser>
     <px-dashboard view-service-base-url="{{viewServiceBaseUrl}}" selected-deck-id="{{selectedDeck.id}}" context="{{context}}"></px-dashboard>
   </template>
@@ -28,17 +30,16 @@
         // console.log('dashboards-view', this);
         this.assignGetChildren();
       },
+
       assignGetChildren: function() {
         var contextBrowser = Polymer.dom(this.root).querySelector('px-context-browser');
-
         contextBrowser.handlers = {
-          getChildren:this.getChildren,
+          getChildren: this.getChildren,
           itemOpenHandler: this.itemOpenHandler
         };
       },
+
       itemOpenHandler: function(newContext) {
-
-
 
         newContext.children = [];
             newContext.parent = [];
@@ -70,7 +71,83 @@
 
         console.log(newContext);
       },
+
+      var transformEntityForDisplay: function (entity) { // transform your entity to context browser entity format
+            entity.name = entity.description;
+            entity.id = entity.uri;
+            entity.parentId = entity.parent;
+            // we can only open plants or assets:
+            entity.isOpenable = (entity.uri.indexOf('plant') >= 0 || entity.uri.indexOf('asset') >= 0);
+            return entity;
+        };
+
       getChildren : function(node) {
+
+        // node is the object passsed from context browser to callee 'handler' function
+
+        // pseudo code:
+        // 1. get node.uri
+        // 2. use that to make a request for the node's json file
+        // 3. create a deferred
+        // 4. initiate request for json file, resolve deffered upon success
+        // 5. upon success, consume new children and transform them for display in context browser
+        // 6. see: transformEntityForDisplay
+        // 7. return the deferred to caller
+
+        /*
+        example:
+        var getRmdRefAppEntities = function(parent) {
+            var parentId = parent.uri,
+                deferred = $q.defer();
+
+            $http.get(getChildrenUrl(parentId))
+                .success(function (results) {  //, status, headers) {
+
+                    var transformedChildren = [];
+                    results.forEach(function(asset) {
+                        transformedChildren.push(transformEntityForDisplay(asset));
+                    });
+
+                    var childEntities = {
+                        meta: {parentId: parentId},
+                        data: transformedChildren // results
+                    };
+                    deferred.resolve(childEntities);
+                })
+                .error(function () {
+                    deferred.reject('Error fetching group with parent id ' + parentId);
+                });
+
+            return deferred.promise;
+        };
+        */
+
+        /* child enttites must match this format:  */
+        var childEntities = {
+          meta: {
+            // parentId is parent.uri (node.uri)
+            parentId: node.uri // example: '/group/root'
+          },
+          data: [
+            // transformedChildren
+            // array of objects matching this format:
+            {
+              id: 'predix-energy',
+              name: 'Predix Energy',
+              uri: '/group/predix-energy',
+              isOpenable: true,
+              parent: "/group/enterprise-predix",
+              parentId: "/group/enterprise-predix", // same as parent?
+              description: "description": "South Africa - Cape Town",
+              level: "site"
+            }
+          ]
+        };
+
+
+
+        console.log('getChildren node: ', node);
+
         var nodeId = node.identifier,
             deferred = Q.defer(),
             children,
