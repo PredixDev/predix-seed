@@ -1,4 +1,5 @@
 var auth = require('./auth');
+var httpProxy = require('http-proxy-middleware');
 
 var serviceProxy = {
   init: function (proxyConfig) {
@@ -7,17 +8,13 @@ var serviceProxy = {
   getMiddlewareRoutes : function(proxyConfig){
     var middlewares = [];
     var routes = Object.keys(proxyConfig);
-    var secureProxyRoutes = {};
     //get access token here
     middlewares.unshift(function (req, res, next) {
       var urlFound = false;
       var i = 0;
       if (req.url.match('/api')) {
-
-        console.log('proxy url', req.url);
-
-        var urlFound = false;
-        var i = 0;
+        urlFound = false;
+        i = 0;
         while (!urlFound) {
           if (req.url.match(routes[i])) {
             req.headers['authorization'] = auth.accessToken;
@@ -36,18 +33,26 @@ var serviceProxy = {
       }
     });
 
-    for (var routeIndex = 0; routeIndex < routes.length; routeIndex++){
-      secureProxyRoutes[routes[routeIndex]] = proxyConfig[routes[routeIndex]].url;
+    var agent,
+        corporateProxyServer = process.env.http_proxy || process.env.HTTP_PROXY;
+    if (corporateProxyServer) {
+        agent = require('https-proxy-agent');
     }
+    routes.forEach(function(r) {
+        var proxyOptions = {
+            target: proxyConfig[r].url,
+            changeOrigin: true,
+            logLevel: 'debug'
+        };
+        if (proxyConfig[r].pathRewrite) {
+            proxyOptions.pathRewrite = proxyConfig[r].pathRewrite;
+        }
+        if (corporateProxyServer) {
+            proxyOptions.agent = agent(corporateProxyServer);
+        }
 
-    var config = {
-      proxy: {
-        forward: secureProxyRoutes
-      }
-    };
-
-    middlewares.push(require('json-proxy').initialize(config));
-
+        middlewares.push(httpProxy(r, proxyOptions));
+    });
 
     return middlewares;
   }
@@ -55,4 +60,3 @@ var serviceProxy = {
 
 
 module.exports = serviceProxy;
-
