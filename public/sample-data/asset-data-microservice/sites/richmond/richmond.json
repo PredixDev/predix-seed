@@ -1,0 +1,20 @@
+{
+  "id": "richmond",
+  "name": "Richmond",
+  "parent": "/enterprises/predix-energy/predix-energy",
+  "parentId": "/enterprises/predix-energy/predix-energy",
+  "description": "Richmond - Description",
+  "uri": "/sites/richmond/richmond",
+  "level": "site",
+  "isOpenable": false,
+  "children": [{
+    "id": "richmond-refinery",
+    "name": "Richmond Refinery",
+    "parent": "/sites/richmond/richmond",
+    "parentId": "/sites/richmond/richmond",
+    "description": "Richmond Refinery - Description",
+    "uri": "/plants/richmond-refinery/richmond-refinery",
+    "level": "plant",
+    "isOpenable": false
+  }]
+}

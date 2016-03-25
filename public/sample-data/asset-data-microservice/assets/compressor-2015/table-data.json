@@ -1,7 +1,7 @@
 {
   "tableData": [{
     "meter": "crank-frame-compressionratio",
-    "meterUri": "/meter/crank-frame-compressionratio",
+    "meterUri": "/meters/crank-frame-compressionratio",
     "meter_isKpi": true,
     "meter_isPM": true,
     "alertStatus": false,
@@ -16,7 +16,7 @@
     "deltaThresholdLevel": "HIGH"
   }, {
     "meter": "crank-frame-dischargepressure",
-    "meterUri": "/meter/crank-frame-dischargepressure",
+    "meterUri": "/meters/crank-frame-dischargepressure",
     "meter_isKpi": true,
     "meter_isPM": true,
     "alertStatus": false,
@@ -31,7 +31,7 @@
     "deltaThresholdLevel": "LOW"
   }, {
     "meter": "crank-frame-suctionpressure",
-    "meterUri": "/meter/crank-frame-suctionpressure",
+    "meterUri": "/meters/crank-frame-suctionpressure",
     "meter_isKpi": false,
     "meter_isPM": true,
     "alertStatus": false,
@@ -46,7 +46,7 @@
     "deltaThresholdLevel": "LOW"
   }, {
     "meter": "crank-frame-maxpressure",
-    "meterUri": "/meter/crank-frame-maxpressure",
+    "meterUri": "/meters/crank-frame-maxpressure",
     "meter_isKpi": false,
     "meter_isPM": true,
     "alertStatus": false,
@@ -61,7 +61,7 @@
     "deltaThresholdLevel": "HIGH"
   }, {
     "meter": "crank-frame-minpressure",
-    "meterUri": "/meter/crank-frame-minpressure",
+    "meterUri": "/meters/crank-frame-minpressure",
     "meter_isKpi": false,
     "meter_isPM": true,
     "alertStatus": null,
@@ -76,7 +76,7 @@
     "deltaThresholdLevel": "HIGH"
   }, {
     "meter": "crank-frame-velocity",
-    "meterUri": "/meter/crank-frame-velocity",
+    "meterUri": "/meters/crank-frame-velocity",
     "meter_isKpi": true,
     "meter_isPM": true,
     "alertStatus": false,
@@ -91,7 +91,7 @@
     "deltaThresholdLevel": "LOW"
   }, {
     "meter": "crank-frame-temperature",
-    "meterUri": "/meter/crank-frame-temperature",
+    "meterUri": "/meters/crank-frame-temperature",
     "meter_isKpi": false,
     "meter_isPM": true,
     "alertStatus": false,

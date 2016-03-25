@@ -1,7 +1,7 @@
 {
   "tableData": [{
     "meter": "crank-frame-compressionratio",
-    "meterUri": "/meter/crank-frame-compressionratio",
+    "meterUri": "/meters/crank-frame-compressionratio",
     "meter_isKpi": true,
     "meter_isPM": true,
     "alertStatus": false,
@@ -13,7 +13,7 @@
     "assetUri": "/asset/compressor-2015"
   }, {
     "meter": "crank-frame-dischargepressure",
-    "meterUri": "/meter/crank-frame-dischargepressure",
+    "meterUri": "/meters/crank-frame-dischargepressure",
     "meter_isKpi": true,
     "meter_isPM": true,
     "alertStatus": false,
@@ -25,7 +25,7 @@
     "assetUri": "/asset/compressor-2015"
   }, {
     "meter": "crank-frame-velocity",
-    "meterUri": "/meter/crank-frame-velocity",
+    "meterUri": "/meters/crank-frame-velocity",
     "meter_isKpi": true,
     "meter_isPM": true,
     "alertStatus": true,

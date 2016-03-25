@@ -10,7 +10,7 @@
 
   <template>
     <script src="../../bower_components/q/q.js"></script>
-    <iron-ajax id="iron-ajax-get-browser-context" url="/sample-data/asset-data-microservice/group/root/root.json" last-response="{{browserContext}}" auto></iron-ajax>
+    <iron-ajax id="iron-ajax-get-browser-context" url="/root/root.json" last-response="{{browserContext}}" auto></iron-ajax>
     <px-context-browser
       browser-context="[[browserContext]]">
       <!--

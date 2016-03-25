@@ -1,0 +1,12 @@
+{
+  "id": "capetown",
+  "name": "South Africa, Cape Town",
+  "parent": "/enterprises/predix-energy/predix-energy",
+  "parentId": "/enterprises/predix-energy/predix-energy",
+  "description": "South Africa - Cape Town - Description",
+  "uri": "/sites/capetown/capetown",
+  "level": "site",
+  "isOpenable": false,
+
+  "children": []
+}

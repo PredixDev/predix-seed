@@ -1,13 +1,30 @@
-[{
-  "parent": "/group/enterprise-predix",
-  "description": "South Africa - Cape Town",
-  "uri": "/group/site-capetown",
-  "level": "site",
-  "name": "South Africa, Cape Town"
-}, {
-  "parent": "/group/enterprise-predix",
-  "description": "Richmond",
-  "uri": "/group/site-richmond",
-  "level": "site",
-  "name": "Richmond"
-}]
+{
+  "id": "predix-energy",
+  "name": "Predix Energy",
+  "parent": "/root/root",
+  "parentId": "/root/root",
+  "description": "Predix Energy Description",
+  "uri": "/enterprises/predix-energy/predix-energy",
+  "level": "enterprise",
+  "isOpenable": false,
+
+  "children": [{
+    "id": "capetown",
+    "name": "South Africa, Cape Town",
+    "parent": "/enterprises/predix-energy/predix-energy",
+    "parentId": "/enterprises/predix-energy/predix-energy",
+    "description": "South Africa - Cape Town - Description",
+    "uri": "/sites/capetown/capetown",
+    "level": "site",
+    "isOpenable": false
+  }, {
+    "id": "richmond",
+    "name": "Richmond",
+    "parent": "/enterprises/predix-energy/predix-energy",
+    "parentId": "/enterprises/predix-energy/predix-energy",
+    "description": "Richmond - Description",
+    "uri": "/sites/richmond/richmond",
+    "level": "site",
+    "isOpenable": false
+  }]
+}

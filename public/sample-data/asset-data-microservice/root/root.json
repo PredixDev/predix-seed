@@ -1,23 +1,29 @@
 {
-  "meta": {
-    "parentId": null
-  },
-  "data": [{
+  "id": "root",
+  "name": "Root",
+  "parent": null,
+  "parentId": null,
+  "description": "Root - Description",
+  "uri": "/root/root",
+  "level": "root",
+  "isOpenable": false,
+
+  "children": [{
     "id": "predix-energy",
     "name": "Predix Energy",
-    "parent": "/sample-data/asset-data-microservice/root/root.json",
-    "parentId": "/sample-data/asset-data-microservice/root/root.json",
+    "parent": "/root/root",
+    "parentId": "/root/root",
     "description": "Predix Energy Description",
-    "uri": "/sample-data/asset-data-microservice/enterprises/predix-energy/predix-energy.json",
+    "uri": "/enterprises/predix-energy/predix-energy",
     "level": "enterprise",
     "isOpenable": false
   }, {
     "id": "san-ramon-oil",
     "name": "San Ramon Oil",
-    "parent": "/sample-data/asset-data-microservice/root/root.json",
-    "parentId": "/sample-data/asset-data-microservice/root/root.json",
+    "parent": "/root/root",
+    "parentId": "/root/root",
     "description": "San Ramon Oil Description",
-    "uri": "/sample-data/asset-data-microservice/enterprises/san-ramon-oil/san-ramon-oil.json",
+    "uri": "/enterprises/san-ramon-oil/san-ramon-oil",
     "level": "enterprise",
     "isOpenable": false
   }]

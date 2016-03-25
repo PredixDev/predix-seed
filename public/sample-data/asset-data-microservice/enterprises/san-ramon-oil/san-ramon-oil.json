@@ -1,6 +1,12 @@
 {
-  "meta": {
-    "parentId": null
-  },
-  "data": []
+  "id": "san-ramon-oil",
+  "name": "San Ramon Oil",
+  "parent": "/root/root",
+  "parentId": "/root/root",
+  "description": "San Ramon Oil Description",
+  "uri": "/enterprises/san-ramon-oil/san-ramon-oil",
+  "level": "enterprise",
+  "isOpenable": false,
+
+  "children": []
 }
