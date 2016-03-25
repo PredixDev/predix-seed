@@ -2,11 +2,12 @@
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 plugins.browserSync = require('browser-sync');
+var nodemon = require('gulp-nodemon');
 
 // -----------------------------------------------------------------------------
 // getTask() loads external gulp task script functions by filename
 function getTask(task) {
-    return require('./tasks/gulp-tasks/' + task)(gulp, plugins);
+  return require('./tasks/gulp-tasks/' + task)(gulp, plugins);
 };
 
 // -----------------------------------------------------------------------------
@@ -29,7 +30,16 @@ gulp.task('watch:source', getTask('watch.source'));
 gulp.task('watch:public', getTask('watch.public'));
 gulp.task('watch:all', ['watch:source', 'watch:public']);
 
+gulp.task('serve:api', function() {
+  nodemon({
+      script: 'server/app.js'
+    })
+    .on('restart', function() {
+      console.log('restarted!')
+    });
+});
+
 // -----------------------------------------------------------------------------
 //  Task: Default (compile source, start server, watch for changes)
 // -----------------------------------------------------------------------------
-gulp.task('default', ['compile:all', 'serve:start', 'watch:all']);
+gulp.task('default', ['compile:all', 'serve:start', 'watch:all', 'serve:api']);
