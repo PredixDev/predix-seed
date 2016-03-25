@@ -9,11 +9,11 @@ Polymer({
       value: false
     },
 
+    // unloaded -> loading -> loaded -> attached -> visible / invisible
     status: {
       type: String,
       observer: '_checkStatus',
       value: 'unloaded'
-      // unloaded -> loading -> loaded -> attached -> visible / invisible
     },
 
     visible: {
@@ -68,17 +68,17 @@ Polymer({
 
   _loadConditions: function() {
     return (this.url &&
-            this.tag && (
-              this._routeMatches() ||
-              this.preload
-           ));
+      this.tag && (
+        this._routeMatches() ||
+        this.preload
+      ));
   },
 
   // unloaded -> loading -> loaded -> attached
   _checkStatus: function(newValue) {
     switch (newValue) {
       case 'unloaded':
-        if(this._loadConditions()) {
+        if (this._loadConditions()) {
           this._loadElement();
         };
         break;
@@ -104,14 +104,14 @@ Polymer({
 
   _computeVisible: function(route, match, status) {
     return (route !== '' &&
-            match !== '' &&
-            route === match &&
-            status === 'attached');
+      match !== '' &&
+      route === match &&
+      status === 'attached');
   },
 
   // observer to visible, set style.display of viewElement
   _checkVisible: function() {
-    if(this.viewElement) {
+    if (this.viewElement) {
       this.viewElement.style.display = this.visible ? "block" : "none";
     };
   },
