@@ -10,7 +10,7 @@
 
   <template>
     <script src="../../bower_components/q/q.js"></script>
-    <iron-ajax id="iron-ajax-get-browser-context" url="/root/root.json" last-response="{{browserContext}}" auto></iron-ajax>
+    <iron-ajax id="iron-ajax-get-browser-context" url="/mock-predix-asset-api/root" last-response="{{browserContext}}" auto></iron-ajax>
     <px-context-browser
       browser-context="[[browserContext]]">
       <!--
@@ -72,14 +72,14 @@
         console.log(newContext);
       },
 
-      var transformEntityForDisplay: function (entity) { // transform your entity to context browser entity format
-            entity.name = entity.description;
-            entity.id = entity.uri;
-            entity.parentId = entity.parent;
-            // we can only open plants or assets:
-            entity.isOpenable = (entity.uri.indexOf('plant') >= 0 || entity.uri.indexOf('asset') >= 0);
-            return entity;
-        };
+      transformEntityForDisplay: function (entity) { // transform your entity to context browser entity format
+        entity.name = entity.description;
+        entity.id = entity.uri;
+        entity.parentId = entity.parent;
+        // we can only open plants or assets:
+        entity.isOpenable = (entity.uri.indexOf('plant') >= 0 || entity.uri.indexOf('asset') >= 0);
+        return entity;
+      },
 
       getChildren : function(node) {
 
@@ -138,12 +138,13 @@
               isOpenable: true,
               parent: "/group/enterprise-predix",
               parentId: "/group/enterprise-predix", // same as parent?
-              description: "description": "South Africa - Cape Town",
+              description: "description - South Africa - Cape Town",
               level: "site"
             }
           ]
         };
 
+        // WRITE THE PROXY!
 
 
         console.log('getChildren node: ', node);
