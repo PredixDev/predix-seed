@@ -14,7 +14,7 @@
     "parent": "/root/root",
     "parentId": "/root/root",
     "description": "Predix Energy Description",
-    "uri": "/enterprises/predix-energy/predix-energy",
+    "uri": "/enterprises/predix-energy",
     "level": "enterprise",
     "isOpenable": false
   }, {
@@ -23,7 +23,7 @@
     "parent": "/root/root",
     "parentId": "/root/root",
     "description": "San Ramon Oil Description",
-    "uri": "/enterprises/san-ramon-oil/san-ramon-oil",
+    "uri": "/enterprises/san-ramon-oil",
     "level": "enterprise",
     "isOpenable": false
   }]

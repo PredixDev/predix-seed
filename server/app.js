@@ -3,6 +3,13 @@ var app = express();
 var fs = require("fs");
 var _ = require("lodash");
 
+// allow CORS
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.get('/', function(req, res) {
   res.send('Hello World!');
 });
@@ -25,6 +32,7 @@ var getPathFromParams = function(params) {
 
 app.get(/^(?:\/api){1}(?:\/)?([\w\d-]+)?(?:\/)?([\w\d-]+)?(?:\/)?([\w\d-]+)?$/g, function(req, res) {
   var pathString = getPathFromParams(req.params);
+  console.log(pathString);
   var file = fs.readFileSync(pathString);
   res.send(file);
 });

@@ -12,7 +12,8 @@
     <script src="../../bower_components/q/q.js"></script>
     <iron-ajax id="iron-ajax-get-browser-context" url="http://localhost:8181/api/root" last-response="{{browserContext}}" auto></iron-ajax>
     <px-context-browser
-      browser-context="[[browserContext]]">
+      browser-context="[[browserContext]]"
+      children-key="children">
       <!--
       <px-deck-selector
         decks="{{decks}}"
@@ -33,6 +34,7 @@
 
       assignGetChildren: function() {
         var contextBrowser = Polymer.dom(this.root).querySelector('px-context-browser');
+        this.setGetChildren();
         contextBrowser.handlers = {
           getChildren: this.getChildren,
           itemOpenHandler: this.itemOpenHandler
@@ -81,7 +83,65 @@
         return entity;
       },
 
-      getChildren : function(node) {
+      getChildren: null,
+
+      setGetChildren: function() {
+        var _this = this;
+        // enclose getChildren in an iife to maintain _this context
+        this.getChildren = (function() {
+          // this function is called from inside context-browser
+          return function(node) {
+
+            var childUrl = "http://localhost:8181/api" + node.uri;
+            var ironAjaxEl = _this.$$("#iron-ajax-get-browser-context");
+            ironAjaxEl.set('url', childUrl);
+
+
+            var nodeId = node.identifier,
+                deferred = Q.defer(),
+                children,
+                response,
+                ironAjaxEl = document.createElement('iron-ajax'),
+                nodeIds = {
+                  "parent": "lotsOfChildren.json",
+                  "child": "deepNestedChildren.json",
+                  "child2":"deepNestedGrandchildren.json",
+                  "child3": "deepNestedGreatGrandchild.json"
+                };
+
+            ironAjaxEl.handleAs = "json";
+            ironAjaxEl.addEventListener('response', function(evt) {
+              if(evt.detail.response) {
+               children  = evt.detail.response;
+               deferred.resolve(children);
+              } else {
+               return;
+              }
+            });
+            //get our url - if there's no valid nodeId, resolve an empty promise.
+            if (nodeIds[nodeId]) {
+                ironAjaxEl.url = nodeIds[nodeId];
+                //and generate the promise.
+                ironAjaxEl.generateRequest();
+            } else {
+              deferred.resolve({ data: [], meta: { parentId: nodeId } });
+            }
+
+            //don't forget to return the promise!
+            return deferred.promise;
+          }
+        })();
+      },
+
+      getChildrenOld: function() {
+        _this = this;
+        return function(node) {
+          console.log(this)
+          console.log('getChildren', node.uri);
+
+        }
+
+
 
         // node is the object passsed from context browser to callee 'handler' function
 
@@ -143,11 +203,6 @@
             }
           ]
         };
-
-        // WRITE THE PROXY!
-
-
-        console.log('getChildren node: ', node);
 
         var nodeId = node.identifier,
             deferred = Q.defer(),
