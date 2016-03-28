@@ -7,6 +7,7 @@ var _ = require("lodash");
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.setHeader('Content-Type', 'application/json');
   next();
 });
 
@@ -33,9 +34,13 @@ var getPathFromParams = function(params) {
 app.get(/^(?:\/api){1}(?:\/)?([\w\d-]+)?(?:\/)?([\w\d-]+)?(?:\/)?([\w\d-]+)?$/g, function(req, res) {
   var pathString = getPathFromParams(req.params);
   console.log(pathString);
-  var file = fs.readFileSync(pathString);
-  res.send(file);
+  fs.readFile( pathString, 'utf8', function (err, data) {
+   if (err) throw err;
+   obj = JSON.parse(data);
+   res.send(JSON.stringify (obj));
+  });
 });
+
 
 app.listen(8181, function() {
   console.log('API mock app listening on port 8181.');
