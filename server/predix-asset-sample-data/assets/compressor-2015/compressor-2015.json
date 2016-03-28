@@ -4,14 +4,14 @@
   "obsolete": false,
   "empty": false,
   "assetId": "compressor-2015",
-  "parent": "/plants/richmond-refinery/richmond-refinery",
+  "parent": "/plants/richmond-refinery",
   "specification": "/classification/GE_COMPRESSOR_CYLINDER",
   "propagateState": false,
-  "group": "/plants/richmond-refinery/richmond-refinery",
+  "group": "/plants/richmond-refinery",
   "name": "Bently Compressor",
   "isOpenable": true,
   "level": "asset",
-  "parentId": "/plants/richmond-refinery/richmond-refinery",
+  "parentId": "/plants/richmond-refinery",
   "attributes": {
     "machineControllerId": {
       "type": "string",

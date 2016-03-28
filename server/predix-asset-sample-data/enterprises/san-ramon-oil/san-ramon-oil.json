@@ -1,10 +1,10 @@
 {
   "id": "san-ramon-oil",
   "name": "San Ramon Oil",
-  "parent": "/root/root",
-  "parentId": "/root/root",
+  "parent": "/root",
+  "parentId": "/root",
   "description": "San Ramon Oil Description",
-  "uri": "/enterprises/san-ramon-oil/san-ramon-oil",
+  "uri": "/enterprises/san-ramon-oil",
   "level": "enterprise",
   "isOpenable": false,
 

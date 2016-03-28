@@ -1,8 +1,8 @@
 {
   "id": "richmond",
   "name": "Richmond",
-  "parent": "/enterprises/predix-energy/predix-energy",
-  "parentId": "/enterprises/predix-energy/predix-energy",
+  "parent": "/enterprises/predix-energy",
+  "parentId": "/enterprises/predix-energy",
   "description": "Richmond - Description",
   "uri": "/sites/richmond/richmond",
   "level": "site",
@@ -10,10 +10,10 @@
   "children": [{
     "id": "richmond-refinery",
     "name": "Richmond Refinery",
-    "parent": "/sites/richmond/richmond",
-    "parentId": "/sites/richmond/richmond",
+    "parent": "/sites/richmond",
+    "parentId": "/sites/richmond",
     "description": "Richmond Refinery - Description",
-    "uri": "/plants/richmond-refinery/richmond-refinery",
+    "uri": "/plants/richmond-refinery",
     "level": "plant",
     "isOpenable": false
   }]

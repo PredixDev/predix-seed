@@ -1,10 +1,10 @@
 {
   "id": "richmond-refinery",
   "name": "Richmond Refinery",
-  "parent": "/sites/richmond/richmond",
-  "parentId": "/sites/richmond/richmond",
+  "parent": "/sites/richmond",
+  "parentId": "/sites/richmond",
   "description": "Richmond Refinery - Description",
-  "uri": "/plants/richmond-refinery/richmond-refinery",
+  "uri": "/plants/richmond-refinery",
   "level": "plant",
   "isOpenable": true,
 
@@ -12,16 +12,16 @@
     "name": "Bently Compressor",
     "isOpenable": true,
     "level": "asset",
-    "parentId": "/plants/richmond-refinery/richmond-refinery",
+    "parentId": "/plants/richmond-refinery",
     "uri": "/assets/compressor-2015",
     "description": "Bently Compressor",
     "obsolete": false,
     "empty": false,
     "assetId": "compressor-2015",
-    "parent": "/plants/richmond-refinery/richmond-refinery",
+    "parent": "/plants/richmond-refinery",
     "specification": "/classification/GE_COMPRESSOR_CYLINDER",
     "propagateState": false,
-    "group": "/plants/richmond-refinery/richmond-refinery",
+    "group": "/plants/richmond-refinery",
     "attributes": {
       "machineControllerId": {
         "type": "string",

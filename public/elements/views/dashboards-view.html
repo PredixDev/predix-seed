@@ -92,6 +92,8 @@
           // this function is called from inside context-browser
           return function(node) {
 
+            console.log('getchildren node:', node);
+
             var childUrl = "http://localhost:8181/api" + node.uri;
             var ironAjaxEl = _this.$$("#iron-ajax-get-browser-context");
             ironAjaxEl.set('url', childUrl);
