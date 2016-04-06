@@ -2,33 +2,27 @@
 <link rel="import" href="../../bower_components/px-context-browser/px-context-browser.html">
 <link rel="import" href="../../bower_components/px-deck-selector/px-deck-selector.html">
 <link rel="import" href="../../bower_components/px-card/px-dashboard.html">
-<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html" />
-
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
 <!-- this element loads another element and appends it to #element -->
 <dom-module id="dashboards-view">
-
   <template>
     <script src="../../bower_components/q/q.js"></script>
-
     <px-context-browser
       browser-context="[[browserContext]]"
       browser-context-url="http://localhost:8181/api/root"
-      children-key="children">
-      
-      <!--
-      <px-deck-selector
-        decks="{{decks}}"
-        selected-deck="{{selectedDeck}}"></px-deck-selector>
-      -->
+      children-field="children">
     </px-context-browser>
-    <px-dashboard view-service-base-url="{{viewServiceBaseUrl}}" selected-deck-id="{{selectedDeck.id}}" context="{{context}}"></px-dashboard>
+    <px-dashboard
+      view-service-base-url="{{viewServiceBaseUrl}}"
+      selected-deck-id="{{selectedDeck.id}}"
+      context="{{context}}"></px-dashboard>
   </template>
-
   <script>
     Polymer({
       is: 'dashboards-view',
       properties: {},
+
       ready: function() {
         // console.log('dashboards-view', this);
         this.assignGetChildren();
