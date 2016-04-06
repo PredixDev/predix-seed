@@ -1,4 +1,4 @@
-v1.2.14
+v1.2.16
 ===================
 * forced install of vulcanize to 1.14.8, since 1.14.9 wouldn't work.
 v1.2.10
