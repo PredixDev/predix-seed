@@ -1,6 +1,6 @@
 {
   "name": "predix-seed",
-  "version": "1.2.15",
+  "version": "1.2.16",
   "private": true,
   "engines": {
     "node": ">=0.10.0"
@@ -51,6 +51,7 @@
     "request": "^2.58.0",
     "requirejs": "~2.1.11",
     "rjs-build-analysis": "0.0.3",
-    "time-grunt": "^0.4.0"
+    "time-grunt": "^0.4.0",
+    "vulcanize":"1.14.8"
   }
 }

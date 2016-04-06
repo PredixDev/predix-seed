@@ -1,3 +1,7 @@
+v1.2.16
+===================
+* forced vulcanize to version 1.14.8
+
 v1.2.14
 ===================
 * Updated License
