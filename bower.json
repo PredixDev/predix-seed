@@ -41,7 +41,7 @@
   "resolutions": {
     "es6-promise": "~v3.0.2",
     "px": "~v1.3.0",
-    "px-theme": "~v0.6.1",
+    "px-theme": "~v0.6.5",
     "polymer": "~1.2.3",
     "px-card": "~v0.2.2"
   }
