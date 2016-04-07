@@ -8,5 +8,5 @@ applications:
     services:
             - predix_seed_session_store
             - predix_seed_view_service
-#            - predix_seed_new_relic
-#            - predix_seed_logstash
+#           - predix_seed_new_relic
+            - predix_seed_logstash

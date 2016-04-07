@@ -1,22 +1,26 @@
 v1.2.16
 ===================
-* forced vulcanize to version 1.14.8
+* forced install of vulcanize to 1.14.8, since 1.14.9 wouldn't work.
 
 v1.2.14
 ===================
 * Updated License
 
-v1.2.10
+v1.2.13
 ===================
-* Updated manifest to not have logstash and newrelic in it.
-v1.2.11
-===================
-* UpPatched numbers in bower.json and package.json
+* resolved merge conflict
 
 v1.2.12
 ===================
-* Merging develop and Master
+* started merge of develop and master
 
-v1.2.13
+v1.2.11
 ===================
-* fixed merge conflict
+* uPatch version
+
+v1.2.10
+===================
+* Updated manifest to not have logstash and newrelic in it.
+
+
+
