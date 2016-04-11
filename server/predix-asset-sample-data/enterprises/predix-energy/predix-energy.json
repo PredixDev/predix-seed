@@ -1,8 +1,8 @@
 {
   "id": "predix-energy",
   "name": "Predix Energy",
-  "parent": "/root/root",
-  "parentId": "/root/root",
+  "parent": "/root",
+  "parentId": "/root",
   "description": "Predix Energy Description",
   "uri": "/enterprises/predix-energy",
   "level": "enterprise",
