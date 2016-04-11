@@ -9,9 +9,8 @@
   <template>
     <script src="../../bower_components/q/q.js"></script>
     <px-context-browser
-      browser-context="[[browserContext]]"
-      browser-context-url="http://localhost:8181/api/root"
-      children-field="children">
+      api-url="http://localhost:8181/api"
+      root-uri="/root">
     </px-context-browser>
     <px-dashboard
       view-service-base-url="{{viewServiceBaseUrl}}"

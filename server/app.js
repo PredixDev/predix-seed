@@ -31,13 +31,15 @@ var getPathFromParams = function(params) {
   return pathString;
 };
 
+// get '/api/uri'
+// examples: '/api/root', 'api/enterprises/san-ramon-oil'
 app.get(/^(?:\/api){1}(?:\/)?([\w\d-]+)?(?:\/)?([\w\d-]+)?(?:\/)?([\w\d-]+)?$/, function(req, res) {
   var pathString = getPathFromParams(req.params);
   console.log(pathString);
-  fs.readFile( pathString, 'utf8', function (err, data) {
+  fs.readFile(pathString, 'utf8', function(err, data) {
     if (err) throw err;
     obj = JSON.parse(data);
-    res.send(JSON.stringify (obj));
+    res.send(JSON.stringify(obj));
   });
 });
 
