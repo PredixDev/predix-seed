@@ -4,8 +4,6 @@ Polymer({
 
   properties: {
 
-    // Boolean: true: preload component html file. false: lazy-load component html on demand
-
     /**
      *
      * Set the 'preload' attribute on the <px-view> element and the components will be
@@ -21,9 +19,17 @@ Polymer({
       value: false
     },
 
-    // public
-    // track status of component over lifecycle
-    // 'unloaded' -> 'loading' -> 'loaded' || 'failed' -> 'attached' -> 'hidden' || 'shown'
+
+    /**
+     *
+     * Status tracks a px-view component over it's lifecycle
+     * Steps: 'unloaded' -> 'loading' -> 'loaded' || 'failed' -> 'attached' -> 'hidden' || 'shown'
+     *
+     * @attribute status
+     * @type String
+     * @readonly
+     * @access public
+     */
     status: {
       type: String,
       value: 'unloaded',
@@ -31,35 +37,44 @@ Polymer({
       reflectToAttribute: true
     },
 
-    // Pattern - Type: String - Exposure: Public - Required
-    // Defines string that must match route value in order to attach and display element
-    pattern: {
-      type: String,
-      value: ""
-    },
-
-    // Tag - Type: string - Exposure: public - Required
-    // defines tag name of web component element
+    /**
+     *
+     * elementTagName sets the name of the tag to attach to the DOM which must match component name
+     *
+     * @attribute elementTagName
+     * @type String
+     * @access public
+     */
     elementTagName: {
       type: String,
       value: ""
     },
 
-    // public - required
-    // defines URL of element web component html file
+    /**
+     *
+     * elementHref defines relative URL path of web component html file
+     *
+     * @attribute elementHref
+     * @type String
+     * @access public
+     */
     elementHref: {
       type: String,
       value: ""
     },
 
+    /**
+     *
+     * The display property defines the value of the component's display property when view is shown
+     *
+     * @attribute elementHref
+     * @type String
+     * @access public
+     * @default 'block'
+     */
     display: {
       type: String,
       value: "block"
-    },
-
-    _load: {
-      type: Boolean,
-      computed: '_computeLoad(elementHref, elementTagName, active, preload)'
     }
 
   },
@@ -70,15 +85,11 @@ Polymer({
 
   viewElement: null, // Reference to the loaded view DOM element
 
-  _computeLoad: function() {
-    return (this.active || this.preload);
-  },
-
   // 'unloaded' -> 'loading' -> 'loaded' || 'failed' -> 'attached' -> 'hidden' || 'shown'
   _checkStatus: function() {
     switch (this.status) {
       case 'unloaded':
-        if (this._load) {
+        if (this.active || this.preload) {
           this._loadElement();
         };
         break;
