@@ -23,17 +23,12 @@ Polymer({
 
     // public
     // track status of component over lifecycle
-    // 'unloaded' -> 'loading' -> 'loaded' -> 'attached' -> 'visible' / 'invisible'
+    // 'unloaded' -> 'loading' -> 'loaded' || 'failed' -> 'attached' -> 'hidden' || 'shown'
     status: {
       type: String,
-      observer: '_checkStatus',
-      value: 'unloaded'
-    },
-
-    route: {
-      type: String,
-      value: "",
-      observer: '_checkRoute'
+      value: 'unloaded',
+      notify: true,
+      reflectToAttribute: true
     },
 
     // Pattern - Type: String - Exposure: Public - Required
@@ -57,108 +52,80 @@ Polymer({
       value: ""
     },
 
-    // private
-    // defines element visibility
-    _visible: {
-      type: Boolean,
-      computed: '_computeVisible(route, pattern, status)',
-      observer: '_checkVisible'
-    },
-
     display: {
       type: String,
       value: "block"
+    },
+
+    _load: {
+      type: Boolean,
+      computed: '_computeLoad(elementHref, elementTagName, active, preload)'
     }
 
   },
 
-  viewElement: null, // reference to the loaded view element
+  observers: [
+    '_checkStatus(status, active, preload, elementTagName, elementHref, display)'
+  ],
 
-  ready: function() {
-    this._initializeView();
+  viewElement: null, // Reference to the loaded view DOM element
+
+  _computeLoad: function() {
+    return (this.active || this.preload);
   },
 
-  _initializeView: function() {
-    if (this.elementTagName) {
-      this._checkStatus(this.status);
-    } else {
-      // call back when tag value is set
-      this.async(function() {
-        this._initializeView();
-      }, null, 500);
-    };
-  },
-
-  _routeMatches: function() {
-    return (this.route === this.pattern);
-  },
-
-  _loadConditions: function() {
-    return (this.elementHref &&
-      this.elementTagName && (
-        this._routeMatches() ||
-        this.preload
-      ));
-  },
-
-  // unloaded -> loading -> loaded -> attached
-  _checkStatus: function(newValue) {
-    switch (newValue) {
+  // 'unloaded' -> 'loading' -> 'loaded' || 'failed' -> 'attached' -> 'hidden' || 'shown'
+  _checkStatus: function() {
+    switch (this.status) {
       case 'unloaded':
-        if (this._loadConditions()) {
+        if (this._load) {
           this._loadElement();
         };
         break;
       case 'loading':
         break;
       case 'loaded':
-        if (this._routeMatches()) {
+        if (this.active) {
           this._attachElement();
         };
         break;
       case 'attached':
+        var newStatus = this.active ? 'shown' : 'hidden';
+        this.set('status', newStatus);
+        break;
+      case 'shown':
+        if (this.active) {
+          this.viewElement.style.display = this.display;
+        } else {
+          this.set('status', 'hidden');
+        }
+        break;
+      case 'hidden':
+        if (!this.active) {
+          this.viewElement.style.display = 'none';
+        } else {
+          this.set('status', 'shown');
+        }
         break;
       default:
-    };
-  },
-
-  _checkRoute: function(newValue) {
-    this.route = newValue;
-    if (this.pattern === newValue) {
-      this._checkStatus(this.status);
-    };
-  },
-
-  _computeVisible: function(route, pattern, status) {
-    return (route !== '' &&
-      pattern !== '' &&
-      route === pattern &&
-      status === 'attached');
-  },
-
-  // observer to visible, set style.display of viewElement
-  _checkVisible: function() {
-    if (this.viewElement) {
-      this.viewElement.style.display = this._visible ? this.display : "none";
+        console.log('px-view status has entered unknown state: ', this.status);
     };
   },
 
   _attachElement: function() {
     this.viewElement = document.createElement(this.elementTagName);
     this.appendChild(this.viewElement);
-    this.status = 'attached';
+    this.set('status', 'attached');
   },
 
   _loadElement: function() {
-    if (this.status === 'unloaded' && typeof this.elementHref !== 'undefined') {
-      this.importHref(this.elementHref, function(e) {
-        this.status = 'loaded';
-      }, function(e) {
-        console.log('failure to load ' + this.elementHref, e);
-      });
-      this.status = 'loading';
-    };
-
+    this.importHref(this.elementHref, function(e) {
+      this.set('status', 'loaded');
+    }, function(e) {
+      console.log('Failure to load ' + this.elementHref);
+      this.set('status', 'failed');
+    });
+    this.set('status', 'loading');
   }
 
 });

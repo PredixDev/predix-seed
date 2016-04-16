@@ -43,7 +43,8 @@
     "px-headings-design": "https://github.com/PredixDev/px-headings-design.git#~0.2.10",
     "px-buttons-design": "https://github.com/PredixDev/px-buttons-design.git#~0.4.17",
     "q": "^1.0.0",
-    "px-overlay": "^0.0.3"
+    "px-overlay": "^0.0.3",
+    "carbon-route": "PolymerElements/carbon-route#^0.8.4"
   },
   "resolutions": {
     "polymer": "1.4.0",

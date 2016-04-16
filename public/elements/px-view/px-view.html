@@ -1,9 +1,20 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<!-- Carbon Route and Carbon Locatiion are used for routing -->
+<link rel="import" href="../../bower_components/carbon-route/carbon-location.html" />
+<link rel="import" href="../../bower_components/carbon-route/carbon-route.html" />
+
 <!-- the px-view component does two things: -->
 <!-- conditionally show/hide content -->
 <!-- conditionally load content -->
 <dom-module id="px-view">
   <template>
+    <carbon-location route="{{carbonLocationRoute}}" use-hash-as-path></carbon-location>
+    <carbon-route route="{{carbonLocationRoute}}" pattern="[[pattern]]" active="{{active}}"></carbon-route>
+    <template is="dom-if" if="{{active}}">
+      <h1>[[pattern]]</h1>
+      <hr/>
+    </template>
     <!-- view element will be inserted here -->
   </template>
   <script src="px-view.js"></script>
