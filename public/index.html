@@ -71,7 +71,7 @@
             "icon": "fa-file-o",
             "subitems": [{
               "label": "Blank Sub Page",
-              "path": "blanksubpage"
+              "path": "blankpage/subpage"
             }]
           }, {
             "label": "Angular",
@@ -94,29 +94,29 @@
         <main class="u-pt-- u-pr-- u-pl--" role="main">
           <px-view
             route="[[route]]"
-            match="home"
-            tag="home-view"
-            url="/elements/views/home-view.html"></px-view>
+            pattern="home"
+            element-tag-name="home-view"
+            element-href="/elements/views/home-view.html"></px-view>
           <px-view
             route="[[route]]"
-            match="dashboards"
-            tag="dashboards-view"
-            url="/elements/views/dashboards-view.html"></px-view>
+            pattern="dashboards"
+            element-tag-name="dashboards-view"
+            element-href="/elements/views/dashboards-view.html"></px-view>
           <px-view
             route="[[route]]"
-            match="blankpage"
-            tag="blankpage-view"
-            url="/elements/views/blankpage-view.html"></px-view>
+            pattern="blankpage"
+            element-tag-name="blankpage-view"
+            element-href="/elements/views/blankpage-view.html"></px-view>
           <px-view
             route="[[route]]"
-            match="blanksubpage"
-            tag="blanksubpage-view"
-            url="/elements/views/blanksubpage-view.html"></px-view>
+            pattern="blanksubpage"
+            element-tag-name="blanksubpage-view"
+            element-href="/elements/views/blanksubpage-view.html"></px-view>
           <px-view
             route="[[route]]"
-            match="angular"
-            tag="angular-view"
-            url="/elements/views/angular-view.html"></px-view>
+            pattern="angular"
+            element-tag-name="angular-view"
+            element-href="/elements/views/angular-view.html"></px-view>
         </main>
 
       </div>

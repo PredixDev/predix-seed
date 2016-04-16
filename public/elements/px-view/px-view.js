@@ -4,22 +4,30 @@ Polymer({
 
   properties: {
 
+    // Boolean: true: preload component html file. false: lazy-load component html on demand
+
+    /**
+     *
+     * Set the 'preload' attribute on the <px-view> element and the components will be
+     * loaded immediately or
+     * lazy-loaded on demand. Lazy-loading is on by default to avoid unnecessary HTTP requests.
+     *
+     * @attribute preload
+     * @type Boolean
+     * @default false
+     */
     preload: {
       type: Boolean,
       value: false
     },
 
-    // unloaded -> loading -> loaded -> attached -> visible / invisible
+    // public
+    // track status of component over lifecycle
+    // 'unloaded' -> 'loading' -> 'loaded' -> 'attached' -> 'visible' / 'invisible'
     status: {
       type: String,
       observer: '_checkStatus',
       value: 'unloaded'
-    },
-
-    visible: {
-      type: Boolean,
-      computed: '_computeVisible(route, match, status)',
-      observer: '_checkVisible'
     },
 
     route: {
@@ -28,19 +36,38 @@ Polymer({
       observer: '_checkRoute'
     },
 
-    match: {
+    // Pattern - Type: String - Exposure: Public - Required
+    // Defines string that must match route value in order to attach and display element
+    pattern: {
       type: String,
       value: ""
     },
 
-    tag: {
+    // Tag - Type: string - Exposure: public - Required
+    // defines tag name of web component element
+    elementTagName: {
       type: String,
       value: ""
     },
 
-    url: {
+    // public - required
+    // defines URL of element web component html file
+    elementHref: {
       type: String,
       value: ""
+    },
+
+    // private
+    // defines element visibility
+    _visible: {
+      type: Boolean,
+      computed: '_computeVisible(route, pattern, status)',
+      observer: '_checkVisible'
+    },
+
+    display: {
+      type: String,
+      value: "block"
     }
 
   },
@@ -52,7 +79,7 @@ Polymer({
   },
 
   _initializeView: function() {
-    if (this.tag) {
+    if (this.elementTagName) {
       this._checkStatus(this.status);
     } else {
       // call back when tag value is set
@@ -63,12 +90,12 @@ Polymer({
   },
 
   _routeMatches: function() {
-    return (this.route === this.match);
+    return (this.route === this.pattern);
   },
 
   _loadConditions: function() {
-    return (this.url &&
-      this.tag && (
+    return (this.elementHref &&
+      this.elementTagName && (
         this._routeMatches() ||
         this.preload
       ));
@@ -97,37 +124,37 @@ Polymer({
 
   _checkRoute: function(newValue) {
     this.route = newValue;
-    if (this.match === newValue) {
+    if (this.pattern === newValue) {
       this._checkStatus(this.status);
     };
   },
 
-  _computeVisible: function(route, match, status) {
+  _computeVisible: function(route, pattern, status) {
     return (route !== '' &&
-      match !== '' &&
-      route === match &&
+      pattern !== '' &&
+      route === pattern &&
       status === 'attached');
   },
 
   // observer to visible, set style.display of viewElement
   _checkVisible: function() {
     if (this.viewElement) {
-      this.viewElement.style.display = this.visible ? "block" : "none";
+      this.viewElement.style.display = this._visible ? this.display : "none";
     };
   },
 
   _attachElement: function() {
-    this.viewElement = document.createElement(this.tag);
+    this.viewElement = document.createElement(this.elementTagName);
     this.appendChild(this.viewElement);
     this.status = 'attached';
   },
 
   _loadElement: function() {
-    if (this.status === 'unloaded' && typeof this.url !== 'undefined') {
-      this.importHref(this.url, function(e) {
+    if (this.status === 'unloaded' && typeof this.elementHref !== 'undefined') {
+      this.importHref(this.elementHref, function(e) {
         this.status = 'loaded';
       }, function(e) {
-        console.log('failure to load ' + this.url, e);
+        console.log('failure to load ' + this.elementHref, e);
       });
       this.status = 'loading';
     };
