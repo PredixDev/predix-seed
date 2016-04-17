@@ -4,7 +4,7 @@
   "parent": "/enterprises/predix-energy",
   "parentId": "/enterprises/predix-energy",
   "description": "Richmond - Description",
-  "uri": "/sites/richmond/richmond",
+  "uri": "/sites/richmond",
   "level": "site",
   "isOpenable": false,
   "children": [{
