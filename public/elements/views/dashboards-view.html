@@ -8,7 +8,6 @@
 <dom-module id="dashboards-view">
   <template>
     <script src="../../bower_components/q/q.js"></script>
-
     <!--
     <px-context-browser
       api-url="http://localhost:8181/api"
@@ -21,7 +20,7 @@
       selected-deck-id="{{selectedDeck.id}}"
       context="{{context}}"></px-dashboard>
     -->
-    <iron-ajax id="contextIronAjax" url="/sample-data/direct-context.json" last-response="{{browserContext}}" auto></iron-ajax>
+    <iron-ajax id="contextIronAjax" url="http://localhost:8181/api/root" last-response="{{browserContext}}" auto></iron-ajax>
     <px-context-browser
       id="contextBrowser"
       label-field="name"
@@ -71,10 +70,10 @@
         ironAjaxEl.handleAs = "json";
         ironAjaxEl.addEventListener('response', function(evt) {
           if(evt.detail.response) {
-           children = evt.detail.response;
-           deferred.resolve(children);
+            children = evt.detail.response;
+            deferred.resolve(children);
           } else {
-           return;
+            return;
           }
         });
 
@@ -92,6 +91,5 @@
       }
 
     });
-
   </script>
 </dom-module>
