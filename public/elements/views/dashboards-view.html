@@ -30,18 +30,22 @@
   </template>
   <script>
   Polymer({
+
     is: 'dashboards-view',
+
     properties: {},
+
     ready: function ready() {
 
-      _this = this;
+      var _this = this;
+
       function demoGetChildren(node) {
         console.log('demoGetChildren(node) ', node)
         var nodeId = node.identifier,
             deferred = Q.defer(),
             children,
             response,
-            ironAjaxEl = _this.$.contextIronAjax;
+            ironAjaxEl = document.createElement('iron-ajax');
             nodeIds = {
               "001-1": "/sample-data/lotsOfChildren.json",
               "001-2": "/sample-data/deepNestedChildren.json",
@@ -52,7 +56,7 @@
         ironAjaxEl.handleAs = "json";
         ironAjaxEl.addEventListener('response', function(evt) {
           if(evt.detail.response) {
-           children  = evt.detail.response;
+           children = evt.detail.response;
            deferred.resolve(children);
           } else {
            return;
@@ -81,9 +85,8 @@
         }
       };
 
-
-
     }
+
   });
 
 </script>
