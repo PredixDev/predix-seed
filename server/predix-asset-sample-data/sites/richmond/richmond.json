@@ -1,20 +1,25 @@
 {
-  "id": "richmond",
-  "name": "Richmond",
-  "parent": "/enterprises/predix-energy",
-  "parentId": "/enterprises/predix-energy",
-  "description": "Richmond - Description",
-  "uri": "/sites/richmond",
-  "level": "site",
-  "isOpenable": false,
-  "children": [{
-    "id": "richmond-refinery",
-    "name": "Richmond Refinery",
-    "parent": "/sites/richmond",
-    "parentId": "/sites/richmond",
-    "description": "Richmond Refinery - Description",
-    "uri": "/plants/richmond-refinery",
-    "level": "plant",
-    "isOpenable": false
-  }]
+  "data": [{
+    "id": "richmond",
+    "name": "Richmond",
+    "parent": "/enterprises/predix-energy",
+    "parentId": "/enterprises/predix-energy",
+    "description": "Richmond - Description",
+    "uri": "/sites/richmond",
+    "level": "site",
+    "isOpenable": false,
+    "children": [{
+      "id": "richmond-refinery",
+      "name": "Richmond Refinery",
+      "parent": "/sites/richmond",
+      "parentId": "/sites/richmond",
+      "description": "Richmond Refinery - Description",
+      "uri": "/plants/richmond-refinery",
+      "level": "plant",
+      "isOpenable": false
+    }]
+  }],
+  "meta": {
+    "parentId": "/enterprises/predix-energy"
+  }
 }

@@ -1,30 +1,35 @@
 {
-  "id": "root",
-  "name": "Root",
-  "parent": null,
-  "parentId": null,
-  "description": "Root - Description",
-  "uri": "/root",
-  "level": "root",
-  "isOpenable": false,
+  "data": [{
+    "id": "root",
+    "name": "Root",
+    "parent": null,
+    "parentId": null,
+    "description": "Root - Description",
+    "uri": "/root",
+    "level": "root",
+    "isOpenable": false,
 
-  "children": [{
-    "id": "predix-energy",
-    "name": "Predix Energy",
-    "parent": "/root",
-    "parentId": "/root",
-    "description": "Predix Energy Description",
-    "uri": "/enterprises/predix-energy",
-    "level": "enterprise",
-    "isOpenable": false
-  }, {
-    "id": "san-ramon-oil",
-    "name": "San Ramon Oil",
-    "parent": "/root",
-    "parentId": "/root",
-    "description": "San Ramon Oil Description",
-    "uri": "/enterprises/san-ramon-oil",
-    "level": "enterprise",
-    "isOpenable": false
-  }]
+    "children": [{
+      "id": "predix-energy",
+      "name": "Predix Energy",
+      "parent": "/root",
+      "parentId": "/root",
+      "description": "Predix Energy Description",
+      "uri": "/enterprises/predix-energy",
+      "level": "enterprise",
+      "isOpenable": false
+    }, {
+      "id": "san-ramon-oil",
+      "name": "San Ramon Oil",
+      "parent": "/root",
+      "parentId": "/root",
+      "description": "San Ramon Oil Description",
+      "uri": "/enterprises/san-ramon-oil",
+      "level": "enterprise",
+      "isOpenable": false
+    }]
+  }],
+  "meta": {
+    "parentId": null
+  }
 }
