@@ -32,7 +32,7 @@ gulp.task('watch:all', ['watch:source', 'watch:public']);
 
 gulp.task('serve:api', function() {
   nodemon({
-      script: 'server/app.js'
+      script: 'server/app-connect.js'
     })
     .on('restart', function() {
       console.log('restarted!')
