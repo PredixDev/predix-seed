@@ -8,17 +8,20 @@
 <dom-module id="dashboards-view">
   <template>
     <script src="../../bower_components/q/q.js"></script>
-    <!-- <px-context-browser
+
+    <!--
+    <px-context-browser
       api-url="http://localhost:8181/api"
       root-uri="/root">
-    </px-context-browser> -->
-    <!-- <px-dashboard
+    </px-context-browser>
+    -->
+    <!--
+    <px-dashboard
       view-service-base-url="{{viewServiceBaseUrl}}"
       selected-deck-id="{{selectedDeck.id}}"
-      context="{{context}}"></px-dashboard> -->
-
+      context="{{context}}"></px-dashboard>
+    -->
     <iron-ajax id="contextIronAjax" url="/sample-data/direct-context.json" last-response="{{browserContext}}" auto></iron-ajax>
-
     <px-context-browser
       id="contextBrowser"
       label-field="name"
@@ -26,21 +29,33 @@
       browser-context="{{browserContext}}"
       show-chevron="true">
     </px-context-browser>
-
   </template>
   <script>
-  Polymer({
+    Polymer({
 
-    is: 'dashboards-view',
+      is: 'dashboards-view',
 
-    properties: {},
+      properties: {},
 
-    ready: function ready() {
+      ready: function ready() {
+        var _this = this;
+        var colBrowser = this.$.contextBrowser;
+        colBrowser.handlers = {
+          getChildren: function(parent, newIndex) {
+            return _this._getChildren(parent);
+          },
+          itemOpenHandler: function(context) {
+            return _this._itemOpenHandler(context);
+          }
+        };
+      },
 
-      var _this = this;
+      _itemOpenHandler: function(context) {
+        console.log('Opened: ', context);
+      },
 
-      function demoGetChildren(node) {
-        console.log('demoGetChildren(node) ', node)
+      // "getChildren" handler for px-context-browser
+      _getChildren: function(node) {
         var nodeId = node.identifier,
             deferred = Q.defer(),
             children,
@@ -62,11 +77,12 @@
            return;
           }
         });
+
         //get our url - if there's no valid nodeId, resolve an empty promise.
         if (nodeIds[nodeId]) {
-            ironAjaxEl.url = nodeIds[nodeId];
-            //and generate the promise.
-            ironAjaxEl.generateRequest();
+          ironAjaxEl.url = nodeIds[nodeId];
+          //and generate the promise.
+          ironAjaxEl.generateRequest();
         } else {
           deferred.resolve({ data: [], meta: { parentId: nodeId } });
         }
@@ -75,249 +91,7 @@
         return deferred.promise;
       }
 
-      var colBrowser = this.$.contextBrowser;
-      colBrowser.handlers = {
-        getChildren: function(parent, newIndex) {
-          return demoGetChildren(parent);
-        },
-        itemOpenHandler: function(context) {
-          console.log('Opened: ', context);
-        }
-      };
+    });
 
-    }
-
-  });
-
-</script>
-
-<!--
-  <script>
-    Polymer({
-      is: 'dashboards-view',
-      properties: {},
-
-      ready: function() {
-        // console.log('dashboards-view', this);
-        this.assignGetChildren();
-      },
-
-      assignGetChildren: function() {
-        var contextBrowser = Polymer.dom(this.root).querySelector('px-context-browser');
-        this.setGetChildren();
-        contextBrowser.handlers = {
-          getChildren: this.getChildren,
-          itemOpenHandler: this.itemOpenHandler
-        };
-      },
-
-      itemOpenHandler: function(newContext) {
-
-        newContext.children = [];
-            newContext.parent = [];
-
-            // url end point can change from context to context
-            // so the same card can display different data from different contexts
-
-            var url = {
-                'parent': {
-                    'datagrid-data': '/sample-data/datagrid-data.json'
-                },
-                'child': {
-                    'core-vibe-rear-cruise': '/sample-data/core-vibe-rear-cruise.json',
-                    'delta-egt-cruise': '/sample-data/delta-egt-cruise.json'
-                },
-                'child2': {
-                    'core-vibe-rear-cruise': '/sample-data/core-vibe-rear-cruise0.json',
-                    'delta-egt-cruise': '/sample-data/delta-egt-cruise.json'
-                },
-                'child3': {
-                    'core-vibe-rear-cruise': '/sample-data/core-vibe-rear-cruise1.json',
-                    'delta-egt-cruise': '/sample-data/delta-egt-cruise.json'
-                }
-            };
-
-            newContext.urls = url[newContext.id];
-
-            $scope.context = newContext;
-
-        console.log(newContext);
-      },
-
-      transformEntityForDisplay: function (entity) { // transform your entity to context browser entity format
-        entity.name = entity.description;
-        entity.id = entity.uri;
-        entity.parentId = entity.parent;
-        // we can only open plants or assets:
-        entity.isOpenable = (entity.uri.indexOf('plant') >= 0 || entity.uri.indexOf('asset') >= 0);
-        return entity;
-      },
-
-      getChildren: null,
-
-      setGetChildren: function() {
-        var _this = this;
-        // enclose getChildren in an iife to maintain _this context
-        this.getChildren = (function() {
-          // this function is called from inside context-browser
-          return function(node) {
-
-            console.log('getchildren node:', node);
-
-            var nodeIds = {
-              "parent": "lotsOfChildren.json",
-              "child": "deepNestedChildren.json",
-              "child2":"deepNestedGrandchildren.json",
-              "child3": "deepNestedGreatGrandchild.json"
-            };
-
-            var childUrl = "/sample-data/" + node.uri;
-            var ironAjaxEl = _this.$.contextIronAjax;
-            ironAjaxEl.set('url', childUrl);
-
-
-            var nodeId = node.identifier,
-                deferred = Q.defer(),
-                children,
-                response,
-                ironAjaxEl = document.createElement('iron-ajax'),
-                nodeIds = {
-                  "parent": "lotsOfChildren.json",
-                  "child": "deepNestedChildren.json",
-                  "child2":"deepNestedGrandchildren.json",
-                  "child3": "deepNestedGreatGrandchild.json"
-                };
-
-            ironAjaxEl.handleAs = "json";
-            ironAjaxEl.addEventListener('response', function(evt) {
-              if(evt.detail.response) {
-               children  = evt.detail.response;
-               deferred.resolve(children);
-              } else {
-               return;
-              }
-            });
-            //get our url - if there's no valid nodeId, resolve an empty promise.
-            if (nodeIds[nodeId]) {
-                ironAjaxEl.url = nodeIds[nodeId];
-                //and generate the promise.
-                ironAjaxEl.generateRequest();
-            } else {
-              deferred.resolve({ data: [], meta: { parentId: nodeId } });
-            }
-
-            //don't forget to return the promise!
-            return deferred.promise;
-          }
-        })();
-      },
-
-      getChildrenOld: function() {
-        _this = this;
-        return function(node) {
-          console.log(this)
-          console.log('getChildren', node.uri);
-
-        }
-
-
-
-        // node is the object passsed from context browser to callee 'handler' function
-
-        // pseudo code:
-        // 1. get node.uri
-        // 2. use that to make a request for the node's json file
-        // 3. create a deferred
-        // 4. initiate request for json file, resolve deffered upon success
-        // 5. upon success, consume new children and transform them for display in context browser
-        // 6. see: transformEntityForDisplay
-        // 7. return the deferred to caller
-
-        /*
-        example:
-        var getRmdRefAppEntities = function(parent) {
-            var parentId = parent.uri,
-                deferred = $q.defer();
-
-            $http.get(getChildrenUrl(parentId))
-                .success(function (results) {  //, status, headers) {
-
-                    var transformedChildren = [];
-                    results.forEach(function(asset) {
-                        transformedChildren.push(transformEntityForDisplay(asset));
-                    });
-
-                    var childEntities = {
-                        meta: {parentId: parentId},
-                        data: transformedChildren // results
-                    };
-                    deferred.resolve(childEntities);
-                })
-                .error(function () {
-                    deferred.reject('Error fetching group with parent id ' + parentId);
-                });
-
-            return deferred.promise;
-        };
-        */
-
-        /* child enttites must match this format:  */
-        var childEntities = {
-          meta: {
-            // parentId is parent.uri (node.uri)
-            parentId: node.uri // example: '/group/root'
-          },
-          data: [
-            // transformedChildren
-            // array of objects matching this format:
-            {
-              id: 'predix-energy',
-              name: 'Predix Energy',
-              uri: '/group/predix-energy',
-              isOpenable: true,
-              parent: "/group/enterprise-predix",
-              parentId: "/group/enterprise-predix", // same as parent?
-              description: "description - South Africa - Cape Town",
-              level: "site"
-            }
-          ]
-        };
-
-        var nodeId = node.identifier,
-            deferred = Q.defer(),
-            children,
-            response,
-            ironAjaxEl = document.createElement('iron-ajax'),
-            nodeIds = {
-              "parent": "lotsOfChildren.json",
-              "child": "deepNestedChildren.json",
-              "child2":"deepNestedGrandchildren.json",
-              "child3": "deepNestedGreatGrandchild.json"
-            };
-
-        ironAjaxEl.handleAs = "json";
-        ironAjaxEl.addEventListener('response', function(evt) {
-          if(evt.detail.response) {
-           children  = evt.detail.response;
-           deferred.resolve(children);
-          } else {
-           return;
-          }
-        });
-        //get our url - if there's no valid nodeId, resolve an empty promise.
-        if (nodeIds[nodeId]) {
-            ironAjaxEl.url = nodeIds[nodeId];
-            //and generate the promise.
-            ironAjaxEl.generateRequest();
-        } else {
-          deferred.resolve({ data: [], meta: { parentId: nodeId } });
-        }
-
-        //don't forget to return the promise!
-        return deferred.promise;
-      }
-  });
   </script>
--->
-
 </dom-module>
