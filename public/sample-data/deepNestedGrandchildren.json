@@ -1,0 +1,19 @@
+{
+  "data": [{
+    "name": "Nested Grandchild 1",
+    "identifier": "001-2aa",
+    "isOpenable": true,
+    "hasChildren": true
+  }, {
+    "name": "Nested Grandchild 2",
+    "identifier": "001-2ab",
+    "isOpenable": true
+  }, {
+    "name": "Nested Grandchild 3",
+    "identifier": "001-2ac",
+    "isOpenable": true
+  }],
+  "meta": {
+    "parentId": "001-2a"
+  }
+}

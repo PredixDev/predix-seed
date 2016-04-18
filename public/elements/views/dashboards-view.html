@@ -8,15 +8,87 @@
 <dom-module id="dashboards-view">
   <template>
     <script src="../../bower_components/q/q.js"></script>
-    <px-context-browser
+    <!-- <px-context-browser
       api-url="http://localhost:8181/api"
       root-uri="/root">
-    </px-context-browser>
-    <px-dashboard
+    </px-context-browser> -->
+    <!-- <px-dashboard
       view-service-base-url="{{viewServiceBaseUrl}}"
       selected-deck-id="{{selectedDeck.id}}"
-      context="{{context}}"></px-dashboard>
+      context="{{context}}"></px-dashboard> -->
+
+    <iron-ajax id="contextIronAjax" url="/sample-data/direct-context.json" last-response="{{browserContext}}" auto></iron-ajax>
+
+    <px-context-browser
+      id="contextBrowser"
+      label-field="name"
+      id-field="identifier"
+      browser-context="{{browserContext}}"
+      show-chevron="true">
+    </px-context-browser>
+
   </template>
+  <script>
+  Polymer({
+    is: 'dashboards-view',
+    properties: {},
+    ready: function ready() {
+
+      _this = this;
+      function demoGetChildren(node) {
+        console.log('demoGetChildren(node) ', node)
+        var nodeId = node.identifier,
+            deferred = Q.defer(),
+            children,
+            response,
+            ironAjaxEl = _this.$.contextIronAjax;
+            nodeIds = {
+              "001-1": "/sample-data/lotsOfChildren.json",
+              "001-2": "/sample-data/deepNestedChildren.json",
+              "001-2a":"/sample-data/deepNestedGrandchildren.json",
+              "001-2aa": "/sample-data/deepNestedGreatGrandchild.json"
+            };
+
+        ironAjaxEl.handleAs = "json";
+        ironAjaxEl.addEventListener('response', function(evt) {
+          if(evt.detail.response) {
+           children  = evt.detail.response;
+           deferred.resolve(children);
+          } else {
+           return;
+          }
+        });
+        //get our url - if there's no valid nodeId, resolve an empty promise.
+        if (nodeIds[nodeId]) {
+            ironAjaxEl.url = nodeIds[nodeId];
+            //and generate the promise.
+            ironAjaxEl.generateRequest();
+        } else {
+          deferred.resolve({ data: [], meta: { parentId: nodeId } });
+        }
+
+        //don't forget to return the promise!
+        return deferred.promise;
+      }
+
+      var colBrowser = this.$.contextBrowser;
+      colBrowser.handlers = {
+        getChildren: function(parent, newIndex) {
+          return demoGetChildren(parent);
+        },
+        itemOpenHandler: function(context) {
+          console.log('Opened: ', context);
+        }
+      };
+
+
+
+    }
+  });
+
+</script>
+
+<!--
   <script>
     Polymer({
       is: 'dashboards-view',
@@ -89,8 +161,15 @@
 
             console.log('getchildren node:', node);
 
-            var childUrl = "http://localhost:8181/api" + node.uri;
-            var ironAjaxEl = _this.$$("#iron-ajax-get-browser-context");
+            var nodeIds = {
+              "parent": "lotsOfChildren.json",
+              "child": "deepNestedChildren.json",
+              "child2":"deepNestedGrandchildren.json",
+              "child3": "deepNestedGreatGrandchild.json"
+            };
+
+            var childUrl = "/sample-data/" + node.uri;
+            var ironAjaxEl = _this.$.contextIronAjax;
             ironAjaxEl.set('url', childUrl);
 
 
@@ -236,5 +315,6 @@
       }
   });
   </script>
+-->
 
 </dom-module>
