@@ -1,0 +1,82 @@
+{
+  "tableData": [{
+    "meter": "crank-frame-compressionratio",
+    "meterUri": "/meters/crank-frame-compressionratio",
+    "meter_isKpi": true,
+    "meter_isPM": true,
+    "alertStatus": false,
+    "alertStatusType": null,
+    "currentValue": 2.634278082047401,
+    "unit": null,
+    "lastMeterReading": 1458764730852,
+    "asset": "Bently Compressor",
+    "assetUri": "/asset/compressor-2015"
+  }, {
+    "meter": "crank-frame-dischargepressure",
+    "meterUri": "/meters/crank-frame-dischargepressure",
+    "meter_isKpi": true,
+    "meter_isPM": true,
+    "alertStatus": false,
+    "alertStatusType": null,
+    "currentValue": 17.157537910540302,
+    "unit": "psi",
+    "lastMeterReading": 1458764726937,
+    "asset": "Bently Compressor",
+    "assetUri": "/asset/compressor-2015"
+  }, {
+    "meter": "crank-frame-velocity",
+    "meterUri": "/meters/crank-frame-velocity",
+    "meter_isKpi": true,
+    "meter_isPM": true,
+    "alertStatus": true,
+    "alertStatusType": null,
+    "currentValue": 0.09941674572769534,
+    "unit": "m/s",
+    "lastMeterReading": 1458764726937,
+    "asset": "Bently Compressor",
+    "assetUri": "/asset/compressor-2015"
+  }],
+  "columns": [{
+    "field": "asset",
+    "type": "string",
+    "inputType": "text",
+    "inputSize": 25.0,
+    "label": "Asset",
+    "uom": null
+  }, {
+    "field": "meter",
+    "type": "string",
+    "inputType": "text",
+    "inputSize": 20.0,
+    "label": "Meter",
+    "uom": null
+  }, {
+    "field": "alertStatus",
+    "type": "number",
+    "inputType": "text",
+    "inputSize": 20.0,
+    "label": "Alert Status",
+    "uom": null
+  }, {
+    "field": "currentValue",
+    "type": "number",
+    "inputType": "text",
+    "inputSize": 10.0,
+    "label": "Current Reading",
+    "uom": null
+  }, {
+    "field": "unit",
+    "type": "number",
+    "inputType": "text",
+    "inputSize": 10.0,
+    "label": "Units",
+    "uom": null
+  }, {
+    "field": "lastMeterReading",
+    "type": "datetime",
+    "inputType": "text",
+    "inputSize": 10.0,
+    "label": "Last Meter Reading",
+    "uom": null
+  }]
+}
