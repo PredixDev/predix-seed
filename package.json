@@ -63,6 +63,7 @@
   },
   "dependencies": {
     "express": "^4.13.4",
+    "http2": "^3.3.2",
     "lodash": "^4.6.1"
   }
 }
