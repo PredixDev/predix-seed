@@ -75,6 +75,15 @@ app.use(function(req, res) {
   }
 });
 
+var options = {
+  key: fs.readFileSync('./keyfile.key'),
+  cert: fs.readFileSync('./certfile.crt')
+};
+
+http2.createServer(options, app).listen(8181);
+
+/*
 var server = app.listen(8181, function() {
   console.log('API mock app listening on port 8181.');
 });
+*/
