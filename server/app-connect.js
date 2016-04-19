@@ -76,8 +76,8 @@ app.use(function(req, res) {
 });
 
 var options = {
-  key: fs.readFileSync('./keyfile.key'),
-  cert: fs.readFileSync('./certfile.crt')
+  key: fs.readFileSync('./http2_keyfile.key'),
+  cert: fs.readFileSync('./http2_certfile.crt')
 };
 
 http2.createServer(options, app).listen(8181);
