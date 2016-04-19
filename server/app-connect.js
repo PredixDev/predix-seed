@@ -5,6 +5,7 @@
 */
 
 var connect = require('connect');
+var http = require('http');
 var http2 = require('http2');
 
 var app = connect();
@@ -37,6 +38,7 @@ var getPathFromParams = function(params) {
 };
 
 app.use(function(req, res) {
+  // res.end('Hello from the polymer-seed asset server!');
   var pathString = '';
   if ('string' === typeof req.url) {
     if (req.url.match(/^(?:\/api){1}(?:\/)?([\w\d-]+)?(?:\/)?([\w\d-]+)?(?:\/)?([\w\d-]+)?$/)) {
@@ -49,7 +51,7 @@ app.use(function(req, res) {
       // needs to be shifted out below
       req.params.shift();
       pathString = getPathFromParams(req.params);
-      console.log('pathString; ' + pathString);
+
       // Fetch the file corresponding to the derived path
       fs.readFile( pathString, 'utf8', function (err, data) {
         if (err) {
@@ -76,11 +78,13 @@ app.use(function(req, res) {
 });
 
 var options = {
-  key: fs.readFileSync('./http2_keyfile.key'),
-  cert: fs.readFileSync('./http2_certfile.crt')
+  key: fs.readFileSync( __dirname + '/http2_keyfile.key' ),
+  cert: fs.readFileSync( __dirname + '/http2_certfile.crt' )
 };
 
-http2.createServer(options, app).listen(8181);
+http2.createServer(options, app).listen(process.env.VCAP_APP_PORT || 8181);
+
+// http.createServer(app).listen(process.env.VCAP_APP_PORT || 8181);
 
 /*
 var server = app.listen(8181, function() {
