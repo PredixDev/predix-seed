@@ -5,7 +5,7 @@
 */
 
 var connect = require('connect');
-var http = require('http');
+var http2 = require('http2');
 
 var app = connect();
 
