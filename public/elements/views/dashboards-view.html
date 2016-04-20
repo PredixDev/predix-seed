@@ -13,14 +13,14 @@
       api-url="http://localhost:8181/api"
       root-uri="/root">
     </px-context-browser>
-    -->
-    <!--
     <px-dashboard
       view-service-base-url="{{viewServiceBaseUrl}}"
       selected-deck-id="{{selectedDeck.id}}"
       context="{{context}}"></px-dashboard>
     -->
-    <iron-ajax id="contextIronAjax" url="http://localhost:8181/api/root" last-response="{{browserContext}}" auto></iron-ajax>
+    <iron-ajax id="contextIronAjax"
+      url="http://localhost:8181/api/root"
+      last-response="{{browserContext}}" auto></iron-ajax>
     <px-context-browser
       id="contextBrowser"
       label-field="name"
@@ -55,17 +55,12 @@
 
       // "getChildren" handler for px-context-browser
       _getChildren: function(node) {
-        var nodeId = node.identifier,
+        var nodeId = node.id,
+            nodeUri = node.uri,
             deferred = Q.defer(),
             children,
             response,
             ironAjaxEl = document.createElement('iron-ajax');
-            nodeIds = {
-              "001-1": "/sample-data/lotsOfChildren.json",
-              "001-2": "/sample-data/deepNestedChildren.json",
-              "001-2a":"/sample-data/deepNestedGrandchildren.json",
-              "001-2aa": "/sample-data/deepNestedGreatGrandchild.json"
-            };
 
         ironAjaxEl.handleAs = "json";
         ironAjaxEl.addEventListener('response', function(evt) {
@@ -78,9 +73,9 @@
         });
 
         //get our url - if there's no valid nodeId, resolve an empty promise.
-        if (nodeIds[nodeId]) {
-          ironAjaxEl.url = nodeIds[nodeId];
-          //and generate the promise.
+        if (nodeUri) {
+          ironAjaxEl.url = 'http://localhost:8181/api' + nodeUri;
+          // and generate the promise
           ironAjaxEl.generateRequest();
         } else {
           deferred.resolve({ data: [], meta: { parentId: nodeId } });
