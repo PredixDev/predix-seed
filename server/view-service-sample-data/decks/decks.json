@@ -1,5 +1,41 @@
 [{
   "id": "1",
-  "name": "deck-1",
-  "uri": "/decks/1"
+  "title": "Overview",
+  "slug": "px-deck",
+  "cardOrder": null,
+  "createTimeStamp": "2015-11-24T23:02:53.838Z",
+  "tags": [{
+    "id": "1",
+    "value": "parent"
+  }],
+  "cards": []
+}, {
+  "id": "2",
+  "title": "Detail",
+  "slug": "px-deck",
+  "cardOrder": null,
+  "createTimeStamp": "2015-11-24T23:02:53.838Z",
+  "tags": [{
+    "id": "2",
+    "value": "child"
+  }],
+  "cards": [{
+    "id": "4",
+    "title": "time series card",
+    "slug": "time-series-card",
+    "attributes": {},
+    "createTimeStamp": "2015-11-24T23:02:53.816Z",
+    "tags": []
+  }]
+}, {
+  "id": "3",
+  "title": "Datagrid View",
+  "slug": "px-deck",
+  "cardOrder": null,
+  "createTimeStamp": "2015-11-24T23:02:53.838Z",
+  "tags": [{
+    "id": "3",
+    "value": "parent"
+  }],
+  "cards": []
 }]
