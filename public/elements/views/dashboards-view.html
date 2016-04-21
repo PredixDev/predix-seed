@@ -19,7 +19,7 @@
       context="{{context}}"></px-dashboard>
     -->
     <iron-ajax id="contextIronAjax"
-      url="http://localhost:8181/predix-asset/root"
+      url="http://localhost:8181/api/predix-asset/root"
       last-response="{{browserContext}}" auto></iron-ajax>
     <px-context-browser
       id="contextBrowser"
@@ -74,7 +74,7 @@
 
         //get our url - if there's no valid nodeId, resolve an empty promise.
         if (nodeUri) {
-          ironAjaxEl.url = 'http://localhost:8181/predix-asset' + nodeUri;
+          ironAjaxEl.url = 'http://localhost:8181/api/predix-asset' + nodeUri;
           // and generate the promise
           ironAjaxEl.generateRequest();
         } else {

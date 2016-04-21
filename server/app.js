@@ -44,8 +44,7 @@ app.get(assetRoute, function(req, res) {
   });
 });
 
-
-// parse
+// parse params and produce path to correct .json file
 var getViewServicePathFromParams = function(params) {
   // parse out values & remove undefined
   var pathValues = _.pull(_.values(params), undefined);
