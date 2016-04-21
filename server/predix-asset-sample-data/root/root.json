@@ -2,8 +2,8 @@
   "data": [{
     "id": "predix-energy",
     "name": "Predix Energy",
-    "parent": "/root",
-    "parentId": "/root",
+    "parent": "/predix-energy",
+    "parentId": "/predix-energy",
     "description": "Predix Energy Description",
     "uri": "/enterprises/predix-energy",
     "level": "enterprise",
@@ -11,8 +11,8 @@
   }, {
     "id": "san-ramon-oil",
     "name": "San Ramon Oil",
-    "parent": "/root",
-    "parentId": "/root",
+    "parent": "/san-ramon-oil",
+    "parentId": "/san-ramon-oil",
     "description": "San Ramon Oil Description",
     "uri": "/enterprises/san-ramon-oil",
     "level": "enterprise",

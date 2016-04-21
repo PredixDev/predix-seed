@@ -1,14 +1,5 @@
 {
   "data": [{
-    "id": "capetown",
-    "name": "South Africa, Cape Town",
-    "parent": "/enterprises/predix-energy",
-    "parentId": "/enterprises/predix-energy",
-    "description": "South Africa - Cape Town - Description",
-    "uri": "/sites/capetown",
-    "level": "site",
-    "isOpenable": false
-  }, {
     "id": "richmond",
     "name": "Richmond",
     "parent": "/enterprises/predix-energy",
@@ -17,8 +8,17 @@
     "uri": "/sites/richmond",
     "level": "site",
     "isOpenable": false
+  }, {
+    "id": "capetown",
+    "name": "South Africa, Cape Town",
+    "parent": "/enterprises/predix-energy",
+    "parentId": "/enterprises/predix-energy",
+    "description": "South Africa - Cape Town - Description",
+    "uri": "/sites/capetown",
+    "level": "site",
+    "isOpenable": false
   }],
   "meta": {
-    "parentId": "root"
+    "parentId": "predix-energy"
   }
 }
