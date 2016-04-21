@@ -7,6 +7,7 @@
 <!-- this element loads another element and appends it to #element -->
 <dom-module id="dashboards-view">
   <template>
+    <script src="../../bower_components/lodash/lodash.js"></script>
     <script src="../../bower_components/q/q.js"></script>
     <!--
     <px-context-browser
@@ -21,6 +22,11 @@
     <iron-ajax id="contextIronAjax"
       url="http://localhost:8181/api/predix-asset/root"
       last-response="{{browserContext}}" auto></iron-ajax>
+    <iron-ajax id="decksIronAjax"
+      url="http://localhost:8181/api/view-service/decks"
+      last-response="{{decks}}" auto></iron-ajax>
+    <iron-ajax id="deckIronAjax"
+      last-response="{{deck}}" auto></iron-ajax>
     <px-context-browser
       id="contextBrowser"
       label-field="name"
@@ -47,10 +53,6 @@
             return _this._itemOpenHandler(context);
           }
         };
-      },
-
-      _itemOpenHandler: function(context) {
-        console.log('Opened: ', context);
       },
 
       // "getChildren" handler for px-context-browser
@@ -82,6 +84,42 @@
         }
 
         //don't forget to return the promise!
+        return deferred.promise;
+      },
+
+      _itemOpenHandler: function(item) {
+        console.log('item.id: ', item.id);
+        // mapping of tags to deckId values
+        var tags = [
+          { 'tag': 'predix-energy', 'deckId': '1' },
+          { 'tag': 'richmond', 'deckId': '2' },
+          { 'tag': 'richmond-refinery', 'deckId': '3' },
+          { 'tag': 'compressor-2015', 'deckId': '4' }
+        ];
+        var deck = _.find(tags, function(o) { return o.tag === item.id; });
+      },
+
+      _getDecks: function() {
+
+      },
+
+      _getDeck: function(id) {
+        var deferred = Q.defer();
+        var ironAjaxEl = document.querySelector('deckIronAjax');
+        ironAjaxEl.handleAs = "json";
+        ironAjaxEl.addEventListener('response', function(evt) {
+          if(evt.detail.response) {
+            deferred.resolve(evt.detail.response);
+          } else {
+            return;
+          }
+        });
+        if(id) {
+          ironAjaxEl.url = 'http://localhost:8181/api/view-service/decks/' + id;
+          ironAjaxEl.generateRequest();
+        } else {
+          deferred.resolve({});
+        };
         return deferred.promise;
       }
 

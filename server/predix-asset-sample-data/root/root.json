@@ -7,7 +7,7 @@
     "description": "Predix Energy Description",
     "uri": "/enterprises/predix-energy",
     "level": "enterprise",
-    "isOpenable": false
+    "isOpenable": true
   }, {
     "id": "san-ramon-oil",
     "name": "San Ramon Oil",

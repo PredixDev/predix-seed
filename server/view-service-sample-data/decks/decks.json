@@ -6,9 +6,16 @@
   "createTimeStamp": "2015-11-24T23:02:53.838Z",
   "tags": [{
     "id": "1",
-    "value": "parent"
+    "value": "predix-energy"
   }],
-  "cards": []
+  "cards": [{
+    "id": "1",
+    "title": "time series card",
+    "slug": "time-series-card",
+    "attributes": {},
+    "createTimeStamp": "2015-11-24T23:02:53.816Z",
+    "tags": []
+  }]
 }, {
   "id": "2",
   "title": "Detail",
@@ -17,7 +24,7 @@
   "createTimeStamp": "2015-11-24T23:02:53.838Z",
   "tags": [{
     "id": "2",
-    "value": "child"
+    "value": "richmond"
   }],
   "cards": [{
     "id": "4",
@@ -35,7 +42,18 @@
   "createTimeStamp": "2015-11-24T23:02:53.838Z",
   "tags": [{
     "id": "3",
-    "value": "parent"
+    "value": "richmond-refinery"
+  }],
+  "cards": []
+}, {
+  "id": "4",
+  "title": "Datagrid View",
+  "slug": "px-deck",
+  "cardOrder": null,
+  "createTimeStamp": "2015-11-24T23:02:53.838Z",
+  "tags": [{
+    "id": "3",
+    "value": "compressor-2015"
   }],
   "cards": []
 }]

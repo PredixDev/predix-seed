@@ -7,7 +7,7 @@
     "description": "Richmond Refinery - Description",
     "uri": "/plants/richmond-refinery",
     "level": "plant",
-    "isOpenable": false
+    "isOpenable": true
   }],
   "meta": {
     "parentId": "richmond"

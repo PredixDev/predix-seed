@@ -7,7 +7,7 @@
     "description": "Richmond - Description",
     "uri": "/sites/richmond",
     "level": "site",
-    "isOpenable": false
+    "isOpenable": true
   }, {
     "id": "capetown",
     "name": "South Africa, Cape Town",
