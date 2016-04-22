@@ -1,4 +1,4 @@
-#Predix Experience 2.0 Seed
+#Predix Experience Seed
 Dashboard Seed is an application that uses Px Web Components and <a href="https://github.com/PredixDev/px-library-design/" target="_blank">Px UI Elements</a> inside an Angular application.
 
 ## To Run the Dashboard Seed
@@ -237,8 +237,19 @@ The first thing we need to do is give our dummy user permission to see the views
 	uaac client update <your-client> --autoapprove views.zones.<your-views-instance-id>.user,<other>,<autoapproves>
 
 	# example:
-	uaac client update <your-client> --autoapprove openid,scim.me,views.zones.<your-views-instance-id>.user
+	uaac client update <your-client> --autoapprove openid,scim.me,views.zones.1234567890.user
 	```
+5. Update your client authorities to include this group
+	
+    Use uaac to get your current client authorities, and add the group you just created to this list
+	```
+	uaac client get <your-client> 
+	uaac client update <your-client> --authorities views.zones.<your-views-instance-id>.user,<other>,<authorities>
+
+	# example:
+	uaac client update <your-client> --authorities views.zones.1234567890.user,scim.me,openid,uaa.resource
+	```
+    
 
 ### Understanding the headers
 
