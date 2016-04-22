@@ -76,8 +76,12 @@
       },
 
       _computeInitialBrowserContext: function(_browserContext) {
-        if(this._initialBrowserContext);
-        return _browserContext;
+        if(typeof this._initialBrowserContext !== 'object') {
+          return _browserContext;
+        } else {
+          return this._initialBrowserContext;
+        }
+
       },
 
       // "getChildren" handler for px-context-browser
