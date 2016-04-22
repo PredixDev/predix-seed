@@ -9,16 +9,6 @@
   <template>
     <script src="../../bower_components/lodash/lodash.js"></script>
     <script src="../../bower_components/q/q.js"></script>
-    <!--
-    <px-context-browser
-      api-url="http://localhost:8181/api"
-      root-uri="/root">
-    </px-context-browser>
-    <px-dashboard
-      view-service-base-url="{{viewServiceBaseUrl}}"
-      selected-deck-id="{{selectedDeck.id}}"
-      context="{{context}}"></px-dashboard>
-    -->
     <iron-ajax id="contextIronAjax"
       url="http://localhost:8181/api/predix-asset/root"
       last-response="{{_browserContext}}" auto></iron-ajax>
@@ -35,6 +25,10 @@
       show-chevron="true">
       <px-deck-selector decks="[[_decks]]" selected-deck="{{selectedDeck}}"></px-deck-selector>
     </px-context-browser>
+    <px-dashboard
+      view-service-base-url="http://localhost:8181/api/view-service/"
+      selected-deck-id="{{selectedDeck.id}}"
+      context="{{context}}"></px-dashboard>
   </template>
   <script>
     Polymer({
@@ -81,7 +75,6 @@
         } else {
           return this._initialBrowserContext;
         }
-
       },
 
       // "getChildren" handler for px-context-browser
