@@ -88,7 +88,6 @@
       },
 
       _itemOpenHandler: function(item) {
-        console.log('item.id: ', item.id);
         // mapping of tags to deckId values
         var tags = [
           { 'tag': 'predix-energy', 'deckId': '1' },
@@ -96,7 +95,12 @@
           { 'tag': 'richmond-refinery', 'deckId': '3' },
           { 'tag': 'compressor-2015', 'deckId': '4' }
         ];
-        var deck = _.find(tags, function(o) { return o.tag === item.id; });
+        var tag = _.find(tags, function(o) { return o.tag === item.id; });
+        this._getDeck(tag.deckId).then(function(deck) {
+          console.log('_getDeck complete: ', deck);
+        }, function(e) {
+          console.log(e);
+        });
       },
 
       _getDecks: function() {
@@ -105,11 +109,10 @@
 
       _getDeck: function(id) {
         var deferred = Q.defer();
-        var ironAjaxEl = document.querySelector('deckIronAjax');
-        ironAjaxEl.handleAs = "json";
-        ironAjaxEl.addEventListener('response', function(evt) {
-          if(evt.detail.response) {
-            deferred.resolve(evt.detail.response);
+        var ironAjaxEl = this.$.deckIronAjax;
+        ironAjaxEl.addEventListener('response', function(e) {
+          if(e.detail.response) {
+            deferred.resolve(e.detail.response);
           } else {
             return;
           }
