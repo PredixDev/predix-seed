@@ -21,18 +21,17 @@
     -->
     <iron-ajax id="contextIronAjax"
       url="http://localhost:8181/api/predix-asset/root"
-      last-response="{{browserContext}}" auto></iron-ajax>
+      last-response="{{_browserContext}}" auto></iron-ajax>
     <iron-ajax id="decksIronAjax"
       url="http://localhost:8181/api/view-service/decks"
       last-response="{{decksResponse}}" auto></iron-ajax>
     <iron-ajax id="deckIronAjax"
       last-response="{{deck}}" auto></iron-ajax>
-      DECK: [[_deckString]]
     <px-context-browser
       id="contextBrowser"
       label-field="name"
       id-field="id"
-      browser-context="{{browserContext}}"
+      browser-context="[[_initialBrowserContext]]"
       show-chevron="true">
       <px-deck-selector decks="[[_decks]]" selected-deck="{{selectedDeck}}"></px-deck-selector>
     </px-context-browser>
@@ -43,13 +42,13 @@
       is: 'dashboards-view',
 
       properties: {
-        _deckString: {
-          type: String,
-          computed: '_computeDeckString(deck)'
-        },
         _decks: {
           type: Array,
           computed: '_computeDecks(decksResponse)'
+        },
+        _initialBrowserContext: {
+          type: Object,
+          computed: '_computeInitialBrowserContext(_browserContext)'
         }
       },
 
@@ -66,7 +65,7 @@
         };
       },
 
-      _computeDecks(decksResponse) {
+      _computeDecks: function(decksResponse) {
         var decks = [];
         if (decksResponse && decksResponse.length > 0) {
           decksResponse.forEach(function(deck) {
@@ -76,21 +75,22 @@
         return decks;
       },
 
-      _computeDeckString: function() {
-        return JSON.stringify(this.deck);
+      _computeInitialBrowserContext: function(_browserContext) {
+        if(this._initialBrowserContext);
+        return _browserContext;
       },
 
       // "getChildren" handler for px-context-browser
       _getChildren: function(node) {
-        var nodeId = node.id,
-            nodeUri = node.uri,
+        var nodeUri = node.uri,
             deferred = Q.defer(),
             children,
             response,
             ironAjaxEl = document.createElement('iron-ajax');
 
-        ironAjaxEl.handleAs = "json";
-        ironAjaxEl.addEventListener('response', function(evt) {
+        this.$.contextIronAjax.url = 'http://localhost:8181/api/predix-asset' + nodeUri;
+
+        this.$.contextIronAjax.addEventListener('response', function(evt) {
           if(evt.detail.response) {
             children = evt.detail.response;
             deferred.resolve(children);
@@ -98,16 +98,6 @@
             return;
           }
         });
-
-        //get our url - if there's no valid nodeId, resolve an empty promise.
-        if (nodeUri) {
-          ironAjaxEl.url = 'http://localhost:8181/api/predix-asset' + nodeUri;
-          // and generate the promise
-          ironAjaxEl.generateRequest();
-        } else {
-          deferred.resolve({ data: [], meta: { parentId: nodeId } });
-        }
-
         //don't forget to return the promise!
         return deferred.promise;
       },
@@ -122,39 +112,6 @@
         ];
         var tag = _.find(tags, function(o) { return o.tag === item.id; });
         this.$.deckIronAjax.url = 'http://localhost:8181/api/view-service/decks/' + tag.deckId;
-        console.log('this.$.deckIronAjax: ', this.$.deckIronAjax);
-        /*
-        this._getDeck(tag.deckId).then(function(deck) {
-          console.log('_getDeck complete: ', deck);
-        }, function(e) {
-          console.log(e);
-        });
-        */
-      },
-
-      _getDecks: function() {
-
-      },
-
-      // returns a promise
-      _getDeck: function(id) {
-        var deferred = Q.defer();
-        var ironAjaxEl = this.$.deckIronAjax;
-        ironAjaxEl.addEventListener('response', function(e) {
-          if(e.detail.response) {
-            deferred.resolve(e.detail.response);
-          } else {
-            return;
-          }
-        });
-        if(id) {
-          ironAjaxEl.url = 'http://localhost:8181/api/view-service/decks/' + id;
-
-          ironAjaxEl.generateRequest();
-        } else {
-          deferred.resolve({});
-        };
-        return deferred.promise;
       }
 
     });
