@@ -24,15 +24,17 @@
       last-response="{{browserContext}}" auto></iron-ajax>
     <iron-ajax id="decksIronAjax"
       url="http://localhost:8181/api/view-service/decks"
-      last-response="{{decks}}" auto></iron-ajax>
+      last-response="{{decksResponse}}" auto></iron-ajax>
     <iron-ajax id="deckIronAjax"
       last-response="{{deck}}" auto></iron-ajax>
+      DECK: [[_deckString]]
     <px-context-browser
       id="contextBrowser"
       label-field="name"
       id-field="id"
       browser-context="{{browserContext}}"
       show-chevron="true">
+      <px-deck-selector decks="[[_decks]]" selected-deck="{{selectedDeck}}"></px-deck-selector>
     </px-context-browser>
   </template>
   <script>
@@ -40,7 +42,16 @@
 
       is: 'dashboards-view',
 
-      properties: {},
+      properties: {
+        _deckString: {
+          type: String,
+          computed: '_computeDeckString(deck)'
+        },
+        _decks: {
+          type: Array,
+          computed: '_computeDecks(decksResponse)'
+        }
+      },
 
       ready: function ready() {
         var _this = this;
@@ -53,6 +64,20 @@
             return _this._itemOpenHandler(context);
           }
         };
+      },
+
+      _computeDecks(decksResponse) {
+        var decks = [];
+        if (decksResponse && decksResponse.length > 0) {
+          decksResponse.forEach(function(deck) {
+            decks.push({ name: deck.title, id: deck.id });
+          });
+        };
+        return decks;
+      },
+
+      _computeDeckString: function() {
+        return JSON.stringify(this.deck);
       },
 
       // "getChildren" handler for px-context-browser
@@ -96,17 +121,22 @@
           { 'tag': 'compressor-2015', 'deckId': '4' }
         ];
         var tag = _.find(tags, function(o) { return o.tag === item.id; });
+        this.$.deckIronAjax.url = 'http://localhost:8181/api/view-service/decks/' + tag.deckId;
+        console.log('this.$.deckIronAjax: ', this.$.deckIronAjax);
+        /*
         this._getDeck(tag.deckId).then(function(deck) {
           console.log('_getDeck complete: ', deck);
         }, function(e) {
           console.log(e);
         });
+        */
       },
 
       _getDecks: function() {
 
       },
 
+      // returns a promise
       _getDeck: function(id) {
         var deferred = Q.defer();
         var ironAjaxEl = this.$.deckIronAjax;
@@ -119,6 +149,7 @@
         });
         if(id) {
           ironAjaxEl.url = 'http://localhost:8181/api/view-service/decks/' + id;
+
           ironAjaxEl.generateRequest();
         } else {
           deferred.resolve({});
