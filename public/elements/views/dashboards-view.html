@@ -1,22 +1,28 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/px-context-browser/px-context-browser.html">
 <link rel="import" href="../../bower_components/px-deck-selector/px-deck-selector.html">
-<link rel="import" href="../../bower_components/px-card/px-dashboard.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<!-- local dashboard -->
+
+<link rel="import" href="/elements/px-dashboard/px-dashboard.html">
+
 
 <!-- this element loads another element and appends it to #element -->
 <dom-module id="dashboards-view">
   <template>
     <script src="../../bower_components/lodash/lodash.js"></script>
     <script src="../../bower_components/q/q.js"></script>
+
+    <!-- Context -->
     <iron-ajax id="contextIronAjax"
       url="http://localhost:8181/api/predix-asset/root"
       last-response="{{_browserContext}}" auto></iron-ajax>
+    <!-- Decks -->
     <iron-ajax id="decksIronAjax"
       url="http://localhost:8181/api/view-service/decks"
       last-response="{{decksResponse}}" auto></iron-ajax>
-    <iron-ajax id="deckIronAjax"
-      last-response="{{deck}}" auto></iron-ajax>
+      
     <px-context-browser
       id="contextBrowser"
       label-field="name"
@@ -25,10 +31,16 @@
       show-chevron="true">
       <px-deck-selector decks="[[_decks]]" selected-deck="{{selectedDeck}}"></px-deck-selector>
     </px-context-browser>
+    <br/>
+    [[_deckString]]
+    <br/>
+    <px-dashboard selected-deck-id="[[_selectedDeckId]]"></px-dashboard>
+    <!--
     <px-dashboard
       view-service-base-url="http://localhost:8181/api/view-service/"
       selected-deck-id="{{selectedDeck.id}}"
       context="{{context}}"></px-dashboard>
+    -->
   </template>
   <script>
     Polymer({
@@ -43,6 +55,10 @@
         _initialBrowserContext: {
           type: Object,
           computed: '_computeInitialBrowserContext(_browserContext)'
+        },
+        _deckString: {
+          type: String,
+          computed: '_computeDeckString(deck)'
         }
       },
 
@@ -57,6 +73,10 @@
             return _this._itemOpenHandler(context);
           }
         };
+      },
+
+      _computeDeckString: function(deck) {
+        return JSON.stringify(deck);
       },
 
       _computeDecks: function(decksResponse) {
@@ -108,7 +128,7 @@
           { 'tag': 'compressor-2015', 'deckId': '4' }
         ];
         var tag = _.find(tags, function(o) { return o.tag === item.id; });
-        this.$.deckIronAjax.url = 'http://localhost:8181/api/view-service/decks/' + tag.deckId;
+        this._selectedDeckId = tag.deckId;
       }
 
     });
