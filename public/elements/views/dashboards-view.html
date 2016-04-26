@@ -3,10 +3,8 @@
 <link rel="import" href="../../bower_components/px-deck-selector/px-deck-selector.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
-<!-- local dashboard -->
-
-<link rel="import" href="/elements/px-dashboard/px-dashboard.html">
-
+<!-- local px-deck -->
+<link rel="import" href="/elements/px-deck/px-deck.html">
 
 <!-- this element loads another element and appends it to #element -->
 <dom-module id="dashboards-view">
@@ -22,7 +20,7 @@
     <iron-ajax id="decksIronAjax"
       url="http://localhost:8181/api/view-service/decks"
       last-response="{{decksResponse}}" auto></iron-ajax>
-      
+
     <px-context-browser
       id="contextBrowser"
       label-field="name"
@@ -32,9 +30,9 @@
       <px-deck-selector decks="[[_decks]]" selected-deck="{{selectedDeck}}"></px-deck-selector>
     </px-context-browser>
     <br/>
-    [[_deckString]]
-    <br/>
-    <px-dashboard selected-deck-id="[[_selectedDeckId]]"></px-dashboard>
+    <px-deck
+      view-service-base-url="http://localhost:8181/api/view-service/"
+      deck-id="[[_selectedDeckId]]"></px-deck>
     <!--
     <px-dashboard
       view-service-base-url="http://localhost:8181/api/view-service/"

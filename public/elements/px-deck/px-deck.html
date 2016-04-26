@@ -1,0 +1,65 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<!-- local px-card -->
+<link rel="import" href="/elements/px-card/px-card.html">
+
+<dom-module id="px-deck">
+  <template>
+    <script src="../../bower_components/lodash/lodash.js"></script>
+    <iron-ajax id="deckIronAjax" url="[[_deckUrl]]" last-response="{{_deckData}}" auto></iron-ajax>
+    <template is="dom-repeat" items="{{_cards}}">
+      <px-card card-data="[[item]]"></px-card>
+    </template>
+  </template>
+  <script>
+    Polymer({
+
+      is: 'px-deck',
+
+      properties: {
+        // set by parent
+        deckId: {
+          type: String
+        },
+        viewServiceBaseUrl: {
+          type: String,
+          value: 'http://localhost:8181/api/view-service/'
+        },
+        // set on initialzation
+        _decksUrl: {
+          type: String,
+          computed: '_computeDecksUrl(viewServiceBaseUrl)'
+        },
+        // updated when deckId is changed
+        _deckUrl: {
+          type: String,
+          computed: '_computeDeckUrl(_decksUrl, deckId)'
+        },
+        // returned from iron-ajax request
+        _deckData: {
+          type: Object
+        },
+        // cards: [{card},{card}] updated on _deckData change
+        _cards: {
+          type: Array,
+          computed: '_computeCards(_deckData)'
+        }
+      },
+
+      _computeDeckUrl: function() {
+        // Set Url of iron-ajax element, triggering request and update of _lastDeck
+        return this._decksUrl + this.deckId;
+      },
+
+      _computeDecksUrl: function() {
+        return this.viewServiceBaseUrl + 'decks/';
+      },
+
+      _computeCards: function() {
+        return this._deckData.cards;
+      }
+
+    });
+  </script>
+</dom-module>
