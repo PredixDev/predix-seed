@@ -42,7 +42,7 @@
     "px-code-design": "https://github.com/PredixDev/px-code-design.git#~0.2.8",
     "px-headings-design": "https://github.com/PredixDev/px-headings-design.git#~0.2.10",
     "px-buttons-design": "https://github.com/PredixDev/px-buttons-design.git#~0.4.17",
-    "px-view": "https://github.com/PredixDev/px-view.git#~0.0.3",
+    "px-view": "https://github.com/PredixDev/px-view.git#~0.1.0",
     "q": "^1.0.0",
     "px-overlay": "^0.0.3",
     "carbon-route": "PolymerElements/carbon-route#^0.8.4"
