@@ -12,7 +12,9 @@
     "id": "1",
     "title": "time series card",
     "slug": "time-series-card",
-    "attributes": {},
+    "attributes": {
+      "elementHref": "/bower_components/px-sample-cards/time-series-card.html"
+    },
     "createTimeStamp": "2015-11-24T23:02:53.816Z",
     "tags": []
   }]

@@ -2,14 +2,14 @@
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
 <!-- local px-card -->
-<link rel="import" href="/elements/px-card/px-card.html">
+<link rel="import" href="/elements/px-view-card/px-view-card.html">
 
 <dom-module id="px-deck">
   <template>
     <script src="../../bower_components/lodash/lodash.js"></script>
     <iron-ajax id="deckIronAjax" url="[[_deckUrl]]" last-response="{{_deckData}}" auto></iron-ajax>
     <template is="dom-repeat" items="{{_cards}}">
-      <px-card card-data="[[item]]"></px-card>
+      <px-view-card card-data="[[item]]"></px-view-card>
     </template>
   </template>
   <script>
