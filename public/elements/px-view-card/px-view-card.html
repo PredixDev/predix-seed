@@ -4,12 +4,6 @@
 
 <dom-module id="px-view-card">
   <template>
-    _cardActive: <span>[[_cardActive]]</span>
-    <br/>
-    _cardElementSlug: <span>[[_cardElementSlug]]</span>
-    <br/>
-    _cardElementHref: <span>[[_cardElementHref]]<span>
-    <br/>
     <px-view
       active="[[_cardActive]]"
       element-tag-name="[[_cardElementSlug]]"
@@ -43,15 +37,11 @@
       },
 
       _computeCardElementHref: function() {
-        console.log('_computeCardElementHref');
-        return "/elements/ge-svg-logo/ge-svg-logo.html";
-        /*
         if(this.cardData.attributes.elementHref) {
           return this.cardData.attributes.elementHref;
         } else {
           return '/elements/cards/' + this.cardData.slug + '.html'
         }
-        */
       }
 
     });
