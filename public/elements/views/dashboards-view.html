@@ -54,6 +54,10 @@
         _deckString: {
           type: String,
           computed: '_computeDeckString(deck)'
+        },
+        _nodeUri: {
+          type: String,
+          observer: '_nodeUriChanged'
         }
       },
 
@@ -99,25 +103,34 @@
 
       // "getChildren" handler for px-context-browser
       _getChildren: function(node) {
-        var nodeUri = node.uri,
-            deferred = Q.defer(),
+        var deferred = Q.defer(),
             children,
             response,
             ironAjaxEl = document.createElement('iron-ajax');
 
-        this.$.contextIronAjax.url = 'http://localhost:8181/api/predix-asset' + nodeUri;
-        this.$.contextIronAjax.generateRequest();
+        if(node.uri !== this._nodeUri) {
+          // if the new nodeUri is different
+          this.set('_nodeUri', node.uri);
+          this.$.contextIronAjax.addEventListener('response', function(evt) {
+            if(evt.detail.response) {
+              children = evt.detail.response;
+              deferred.resolve(children);
+            } else {
+              deferred.reject("Error: request returned status " + evt.detail);
+            }
+          });
+          // don't forget to return the promise!
+          return deferred.promise;
+        } else {
+          // use cached response, no need for http request
+          deferred.resolve(this.$.contextIronAjax.lastResponse);
+          return deferred.promise;
+        }
+      },
 
-        this.$.contextIronAjax.addEventListener('response', function(evt) {
-          if(evt.detail.response) {
-            children = evt.detail.response;
-            deferred.resolve(children);
-          } else {
-            return;
-          }
-        });
-        //don't forget to return the promise!
-        return deferred.promise;
+      _nodeUriChanged: function(_nodeUri) {
+        this.$.contextIronAjax.url = 'http://localhost:8181/api/predix-asset' + _nodeUri;
+        this.$.contextIronAjax.generateRequest();
       },
 
       _itemOpenHandler: function(item) {
