@@ -15,7 +15,8 @@
     <!-- Context -->
     <iron-ajax id="contextIronAjax"
       url="http://localhost:8181/api/predix-asset/root"
-      last-response="{{_browserContext}}" auto></iron-ajax>
+      last-response="{{_browserContext}}"></iron-ajax>
+
     <!-- Decks -->
     <iron-ajax id="decksIronAjax"
       url="http://localhost:8181/api/view-service/decks"
@@ -27,18 +28,14 @@
       id-field="id"
       browser-context="[[_initialBrowserContext]]"
       show-chevron="true">
-      <px-deck-selector decks="[[_decks]]" selected-deck="{{selectedDeck}}"></px-deck-selector>
+      <px-deck-selector decks="[[_decks]]"
+        selected-deck="{{selectedDeck}}"></px-deck-selector>
     </px-context-browser>
-    <br/>
+
     <px-deck
       view-service-base-url="http://localhost:8181/api/view-service/"
       deck-id="[[_selectedDeckId]]"></px-deck>
-    <!--
-    <px-dashboard
-      view-service-base-url="http://localhost:8181/api/view-service/"
-      selected-deck-id="{{selectedDeck.id}}"
-      context="{{context}}"></px-dashboard>
-    -->
+
   </template>
   <script>
     Polymer({
@@ -67,10 +64,15 @@
           getChildren: function(parent, newIndex) {
             return _this._getChildren(parent);
           },
-          itemOpenHandler: function(context) {
-            return _this._itemOpenHandler(context);
+          itemOpenHandler: function(item) {
+            return _this._itemOpenHandler(item);
+          },
+          itemClickHandler: function(item) {
+            return _this._itemClickHandler(item);
           }
         };
+        // initialize context data
+        this.$.contextIronAjax.generateRequest();
       },
 
       _computeDeckString: function(deck) {
@@ -104,6 +106,7 @@
             ironAjaxEl = document.createElement('iron-ajax');
 
         this.$.contextIronAjax.url = 'http://localhost:8181/api/predix-asset' + nodeUri;
+        this.$.contextIronAjax.generateRequest();
 
         this.$.contextIronAjax.addEventListener('response', function(evt) {
           if(evt.detail.response) {
@@ -127,6 +130,10 @@
         ];
         var tag = _.find(tags, function(o) { return o.tag === item.id; });
         this._selectedDeckId = tag.deckId;
+      },
+
+      _itemClickHandler: function(item) {
+        // console.log('_itemClickHandler', item);
       }
 
     });
