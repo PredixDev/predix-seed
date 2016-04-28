@@ -8,10 +8,9 @@
 
 <!-- this element loads another element and appends it to #element -->
 <dom-module id="dashboards-view">
+  <script src="../../bower_components/lodash/lodash.js"></script>
+  <script src="../../bower_components/q/q.js"></script>
   <template>
-    <script src="../../bower_components/lodash/lodash.js"></script>
-    <script src="../../bower_components/q/q.js"></script>
-
     <!-- Context -->
     <iron-ajax id="contextIronAjax"
       url="http://localhost:8181/api/predix-asset/root"
