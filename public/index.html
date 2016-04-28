@@ -93,24 +93,27 @@
         <main class="u-pt-- u-pr-- u-pl--" role="main">
 
           <!-- carbon-location captures url and assigns _route value -->
-          <carbon-location route="{{_route}}" use-hash-as-path></carbon-location>
+          <carbon-location id="carbonLocation" route="{{_route}}" use-hash-as-path></carbon-location>
 
           <!-- /home route and view -->
-          <carbon-route route="[[_route]]" pattern="/home" active="{{_homeActive}}"></carbon-route>
+          <carbon-route route="[[_route]]" pattern="/home"
+            active="{{_homeActive}}"></carbon-route>
           <px-view
             active="[[_homeActive]]"
             element-tag-name="home-view"
             element-href="/elements/views/home-view.html"></px-view>
 
           <!-- /dashboards rotue and view -->
-          <carbon-route route="[[_route]]" pattern="/dashboards" active="{{_dashboardsActive}}"></carbon-route>
+          <carbon-route route="[[_route]]" pattern="/dashboards"
+            active="{{_dashboardsActive}}"></carbon-route>
           <px-view
             active="[[_dashboardsActive]]"
             element-tag-name="dashboards-view"
             element-href="/elements/views/dashboards-view.html"></px-view>
 
           <!-- /blankpage route and view -->
-          <carbon-route route="[[_route]]" pattern="/blankpage" active="{{_blankpageActive}}"></carbon-route>
+          <carbon-route route="[[_route]]" pattern="/blankpage"
+            active="{{_blankpageActive}}"></carbon-route>
           <px-view
             active="[[_blankpageActive]]"
             element-tag-name="blankpage-view"
