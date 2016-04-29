@@ -1,5 +1,6 @@
 {
   "data": [{
+    "id": "compressor-2015",
     "name": "Bently Compressor",
     "isOpenable": true,
     "level": "asset",

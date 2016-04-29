@@ -57,7 +57,9 @@
       },
 
       _computeCards: function() {
-        return this._deckData.cards;
+        if(typeof _deckData !== 'undefined') {
+          return this._deckData.cards;
+        }
       }
 
     });

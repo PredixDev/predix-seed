@@ -35,6 +35,7 @@ var getAssetPathFromParams = function(params) {
 // examples: '/predix-asset/root', 'api/enterprises/san-ramon-oil'
 var assetRoute =
   /^(?:\/api\/predix-asset){1}(?:\/)?([\w\d-]+)?(?:\/)?([\w\d-]+)?(?:\/)?([\w\d-]+)?$/;
+
 app.get(assetRoute, function(req, res) {
   var pathString = getAssetPathFromParams(req.params);
   fs.readFile(pathString, 'utf8', function(err, data) {
@@ -64,6 +65,7 @@ var getViewServicePathFromParams = function(params) {
 // example: /api/view-service/decks/1/cards/1
 var viewServiceRoute =
   /^(?:\/api\/view-service\/){1}(?:\/)?([\w\d-]+)?(?:\/)?([\w\d-]+)?(?:\/)?([\w\d-]+)?(?:\/)?([\w\d-]+)?$/;
+
 app.get(viewServiceRoute, function(req, res) {
   var pathString = getViewServicePathFromParams(req.params);
   fs.readFile(pathString, 'utf8', function(err, data) {

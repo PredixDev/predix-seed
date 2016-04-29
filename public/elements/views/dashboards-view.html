@@ -11,6 +11,7 @@
   <script src="../../bower_components/lodash/lodash.js"></script>
   <script src="../../bower_components/q/q.js"></script>
   <template>
+
     <!-- Context -->
     <iron-ajax id="contextIronAjax"
       url="http://localhost:8181/api/predix-asset/root"
@@ -18,7 +19,7 @@
 
     <!-- Decks -->
     <iron-ajax id="decksIronAjax"
-      url="http://localhost:8181/api/view-service/decks"
+      url="[[_decksUrl]]"
       last-response="{{decksResponse}}" auto></iron-ajax>
 
     <px-context-browser
@@ -28,11 +29,10 @@
       browser-context="[[_initialBrowserContext]]"
       show-chevron="true">
       <px-deck-selector decks="[[_decks]]"
-        selected-deck="{{selectedDeck}}"></px-deck-selector>
+        selected-deck="{{_selectedDeck}}"></px-deck-selector>
     </px-context-browser>
-
     <px-deck
-      view-service-base-url="http://localhost:8181/api/view-service/"
+      view-service-base-url="[[_viewServiceBaseUrl]]"
       deck-id="[[_selectedDeckId]]"></px-deck>
 
   </template>
@@ -57,6 +57,36 @@
         _nodeUri: {
           type: String,
           observer: '_nodeUriChanged'
+        },
+        _decksUrl: {
+          type: String,
+          computed: '_computeDecksUrl(_selectedContextTag, _viewServiceBaseUrl)'
+        },
+        _selectedContextTag: {
+          type: String,
+          value: ''
+        },
+        _viewServiceBaseUrl: {
+          type: String,
+          value: 'http://localhost:8181/api/view-service/'
+        },
+        _selectedDeckId: {
+          type: String,
+          computed: '_computeSelectedDeckId(_selectedDeck)'
+        }
+      },
+
+      _computeDecksUrl: function() {
+        if(this._selectedContextTag) {
+          return this._viewServiceBaseUrl + "decks/tag-" + this._selectedContextTag;
+        } else {
+          return this._viewServiceBaseUrl + "decks";
+        }
+      },
+
+      _computeSelectedDeckId: function() {
+        if(this._selectedDeck) {
+          return this._selectedDeck.id;
         }
       },
 
@@ -141,7 +171,8 @@
           { 'tag': 'compressor-2015', 'deckId': '4' }
         ];
         var tag = _.find(tags, function(o) { return o.tag === item.id; });
-        this._selectedDeckId = tag.deckId;
+        console.log(item)
+        this._selectedContextTag = item.id;
       },
 
       _itemClickHandler: function(item) {
