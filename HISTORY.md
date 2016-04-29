@@ -1,3 +1,7 @@
+v1.4.0
+===================
+* Upgrade to Polymer 1.4.0
+
 v1.2.17
 ===================
 * updated bower repos in response to GH Issue
