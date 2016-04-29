@@ -7,6 +7,7 @@ var config = {
    *
    * This uaa helper object simulates NGINX uaa integration using Grunt allowing secure cloudfoundry service integration in local development without deploying your application to cloudfoundry.
    * Please update the following uaa configuration for your solution
+   * You'll need to update clientId, serverUrl, and base64ClientCredential.
    */
   uaa: {
     clientId: 'predix-seed',
@@ -20,6 +21,7 @@ var config = {
    * Please update the following object add your secure routes
    *
    * Note: Keep the /api in front of your services here to tell the proxy to add authorization headers.
+   * You'll need to update the url and instanceId.
    */
   proxy: {
     '/api/view-service(.*)': {
