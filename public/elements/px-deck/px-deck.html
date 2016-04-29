@@ -49,6 +49,7 @@
 
       _computeDeckUrl: function() {
         // Set Url of iron-ajax element, triggering request and update of _lastDeck
+        console.log('getting deck: ', this._decksUrl + this.deckId);
         return this._decksUrl + this.deckId;
       },
 
@@ -57,8 +58,8 @@
       },
 
       _computeCards: function() {
-        if(typeof _deckData !== 'undefined') {
-          return this._deckData.cards;
+        if(typeof this._deckData !== 'undefined') {
+          return this._deckData.cards || [];
         }
       }
 
