@@ -55,39 +55,19 @@
       </div>
     </header>
 
-    <div class="viewport" style="">
+    <div class="viewport">
 
       <div class="content-wrapper">
         <px-app-nav
           class="navbar"
-          nav-items='[{
-            "label": "Dashboards",
-            "path": "dashboards",
-            "icon": "fa-tachometer"
-          }, {
-            "label": "Blank Page",
-            "path": "blankpage",
-            "icon": "fa-file-o",
-            "subitems": [{
-              "label": "Blank Sub Page",
-              "path": "blankpage/subpage"
-            }]
-          }, {
-            "label": "Angular",
-            "path": "angular",
-            "icon": "fa-briefcase"
-          }]'
+          nav-items='[[navItems]]'
           path-prefix="[[pathPrefix]]">
           <px-login
             id="login"
             login-url="login-demo.html"
             logout-url="logout-demo.html"
             user-info-url="userinfo.json"
-            menu-items='[
-              { "url": "/system-preferences", "label": "System Preferences"},
-              { "url": "/group-preferences", "label": "Group Preferences"},
-              { "url": "/user-preferences", "label": "User Preferences"}
-            ]'></px-login>
+            menu-items='[[pxLoginMenuItems]]'></px-login>
         </px-app-nav>
 
         <main class="u-pt-- u-pr-- u-pl--" role="main">
@@ -96,8 +76,7 @@
           <carbon-location id="carbonLocation" route="{{_route}}" use-hash-as-path></carbon-location>
 
           <!-- /home route and view -->
-          <carbon-route route="[[_route]]" pattern="/home"
-            active="{{_homeActive}}"></carbon-route>
+          <carbon-route route="[[_route]]" pattern="/home" active="{{_homeActive}}"></carbon-route>
           <px-view
             active="[[_homeActive]]"
             element-tag-name="home-view"
@@ -138,10 +117,7 @@
 
       </div>
     </div>
-    <seed-footer footer-links='[
-      { "label": "Privacy", "href": "http://www.ge.com/privacy", "target": "_blank" },
-      { "label": "Terms", "href": "http://www.ge.com/terms", "target": "_blank"}
-    ]'></seed-footer>
+    <seed-footer footer-links='[[footerLinks]]'></seed-footer>
   </template>
 
   <script>

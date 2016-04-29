@@ -8,22 +8,43 @@ app.global = {
   session: {}
 };
 
-app.tabs = [{
-  'label': 'Dashboards',
-  'path': 'dashboards',
-  'icon': 'fa-tachometer'
+app.navItems = [{
+  "label": "Dashboards",
+  "path": "dashboards",
+  "icon": "fa-tachometer"
 }, {
-  'label': 'Blank Page',
-  'path': 'blankpage',
-  'icon': 'fa-file-o',
-  'subitems': [{
-    'label': 'Blank Sub Page',
-    'path': 'blanksubpage'
+  "label": "Blank Page",
+  "path": "blankpage",
+  "icon": "fa-file-o",
+  "subitems": [{
+    "label": "Blank Sub Page",
+    "path": "blankpage/subpage"
   }]
 }, {
-  'label': 'Angular',
-  'path': 'angular',
-  'icon': 'fa-briefcase'
+  "label": "Angular",
+  "path": "angular",
+  "icon": "fa-briefcase"
+}];
+
+app.pxLoginMenuItems = [{
+  "url": "/system-preferences",
+  "label": "System Preferences"
+}, {
+  "url": "/group-preferences",
+  "label": "Group Preferences"
+}, {
+  "url": "/user-preferences",
+  "label": "User Preferences"
+}];
+
+app.footerLinks = [{
+  "label": "Privacy",
+  "href": "http://www.ge.com/privacy",
+  "target": "_blank"
+}, {
+  "label": "Terms",
+  "href": "http://www.ge.com/terms",
+  "target": "_blank"
 }];
 
 // Sets app default base URL for client-side routing
