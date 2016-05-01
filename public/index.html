@@ -79,7 +79,6 @@
           <carbon-route route="[[_route]]" pattern="/home" active="{{_homeActive}}"></carbon-route>
           <px-view
             active="[[_homeActive]]"
-            element-tag-name="home-view"
             element-href="/elements/views/home-view.html"></px-view>
 
           <!-- /dashboards rotue and view -->
@@ -87,7 +86,6 @@
             active="{{_dashboardsActive}}"></carbon-route>
           <px-view
             active="[[_dashboardsActive]]"
-            element-tag-name="dashboards-view"
             element-href="/elements/views/dashboards-view.html"></px-view>
 
           <!-- /blankpage route and view -->
@@ -95,7 +93,6 @@
             active="{{_blankpageActive}}"></carbon-route>
           <px-view
             active="[[_blankpageActive]]"
-            element-tag-name="blankpage-view"
             element-href="/elements/views/blankpage-view.html"></px-view>
 
           <!-- /blankpage/subpage route and view -->
@@ -103,16 +100,13 @@
             active="{{_blankpageSubpageActive}}"></carbon-route>
           <px-view
             active="[[_blankpageSubpageActive]]"
-            element-tag-name="blanksubpage-view"
             element-href="/elements/views/blanksubpage-view.html"></px-view>
 
           <!-- /angular route and view -->
           <carbon-route route="[[_route]]" pattern="/angular" active="{{_angularActive}}"></carbon-route>
           <px-view
             active="[[_angularActive]]"
-            element-tag-name="/angular-view"
             element-href="/elements/views/angular-view.html"></px-view>
-
         </main>
 
       </div>
