@@ -24,9 +24,10 @@ var config = {
    * You'll need to update the url and instanceId.
    */
   proxy: {
-    '/api/view-service(.*)': {
-      url: 'http://predix-views-dev.grc-apps.svc.ice.ge.com/v1$1',
-      instanceId: '49a92fd6-df7b-45f6-925e-0bca94be7313'
+    '/api/view-service': {
+      url: 'https://predix-views.run.aws-usw02-pr.ice.predix.io',
+      instanceId: 'your-view-service-guid-here',
+      pathRewrite: { '^/api/view-service': '/v1'}
     }
   }
 };
