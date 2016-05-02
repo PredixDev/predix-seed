@@ -6,32 +6,22 @@
  * For more help, see: http://gruntjs.com/getting-started
  */
 module.exports = function(grunt) {
-    'use strict';
 
-    function loadConfig(path) {
-        var glob = require('glob');
-        var object = {};
-        var key;
+  'use strict';
 
-        glob.sync('*', {cwd: path}).forEach(function(option) {
-           key = option.replace(/\.js$/, '');
-            object[key] = require(path + option);
-        });
-
-        return object;
+  // Initial config
+  var config = {
+    pkg: grunt.file.readJSON('package.json'),
+    nodemon: {
+      dev: {
+        script: 'app.js'
+      }
     }
+  };
 
-    // Initial config
-    var config = {
-        pkg: grunt.file.readJSON('package.json')
-    };
+  grunt.initConfig(config);
 
-    // Load tasks from tasks folder
-    grunt.loadTasks('tasks');
+  grunt.loadNpmTasks('grunt-nodemon');
 
-    grunt.util._.extend(config, loadConfig('./tasks/options/'));
-
-    grunt.initConfig(config);
-
-    require('load-grunt-tasks')(grunt);
+  grunt.registerTask('serve', ['nodemon']);
 };

@@ -31,6 +31,7 @@
     "grunt-contrib-requirejs": "~0.4.3",
     "grunt-contrib-watch": "~v0.6.1",
     "grunt-karma": "~0.8.2",
+    "grunt-nodemon": "^0.4.2",
     "grunt-vulcanize": "^1.0.0",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
@@ -63,7 +64,6 @@
   },
   "dependencies": {
     "express": "^4.13.4",
-    "http2": "^3.3.2",
     "lodash": "^4.6.1"
   }
 }
