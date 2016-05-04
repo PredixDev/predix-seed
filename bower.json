@@ -45,7 +45,8 @@
     "px-view": "https://github.com/PredixDev/px-view.git#~0.3.0",
     "q": "^1.0.0",
     "px-overlay": "^0.0.3",
-    "carbon-route": "PolymerElements/carbon-route#^0.8.4"
+    "carbon-route": "PolymerElements/carbon-route#^0.8.4",
+    "angular": "1.5.5"
   },
   "resolutions": {
     "polymer": "1.4.0",
@@ -55,6 +56,7 @@
     "px-card": "v0.2.4",
     "lodash": "^4.6.1",
     "iron-ajax": "1.2.0",
-    "px-viewport-design": "~0.4.3"
+    "px-viewport-design": "~0.4.3",
+    "angular": "1.5.5"
   }
 }
