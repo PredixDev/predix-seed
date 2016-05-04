@@ -20,10 +20,6 @@ app.navItems = [{
     "label": "Blank Sub Page",
     "path": "blankpage/subpage"
   }]
-}, {
-  "label": "Angular",
-  "path": "angular",
-  "icon": "fa-briefcase"
 }];
 
 app.pxLoginMenuItems = [{
