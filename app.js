@@ -69,6 +69,6 @@ app.get(viewServiceRoute, function(req, res) {
   });
 });
 
-app.listen(5000, function() {
-  console.log('Predix Polymer Seed listening at port 5000.');
+app.listen(process.env.VCAP_APP_PORT || 5000, function() {
+  console.log('Polymer Seed listening at port ' + ( process.env.VCAP_APP_PORT ? process.env.VCAP_APP_PORT : 5000) );
 });
