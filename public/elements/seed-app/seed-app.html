@@ -1,0 +1,159 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<!-- import seed app style module -->
+<link rel="import" href="../seed-app-styles/seed-app-styles.html">
+
+<!-- carbon route -->
+<link rel="import" href="../../bower_components/carbon-route/carbon-location.html" />
+<link rel="import" href="../../bower_components/carbon-route/carbon-route.html" />
+
+<!-- px components -->
+<link rel="import" href="../../bower_components/px-login/px-login.html"/>
+<link rel="import" href="../../bower_components/px-app-nav/px-app-nav.html"/>
+<link rel="import" href="../../bower_components/px-view/px-view.html">
+
+<link rel="import" href="../ge-svg-logo/ge-svg-logo.html" />
+<link rel="import" href="../seed-footer/seed-footer.html" />
+
+<dom-module id="seed-app">
+  <template>
+
+    <!-- apply imported seed app style module -->
+    <style include="seed-app-styles"></style>
+
+    <header role="banner" class="flex flex--middle">
+      <div class="viewport">
+        <h1>
+          <ge-svg-logo></ge-svg-logo> Seed Application
+        </h1>
+        <h2 class="pull-right">
+          Powered by Predix
+        </h2>
+      </div>
+    </header>
+
+    <div class="viewport">
+
+      <div class="content-wrapper">
+        <px-app-nav
+          class="navbar"
+          nav-items='[[navItems]]'
+          path-prefix="[[pathPrefix]]">
+          <px-login
+            id="login"
+            login-url="login-demo.html"
+            logout-url="logout-demo.html"
+            user-info-url="userinfo.json"
+            menu-items='[[pxLoginMenuItems]]'></px-login>
+        </px-app-nav>
+
+        <main class="u-pt-- u-pr-- u-pl--" role="main">
+
+          <!-- carbon-location captures url and assigns _route value -->
+          <carbon-location id="carbonLocation" route="{{_route}}" use-hash-as-path></carbon-location>
+
+          <!-- /home route and view -->
+          <carbon-route route="[[_route]]" pattern="/home" active="{{_homeActive}}"></carbon-route>
+          <px-view
+            active="[[_homeActive]]"
+            element-href="/elements/views/home-view.html"></px-view>
+
+          <!-- /dashboards rotue and view -->
+          <carbon-route route="[[_route]]" pattern="/dashboards"
+            active="{{_dashboardsActive}}"></carbon-route>
+          <px-view
+            active="[[_dashboardsActive]]"
+            element-href="/elements/views/dashboards-view.html"></px-view>
+
+          <!-- /blankpage route and view -->
+          <carbon-route route="[[_route]]" pattern="/blankpage"
+            active="{{_blankpageActive}}"></carbon-route>
+          <px-view
+            active="[[_blankpageActive]]"
+            element-href="/elements/views/blankpage-view.html"></px-view>
+
+          <!-- /blankpage/subpage route and view -->
+          <carbon-route route="[[_route]]" pattern="/blankpage/subpage"
+            active="{{_blankpageSubpageActive}}"></carbon-route>
+          <px-view
+            active="[[_blankpageSubpageActive]]"
+            element-href="/elements/views/blanksubpage-view.html"></px-view>
+
+        </main>
+
+      </div>
+    </div>
+    <seed-footer footer-links='[[footerLinks]]'></seed-footer>
+  </template>
+  <script>
+    Polymer({
+      is: 'seed-app',
+
+      properties: {
+
+        //Global application object
+        global: {
+          type: Object,
+          value: function() {
+            return {
+              version: '1.0',
+              name: 'Predix Seed',
+              session: {}
+            }
+          }
+        },
+
+        navItems: {
+          type: Array,
+          value: function() {
+            return [{
+              "label": "Dashboards",
+              "path": "dashboards",
+              "icon": "fa-tachometer"
+            }, {
+              "label": "Blank Page",
+              "path": "blankpage",
+              "icon": "fa-file-o",
+              "subitems": [{
+                "label": "Blank Sub Page",
+                "path": "blankpage/subpage"
+              }]
+            }]
+          }
+        },
+
+        pxLoginMenuItems: {
+          type: Array,
+          value: function() {
+            return [{
+              "url": "/system-preferences",
+              "label": "System Preferences"
+            }]
+          }
+        },
+
+        footerLinks: {
+          type: Array,
+          value: function() {
+            return [{
+              "label": "Privacy",
+              "href": "http://www.ge.com/privacy",
+              "target": "_blank"
+            }, {
+              "label": "Terms",
+              "href": "http://www.ge.com/terms",
+              "target": "_blank"
+            }]
+          }
+        },
+
+        // Sets app default base URL for client-side routing
+        pathPrefix: {
+          type: String,
+          value: '#/'
+        }
+      }
+
+    });
+  </script>
+</dom-module>
