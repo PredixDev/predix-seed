@@ -1,0 +1,25 @@
+{
+  "id": "root",
+  "data": [{
+    "id": "predix-energy",
+    "name": "Predix Energy",
+    "parent": "/predix-energy",
+    "parentId": "/predix-energy",
+    "description": "Predix Energy Description",
+    "uri": "/enterprises/predix-energy",
+    "level": "enterprise",
+    "isOpenable": true
+  }, {
+    "id": "san-ramon-oil",
+    "name": "San Ramon Oil",
+    "parent": "/san-ramon-oil",
+    "parentId": "/san-ramon-oil",
+    "description": "San Ramon Oil Description",
+    "uri": "/enterprises/san-ramon-oil",
+    "level": "enterprise",
+    "isOpenable": false
+  }],
+  "meta": {
+    "parentId": null
+  }
+}

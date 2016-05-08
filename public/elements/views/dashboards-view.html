@@ -14,7 +14,7 @@
 
     <!-- Context -->
     <iron-ajax id="contextIronAjax"
-      url="/api/predix-asset/root"
+      url="/api/predix-asset/root/root"
       last-response="{{_browserContext}}"></iron-ajax>
 
     <!-- Decks -->
@@ -79,7 +79,7 @@
 
       _computeDecksUrl: function() {
         if(this._selectedContextTag) {
-          return this._viewServiceBaseUrl + "decks/tag-" + this._selectedContextTag;
+          return this._viewServiceBaseUrl + "decks?tag=" + this._selectedContextTag;
         } else {
           return this._viewServiceBaseUrl + "decks";
         }

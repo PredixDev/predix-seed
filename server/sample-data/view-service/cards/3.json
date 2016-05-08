@@ -1,0 +1,10 @@
+{
+  "id": 3,
+  "title": "demo card 2",
+  "slug": "demo-card",
+  "attributes": {
+    "elementHref": "/bower_components/px-sample-cards/demo-card.html"
+  },
+  "createTimeStamp": "2015-11-24T23:02:53.816Z",
+  "tags": []
+}
