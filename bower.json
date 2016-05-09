@@ -17,7 +17,7 @@
     "es6-promise": "https://github.com/jakearchibald/es6-promise.git#v3.2.1",
     "lodash": "4.6.1",
     "polymer": "1.4.0",
-    "px": "https://github.com/PredixDev/px.git#polymer-element",
+    "px": "https://github.com/PredixDev/px.git",
     "px-app-nav": "https://github.com/PredixDev/px-app-nav.git#1.0.10",
     "px-card": "https://github.com/PredixDev/px-card.git#v0.2.4",
     "px-context-browser": "https://github.com/PredixDev/px-context-browser.git#~v0.9.1",
@@ -51,7 +51,6 @@
   "resolutions": {
     "polymer": "1.4.0",
     "es6-promise": "v3.2.1",
-    "px": "polymer-element",
     "px-theme": "v0.6.4",
     "px-card": "v0.2.4",
     "lodash": "^4.6.1",
