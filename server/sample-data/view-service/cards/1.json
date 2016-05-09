@@ -1,9 +1,9 @@
 {
   "id": 1,
-  "title": "gist card",
-  "slug": "gist-card",
+  "title": "Time Series Card",
+  "slug": "time-series-card",
   "attributes": {
-    "elementHref": "/bower_components/px-sample-cards/gist-card.html"
+    "elementHref": "/bower_components/px-sample-cards/time-series-card.html"
   },
   "createTimeStamp": "2015-11-24T23:02:53.816Z",
   "tags": []
