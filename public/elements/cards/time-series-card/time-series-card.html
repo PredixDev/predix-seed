@@ -11,7 +11,12 @@
       <!--<button on-click="saveBtnClicked">Save</button>-->
       <iron-ajax
         url="/sample-data/core-vibe-rear-cruise.json"
-        last-response="{{_coreVibeRearCruiseData}}"
+        last-response="{{_coreVibeRearCoreVibeData}}"
+        auto>
+      </iron-ajax>
+      <iron-ajax
+        url="/sample-data/delta-egt-cruise.json"
+        last-response="{{_deltaEgtCruiseData}}"
         auto>
       </iron-ajax>
       <px-chart id="tsChart">
@@ -30,11 +35,26 @@
       config: {
           type: Object
       },
-      _coreVibeRearCruiseData: {
+      _coreVibeRearCoreVibeData: {
+        type: Object
+      },
+      _cruiseSeries: {
         type: Object,
-        observer: '_coreVibeRearCruiseDataUpdate'
+        computed: '_computeCoreVibeSeries(_coreVibeRearCoreVibeData)'
+      },
+      _deltaEgtCruiseData: {
+        type: Object
+      },
+      _deltaEgtCruiseSeries: {
+        type: Object,
+        computed: '_computeDeltaEgtCruiseSeries(_deltaEgtCruiseData)'
       }
     },
+
+    observers: [
+      '_addCoreVibeSeries(_cruiseSeries)',
+      '_addDeltaEgtCruiseSeries(_deltaEgtCruiseSeries)'
+    ],
 
     _timeSeriesDataTransformer: null,
 
@@ -42,12 +62,28 @@
       this._timeSeriesDataTransformer = new px.timeseries.dataTransformer();
     },
 
-    _coreVibeRearCruiseDataUpdate: function(data) {
-      console.log(data);
-      var firstSeries = this._timeSeriesDataTransformer.transform(data.tags)[0];
-      firstSeries.id = firstSeries.name;
-      firstSeries.axisId = 'anotherAxis';
-      this.$.tsChart.addSeries(firstSeries);
+    _computeCoreVibeSeries: function(data) {
+      var series = this._timeSeriesDataTransformer.transform(data.tags)[0];
+      series.id = series.name;
+      series.axisId = 'anotherAxis';
+      return series;
+    },
+
+    _addCoreVibeSeries: function(series) {
+      this.$.tsChart.addSeries(series);
+    },
+
+    _computeDeltaEgtCruiseSeries: function(data) {
+      var series = this._timeSeriesDataTransformer.transform(data.tags)[0];
+      series.id = series.name;
+      series.axisId = "firstAxis";
+      series.upperThreshold = "30.5";
+      series.lowerThreshold = "6.25";
+      return series;
+    },
+
+    _addDeltaEgtCruiseSeries: function(series) {
+      this.$.tsChart.addSeries(series);
     },
 
     init: function(){
