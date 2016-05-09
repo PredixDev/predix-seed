@@ -3,7 +3,7 @@
   "title": "Time Series Card",
   "slug": "time-series-card",
   "attributes": {
-    "elementHref": "/bower_components/px-sample-cards/time-series-card.html"
+    "elementHref": "/elements/cards/time-series-card/time-series-card.html"
   },
   "createTimeStamp": "2015-11-24T23:02:53.816Z",
   "tags": []
