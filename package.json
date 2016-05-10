@@ -10,8 +10,7 @@
     "email": "Predix.experience@ge.com"
   },
   "scripts": {
-    "test": "grunt",
-    "start": "grunt serve"
+    "start": "node ./app.js"
   },
   "keywords": [
     "predix-app"
