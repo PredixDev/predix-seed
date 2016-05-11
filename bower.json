@@ -53,6 +53,6 @@
     "px-theme": "v0.7.0",
     "px-card": "~v0.3.0",
     "polymer": "~1.4.0",
-    "web-animations-js": "^2.2.0"
+    "web-animations-js": "~2.0.0"
   }
 }
