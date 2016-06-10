@@ -45,7 +45,7 @@
     "px-view": "https://github.com/PredixDev/px-view.git#~0.3.0",
     "q": "^1.0.0",
     "px-overlay": "^0.0.3",
-    "carbon-route": "PolymerElements/carbon-route#^0.8.4",
+    "app-route": "PolymerElements/app-route#^0.9.1",
     "angular": "1.5.5"
   },
   "resolutions": {
