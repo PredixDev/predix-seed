@@ -1,27 +1,23 @@
 var jsonServer = require('json-server');
 var _ = require('lodash');
 var server = jsonServer.create();
-var viewServiceRoutes = require('./view-service-routes.js')();
-var assetRoutes = require('./predix-asset-routes.js')();
+var viewServiceRoutes = require('./server/view-service-routes.js')();
+var assetRoutes = require('./server/predix-asset-routes.js')();
 
-var middlewares = jsonServer.defaults();
+// Set default middlewares (logger, static '/public', CORS and no-cache)
+var defaultMiddlewares = jsonServer.defaults();
+server.use(defaultMiddlewares);
 
-// Set default middlewares (logger, static, cors and no-cache)
-server.use(middlewares);
+// add view service api routes
+var viewServiceAPI = jsonServer.router(viewServiceRoutes);
+server.use('/api/view-service', viewServiceAPI);
 
-// Use router
-_.each(routes, function(value, key) {
-  var routes = {};
-  // add view service routes
-  routes['view-service'] = viewServiceRoutes;
-  // add asset routes
-  routes['predix-asset'] = assetRoutes;
-  // merge routes
-  server.use('/api/' + key, jsonServer.router(value));
-});
+// add predix asset api routes
+var assetAPI = jsonServer.router(assetRoutes);
+server.use('/api/predix-asset', assetAPI);
 
-server.listen(process.env.VCAP_APP_PORT || 5000, function() {
-  console.log('Polymer Seed listening at port ' +
-    (process.env.VCAP_APP_PORT ? process.env.VCAP_APP_PORT : 5000)
-  );
+// open up port (Cloud Foundry setting or 5000)
+var expressPort = process.env.VCAP_APP_PORT || 5000;
+server.listen(expressPort, function() {
+  console.log('Predix Seed listening at port ' + expressPort);
 });
