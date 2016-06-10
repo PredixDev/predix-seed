@@ -1,7 +1,8 @@
 var jsonServer = require('json-server');
 var _ = require('lodash');
 var server = jsonServer.create();
-var routes = require('./server/json-routes.js');
+var viewServiceRoutes = require('./view-service-routes.js')();
+var assetRoutes = require('./predix-asset-routes.js')();
 
 var middlewares = jsonServer.defaults();
 
@@ -10,6 +11,12 @@ server.use(middlewares);
 
 // Use router
 _.each(routes, function(value, key) {
+  var routes = {};
+  // add view service routes
+  routes['view-service'] = viewServiceRoutes;
+  // add asset routes
+  routes['predix-asset'] = assetRoutes;
+  // merge routes
   server.use('/api/' + key, jsonServer.router(value));
 });
 

@@ -1,14 +1,15 @@
+Completed:
 ---
 A. Main application loading (index.html)
   A1. px.js library
     - 1.0 px.js is loaded in the synchronously head.
-    - 2.0 px.js can be loaded async
+    - 2.0 px.js can be loaded async when needed on a component-by-component basis
   A2. es6-promise.js polyfill
     - 1.0 es6-promise polyfill is loaded synchronously in the head
-    - 2.0 es6-promise polyfill can be loaded async
+    - 2.0 es6-promise polyfill can be loaded async when needed on a component-by-component basis
   A3. webcomponents-lite.js polyfill
     - 1.0 webcomponents-lite polyfill is loaded synchronously in the head
-    - 2.0 webcomponents-lite polyfill can be loaded async
+    - 2.0 webcomponents-lite polyfill is be loaded async w/ FOUC protection
   A4. Polymer elements bundle (vulcanized)
     - 1.0 polymer-loader.vulcanized.html loaded synchronously in the head
     - 2.0 elements.html loaded async in head
