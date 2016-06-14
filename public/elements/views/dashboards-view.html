@@ -6,19 +6,21 @@
 <!-- local px-deck -->
 <link rel="import" href="/elements/px-deck/px-deck.html">
 
-<!-- this element loads another element and appends it to #element -->
 <dom-module id="dashboards-view">
   <template>
 
-    <!-- Context -->
+    <!-- contextIronAjax used to load data from local Predix Asset API -->
     <iron-ajax id="contextIronAjax"
       url="/api/predix-asset/root/root"
       last-response="{{_browserContext}}"></iron-ajax>
 
     <!-- Decks -->
-    <iron-ajax id="decksIronAjax"
+    <iron-ajax
+      id="decksIronAjax"
       url="[[_decksUrl]]"
-      last-response="{{decksResponse}}" auto></iron-ajax>
+      last-response="{{_decksResponse}}"
+      auto>
+    </iron-ajax>
 
     <px-context-browser
       id="contextBrowser"
@@ -26,13 +28,16 @@
       id-field="id"
       browser-context="[[_initialBrowserContext]]"
       show-chevron="true">
-      <px-deck-selector decks="[[_decks]]"
-        selected-deck="{{_selectedDeck}}"></px-deck-selector>
+      <px-deck-selector
+        decks="[[_decks]]"
+        selected-deck="{{_selectedDeck}}">
+      </px-deck-selector>
     </px-context-browser>
 
     <px-deck
-      view-service-base-url="[[_viewServiceBaseUrl]]"
-      deck-id="[[_selectedDeckId]]"></px-deck>
+      view-service-base-url="[[viewServiceBaseUrl]]"
+      deck-id="[[_selectedDeckId]]">
+    </px-deck>
 
   </template>
   <script>
@@ -43,7 +48,7 @@
       properties: {
         _decks: {
           type: Array,
-          computed: '_computeDecks(decksResponse)'
+          computed: '_computeDecks(_decksResponse)'
         },
         _initialBrowserContext: {
           type: Object,
@@ -59,13 +64,13 @@
         },
         _decksUrl: {
           type: String,
-          computed: '_computeDecksUrl(_selectedContextTag, _viewServiceBaseUrl)'
+          computed: '_computeDecksUrl(_selectedContextTag, viewServiceBaseUrl)'
         },
         _selectedContextTag: {
           type: String,
           value: ''
         },
-        _viewServiceBaseUrl: {
+        viewServiceBaseUrl: {
           type: String,
           value: '/api/view-service/'
         },
@@ -77,9 +82,9 @@
 
       _computeDecksUrl: function() {
         if(this._selectedContextTag) {
-          return this._viewServiceBaseUrl + "decks?tag=" + this._selectedContextTag;
+          return this.viewServiceBaseUrl + "decks?tag=" + this._selectedContextTag;
         } else {
-          return this._viewServiceBaseUrl + "decks";
+          return this.viewServiceBaseUrl + "decks";
         }
       },
 
@@ -111,10 +116,10 @@
         return JSON.stringify(deck);
       },
 
-      _computeDecks: function(decksResponse) {
+      _computeDecks: function() {
         var decks = [];
-        if (decksResponse && decksResponse.length > 0) {
-          decksResponse.forEach(function(deck) {
+        if (this._decksResponse && this._decksResponse.length > 0) {
+          this._decksResponse.forEach(function(deck) {
             decks.push({ name: deck.title, id: deck.id });
           });
         };
