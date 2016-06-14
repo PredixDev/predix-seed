@@ -6,8 +6,10 @@
 
 <dom-module id="px-deck">
   <template>
-    <script src="../../bower_components/lodash/lodash.js"></script>
-    <iron-ajax id="deckIronAjax" url="[[_deckUrl]]" last-response="{{_deckData}}" auto></iron-ajax>
+    <iron-ajax
+      id="deckIronAjax"
+      url="[[_deckUrl]]"
+      last-response="{{_deckData}}" auto></iron-ajax>
     <template is="dom-repeat" items="{{_cards}}">
       <px-view-card card-data="[[item]]"></px-view-card>
     </template>
