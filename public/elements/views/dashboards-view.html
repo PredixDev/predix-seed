@@ -8,8 +8,6 @@
 
 <!-- this element loads another element and appends it to #element -->
 <dom-module id="dashboards-view">
-  <script src="../../bower_components/lodash/lodash.js"></script>
-  <script src="../../bower_components/q/q.js"></script>
   <template>
 
     <!-- Context -->
@@ -132,30 +130,27 @@
       },
 
       // "getChildren" handler for px-context-browser
+      // this function is passed into
       _getChildren: function(node) {
-        var deferred = Q.defer(),
-            children,
-            response,
-            ironAjaxEl = document.createElement('iron-ajax');
-
-        if(node.uri !== this._nodeUri) {
-          // if the new nodeUri is different
-          this.set('_nodeUri', node.uri);
-          this.$.contextIronAjax.addEventListener('response', function(evt) {
-            if(evt.detail.response) {
-              children = evt.detail.response;
-              deferred.resolve(children);
-            } else {
-              deferred.reject("Error: request returned status " + evt.detail);
-            }
-          });
-          // don't forget to return the promise!
-          return deferred.promise;
-        } else {
-          // use cached response, no need for http request
-          deferred.resolve(this.$.contextIronAjax.lastResponse);
-          return deferred.promise;
-        }
+        var that = this;
+        var getChildrenPromise = new Promise(function(resolve, reject) {
+          if(node.uri !== this._nodeUri) {
+            // if the new nodeUri is different
+            that.set('_nodeUri', node.uri);
+            that.$.contextIronAjax.addEventListener('response', function(evt) {
+              if(evt.detail.response) {
+                children = evt.detail.response;
+                resolve(children);
+              } else {
+                reject("Error: request returned status " + evt.detail);
+              }
+            });
+          } else {
+            // use cached response, no need for http request
+            resolve(this.$.contextIronAjax.lastResponse);
+          }
+        });
+        return getChildrenPromise;
       },
 
       _nodeUriChanged: function(_nodeUri) {
