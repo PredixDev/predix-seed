@@ -96,14 +96,16 @@
 
       ready: function ready() {
         var _this = this;
-        var colBrowser = this.$.contextBrowser;
-        colBrowser.handlers = {
+        this.$.contextBrowser.handlers = {
+          // getChildren fires when a node is 'selected'
           getChildren: function(parent, newIndex) {
             return _this._getChildren(parent);
           },
+          // itemOpenHandler fires when a node's 'open' link is clicked
           itemOpenHandler: function(item) {
             return _this._itemOpenHandler(item);
           },
+          // itemClickHandler fires when a node is clicked at all
           itemClickHandler: function(item) {
             return _this._itemClickHandler(item);
           }
@@ -138,7 +140,7 @@
       // this function is passed into
       _getChildren: function(node) {
         var that = this;
-        var getChildrenPromise = new Promise(function(resolve, reject) {
+        return new Promise(function(resolve, reject) {
           if(node.uri !== this._nodeUri) {
             // if the new nodeUri is different
             that.set('_nodeUri', node.uri);
@@ -155,7 +157,6 @@
             resolve(this.$.contextIronAjax.lastResponse);
           }
         });
-        return getChildrenPromise;
       },
 
       _nodeUriChanged: function(_nodeUri) {
