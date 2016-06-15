@@ -11,6 +11,7 @@
       url="[[_deckUrl]]"
       last-response="{{_deckData}}" auto></iron-ajax>
     <template is="dom-repeat" items="{{_cards}}">
+      <!-- [[item]] -->
       <px-view-card card-data="[[item]]"></px-view-card>
     </template>
   </template>

@@ -10,11 +10,13 @@
   <template>
 
     <!-- contextIronAjax used to load data from local Predix Asset API -->
-    <iron-ajax id="contextIronAjax"
+    <iron-ajax
+      id="contextIronAjax"
       url="/api/predix-asset/root/root"
-      last-response="{{_browserContext}}"></iron-ajax>
+      last-response="{{_browserContext}}">
+    </iron-ajax>
 
-    <!-- Decks -->
+    <!-- decksIronAjax used to load data from local View Service API -->
     <iron-ajax
       id="decksIronAjax"
       url="[[_decksUrl]]"
@@ -22,6 +24,7 @@
       auto>
     </iron-ajax>
 
+    <!-- px-context-browser element -->
     <px-context-browser
       id="contextBrowser"
       label-field="name"
