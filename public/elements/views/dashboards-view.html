@@ -1,13 +1,15 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/px-context-browser/px-context-browser.html">
-<link rel="import" href="../../bower_components/px-deck-selector/px-deck-selector.html">
-<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/px-context-browser/px-context-browser.html">
+<link rel="import" href="/bower_components/px-deck-selector/px-deck-selector.html">
+<link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
 
 <!-- local px-deck -->
 <link rel="import" href="/elements/px-deck/px-deck.html">
 
 <dom-module id="dashboards-view">
   <template>
+
+    <script type="text/javascript" src="/bower_components/es6-promise/es6-promise.min.js"></script>
 
     <!-- contextIronAjax used to load data from local Predix Asset API -->
     <iron-ajax

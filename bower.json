@@ -14,7 +14,7 @@
     "sass"
   ],
   "dependencies": {
-    "es6-promise": "https://github.com/jakearchibald/es6-promise.git#v3.2.1",
+    "es6-promise": "3.2.2",
     "lodash": "4.6.1",
     "polymer": "1.4.0",
     "px": "https://github.com/PredixDev/px.git",
@@ -46,19 +46,16 @@
     "q": "^1.0.0",
     "px-overlay": "^0.0.3",
     "app-route": "PolymerElements/app-route#^0.9.1",
-    "angular": "1.5.5",
-    "px-simple-horizontal-bar-chart": "^0.5.0",
+    "px-simple-horizontal-bar-chart": "^0.5.1",
     "px-widget-cards": "^1.3.3",
-    "px-simple-bar-chart": "^1.5.0"
+    "px-simple-bar-chart": "^1.5.1"
   },
   "resolutions": {
-    "polymer": "1.4.0",
-    "es6-promise": "v3.2.1",
+    "polymer": "1.5.0",
     "px-theme": "v0.6.4",
     "px-card": "v0.2.4",
     "lodash": "^4.6.1",
     "iron-ajax": "1.2.0",
     "px-viewport-design": "~0.4.3",
-    "angular": "1.5.5"
   }
 }
