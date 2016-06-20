@@ -6,8 +6,8 @@
   <template>
     <px-view
       active="[[_cardActive]]"
-      element-tag-name="[[_cardElementSlug]]"
-      element-href="[[_cardElementHref]]"></px-view>
+      element-href="[[_cardElementHref]]">
+    </px-view>
   </template>
   <script>
     Polymer({
@@ -16,15 +16,12 @@
 
       properties: {
         cardData: {
-          type: Object
+          type: Object,
+          value: function() { return {}; }
         },
         _cardActive: {
           type: Boolean,
           value: true
-        },
-        _cardElementSlug: {
-          type: String,
-          computed: '_computeCardElementSlug(cardData)'
         },
         _cardElementHref: {
           type: String,
@@ -32,15 +29,13 @@
         }
       },
 
-      _computeCardElementSlug: function() {
-        return this.cardData.slug;
-      },
-
       _computeCardElementHref: function() {
-        if(this.cardData.attributes.elementHref) {
-          return this.cardData.attributes.elementHref;
-        } else {
-          return '/elements/cards/' + this.cardData.slug + '.html'
+        if(Object.keys(this.cardData).length) {
+          if(this.cardData.attributes.elementHref) {
+            return this.cardData.attributes.elementHref;
+          } else {
+            return '/elements/cards/' + this.cardData.slug + '.html'
+          }
         }
       }
 

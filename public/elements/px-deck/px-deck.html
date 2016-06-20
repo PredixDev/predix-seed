@@ -6,14 +6,18 @@
 
 <dom-module id="px-deck">
   <template>
+
     <iron-ajax
       id="deckIronAjax"
       url="[[_deckUrl]]"
-      last-response="{{_deckData}}" auto></iron-ajax>
-    <template is="dom-repeat" items="{{_cards}}">
-      <!-- [[item]] -->
+      last-response="{{_deckData}}"
+      auto>
+    </iron-ajax>
+
+    <template id="cardslist" is="dom-repeat" items="[[_cards]]">
       <px-view-card card-data="[[item]]"></px-view-card>
     </template>
+
   </template>
   <script>
     Polymer({
@@ -41,18 +45,22 @@
         },
         // returned from iron-ajax request
         _deckData: {
-          type: Object
+          type: Object,
+          value: function() { return {}; }
         },
         // cards: [{card},{card}] updated on _deckData change
         _cards: {
           type: Array,
-          computed: '_computeCards(_deckData)'
+          value: function() { return []; }
         }
       },
 
+      observers: [
+        '_setCards(_deckData)'
+      ],
+
       _computeDeckUrl: function() {
         // Set Url of iron-ajax element, triggering request and update of _lastDeck
-        console.log('getting deck: ', this._decksUrl + this.deckId);
         return this._decksUrl + this.deckId;
       },
 
@@ -60,9 +68,9 @@
         return this.viewServiceBaseUrl + 'decks/';
       },
 
-      _computeCards: function() {
+      _setCards: function() {
         if(typeof this._deckData !== 'undefined') {
-          return this._deckData.cards || [];
+          this.set('_cards', this._deckData.cards || []);
         }
       }
 
