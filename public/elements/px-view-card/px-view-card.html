@@ -4,10 +4,7 @@
 
 <dom-module id="px-view-card">
   <template>
-    <px-view
-      active="[[_cardActive]]"
-      element-href="[[_cardElementHref]]">
-    </px-view>
+    <!-- insert px-view element here -->
   </template>
   <script>
     Polymer({
@@ -29,6 +26,12 @@
         }
       },
 
+      _viewElement: null,
+
+      observers: [
+        '_attachView(_cardElementHref)'
+      ],
+
       _computeCardElementHref: function() {
         if(Object.keys(this.cardData).length) {
           if(this.cardData.attributes.elementHref) {
@@ -37,6 +40,21 @@
             return '/elements/cards/' + this.cardData.slug + '.html'
           }
         }
+      },
+
+      _attachView: function() {
+        // remove previously attached view element
+        if(this._viewElement) {
+          Polymer.dom(this).removeChild(this._viewElement);
+        }
+        // create view element
+        this._viewElement = document.createElement('px-view');
+        // set view element attributes
+        this._viewElement.setAttribute('id', 'px-view-' + new Date().getTime());
+        this._viewElement.setAttribute('active', this._cardActive);
+        this._viewElement.setAttribute('element-href', this._cardElementHref);
+        // append view element to DOM
+        this.appendChild(this._viewElement);
       }
 
     });
