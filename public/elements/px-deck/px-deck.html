@@ -14,7 +14,7 @@
       auto>
     </iron-ajax>
 
-    <template id="cardslist" is="dom-repeat" items="[[_cards]]">
+    <template is="dom-repeat" items="[[_cards]]">
       <px-view-card card-data="[[item]]"></px-view-card>
     </template>
 
@@ -31,7 +31,7 @@
         },
         viewServiceBaseUrl: {
           type: String,
-          value: '/api/view-service/'
+          value: '/api/view-service/' // default
         },
         // set on initialzation
         _decksUrl: {

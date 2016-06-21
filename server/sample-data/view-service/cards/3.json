@@ -1,9 +1,9 @@
 {
   "id": 3,
-  "title": "px-widget-b",
-  "slug": "px-widget-b",
+  "title": "Temperature Card",
+  "slug": "temperature-card",
   "attributes": {
-    "elementHref": "/bower_components/px-sample-cards/px-widget-b.html"
+    "elementHref": "/bower_components/px-sample-cards/temperature-card.html"
   },
   "createTimeStamp": "2015-11-24T23:02:53.816Z",
   "tags": []

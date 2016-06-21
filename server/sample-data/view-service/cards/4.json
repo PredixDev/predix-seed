@@ -1,9 +1,9 @@
 {
   "id": 4,
-  "title": "px-widget-a",
-  "slug": "px-widget-a",
+  "title": "Widgets Card",
+  "slug": "widgets-card",
   "attributes": {
-    "elementHref": "/bower_components/px-sample-cards/px-widget-a.html"
+    "elementHref": "/bower_components/px-sample-cards/widgets-card.html"
   },
   "createTimeStamp": "2015-11-24T23:02:53.816Z",
   "tags": []
