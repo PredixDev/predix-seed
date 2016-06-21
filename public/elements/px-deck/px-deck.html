@@ -1,21 +1,18 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
 
 <dom-module id="px-deck">
 
   <template>
-
     <iron-ajax
       id="deckIronAjax"
       url="[[_deckUrl]]"
       last-response="{{_deckData}}"
       auto>
     </iron-ajax>
-
     <div id="cardViews">
       <!-- px-view elements for cards inserted here -->
     </div>
-
   </template>
 
   <!-- include lodash utility library -->
