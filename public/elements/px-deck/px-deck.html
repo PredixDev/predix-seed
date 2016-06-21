@@ -1,10 +1,8 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
-<!-- local px-card -->
-<link rel="import" href="/elements/px-card-view/px-card-view.html">
-
 <dom-module id="px-deck">
+
   <template>
 
     <iron-ajax
@@ -14,11 +12,11 @@
       auto>
     </iron-ajax>
 
-    <template is="dom-repeat" items="[[_cards]]">
-      <px-card-view card-data="[[item]]"></px-card-view>
-    </template>
-
+    <div id="cardViews">
+      <!-- px-view elements for cards inserted here -->
+    </div>
   </template>
+  <script src="/bower_components/lodash/dist/lodash.min.js"></script>
   <script>
     Polymer({
 
@@ -51,7 +49,8 @@
         // cards: [{card},{card}] updated on _deckData change
         _cards: {
           type: Array,
-          value: function() { return []; }
+          value: function() { return []; },
+          observer: '_updateCardViews'
         }
       },
 
@@ -70,8 +69,28 @@
 
       _setCards: function() {
         if(typeof this._deckData !== 'undefined') {
-          this.set('_cards', this._deckData.cards || []);
+          var cards = this._deckData.cards || [];
+          this.set('_cards', cards);
         }
+      },
+
+      _updateCardViews: function() {
+        // first remove child nodes
+        var that = this;
+        _.each(Polymer.dom(this.$.cardViews).childNodes, function(cardViewNode) {
+          Polymer.dom(that.$.cardViews).removeChild(cardViewNode);
+        });
+        // attach card views
+        _.each(this._cards, function(card) {
+          // create view element
+          var view = document.createElement('px-view');
+          // set view element attributes
+          view.setAttribute('id', 'px-view-' + new Date().getTime());
+          view.setAttribute('active', 'true');
+          view.setAttribute('element-href', card.attributes.elementHref);
+          // append view element to DOM
+          Polymer.dom(that.$.cardViews).appendChild(view);
+        });
       }
 
     });
