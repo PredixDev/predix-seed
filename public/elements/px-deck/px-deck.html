@@ -15,8 +15,12 @@
     <div id="cardViews">
       <!-- px-view elements for cards inserted here -->
     </div>
+
   </template>
+
+  <!-- include lodash utility library -->
   <script src="/bower_components/lodash/dist/lodash.min.js"></script>
+  
   <script>
     Polymer({
 
@@ -77,7 +81,8 @@
       _updateCardViews: function() {
         // first remove child nodes
         var that = this;
-        _.each(Polymer.dom(this.$.cardViews).childNodes, function(cardViewNode) {
+        var cardViewNodes = Polymer.dom(this.$.cardViews).childNodes;
+        _.each(cardNodes, function(cardViewNode) {
           Polymer.dom(that.$.cardViews).removeChild(cardViewNode);
         });
         // attach card views
