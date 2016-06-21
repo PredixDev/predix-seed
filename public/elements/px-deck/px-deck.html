@@ -20,7 +20,7 @@
 
   <!-- include lodash utility library -->
   <script src="/bower_components/lodash/dist/lodash.min.js"></script>
-  
+
   <script>
     Polymer({
 
@@ -81,9 +81,9 @@
       _updateCardViews: function() {
         // first remove child nodes
         var that = this;
-        var cardViewNodes = Polymer.dom(this.$.cardViews).childNodes;
-        _.each(cardNodes, function(cardViewNode) {
-          Polymer.dom(that.$.cardViews).removeChild(cardViewNode);
+        var cardViews = Polymer.dom(this.$.cardViews);
+        _.each(cardViews.childNodes, function(cardViewNode) {
+          cardViews.removeChild(cardViewNode);
         });
         // attach card views
         _.each(this._cards, function(card) {
