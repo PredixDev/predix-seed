@@ -1,9 +1,9 @@
 {
   "id": 2,
-  "title": "demo card",
-  "slug": "demo-card",
+  "title": "Three widgets card",
+  "slug": "three-widgets-card",
   "attributes": {
-    "elementHref": "/bower_components/px-sample-cards/demo-card.html"
+    "elementHref": "/elements/cards/three-widgets-card/three-widgets-card.html"
   },
   "createTimeStamp": "2015-11-24T23:02:53.816Z",
   "tags": []
