@@ -2,7 +2,7 @@
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
 <!-- local px-card -->
-<link rel="import" href="/elements/px-view-card/px-view-card.html">
+<link rel="import" href="/elements/px-card-view/px-card-view.html">
 
 <dom-module id="px-deck">
   <template>
@@ -15,7 +15,7 @@
     </iron-ajax>
 
     <template is="dom-repeat" items="[[_cards]]">
-      <px-view-card card-data="[[item]]"></px-view-card>
+      <px-card-view card-data="[[item]]"></px-card-view>
     </template>
 
   </template>
