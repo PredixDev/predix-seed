@@ -10,12 +10,12 @@
     <px-card header-text="Time Series Card">
       <!--<button on-click="saveBtnClicked">Save</button>-->
       <iron-ajax
-        url="/api/time-series/core-vibe-rear-cruise.json"
+        url="/api/time-series/core-vibe/1"
         last-response="{{_coreVibeRearCoreVibeData}}"
         auto>
       </iron-ajax>
       <iron-ajax
-        url="/sample-data/delta-egt-cruise.json"
+        url="/api/time-series/core-vibe/2"
         last-response="{{_deltaEgtCruiseData}}"
         auto>
       </iron-ajax>
