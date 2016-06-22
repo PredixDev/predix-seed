@@ -1,0 +1,75 @@
+/*
+ * Copyright (c) 2014 GE Global Research. All rights reserved.
+ *
+ * The copyright to the computer software herein is the property of
+ * GE Global Research. The software may be used and/or copied only
+ * with the written permission of GE Global Research or in accordance
+ * with the terms and conditions stipulated in the agreement/contract
+ * under which the software has been supplied.
+ */
+
+//
+// Sass for the "sketch" notion of the px-sample-cards component
+//
+// @author
+//
+
+/*
+THIS FILE SHOULD CONTAIN ONLY ABSTRACT/'SKETCH' THEME RULES, NOT SPECIFIC TO PREDIX BRANDING
+Predix branding rules go in px-sample-cards-predix.scss, not in this file.
+*/
+
+
+/*
+See https://github.com/PredixDev/px-getting-started#a-note-about-relative-import-paths for an explanation of the `../`
+in import paths
+*/
+
+// Settings
+@import "px-colors-design/_settings.colors.scss";
+@import "px-defaults-design/_settings.defaults.scss";
+
+// Generic
+@import "px-normalize-design/_generic.normalize.scss";
+@import "px-box-sizing-design/_generic.box-sizing.scss";
+@import "px-helpers-design/_generic.helpers.scss";
+
+// Base
+@import "px-flexbox-design/_base.flexbox.scss";
+@import "px-viewport-design/_base.viewport.scss";
+@import "px-headings-design/_base.headings.scss";
+
+$inuit-enable-input--regular            : true;
+
+@import "px-forms-design/_base.forms.scss";
+
+// Objects
+
+$inuit-enable-btn--huge                 : true;
+$inuit-enable-btn--icon                 : true;
+$inuit-enable-btn--primary              : true;
+
+@import "px-buttons-design/_objects.buttons.scss";
+@import "px-layout-design/_objects.layout.scss";
+
+$inuit-enable-toggle--large             : true;
+
+@import "px-toggle-design/_objects.toggle.scss";
+@import "px-input-group-design/_objects.input-group.scss";
+
+// Component
+
+.normal-weight {
+  font-weight: normal;
+}
+
+// Trumps
+$inuit-enable-margins--none             : true;
+$inuit-enable-margins--huge             : true;
+$inuit-enable-paddings--large           : true;
+
+@import "px-spacing-design/_trumps.spacing.scss";
+
+@import "inuit-clearfix/_trumps.clearfix.scss";
+@import "px-spacing-responsive-design/_trumps.spacing-responsive.scss";
+@import "px-widths-responsive-design/_trumps.widths-responsive.scss";
