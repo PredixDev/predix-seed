@@ -4,7 +4,7 @@
 
 <dom-module id="data-table-card">
   <template>
-    <px-card header-text="Datagrid">
+    <px-card header-text="[[_headerText]]">
       <iron-ajax
         id="dataTableDataIronAjax"
         url="[[_ajaxURL]]"
@@ -35,6 +35,10 @@
       _dataTableData: {
         type: Object,
         computed: '_computeDataTableData(_ajaxData)'
+      },
+      _headerText: {
+        type: String,
+        computed: '_computeHeaderString(elementData)'
       }
     },
 
@@ -42,12 +46,23 @@
       return this._ajaxData['data'];
     },
 
+    _dataValueExists: function(data, value) {
+      return (data !== { 'empty': true } &&
+              typeof data.attributes !== 'undefined' &&
+              typeof data.attributes[value] !== 'undefined')
+    },
+
     _computeAjaxURL: function() {
-      console.log(this.elementData.attributes);
-      if(this.elementData !== { 'empty': true } &&
-         typeof this.elementData.attributes !== 'undefined') {
-        console.log(this.elementData)
+      if (this._dataValueExists(this.elementData, 'dataUrl')){
         return this.elementData.attributes.dataUrl;
+      }
+    },
+
+    _computeHeaderString: function() {
+      if (this._dataValueExists(this.elementData, 'headerText')){
+        return this.elementData.attributes.headerText;
+      } else {
+        return 'Datagrid'
       }
     }
 
