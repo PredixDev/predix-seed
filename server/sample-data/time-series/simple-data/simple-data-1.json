@@ -1,0 +1,10 @@
+{
+  "id": 1,
+  "name": "simple-data-1",
+  "data": {
+    "values": [2, 5.2, 2, 6.7, 2, 4.2, 3],
+    "max": 10,
+    "min": 0,
+    "threshold": 5.9
+  }
+}
