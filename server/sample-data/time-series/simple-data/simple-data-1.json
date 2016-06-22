@@ -1,7 +1,7 @@
 {
   "id": 1,
-  "name": "simple-data-1",
   "data": {
+    "name": "Weekdays",
     "labels": [
       "Monday",
       "Tuesday",

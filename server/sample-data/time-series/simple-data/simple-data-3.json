@@ -1,7 +1,7 @@
 {
   "id": 3,
-  "name": "simple-data-3",
   "data": {
+    "name": "Open Cases",
     "values": [
       [1, 2, 2],
       [2, 1, 3],

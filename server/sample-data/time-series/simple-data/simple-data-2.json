@@ -1,7 +1,7 @@
 {
   "id": 2,
-  "name": "simple-data-2",
   "data": {
+    "name": "Output vs. Capacity",
     "values": [
       [1, 2],
       [2, 1],

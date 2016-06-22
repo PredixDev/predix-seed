@@ -11,43 +11,50 @@
 <dom-module id="three-widgets-card">
 
   <template>
-    <iron-ajax
-      url="/api/time-series/simple-data/1"
-      last-response="{{_simpleDataValuesA}}"
-      auto>
-    </iron-ajax>
-    <iron-ajax
-      url="/api/time-series/simple-data/2"
-      last-response="{{_simpleDataValuesB}}"
-      auto>
-    </iron-ajax>
-    <iron-ajax
-      url="/api/time-series/simple-data/3"
-      last-response="{{_simpleDataValuesC}}"
-      auto>
-    </iron-ajax>
+
     <px-threeup id="widgetsx3" widget-header="Widgets">
       <div class="widget-1">
-        <h4>Title</h4>
+        <h1 class="epsilon">
+          [[_simpleDataValuesA.data.name]]
+        </h1>
         <px-simple-horizontal-bar-chart
           chart-data="[[_simpleDataValuesA.data.values]]"
           legend-labels="[[_simpleDataValuesA.data.labels]]">
         </px-simple-line-chart>
+        <iron-ajax
+          url="/api/time-series/simple-data/1"
+          last-response="{{_simpleDataValuesA}}"
+          auto>
+        </iron-ajax>
       </div>
       <div class="widget-2">
-        <h4>Title</h4>
+        <h1 class="epsilon">
+          [[_simpleDataValuesB.data.name]]
+        </h1>
         <px-simple-line-chart
           line-data="[[_simpleDataValuesB.data.values]]"
           max="10"
           min="0"
           threshold="5">
         </px-simple-line-chart>
+        <iron-ajax
+          url="/api/time-series/simple-data/2"
+          last-response="{{_simpleDataValuesB}}"
+          auto>
+        </iron-ajax>
       </div>
       <div class="widget-3">
-        <h4>Title</h4>
+        <h1 class="epsilon">
+          [[_simpleDataValuesC.data.name]]
+        </h1>
         <px-simple-bar-chart
           chart-data="[[_simpleDataValuesC.data.values]]">
         </px-simple-line-chart>
+        <iron-ajax
+          url="/api/time-series/simple-data/3"
+          last-response="{{_simpleDataValuesC}}"
+          auto>
+        </iron-ajax>
       </div>
     </px-threeup>
   </template>
