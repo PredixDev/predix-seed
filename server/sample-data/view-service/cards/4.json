@@ -1,9 +1,9 @@
 {
   "id": 4,
-  "title": "Widgets Card",
-  "slug": "widgets-card",
+  "title": "Simple Charts Card",
+  "slug": "simple-charts-card",
   "attributes": {
-    "elementHref": "/bower_components/px-sample-cards/widgets-card.html"
+    "elementHref": "/bower_components/simple-charts-card/simple-charts-card.html"
   },
   "createTimeStamp": "2015-11-24T23:02:53.816Z",
   "tags": []

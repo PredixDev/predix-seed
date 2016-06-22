@@ -62,23 +62,25 @@
     },
 
     _computeCoreVibeSeries: function(data) {
+      console.log(data);
       var series = this._timeSeriesDataTransformer.transform(data.tags)[0];
       series.id = series.name;
       series.axisId = 'anotherAxis';
       return series;
     },
 
-    _addCoreVibeSeries: function(series) {
-      this.$.tsChart.addSeries(series);
-    },
-
     _computeDeltaEgtCruiseSeries: function(data) {
+        console.log(data);
       var series = this._timeSeriesDataTransformer.transform(data.tags)[0];
       series.id = series.name;
       series.axisId = "firstAxis";
       series.upperThreshold = "30.5";
       series.lowerThreshold = "6.25";
       return series;
+    },
+
+    _addCoreVibeSeries: function(series) {
+      this.$.tsChart.addSeries(series);
     },
 
     _addDeltaEgtCruiseSeries: function(series) {

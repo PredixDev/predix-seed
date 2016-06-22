@@ -90,6 +90,7 @@
           view.setAttribute('id', 'px-view-' + new Date().getTime());
           view.setAttribute('active', 'true');
           view.setAttribute('element-href', card.attributes.elementHref);
+          view.setAttribute('element-data', JSON.stringify(card));
           // append view element to DOM
           Polymer.dom(that.$.cardViews).appendChild(view);
         });
