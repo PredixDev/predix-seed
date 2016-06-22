@@ -51,40 +51,63 @@
         <main class="u-pt-- u-pr-- u-pl--" role="main">
 
           <!-- app-location captures url and assigns _route value -->
-          <app-location id="carbonLocation" route="{{_route}}" use-hash-as-path></app-location>
+          <app-location
+            id="carbonLocation"
+            route="{{_route}}"
+            use-hash-as-path>
+          </app-location>
 
           <!-- /home route and view -->
-          <app-route route="[[_route]]" pattern="/home" active="{{_homeActive}}"></app-route>
+          <app-route
+            route="[[_route]]"
+            pattern="/home"
+            active="{{_homeActive}}">
+          </app-route>
           <px-view
             active="[[_homeActive]]"
-            element-href="/elements/views/home-view.html"></px-view>
+            element-href="/elements/views/home-view.html">
+          </px-view>
 
           <!-- /dashboards rotue and view -->
-          <app-route route="[[_route]]" pattern="/dashboards"
-            active="{{_dashboardsActive}}"></app-route>
+          <app-route
+            route="[[_route]]"
+            pattern="/dashboards"
+            active="{{_dashboardsActive}}">
+          </app-route>
           <px-view
             active="[[_dashboardsActive]]"
-            element-href="/elements/views/dashboards-view.html"></px-view>
+            element-href="/elements/views/dashboards-view.html">
+          </px-view>
 
           <!-- /blankpage route and view -->
-          <app-route route="[[_route]]" pattern="/blankpage"
-            active="{{_blankpageActive}}"></app-route>
+          <app-route
+            route="[[_route]]"
+            pattern="/blankpage"
+            active="{{_blankpageActive}}">
+          </app-route>
           <px-view
             active="[[_blankpageActive]]"
-            element-href="/elements/views/blankpage-view.html"></px-view>
+            element-href="/elements/views/blankpage-view.html">
+          </px-view>
 
           <!-- /blankpage/subpage route and view -->
-          <app-route route="[[_route]]" pattern="/blankpage/subpage"
-            active="{{_blankpageSubpageActive}}"></app-route>
+          <app-route
+            route="[[_route]]"
+            pattern="/blankpage/subpage"
+            active="{{_blankpageSubpageActive}}">
+          </app-route>
           <px-view
             active="[[_blankpageSubpageActive]]"
-            element-href="/elements/views/blanksubpage-view.html"></px-view>
+            element-href="/elements/views/blanksubpage-view.html">
+          </px-view>
 
         </main>
 
       </div>
     </div>
+
     <seed-footer footer-links='[[footerLinks]]'></seed-footer>
+    
   </template>
   <script>
     Polymer({
