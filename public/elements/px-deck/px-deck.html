@@ -76,13 +76,14 @@
       },
 
       _updateCardViews: function() {
-        // first remove child nodes
         var that = this;
+        // select cardViews DIV element
         var cardViews = Polymer.dom(this.$.cardViews);
+        // Remove any existing views via child nodes
         _.each(cardViews.childNodes, function(cardViewNode) {
           cardViews.removeChild(cardViewNode);
         });
-        // attach card views
+        // Attach card as new px-view element w/ correct configuration
         _.each(this._cards, function(card) {
           // create view element
           var view = document.createElement('px-view');
@@ -92,7 +93,7 @@
           view.setAttribute('element-href', card.attributes.elementHref);
           view.setAttribute('element-data', JSON.stringify(card));
           // append view element to DOM
-          Polymer.dom(that.$.cardViews).appendChild(view);
+          cardViews.appendChild(view);
         });
       }
 
