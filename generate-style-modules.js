@@ -53,13 +53,18 @@ var addCSSPrefix = function(parsedSass) {
   });
 };
 
-insertFile = function(result) {
+saveFile = function(r) {
   // console.log(Object.keys(result));
   // console.log(result.toString());
-  var m = "<dom-module id='three-widgets-card-styles'><template><style>" +
-    result.css +
-    "</style></template></dom-module>";
-  console.log(m)
+  var fileText = "<dom-module id='three-widgets-card-styles'>\n  <template>\n    <style>\n" +
+    r.css +
+    "\n    </style>\n  </template>\n</dom-module>";
+  fs.writeFile(r.path + r.slug + '.html', fileText, function(err) {
+    if (err) {
+      return console.log(err);
+    }
+    console.log("The file was saved!");
+  });
 }
 
 glob("public/elements/**/*.scss", {}, function(err, files) {
@@ -68,11 +73,7 @@ glob("public/elements/**/*.scss", {}, function(err, files) {
       .then(function(result) {
         // success! Pass it on to addCSSPrefix
         addCSSPrefix(result)
-          .then(function(results) {
-            console.log(results);
-            // success! Pass it on to addCSSPrefix
-            insertFile(results);
-          })
+          .then(saveFile)
           .catch(function(err) {
             console.error(err);
           });
