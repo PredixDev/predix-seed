@@ -4,7 +4,7 @@ var glob = require("glob");
 var _ = require("lodash");
 var postcss = require('postcss');
 var autoprefixer = require('autoprefixer');
-var moduleImporter = require('sass-module-importer');
+var moduleImporter = require('sass-import-modules');
 
 var parseSlug = function(filename) {
   var re = /([\w-\/-]+\/)([\w-]+)(?:[.](scss|sass))$/gmi;
@@ -23,7 +23,9 @@ var renderSass = function(filename) {
     sass.render({
       file: filename,
       outputStyle: 'expanded',
-      importer: moduleImporter
+      importer: moduleImporter.importer({
+        paths: ['./public/bower_components/']
+      })
     }, function(err, result) {
       if (err) {
         reject(err);
@@ -56,7 +58,7 @@ var addCSSPrefix = function(parsedSass) {
 saveFile = function(r) {
   // console.log(Object.keys(result));
   // console.log(result.toString());
-  var fileText = "<dom-module id='three-widgets-card-styles'>\n  <template>\n    <style>\n" +
+  var fileText = "<dom-module id='" + r.slug + "'>\n  <template>\n    <style>\n" +
     r.css +
     "\n    </style>\n  </template>\n</dom-module>";
   fs.writeFile(r.path + r.slug + '.html', fileText, function(err) {
