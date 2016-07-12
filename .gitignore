@@ -9,3 +9,4 @@ dist/www
 npm-debug.log
 *.log
 .DS_Store
+temp

@@ -22,7 +22,7 @@ module.exports = function(grunt) {
     },
 
     clean: {
-      css: ['css'],
+      css: ['temp/css/**/*.css'],
       bower: ['bower_components'],
       reports: ['reports']
     },
@@ -35,9 +35,9 @@ module.exports = function(grunt) {
           bower: true
         }
       },
-      threeWidgetsCardStyles: {
+      style_modules: {
         files: {
-          'src/css/noprefix/three-widgets-card-styles.css': 'src/sass/three-widgets-card-styles.scss',
+          'temp/css/noprefix/seed-footer-styles.css': 'public/elements/seed-footer/seed-footer-styles.scss',
         }
       }
     },
@@ -49,24 +49,39 @@ module.exports = function(grunt) {
       multiple_files: {
         expand: true,
         flatten: true,
-        src: 'src/css/noprefix/*.css',
-        dest: 'src/css/withprefix'
+        src: 'temp/css/noprefix/*.css',
+        dest: 'temp/css/withprefix'
       }
     },
-    insert: {
-      options: {
-        // Task-specific options go here.
-      },
-      insertStyles: {
-        src: "src/css/withprefix/three-widgets-card-styles.css",
-        dest: "public/elements/cards/three-widgets-card/three-widgets-card-styles.html",
-        match: "/* insert styles here */"
-      },
+
+    // Configuration to be run (and then tested).
+    'polymer-css-compiler': {
+      //Default options sent to task
+      seed_footer: {
+        files: {
+          'public/elements/seed-footer/seed-footer-styles.html': [
+            'temp/css/min/seed-footer-styles.css'
+          ]
+        }
+      }
     },
+
+    cssmin: {
+      target: {
+        files: [{
+          expand: true,
+          cwd: 'temp/css/withprefix',
+          src: '*.css',
+          dest: 'temp/css/min',
+          ext: '.css'
+        }]
+      }
+    },
+
     watch: {
       sass: {
-        files: ['src/sass/**/*.scss'],
-        tasks: ['sass', 'autoprefixer', 'insert'],
+        files: ['public/elements/**/*.scss'],
+        tasks: ['sass', 'autoprefixer', 'cssmin', 'polymer-css-compiler'],
         options: {
           interrupt: true,
           livereload: true
@@ -78,22 +93,22 @@ module.exports = function(grunt) {
 
   grunt.initConfig(gruntConfig);
 
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('polymer-css-compiler');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-autoprefixer');
-  grunt.loadNpmTasks('grunt-insert');
 
-  // Default task.
+  // Default task
   grunt.registerTask('default', 'Basic build', [
     'sass',
     'autoprefixer',
-    'insert',
+    'cssmin',
+    'polymer-css-compiler',
     'serve'
   ]);
   grunt.registerTask('serve', ['nodemon']);
-
-
 
 };

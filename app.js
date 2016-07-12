@@ -1,6 +1,8 @@
 var jsonServer = require('json-server');
 var _ = require('lodash');
 var server = jsonServer.create();
+
+// Import route modules
 var viewServiceRoutes = require('./server/view-service-routes.js')();
 var assetRoutes = require('./server/predix-asset-routes.js')();
 var timeSeriesRoutes = require('./server/time-series-routes.js')();
