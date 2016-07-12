@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Predix Seed 2.0</title>
+  <title>Predix Seed</title>
   <base href="/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,58 +29,82 @@
     }
   </style>
 
+  <script>
+    // Setup Polymer options
+    window.Polymer = {
+      // lazyRegister: true, // lazyRegister: true is necessary for px-view
+      // dom: 'shadow' // default to shadow-dom with shady-dom fall-back
+    };
+  </script>
+
   <!-- Async HTML Imports do not block rending. Benefit of keeping it declarative
        (instead of dynamically loading it later in JS) is that the parser can go to
        town pre-fetching resources, etc. -->
-  <link rel="import" id="elements" href="elements/elements.html" async>
+  <link rel="import" id="main-element-import" href="/elements/seed-app/seed-app.html" async>
+
+  <!-- import page level css. -->
+  <link rel="import" href="/bower_components/px-theme/px-app.html">
+
+  <!-- import component theme css variables. -->
+  <link rel="import" href="/bower_components/px-theme/px-theme.html">
 
 </head>
 <body class="loading">
-  <!-- 'loading' class on <body>
-       this avoids "Flash of Unstyled Concent" and a "Flash of No Content" -->
+  <!-- the 'loading' class on <body> avoids "Flash of Unstyled Concent" and a "Flash of No Content" -->
 
   <div id="splash"></div>
-  <!-- Light weight splash screen is outside of Polymer/imports and styled by
-       the main page. 1st paint is fast, even on polyfilled browsers. -->
+  <!-- Light weight splash screen is outside of Polymer/imports and styled by the main page.
+       1st paint is fast, even on polyfilled browsers. -->
 
   <!-- Elements wait on the page and are upgraded after elements.html is loaded. -->
   <seed-app></seed-app>
 
   <script>
-    // Predix application loading script
-    // Asyncronously loads webcomponents-lite and Polymer elements
+    // Below is a fast app loading script
+    // The script async & lazy-loads webcomponents-lite polyfill
+    // then checks for Polymer element
     // then removes #splash div to reveal application UI in #app
     (function(){
 
       // Wait for async loading of elements.html bundle
       var onWebComponentsLoaded = function() {
-        var elements = document.querySelector('#elements');
-        if (elements.import && elements.import.readyState === 'complete') {
-          onElementsLoaded();
+        var mainElementLink = document.querySelector('#main-element-import');
+        if (mainElementLink.import && mainElementLink.import.readyState === 'complete') {
+          onMainElementLoaded();
         } else {
-          elements.addEventListener('load', onElementsLoaded);
+          mainElementLink.addEventListener('load', onMainElementLoaded);
         }
       };
 
       // Remove #splash div and 'loading' class from body
-      var onElementsLoaded = function() {
+      var onMainElementLoaded = function() {
         // Fade splash screen, then remove
         var splashEl = document.getElementById('splash');
+
         splashEl.addEventListener('transitionend', function() {
-          splashEl.parentNode.removeChild(splashEl); // IE 10 doesn't support el.remove()
+          splashEl.parentNode.removeChild(splashEl); // IE 10 doesn't support element.remove()
         });
         document.body.classList.remove('loading');
         // Applicaiton is now visible and ready!
       };
 
-      // Async loading of webcomponents polyfill
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'bower_components/webcomponentsjs/webcomponents-lite.min.js';
-      script.onload = onWebComponentsLoaded;
-      document.head.appendChild(script);
+      // load webcomponents polyfills
+      if ('registerElement' in document
+          && 'import' in document.createElement('link')
+          && 'content' in document.createElement('template')) {
+        // browser has web components, no need to load webcomponents polyfill
+        onWebComponentsLoaded();
+      } else {
+        // polyfill web components
+        var polyfill = document.createElement('script');
+        script.async = true;
+        polyfill.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
+        polyfill.onload = onWebComponentsLoaded;
+        document.head.appendChild(polyfill);
+      }
 
     }());
   </script>
+
 </body>
 </html>
