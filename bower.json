@@ -51,13 +51,14 @@
     "px-simple-bar-chart": "^1.5.1",
     "px-forms-design": "^0.3.16",
     "px-toggle-design": "^0.2.12",
-    "px-input-group-design": "^0.2.12"
+    "px-input-group-design": "^0.2.12",
+    "web-component-tester": "Polymer/web-component-tester#^4.3.1"
   },
   "resolutions": {
     "polymer": "1.5.0",
     "px-theme": "v0.6.4",
     "px-card": "v0.2.4",
-    "lodash": "^4.6.1",
+    "lodash": "4.6.1",
     "iron-ajax": "1.2.0",
     "px-viewport-design": "~0.4.3",
     "px": "1.4.3",
