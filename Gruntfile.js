@@ -78,6 +78,19 @@ module.exports = function(grunt) {
       }
     },
 
+    'wct-test': {
+      local: {
+        options: {
+          remote: false
+        },
+      },
+      chrome: {
+        options: {
+          browsers: ['chrome']
+        },
+      },
+    },
+
     watch: {
       sass: {
         files: ['public/elements/**/*.scss'],
@@ -100,6 +113,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('web-component-tester');
+
+  grunt.registerTask('test', 'WCT Tests', ['wct-test:local']);
 
   // Default task
   grunt.registerTask('default', 'Basic build', [
