@@ -60,6 +60,9 @@
     "lodash": "^4.6.1",
     "iron-ajax": "1.2.0",
     "px-viewport-design": "~0.4.3",
-    "px": "1.4.2"
+    "px": "1.4.3",
+    "es6-promise": "3.2.2",
+    "px-simple-chart-common-behavior": "~1.4.0",
+    "px-tooltip": "^0.7.0"
   }
 }
