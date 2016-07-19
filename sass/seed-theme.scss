@@ -1,0 +1,79 @@
+//
+// theme variables
+//
+
+@import "px-colors-design/_settings.colors.scss";
+@import "px-mixins-design/_tools.mixins.scss";
+
+$fa-font-path       : "../font-awesome/fonts";
+$fa-version         : "4.4.0" !default;
+$inuit-webfont-path: '../px-typography-design/type' !default;
+$predix-font-family : "GE Inspira Sans", sans-serif !default;
+
+:root{
+  @import "px-iconography-design/_base.iconography.scss";
+  @import "px-typography-design/_base.typography.scss";
+
+  --px-app-nav-background-color:            $gray10;
+  --px-app-nav-link-text-color:             $white;
+  --px-app-nav-link-selected-color:         $select-blue-pressed;
+  --px-app-nav-link-selected-active-color:  $select-blue-hover;
+  --px-app-nav-link-hover-color:            $gray8;
+  --px-app-nav-link-active-color:           $primary-blue-hover;
+
+
+  --px-font-family: $predix-font-family;
+
+}
+
+
+//
+// page theme variables
+//
+
+$px-page-html-background-color: $gray9;
+$px-page-link-color: $gray5;
+$px-page-spine-border-color: $gray8;
+$px-page-spine-text-color: $white;
+$px-page-bold-text-color: $gray3;
+$px-page-card-border-color: $gray3;
+$px-page-card-background-color: $white;
+$px-page-card-text-color: $black;
+$px-page-card-paragraph-text-color: $gray5;
+$px-page-banner-text-color: $gray4;
+$px-page-banner-meatball-color : $gray4;
+$px-page-main-content-area-background-color: $graybg;
+
+@include font-face('GE Inspira', '#{$inuit-webfont-path}/GEInspMd');
+@include font-face('GE Inspira', '#{$inuit-webfont-path}/GEInspMdIt', normal, italic);
+@include font-face('GE Inspira', '#{$inuit-webfont-path}/GEInspBd', bold, normal);
+@include font-face('GE Inspira', '#{$inuit-webfont-path}/GEInspBI', bold, italic);
+@include font-face('GE Inspira Sans', '#{$inuit-webfont-path}/GEInspiraSans-Regular-v01');
+@include font-face('GE Inspira Sans', '#{$inuit-webfont-path}/GEInspiraSans-Italic-v01', normal, italic);
+@include font-face('GE Inspira Sans', '#{$inuit-webfont-path}/GEInspiraSans-Bold-v01', bold, normal);
+@include font-face('GE Inspira Sans', '#{$inuit-webfont-path}/GEInspiraSans-BoldItalic-v01', bold, italic);
+@include font-face('GE Inspira Serif', '#{$inuit-webfont-path}/GEInspiraSerif-Regular-v01');
+@include font-face('GE Inspira Serif', '#{$inuit-webfont-path}/GEInspiraSerif-Italic-v01', normal, italic);
+@include font-face('GE Inspira Serif', '#{$inuit-webfont-path}/GEInspiraSerif-Bold-v01', bold, normal);
+@include font-face('GE Inspira Serif', '#{$inuit-webfont-path}/GEInspiraSerif-BoldItalic-v01', bold, italic);
+
+html {
+  font-family: $predix-font-family;
+}
+
+:host {
+  font-family: $predix-font-family;
+}
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('#{$fa-font-path}/fontawesome-webfont.eot?v=#{$fa-version}');
+  src: url('#{$fa-font-path}/fontawesome-webfont.eot?#iefix&v=#{$fa-version}') format('embedded-opentype'),
+    url('#{$fa-font-path}/fontawesome-webfont.woff2?v=#{$fa-version}') format('woff2'),
+    url('#{$fa-font-path}/fontawesome-webfont.woff?v=#{$fa-version}') format('woff'),
+    url('#{$fa-font-path}/fontawesome-webfont.ttf?v=#{$fa-version}') format('truetype'),
+    url('#{$fa-font-path}/fontawesome-webfont.svg?v=#{$fa-version}#fontawesomeregular') format('svg');
+//  src: url('#{$fa-font-path}/FontAwesome.otf') format('opentype'); // used when developing fonts
+  font-weight: normal;
+  font-style: normal;
+}

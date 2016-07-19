@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 
   var importOnce = require('node-sass-import-once');
 
-  // Project configuration.
+  // Project configuration
   var gruntConfig = {
 
     pkg: grunt.file.readJSON('package.json'),
@@ -21,10 +21,12 @@ module.exports = function(grunt) {
       }
     },
 
+    /* cleanup temporary files */
     clean: {
       css: ['temp/css/**/*.css'],
       bower: ['bower_components'],
-      reports: ['reports']
+      reports: ['reports'],
+      temp: ['temp']
     },
 
     sass: {
@@ -35,13 +37,20 @@ module.exports = function(grunt) {
           bower: true
         }
       },
-      style_modules: {
+      /* Sass files destined to be Polymer style modules */
+      seed_app: {
         files: {
-          'temp/css/noprefix/seed-footer-styles.css': 'public/elements/seed-footer/seed-footer-styles.scss',
+          'temp/css/noprefix/seed-app.css': 'sass/seed-app.scss',
+        }
+      },
+      seed_footer: {
+        files: {
+          'temp/css/noprefix/seed-footer.css': 'sass/seed-footer.scss',
         }
       }
     },
 
+    /* Modify CSS to include necessary vendor prefixes */
     autoprefixer: {
       options: {
         browsers: ['last 2 version']
@@ -54,27 +63,21 @@ module.exports = function(grunt) {
       }
     },
 
-    // Configuration to be run (and then tested).
+    /* Generate Polymer style modules using prefixed CSS */
     'polymer-css-compiler': {
-      //Default options sent to task
-      seed_footer: {
+      seed_app: {
         files: {
-          'public/elements/seed-footer/seed-footer-styles.html': [
-            'temp/css/min/seed-footer-styles.css'
+          'public/elements/seed-app/seed-app.html': [
+            'temp/css/withprefix/seed-app.css'
           ]
         }
-      }
-    },
-
-    cssmin: {
-      target: {
-        files: [{
-          expand: true,
-          cwd: 'temp/css/withprefix',
-          src: '*.css',
-          dest: 'temp/css/min',
-          ext: '.css'
-        }]
+      },
+      seed_footer: {
+        files: {
+          'public/elements/seed-footer/seed-footer.html': [
+            'temp/css/withprefix/seed-footer.css'
+          ]
+        }
       }
     },
 
@@ -93,8 +96,8 @@ module.exports = function(grunt) {
 
     watch: {
       sass: {
-        files: ['public/elements/**/*.scss'],
-        tasks: ['sass', 'autoprefixer', 'cssmin', 'polymer-css-compiler'],
+        files: ['sass/*.scss'],
+        tasks: ['styles'],
         options: {
           interrupt: true,
           livereload: true
@@ -106,7 +109,6 @@ module.exports = function(grunt) {
 
   grunt.initConfig(gruntConfig);
 
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('polymer-css-compiler');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-nodemon');
@@ -117,14 +119,12 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', 'WCT Tests', ['wct-test:local']);
 
-  // Default task
-  grunt.registerTask('default', 'Basic build', [
-    'sass',
-    'autoprefixer',
-    'cssmin',
-    'polymer-css-compiler',
-    'serve'
-  ]);
+  grunt.registerTask('styles', ['sass', 'autoprefixer', 'polymer-css-compiler']);
+
   grunt.registerTask('serve', ['nodemon']);
+
+  // Default task
+  grunt.registerTask('default', 'Default', ['styles', 'serve']);
+
 
 };
