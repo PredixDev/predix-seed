@@ -18,7 +18,13 @@ $viewport-margin: 2rem; // defaults to auto
 @import "px-typography-design/_base.typography.scss";
 @import "px-code-design/_base.code.scss";
 @import "px-headings-design/_base.headings.scss";
+
+$fa-font-path: "/bower_components/font-awesome/fonts";
 @import "px-iconography-design/_base.iconography.scss";
+
+$inuit-webfont-path: "/bower_components/px-typography-design/type";
+@import "px-typography-design/_base.typography.scss";
+
 
 // Meta
 @import "px-meta-lists-design/_meta.lists.scss";

@@ -18,7 +18,7 @@ $viewport-margin: 2rem; // defaults to auto
 
 @import "px-mixins-design/_tools.mixins.scss";
 
-$inuit-webfont-path: '../px-typography-design/type' !default;
+$inuit-webfont-path: '/bower_components/px-typography-design/type';
 $predix-font-family : "GE Inspira Sans", sans-serif !default;
 
 :host {

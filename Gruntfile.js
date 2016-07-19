@@ -83,7 +83,6 @@ module.exports = function(grunt) {
           }
         }
       },
-
     },
 
     'wct-test': {

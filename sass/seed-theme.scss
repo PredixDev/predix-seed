@@ -5,9 +5,9 @@
 @import "px-colors-design/_settings.colors.scss";
 @import "px-mixins-design/_tools.mixins.scss";
 
-$fa-font-path       : "../font-awesome/fonts";
+$fa-font-path       : "/bower_components/font-awesome/fonts";
 $fa-version         : "4.4.0" !default;
-$inuit-webfont-path: '../px-typography-design/type' !default;
+$inuit-webfont-path: '/bower_components/px-typography-design/type' !default;
 $predix-font-family : "GE Inspira Sans", sans-serif !default;
 
 :root{
