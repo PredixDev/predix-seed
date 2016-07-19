@@ -8,6 +8,8 @@
 'use strict';
 module.exports = function(grunt) {
 
+  var path = require('path');
+
   var importOnce = require('node-sass-import-once');
 
   // Project configuration
@@ -62,6 +64,7 @@ module.exports = function(grunt) {
         dest: 'temp/css/withprefix'
       }
     },
+    //Custom options - will append filename to output file, and use the returned moduleId value
 
     /* Generate Polymer style modules using prefixed CSS */
     'polymer-css-compiler': {
@@ -69,16 +72,18 @@ module.exports = function(grunt) {
         files: {
           'public/elements/seed-app/seed-app.html': [
             'temp/css/withprefix/seed-app.css'
-          ]
-        }
-      },
-      seed_footer: {
-        files: {
+          ],
           'public/elements/seed-footer/seed-footer.html': [
             'temp/css/withprefix/seed-footer.css'
           ]
+        },
+        options: {
+          moduleId: function(file) {
+            return path.basename(file.dest, '.html') + '-styles';
+          }
         }
-      }
+      },
+
     },
 
     'wct-test': {
