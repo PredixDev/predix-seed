@@ -1,4 +1,4 @@
 ---
 applications:
-  - name: polymer-predix-seed
+  - name: polymer-predix-seed-sysint
     memory: 64M
