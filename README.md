@@ -7,11 +7,11 @@ Following the steps in this document for obtaining the Dashboard Seed source, co
 Git:            https://git-scm.com<br/>
 Node & NPM :    https://nodejs.org<br/>
 Bower:          https://bower.io<br/>
-Grunt:          gruntjs.com<br/>
+Grunt:          http://gruntjs.com<br/>
 
 Working knowledge of each tool, as well as awareness of your network specifics (such as proxies, certificates, etc) is also recommended.  
 
-## GitHub Account and SSH Keys
+### GitHub Account and SSH Keys
 As can be seen here the Dashboard Seed source is stored in the github.com repository.  In order to download the code (most likely through the 'git clone ...' command) an account with github.com is needed, as well as the generation of a SSH key that will be associated to the account.  Please see github.com if you need to sign up for an account, and this page for details on SSH keys:
 
     https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
