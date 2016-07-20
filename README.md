@@ -17,7 +17,7 @@ Working knowledge of these tools is required to successfully set up the Dashboar
 Knowing your environment specifics, such as user permissions and network proxies, is also recommended.  
 
 ### GitHub Account and SSH Keys
-As can be seen here the Dashboard Seed source is stored in the github.com repository.  In order to download the code (most likely through the 'git clone ...' command) an account with github.com is needed.  Generation of a SSH key that will be associated to the account and stored in your development machine is also required.  Please see github.com if you need to sign up for an account, and this page for details on SSH keys:
+As can be seen here the Dashboard Seed source is version-controlled in the github.com repository.  In order to download the code (usually through the 'git clone ...' command) an account with github.com is needed.  Generation of a SSH key that will be associated to the account and stored in your development machine is also required.  Please see github.com if you need to sign up for an account, and this page for details on SSH keys:
 
     https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 
