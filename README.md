@@ -21,7 +21,7 @@ As can be seen here the Dashboard Seed source is stored in the github.com reposi
 ### Get the source code
 Make a directory for your project.  Clone or download and extract the seed in that directory.
 ```
-git clone
+git clone https://github.com/PredixDev/predix-seed --branch master
 ```
 
 ### Install the dependencies
@@ -29,6 +29,12 @@ git clone
 npm install
 bower install
 ```
+
+### Running Locally
+```
+grunt serve
+```
+Access the application by pointing your browser to http://localhost:9000/
 
 ### Create a dist version
 Use grunt to create a distribution version of your app, which will be located in the dist folder along with the nginx configuration files.  You will need to run this command during development every time before you cf push to make the latest dist.
