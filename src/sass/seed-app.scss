@@ -18,12 +18,11 @@ $viewport-margin: 2rem; // defaults to auto
 @import "px-code-design/_base.code.scss";
 @import "px-headings-design/_base.headings.scss";
 
-$fa-font-path: "/bower_components/font-awesome/fonts";
+$fa-font-path: "/bower_components/font-awesome/fonts"; // config for seed app
 @import "px-iconography-design/_base.iconography.scss";
 
-$inuit-webfont-path: "/bower_components/px-typography-design/type";
+$inuit-webfont-path: "/bower_components/px-typography-design/type"; // config for seed app
 @import "px-typography-design/_base.typography.scss";
-
 
 // Meta
 @import "px-meta-lists-design/_meta.lists.scss";
@@ -41,16 +40,7 @@ $inuit-enable-layout--full  : true;
 
 @import "seed-theme.scss";
 
-// App
-html {
-  position: relative;
-  min-height: 100%;
-  background-color: $px-page-html-background-color;
-}
 
-body {
-  margin-bottom: calculateRem(60px);
-}
 
 [role=banner], [role=contentinfo] {
   height: calculateRem(60px);

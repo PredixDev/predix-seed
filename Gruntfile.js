@@ -40,14 +40,19 @@ module.exports = function(grunt) {
         }
       },
       /* Sass files destined to be Polymer style modules */
+      index: {
+        files: {
+          'temp/css/noprefix/index.css': 'src/sass/index.scss'
+        }
+      },
       seed_app: {
         files: {
-          'temp/css/noprefix/seed-app.css': 'sass/seed-app.scss',
+          'temp/css/noprefix/seed-app.css': 'src/sass/seed-app.scss'
         }
       },
       seed_footer: {
         files: {
-          'temp/css/noprefix/seed-footer.css': 'sass/seed-footer.scss',
+          'temp/css/noprefix/seed-footer.css': 'src/sass/seed-footer.scss'
         }
       }
     },
@@ -100,11 +105,33 @@ module.exports = function(grunt) {
 
     watch: {
       sass: {
-        files: ['sass/*.scss'],
-        tasks: ['styles'],
+        files: ['src/**/*'],
+        tasks: ['styles', 'htmlbuild'],
         options: {
           interrupt: true,
           livereload: true
+        }
+      }
+    },
+
+    // Devmode to run serve and watch concurrently
+    concurrent: {
+      devmode: ['serve', 'watch']
+    },
+
+    htmlbuild: {
+      index: {
+        src: 'src/index.html',
+        dest: 'public/',
+        options: {
+          beautify: false,
+          relative: true,
+          scripts: {
+            index: 'src/js/index-loading-script.js'
+          },
+          styles: {
+            index: 'temp/css/withprefix/index.css'
+          }
         }
       }
     }
@@ -120,6 +147,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('web-component-tester');
+  grunt.loadNpmTasks('grunt-concurrent');
+  grunt.loadNpmTasks('grunt-html-build');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('test', 'WCT Tests', ['wct-test:local']);
 
@@ -129,6 +159,9 @@ module.exports = function(grunt) {
 
   // Default task
   grunt.registerTask('default', 'Default', ['styles', 'serve']);
+
+  // Devmode to run serve and watch concurrently
+  grunt.registerTask('devmode', ['concurrent:devmode']);
 
 
 };
