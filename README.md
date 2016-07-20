@@ -2,17 +2,17 @@
 Dashboard Seed is an application that uses Px Web Components and <a href="https://github.com/PredixDev/px-library-design/" target="_blank">Px UI Elements</a> inside an Angular application.
 
 ## PRE-REQUISITES
-Following the steps in this document for obtaining the Dashboard Seed source, configuring and running it will require these tools to be installed.  Please refer to the individual web sites for information on installing each tool:
+Performing the steps for obtaining the Dashboard Seed source, configuring and running/deploying it will require the following tools to be installed.  Please refer to the web sites listed here for information on each:
 
 Git:            https://git-scm.com<br/>
 Node & NPM :    https://nodejs.org<br/>
 Bower:          https://bower.io<br/>
 Grunt:          http://gruntjs.com<br/>
 
-Working knowledge of each tool, as well as awareness of your network specifics (such as proxies, certificates, etc) is also recommended.  
+Working knowledge of these tools is required to successfully set up the Dashboard Seed application.  Knowing your environment specifics, such as user permissions and network proxies, is also recommended.  
 
 ### GitHub Account and SSH Keys
-As can be seen here the Dashboard Seed source is stored in the github.com repository.  In order to download the code (most likely through the 'git clone ...' command) an account with github.com is needed, as well as the generation of a SSH key that will be associated to the account.  Please see github.com if you need to sign up for an account, and this page for details on SSH keys:
+As can be seen here the Dashboard Seed source is stored in the github.com repository.  In order to download the code (most likely through the 'git clone ...' command) an account with github.com is needed.  Generation of a SSH key that will be associated to the account and stored in your development machine is also required.  Please see github.com if you need to sign up for an account, and this page for details on SSH keys:
 
     https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 
