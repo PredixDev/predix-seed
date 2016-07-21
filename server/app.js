@@ -3,9 +3,9 @@ var _ = require('lodash');
 var server = jsonServer.create();
 
 // Import route modules
-var viewServiceRoutes = require('./server/view-service-routes.js')();
-var assetRoutes = require('./server/predix-asset-routes.js')();
-var timeSeriesRoutes = require('./server/time-series-routes.js')();
+var viewServiceRoutes = require('./view-service-routes.js')();
+var assetRoutes = require('./predix-asset-routes.js')();
+var timeSeriesRoutes = require('./time-series-routes.js')();
 
 // Set default middlewares (logger, static '/public', CORS and no-cache)
 var defaultMiddlewares = jsonServer.defaults();

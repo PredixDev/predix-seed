@@ -10,7 +10,7 @@
     "email": "Predix.experience@ge.com"
   },
   "scripts": {
-    "start": "node ./app.js"
+    "start": "node ./server/app.js"
   },
   "keywords": [
     "predix-app"
