@@ -132,7 +132,12 @@ module.exports = function(grunt) {
 
     // Devmode to run serve and watch concurrently
     concurrent: {
-      devmode: ['serve', 'watch']
+      devmode: {
+        tasks: ['serve', 'watch'],
+        options: {
+          logConcurrentOutput: true
+        }
+      }
     },
 
     htmlbuild: {
