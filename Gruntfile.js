@@ -127,7 +127,7 @@ module.exports = function(grunt) {
           beautify: false,
           relative: true,
           scripts: {
-            index: 'src/js/index-loading-script.js'
+            index: 'src/js/loading-script.js'
           },
           styles: {
             index: 'temp/css/withprefix/index.css'
@@ -158,10 +158,14 @@ module.exports = function(grunt) {
   grunt.registerTask('serve', ['nodemon']);
 
   // Default task
-  grunt.registerTask('default', 'Default', ['styles', 'serve']);
+  grunt.registerTask('default', 'Default', ['styles', 'htmlbuild', 'serve']);
 
   // Devmode to run serve and watch concurrently
-  grunt.registerTask('devmode', ['concurrent:devmode']);
+  grunt.registerTask('devmode', 'Development Mode - serve and watch run concurrently', [
+    'styles',
+    'htmlbuild',
+    'concurrent:devmode'
+  ]);
 
 
 };
