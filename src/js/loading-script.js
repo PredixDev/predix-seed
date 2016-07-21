@@ -34,7 +34,7 @@
   } else {
     // polyfill web components
     var polyfill = document.createElement('script');
-    script.async = true;
+    polyfill.async = true;
     polyfill.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
     polyfill.onload = onWebComponentsLoaded;
     document.head.appendChild(polyfill);
