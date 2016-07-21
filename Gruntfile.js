@@ -40,19 +40,20 @@ module.exports = function(grunt) {
         }
       },
       /* Sass files destined to be Polymer style modules */
-      index: {
+      compileBaseStyles: {
         files: {
-          'temp/css/noprefix/index.css': 'src/sass/index.scss'
-        }
-      },
-      seed_app: {
-        files: {
-          'temp/css/noprefix/seed-app.css': 'src/sass/seed-app.scss'
-        }
-      },
-      seed_footer: {
-        files: {
+          'temp/css/noprefix/index.css': 'src/sass/index.scss',
+          'temp/css/noprefix/seed-app.css': 'src/sass/seed-app.scss',
           'temp/css/noprefix/seed-footer.css': 'src/sass/seed-footer.scss'
+        }
+      },
+      compileCardStyles: {
+        files: {
+          'temp/css/noprefix/data-table-card.css': 'src/sass/data-table-card.scss',
+          'temp/css/noprefix/seed-intro-card.css': 'src/sass/seed-intro-card.scss',
+          'temp/css/noprefix/simple-charts-card.css': 'src/sass/simple-charts-card.scss',
+          'temp/css/noprefix/three-widgets-card.css': 'src/sass/three-widgets-card.scss',
+          'temp/css/noprefix/time-series-card.css': 'src/sass/time-series-card.scss'
         }
       }
     },
@@ -80,6 +81,21 @@ module.exports = function(grunt) {
           ],
           'public/elements/seed-footer/seed-footer.html': [
             'temp/css/withprefix/seed-footer.css'
+          ],
+          'public/elements/cards/data-table-card/data-table-card.html': [
+            'temp/css/withprefix/data-table-card.css'
+          ],
+          'public/elements/cards/seed-intro-card/seed-intro-card.html': [
+            'temp/css/withprefix/seed-intro-card.css'
+          ],
+          'public/elements/cards/simple-charts-card/simple-charts-card.html': [
+            'temp/css/withprefix/simple-charts-card.css'
+          ],
+          'public/elements/cards/three-widgets-card/three-widgets-card.html': [
+            'temp/css/withprefix/three-widgets-card.css'
+          ],
+          'public/elements/cards/time-series-card/time-series-card.html': [
+            'temp/css/withprefix/time-series-card.css'
           ]
         },
         options: {
