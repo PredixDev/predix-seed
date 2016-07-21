@@ -9,6 +9,7 @@ body {
   margin-bottom: calculateRem(60px);
 }
 html,body {
+  margin: 0;
   background: $px-page-html-background-color;
 }
 body.loading #splash {
