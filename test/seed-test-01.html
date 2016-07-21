@@ -19,7 +19,8 @@
   </test-fixture>
 
   <script>
-    suite('seed-app tests', function() {
+  document.addEventListener('load', function() {
+    suite('seed-app initial DOM tests', function() {
 
       var home;
 
@@ -27,12 +28,81 @@
         seedAppFixture = fixture('basic');
       });
 
-      test('Number in circle should be 1', function() {
+      // Test cases for seed-app DOM structure upon initial load
+      // Elements are tested for presence and correct count
+
+      test('There should be an internal style element', function() {
+        var styleEl = Polymer.dom(seedAppFixture.root).querySelector('style');
+        assert(styleEl !== null, 'style element was not found');
+      });
+
+      test('There should be a header element', function() {
         var header = Polymer.dom(seedAppFixture.root).querySelector('header');
-        assert.equal(circle.textContent, '1');
+        assert(header !== null, 'header element was not found');
+      });
+
+      test('There should be a px-app-nav element', function() {
+        var pxAppNav = Polymer.dom(seedAppFixture.root).querySelector('px-app-nav');
+        assert(pxAppNav !== null, 'px-app-nav element was not found');
+      });
+
+      test('There should be an app-location element', function() {
+        var appLocation = Polymer.dom(seedAppFixture.root).querySelector('app-location');
+        assert(appLocation !== null, 'app-location element was not found');
+      });
+
+      test('There should be initially 4 app-route elements', function() {
+        var appRoutes = Polymer.dom(seedAppFixture.root).querySelectorAll('app-route');
+        assert(appRoutes.length === 4, 'app-route is not exactly 4 instances');
+      });
+
+      test('There should be initially 4 px-view elements', function() {
+        var pxViews = Polymer.dom(seedAppFixture.root).querySelectorAll('px-view');
+        assert(pxViews.length === 4, 'px-view is not exactly 4 instances');
+      });
+
+      test('There should be a main element', function() {
+        var main = Polymer.dom(seedAppFixture.root).querySelector('main');
+        assert(main !== null, 'main element was not found');
+      });
+
+      test('There should be a seed-footer element', function() {
+        var seedFooter = Polymer.dom(seedAppFixture.root).querySelector('seed-footer');
+        assert(seedFooter !== null, 'seed-footer element was not found');
       });
 
     });
+  });
+
+  document.addEventListener("WebComponentsReady", function() {
+    suite('seed-app tests after Polymer components are loaded', function() {
+
+      var seedApp = Polymer.dom(seedAppFixture.root).querySelector('seed-app');
+
+      // Test cases for correct configuration of seed-app Polymer Object
+      
+      test('Fixture element should be "seed-app"', function() {
+        // TODO: write correct assertions
+        assert(false, 'instance is not of type "seed-app"');
+      });
+
+      test('navItems property should be configured', function() {
+        // TODO: write correct assertions
+        assert(false, 'seed-app navItems is not configured');
+      });
+
+      test('pxLoginMenuItems should be configured', function() {
+        // TODO: write correct assertions
+        assert(false, 'seed-app pxLoginMenuItems is not configured');
+      });
+
+      test('footerLinks property should be configured', function() {
+        // TODO: write correct assertions
+        assert(false, 'seed-app footerLinks is not configured');
+      });
+
+    });
+  });
   </script>
 
 </body>
