@@ -32,7 +32,7 @@
     "px-flexbox-design": "https://github.com/PredixDev/px-flexbox-design.git#~0.3.5",
     "px-viewport-design": "https://github.com/PredixDev/px-viewport-design.git#~0.4.3",
     "px-list-inline-design": "https://github.com/PredixDev/px-list-inline-design.git#~0.2.8",
-    "px-defaults-design": "https://github.com/PredixDev/px-defaults-design.git#~0.2.6",
+    "px-defaults-design": "^0.2.9",
     "px-normalize-design": "https://github.com/PredixDev/px-normalize-design.git#~0.3.6",
     "px-colors-design": "https://github.com/PredixDev/px-colors-design.git#~0.2.9",
     "px-box-sizing-design": "https://github.com/PredixDev/px-box-sizing-design.git#~0.2.4",

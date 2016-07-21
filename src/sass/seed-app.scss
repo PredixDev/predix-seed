@@ -18,12 +18,6 @@ $viewport-margin: 2rem; // defaults to auto
 @import "px-code-design/_base.code.scss";
 @import "px-headings-design/_base.headings.scss";
 
-$fa-font-path: "/bower_components/font-awesome/fonts"; // config for seed app
-@import "px-iconography-design/_base.iconography.scss";
-
-$inuit-webfont-path: "/bower_components/px-typography-design/type"; // config for seed app
-@import "px-typography-design/_base.typography.scss";
-
 // Meta
 @import "px-meta-lists-design/_meta.lists.scss";
 
@@ -39,6 +33,17 @@ $inuit-enable-layout--full  : true;
 @import "px-layout-design/_objects.layout.scss";
 
 @import "seed-theme.scss";
+
+
+// Styling for px-app-nav
+:root {
+  --px-app-nav-background-color:            $gray10;
+  --px-app-nav-link-text-color:             $white;
+  --px-app-nav-link-selected-color:         $select-blue-pressed;
+  --px-app-nav-link-selected-active-color:  $select-blue-hover;
+  --px-app-nav-link-hover-color:            $gray8;
+  --px-app-nav-link-active-color:           $primary-blue-hover;
+}
 
 
 

@@ -40,14 +40,20 @@ module.exports = function(grunt) {
         }
       },
       /* Sass files destined to be Polymer style modules */
-      compileBaseStyles: {
+      seedStyles: {
         files: {
           'temp/css/noprefix/index.css': 'src/sass/index.scss',
           'temp/css/noprefix/seed-app.css': 'src/sass/seed-app.scss',
           'temp/css/noprefix/seed-footer.css': 'src/sass/seed-footer.scss'
         }
       },
-      compileCardStyles: {
+      baseStyles: {
+        files: {
+          'temp/css/noprefix/typography.css': 'src/sass/typography.scss',
+          'temp/css/noprefix/iconography.css': 'src/sass/iconography.scss'
+        }
+      },
+      cardStyles: {
         files: {
           'temp/css/noprefix/data-table-card.css': 'src/sass/data-table-card.scss',
           'temp/css/noprefix/seed-intro-card.css': 'src/sass/seed-intro-card.scss',
@@ -81,6 +87,12 @@ module.exports = function(grunt) {
           ],
           'public/elements/seed-footer/seed-footer.html': [
             'temp/css/withprefix/seed-footer.css'
+          ],
+          'public/elements/typography.html': [
+            'temp/css/withprefix/typography.css'
+          ],
+          'public/elements/iconography.html': [
+            'temp/css/withprefix/iconography.css'
           ],
           'public/elements/cards/data-table-card/data-table-card.html': [
             'temp/css/withprefix/data-table-card.css'

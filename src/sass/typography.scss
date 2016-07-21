@@ -1,0 +1,32 @@
+// Typography config for seed app
+// use this as an independent style module or a mixin to your own Sass files
+
+// Settings
+@import "px-defaults-design/_settings.defaults.scss";
+@import "px-colors-design/_settings.colors.scss";
+
+// Tools
+@import "px-mixins-design/_tools.mixins.scss";
+
+// Generic
+
+// Base
+$inuit-webfont-path: "/bower_components/px-typography-design/type";
+@import "px-typography-design/_base.typography.scss";
+
+// Objects
+// Components
+// Trumps
+
+@include font-face('GE Inspira', '#{$inuit-webfont-path}/GEInspMd');
+@include font-face('GE Inspira', '#{$inuit-webfont-path}/GEInspMdIt', normal, italic);
+@include font-face('GE Inspira', '#{$inuit-webfont-path}/GEInspBd', bold, normal);
+@include font-face('GE Inspira', '#{$inuit-webfont-path}/GEInspBI', bold, italic);
+@include font-face('GE Inspira Sans', '#{$inuit-webfont-path}/GEInspiraSans-Regular-v01');
+@include font-face('GE Inspira Sans', '#{$inuit-webfont-path}/GEInspiraSans-Italic-v01', normal, italic);
+@include font-face('GE Inspira Sans', '#{$inuit-webfont-path}/GEInspiraSans-Bold-v01', bold, normal);
+@include font-face('GE Inspira Sans', '#{$inuit-webfont-path}/GEInspiraSans-BoldItalic-v01', bold, italic);
+@include font-face('GE Inspira Serif', '#{$inuit-webfont-path}/GEInspiraSerif-Regular-v01');
+@include font-face('GE Inspira Serif', '#{$inuit-webfont-path}/GEInspiraSerif-Italic-v01', normal, italic);
+@include font-face('GE Inspira Serif', '#{$inuit-webfont-path}/GEInspiraSerif-Bold-v01', bold, normal);
+@include font-face('GE Inspira Serif', '#{$inuit-webfont-path}/GEInspiraSerif-BoldItalic-v01', bold, italic);

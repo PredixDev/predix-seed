@@ -1,0 +1,283 @@
+<dom-module id="typography-styles">
+  <template>
+		<style>
+    /*------------------------------------*    #PX-COLORS-DESIGN
+\*------------------------------------*/
+/**
+ * Brand Colors
+ */
+/**
+     * Primary
+     */
+/**
+     * Light
+     */
+/**
+     * Dark
+     */
+/**
+ * Monochromatic (gray10 is darkest, gray1 is lightest)
+ */
+/**
+ * Define grey = gray to avoid dev typos
+ */
+/**
+ * Buttons
+ */
+/**
+ * Selection
+ */
+/**
+ * Alerts
+ */
+/**
+ * Data Visualization
+ */
+/**
+     * Basic
+     */
+/**
+     * Light
+     */
+/**
+     * Dark
+     */
+@font-face {
+  font-family: "GE Inspira";
+  font-weight: normal;
+  font-style: normal;
+  src: url("/bower_components/px-typography-design/type/GEInspMd.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspMd.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspMd.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspMd.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspMd.svg#GE Inspira") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira";
+  font-weight: normal;
+  font-style: italic;
+  src: url("/bower_components/px-typography-design/type/GEInspMdIt.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspMdIt.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspMdIt.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspMdIt.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspMdIt.svg#GE Inspira") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira";
+  font-weight: bold;
+  font-style: normal;
+  src: url("/bower_components/px-typography-design/type/GEInspBd.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspBd.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspBd.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspBd.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspBd.svg#GE Inspira") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira";
+  font-weight: bold;
+  font-style: italic;
+  src: url("/bower_components/px-typography-design/type/GEInspBI.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspBI.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspBI.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspBI.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspBI.svg#GE Inspira") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: normal;
+  font-style: normal;
+  src: url("/bower_components/px-typography-design/type/GEInspiraSans-Regular-v01.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspiraSans-Regular-v01.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspiraSans-Regular-v01.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspiraSans-Regular-v01.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspiraSans-Regular-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: normal;
+  font-style: italic;
+  src: url("/bower_components/px-typography-design/type/GEInspiraSans-Italic-v01.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspiraSans-Italic-v01.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspiraSans-Italic-v01.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspiraSans-Italic-v01.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspiraSans-Italic-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: bold;
+  font-style: normal;
+  src: url("/bower_components/px-typography-design/type/GEInspiraSans-Bold-v01.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspiraSans-Bold-v01.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspiraSans-Bold-v01.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspiraSans-Bold-v01.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspiraSans-Bold-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: bold;
+  font-style: italic;
+  src: url("/bower_components/px-typography-design/type/GEInspiraSans-BoldItalic-v01.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspiraSans-BoldItalic-v01.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspiraSans-BoldItalic-v01.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspiraSans-BoldItalic-v01.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspiraSans-BoldItalic-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: normal;
+  font-style: normal;
+  src: url("/bower_components/px-typography-design/type/GEInspiraSerif-Regular-v01.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspiraSerif-Regular-v01.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Regular-v01.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Regular-v01.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Regular-v01.svg#GE Inspira Serif") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: normal;
+  font-style: italic;
+  src: url("/bower_components/px-typography-design/type/GEInspiraSerif-Italic-v01.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspiraSerif-Italic-v01.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Italic-v01.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Italic-v01.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Italic-v01.svg#GE Inspira Serif") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: bold;
+  font-style: normal;
+  src: url("/bower_components/px-typography-design/type/GEInspiraSerif-Bold-v01.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspiraSerif-Bold-v01.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Bold-v01.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Bold-v01.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Bold-v01.svg#GE Inspira Serif") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: bold;
+  font-style: italic;
+  src: url("/bower_components/px-typography-design/type/GEInspiraSerif-BoldItalic-v01.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspiraSerif-BoldItalic-v01.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-BoldItalic-v01.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspiraSerif-BoldItalic-v01.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-BoldItalic-v01.svg#GE Inspira Serif") format("svg"); }
+
+html {
+  font-family: "GE Inspira Sans", sans-serif; }
+
+:host {
+  font-family: "GE Inspira Sans", sans-serif; }
+
+/**
+ * Font weights
+ */
+.weight--light {
+  font-weight: 300 !important; }
+
+.weight--normal {
+  font-weight: 400 !important; }
+
+.weight--semibold {
+  font-weight: 600 !important; }
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold; }
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic; }
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+@font-face {
+  font-family: "GE Inspira";
+  font-weight: normal;
+  font-style: normal;
+  src: url("/bower_components/px-typography-design/type/GEInspMd.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspMd.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspMd.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspMd.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspMd.svg#GE Inspira") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira";
+  font-weight: normal;
+  font-style: italic;
+  src: url("/bower_components/px-typography-design/type/GEInspMdIt.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspMdIt.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspMdIt.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspMdIt.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspMdIt.svg#GE Inspira") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira";
+  font-weight: bold;
+  font-style: normal;
+  src: url("/bower_components/px-typography-design/type/GEInspBd.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspBd.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspBd.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspBd.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspBd.svg#GE Inspira") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira";
+  font-weight: bold;
+  font-style: italic;
+  src: url("/bower_components/px-typography-design/type/GEInspBI.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspBI.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspBI.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspBI.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspBI.svg#GE Inspira") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: normal;
+  font-style: normal;
+  src: url("/bower_components/px-typography-design/type/GEInspiraSans-Regular-v01.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspiraSans-Regular-v01.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspiraSans-Regular-v01.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspiraSans-Regular-v01.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspiraSans-Regular-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: normal;
+  font-style: italic;
+  src: url("/bower_components/px-typography-design/type/GEInspiraSans-Italic-v01.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspiraSans-Italic-v01.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspiraSans-Italic-v01.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspiraSans-Italic-v01.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspiraSans-Italic-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: bold;
+  font-style: normal;
+  src: url("/bower_components/px-typography-design/type/GEInspiraSans-Bold-v01.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspiraSans-Bold-v01.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspiraSans-Bold-v01.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspiraSans-Bold-v01.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspiraSans-Bold-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: bold;
+  font-style: italic;
+  src: url("/bower_components/px-typography-design/type/GEInspiraSans-BoldItalic-v01.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspiraSans-BoldItalic-v01.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspiraSans-BoldItalic-v01.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspiraSans-BoldItalic-v01.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspiraSans-BoldItalic-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: normal;
+  font-style: normal;
+  src: url("/bower_components/px-typography-design/type/GEInspiraSerif-Regular-v01.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspiraSerif-Regular-v01.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Regular-v01.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Regular-v01.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Regular-v01.svg#GE Inspira Serif") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: normal;
+  font-style: italic;
+  src: url("/bower_components/px-typography-design/type/GEInspiraSerif-Italic-v01.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspiraSerif-Italic-v01.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Italic-v01.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Italic-v01.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Italic-v01.svg#GE Inspira Serif") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: bold;
+  font-style: normal;
+  src: url("/bower_components/px-typography-design/type/GEInspiraSerif-Bold-v01.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspiraSerif-Bold-v01.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Bold-v01.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Bold-v01.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-Bold-v01.svg#GE Inspira Serif") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: bold;
+  font-style: italic;
+  src: url("/bower_components/px-typography-design/type/GEInspiraSerif-BoldItalic-v01.eot");
+  src: url("/bower_components/px-typography-design/type/GEInspiraSerif-BoldItalic-v01.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-BoldItalic-v01.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspiraSerif-BoldItalic-v01.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-BoldItalic-v01.svg#GE Inspira Serif") format("svg"); }
+
+    </style>
+  </template>
+</dom-module>

@@ -1,9 +1,36 @@
+// Settings
+@import "px-defaults-design/_settings.defaults.scss";
+@import "px-colors-design/_settings.colors.scss";
+@import "px-mixins-design/_tools.mixins.scss";
+
+// Seed Theme
 @import "seed-theme.scss";
+
+$predix-font-family : "GE Inspira Sans", sans-serif !default;
+
+//
+// :root selector applies these styles to all custom elements
+//
+:root {
+  --px-app-nav-background-color:            $gray10;
+  --px-app-nav-link-text-color:             $white;
+  --px-app-nav-link-selected-color:         $select-blue-pressed;
+  --px-app-nav-link-selected-active-color:  $select-blue-hover;
+  --px-app-nav-link-hover-color:            $gray8;
+  --px-app-nav-link-active-color:           $primary-blue-hover;
+  --px-font-family:                         $predix-font-family;
+}
+
+//
+// page theme variables
+//
+
 
 // App
 html {
   position: relative;
   min-height: 100%;
+  font-family: $predix-font-family;
 }
 body {
   margin-bottom: calculateRem(60px);
