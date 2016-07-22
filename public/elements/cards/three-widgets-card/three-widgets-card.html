@@ -20,7 +20,7 @@
     <px-threeup id="widgetsx3" widget-header="Widgets">
       <div class="widget-1">
         <h1 class="epsilon">
-          [[_simpleDataValuesA.data.name]]
+          [[_simpleDataValuesB.data.name]]
         </h1>
         <div class="flex">
           <div class="flex">
@@ -38,20 +38,6 @@
             </div>
           </div>
         </div>
-        <px-simple-horizontal-bar-chart
-          chart-data="[[_simpleDataValuesA.data.values]]"
-          legend-labels="[[_simpleDataValuesA.data.labels]]">
-        </px-simple-line-chart>
-        <iron-ajax
-          url="/api/time-series/simple-data/1"
-          last-response="{{_simpleDataValuesA}}"
-          auto>
-        </iron-ajax>
-      </div>
-      <div class="widget-2">
-        <h1 class="epsilon">
-          [[_simpleDataValuesB.data.name]]
-        </h1>
         <px-simple-line-chart
           line-data="[[_simpleDataValuesB.data.values]]"
           max="10"
@@ -64,12 +50,29 @@
           auto>
         </iron-ajax>
       </div>
+      <div class="widget-2">
+        <h1 class="epsilon">
+          [[_simpleDataValuesA.data.name]]
+        </h1>
+        <px-simple-horizontal-bar-chart
+          height="197"
+          chart-data="[[_simpleDataValuesA.data.values]]"
+          legend-labels="[[_simpleDataValuesA.data.labels]]">
+        </px-simple-line-chart>
+        <iron-ajax
+          url="/api/time-series/simple-data/1"
+          last-response="{{_simpleDataValuesA}}"
+          auto>
+        </iron-ajax>
+      </div>
       <div class="widget-3">
         <h1 class="epsilon">
           [[_simpleDataValuesC.data.name]]
         </h1>
         <px-simple-bar-chart
-          chart-data="[[_simpleDataValuesC.data.values]]">
+          height="195"
+          chart-data="[[_simpleDataValuesC.data.values]]"
+          legend-labels="[[_simpleDataValuesC.data.labels]]">
         </px-simple-line-chart>
         <iron-ajax
           url="/api/time-series/simple-data/3"
