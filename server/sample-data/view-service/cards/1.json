@@ -1,9 +1,9 @@
 {
   "id": 1,
   "title": "seed-intro-card",
-  "slug": "widgets-card",
+  "slug": "seed-intro-card",
   "attributes": {
-    "elementHref": "/bower_components/px-sample-cards/widgets-card.html"
+    "elementHref": "/elements/cards/seed-intro-card/seed-intro-card.html"
   },
   "createTimeStamp": "2015-11-24T23:02:53.816Z",
   "tags": []
