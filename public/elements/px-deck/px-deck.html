@@ -6,7 +6,11 @@
 
   <template>
     <template id="cards" is="dom-repeat" items="[[_cards]]" filter="_filterCards">
-      <px-view id="[[item.id]]" active element-href="[[item.attributes.elementHref]]"></px-view>
+      <px-view
+        id="[[item.id]]"
+        active
+        element-href="[[item.attributes.elementHref]]"
+        element-data="[[item]]"></px-view>
     </template>
   </template>
 
