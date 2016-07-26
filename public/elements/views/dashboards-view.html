@@ -171,6 +171,10 @@
 
       _itemOpenHandler: function(item) {
         this._selectedContextTag = item.id;
+      },
+
+      _itemClickHandler: function(item) {
+        console.log('item was clicked: ', item);
       }
 
     });
