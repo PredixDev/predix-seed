@@ -1,18 +1,13 @@
 <link rel="import" href="/bower_components/polymer/polymer.html">
 <link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="/bower_components/px-view/px-view.html">
 
 <dom-module id="px-deck">
 
   <template>
-    <iron-ajax
-      id="deckIronAjax"
-      url="[[_deckUrl]]"
-      last-response="{{_deckData}}"
-      auto>
-    </iron-ajax>
-    <div id="cardViews">
-      <!-- px-view elements for cards inserted here -->
-    </div>
+    <template id="cards" is="dom-repeat" items="[[_cards]]" filter="_filterCards">
+      <px-view id="[[item.id]]" active element-href="[[item.attributes.elementHref]]"></px-view>
+    </template>
   </template>
 
   <!-- include lodash utility library -->
@@ -24,77 +19,33 @@
       is: 'px-deck',
 
       properties: {
-        // set by parent
-        deckId: {
-          type: String
-        },
-        viewServiceBaseUrl: {
-          type: String,
-          value: '/api/view-service/' // default
-        },
-        // set on initialzation
-        _decksUrl: {
-          type: String,
-          computed: '_computeDecksUrl(viewServiceBaseUrl)'
-        },
-        // updated when deckId is changed
-        _deckUrl: {
-          type: String,
-          computed: '_computeDeckUrl(_decksUrl, deckId)'
-        },
-        // returned from iron-ajax request
-        _deckData: {
+        deckData: {
           type: Object,
-          value: function() { return {}; }
+          observer: '_refreshFilter'
         },
-        // cards: [{card},{card}] updated on _deckData change
+        // cards: [{card},{card}] updated on deckData change
         _cards: {
           type: Array,
-          value: function() { return []; },
-          observer: '_updateCardViews'
+          computed: '_computeCards(deckData)',
+          observer: '_refreshFilter'
         }
       },
 
-      observers: [
-        '_setCards(_deckData)'
-      ],
-
-      _computeDeckUrl: function() {
-        // Set Url of iron-ajax element, triggering request and update of _lastDeck
-        return this._decksUrl + this.deckId;
+      _refreshFilter: function() {
+        this.$.cards.render();
       },
 
-      _computeDecksUrl: function() {
-        return this.viewServiceBaseUrl + 'decks/';
+      _cardIsVisible: function(card) {
+        var includes = _.includes(this._cards, card);
+        return includes;
       },
 
-      _setCards: function() {
-        if(typeof this._deckData !== 'undefined') {
-          var cards = this._deckData.cards || [];
-          this.set('_cards', cards);
-        }
+      _filterCards: function(card) {
+        return this._cardIsVisible(card);
       },
 
-      _updateCardViews: function() {
-        var that = this;
-        // select cardViews DIV element
-        var cardViews = Polymer.dom(this.$.cardViews);
-        // Remove any existing views via child nodes
-        _.each(cardViews.childNodes, function(cardViewNode) {
-          cardViews.removeChild(cardViewNode);
-        });
-        // Attach card as new px-view element w/ correct configuration
-        _.each(this._cards, function(card) {
-          // create view element
-          var view = document.createElement('px-view');
-          // set view element attributes
-          view.setAttribute('id', 'px-view-' + new Date().getTime());
-          view.setAttribute('active', 'true');
-          view.setAttribute('element-href', card.attributes.elementHref);
-          view.setAttribute('element-data', JSON.stringify(card));
-          // append view element to DOM
-          cardViews.appendChild(view);
-        });
+      _computeCards: function() {
+        return this.deckData.cards || [];
       }
 
     });

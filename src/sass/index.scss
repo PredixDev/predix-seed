@@ -10,7 +10,7 @@ $predix-font-family : "GE Inspira Sans", sans-serif !default;
 
 //
 // :root selector applies these styles to all custom elements
-//
+// page theme variables
 :root {
   --px-app-nav-background-color:            $gray10;
   --px-app-nav-link-text-color:             $white;
@@ -21,16 +21,9 @@ $predix-font-family : "GE Inspira Sans", sans-serif !default;
   --px-font-family:                         $predix-font-family;
 }
 
-//
-// page theme variables
-//
-
-
-// App
 html {
   position: relative;
   min-height: 100%;
-  font-family: $predix-font-family;
 }
 body {
   margin-bottom: calculateRem(60px);
@@ -38,6 +31,8 @@ body {
 html,body {
   margin: 0;
   background: $px-page-html-background-color;
+  font-family: $predix-font-family;
+  font-weight: normal;
 }
 body.loading #splash {
   opacity: 1;

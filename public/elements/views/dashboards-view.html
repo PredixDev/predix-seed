@@ -4,7 +4,7 @@
 <link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
 
 <!-- local px-deck -->
-<link rel="import" href="/elements/px-deck/px-deck.html">
+<link rel="import" href="/elements/px-deck/px-deck-index.html">
 
 <dom-module id="dashboards-view">
   <template>
@@ -39,10 +39,10 @@
       </px-deck-selector>
     </px-context-browser>
 
-    <px-deck
+    <px-deck-index
       view-service-base-url="[[viewServiceBaseUrl]]"
       deck-id="[[_selectedDeckId]]">
-    </px-deck>
+    </px-deck-index>
 
   </template>
   <script>
@@ -171,10 +171,6 @@
 
       _itemOpenHandler: function(item) {
         this._selectedContextTag = item.id;
-      },
-
-      _itemClickHandler: function(item) {
-        // console.log('_itemClickHandler', item);
       }
 
     });
