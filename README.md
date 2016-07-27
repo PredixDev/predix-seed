@@ -1,12 +1,32 @@
 #Predix Experience Seed
 Dashboard Seed is an application that uses Px Web Components and <a href="https://github.com/PredixDev/px-library-design/" target="_blank">Px UI Elements</a> inside an Angular application.
 
+## PRE-REQUISITES
+
+### Tooling
+Performing the steps for obtaining the Dashboard Seed source, configuring and running/deploying it will require using the following tools.  Please refer to the corresponding web sites listed here for information on each:
+
+Git:            https://git-scm.com<br/>
+Node & NPM :    https://nodejs.org<br/>
+Bower:          https://bower.io<br/>
+Grunt:          http://gruntjs.com<br/>
+
+Working knowledge of these tools is required to successfully set up the Dashboard Seed application.  
+
+### User and Network
+Knowing your environment specifics, such as user permissions and network proxies, is also recommended.  
+
+### GitHub Account and SSH Keys
+As can be seen here the Dashboard Seed source is version-controlled in the github.com repository.  In order to download the code (usually through the 'git clone ...' command) an account with github.com is needed.  Generation of a SSH key that will be associated to the account and stored in your development machine is also required.  Please see github.com if you need to sign up for an account, and this page for details on SSH keys:
+
+    https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+
 ## To Run the Dashboard Seed
 
 ### Get the source code
 Make a directory for your project.  Clone or download and extract the seed in that directory.
 ```
-git clone
+git clone https://github.com/PredixDev/predix-seed --branch master
 ```
 
 ### Install the dependencies
@@ -14,6 +34,12 @@ git clone
 npm install
 bower install
 ```
+
+### Running Locally
+```
+grunt serve
+```
+Access the application by pointing your browser to http://localhost:9000/
 
 ### Create a dist version
 Use grunt to create a distribution version of your app, which will be located in the dist folder along with the nginx configuration files.  You will need to run this command during development every time before you cf push to make the latest dist.
