@@ -6,6 +6,7 @@
 @import "px-mixins-design/_tools.mixins.scss";
 
 // theme variables
+$predix-font-family : "GE Inspira Sans", sans-serif !default;
 $px-page-html-background-color: $gray9;
 $px-page-link-color: $gray5;
 $px-page-spine-border-color: $gray8;
@@ -18,7 +19,6 @@ $px-page-card-paragraph-text-color: $gray5;
 $px-page-banner-text-color: $gray4;
 $px-page-banner-meatball-color : $gray4;
 $px-page-main-content-area-background-color: $graybg;
-$predix-font-family : "GE Inspira Sans", sans-serif !default;
 
 // :root selector sets these variables for all custom elements
 :root {
@@ -29,19 +29,4 @@ $predix-font-family : "GE Inspira Sans", sans-serif !default;
   --px-app-nav-link-hover-color:            $gray8;
   --px-app-nav-link-active-color:           $primary-blue-hover;
   --px-font-family:                         $predix-font-family;
-}
-
-// basic setup of html & body
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  margin-bottom: calculateRem(60px);
-}
-html,body {
-  margin: 0;
-  background: $px-page-html-background-color;
-  font-family: $predix-font-family;
-  font-weight: normal;
 }

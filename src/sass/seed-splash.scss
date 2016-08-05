@@ -1,3 +1,17 @@
+// basic setup of html & body
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: calculateRem(60px);
+}
+html,body {
+  margin: 0;
+  background: $px-page-html-background-color;
+  font-family: $predix-font-family;
+  font-weight: normal;
+}
 body.loading #splash {
   opacity: 1;
 }
