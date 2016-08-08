@@ -1,3 +1,70 @@
+TODO:
+- Resolve the bug Joseph found when deploying (wct included)
+
+- Migrate from Grunt to Gulp
+  - Grunt functionality:
+    - ...
+    - Confirm with Martin about new gulp functionality he has prepared already
+
+- Separate px-login into two components (px-login ui and user model functionality)
+  - Px-login functionality
+    - Portion for UI element:
+      - ...
+    - Portion for non-UI element:
+      - ...
+
+- Properly configure px-context-browser
+  - Currently hangs on double-click
+  - requires debugging of config (hopefully avoid changing internals of px-context-browser)
+
+- Confirm cards and px-components and data (work with designers to confirm)
+  - Cards that exist now:
+    - ...
+  - Cards missing:
+    - ...
+
+- Confirm responsive (down to tablet portrait)
+  - Conforming components:
+    - Time Series
+    - ...
+  - Non-conforming components:
+    - Simple charts (bar, horizontal, line)
+    - ...
+
+- Remove old files from previous seed
+  - Old files to remove:
+    - /test-target ? what is that
+    - /tasks ? are there any extra (do this after grunt/gulp migration)
+    - .editorconfig ? requires confirmation and/or update
+    - cf-bluegreen-deploy.sh (new version that is simplified and does not depend on services)
+    - generate-style-modules.js
+    - Gruntfile.js (after migration to gulp)
+    - karma.config.js
+    - protractor.conf.js
+
+- Updates
+  - License.md
+  - manifest-release.yml - simplified version
+  - manifest.yml - simplified
+  - package.json (cleanup, remove non-used packages, update versions)
+  - Bower.json cleanup (cleanup, remove non-used packages, update versions)
+  - wct.conf.js (as we need it)
+  - README.md (requires docs update from Joseph)
+
+- Travis configuration
+  - Consult with Benoit
+  - steps:
+    - ...
+
+- Confirm tests for local elements, add any missing tests
+  - Started - need to complete for main element (seed-app)
+  - Continue and add new tests for new elements
+
+
+
+-----
+
+
 Completed:
 ---
 A. Main application loading (index.html)
