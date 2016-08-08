@@ -1,11 +1,14 @@
 TODO:
+--- HENRY/ERIC ---
 - Resolve the bug Joseph found when deploying (wct included)
 
+--- ERIC ---
 - Migrate from Grunt to Gulp
   - Grunt functionality:
     - ...
     - Confirm with Martin about new gulp functionality he has prepared already
 
+--- HENRY ---
 - Separate px-login into two components (px-login ui and user model functionality)
   - Px-login functionality
     - Portion for UI element:
@@ -13,16 +16,24 @@ TODO:
     - Portion for non-UI element:
       - ...
 
+--- HENRY ---
+- Confirm tests for local elements, add any missing tests
+  - Started - need to complete for main element (seed-app)
+  - Continue and add new tests for new elements
+
+--- ERIC ---
 - Properly configure px-context-browser
   - Currently hangs on double-click
   - requires debugging of config (hopefully avoid changing internals of px-context-browser)
 
+--- ERIC ---
 - Confirm cards and px-components and data (work with designers to confirm)
   - Cards that exist now:
     - ...
   - Cards missing:
     - ...
 
+--- ERIC/HENRY ---
 - Confirm responsive (down to tablet portrait)
   - Conforming components:
     - Time Series
@@ -31,6 +42,7 @@ TODO:
     - Simple charts (bar, horizontal, line)
     - ...
 
+--- ERIC/HENRY ---
 - Remove old files from previous seed
   - Old files to remove:
     - /test-target ? what is that
@@ -42,6 +54,7 @@ TODO:
     - karma.config.js
     - protractor.conf.js
 
+--- ERIC/HENRY ---
 - Updates
   - License.md
   - manifest-release.yml - simplified version
@@ -51,14 +64,12 @@ TODO:
   - wct.conf.js (as we need it)
   - README.md (requires docs update from Joseph)
 
+--- HENRY/ERIC ---
 - Travis configuration
   - Consult with Benoit
   - steps:
     - ...
 
-- Confirm tests for local elements, add any missing tests
-  - Started - need to complete for main element (seed-app)
-  - Continue and add new tests for new elements
 
 
 
