@@ -3,8 +3,21 @@ TODO:
 --- ERIC ---
 - Migrate from Grunt to Gulp
   - Grunt functionality:
-    - ...
-    - Confirm with Martin about new gulp functionality he has prepared already
+    - 'styles' task:
+      - sass compilation
+      - css autoprefixer
+      - polymer style modules
+    - 'test' task:
+      - run WCT
+    - 'serve' task:
+      - run nodemon on server/app.js
+    - 'htmlbuild'
+      - build index.html file w/ styles and scripts inserted
+    - watch
+      - run styles, htmlbuild, and restart server task on file change
+    - devmode
+      - run watch and serve parallel
+  - Confirm with Martin about new gulp functionality he has prepared already
 
 --- HENRY ---
 - Separate px-login into two components (px-login ui and user model functionality)
