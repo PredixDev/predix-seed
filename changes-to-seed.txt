@@ -75,7 +75,7 @@ TODO:
   - wct.conf.js (as we need it)
   - README.md (requires docs update from Joseph)
 
---- HENRY/ERIC ---
+--- ERIC/HENRY ---
 - Travis configuration
   - Consult with Benoit
   - steps:
