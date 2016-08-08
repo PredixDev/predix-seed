@@ -67,8 +67,5 @@
     "px-widget-cards": "^1.3.3",
     "px-simple-bar-chart": "^1.5.1",
     "px-spinner": "~0.3.0"
-  },
-  "devDependencies": {
-    "web-component-tester": "^4.3.1"
   }
 }

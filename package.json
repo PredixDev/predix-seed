@@ -74,7 +74,8 @@
     "requirejs": "~2.1.11",
     "rjs-build-analysis": "0.0.3",
     "sass-import-modules": "^2.1.0",
-    "time-grunt": "^0.4.0"
+    "time-grunt": "^0.4.0",
+    "web-component-tester": "^4.3.1"
   },
   "dependencies": {
     "glob": "^7.0.3",
