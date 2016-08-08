@@ -1,6 +1,4 @@
 TODO:
---- HENRY/ERIC ---
-- Resolve the bug Joseph found when deploying (wct included)
 
 --- ERIC ---
 - Migrate from Grunt to Gulp
@@ -70,7 +68,8 @@ TODO:
   - steps:
     - ...
 
-
+--- DONE ---
+  - Resolve the bug Joseph found when deploying (wct included)
 
 
 -----
