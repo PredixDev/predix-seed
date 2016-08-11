@@ -6,24 +6,24 @@ var autoprefixer = require('gulp-autoprefixer');
 var path = require('path');
 
 var getName = function(file) {
-  console.log(
-    path.basename(
-      file.path,
-      path.extname(file.path)
-    )
-  );
   return path.basename(file.path, path.extname(file.path));
 }
 
-var testDest = function(file) {
-  console.log(path.basename(file.path));
-  var name = getName(file);
-  return './public/elements/styles.html';
+var styleModuleDest = function(file) {
+  return file.base;
+  // console.log(path.basename(file.path));
+  // var name = getName(file);
+  // return './temp/styles.html';
 }
 
 module.exports = function(gulp, plugins) {
   return function() {
-    gulp.src('./src/sass/**/*.scss')
+    gulp.src([
+        './public/*.scss',
+        '!./public/index.scss',
+        './public/elements/*.scss',
+        './public/elements/**/*.scss'
+      ])
       .pipe(plugins.sass({
           includePaths: './public/bower_components'
         })
@@ -32,13 +32,14 @@ module.exports = function(gulp, plugins) {
       .pipe(stylemod({
         // All files will be named 'styles.html'
         filename: function(file) {
-          return getName(file) + "-styles";
+          var name = getName(file) + "-styles";
+          return name;
         },
         // Use '-css' suffix instead of '-styles' for module ids
         moduleId: function(file) {
           return getName(file) + "-styles";
         }
       }))
-      .pipe(gulp.dest(testDest));
+      .pipe(gulp.dest(styleModuleDest));
   };
 };

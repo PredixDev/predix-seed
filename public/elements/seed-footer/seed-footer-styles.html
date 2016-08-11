@@ -1,7 +1,7 @@
 <dom-module id="seed-footer-styles">
-  <template>
-		<style>
-    @charset "UTF-8";
+<template>
+<style>
+@charset "UTF-8";
 /*------------------------------------*    #PX-COLORS-DESIGN
 \*------------------------------------*/
 /**
@@ -52,6 +52,47 @@
  * A lot of these classes carry `!important` as you will always want them to win
  * out over other selectors.
  */
+/*------------------------------------*    #PX-COLORS-DESIGN
+\*------------------------------------*/
+/**
+ * Brand Colors
+ */
+/**
+     * Primary
+     */
+/**
+     * Light
+     */
+/**
+     * Dark
+     */
+/**
+ * Monochromatic (gray10 is darkest, gray1 is lightest)
+ */
+/**
+ * Define grey = gray to avoid dev typos
+ */
+/**
+ * Buttons
+ */
+/**
+ * Selection
+ */
+/**
+ * Alerts
+ */
+/**
+ * Data Visualization
+ */
+/**
+     * Basic
+     */
+/**
+     * Light
+     */
+/**
+     * Dark
+     */
 /* Links
    ========================================================================== */
 /**
@@ -252,28 +293,38 @@ a {
   min-height: 100vh; }
 
 .flex {
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
 
 .inline--flex {
+  display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex; }
 
 .flex--row {
-  -ms-flex-direction: row;
-      flex-direction: row; }
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
 
 .flex--row--rev {
-  -ms-flex-direction: row-reverse;
-      flex-direction: row-reverse; }
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse; }
 
 .flex--col {
-  -ms-flex-direction: column;
-      flex-direction: column; }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
 
 .flex--col--rev {
-  -ms-flex-direction: column-reverse;
-      flex-direction: column-reverse; }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse; }
 
 .flex--nowrap {
   -ms-flex-wrap: nowrap;
@@ -288,44 +339,58 @@ a {
       flex-wrap: wrap-reverse; }
 
 .flex--left {
-  -ms-flex-pack: start;
-      justify-content: flex-start; }
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
 
 .flex--center {
-  -ms-flex-pack: center;
-      justify-content: center; }
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
 
 .flex--right {
-  -ms-flex-pack: end;
-      justify-content: flex-end; }
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end; }
 
 .flex--justify {
-  -ms-flex-pack: justify;
-      justify-content: space-between; }
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
 
 .flex--spaced {
   -ms-flex-pack: distribute;
       justify-content: space-around; }
 
 .flex--top {
-  -ms-flex-align: start;
-      align-items: flex-start; }
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+              -ms-grid-row-align: flex-start;
+          align-items: flex-start; }
 
 .flex--middle {
-  -ms-flex-align: center;
-      align-items: center; }
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+              -ms-grid-row-align: center;
+          align-items: center; }
 
 .flex--bottom {
-  -ms-flex-align: end;
-      align-items: flex-end; }
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+              -ms-grid-row-align: flex-end;
+          align-items: flex-end; }
 
 .flex--stretch {
-  -ms-flex-align: stretch;
-      align-items: stretch; }
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+              -ms-grid-row-align: stretch;
+          align-items: stretch; }
 
 .flex--baseline {
-  -ms-flex-align: baseline;
-      align-items: baseline; }
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+              -ms-grid-row-align: baseline;
+          align-items: baseline; }
 
 .flex--top--multi {
   -ms-flex-line-pack: start;
@@ -352,8 +417,9 @@ a {
       align-content: space-around; }
 
 .flex__item {
-  -ms-flex: 1;
-      flex: 1; }
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
 
 .flex__item--top {
   -ms-flex-item-align: start;
@@ -385,6 +451,47 @@ a {
   .list-inline > li {
     display: inline-block; }
 
+/*------------------------------------*    #PX-COLORS-DESIGN
+\*------------------------------------*/
+/**
+ * Brand Colors
+ */
+/**
+     * Primary
+     */
+/**
+     * Light
+     */
+/**
+     * Dark
+     */
+/**
+ * Monochromatic (gray10 is darkest, gray1 is lightest)
+ */
+/**
+ * Define grey = gray to avoid dev typos
+ */
+/**
+ * Buttons
+ */
+/**
+ * Selection
+ */
+/**
+ * Alerts
+ */
+/**
+ * Data Visualization
+ */
+/**
+     * Basic
+     */
+/**
+     * Light
+     */
+/**
+     * Dark
+     */
 .list-ui,
 .list-ui__item,
 .list-ui > li {
@@ -408,7 +515,7 @@ a {
   margin-top: 8px;
   height: 4rem;
   font-size: 0.8rem;
-  line-height: 1.6666666667;
+  line-height: 1.66667;
   color: #b1b1bc; }
   [role=contentinfo] a {
     text-decoration: none;
@@ -426,61 +533,61 @@ a {
      * Add small margins.
      */
 .u-m- {
-  margin: 0.6666666667rem !important; }
+  margin: 0.66667rem !important; }
 
 .u-mt- {
-  margin-top: 0.6666666667rem !important; }
+  margin-top: 0.66667rem !important; }
 
 .u-mr- {
-  margin-right: 0.6666666667rem !important; }
+  margin-right: 0.66667rem !important; }
 
 .u-mb- {
-  margin-bottom: 0.6666666667rem !important; }
+  margin-bottom: 0.66667rem !important; }
 
 .u-ml- {
-  margin-left: 0.6666666667rem !important; }
+  margin-left: 0.66667rem !important; }
 
 .u-mh- {
-  margin-right: 0.6666666667rem !important;
-  margin-left: 0.6666666667rem !important; }
+  margin-right: 0.66667rem !important;
+  margin-left: 0.66667rem !important; }
 
 .u-mv- {
-  margin-top: 0.6666666667rem !important;
-  margin-bottom: 0.6666666667rem !important; }
+  margin-top: 0.66667rem !important;
+  margin-bottom: 0.66667rem !important; }
 
 /**
      * Add large margins.
      */
 .u-m\00002b
 {
-  margin: 1.3333333333rem !important; }
+  margin: 1.33333rem !important; }
 
 .u-mt\00002b
 {
-  margin-top: 1.3333333333rem !important; }
+  margin-top: 1.33333rem !important; }
 
 .u-mr\00002b
 {
-  margin-right: 1.3333333333rem !important; }
+  margin-right: 1.33333rem !important; }
 
 .u-mb\00002b
 {
-  margin-bottom: 1.3333333333rem !important; }
+  margin-bottom: 1.33333rem !important; }
 
 .u-ml\00002b
 {
-  margin-left: 1.3333333333rem !important; }
+  margin-left: 1.33333rem !important; }
 
 .u-mh\00002b
 {
-  margin-right: 1.3333333333rem !important;
-  margin-left: 1.3333333333rem !important; }
+  margin-right: 1.33333rem !important;
+  margin-left: 1.33333rem !important; }
 
 .u-mv\00002b
 {
-  margin-top: 1.3333333333rem !important;
-  margin-bottom: 1.3333333333rem !important; }
+  margin-top: 1.33333rem !important;
+  margin-bottom: 1.33333rem !important; }
 
-    </style>
-  </template>
+</style>
+</template>
 </dom-module>
