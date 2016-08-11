@@ -94,19 +94,19 @@ module.exports = function(grunt) {
           'public/elements/iconography.html': [
             'temp/css/withprefix/iconography.css'
           ],
-          'public/elements/cards/data-table-card/data-table-card.html': [
+          'public/elements/data-table-card/data-table-card.html': [
             'temp/css/withprefix/data-table-card.css'
           ],
-          'public/elements/cards/seed-intro-card/seed-intro-card.html': [
+          'public/elements/seed-intro-card/seed-intro-card.html': [
             'temp/css/withprefix/seed-intro-card.css'
           ],
-          'public/elements/cards/simple-charts-card/simple-charts-card.html': [
+          'public/elements/simple-charts-card/simple-charts-card.html': [
             'temp/css/withprefix/simple-charts-card.css'
           ],
-          'public/elements/cards/three-widgets-card/three-widgets-card.html': [
+          'public/elements/three-widgets-card/three-widgets-card.html': [
             'temp/css/withprefix/three-widgets-card.css'
           ],
-          'public/elements/cards/time-series-card/time-series-card.html': [
+          'public/elements/time-series-card/time-series-card.html': [
             'temp/css/withprefix/time-series-card.css'
           ]
         },

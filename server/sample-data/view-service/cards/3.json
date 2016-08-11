@@ -3,7 +3,7 @@
   "title": "Data Table Card",
   "slug": "data-table-card",
   "attributes": {
-    "elementHref": "/elements/cards/data-table-card/data-table-card.html",
+    "elementHref": "/elements/data-table-card/data-table-card.html",
     "dataUrl": "/api/time-series/datagrid/1",
     "headerText": "HRSG Unit Data"
   },
