@@ -7,10 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/png" href="favicon.png">
 
-  <!-- grunt htmlbuild inserts index.css here -->
-  <!-- build:style inline index -->
-  <style></style>
-  <!-- /build -->
+  <link rel="stylesheet" type="text/css" href="index-inline.css" inline>
 
   <script>
     // Setup Polymer options
@@ -23,7 +20,11 @@
   <!-- Async HTML Imports do not block rending. Benefit of keeping it declarative
       (instead of dynamically loading it later in JS) is that the parser can go to
       town pre-fetching resources, etc. -->
-  <link rel="import" id="main-element-import" href="/elements/seed-app/seed-app.html" async>
+  <link
+    id="main-element-import"
+    rel="import"
+    href="/elements/seed-app/seed-app.html"
+    async>
 
 </head>
 <!-- 'loading' class on <body> avoids "Flash of Unstyled Concent" and a "Flash of No Content" -->
@@ -36,10 +37,7 @@
   <!-- Elements wait on the page and are upgraded after elements.html is loaded. -->
   <seed-app></seed-app>
 
-  <!-- grunt htmlbuild inserts index-loading-script.js here -->
-  <!-- build:script inline noprocess index -->
-  <script></script>
-  <!-- /build -->
+  <script src="_index-inline-loading-script.js" inline></script>
 
 </body>
 </html>

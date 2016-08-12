@@ -18,9 +18,10 @@ var styleModuleDest = function(file) {
 
 module.exports = function(gulp, plugins) {
   return function() {
+
     gulp.src([
         './public/*.scss',
-        '!./public/index.scss',
+        '!./public/index-inline.scss',
         './public/elements/*.scss',
         './public/elements/**/*.scss'
       ])
@@ -41,5 +42,14 @@ module.exports = function(gulp, plugins) {
         }
       }))
       .pipe(gulp.dest(styleModuleDest));
+
+    gulp.src('./public/index-inline.scss')
+      .pipe(plugins.sass({
+          includePaths: './public/bower_components'
+        })
+        .on('error', plugins.sass.logError))
+      .pipe(autoprefixer())
+      .pipe(gulp.dest('./public'));
+
   };
 };

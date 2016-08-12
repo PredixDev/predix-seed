@@ -15,6 +15,7 @@ function getTask(task) {
 // -----------------------------------------------------------------------------
 gulp.task('compile:js', getTask('compile.js'));
 gulp.task('compile:sass', getTask('compile.sass'));
+gulp.task('compile:index', getTask('compile.index'));
 gulp.task('compile:ejs', getTask('compile.ejs'));
 gulp.task('compile:all', ['compile:js', 'compile:sass', 'compile:ejs']);
 
