@@ -6,7 +6,7 @@ var plugins = require('gulp-load-plugins')();
 // getTask() loads external gulp task script functions by filename
 // -----------------------------------------------------------------------------
 function getTask(task) {
-  return require('./tasks/gulp-tasks/' + task)(gulp, plugins);
+  return require('./tasks/' + task)(gulp, plugins);
 };
 
 // -----------------------------------------------------------------------------
