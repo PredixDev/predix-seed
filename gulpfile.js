@@ -1,7 +1,6 @@
 'use strict';
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
-plugins.browserSync = require('browser-sync');
 
 // -----------------------------------------------------------------------------
 // getTask() loads external gulp task script functions by filename
