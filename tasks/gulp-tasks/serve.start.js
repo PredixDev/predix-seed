@@ -1,17 +1,15 @@
 // -------------------------------------
 //   Task: Serve
 // -------------------------------------
+var nodemon = require('gulp-nodemon');
+
 module.exports = function(gulp, plugins) {
   return function() {
-    plugins.browserSync.init({
-      port: 5000,
-      notify: false,
-      socket: {
-        domain: "localhost:5000"
-      },
-      server: {
-        baseDir: "./public"
-      }
-    });
+    nodemon({
+        script: 'server/app.js'
+      })
+      .on('restart', function() {
+        console.log('app.js restarted')
+      });
   };
 };

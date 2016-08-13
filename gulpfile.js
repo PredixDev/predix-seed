@@ -2,10 +2,10 @@
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 plugins.browserSync = require('browser-sync');
-var nodemon = require('gulp-nodemon');
 
 // -----------------------------------------------------------------------------
 // getTask() loads external gulp task script functions by filename
+// -----------------------------------------------------------------------------
 function getTask(task) {
   return require('./tasks/gulp-tasks/' + task)(gulp, plugins);
 };
@@ -13,11 +13,9 @@ function getTask(task) {
 // -----------------------------------------------------------------------------
 // Task: Compile : Scripts, Sass, EJS, All
 // -----------------------------------------------------------------------------
-gulp.task('compile:js', getTask('compile.js'));
 gulp.task('compile:sass', getTask('compile.sass'));
 gulp.task('compile:index', getTask('compile.index'));
-gulp.task('compile:ejs', getTask('compile.ejs'));
-gulp.task('compile:all', ['compile:js', 'compile:sass', 'compile:ejs']);
+gulp.task('compile:all', ['compile:sass', 'compile:index']);
 
 // -----------------------------------------------------------------------------
 // Task: Serve : Start
@@ -31,16 +29,7 @@ gulp.task('watch:source', getTask('watch.source'));
 gulp.task('watch:public', getTask('watch.public'));
 gulp.task('watch:all', ['watch:source', 'watch:public']);
 
-gulp.task('serve:api', function() {
-  nodemon({
-      script: 'server/app.js'
-    })
-    .on('restart', function() {
-      console.log('app.js restarted')
-    });
-});
-
 // -----------------------------------------------------------------------------
 //  Task: Default (compile source, start server, watch for changes)
 // -----------------------------------------------------------------------------
-gulp.task('default', ['compile:all', 'serve:start', 'watch:all', 'serve:api']);
+gulp.task('default', ['compile:all', 'serve:start']);
