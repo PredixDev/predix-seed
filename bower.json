@@ -22,7 +22,6 @@
     "px-card": "https://github.com/PredixDev/px-card.git#v0.2.4",
     "px-context-browser": "https://github.com/PredixDev/px-context-browser.git#~v1.0.0",
     "px-deck-selector": "https://github.com/PredixDev/px-deck-selector.git#~v1.1.1",
-    "px-datasource": "https://github.com/PredixDev/px-datasource.git#~v1.1",
     "px-login": "https://github.com/PredixDev/px-login.git#bundle",
     "px-sample-cards": "https://github.com/PredixDev/px-sample-cards.git#v0.2.16",
     "px-theme": "https://github.com/PredixDev/px-theme.git#v0.6.4",
