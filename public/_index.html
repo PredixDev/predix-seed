@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/png" href="favicon.png">
-  
+
   <!-- inline CSS for splash screen -->
   <link rel="stylesheet" type="text/css" href="index-inline.css" inline>
 
@@ -41,7 +41,8 @@
   <!-- Elements wait on the page and are upgraded after elements.html is loaded. -->
   <seed-app></seed-app>
 
-  <!-- inline script to load app and remove splash screen -->
+  <!-- Inline script to load app and remove splash screen
+       Gulp will inline this script via the compile.index task -->
   <script src="_index-inline-loading-script.js" inline></script>
 
 </body>
