@@ -19,8 +19,8 @@
   </test-fixture>
 
   <script>
-    document.addEventListener('WebComponentsReady', function() {
-
+  console.log('starting tests');
+  document.addEventListener('WebComponentsReady', function() {
       suite('seed-app initial DOM tests', function() {
 
         var home;
@@ -30,13 +30,27 @@
           seedAppFixture = fixture('basic');
         });
 
+        test('seed-app object should be of type "seed-app"', function() {
+          assert(seedAppFixture.is === 'seed-app', 'seed-app object has incorrect type: ' + seedAppFixture.is);
+        });
+
+        test('navItems object should be of type Array', function() {
+          var navItems = seedAppFixture.properties.navItems.value();
+          assert(Array.isArray(navItems), 'navItems object has incorrect type: ' + typeof navItems);
+        });
+
+        test('loginMenuItems object should be of type Array', function() {
+          var loginMenuItems = seedAppFixture.properties.pxLoginMenuItems.value();
+          assert(Array.isArray(loginMenuItems), 'loginMenuItems object has incorrect type: ' + typeof loginMenuItems);
+        });
+
+        test('footerLinks object should be of type Array', function() {
+          var footerLinks = seedAppFixture.properties.footerLinks.value();
+          assert(Array.isArray(footerLinks), 'footerLinks object has incorrect type: ' + typeof footerLinks);
+        });
+
         // Test cases for seed-app DOM structure upon initial load
         // Elements are tested for presence and correct count
-
-        test('There should be an internal style element', function() {
-          var styleEl = Polymer.dom(seedAppFixture.root).querySelector('style');
-          assert(styleEl !== null, 'style element was not found');
-        });
 
         test('There should be a header element', function() {
           var header = Polymer.dom(seedAppFixture.root).querySelector('header');
@@ -70,48 +84,33 @@
 
         test('There should be a seed-footer element', function() {
           var seedFooter = Polymer.dom(seedAppFixture.root).querySelector('seed-footer');
-          assert(seedFooter !== null, 'seed-footer element was not found');
+          assert(seedFooter !== null && typeof seedFooter !== 'undefined', 'seed-footer element was not found');
         });
-
-      });
-    });
-
-    document.addEventListener("WebComponentsReady", function() {
-      suite('seed-app tests after Polymer components are loaded', function() {
-
-        var seedAppFixture;
-
-        setup(function() {
-          seedAppFixture = fixture('basic');
-          var seedApp = Polymer.dom(seedAppFixture.root).querySelector('seed-app');
-        });
-
 
         // Test cases for correct configuration of seed-app Polymer Object
 
-        test('Fixture element should be "seed-app"', function() {
-          // TODO: write correct assertions
-          assert(false, 'instance is not of type "seed-app"');
+        test('Fixture element should contain a header which has a logo', function() {
+          var seedHeader = Polymer.dom(seedAppFixture.root).querySelector('header ge-svg-logo');
+          assert(seedHeader !== null, '"header ge-svg-logo" path was not found');
         });
 
-        test('navItems property should be configured', function() {
-          // TODO: write correct assertions
-          assert(false, 'seed-app navItems is not configured');
+        test('px-login component should exist and with correct config', function() {
+          var loginComponent = Polymer.dom(seedAppFixture.root).querySelector('px-login[login-url="login-demo.html"]');
+          assert(loginComponent !== null, 'px-login component was not found');
         });
 
-        test('pxLoginMenuItems should be configured', function() {
-          // TODO: write correct assertions
-          assert(false, 'seed-app pxLoginMenuItems is not configured');
+        test('Menu item for home should be configured correctly', function() {
+          var homeView = Polymer.dom(seedAppFixture.root).querySelector('px-view[element-href="/elements/views/home-view.html"]');
+          assert(homeView !== null, 'home menu navigation menu item was not found');
         });
 
-        test('footerLinks property should be configured', function() {
-          // TODO: write correct assertions
-          assert(false, 'seed-app footerLinks is not configured');
+        test('Menu item for dashboard should be configured correctly', function() {
+          var dashboardsView = Polymer.dom(seedAppFixture.root).querySelector('px-view[element-href="/elements/views/dashboards-view.html"]');
+          assert(dashboardsView !== null, 'dashboards menu navigation menu item was not found');
         });
 
       });
-    });
-
+  });
   </script>
 
 </body>
