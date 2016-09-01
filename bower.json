@@ -66,6 +66,8 @@
     "px-tooltip": "^0.7.0",
     "px-widget-cards": "^1.3.3",
     "px-simple-bar-chart": "^1.5.1",
-    "px-spinner": "~0.3.0"
+    "px-spinner": "~0.3.0",
+    "px-overlay": "~0.2.0",
+    "px-rangepicker": "~1.1.0"
   }
 }
