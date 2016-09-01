@@ -41,6 +41,7 @@
     "px-headings-design": "https://github.com/PredixDev/px-headings-design.git#~0.2.10",
     "px-buttons-design": "https://github.com/PredixDev/px-buttons-design.git#~0.4.17",
     "px-view": "https://github.com/PredixDev/px-view.git#~0.5.0",
+    "px-vis-xy-chart": "~0.0.11",
     "q": "^1.0.0",
     "px-overlay": "^0.0.3",
     "app-route": "https://github.com/PolymerElements/app-route.git#^0.9.1",

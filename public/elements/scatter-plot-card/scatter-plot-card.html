@@ -1,22 +1,81 @@
-<link rel="import" href="/bower_components/polymer/polymer.html">
-<link rel="import" href="/bower_components/px-card/px-card.html">
-<link rel="import" href="/bower_components/px-chart/px-chart-series-scatter.html">
+<link rel="import" href="/bower_components/polymer/polymer.html" />
+<link rel="import" href="/bower_components/px-card/px-card.html" />
+<link rel="import" href="/bower_components/px-vis-xy-chart/px-vis-xy-chart.html" />
+<link rel="import" href="/bower_components/iron-ajax/iron-ajax.html" />
 
 <dom-module id="scatter-plot-card">
 
   <template>
+    <iron-ajax
+      url="/api/time-series/scatter/1"
+      handle-as="json"
+      last-response="{{data}}" auto>
+    </iron-ajax>
+    <iron-ajax
+        url="/api/time-series/scatter/2"
+        handle-as="json"
+        last-response="{{eventData}}" auto>
+    </iron-ajax>
     <px-card header-text="Scatter Plot">
-      <px-chart>
-        <px-chart-series-scatter
-          name="The Display Name"
-          line-width="5"
-          lower-threshold="12"
-          upper-threshold="16"
-          id="hpt-acc-position-cruise"
-          marker='{"enabled": false, "radius": 15}'
-          data="[[myData]]">
-        </px-chart-series-scatter>
-      </px-chart>
+      <px-vis-xy-chart
+        id="chart"
+        chart-data="{{data.data}}"
+        width="500"
+        height="300"
+        margin='{ "top": "30", "bottom": "40", "left": "60", "right": "30" }'
+        x-axis-config='{"title": "X",
+         "labelPosition": "center",
+         "orientation": "bottom"}'
+        y-axis-config='{"title": "Y",
+          "labelPosition": "center",
+          "orientation": "left"}'
+        register-config='{
+          "height": 50,
+          "type": "horizontal"}'
+        series-config='{
+            "firstSeries": {
+              "type": "scatter",
+              "name": "Data",
+              "xAxisUnit": "Hz",
+              "yAxisUnit": "Hz",
+              "x": "T48A",
+              "y":"T48B"
+            },"secondSeries": {
+              "type": "line",
+              "name": "Trend",
+              "x": "T48A",
+              "y":"Line"
+            }
+          }'
+        default-series-config='{
+          "x": "T48A",
+          "xMin": "dynamic",
+          "xMax": "dynamic",
+          "yMin": "dynamic",
+          "yMax": "dynamic"
+        }'
+        event-config='{
+          "Fa Icon": {
+            "color": "blue",
+            "icon": "fa-camera",
+            "type": "fa",
+            "offset": [0, 0]
+          },
+          "Unicode": {
+            "color": "green",
+            "icon": "\uf015",
+            "type": "unicode",
+            "offset": [1, 0]
+          },
+          "Event Png": {
+            "icon": "/elements/scatter-plot-card/ge_logo.png",
+            "type": "image",
+            "offset": [0, -20],
+            "size": "20"
+          }
+        }'
+        event-data="{{eventData.data}}">
+      </px-vis-xy-chart>
     </px-card>
   </template>
 
@@ -24,21 +83,10 @@
     Polymer({
       is: 'scatter-plot-card',
       properties: {
-        myData: {
-          type: "Array",
-          value: [
-            [1397102460000, 11.4403],
-            [1397139660000, 13.1913],
-            [1397177400000, 12.8485],
-            [1397228040000, 10.975],
-            [1397248260000, 12.9377],
-            [1397291280000, 13.3795],
-            [1397318100000, 13.0869],
-            [1397342100000, 17.3758]
-          ]
-        }
+
       }
     });
+
   </script>
 
 </dom-module>
