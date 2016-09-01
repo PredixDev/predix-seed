@@ -5,7 +5,7 @@ var _ = require("lodash");
 // for each asset level, collect the json data to configure the json-server router
 // example structure: { 'assets': [ {...}, {...} ], 'enterprises': [...], ... }
 var getRoutes = function() {
-  var levels = ['core-vibe', 'datagrid', 'delta-egt', 'fan-vibration', 'simple-data'];
+  var levels = ['core-vibe', 'datagrid', 'delta-egt', 'fan-vibration', 'simple-data', 'scatter'];
   var routes = {};
   _.each(levels, function(level) {
     routes[level] = getLevelData(level);
