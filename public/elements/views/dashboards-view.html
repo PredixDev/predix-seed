@@ -60,8 +60,7 @@
           computed: '_computeInitialBrowserContext(_browserContext)'
         },
         _nodeUri: {
-          type: String,
-          observer: '_nodeUriChanged'
+          type: String
         },
         _decksUrl: {
           type: String,
@@ -183,12 +182,12 @@
         // });
       },
 
-      _nodeUriChanged: function(_nodeUri) {
+      // _nodeUriChanged: function(_nodeUri) {
         // this.$.contextIronAjax.url = '/api/predix-asset' + _nodeUri;
         // console.log('_nodeUriChanged.  calling asset: ' + this.$.contextIronAjax.url);
         // this.$.contextIronAjax.generateRequest();
         // this._computeDecks();
-      },
+      // },
 
       _itemOpenHandler: function(item) {
         console.log('item opened: ' + item.id);
