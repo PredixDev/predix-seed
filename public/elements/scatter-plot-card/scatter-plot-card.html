@@ -1,17 +1,43 @@
 <link rel="import" href="/bower_components/polymer/polymer.html">
 <link rel="import" href="/bower_components/px-card/px-card.html">
+<link rel="import" href="/bower_components/px-chart/px-chart-series-scatter.html">
 
 <dom-module id="scatter-plot-card">
 
   <template>
     <px-card header-text="Scatter Plot">
-      <h1> SCATTER PLOT</h1>
+      <px-chart>
+        <px-chart-series-scatter
+          name="The Display Name"
+          line-width="5"
+          lower-threshold="12"
+          upper-threshold="16"
+          id="hpt-acc-position-cruise"
+          marker='{"enabled": false, "radius": 15}'
+          data="[[myData]]">
+        </px-chart-series-scatter>
+      </px-chart>
     </px-card>
   </template>
 
   <script>
     Polymer({
-      is: 'scatter-plot-card'
+      is: 'scatter-plot-card',
+      properties: {
+        myData: {
+          type: "Array",
+          value: [
+            [1397102460000, 11.4403],
+            [1397139660000, 13.1913],
+            [1397177400000, 12.8485],
+            [1397228040000, 10.975],
+            [1397248260000, 12.9377],
+            [1397291280000, 13.3795],
+            [1397318100000, 13.0869],
+            [1397342100000, 17.3758]
+          ]
+        }
+      }
     });
   </script>
 
