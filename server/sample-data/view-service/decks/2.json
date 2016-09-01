@@ -1,11 +1,11 @@
 {
   "id": 2,
-  "title": "Richmond Site",
-  "slug": "px-deck",
+  "title": "Data Table View",
+  "slug": "data-table-view",
   "cardOrder": null,
   "createTimeStamp": "2015-11-24T23:02:53.838Z",
   "tags": [{
     "id": 2,
-    "value": "richmond"
+    "value": "parent-asset"
   }]
 }
