@@ -1,11 +1,11 @@
 {
   "id": 3,
-  "title": "Richmond Refinery",
-  "slug": "px-deck",
+  "title": "Detail View",
+  "slug": "detail-view",
   "cardOrder": null,
-  "createTimeStamp": "2015-11-24T23:02:53.838Z",
+  "createTimeStamp": "2016-08-31T23:02:53.838Z",
   "tags": [{
     "id": 3,
-    "value": "richmond-refinery"
+    "value": "child-asset"
   }]
 }

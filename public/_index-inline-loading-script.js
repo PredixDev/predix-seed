@@ -18,12 +18,7 @@
   var onMainElementLoaded = function() {
     // Fade splash screen, then remove
     var splashEl = document.getElementById('splash');
-
-    splashEl.addEventListener('transitionend', function() {
-      splashEl.parentNode.removeChild(splashEl); // IE 10 doesn't support element.remove()
-    });
-    document.body.classList.remove('loading');
-    // Applicaiton is now visible and ready!
+    splashEl.parentNode.removeChild(splashEl);
   };
 
   // load webcomponents polyfills

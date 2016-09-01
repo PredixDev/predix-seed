@@ -1,9 +1,9 @@
 {
   "id": 4,
-  "title": "Simple Charts Card",
-  "slug": "simple-charts-card",
+  "title": "Time Series",
+  "slug": "time-series-card",
   "attributes": {
-    "elementHref": "/elements/simple-charts-card/simple-charts-card.html"
+    "elementHref": "/elements/time-series-card/time-series-card.html"
   },
   "createTimeStamp": "2015-11-24T23:02:53.816Z",
   "tags": []

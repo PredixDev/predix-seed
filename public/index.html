@@ -43,7 +43,7 @@
 
   <!-- Inline script to load app and remove splash screen
        Gulp will inline this script via the compile.index task -->
-  <script>!function(){var e=function(){var e=document.querySelector("#main-element-import");e["import"]&&"complete"===e["import"].readyState?n():e.addEventListener("load",n)},n=function(){var e=document.getElementById("splash");e.addEventListener("transitionend",function(){e.parentNode.removeChild(e)}),document.body.classList.remove("loading")};if("registerElement"in document&&"import"in document.createElement("link")&&"content"in document.createElement("template"))e();else{var t=document.createElement("script");t.async=!0,t.src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js",t.onload=e,document.head.appendChild(t)}}();</script>
+  <script>!function(){var e=function(){var e=document.querySelector("#main-element-import");e["import"]&&"complete"===e["import"].readyState?t():e.addEventListener("load",t)},t=function(){var e=document.getElementById("splash");e.parentNode.removeChild(e)};if("registerElement"in document&&"import"in document.createElement("link")&&"content"in document.createElement("template"))e();else{var n=document.createElement("script");n.async=!0,n.src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js",n.onload=e,document.head.appendChild(n)}}();</script>
 
 </body>
 </html>
