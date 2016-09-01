@@ -1,29 +1,32 @@
 <link rel="import" href="/bower_components/polymer/polymer.html">
 <link rel="import" href="/bower_components/px-card/px-card.html">
-<link rel="import" href="/bower_components/px-chart/px-chart.html">
+<link rel="import" href="/bower_components/px-vis-timeseries/px-vis-timeseries.html">
 <link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
 
-<script type="text/javascript" src="/bower_components/px/dist/px.min.js"></script>
+<!-- <script type="text/javascript" src="/bower_components/px/dist/px.min.js"></script> -->
 
 <dom-module id="time-series-card">
   <template>
     <px-card header-text="Time Series Card">
-      <!--<button on-click="saveBtnClicked">Save</button>-->
-      <iron-ajax
-        url="/api/time-series/core-vibe/1"
-        last-response="{{_coreVibeRearCoreVibeData}}"
-        auto>
-      </iron-ajax>
-      <iron-ajax
-        url="/api/time-series/core-vibe/2"
-        last-response="{{_deltaEgtCruiseData}}"
-        auto>
-      </iron-ajax>
-      <px-chart id="tsChart">
-        <px-chart-controls data-controls show-refresh="true" show-date-range="true"></px-chart-controls>
-        <px-chart-yaxis id="firstAxis" offset="0"></px-chart-yaxis>
-        <px-chart-yaxis id="anotherAxis" opposite="true" offset="-2.5"></px-chart-yaxis>
-      </px-chart>
+      <px-vis-timeseries
+        width = 800
+        height = 300
+        prevent-resize = true
+        enable-tooltip = true
+        register-location = "none"
+        include-all-series
+        selection-type= "xy"
+        chart-data="[[chartData2.data]]">
+      </px-vis-timeseries>
+      <px-vis-data
+        id = "seriesAjax"
+        request-data = '[{
+            "url":"/api/time-series/delta-egt/1"
+          }]'
+        data-var="chartData2"
+        lists="flat"
+        response-data="{{chartData2}}">
+      </px-vis-data>
     </px-card>
   </template>
 </dom-module>
@@ -31,61 +34,7 @@
   Polymer({
     is: 'time-series-card',
     properties: {
-      config: {
-          type: Object
-      },
-      _coreVibeRearCoreVibeData: {
-        type: Object
-      },
-      _cruiseSeries: {
-        type: Object,
-        computed: '_computeCoreVibeSeries(_coreVibeRearCoreVibeData)'
-      },
-      _deltaEgtCruiseData: {
-        type: Object
-      },
-      _deltaEgtCruiseSeries: {
-        type: Object,
-        computed: '_computeDeltaEgtCruiseSeries(_deltaEgtCruiseData)'
-      }
-    },
 
-    observers: [
-      '_addCoreVibeSeries(_cruiseSeries)',
-      '_addDeltaEgtCruiseSeries(_deltaEgtCruiseSeries)'
-    ],
-
-    _timeSeriesDataTransformer: null,
-
-    ready: function(){
-      this._timeSeriesDataTransformer = new px.timeseries.dataTransformer();
-    },
-
-    _computeCoreVibeSeries: function(data) {
-      console.log(data);
-      var series = this._timeSeriesDataTransformer.transform(data.tags)[0];
-      series.id = series.name;
-      series.axisId = 'anotherAxis';
-      return series;
-    },
-
-    _computeDeltaEgtCruiseSeries: function(data) {
-        console.log(data);
-      var series = this._timeSeriesDataTransformer.transform(data.tags)[0];
-      series.id = series.name;
-      series.axisId = "firstAxis";
-      series.upperThreshold = "30.5";
-      series.lowerThreshold = "6.25";
-      return series;
-    },
-
-    _addCoreVibeSeries: function(series) {
-      this.$.tsChart.addSeries(series);
-    },
-
-    _addDeltaEgtCruiseSeries: function(series) {
-      this.$.tsChart.addSeries(series);
     }
-
   });
 </script>
