@@ -225,7 +225,6 @@ app.use(express.static(path.join(__dirname, '../public')));
 /*******************************************************
 SET UP MOCK API ROUTES
 *******************************************************/
-jsonServer.create();
 // Import route modules
 var viewServiceRoutes = require('./view-service-routes.js')();
 var assetRoutes = require('./predix-asset-routes.js')();
