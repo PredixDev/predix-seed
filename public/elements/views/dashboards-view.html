@@ -81,7 +81,6 @@
       },
 
       _computeDecksUrl: function() {
-        console.log('_computeDecksUrl for selectedContextTag: ' + this._selectedContextTag);
         if(this._selectedContextTag) {
           return this.viewServiceBaseUrl + "decks?tag=" + this._selectedContextTag;
         } else {
@@ -105,10 +104,6 @@
           // itemOpenHandler fires when a node's 'open' link is clicked
           itemOpenHandler: function(item) {
             return _this._itemOpenHandler(item);
-          },
-          // itemClickHandler fires when a node is clicked at all
-          itemClickHandler: function(item) {
-            return _this._itemClickHandler(item);
           }
         };
         // initialize context data and decks
@@ -117,7 +112,6 @@
       },
 
       _computeDecks: function() {
-        console.log('computeDecks: ' + JSON.stringify(this._decksResponse));
         var decks = [];
         if (this._decksResponse && this._decksResponse.length > 0) {
           this._decksResponse.forEach(function(deck) {
@@ -138,7 +132,6 @@
       // "getChildren" handler for px-context-browser
       // this function is passed into
       _getChildren: function(node) {
-        console.log('_getChildren for node: ' + node.uri);
         var that = this;
         return new Promise(function(resolve, reject) {
           var req = new XMLHttpRequest();
@@ -160,46 +153,12 @@
 
           req.send()
         });
-
-
-        // old getChildren function
-        // var that = this;
-        // return new Promise(function(resolve, reject) {
-        //   // if(node.uri !== that._nodeUri) {
-        //     // if the new nodeUri is different
-        //     that.set('_nodeUri', node.uri);
-        //     that.$.contextIronAjax.addEventListener('response', function(evt) {
-        //       if(evt.detail.response) {
-        //         resolve(evt.detail.response);
-        //       } else {
-        //         reject("Error: request returned status " + evt.detail);
-        //       }
-        //     });
-        //   // } else {
-        //     // use cached response, no need for http request
-        //     // resolve(that.$.contextIronAjax.lastResponse);
-        //   // }
-        // });
       },
 
-      // _nodeUriChanged: function(_nodeUri) {
-        // this.$.contextIronAjax.url = '/api/predix-asset' + _nodeUri;
-        // console.log('_nodeUriChanged.  calling asset: ' + this.$.contextIronAjax.url);
-        // this.$.contextIronAjax.generateRequest();
-        // this._computeDecks();
-      // },
-
       _itemOpenHandler: function(item) {
-        console.log('item opened: ' + item.id);
         this._selectedContextTag = item.id;
         this.$.decksIronAjax.generateRequest();
       },
-
-      _itemClickHandler: function(item) {
-        console.log('item clicked: ' + item.id);
-        // this._selectedContextTag = item.id;
-        // this.$.decksIronAjax.generateRequest();
-      }
 
     });
   </script>
