@@ -16,113 +16,18 @@ var CloudFoundryStrategy = require('passport-predix-oauth').Strategy;
 var OAuth2RefreshTokenStrategy = require('passport-oauth2-middleware').Strategy;
 var session = require('express-session');
 var proxy = require('./proxy'); // used when requesting data from real services.
-var environmentVars = require('./config.json');
-
-/*******************************************************
-INITIALIZE VARIABLES (LOCAL OR VCAP BASED ON ENV)
-*******************************************************/
-var CLIENT_ID;
-var CALLBACK_URL;
-var AUTHORIZATION_URL;
-var TOKEN_URL;
-var uaaUri;
-var base64ClientCredential;
+// get config settings from local file or VCAPS env var in the cloud
+var config = require('./predix-config');
 var cfStrategy;
-var assetURL = '';
-var assetZoneId = '';
-var timeseriesZone = '';
-var timeseriesURL = '';
 
-// This vcap object is used by the proxy module.
-function buildVcapObjectFromLocalConfig(config) {
-  'use strict';
-	// console.log('local config: ' + JSON.stringify(config));
-	var vcapObj = {};
-	if (config.uaaURL) {
-		vcapObj['predix-uaa'] = [{
-			credentials: {
-				uri: config.uaaURL
-			}
-		}];
-	}
-	if (config.timeseriesURL) {
-		vcapObj['predix-timeseries'] = [{
-			credentials: {
-				query: {
-					uri: config.timeseriesURL,
-					'zone-http-header-value': config['timeseries_zone']
-				}
-			}
-		}];
-	}
-	if (config.assetURL) {
-		vcapObj['predix-asset'] = [{
-			credentials: {
-				uri: config.assetURL,
-				zone: {
-					'http-header-value': config.assetZoneId
-				}
-			}
-		}];
-	}
-	return vcapObj;
-}
-
-// checking NODE_ENV to load cloud properties from VCAPS
-// or development properties from config.json.
-// These properties are not needed for fetching mock data.
-// Only needed if you want to connect to real Predix services.
+// if running locally, we need to set up the proxy from local config file:
 var node_env = process.env.node_env || 'development';
 if(node_env === 'development') {
-	var devConfig = environmentVars[node_env];
-	// console.log(devConfig);
-	uaaUri = devConfig.uaaURL;
-	base64ClientCredential = devConfig.base64ClientCredential;
-	CLIENT_ID = devConfig.clientId;
-	AUTHORIZATION_URL = devConfig.uaaURL;
-	TOKEN_URL = devConfig.uaaURL;
-	CALLBACK_URL = devConfig.appUrl + '/callback';
-
-	assetURL = devConfig.assetURL;
-	assetZoneId = devConfig.assetZoneId;
-	timeseriesZone = devConfig['timeseries_zone'];
-	timeseriesURL = devConfig.timeseriesURL;
-
-	proxy.setServiceConfig(buildVcapObjectFromLocalConfig(devConfig));
+  var devConfig = require('./localConfig.json')[node_env];
+	proxy.setServiceConfig(config.buildVcapObjectFromLocalConfig(devConfig));
 	proxy.setUaaConfig(devConfig);
-} else {
-	// read VCAP_SERVICES
-	var vcapsServices = JSON.parse(process.env.VCAP_SERVICES);
-	var uaaService = vcapsServices[process.env.uaa_service_label];
-	var assetService = vcapsServices['predix-asset'];
-	var timeseriesService = vcapsServices['predix-timeseries'];
-
-	if(uaaService) {
-		AUTHORIZATION_URL = uaaService[0].credentials.uri;
-		TOKEN_URL = uaaService[0].credentials.uri;
-	}
-	if(assetService) {
-		assetURL = assetService[0].credentials.uri + "/" + process.env.assetMachine;
-		assetZoneId = assetService[0].credentials.zone["http-header-value"];
-	}
-	if(timeseriesService) {
-		timeseriesZone = timeseriesService[0].credentials.query["zone-http-header-value"];
-		timeseriesURL = timeseriesService[0].credentials.query.uri;
-	}
-
-	// read VCAP_APPLICATION
-	var vcapsApplication = JSON.parse(process.env.VCAP_APPLICATION);
-	CALLBACK_URL = 'https://' + vcapsApplication.uris[0] + '/callback';
-
-	base64ClientCredential = process.env.base64ClientCredential;
-	CLIENT_ID = process.env.clientId;
 }
-
 console.log('************'+node_env+'******************');
-console.log('AUTHORIZATION_URL: ' + AUTHORIZATION_URL);
-console.log('TOKEN_URL: ' + TOKEN_URL);
-console.log('***************************');
-
 
 /*********************************************************************
 				PASSPORT PREDIX STRATEGY SETUP
@@ -162,17 +67,17 @@ function configurePassportStrategy() {
 		// console.log('DECODED:  ' + decoded);
 		var values = decoded.split(':');
 		if (values.length !== 2) {
-			throw "base64ClientCredential is not correct. \n It should be the base64 encoded value of: 'client:secret' \n Set in config.json for local dev, or environment variable in the cloud.";
+			throw "base64ClientCredential is not correct. \n It should be the base64 encoded value of: 'client:secret' \n Set in localConfig.json for local dev, or environment variable in the cloud.";
 		}
 		return values[1];
 	}
 
 	cfStrategy = new CloudFoundryStrategy({
-		clientID: CLIENT_ID,
-		clientSecret: getSecretFromEncodedString(base64ClientCredential),
-		callbackURL: CALLBACK_URL,
-		authorizationURL: AUTHORIZATION_URL,
-		tokenURL: TOKEN_URL
+		clientID: config.clientId,
+		clientSecret: getSecretFromEncodedString(config.base64ClientCredential),
+		callbackURL: config.callbackURL,
+		authorizationURL: config.uaaURL,
+		tokenURL: config.tokenURL
 	},refreshStrategy.getOAuth2StrategyCallback() //Create a callback for OAuth2Strategy
 	/* TODO: implement if needed.
 	function(accessToken, refreshToken, profile, done) {
@@ -184,10 +89,10 @@ function configurePassportStrategy() {
 	//Register the OAuth strategy to perform OAuth2 refresh token workflow
 	refreshStrategy.useOAuth2Strategy(cfStrategy);
 }
-if (CLIENT_ID &&
-    AUTHORIZATION_URL &&
-    AUTHORIZATION_URL.indexOf('https') === 0 &&
-    base64ClientCredential) {
+if (config.clientId &&
+    config.uaaURL &&
+    config.uaaURL.indexOf('https') === 0 &&
+    config.base64ClientCredential) {
 	configurePassportStrategy();
 }
 
