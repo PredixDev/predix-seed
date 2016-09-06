@@ -24,7 +24,6 @@ gulp.task('serve:start', getTask('serve.start'));
 // -----------------------------------------------------------------------------
 // Task: Watch : Source, Public, All
 // -----------------------------------------------------------------------------
-gulp.task('watch:source', getTask('watch.source'));
 gulp.task('watch:public', getTask('watch.public'));
 gulp.task('watch:all', ['watch:source', 'watch:public']);
 

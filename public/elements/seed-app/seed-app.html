@@ -19,8 +19,6 @@
 <link rel="import" href="../ge-svg-logo/ge-svg-logo.html">
 <link rel="import" href="../seed-footer/seed-footer.html">
 
-<link rel="import" href="../px-or/px-or.html">
-
 <dom-module id="seed-app">
   <template>
 
@@ -62,9 +60,10 @@
           <!-- /dashboards rotue and view -->
           <app-route
             route="[[_route]]"
-            pattern="/"
+            pattern="/dashboards"
             active="{{_dashboardsActive}}">
           </app-route>
+
           <px-view
             active="[[_dashboardsActive]]"
             element-href="/elements/views/dashboards-view.html">
@@ -94,6 +93,11 @@
       is: 'seed-app',
 
       properties: {
+
+        _dashboardsActive: {
+          type: String,
+          computed: '_computeDashboardsActive(_emptyRoute, _slashRoute, _hashSlashRoute, _dashboardsRoute)'
+        },
 
         routesActive: {
           type: Boolean,
@@ -156,6 +160,14 @@
         pathPrefix: {
           type: String,
           value: '#/'
+        }
+      },
+
+      ready: function(){
+        // set default route to /dashboards
+        var loc = window.location;
+        if(loc.hash === "" && loc.pathname === "/") {
+          loc.hash = "/dashboards";
         }
       }
 
