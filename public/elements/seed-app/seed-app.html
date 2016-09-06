@@ -160,10 +160,14 @@
       },
 
       ready: function(){
+        _checkForDefaultRoute();
+      },
+
+      _checkForDefaultRoute: function() {
         // set default route to /dashboards
-        var loc = window.location;
-        if(loc.hash === "" && loc.pathname === "/") {
-          loc.hash = "/dashboards";
+        var l = window.location;
+        if((l.hash === "#/" || l.hash === "") && l.pathname === "/") {
+          l.hash = "/dashboards";
         }
       }
 
