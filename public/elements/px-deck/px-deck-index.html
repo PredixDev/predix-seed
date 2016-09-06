@@ -34,8 +34,8 @@
         // returned from iron-ajax request
         _deckData: {
           type: Object,
-          value: function() { return {}; },
-          observer: '_refreshFilter'
+          value: function() { return {}; }
+          // observer: '_refreshFilter'  // moved inside _updateDecks
         },
         viewServiceBaseUrl: {
           type: String,
@@ -72,24 +72,24 @@
         this.$.decks.render();
       },
 
+      // called when _deckData changes
       _updateDecks: function() {
-        if(this._decks) {
-          // find existing deck
-          var that = this;
-          var index = _.findIndex(this._decks, function(o) {
-            return o.id === that.deckId
-          });
-          if(index === -1) {
-            // deck is new
-            this.push('_decks', {
-              id: this.deckId,
-              deckData: this._deckData
-            });
-          } else {
-            // update existing deck data
-            this._decks[index].deckData = this._deckData;
-          }
+        if (!this._decks) {  // don't think this is needed, since we have a default value.
+          this.set('_decks', []);
         }
+        // find existing deck
+        var that = this;
+        var index = _.findIndex(this._decks, function(o) {
+          return o.id === that.deckId
+        });
+        if(index === -1 && this.deckId) {
+          // deck is new
+          this.push('_decks', {
+            id: this.deckId,
+            deckData: this._deckData
+          });
+        }
+        this._refreshFilter();
       }
 
     });

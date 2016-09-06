@@ -22,8 +22,8 @@
     <iron-ajax
       id="decksIronAjax"
       url="[[_decksUrl]]"
-      last-response="{{_decksResponse}}"
-      auto>
+      last-response="{{_decksResponse}}">
+      <!-- auto -->
     </iron-ajax>
 
     <!-- px-context-browser element -->
@@ -59,13 +59,8 @@
           type: Object,
           computed: '_computeInitialBrowserContext(_browserContext)'
         },
-        _deckString: {
-          type: String,
-          computed: '_computeDeckString(deck)'
-        },
         _nodeUri: {
-          type: String,
-          observer: '_nodeUriChanged'
+          type: String
         },
         _decksUrl: {
           type: String,
@@ -109,18 +104,11 @@
           // itemOpenHandler fires when a node's 'open' link is clicked
           itemOpenHandler: function(item) {
             return _this._itemOpenHandler(item);
-          },
-          // itemClickHandler fires when a node is clicked at all
-          itemClickHandler: function(item) {
-            return _this._itemClickHandler(item);
           }
         };
-        // initialize context data
+        // initialize context data and decks
         this.$.contextIronAjax.generateRequest();
-      },
-
-      _computeDeckString: function(deck) {
-        return JSON.stringify(deck);
+        this.$.decksIronAjax.generateRequest();
       },
 
       _computeDecks: function() {
@@ -146,36 +134,31 @@
       _getChildren: function(node) {
         var that = this;
         return new Promise(function(resolve, reject) {
-          if(node.uri !== that._nodeUri) {
-            // if the new nodeUri is different
-            that.set('_nodeUri', node.uri);
-            that.$.contextIronAjax.addEventListener('response', function(evt) {
-              if(evt.detail.response) {
-                children = evt.detail.response;
-                resolve(children);
-              } else {
-                reject("Error: request returned status " + evt.detail);
-              }
-            });
-          } else {
-            // use cached response, no need for http request
-            resolve(that.$.contextIronAjax.lastResponse);
-          }
-        });
-      },
+          var req = new XMLHttpRequest();
+          req.open('GET', '/api/predix-asset' + node.uri);
 
-      _nodeUriChanged: function(_nodeUri) {
-        this.$.contextIronAjax.url = '/api/predix-asset' + _nodeUri;
-        this.$.contextIronAjax.generateRequest();
+          req.onload = function() {
+            if (req.status === 200) {
+              that._nodeUri = node.uri;
+              // that._computeDecks();
+              resolve(JSON.parse(req.response));
+            } else {
+              reject(req.statusText);
+            }
+          };
+
+          req.onError = function() {
+            reject("Network Error");
+          };
+
+          req.send()
+        });
       },
 
       _itemOpenHandler: function(item) {
         this._selectedContextTag = item.id;
+        this.$.decksIronAjax.generateRequest();
       },
-
-      _itemClickHandler: function(item) {
-        this._selectedContextTag = item.id;
-      }
 
     });
   </script>
