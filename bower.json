@@ -18,7 +18,7 @@
     "lodash": "4.6.1",
     "polymer": "1.4.0",
     "px": "https://github.com/PredixDev/px.git",
-    "px-app-nav": "https://github.com/PredixDev/px-app-nav.git#1.8.0",
+    "px-app-nav": "https://github.com/PredixDev/px-app-nav.git#1.9.1",
     "px-card": "https://github.com/PredixDev/px-card.git#v0.2.4",
     "px-context-browser": "https://github.com/PredixDev/px-context-browser.git#~v1.2.0",
     "px-deck-selector": "https://github.com/PredixDev/px-deck-selector.git#~v1.1.1",
@@ -68,6 +68,7 @@
     "px-simple-bar-chart": "^1.5.1",
     "px-spinner": "~0.3.0",
     "px-overlay": "~0.2.0",
-    "px-rangepicker": "~1.1.0"
+    "px-rangepicker": "~1.1.0",
+    "px-typography-design": "^1.1.0"
   }
 }
