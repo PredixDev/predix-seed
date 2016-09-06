@@ -41,8 +41,18 @@
     "web-component-tester": "^4.3.1"
   },
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-http-proxy": "^0.10.0",
+    "express-session": "^1.14.1",
     "glob": "^7.0.3",
+    "https-proxy-agent": "^1.0.0",
     "json-server": "^0.8.10",
-    "lodash": "^4.11.2"
+    "lodash": "^4.11.2",
+    "passport": "^0.3.2",
+    "passport-oauth2-middleware": "^1.0.2",
+    "passport-predix-oauth": "^0.1.2",
+    "url": "^0.11.0"
   }
 }
