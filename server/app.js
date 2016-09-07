@@ -28,11 +28,11 @@ if (node_env === 'development') {
 }
 console.log('************'+node_env+'******************');
 
-// if you have configured these properties for UAA, then we'll set up passport.
-if (config.clientId &&
+var uaaIsConfigured = config.clientId &&
     config.uaaURL &&
     config.uaaURL.indexOf('https') === 0 &&
-    config.base64ClientCredential) {
+    config.base64ClientCredential;
+if (uaaIsConfigured) {
 	passport = passportConfig.configurePassportStrategy(config);
 }
 
@@ -52,10 +52,11 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true}));
 
-// Initialize Passport
-app.use(passport.initialize());
-// Also use passport.session() middleware, to support persistent login sessions (recommended).
-app.use(passport.session());
+if (uaaIsConfigured) {
+  app.use(passport.initialize());
+  // Also use passport.session() middleware, to support persistent login sessions (recommended).
+  app.use(passport.session());
+}
 
 //Initializing application modules
 app.use(bodyParser.json());
@@ -84,36 +85,38 @@ app.use('/api/time-series', jsonServer.router(timeSeriesRoutes));
 	SET UP EXPRESS ROUTES
 *****************************************************************************/
 
-//login route redirect to predix uaa login page
-app.get('/login',passport.authenticate('predix', {'scope': ''}), function(req, res) {
-  // The request will be redirected to Predix for authentication, so this
-  // function will not be called.
-});
-
-// access real Predix services using this route.
-// the proxy will add UAA token and Predix Zone ID.
-app.use('/predix-api',
-	passport.authenticate('main', {
-		noredirect: true
-	}),
-	proxy.router);
-
-//callback route redirects to secure route after login
-app.get('/callback', passport.authenticate('predix', {
-	failureRedirect: '/'
-}), function(req, res) {
-	console.log('Redirecting to secure route...');
-	res.redirect('/secure');
+if (uaaIsConfigured) {
+  //login route redirect to predix uaa login page
+  app.get('/login',passport.authenticate('predix', {'scope': ''}), function(req, res) {
+    // The request will be redirected to Predix for authentication, so this
+    // function will not be called.
   });
 
-//secure route checks for authentication
-app.get('/secure', passport.authenticate('main', {
-	noredirect: true //Don't redirect a user to the authentication page, just show an error
+  // access real Predix services using this route.
+  // the proxy will add UAA token and Predix Zone ID.
+  app.use('/predix-api',
+  	passport.authenticate('main', {
+  		noredirect: true
+  	}),
+  	proxy.router);
+
+  //callback route redirects to secure route after login
+  app.get('/callback', passport.authenticate('predix', {
+  	failureRedirect: '/'
   }), function(req, res) {
-	console.log('Accessing the secure route');
-  // modify this to send a secure.html file if desired.
-	res.send('<h2>This is a sample secure route.</h2>');
-});
+  	console.log('Redirecting to secure route...');
+  	res.redirect('/secure');
+    });
+
+  //secure route checks for authentication
+  app.get('/secure', passport.authenticate('main', {
+  	noredirect: true //Don't redirect a user to the authentication page, just show an error
+    }), function(req, res) {
+  	console.log('Accessing the secure route');
+    // modify this to send a secure.html file if desired.
+  	res.send('<h2>This is a sample secure route.</h2>');
+  });
+}
 
 //logout route
 app.get('/logout', function(req, res) {
