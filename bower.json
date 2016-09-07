@@ -69,6 +69,8 @@
     "px-spinner": "~0.3.0",
     "px-overlay": "~0.2.0",
     "px-rangepicker": "~1.1.0",
-    "px-typography-design": "^1.1.0"
+    "px-typography-design": "^1.1.0",
+    "px-datetime-common": "~0.6.1",
+    "px-dropdown": "~0.12.1"
   }
 }
