@@ -1,6 +1,6 @@
 ---
 applications:
-  - name: polymer-predix-seed-sysint
+  - name: polymer-predix-seed-develop
     memory: 64M
     buildpack: nodejs_buildpack
     command: node server/app.js
