@@ -1,95 +1,117 @@
-#Predix Experience 2.0 Seed
-Dashboard Seed is an application that uses Px Web Components and <a href="https://github.com/PredixDev/px-library-design/" target="_blank">Px UI Elements</a> inside an Angular application.
+# Predix Experience 2.0 Seed
+Dashboard Seed is an application that uses Px Web Components inside a [Polymer](https://www.polymer-project.org) web application.
+It runs on the [Express](http://expressjs.com/) web server.
 
-## To Run the Dashboard Seed
+## Getting Started
 
 ### Get the source code
 Make a directory for your project.  Clone or download and extract the seed in that directory.
 ```
-git clone
+git clone https://github.com/PredixDev/predix-seed.git
 ```
 
+### Install tools
+If you don't have them already, you'll need node, bower and gulp to be installed globally on your machine.
+1. Install [node](https://nodejs.org/en/download/).  This includes npm - the node package manager.
+2. Install [bower](https://bower.io/) globally `npm install bower -g`
+3. Install [gulp](http://gulpjs.com/) globally `npm install gulp -g`
+
 ### Install the dependencies
+Change directory into the new project you just cloned, then install dependencies.
 ```
 npm install
 bower install
 ```
 
-### Create a dist version
-Use grunt to create a distribution version of your app, which will be located in the dist folder along with the nginx configuration files.  You will need to run this command during development every time before you cf push to make the latest dist.
+## Running the app locally
+The default gulp task will start a local web server.  Just run this command:
 ```
-grunt dist
+gulp
+```
+Browse to http://localhost:5000.
+Initially, the app will use mock data for the views service, asset service, and time series service.
+Later you can connect your app to real instances of these services.
+
+## Running in Predix Cloud
+With a few commands you can build a distribution version of the app, and deploy it to the cloud.
+
+### Create a dist version
+Use gulp to create a distribution version of your app.
+You will need to run this command during development every time before you cf push to make the latest dist.
+```
+gulp compile:all
 ```
 
-## Setup services for your own development
+### Deploy to the cloud
+First make sure you're logged in to the Predix Cloud using the `cf login` command.
+Then deploy your app using this command:
+```
+cf push my-seed-app
+```
+You can give the app any unique name you like.  "my-seed-app" is just an example.
+
+## OPTIONAL: Setup Predix service instances
 Once you're ready to actually start developing, you'll need to setup your own UAA and Views service.
+_TODO: link to some tutorials?_
 
 ### UAA
 1. Create a UAA instance following [these steps](https://www.predix.io/docs/?r=250183#XpKGAdQ7-Q0CoIStl).
 	* Note: Make a note of the client secret; you will need it later.
-2. Get the url of that UAA instance
-	1. Locate any application you have running on cloud foundry.  If you don't have one, you'll have to push some app up there.
-	2. Follow [these steps](https://www.predix.io/docs/?r=250183#sXp7cw5P-Q0CoIStl) to bind your dummy app to UAA.
-	3. Save the uri and issuerId of your UAA instance.
+2. Get the url of that UAA instance.  After you create an instance of UAA through the Predix.io console, click on the "Configure Service Instance" button.  On the login screen for the UAA dashboard, copy the URL from the first text box, and save that for later use.  You'll use that URL as the trusted issuer, when you create instances of other Predix services.
+
+### Predix Asset
+_TODO_
+
+### Predix Time series
+_TODO_
 
 ### Views
 Create a Views instance following [these steps](https://www.predix.io/docs/?r=250183#yyKdebUl).  Use the UAA issuerId that you gathered above for your trusted issuer.
 * Note: You must use underscores in your service instance name currently (my_view_service, NOT my-view-service)
 
 ### Redis
-Create a Redis instance, which is used by nginx for storing your session.
+Create a Redis instance, which is used by Express for storing your session.
 ```
 cf cs redis <plan> <instance_name>
-``` 
+```
+_TODO: Explain how to modify app.js to use redis for session._
 
 ## Push to the cloud
-Now that you have the required services created, we can push to the cloud for the first time.
+Now that you have the required services created, we can configure our web app to use them.
 
 1. Update manifest.yml
-	
-	You'll need to change these fields in your manifest.yml before pushing to the cloud.
-	```
-	  - name: my-predix-seed # change this to your application name
-	    services:
-	            - your_redis_instance # change this to your redis service instance name
-	            - your_view_service_instance # change this to your view service instance name
-	    env:
-	      UAA_SERVER_URL: https://your-uaa-instance.grc-apps.svc.ice.ge.com # change to your UAA instance url
-	      REDIS: redis # change this to the name of the Redis service in your marketplace (when you do cf m).  It may be redis, or something else
-	```
-2. Update View service reference in nginx.conf
 
-	You need to update nginx.conf (in the dist folder) wherever it has references to predix_seed_view_service to the name of your_view_service_instance, which is whatever you specified in step 1.
-
+	Change the name field in your manifest.yml.  
+	Uncomment the services section, and change the names to match your service instances.
+	Uncommen the clientId and base64ClientCredential environment variables and enter the correct values for your UAA client.
 	```
-	# for example, from
-	proxy_set_header    predix-zone-id   "<%= ENV["vcap_service_predix_seed_view_service_instanceId"] %>";
-	proxy_pass  "<%= ENV["vcap_service_predix_seed_view_service_uri"] %>";
-	
-	# to (assuming you changed your_view_service_instance to my_special_views_service in your manifest.yml)
-	proxy_set_header    predix-zone-id   "<%= ENV["vcap_service_my_special_views_service_instanceId"] %>";
-	proxy_pass  "<%= ENV["vcap_service_my_special_views_service_uri"] %>";
+	---
+	applications:
+	  - name: polymer-predix-seed-sysint
+	    memory: 64M
+	    buildpack: nodejs_buildpack
+	    command: node server/app.js
+	#services:
+	 # - <your-name>-secure-uaa-instance
+	 # - <your-name>-timeseries-instance
+	 # - <your-name>-asset-instance
+	env:
+	    node_env: cloud
+	    uaa_service_label : predix-uaa
+	    # Add these values for authentication in the cloud
+	    #clientId: {Enter client ID, e.g. app-client-id, and place it here}
+	    #base64ClientCredential: dWFhLWNsaWVudC1pZDp1YWEtY2xpZW50LWlkLXNlY3JldA==
 	```
 
-3. Make a unique session_secret and set it in nginx.conf.
-	
-	```
-	# example, for Mac
-	openssl rand -base64 32
-	```
-	```
-	set $session_secret <my-session-secret>;
-	```
-4. Push to the cloud. 
+4. Push to the cloud.
 
 	```
 	cf push
 	```
-	
-    If your app is started successfully, go to the url that is printed out. You should see your app running, and it will redirect to a page with a message __"Uh oh. Something went amiss"__.  
-    
-    * Note: This is just the first time pushing your application to cloudfoundry. You will need to push a few more times before completing the setup. 
-    
+
+# Old stuff. Remove from README, and point to docs or tutorials?
+All this views service config stuff doesn't belong here.
+
 ## Get Views service url and instance id
 The cf env command for your app will provide you the details of the services your app is bound to.
 ```
@@ -104,7 +126,7 @@ You are not able to see the login page because you have a fresh UAA instance whi
 Follow [these steps](https://www.predix.io/docs/?r=913171#JA5oCs7).  You will need the UAA uri and client secret that you saved previously.
 
 2. Create OAuth2 client
-	
+
 	First, you will need to generate a client secret and save it for later.
 	```
 	# example, for Mac
@@ -141,43 +163,6 @@ Follow [these steps](https://www.predix.io/docs/?r=913171#JA5oCs7).  You will ne
 4. cf push
 
 	If you cf push again, you should now be successfully redirected to a login page, but you don't have anyone to log in as.
-
-## Update grunt for local development
-
-Node and grunt are great for development, but we will have to configure them separately.
-
-All the settings you will need to touch are at the top of tasks/options/connect.js.
-
-1. UAA
-
-	Update the uaa object with:
-	* clientId - your client
-	* serverUrl - your UAA instance url (like https://my.uaa.instance.predix.io)
-	* base64ClientCredential - the authorization header you used above ```(base64(<client-name>:<client secret>))```
-		* do NOT include "Basic ", just the base 64 string
-
-	```
-	uaa: {
-	    clientId: '<your-client>', 
-	    serverUrl: '<your-server-url>', 
-	    defaultClientRoute: '/about',
-	    base64ClientCredential: '<your-client-credential>'
-	},
-	```
-
-2. Views
-
-	Update the view-service proxy object with:
-	* url - your view service url, with /api$1 at the end of it (like http://my-view-service.predix.io/api$1)
-	* instanceId - your view service instance id
-
-	```
-	proxy: {
-	'/api/view-service(.*)': {
-	  url: '<your-view-service-url>/api$1',
-	  instanceId: '<your-view-service-instance>'
-	}
-```
 
 ## Set up authorized user
 Now that you can see the login page, let's set up a user that we can log in with.
@@ -223,7 +208,7 @@ The first thing we need to do is give our dummy user permission to see the views
 
 	Use uaac to get your current client scope, and add the group you just created to this list.
 	```
-	uaac client get <your-client> 
+	uaac client get <your-client>
 	uaac client update <your-client> --scope views.zones.<your-views-instance-id>.user,<other>,<scopes>
 
 	# example:
@@ -233,7 +218,7 @@ The first thing we need to do is give our dummy user permission to see the views
 
 	Use uaac to get your current client autoapprove, and add the group you just created to this list.
 	```
-	uaac client get <your-client> 
+	uaac client get <your-client>
 	uaac client update <your-client> --autoapprove views.zones.<your-views-instance-id>.user,<other>,<autoapproves>
 
 	# example:
@@ -255,7 +240,7 @@ You should get a 500 response because you are missing two mandatory headers.
 	The predix-zone-id header is used for multi-tenancy; it specifies which views service instance is yours.
 
 	Set the predix-zone-id header to your Views instance id that you pulled earlier from VCAP_SERVICES.
-	
+
 	```
 	predix-zone-id : <your-views-instance-id>
 	```
@@ -285,7 +270,7 @@ Note: You may also need to set Content-Type header to application/json for the P
 #### Add decks
 Add the 3 decks that are in the seed app.
 
-	POST /api/decks 
+	POST /api/decks
 
 	[
 	  {
@@ -303,7 +288,7 @@ Add the 3 decks that are in the seed app.
 #### Add cards
 Add the 4 cards that are in the seed app.
 
-	POST /api/cards 
+	POST /api/cards
 
 	[
 	  {
@@ -329,25 +314,25 @@ Add the 4 cards that are in the seed app.
 Add the cards to the specified decks.  The ids may be different since the bulk creates are asynchronous, so you may need to change the ids accordingly.
 
 Overview deck has widgets and gist card (ids may change)
-	
+
 	POST /decks/1/cards/add
-	
+
 	["2", "3"]
-	
+
 
 Detail deck has time series card (ids may change)
 
 	POST /decks/2/cards/add
-	
+
 	["4"]
-	
+
 
 Datagrid View deck has datagrid card (ids may change)
 
 	POST /decks/3/cards/add
-	
+
 	["1"]
-	
+
 
 
 #### Tag the decks
@@ -356,23 +341,23 @@ Tag the decks with appropriate tags so we can filter which contexts they will be
 Overview deck is shown for the parent tag (ids may change)
 
 	POST /api/decks/1/tags
-	
+
 	[{"value":"parent"}]
-	
+
 
 Detail deck is shown for the child tag (ids may change)
 
 	POST /api/decks/2/tags
-	
+
 	[{"value":"child"}]
-	
+
 
 Datagrid View deck is shown for the parent tag (ids may change)
 
 	POST /api/decks/3/tags
-	
+
 	[{"value":"parent"}]
-	
+
 
 ### View the final result!
 cf push again, and your application should now look just like the demo seed app.
