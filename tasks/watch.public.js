@@ -3,9 +3,7 @@
 // -------------------------------------
 module.exports = function(gulp, plugins) {
   return function() {
-    //  reload
-    reload = function() {};
-    gulp.watch('./public/**/*.scss', reload);
-    gulp.watch('./public/**/*.html', reload);
+    gulp.watch('./public/**/*.scss', ['compile:all']);
+    gulp.watch('./public/**/*.html', ['compile:all']);
   };
 };
