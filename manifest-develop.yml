@@ -1,0 +1,16 @@
+---
+applications:
+  - name: polymer-predix-seed-develop
+    memory: 64M
+    buildpack: nodejs_buildpack
+    command: node server/app.js
+#services:
+ # - <your-name>-secure-uaa-instance
+ # - <your-name>-timeseries-instance
+ # - <your-name>-asset-instance
+env:
+    node_env: cloud
+    uaa_service_label : predix-uaa
+    # Add these values for authentication in the cloud
+    #clientId: {Enter client ID, e.g. app-client-id, and place it here}
+    #base64ClientCredential: dWFhLWNsaWVudC1pZDp1YWEtY2xpZW50LWlkLXNlY3JldA==

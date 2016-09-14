@@ -25,7 +25,7 @@ gulp.task('serve:start', getTask('serve.start'));
 // Task: Watch : Source, Public, All
 // -----------------------------------------------------------------------------
 gulp.task('watch:public', getTask('watch.public'));
-gulp.task('watch:all', ['watch:source', 'watch:public']);
+// gulp.task('watch:all', ['watch:source', 'watch:public']);
 
 // -----------------------------------------------------------------------------
 // Task: Exposes gulp test:local and gulp test:remote
@@ -36,4 +36,4 @@ require('web-component-tester')
 // -----------------------------------------------------------------------------
 //  Task: Default (compile source, start server, watch for changes)
 // -----------------------------------------------------------------------------
-gulp.task('default', ['compile:all', 'serve:start']);
+gulp.task('default', ['compile:all', 'serve:start', 'watch:public']);

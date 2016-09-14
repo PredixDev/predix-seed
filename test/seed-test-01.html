@@ -94,11 +94,6 @@
           assert(seedHeader !== null, '"header ge-svg-logo" path was not found');
         });
 
-        test('px-login component should exist and with correct config', function() {
-          var loginComponent = Polymer.dom(seedAppFixture.root).querySelector('px-login[login-url="login-demo.html"]');
-          assert(loginComponent !== null, 'px-login component was not found');
-        });
-
         test('Menu item for home should be configured correctly', function() {
           var homeView = Polymer.dom(seedAppFixture.root).querySelector('px-view[element-href="/elements/views/home-view.html"]');
           assert(homeView !== null, 'home menu navigation menu item was not found');
