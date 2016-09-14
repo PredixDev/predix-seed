@@ -11,7 +11,7 @@ function configurePassportStrategy(predixConfig) {
 	var refreshStrategy = new OAuth2RefreshTokenStrategy({
 		refreshWindow: 10, // Time in seconds to perform a token refresh before it expires
 		userProperty: 'ticket', // Active user property name to store OAuth tokens
-		authenticationURL: '/', // URL to redirect unathorized users to
+		authenticationURL: '/login', // URL to redirect unathorized users to
 		callbackParameter: 'callback' //URL query parameter name to pass a return URL
 	});
 
