@@ -4,7 +4,7 @@
     "clientId": "{UAA Client ID created}",
     "uaaURL": "{The UAA URI end point to get auth token }",
     "base64ClientCredential": "{Get clientID:clientSecret then base64 encode and place it here}",
-    "appUrl": "http://localhost:5000",
+    "appURL": "http://localhost:5000",
     "timeseriesURL": "{Time Series URL from VCAPS}",
     "timeseriesZoneId": "{The Zone ID for the Timeseries Service Created}",
     "assetURL": "{Asset URL from VCAPS}",
