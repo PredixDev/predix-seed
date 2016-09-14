@@ -2,6 +2,15 @@
 Dashboard Seed is an application that uses Px Web Components inside a [Polymer](https://www.polymer-project.org) web application.
 It runs on the [Express](http://expressjs.com/) web server.
 
+# What is the Polymer Seed App?
+The Polymer Seed App is a starter kit aimed to accelerate Predix web application development.   It provides fundamental code and examples on features such as branding, theming, layout, navigation, responsiveness, organization of views, data presentation and micro-services integration, to name some.  Predix web application projects can directly use or customize these pre-built features to achieve prototype or production state much faster than through building everything from scratch.  And while the seed app provides working examples on such features based on best practices, it also allows for their easy addition, omission or replacement.  This provides a framework that is both solid and flexible, and lets developers focus on implementing functionality, instead of having to make boilerplate concerns work.
+
+As its name indicates the Polymer Seed App is built on Polymer (www.polymer-project.org).  Based on web technology standards, Polymer aims to use native browser capabilities as much as possible over JavaScript implementations.  And where there are differences in what features browser brands currently offer, polyfills are provided towards consistent cross-browser behavior.  By adopting the Polymer strategy for the frontend the seed app ensures the highest consistency in application behavior across browsers, as well as compatibility with future standards.
+
+Much of the frontend components provided in Polymer Seed App are from Predix UI Components (http://predixdev.github.io/predix-ui/), which are also built on Polymer and web component technology.  These re-usable UI building blocks have been designed to provide for the most common user interface patterns.  Both built upon Polymer, the seed app and Px Components work together out-of-the-box.  Px Components can be used independently, or in combination with one another and with the Seed App.  This allows consistent behavior, look-and-feel, and high code re-use.
+
+The backend of the Polymer Seed App is implemented as a NodeJS/Express web server.  It presently includes a minimal set of public modules and a couple of Predix-specific modules for session and proxy concerns.  Similar to the frontend the backend code base is also highly-customizable, even replaceable by another server application, if so desired.  NodeJS (nodejs.org) is a server-side application framework based on JavaScript.  It enjoys strong growth and huge adoption in the Open-Source community.
+
 ## Getting Started
 
 ### Get the source code
