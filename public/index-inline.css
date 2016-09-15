@@ -249,34 +249,6 @@ pre {
      * Dark
      */
 @font-face {
-  font-family: "GE Inspira";
-  font-weight: normal;
-  font-style: normal;
-  src: url("/bower_components/px-typography-design/type/GEInspMd.eot");
-  src: url("/bower_components/px-typography-design/type/GEInspMd.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspMd.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspMd.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspMd.svg#GE Inspira") format("svg"); }
-
-@font-face {
-  font-family: "GE Inspira";
-  font-weight: normal;
-  font-style: italic;
-  src: url("/bower_components/px-typography-design/type/GEInspMdIt.eot");
-  src: url("/bower_components/px-typography-design/type/GEInspMdIt.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspMdIt.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspMdIt.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspMdIt.svg#GE Inspira") format("svg"); }
-
-@font-face {
-  font-family: "GE Inspira";
-  font-weight: bold;
-  font-style: normal;
-  src: url("/bower_components/px-typography-design/type/GEInspBd.eot");
-  src: url("/bower_components/px-typography-design/type/GEInspBd.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspBd.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspBd.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspBd.svg#GE Inspira") format("svg"); }
-
-@font-face {
-  font-family: "GE Inspira";
-  font-weight: bold;
-  font-style: italic;
-  src: url("/bower_components/px-typography-design/type/GEInspBI.eot");
-  src: url("/bower_components/px-typography-design/type/GEInspBI.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspBI.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspBI.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspBI.svg#GE Inspira") format("svg"); }
-
-@font-face {
   font-family: "GE Inspira Sans";
   font-weight: normal;
   font-style: normal;
@@ -335,9 +307,6 @@ pre {
 html {
   font-family: "GE Inspira Sans", sans-serif; }
 
-:host {
-  font-family: "GE Inspira Sans", sans-serif; }
-
 /**
  * Font weights
  */
@@ -349,6 +318,14 @@ html {
 
 .weight--semibold {
   font-weight: 600 !important; }
+
+/**
+ * the html and :host declarations cannot be adjacent to one other
+ * or cssmin will combine them into a single rule, breaking in
+ * Safari and Firefox.
+ */
+:host {
+  font-family: "GE Inspira Sans", sans-serif; }
 
 /* Text-level semantics
    ========================================================================== */
