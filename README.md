@@ -14,7 +14,9 @@ The backend of the Seed is now implemented as a NodeJS/Express web server.  It p
 ### Get the source code
 Make a directory for your project.  Clone or download and extract the seed in that directory.
 ```
-git clone https://github.com/PredixDev/predix-seed.git
+git clone https://github.com/PredixDev/predix-seed.git  
+cd predix-seed  
+checkout polymer-only  
 ```
 
 ### Install tools
