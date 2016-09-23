@@ -1,5 +1,5 @@
 #IMPORTANT ANNOUNCEMENT
-On or after September 30, 2016 "master" branch of this project will be replaced by a version with these main changes:  
+On or after September 30, 2016 the "master" branch of this project will be replaced by a version with these main changes:  
 
 - Fully Polymer-based implementation, including routing 
 - Removal of the AngularJS framework  
