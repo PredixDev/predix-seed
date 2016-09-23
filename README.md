@@ -1,3 +1,16 @@
+#IMPORTANT ANNOUNCEMENT
+On or after September 30, 2016 "develop" branch of this project will be replaced by a version with these main changes:  
+
+- Fully Polymer-based implementation, including routing 
+- Removal of the AngularJS framework  
+- Removal of dependencies on any services such as UAA, View-Service, and Redis  
+- Simplified examples  
+   
+The new "develop" branch will be based on the existing "polymer-only" branch.  The branch contained here will be moved to a branch called "angular-develop".  Please be advised accordingly, when you import code from this repository.
+  
+
+
+
 #Predix Experience Seed
 Dashboard Seed is an application that uses Px Web Components and <a href="https://github.com/PredixDev/px-library-design/" target="_blank">Px UI Elements</a> inside an Angular application.
 
