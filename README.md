@@ -6,7 +6,7 @@ On or after September 30, 2016 the "master" branch of this project will be repla
 - Removal of dependencies on any services such as UAA, View-Service, and Redis  
 - Simplified examples  
    
-The new master branch will be based on the existing "polymer-only" branch.  This branch will be moved to a branch called "angular-master".  Please be advised accordingly, when you import code from this repository.
+The new master branch will be based on the existing "polymer-only" branch.  The existing branch here will be moved to a branch called "angular-master".  Please be advised accordingly, when you import code from this repository.
   
 
 #Predix Experience Seed
