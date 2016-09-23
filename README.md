@@ -7,7 +7,7 @@ On or after September 30, 2016 "master" branch of this project will be replaced 
 - Simplified examples  
    
 The new master branch will be based on the existing "polymer-only" branch.  This branch will be moved to a branch called "angular-master".  Please be advised accordingly, when you import code from this repository.
-------------------------------------------------------------------------------------------------------------------------  
+  
 
 #Predix Experience Seed
 Dashboard Seed is an application that uses Px Web Components and <a href="https://github.com/PredixDev/px-library-design/" target="_blank">Px UI Elements</a> inside an Angular application.
