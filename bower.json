@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "es6-promise": "^3.3.1",
-    "lodash": "~4.15.0",
+    "lodash": "~4.16.2",
     "polymer": "^1.6.1",
     "iron-ajax": "~1.4.3",
     "iron-pages": "~1.0.8",
@@ -27,14 +27,14 @@
     "px-simple-bar-chart": "^1.6.2",
     "px": "^1.4.3",
     "px-app-nav": "^1.9.1",
-    "px-card": "^0.5.2",
+    "px-card": "^0.5.3",
     "px-context-browser": "^1.3.0",
     "px-deck-selector": "^1.5.0",
     "px-sample-cards": "^0.6.0",
     "px-theme": "^1.1.2",
-    "px-vis-timeseries": "^0.2.5",
-    "px-vis-xy-chart": "^0.0.12",
-    "px-view": "^0.5.0"
+    "px-vis-timeseries": "^0.3.0",
+    "px-vis-xy-chart": "^0.1.0",
+    "px-view": "^1.0.0"
   },
   "devDependencies": {
     "px-forms-design": "^0.3.17",
@@ -53,20 +53,5 @@
     "px-code-design": "^0.2.11",
     "px-headings-design": "^0.2.14",
     "px-buttons-design": "^0.4.26"
-  },
-  "resolutions": {
-    "px-overlay": "^0.3.0",
-    "px-theme": "^1.1.2",
-    "px-typography-design": "^1.1.1",
-    "px-tooltip": "vis-tooltip",
-    "px-datetime-common": "~0.6.1",
-    "px-rangepicker": "~1.2.1",
-    "px-datetime-range-field": "~0.4.1",
-    "px-datetime-field": "~0.5.0",
-    "px-datetime-range-panel": "~0.3.0",
-    "px-calendar-picker": "~0.4.0",
-    "px-dropdown": "~0.12.1",
-    "px-vis": "~0.3.0",
-    "polymer": "^1.6.1"
   }
 }
