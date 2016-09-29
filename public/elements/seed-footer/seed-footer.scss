@@ -29,23 +29,24 @@ $px-page-link-color: $gray5;
 
 .footer__container {
   height: 4em;
+  -ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+  align-items: center;
 }
 
 .footer__link {
   text-decoration: none;
 }
 
-.footer__divider {
-  color: white;
-  margin: 1em;
-}
-
-.footer__divider:last-of-type {
-  display: none;
+.list-inline--delimited > li:before {
+  color: $px-page-link-color;
 }
 
 // Trumps
 $inuit-enable-margins--small: true;
 $inuit-enable-margins--large: true;
+$inuit-enable-list-inline--delimited: true;
 
 @import "px-spacing-design/_trumps.spacing.scss";
+@import "px-list-inline-design/_objects.list-inline.scss";
