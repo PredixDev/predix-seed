@@ -512,17 +512,17 @@ a {
   font-family: "GE Inspira Sans", sans-serif; }
 
 .footer__container {
-  height: 4em; }
+  height: 4em;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  -ms-grid-row-align: center;
+      align-items: center; }
 
 .footer__link {
   text-decoration: none; }
 
-.footer__divider {
-  color: white;
-  margin: 1em; }
-
-.footer__divider:last-of-type {
-  display: none; }
+.list-inline--delimited > li:before {
+  color: #b1b1bc; }
 
 /**
  * Margin and padding helper classes. Use these to tweak layout on a micro
@@ -588,6 +588,20 @@ a {
 {
   margin-top: 1.33333rem !important;
   margin-bottom: 1.33333rem !important; }
+
+.list-inline {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  .list-inline > li {
+    display: inline-block; }
+
+/**
+     * Pipe delimited list to semantically mark up lists of tags, etc.
+     *
+     */
+.list-inline--delimited > li + li:before {
+  content: " | "; }
 
 </style>
 </template>

@@ -7,10 +7,15 @@
   <template>
     <style include="seed-footer-styles"></style>
     <div class="flex flex--center footer__container">
-      <template is="dom-repeat" items=[[footerLinks]]>
-        <a class="flex__item--middle footer__link" href$="[[item.href]]" target$="[[item.target]]">[[item.label]]</a>
-        <span class="flex__item--middle footer__divider">|</span>
-      </template>
+      <ul class="list-inline list-inline--delimited">
+        <template is="dom-repeat" items=[[footerLinks]]>
+        <li>
+          <a class="footer__link"
+             href$="[[item.href]]" target$="[[item.target]]">[[item.label]]
+          </a>
+        </li>
+        </template>
+    </ul>
     <div>
   </template>
   <script>
