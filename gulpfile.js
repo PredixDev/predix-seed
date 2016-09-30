@@ -25,7 +25,6 @@ gulp.task('serve:start', getTask('serve.start'));
 // Task: Watch : Source, Public, All
 // -----------------------------------------------------------------------------
 gulp.task('watch:public', getTask('watch.public'));
-// gulp.task('watch:all', ['watch:source', 'watch:public']);
 
 // -----------------------------------------------------------------------------
 // Task: Exposes gulp test:local and gulp test:remote
@@ -34,6 +33,13 @@ require('web-component-tester')
   .gulp.init(gulp);
 
 // -----------------------------------------------------------------------------
+// Task: Compile : Vulcanize, insert vulanized file into index.html for deploy
+// -----------------------------------------------------------------------------
+gulp.task('vulcanize:components', getTask('compile.vulcanize'));
+gulp.task('vulcanize:deploy', getTask('compile.switch.vulcanize.file'));
+gulp.task('vulcanize', ['vulcanize:components', 'vulcanize:deploy']);
+
+// -----------------------------------------------------------------------------
 //  Task: Default (compile source, start server, watch for changes)
 // -----------------------------------------------------------------------------
-gulp.task('default', ['compile:all', 'serve:start', 'watch:public']);
+gulp.task('default', ['compile:all', 'vulcanize', 'serve:start', 'watch:public']);
