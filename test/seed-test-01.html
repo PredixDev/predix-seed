@@ -39,11 +39,6 @@
           assert(Array.isArray(navItems), 'navItems object has incorrect type: ' + typeof navItems);
         });
 
-        test('loginMenuItems object should be of type Array', function() {
-          var loginMenuItems = seedAppFixture.properties.pxLoginMenuItems.value();
-          assert(Array.isArray(loginMenuItems), 'loginMenuItems object has incorrect type: ' + typeof loginMenuItems);
-        });
-
         test('footerLinks object should be of type Array', function() {
           var footerLinks = seedAppFixture.properties.footerLinks.value();
           assert(Array.isArray(footerLinks), 'footerLinks object has incorrect type: ' + typeof footerLinks);
