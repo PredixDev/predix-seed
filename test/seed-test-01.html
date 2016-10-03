@@ -39,11 +39,6 @@
           assert(Array.isArray(navItems), 'navItems object has incorrect type: ' + typeof navItems);
         });
 
-        test('loginMenuItems object should be of type Array', function() {
-          var loginMenuItems = seedAppFixture.properties.pxLoginMenuItems.value();
-          assert(Array.isArray(loginMenuItems), 'loginMenuItems object has incorrect type: ' + typeof loginMenuItems);
-        });
-
         test('footerLinks object should be of type Array', function() {
           var footerLinks = seedAppFixture.properties.footerLinks.value();
           assert(Array.isArray(footerLinks), 'footerLinks object has incorrect type: ' + typeof footerLinks);
@@ -67,14 +62,14 @@
           assert(appLocation !== null, 'app-location element was not found');
         });
 
-        test('There should be initially 4 app-route elements', function() {
+        test('There should be initially 2 app-route elements', function() {
           var appRoutes = Polymer.dom(seedAppFixture.root).querySelectorAll('app-route');
-          assert(appRoutes.length === 4, 'app-route is not exactly 4 instances');
+          assert(appRoutes.length === 2, 'app-route is not exactly 2 instances');
         });
 
-        test('There should be initially 4 px-view elements', function() {
+        test('There should be initially 2 px-view elements', function() {
           var pxViews = Polymer.dom(seedAppFixture.root).querySelectorAll('px-view');
-          assert(pxViews.length === 4, 'px-view is not exactly 4 instances');
+          assert(pxViews.length === 2, 'px-view is not exactly 2 instances');
         });
 
         test('There should be a main element', function() {
@@ -94,9 +89,9 @@
           assert(seedHeader !== null, '"header ge-svg-logo" path was not found');
         });
 
-        test('Menu item for home should be configured correctly', function() {
-          var homeView = Polymer.dom(seedAppFixture.root).querySelector('px-view[element-href="/elements/views/home-view.html"]');
-          assert(homeView !== null, 'home menu navigation menu item was not found');
+        test('Menu item for blank page should be configured correctly', function() {
+          var homeView = Polymer.dom(seedAppFixture.root).querySelector('px-view[element-href="/elements/views/blankpage-view.html"]');
+          assert(homeView !== null, 'blank page menu navigation menu item was not found');
         });
 
         test('Menu item for dashboard should be configured correctly', function() {
