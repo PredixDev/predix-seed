@@ -3,8 +3,8 @@
 // -------------------------------------
 //   Task: Compile: Inline Index Source
 // -------------------------------------
-var inlinesource = require('gulp-inline-source');
-var rename = require('gulp-rename');
+const inlinesource = require('gulp-inline-source');
+const rename = require('gulp-rename');
 
 module.exports = function(gulp) {
   return function() {

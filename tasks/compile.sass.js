@@ -3,9 +3,9 @@
 // -------------------------------------
 //   Task: Compile: Sass
 // -------------------------------------
-var stylemod = require('gulp-style-modules');
-var autoprefixer = require('gulp-autoprefixer');
-var path = require('path');
+const stylemod = require('gulp-style-modules');
+const autoprefixer = require('gulp-autoprefixer');
+const path = require('path');
 
 var getName = function(file) {
   return path.basename(file.path, path.extname(file.path));

@@ -3,9 +3,9 @@
 // -------------------------------------
 //   Task: Serve
 // -------------------------------------
-var nodemon = require('gulp-nodemon');
+const nodemon = require('gulp-nodemon');
 
-module.exports = function(gulp) {
+module.exports = function() {
   return function() {
     nodemon({
         script: 'server/app.js'
