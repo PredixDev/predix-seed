@@ -31,9 +31,6 @@ var uaaURL = (function() {
 	}
 	return uaaURL;
 }) ();
-console.log('clientId: ' + clientId);
-console.log('base64ClientCredential: ' + base64ClientCredential);
-console.log('uaaURL: ' + uaaURL);
 
 // Pass a VCAPS object here if desired, for local config.
 //  Otherwise, this module reads from VCAP_SERVICES environment variable.

@@ -19,6 +19,7 @@
     "polymer": "^1.6.1",
     "iron-ajax": "~1.4.3",
     "iron-pages": "~1.0.8",
+    "px-view": "https://github.com/PredixDev/px-view.git#~1.0.1",
     "q": "^1.0.0",
     "app-route": "PolymerElements/app-route#^0.9.1",
     "px-overlay": "^0.3.0",

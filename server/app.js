@@ -17,7 +17,7 @@ var proxy = require('./proxy'); // used when requesting data from real services.
 // get config settings from local file or VCAPS env var in the cloud
 var config = require('./predix-config');
 // configure passport for authentication with UAA
-var passportConfig = require('./passport-config');
+// var passportConfig = require('./passport-config');
 
 // if running locally, we need to set up the proxy from local config file:
 var node_env = process.env.node_env || 'development';
@@ -32,9 +32,9 @@ var uaaIsConfigured = config.clientId &&
     config.uaaURL &&
     config.uaaURL.indexOf('https') === 0 &&
     config.base64ClientCredential;
-if (uaaIsConfigured) {
-	passport = passportConfig.configurePassportStrategy(config);
-}
+// if (uaaIsConfigured) {
+// 	passport = passportConfig.configurePassportStrategy(config);
+// }
 
 /**********************************************************************
        SETTING UP EXRESS SERVER

@@ -1,15 +1,17 @@
+'use strict';
+
 // -------------------------------------
 //   Task: Serve
 // -------------------------------------
-var nodemon = require('gulp-nodemon');
+const nodemon = require('gulp-nodemon');
 
-module.exports = function(gulp, plugins) {
+module.exports = function() {
   return function() {
     nodemon({
         script: 'server/app.js'
       })
       .on('restart', function() {
-        console.log('app.js restarted')
+        console.log('app.js restarted');
       });
   };
 };
