@@ -66,7 +66,7 @@ var server = app.listen(process.env.VCAP_APP_PORT || 5000, function () {
 	console.log ('Server started on port: ' + server.address().port);
 });
 
-app.use(express.static(path.join(__dirname, '../dist')));
+app.use(express.static(path.join(__dirname, (node_env === 'development') ? '../public' : '../dist')));
 
 /*******************************************************
 SET UP MOCK API ROUTES
@@ -156,28 +156,28 @@ app.use(function(err, req, res, next) {
 });
 
 // development error handler - prints stacktrace
-// if (app.get('env') === 'development') {
-// 	app.use(function(err, req, res) {
-// 		if (!res.headersSent) {
-// 			res.status(err.status || 500);
-// 			res.send({
-// 				message: err.message,
-// 				error: err
-// 			});
-// 		}
-// 	});
-// }
+if (app.get('env') === 'development') {
+	app.use(function(err, req, res) {
+		if (!res.headersSent) {
+			res.status(err.status || 500);
+			res.send({
+				message: err.message,
+				error: err
+			});
+		}
+	});
+}
 
 // production error handler
 // no stacktraces leaked to user
-// app.use(function(err, req, res) {
-// 	if (!res.headersSent) {
-// 		res.status(err.status || 500);
-// 		res.send({
-// 			message: err.message,
-// 			error: {}
-// 		});
-// 	}
-// });
+app.use(function(err, req, res) {
+	if (!res.headersSent) {
+		res.status(err.status || 500);
+		res.send({
+			message: err.message,
+			error: {}
+		});
+	}
+});
 
 module.exports = app;
