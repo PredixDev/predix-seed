@@ -8,6 +8,6 @@
   "level": "site",
   "isOpenable": true,
   "meta": {
-    "parentId": "/enterprises/parent-asset"
+    "parentId": "child-asset"
   }
 }
