@@ -66,7 +66,7 @@ var server = app.listen(process.env.VCAP_APP_PORT || 5000, function () {
 	console.log ('Server started on port: ' + server.address().port);
 });
 
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../dist')));
 
 /*******************************************************
 SET UP MOCK API ROUTES
@@ -148,35 +148,36 @@ function ensureAuthenticated(req, res, next) {
 
 ////// error handlers //////
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function(err, req, res, next) {
+  console.error(err.stack);
 	var err = new Error('Not Found');
 	err.status = 404;
 	next(err);
 });
 
 // development error handler - prints stacktrace
-if (app.get('env') === 'development') {
-	app.use(function(err, req, res) {
-		if (!res.headersSent) {
-			res.status(err.status || 500);
-			res.send({
-				message: err.message,
-				error: err
-			});
-		}
-	});
-}
+// if (app.get('env') === 'development') {
+// 	app.use(function(err, req, res) {
+// 		if (!res.headersSent) {
+// 			res.status(err.status || 500);
+// 			res.send({
+// 				message: err.message,
+// 				error: err
+// 			});
+// 		}
+// 	});
+// }
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res) {
-	if (!res.headersSent) {
-		res.status(err.status || 500);
-		res.send({
-			message: err.message,
-			error: {}
-		});
-	}
-});
+// app.use(function(err, req, res) {
+// 	if (!res.headersSent) {
+// 		res.status(err.status || 500);
+// 		res.send({
+// 			message: err.message,
+// 			error: {}
+// 		});
+// 	}
+// });
 
 module.exports = app;
