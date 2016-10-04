@@ -20,12 +20,13 @@ var config = require('./predix-config');
 // var passportConfig = require('./passport-config');
 
 // if running locally, we need to set up the proxy from local config file:
-var node_env = process.env.node_env || 'development';
+var node_env = process.env.node_env || process.env.NODE_ENV || 'development';
 if (node_env === 'development') {
   var devConfig = require('./localConfig.json')[node_env];
 	proxy.setServiceConfig(config.buildVcapObjectFromLocalConfig(devConfig));
 	proxy.setUaaConfig(devConfig);
 }
+
 console.log('************'+node_env+'******************');
 
 var uaaIsConfigured = config.clientId &&
