@@ -3,6 +3,8 @@ const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')();
 const gulpSequence = require('gulp-sequence');
 
+var dev = process.argv.indexOf('--dev') >= 0;
+
 // -----------------------------------------------------------------------------
 // getTask() loads external gulp task script functions by filename
 // -----------------------------------------------------------------------------
@@ -20,7 +22,8 @@ gulp.task('compile:all', ['compile:sass', 'compile:index']);
 // -----------------------------------------------------------------------------
 // Task: Serve : Start
 // -----------------------------------------------------------------------------
-gulp.task('serve:start', getTask('serve.start'));
+gulp.task('serve:dev:start', getTask('serve.dev.start'));
+gulp.task('serve:dist:start', getTask('serve.dist.start'));
 
 // -----------------------------------------------------------------------------
 // Task: Watch : Source, Public, All
@@ -51,7 +54,7 @@ gulp.task('dist:clean', getTask('dist.clean'));
 // -----------------------------------------------------------------------------
 //  Task: Default (compile source, start server, watch for changes)
 // -----------------------------------------------------------------------------
-gulp.task('default', ['compile:all', 'serve:start', 'watch:public']);
+gulp.task('default', ['compile:all', (dev ? 'serve:dev:start' : 'serve:dist:start'), 'watch:public']);
 
 // -----------------------------------------------------------------------------
 //  Task: Dist (Build app ready for deployment)
