@@ -20,7 +20,7 @@ var config = require('./predix-config');
 // var passportConfig = require('./passport-config');
 
 // if running locally, we need to set up the proxy from local config file:
-var node_env = process.env.node_env || process.env.NODE_ENV || 'development';
+var node_env = process.env.node_env || 'development';
 if (node_env === 'development') {
   var devConfig = require('./localConfig.json')[node_env];
 	proxy.setServiceConfig(config.buildVcapObjectFromLocalConfig(devConfig));
@@ -157,8 +157,8 @@ app.use(function(err, req, res, next) {
 });
 
 // development error handler - prints stacktrace
-if (app.get('env') === 'development') {
-	app.use(function(err, req, res) {
+if (node_env === 'development') {
+	app.use(function(err, req, res, next) {
 		if (!res.headersSent) {
 			res.status(err.status || 500);
 			res.send({
@@ -171,7 +171,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res) {
+app.use(function(err, req, res, next) {
 	if (!res.headersSent) {
 		res.status(err.status || 500);
 		res.send({
