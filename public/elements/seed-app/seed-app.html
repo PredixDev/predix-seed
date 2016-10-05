@@ -23,13 +23,15 @@
     <style include="seed-app-styles"></style>
 
     <header role="banner" class="flex flex--middle">
-      <div class="viewport">
-        <h1>
+      <div class="viewport flex">
+        <h1 class="flex__item">
           <ge-svg-logo class="u-mr--"></ge-svg-logo> Seed Application
         </h1>
-        <h2 class="weight--normal float--right">
-          Powered by <predix-logo class="u-mr--"></predix-logo>
-        </h2>
+        <div class="flex__item">
+          <div class="flex" style="text-align:right;">
+            <h2 class="flex__item weight--normal">Powered by <predix-logo style="display:inline-block;" class="flex__item u-mr--"></predix-logo></h2>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -119,7 +121,7 @@
               "icon": "fa-file-o"
             }]
           }
-        }, 
+        },
 
         footerLinks: {
           type: Array,
