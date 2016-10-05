@@ -20,7 +20,7 @@ var config = require('./predix-config');
 // var passportConfig = require('./passport-config');
 
 // if running locally, we need to set up the proxy from local config file:
-var node_env = process.env.node_env || process.env.NODE_ENV || 'development';
+var node_env = process.env.node_env || 'development';
 if (node_env === 'development') {
   var devConfig = require('./localConfig.json')[node_env];
 	proxy.setServiceConfig(config.buildVcapObjectFromLocalConfig(devConfig));
@@ -66,8 +66,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 var server = app.listen(process.env.VCAP_APP_PORT || 5000, function () {
 	console.log ('Server started on port: ' + server.address().port);
 });
-
-app.use(express.static(path.join(__dirname, (node_env === 'development') ? '../public' : '../dist')));
+app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist')));
 
 /*******************************************************
 SET UP MOCK API ROUTES
@@ -157,8 +156,8 @@ app.use(function(err, req, res, next) {
 });
 
 // development error handler - prints stacktrace
-if (app.get('env') === 'development') {
-	app.use(function(err, req, res) {
+if (node_env === 'development') {
+	app.use(function(err, req, res, next) {
 		if (!res.headersSent) {
 			res.status(err.status || 500);
 			res.send({
@@ -171,7 +170,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res) {
+app.use(function(err, req, res, next) {
 	if (!res.headersSent) {
 		res.status(err.status || 500);
 		res.send({
