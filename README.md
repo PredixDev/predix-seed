@@ -1,9 +1,9 @@
-# Predix Seed 2.0 - Polymer Seed
+# Predix UI Seed
 
-## What is the Polymer Seed?
-The Polymer Seed ("Seed") is a web application starter kit aimed to accelerate Predix application development.   It comes in the form of a simple web application, with code examples on features such as branding, theming, layout, navigation, responsiveness, organization of views, data presentation and micro-services integration, to name some.  These working code samples can be straightforwardly customized and adapted to specific application needs. Predix application projects can directly use, remove from or add to these features to achieve prototype or production state much faster than through building everything from scratch.  This speeds up application development, letting developers focus on functionality, instead of having to make boilerplate concerns work.
+## What is the Predix UI Seed?
+The Predix UI Seed ("Seed") is a web application starter kit aimed to accelerate Predix application development.   It comes in the form of a simple web application, with code examples on features such as branding, theming, layout, navigation, responsiveness, organization of views, data presentation and micro-services integration, to name some.  These working code samples can be straightforwardly customized and adapted to specific application needs. Predix application projects can directly use, remove from or add to these features to achieve prototype or production state much faster than through building everything from scratch.  This speeds up application development, letting developers focus on functionality, instead of having to make boilerplate concerns work.
 
-As its name indicates the Polymer Seed is built on [Polymer](http://www.polymer-project.org).  Based on the [Web Component API](https://developer.mozilla.org/en-US/docs/Web/Web_Components), Polymer is a component framework that prefers the browser's native capabilities over HTML and JavaScript enhancements, wherever possible.  And where there are differences in currently available features, polyfills are provided towards consistent cross-browser behavior.  By adopting the Polymer strategy the Seed ensures high consistency of application behavior across browsers, and the best chances of compatibility with future browser versions.
+As its name indicates the Seed is built on [Polymer](http://www.polymer-project.org).  Based on the [Web Component API](https://developer.mozilla.org/en-US/docs/Web/Web_Components), Polymer is a component framework that prefers the browser's native capabilities over HTML and JavaScript enhancements, wherever possible.  And where there are differences in currently available features, polyfills are provided towards consistent cross-browser behavior.  By adopting the Polymer strategy the Seed ensures high consistency of application behavior across browsers, and the best chances of compatibility with future browser versions.
 
 Most of the frontend components provided in the Seed are from [Predix UI Components](http://predixdev.github.io/predix-ui/), which are also built on Polymer.  These re-usable UI building blocks have been researched and designed to address the most common UI patterns.  Both built upon Polymer, the Seed and Px Components work together out-of-the-box.  Px Components can be used independently, or in combination with one another and with the Seed.  This achieves consistent behavior, look-and-feel, and high code re-use.
 
@@ -46,11 +46,11 @@ Later you can connect your app to real instances of these services.
 ## Running in Predix Cloud
 With a few commands you can build a distribution version of the app, and deploy it to the cloud.
 
-### Create a dist version
-Use gulp to create a distribution version of your app.
-You will need to run this command during development every time before you cf push to make the latest dist.
+### Create a distribution version
+Use gulp to create a distribution version of your app, which contains vulcanized files for more efficient serving.
+You will need to run this command every time before you deploy to the Cloud.
 ```
-gulp compile:all
+gulp dist
 ```
 
 ### Deploy to the cloud
@@ -59,7 +59,7 @@ Then deploy your app using this command:
 ```
 cf push my-seed-app
 ```
-You can give the app any unique name you like.  "my-seed-app" is just an example.
+You can give the app any unique name you like.  In the above, "my-seed-app" is just an example.
 
 ## Push to the cloud
 Now that you have the required services created, we can configure our web app to use them.
@@ -72,7 +72,7 @@ Now that you have the required services created, we can configure our web app to
 	```
 	---
 	applications:
-	  - name: polymer-predix-seed-sysint
+	  - name: predix-ui-seed
 	    memory: 64M
 	    buildpack: nodejs_buildpack
 	    command: node server/app.js
