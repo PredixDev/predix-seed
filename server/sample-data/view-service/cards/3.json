@@ -1,0 +1,12 @@
+{
+  "id": 3,
+  "title": "Data Table Card",
+  "slug": "data-table-card",
+  "attributes": {
+    "elementHref": "/elements/data-table-card/data-table-card.html",
+    "dataUrl": "/api/time-series/datagrid/1",
+    "headerText": "HRSG Unit Data"
+  },
+  "createTimeStamp": "2015-11-24T23:02:53.816Z",
+  "tags": []
+}

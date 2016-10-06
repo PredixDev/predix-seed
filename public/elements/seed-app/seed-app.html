@@ -1,0 +1,175 @@
+<!-- import polymer -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<!-- import page level css -->
+<link rel="import" href="seed-app-styles.html">
+
+<!-- app route -->
+<link rel="import" href="../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+
+<!-- px components -->
+<link rel="import" href="../../bower_components/px-app-nav/px-app-nav.html">
+<link rel="import" href="../../bower_components/px-view/px-view.html">
+
+<link rel="import" href="../ge-svg-logo/ge-svg-logo.html">
+<link rel="import" href="../predix-logo/predix-logo.html">
+<link rel="import" href="../seed-footer/seed-footer.html">
+
+<dom-module id="seed-app">
+  <template>
+
+    <!-- apply imported seed app style module -->
+    <style include="seed-app-styles"></style>
+
+    <header role="banner" class="flex flex--middle">
+      <div class="viewport flex">
+        <h1 class="flex__item">
+          <ge-svg-logo class="u-mr--"></ge-svg-logo> Seed Application
+        </h1>
+        <div class="flex__item">
+          <div class="flex" style="text-align:right;">
+            <h2 class="flex__item weight--normal">Powered by <predix-logo style="display:inline-block;" class="flex__item u-mr--"></predix-logo></h2>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="viewport">
+
+      <div class="content-wrapper">
+        <px-app-nav
+          class="navbar"
+          nav-items="[[navItems]]"
+          path-prefix="[[pathPrefix]]">
+        </px-app-nav>
+
+        <main class="u-pt-- u-pr-- u-pl--" role="main">
+
+          <!-- app-location captures url and assigns _route value -->
+          <app-location
+            id="carbonLocation"
+            route="{{_route}}"
+            use-hash-as-path>
+          </app-location>
+
+          <!-- /dashboards rotue and view -->
+          <app-route
+            route="[[_route]]"
+            pattern="/dashboards"
+            active="{{_dashboardsActive}}">
+          </app-route>
+
+          <px-view
+            active="[[_dashboardsActive]]"
+            element-href="/elements/views/dashboards-view.html">
+          </px-view>
+
+          <!-- /blankpage route and view -->
+          <app-route
+            route="[[_route]]"
+            pattern="/blankpage"
+            active="{{_blankpageActive}}">
+          </app-route>
+          <px-view
+            active="[[_blankpageActive]]"
+            element-href="/elements/views/blankpage-view.html">
+          </px-view>
+
+        </main>
+
+      </div>
+    </div>
+
+    <seed-footer footer-links='[[footerLinks]]'></seed-footer>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'seed-app',
+
+      properties: {
+
+
+        routesActive: {
+          type: Boolean,
+          value: false
+        },
+
+        //Global application object
+        global: {
+          type: Object,
+          value: function() {
+            return {
+              version: '1.0',
+              name: 'Predix UI Seed',
+              session: {}
+            }
+          }
+        },
+
+        navItems: {
+          type: Array,
+          value: function() {
+            return [{
+              "label": "Dashboards",
+              "path": "/dashboards",
+              "icon": "fa-tachometer"
+            }, {
+              "label": "Blank Page",
+              "path": "/blankpage",
+              "icon": "fa-file-o"
+            }]
+          }
+        },
+
+        footerLinks: {
+          type: Array,
+          value: function() {
+            return [{
+              "label": "Privacy",
+              "href": "http://www.ge.com/privacy",
+              "target": "_blank"
+            }, {
+              "label": "Terms",
+              "href": "http://www.ge.com/terms",
+              "target": "_blank"
+            }, {
+              "label": "Site Map",
+              "href": "http://www.ge.com/terms",
+              "target": "_blank"
+            }, {
+              "label": "Contact Us",
+              "href": "http://www.ge.com/contact/general",
+              "target": "_blank"
+            }, {
+              "label": "Accessibility",
+              "href": "http://www.ge.com/accessibility",
+              "target": "_blank"
+            }
+          ]
+          }
+        },
+
+        // Sets app default base URL for client-side routing
+        pathPrefix: {
+          type: String,
+          value: '#'
+        }
+      },
+
+      ready: function(){
+        this._checkForDefaultRoute();
+      },
+
+      _checkForDefaultRoute: function() {
+        // set default route to /dashboards
+        var l = window.location;
+        if((l.hash === "#/" || l.hash === "") && l.pathname === "/") {
+          l.hash = "/dashboards";
+        }
+      }
+
+    });
+  </script>
+</dom-module>

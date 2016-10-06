@@ -1,0 +1,10 @@
+{
+  "id": 2,
+  "title": "Three widgets card",
+  "slug": "three-widgets-card",
+  "attributes": {
+    "elementHref": "/elements/three-widgets-card/three-widgets-card.html"
+  },
+  "createTimeStamp": "2015-11-24T23:02:53.816Z",
+  "tags": []
+}

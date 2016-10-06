@@ -1,13 +1,16 @@
 ---
 applications:
-  - name: predix-seed
-    buildpack: predix_openresty_buildpack
-    path: dist
+  - name: predix-ui-seed
     memory: 64M
-    stack: cflinuxfs2
-    services:
-            - your_redis_instance # change this to your redis service instance name
-            - your_view_service_instance # change this to your view service instance name
-    env:
-      UAA_SERVER_URL: https://your-uaa-instance.grc-apps.svc.ice.ge.com # change to your UAA instance url
-      REDIS: redis
+    buildpack: nodejs_buildpack
+    command: node server/app.js
+#services:
+ # - <your-name>-secure-uaa-instance
+ # - <your-name>-timeseries-instance
+ # - <your-name>-asset-instance
+env:
+    node_env: cloud
+    uaa_service_label : predix-uaa
+    # Add these values for authentication in the cloud
+    #clientId: {Enter client ID, e.g. app-client-id, and place it here}
+    #base64ClientCredential: dWFhLWNsaWVudC1pZDp1YWEtY2xpZW50LWlkLXNlY3JldA==

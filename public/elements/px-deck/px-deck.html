@@ -1,0 +1,57 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/px-view/px-view.html">
+
+<dom-module id="px-deck">
+
+  <template>
+    <template id="cards" is="dom-repeat" items="[[_cards]]" filter="_filterCards">
+      <px-view
+        id="[[item.id]]"
+        active
+        element-href="[[item.attributes.elementHref]]"
+        element-data="[[item]]"></px-view>
+    </template>
+  </template>
+
+  <!-- include lodash utility library -->
+  <script src="../../bower_components/lodash/dist/lodash.min.js"></script>
+
+  <script>
+    Polymer({
+
+      is: 'px-deck',
+
+      properties: {
+        deckData: {
+          type: Object,
+          observer: '_refreshFilter'
+        },
+        // cards: [{card},{card}] updated on deckData change
+        _cards: {
+          type: Array,
+          computed: '_computeCards(deckData)',
+          observer: '_refreshFilter'
+        }
+      },
+
+      _refreshFilter: function() {
+        this.$.cards.render();
+      },
+
+      _cardIsVisible: function(card) {
+        var includes = _.includes(this._cards, card);
+        return includes;
+      },
+
+      _filterCards: function(card) {
+        return this._cardIsVisible(card);
+      },
+
+      _computeCards: function() {
+        return this.deckData.cards || [];
+      }
+
+    });
+  </script>
+</dom-module>

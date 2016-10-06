@@ -1,0 +1,18 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/px-sample-cards/blank-card.html">
+<dom-module id="blankpage-view">
+  <template>
+    <blank-card id="myCard">
+      An example of a blank card without any content (except for this brief description).  Replace this with the actual content for your application.
+    </blank-card>
+  </template>
+  <script>
+    Polymer({
+      is: 'blankpage-view',
+      properties: {},
+      ready: function() {
+        console.log('blankpage-view ready()')
+      }
+    });
+  </script>
+</dom-module>
