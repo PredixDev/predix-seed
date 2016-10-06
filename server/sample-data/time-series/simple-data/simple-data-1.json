@@ -1,0 +1,19 @@
+{
+  "id": 1,
+  "data": {
+    "name": "Open Cases by Weekday",
+    "labels": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "values": [2, 5.2, 6, 6.7, 3, 3.7, 4.5],
+    "max": 10,
+    "min": 0,
+    "threshold": 5.9
+  }
+}

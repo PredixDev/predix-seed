@@ -1,0 +1,11 @@
+{
+  "id": 3,
+  "title": "Detail View",
+  "slug": "detail-view",
+  "cardOrder": null,
+  "createTimeStamp": "2016-08-31T23:02:53.838Z",
+  "tags": [{
+    "id": 3,
+    "value": "child-asset"
+  }]
+}

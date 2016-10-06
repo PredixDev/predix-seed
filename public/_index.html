@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Predix UI Seed</title>
+  <base href="/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+
+  <!-- inline CSS for splash screen -->
+  <link rel="stylesheet" type="text/css" href="index-inline.css" inline>
+  <link rel="import" href="../bower_components/px-theme/px-theme-styles.html">
+  <style include="px-theme-styles" is="custom-style"></style>
+
+  <script>
+    // Setup Polymer options
+    window.Polymer = {
+      // lazyRegister: true, // lazyRegister: true is necessary for px-view
+      // dom: 'shadow' // default to shadow-dom with shady-dom fall-back
+    };
+  </script>
+
+  <!-- Async HTML Imports do not block rending. Benefit of keeping it declarative
+      (instead of dynamically loading it later in JS) is that the parser can go to
+      town pre-fetching resources, etc. -->
+  <link
+    id="main-element-import"
+    rel="import"
+    href="/elements/seed-app/seed-app.html"
+    async>
+
+</head>
+<!--
+  'loading' class on <body> avoids "Flash of Unstyled Concent"
+   and a "Flash of No Content"
+-->
+<body class="loading">
+
+  <!-- #splash div outside of Polymer/imports and styled by the main page.
+       First paint is instant, even on polyfilled browsers. -->
+  <div id="splash"></div>
+
+  <!-- Elements wait on the page and are upgraded after elements.html is loaded. -->
+  <seed-app></seed-app>
+
+  <!-- Inline script to load app and remove splash screen
+       Gulp will inline this script via the compile.index task -->
+  <script src="_index-inline-loading-script.js" inline></script>
+
+</body>
+</html>

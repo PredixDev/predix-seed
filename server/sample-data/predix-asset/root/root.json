@@ -1,0 +1,16 @@
+{
+  "id": "root",
+  "data": [{
+    "id": "parent-asset",
+    "name": "Parent Asset",
+    "parent": "/parent-asset",
+    "parentId": "/parent-asset",
+    "description": "Parent Asset Description",
+    "uri": "/enterprises/parent-asset",
+    "level": "enterprise",
+    "isOpenable": true
+  }],
+  "meta": {
+    "parentId": null
+  }
+}

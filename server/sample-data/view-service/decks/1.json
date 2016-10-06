@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "title": "Overview",
+  "slug": "overview",
+  "cardOrder": null,
+  "createTimeStamp": "2015-11-24T23:02:53.838Z",
+  "tags": [{
+    "id": 1,
+    "value": "parent-asset"
+  }]
+}

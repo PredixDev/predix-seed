@@ -8,3 +8,7 @@ dist/www
 .idea
 npm-debug.log
 *.log
+.DS_Store
+temp
+dist/
+.github/

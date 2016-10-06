@@ -1,0 +1,10 @@
+{
+  "id": 6,
+  "title": "Bar Chart",
+  "slug": "bar-chart-card",
+  "attributes": {
+    "elementHref": "/elements/bar-chart-card/bar-chart-card.html"
+  },
+  "createTimeStamp": "2016-08-31T23:02:53.816Z",
+  "tags": []
+}

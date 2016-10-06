@@ -1,0 +1,31 @@
+// Settings
+@import "px-colors-design/_settings.colors.scss";
+
+// Generic
+@import "px-normalize-design/_generic.normalize.scss";
+@import "px-box-sizing-design/_generic.box-sizing.scss";
+@import "px-helpers-design/_generic.helpers.scss";
+
+// Base
+$inuit-heading-size-5       : 16px;
+
+@import "px-flexbox-design/_base.flexbox.scss";
+@import "px-viewport-design/_base.viewport.scss";
+@import "px-headings-design/_base.headings.scss";
+
+// Objects
+
+// Component
+
+.large-value {
+  @include inuit-font-size(30px);
+}
+
+// Trumps
+$inuit-enable-margins--small       : true;
+$inuit-enable-margins--large       : true;
+@import "px-spacing-design/_trumps.spacing.scss";
+
+@import "inuit-clearfix/_trumps.clearfix.scss";
+@import "px-spacing-responsive-design/_trumps.spacing-responsive.scss";
+@import "px-widths-responsive-design/_trumps.widths-responsive.scss";
