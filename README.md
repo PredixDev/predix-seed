@@ -18,7 +18,6 @@ Make a directory for your project.  Clone or download and extract the seed in th
 ```
 git clone https://github.com/PredixDev/predix-seed.git  
 cd predix-seed  
-checkout polymer-only  
 ```
 
 ### Install tools
