@@ -1,5 +1,9 @@
 # Predix UI Seed
 
+### IMPORTANT NOTE
+
+On October 6, 2016 this project was switched to a new, simplified implementation that includes using Polymer instead of AngularJS and removes dependencies on micro-services.  For the previous implementation in AngularJS please refer to the 'develop-angular' and/or 'master-angular' branches.
+
 ## What is the Predix UI Seed?
 The Predix UI Seed ("Seed") is a web application starter kit aimed to accelerate Predix application development.   It comes in the form of a simple web application, with code examples on features such as branding, theming, layout, navigation, responsiveness, organization of views, data presentation and micro-services integration, to name some.  These working code samples can be straightforwardly customized and adapted to specific application needs. Predix application projects can directly use, remove from or add to these features to achieve prototype or production state much faster than through building everything from scratch.  This speeds up application development, letting developers focus on functionality, instead of having to make boilerplate concerns work.
 
@@ -18,7 +22,6 @@ Make a directory for your project.  Clone or download and extract the seed in th
 ```
 git clone https://github.com/PredixDev/predix-seed.git  
 cd predix-seed  
-checkout polymer-only  
 ```
 
 ### Install tools
