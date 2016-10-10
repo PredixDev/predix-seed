@@ -122,8 +122,8 @@ if (uaaIsConfigured) {
 app.get('/logout', function(req, res) {
 	req.session.destroy();
 	req.logout();
-	passportConfig.reset(); //reset auth tokens
-	res.redirect('/');
+  passportConfig.reset(); //reset auth tokens
+  res.redirect(config.uaaURL + '/logout?redirect=' + config.appURL);
 });
 
 app.get('/favicon.ico', function (req, res) {
