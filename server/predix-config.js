@@ -18,6 +18,7 @@ if(node_env === 'development') {
 	settings.clientId = devConfig.clientId;
 	settings.uaaURL = devConfig.uaaURL;
 	settings.tokenURL = devConfig.uaaURL;
+	settings.appURL = devConfig.appURL;
 	settings.callbackURL = devConfig.appURL + '/callback';
 
 	settings.assetURL = devConfig.assetURL;
@@ -47,7 +48,8 @@ if(node_env === 'development') {
 
 	// read VCAP_APPLICATION
 	var vcapsApplication = JSON.parse(process.env.VCAP_APPLICATION);
-	settings.callbackURL = 'https://' + vcapsApplication.uris[0] + '/callback';
+	settings.appURL = 'https://' + vcapsApplication.uris[0];
+	settings.callbackURL = settings.appURL + '/callback';
 	settings.base64ClientCredential = process.env.base64ClientCredential;
 	settings.clientId = process.env.clientId;
 }
