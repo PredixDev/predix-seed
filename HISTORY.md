@@ -1,3 +1,10 @@
+v3.0.1
+===================
+* added the import once command to sass to avoid import loop.
+
+v3.0.0
+===================
+* released Polymer Only seed
 v1.4.2
 ===================
 * Fix dist build issue stalling on promise polyfill.

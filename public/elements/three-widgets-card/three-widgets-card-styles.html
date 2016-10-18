@@ -202,7 +202,7 @@ pre {
   overflow: auto; }
 
 /**
- * Set the global `box-sizing` state to `border-box`.
+ * Sets the global `box-sizing` state to `border-box`.
  *
  * css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
  * paulirish.com/2012/box-sizing-border-box-ftw
@@ -231,47 +231,6 @@ html {
  * A lot of these classes carry `!important` as you will always want them to win
  * out over other selectors.
  */
-/*------------------------------------*    #PX-COLORS-DESIGN
-\*------------------------------------*/
-/**
- * Brand Colors
- */
-/**
-     * Primary
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
-/**
- * Monochromatic (gray10 is darkest, gray1 is lightest)
- */
-/**
- * Define grey = gray to avoid dev typos
- */
-/**
- * Buttons
- */
-/**
- * Selection
- */
-/**
- * Alerts
- */
-/**
- * Data Visualization
- */
-/**
-     * Basic
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
 /* Links
    ========================================================================== */
 /**
@@ -332,6 +291,12 @@ a {
   cursor: help !important; }
 
 /**
+ * Add a pointer cursor to any element, useful for on-click events
+ */
+.pointer {
+  cursor: pointer !important; }
+
+/**
  * Mute an object by reducing its opacity.
  */
 .muted {
@@ -340,7 +305,7 @@ a {
 /**
  * Align items to the right where they imply progression/movement forward, e.g.:
  *
-   <p class=proceed><a href=#>Read more...</a></p>
+ * <p class=proceed><a href=#>Read more...</a></p>
  *
  */
 .proceed {
@@ -724,75 +689,9 @@ a {
  * `.u-[breakpoint]-(m|p)(t|r|b|l|h|v)(-|+|0) {}` = utility - breakpoint - margin/padding top/right/bottom/left/horizontal/vertical less/more/none
  */
 /**
- * Margin and padding helper classes. Use these to tweak layout on a micro
- * level.
- *
- * `.u-(m|p)(t|r|b|l|h|v)(-|+|0) {}` = utility - margin/padding top/right/bottom/left/horizontal/vertical less/more/none
- */
-/**
-     * Add small margins.
-     */
-.u-m- {
-  margin: 0.66667rem !important; }
-
-.u-mt- {
-  margin-top: 0.66667rem !important; }
-
-.u-mr- {
-  margin-right: 0.66667rem !important; }
-
-.u-mb- {
-  margin-bottom: 0.66667rem !important; }
-
-.u-ml- {
-  margin-left: 0.66667rem !important; }
-
-.u-mh- {
-  margin-right: 0.66667rem !important;
-  margin-left: 0.66667rem !important; }
-
-.u-mv- {
-  margin-top: 0.66667rem !important;
-  margin-bottom: 0.66667rem !important; }
-
-/**
-     * Add large margins.
-     */
-.u-m\00002b
-{
-  margin: 1.33333rem !important; }
-
-.u-mt\00002b
-{
-  margin-top: 1.33333rem !important; }
-
-.u-mr\00002b
-{
-  margin-right: 1.33333rem !important; }
-
-.u-mb\00002b
-{
-  margin-bottom: 1.33333rem !important; }
-
-.u-ml\00002b
-{
-  margin-left: 1.33333rem !important; }
-
-.u-mh\00002b
-{
-  margin-right: 1.33333rem !important;
-  margin-left: 1.33333rem !important; }
-
-.u-mv\00002b
-{
-  margin-top: 1.33333rem !important;
-  margin-bottom: 1.33333rem !important; }
-
-/**
  * A series of width helper classes that you can use to size things like grid
  * systems. Classes can take a fraction-like format (e.g. `.u-2/3`) or a spoken-
  * word format (e.g. `.u-2-of-3`).
- *
  */
 .u-1\/1 {
   width: 100% !important; }

@@ -52,47 +52,6 @@
  * A lot of these classes carry `!important` as you will always want them to win
  * out over other selectors.
  */
-/*------------------------------------*    #PX-COLORS-DESIGN
-\*------------------------------------*/
-/**
- * Brand Colors
- */
-/**
-     * Primary
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
-/**
- * Monochromatic (gray10 is darkest, gray1 is lightest)
- */
-/**
- * Define grey = gray to avoid dev typos
- */
-/**
- * Buttons
- */
-/**
- * Selection
- */
-/**
- * Alerts
- */
-/**
- * Data Visualization
- */
-/**
-     * Basic
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
 /* Links
    ========================================================================== */
 /**
@@ -153,6 +112,12 @@ a {
   cursor: help !important; }
 
 /**
+ * Add a pointer cursor to any element, useful for on-click events
+ */
+.pointer {
+  cursor: pointer !important; }
+
+/**
  * Mute an object by reducing its opacity.
  */
 .muted {
@@ -161,7 +126,7 @@ a {
 /**
  * Align items to the right where they imply progression/movement forward, e.g.:
  *
-   <p class=proceed><a href=#>Read more...</a></p>
+ * <p class=proceed><a href=#>Read more...</a></p>
  *
  */
 .proceed {
@@ -447,47 +412,6 @@ a {
   .list-inline > li {
     display: inline-block; }
 
-/*------------------------------------*    #PX-COLORS-DESIGN
-\*------------------------------------*/
-/**
- * Brand Colors
- */
-/**
-     * Primary
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
-/**
- * Monochromatic (gray10 is darkest, gray1 is lightest)
- */
-/**
- * Define grey = gray to avoid dev typos
- */
-/**
- * Buttons
- */
-/**
- * Selection
- */
-/**
- * Alerts
- */
-/**
- * Data Visualization
- */
-/**
-     * Basic
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
 .list-ui,
 .list-ui__item,
 .list-ui > li {
@@ -583,20 +507,6 @@ a {
 {
   margin-top: 1.33333rem !important;
   margin-bottom: 1.33333rem !important; }
-
-.list-inline {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-  .list-inline > li {
-    display: inline-block; }
-
-/**
-     * Pipe delimited list to semantically mark up lists of tags, etc.
-     *
-     */
-.list-inline--delimited > li + li:before {
-  content: " | "; }
 
 </style>
 </template>

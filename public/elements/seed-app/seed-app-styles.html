@@ -202,7 +202,7 @@ pre {
   overflow: auto; }
 
 /**
- * Set the global `box-sizing` state to `border-box`.
+ * Sets the global `box-sizing` state to `border-box`.
  *
  * css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
  * paulirish.com/2012/box-sizing-border-box-ftw
@@ -231,47 +231,6 @@ html {
  * A lot of these classes carry `!important` as you will always want them to win
  * out over other selectors.
  */
-/*------------------------------------*    #PX-COLORS-DESIGN
-\*------------------------------------*/
-/**
- * Brand Colors
- */
-/**
-     * Primary
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
-/**
- * Monochromatic (gray10 is darkest, gray1 is lightest)
- */
-/**
- * Define grey = gray to avoid dev typos
- */
-/**
- * Buttons
- */
-/**
- * Selection
- */
-/**
- * Alerts
- */
-/**
- * Data Visualization
- */
-/**
-     * Basic
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
 /* Links
    ========================================================================== */
 /**
@@ -332,6 +291,12 @@ a {
   cursor: help !important; }
 
 /**
+ * Add a pointer cursor to any element, useful for on-click events
+ */
+.pointer {
+  cursor: pointer !important; }
+
+/**
  * Mute an object by reducing its opacity.
  */
 .muted {
@@ -340,7 +305,7 @@ a {
 /**
  * Align items to the right where they imply progression/movement forward, e.g.:
  *
-   <p class=proceed><a href=#>Read more...</a></p>
+ * <p class=proceed><a href=#>Read more...</a></p>
  *
  */
 .proceed {
@@ -612,47 +577,6 @@ a {
   -ms-flex-item-align: baseline;
       align-self: baseline; }
 
-/*------------------------------------*    #PX-COLORS-DESIGN
-\*------------------------------------*/
-/**
- * Brand Colors
- */
-/**
-     * Primary
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
-/**
- * Monochromatic (gray10 is darkest, gray1 is lightest)
- */
-/**
- * Define grey = gray to avoid dev typos
- */
-/**
- * Buttons
- */
-/**
- * Selection
- */
-/**
- * Alerts
- */
-/**
- * Data Visualization
- */
-/**
-     * Basic
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
 code {
   font-size: 1rem;
   font-family: monospace, monospace; }
@@ -702,47 +626,6 @@ code {
   .list-inline > li {
     display: inline-block; }
 
-/*------------------------------------*    #PX-COLORS-DESIGN
-\*------------------------------------*/
-/**
- * Brand Colors
- */
-/**
-     * Primary
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
-/**
- * Monochromatic (gray10 is darkest, gray1 is lightest)
- */
-/**
- * Define grey = gray to avoid dev typos
- */
-/**
- * Buttons
- */
-/**
- * Selection
- */
-/**
- * Alerts
- */
-/**
- * Data Visualization
- */
-/**
-     * Basic
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
 .list-ui,
 .list-ui__item,
 .list-ui > li {
@@ -759,47 +642,6 @@ code {
   padding: 1rem;
   border-bottom-width: 1px; }
 
-/*------------------------------------*    #PX-COLORS-DESIGN
-\*------------------------------------*/
-/**
- * Brand Colors
- */
-/**
-     * Primary
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
-/**
- * Monochromatic (gray10 is darkest, gray1 is lightest)
- */
-/**
- * Define grey = gray to avoid dev typos
- */
-/**
- * Buttons
- */
-/**
- * Selection
- */
-/**
- * Alerts
- */
-/**
- * Data Visualization
- */
-/**
-     * Basic
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
 .btn {
   display: inline-block;
   overflow: visible;
@@ -831,9 +673,6 @@ code {
   .btn:active {
     outline: none; }
 
-/** Workaround for FF since it does not support calc().
-  * Other buttons appear ok with the height declaration, but non-button elements do not.
-**/
 @-moz-document url-prefix() {
   .btn:not(button) {
     line-height: 1.8em; } }
@@ -841,15 +680,9 @@ code {
 button.btn {
   -webkit-appearance: button; }
 
-/**
-* Establish default space between adjacent buttons
-*/
 .btn + .btn {
   margin-left: 0.66667rem; }
 
-/**
-   * Buttons with no styles (good a11y practice to use <button> for actions rather than <a>).
-   */
 .btn--bare {
   height: auto;
   border: 0;
@@ -958,47 +791,6 @@ button.btn {
   display: -ms-flexbox;
   display: flex; }
 
-/*------------------------------------*    #PX-COLORS-DESIGN
-\*------------------------------------*/
-/**
- * Brand Colors
- */
-/**
-     * Primary
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
-/**
- * Monochromatic (gray10 is darkest, gray1 is lightest)
- */
-/**
- * Define grey = gray to avoid dev typos
- */
-/**
- * Buttons
- */
-/**
- * Selection
- */
-/**
- * Alerts
- */
-/**
- * Data Visualization
- */
-/**
-     * Basic
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
 :root {
   --px-app-nav-background-color: #242326;
   --px-app-nav-link-text-color: white;
@@ -1474,7 +1266,6 @@ main {
  * A series of width helper classes that you can use to size things like grid
  * systems. Classes can take a fraction-like format (e.g. `.u-2/3`) or a spoken-
  * word format (e.g. `.u-2-of-3`).
- *
  */
 .u-1\/1 {
   width: 100% !important; }
