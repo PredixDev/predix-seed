@@ -1,5 +1,7 @@
 # Predix UI Seed Tutorial : User Authentication
 
+## IMPORTANT NOTE: THIS DOCUMENT IS CURRENTLY INCOMPLETE AND BEING ACTIVELY EDITED; IT SHOULD NOT BE USED UNTIL THIS NOTE IS REMOVED
+
 ## Introduction
 Web applications almost always involve information that is not for public consumption, and that should be access-controlled.  For this reason one of the most common features needed in a real-world web application is authentication.  Users of the application will need to login in order to access the information, and perform any further interaction.
 
@@ -7,12 +9,13 @@ This tutorial shows how to add authentication (login/logout) features to an inst
 
 
 ### Pre-Requisites
-Adding authentication for the Seed requires a running UAA service instance.  Please refer to this [link]() for information on setting up a UAA instance.  Once set up, note the URL to be used for the steps below.
+Adding authentication for the Seed requires a running UAA service instance.  Please refer to this [link]() for information on setting up a UAA instance.  Once the service is set up, note its URL, to be used for the steps below.
+
+For this tutorial, we are going to make a route within the Seed to be UAA-authenticated.  We will give the route the name '/secure'.
 
 ### Steps
-
 0. Install the Seed and have it running by following the steps in the README.
-1. With the Seed running locally, access the '/secure' route (For example: https://localhost:5000/secure).  You should see a page that says the site cannot be reached.  This is because the route has not yet been defined.
+1. With the Seed running locally, access the '/secure' route (For example: https://localhost:5000/secure).  You should see a page that says the site is unavailable ('cannot GET').  This is because the route has not been defined yet.
 2. Find the 'localConfig.json' file under the 'server' folder.  From this file locate the 3 configuration variables:
   - clientId
   - uaaURL
