@@ -27,7 +27,7 @@ For this tutorial, we are going to make a route within the Seed to be UAA-authen
   For UAA-based authentication (which is what we are using), use the value 'app_client_id'
   
   ### uaaURL
-  The URL of an existing UAA service.  For information on how to set up UAA service, please refer to the link above in Pre-Requisites
+  The URL of an existing UAA service.  For information on how to set up UAA service, please refer to the link above in Pre-Requisites section
   
   ### base64ClientCredential
   This is a Base64 encoding of the string 'app_client_id:<secret>', where 'app_client_id' is the string used for the first configuration variable, and <secret> is a string value of your choosing.  
