@@ -24,13 +24,13 @@ For this tutorial, we are going to make a route within the Seed to be UAA-authen
 3. Replace the values of these variables with the following:
 
   ### clientId
-  For UAA-based authentication (which is what we are using), use the value 'app_client_id'
+  For UAA-based authentication (which is what we are using), use the value '**app_client_id**'
   
   ### uaaURL
   The URL of an existing UAA service.  For information on how to set up UAA service, please refer to the link above in Pre-Requisites section
   
   ### base64ClientCredential
-  This is a Base64 encoding of the string 'app_client_id:<secret>', where 'app_client_id' is the string used for the first configuration variable, and <secret> is a string value of your choosing.  
+  This is a Base64 encoding of the string '**app_client_id**:<secret>', where '**app_client_id**' is the literal string used for the first configuration variable, and <secret> is a string value of your choosing.  
   
   In a Mac OS or Unix environment, you can get the value for base64ClientCredential by running this command (for example, using the literal 'secret' for the secret value:
     echo -n app_client_id:secret | base64
