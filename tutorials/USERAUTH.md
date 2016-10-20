@@ -5,4 +5,6 @@ Web applications almost always involve information that is not for public consum
 
 This tutorial shows how to add authentication (login/logout) features to an instance of the Predix UI Seed, specifically the type involving a separate authentication site/service such as UAA.
 
-TODO
+### Steps
+
+0. Install the Seed and have it running by following the steps in the README.
