@@ -5,7 +5,7 @@
 ## Introduction
 Real-world web applications almost always involve information that is access-controlled.  For this reason one of the most common features needed in a web application is authentication.  Users of an authenticated application will need to login in order to access the information, and perform any further interaction.
 
-This tutorial shows how to add authentication to an instance of the Predix UI Seed.  Specifically, we use a an authentication service that has its own page where the user is redirected to enter their credentials.
+This tutorial shows how to add authentication to an instance of the Predix UI Seed.  Specifically, we use an authentication service that has its own page where the user is redirected to enter their credentials.  Upon successful login, the user is redirected again to the Seed.  From there the user is able to further interact with the application until they decide to log out.
 
 
 ### Pre-Requisites
