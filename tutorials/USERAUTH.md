@@ -39,4 +39,10 @@ For this tutorial, we are going to make a route within the Seed to be UAA-authen
 
   In a Windows environment, the command 'certutil' can be used to generate the same value.  Please refer to this [link](https://technet.microsoft.com/en-us/library/cc732443\(v=ws.11\).aspx) to learn about the command.
   After running the command, copy the output (which should be a string) and paste it to the base64Credential variable in the configuration file.
-  
+
+4. Restart the local application and test the route
+
+
+5. Include the authentication feature in the distribution package
+
+6. 
