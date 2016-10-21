@@ -33,7 +33,10 @@ For this tutorial, we are going to make a route within the Seed to be UAA-authen
   This is a Base64 encoding of the string '**app_client_id**:\<secret\>', where '**app_client_id**' is the literal string used for the first configuration variable, and \<secret\> is a string value of your choosing.  
   
   In a Mac OS or Unix environment, you can get the value for base64ClientCredential by running this command (for example, using the literal 'secret' for the secret value:
+
+
     echo -n app_client_id:secret | base64
+
   In a Windows environment, the command 'certutil' can be used to generate the same value.  Please refer to this [link](https://technet.microsoft.com/en-us/library/cc732443\(v=ws.11\).aspx) to learn about the command.
   After running the command, copy the output (which should be a string) and paste it to the base64Credential variable in the configuration file.
   
