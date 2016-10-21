@@ -45,4 +45,13 @@ For this tutorial, we are going to make a route within the Seed to be UAA-authen
 
 5. Include the authentication feature in the distribution package
 
-6. 
+  Adding the same configuration for the deployed version of the application is done by putting the same 3 values in the deployment manifest file.
+  
+  After the changes are made to the manifest file, run the gulp distribution task
+  
+6. Test the authenticated routes
+
+7. Add authentication to the all routes in the application.
+
+8. Test the authentication for the entire application
+
