@@ -1,4 +1,4 @@
-# Predix UI Seed Tutorial : User Authentication
+# Tutorial : User Authentication
 
 #### IMPORTANT NOTE:
 **THIS DOCUMENT IS INCOMPLETE AND BEING ACTIVELY EDITED; IT SHOULD NOT BE USED UNTIL THIS NOTE IS REMOVED.**
