@@ -37,7 +37,7 @@ This tutorial requires a running UAA service instance.  Please refer to this [li
 
     *echo -n app_client_id:secret | base64*
 
-  In a Windows environment, the command [**certutil**](https://technet.microsoft.com/en-us/library/cc732443\(v=ws.11\).aspx) can be used to generate the same value.
+  In a Windows environment, [**certutil**](https://technet.microsoft.com/en-us/library/cc732443\(v=ws.11\).aspx) utility can be used to generate the same value.
   After running the above command in your chosen environment, copy the output (which should be a string) and paste it to the **base64Credential** variable in the configuration file.
 
   Here is an example of all three configuration variables in *server/localConfig.json* populated with their respective values :
