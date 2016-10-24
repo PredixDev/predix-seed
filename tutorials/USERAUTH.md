@@ -31,7 +31,7 @@ This tutorial requires a running UAA service instance.  Please refer to this [li
   This is the URL of an existing UAA service.  For information on how to set up UAA service, please refer to the link in the **Pre-Requisites** section.  With the service running and a set of credentials (user and password) in hand, use the service URL as the value for this variable.
   
   #### base64ClientCredential
-  This is a Base64 encoding of the string '*app_client_id*:*\<secret\>*', where '*app_client_id*' is the literal string used for the first configuration variable, and '*\<secret\>*' is a string value of your choosing.  
+  This is a [**Base64**](https://en.wikipedia.org/wiki/Base64) encoding of the string '*app_client_id*:*\<secret\>*', where '*app_client_id*' is the literal string used for the first configuration variable, and '*\<secret\>*' is a string value of your choosing.  
   
   In a Mac OS or Unix environment, you can get the value by running this command sequence (for example, using the string literal '*secret*' for the secret value:
 
