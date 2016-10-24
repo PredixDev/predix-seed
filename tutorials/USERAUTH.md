@@ -16,7 +16,7 @@ This tutorial requires a running UAA service instance.  Please refer to this [**
 
 ### Steps
 ### Configure for Authentication
-0. Install the Seed and have it running by following the steps in the **README** document of this project.
+0. Install the Seed and have it running locally by following the steps in the **README** document of this project.
 1. With the Seed running locally, access the */secure* route ( For example: *https://localhost:5000/secure* ).  You should see a page that says the site is unavailable ( browser shows page that says *cannot GET /secure* ).  This is because the route has not been defined yet.
 
 2. Find the *localConfig.json* file under the *server* folder.  From this file locate the 3 configuration variables:
