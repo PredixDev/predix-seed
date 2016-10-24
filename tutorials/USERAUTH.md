@@ -28,7 +28,7 @@ This tutorial requires a running UAA service instance.  Please refer to this [li
   For UAA-based authentication (which is what we are using), use the literal value '*app_client_id*'
   
   ### uaaURL
-  This is the URL of an existing UAA service.  For information on how to set up UAA service, please refer to the link above in **Pre-Requisites** section.  With the service running and a set of credentials (user and password) available, use its URL for this configuration variable.
+  This is the URL of an existing UAA service.  For information on how to set up UAA service, please refer to the link in the **Pre-Requisites** section.  With the service running and a set of credentials (user and password) in hand, use the service URL as the value for this variable.
   
   ### base64ClientCredential
   This is a Base64 encoding of the string '*app_client_id*:*\<secret\>*', where '*app_client_id*' is the literal string used for the first configuration variable, and '*\<secret\>*' is a string value of your choosing.  
