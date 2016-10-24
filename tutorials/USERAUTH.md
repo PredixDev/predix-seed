@@ -70,9 +70,9 @@ The previous sections show how authentication can be added to specific routes in
 
 Comment out this line in *server/app.js*:
 
-    ```
+   ```
     app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist')));
-    ```
+   ```
 
 In the same file insert this code inside the *if(uaaIsConfigured) {...}* block, as the last route definition:
 
