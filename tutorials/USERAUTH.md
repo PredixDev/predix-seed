@@ -1,8 +1,5 @@
 # Tutorial : User Authentication
 
-#### IMPORTANT NOTE:
-**THIS DOCUMENT IS INCOMPLETE AND BEING ACTIVELY EDITED; IT SHOULD NOT BE USED UNTIL THIS NOTE IS REMOVED.**
-
 ## Introduction
 Real-world web applications almost always involve controlling access to information.  For this reason one of the most needed features in a web application is authentication.  Authenticating users makes the application more secure by allowing only authorized users access specific features and information.
 
