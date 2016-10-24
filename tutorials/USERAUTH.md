@@ -55,7 +55,7 @@ This tutorial requires a running UAA service instance.  Please refer to this [li
 4. With the configurations in place, restart the local application.
 
 
-5. Access the */secure* route again, as in step 1 of the previous section.  Notice that the browser now returns a page that says  *Unauthorized*, instead of being unable to find that page (as in the previous section).  This is because that route has now been defined, as an authenticated route (other routes that have also been defined are */login*, */callback*, */predix-api* and */logout*).  At this point the browser is in the unauthenticated state, and accessing such routes is not allowed (with the exception of */login*, which redirects to the authentication service's page).
+5. Access the */secure* route again, as in step 1 of the previous section.  Notice that the browser now returns a page that says  *Unauthorized*, instead of being unable to find that page (as in the previous section).  This is because that route has now been defined, as an authenticated route (other routes that have also been defined are */login*, */callback*, */predix-api* and */logout*).  At this point the browser is in an unauthenticated state, and accessing such routes results in "Unauthorized" (with the exception of */login*, which redirects to the authentication service's page).
 
 6. Access the */login* route.  Notice that the browser is redirected to the login page of the authentication service.
 
