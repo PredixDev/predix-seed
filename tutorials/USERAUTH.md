@@ -64,13 +64,13 @@ For this tutorial, we are going to make any and all routes within the Seed appli
 ### Adding Authentication to All Routes
 The previous sections show how authentication can be added to selected routes in the application.  Oftentimes, all routes need to be placed beyond authentication.  To achieve this, follow these steps:
 
-10. Comment out this line in *server/app.js*:
+1. Comment out this line in *server/app.js*:
 
 ```
 app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist')));
 ```
 
-11. Insert this code block inside the *if(uaaIsConfigured) {...* block, as the last route definition:
+2. Insert this code block inside the *if(uaaIsConfigured) {...* block, as the last route definition:
 
 ```
   app.get('/', passport.authenticate('main', {
@@ -80,7 +80,7 @@ app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.en
   );
 ```
 
-12. Restart the application
+3. Restart the application
 
 Include the authentication feature in the distribution package
 
