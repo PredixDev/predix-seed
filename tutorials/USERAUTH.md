@@ -40,12 +40,12 @@ For this tutorial, we are going to make a route within the Seed application to b
   In a Windows environment, the command **certutil** can be used to generate the same value.  Please refer to this [link](https://technet.microsoft.com/en-us/library/cc732443\(v=ws.11\).aspx) to learn about thiscommand.
   After running the above command in your chosen environment, copy the output (which should be a string) and paste it to the **base64Credential** variable in the configuration file.
 
-  Here is an example of all the configuration variables populated with values:
+  Here is an example of all the configuration variables populated with values in **localConfig.json** :
   
 ```
-"clientId": "app_client_id",
-"uaaURL": "https://162665f2-e477-488a-93d1-bb33ccb3d568.predix-uaa.run.aws-usw02-pr.ice.predix.io",
-"base64ClientCredential": "YXBwX2NsaWVudF9pZDpzZWNyZXQ=",
+    "clientId": "app_client_id",
+    "uaaURL": "https://162665f2-e477-488a-93d1-bb33ccb3d568.predix-uaa.run.aws-usw02-pr.ice.predix.io",
+    "base64ClientCredential": "YXBwX2NsaWVudF9pZDpzZWNyZXQ=",
 ```
 
 4. Restart the local application and test the route
