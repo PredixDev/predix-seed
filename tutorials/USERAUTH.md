@@ -74,7 +74,7 @@ The previous sections show how authentication can be added to selected routes in
 app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist')));
 ```
 
-2. In the same file insert this code block inside the *if(uaaIsConfigured) {...}* block, as the last route definition:
+2. In the same file insert this code inside the *if(uaaIsConfigured) {...}* block, as the last route definition:
 
 ```
   app.get('/', passport.authenticate('main', {
