@@ -1,4 +1,4 @@
-# Tutorial : User Authentication
+# Tutorial : User Authentication with UAA
 
 ## Introduction
 Real-world web applications almost always involve controlling access to information.  For this reason one of the most needed features in a web application is authentication.  Authenticating users makes the application more secure by allowing only authorized users access specific features and information.
