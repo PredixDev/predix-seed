@@ -50,7 +50,13 @@ For this tutorial, we are going to make any and all routes within the Seed appli
 4. With the configurations in place, restart the local application
 
 
-5. Include the authentication feature in the distribution package
+5. Access the */secure* route once more, as in step 1 of the previous section.  Notice that the browser now returns a page that says *Unauthorized*, instead of being unable to find that page.  This is because that route has now been defined as an authenticated route.  Other routes that have also been defined are */login* and */logout*.
+
+6. Access the */login* route.  Notice that the browser is redirected to the login page of the authentication service.
+7. Enter valid credentials in the authentication page.  Upon successful login, the browser is redirected to the */secure* route, which now shows the text **This is a sample secure route**.  At this point, the browser is now in the authenticated state, where such routes are recognizable.
+8. Access the */logout* route 
+
+Include the authentication feature in the distribution package
 
   Adding the same configuration for the deployed version of the application is done by putting the same 3 values in the deployment manifest file.
   
