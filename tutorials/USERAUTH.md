@@ -10,7 +10,7 @@ This tutorial shows how to add authentication to an instance of the Predix UI Se
 For this tutorial, we are going to first show how to make an initial set of routes or pages of the application require authentication.  Then we will show how to make all pages require authentication.
 
 ### Pre-Requisites
-This tutorial requires a running UAA service instance.  Please refer to this [link]() for information on setting up a UAA instance.  Once the service is set up, save its URL for use in the configuration steps below.
+This tutorial requires a running UAA service instance.  Please refer to this [**document**](https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=1544&tag=1605&journey=Build%20a%20basic%20application&resources=1580,1569,1523,1544,1547,1549,1556,1553,1570) for information on setting up a UAA instance and a set of valid credentials.  Once the service is set up, save its URL for use in the configuration steps below.
 
 
 ### Steps
@@ -86,5 +86,10 @@ app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.en
 
 3. Restart the application.
 
-4. Access any route, including the default route '*/*'.  Notice that the browser is redirected to the authentication page.
+4. Access any route, including the default route '*/*'.  Notice that the browser is redirected to the authentication page.  If the route is defined, the browser is redirected to it after successful login by the user.
+
+### Including the Authentication Feature in the Production Version
+The steps above show how authentication is enabled in a local instance of the Predix UI Seed application.  Ultimately, we want the authentication feature to be part of the production deployment.  Follow these steps to implement such:
+
+1. 
 
