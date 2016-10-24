@@ -71,13 +71,13 @@ This shows authentication working to enable/prevent access to routes, and how th
 ### Authenticating All Routes
 The previous sections show how authentication can be added to specific routes in the application.  Oftentimes, all routes need to be accessible only after authentication.  To achieve this, follow these steps:
 
-  1. Comment out this line in *server/app.js*:
+Comment out this line in *server/app.js*:
 
 ```
 app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist')));
 ```
 
-  2. In the same file insert this code inside the *if(uaaIsConfigured) {...}* block, as the last route definition:
+In the same file insert this code inside the *if(uaaIsConfigured) {...}* block, as the last route definition:
 
 ```
   app.get('/', passport.authenticate('main', {
@@ -87,21 +87,21 @@ app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.en
   );
 ```
 
-  3. Restart the application.
+Restart the application.
 
-  4. Access any route, including the default route '*/*'.  Notice that the browser is redirected to the authentication page.  If the route is defined, the browser is redirected to it after successful login by the user.
+Access any route, including the default route '*/*'.  Notice that the browser is redirected to the authentication page.  If the route is defined, the browser is redirected to it after successful login by the user.
 
 ### Including Authentication in Cloud Deployment
 The steps above show how authentication is enabled in a local instance of the Predix UI Seed application.  Ultimately, we want the authentication feature to be part of deployments to the Cloud.  To achieve this, perform these steps:
 
-1. In the *manifest.yml* file, enable services by uncommenting the *services* section, and enter the name of the UAA instance that will be used.  For example:
+In the *manifest.yml* file, enable services by uncommenting the *services* section, and enter the name of the UAA instance that will be used.  For example:
 
 ```
   services
    - my-uaa-service
 ```
 
-2. In the same file, enter the values for **clientId** and **base64ClientCredential** that were used (in the previous sections above).  For Example:
+In the same file, enter the values for **clientId** and **base64ClientCredential** that were used (in the previous sections above).  For Example:
 
 ```
   env:
@@ -109,7 +109,4 @@ The steps above show how authentication is enabled in a local instance of the Pr
     base64ClientCredential: YXBwX2NsaWVudF9pZDpzZWNyZXQ=
 ```
 
-3. From the command terminal, and in the main folder of the application, run '**gulp dist**' to include the configuration in the distribution package for the application.  Deploy to the Cloud as normal.
-
-
-
+From the command terminal, and in the main folder of the application, run '**gulp dist**' to include the configuration in the distribution package for the application.  Deploy to the Cloud as normal.
