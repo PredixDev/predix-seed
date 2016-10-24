@@ -71,13 +71,13 @@ This shows authentication working to enable/prevent access to routes, and how th
 ### Authenticating All Routes
 The previous sections show how authentication can be added to specific routes in the application.  Oftentimes, all routes need to be accessible only after authentication.  To achieve this, follow these steps:
 
-1. Comment out this line in *server/app.js*:
+  1. Comment out this line in *server/app.js*:
 
 ```
 app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist')));
 ```
 
-2. In the same file insert this code inside the *if(uaaIsConfigured) {...}* block, as the last route definition:
+  2. In the same file insert this code inside the *if(uaaIsConfigured) {...}* block, as the last route definition:
 
 ```
   app.get('/', passport.authenticate('main', {
@@ -87,9 +87,9 @@ app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.en
   );
 ```
 
-3. Restart the application.
+  3. Restart the application.
 
-4. Access any route, including the default route '*/*'.  Notice that the browser is redirected to the authentication page.  If the route is defined, the browser is redirected to it after successful login by the user.
+  4. Access any route, including the default route '*/*'.  Notice that the browser is redirected to the authentication page.  If the route is defined, the browser is redirected to it after successful login by the user.
 
 ### Including Authentication in Cloud Deployment
 The steps above show how authentication is enabled in a local instance of the Predix UI Seed application.  Ultimately, we want the authentication feature to be part of deployments to the Cloud.  To achieve this, perform these steps:
