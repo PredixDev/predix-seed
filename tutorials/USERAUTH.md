@@ -59,9 +59,12 @@ For this tutorial, we are going to make any and all routes within the Seed appli
 
 8. Access the */logout* route.  This will put the browser session back to the un-authenticated state.
 
-9. Access the */secure* route.  Notice that we get the *Unauthorized* result again, because the browser session is now un-authenticated.
+9. Access the */secure* route.  Notice that we get the *Unauthorized* result again, because the browser session is now un-authenticated.  Accessing the other routes mentioned in step 2 of this section (except */login*) should now return *Unauthorized* as well.
 
+### Adding Authentication to All Routes
+The previous sections show how authentication can be added to selected routes in the application.  Oftentimes, all routes need to be placed beyond authentication.  To achieve this, follow these steps:
 
+10. 
 Include the authentication feature in the distribution package
 
   Adding the same configuration for the deployed version of the application is done by putting the same 3 values in the deployment manifest file.
