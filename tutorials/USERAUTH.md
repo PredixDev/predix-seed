@@ -52,7 +52,7 @@ This tutorial requires a running UAA service instance.  Please refer to this [**
     ...
 ```
 
-### Verify the Authentication Feature
+### Verify Authentication
 4. With the configurations in place, restart the local application.
 
 
@@ -66,7 +66,7 @@ This tutorial requires a running UAA service instance.  Please refer to this [**
 
 9. Access the */secure* route.  Notice that we get the *Unauthorized* result again, because the browser session is now un-authenticated.  Accessing the other routes mentioned in step 2 of this section (except */login*) should now return *Unauthorized* as well.
 
-### Adding Authentication to All Routes
+### Authenticating All Routes
 The previous sections show how authentication can be added to selected routes in the application.  Oftentimes, all routes need to be accessible only after authentication.  To achieve this, follow these steps:
 
 1. Comment out this line in *server/app.js*:
@@ -89,8 +89,8 @@ app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.en
 
 4. Access any route, including the default route '*/*'.  Notice that the browser is redirected to the authentication page.  If the route is defined, the browser is redirected to it after successful login by the user.
 
-### Including the Authentication Feature in Cloud Deployment
-The steps above show how authentication is enabled in a local instance of the Predix UI Seed application.  Ultimately, we want the authentication feature to be part of the production deployment.  Follow these steps to implement such:
+### Including Authentication in Cloud Deployment
+The steps above show how authentication is enabled in a local instance of the Predix UI Seed application.  Ultimately, we want the authentication feature to be part of deployments to the Cloud.  To achieve this, perform these steps:
 
 1. In the *manifest.yml* file, enable services by uncommenting the *services* section, and enter the name of the UAA instance that will be used.  For example:
 
