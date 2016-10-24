@@ -107,6 +107,7 @@ In the same file, enter the values for **clientId** and **base64ClientCredential
     ```
 
 From the command terminal, and in the main folder of the application, run
+
     ```
     gulp dist
     ```
