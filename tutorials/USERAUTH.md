@@ -39,21 +39,24 @@ For this tutorial, we are going to make any and all routes within the Seed appli
   In a Windows environment, the command **certutil** can be used to generate the same value.  Please refer to this [link](https://technet.microsoft.com/en-us/library/cc732443\(v=ws.11\).aspx) to learn about thiscommand.
   After running the above command in your chosen environment, copy the output (which should be a string) and paste it to the **base64Credential** variable in the configuration file.
 
-  Here is an example of all three configuration variables populated with values in *localConfig.json* :
+  Here is an example of all three configuration variables in *server/localConfig.json* populated with their respective values :
   
 ```
     "clientId": "app_client_id",
     "uaaURL": "https://162665f2-e477-488a-93d1-bb33ccb3d568.predix-uaa.run.aws-usw02-pr.ice.predix.io",
     "base64ClientCredential": "YXBwX2NsaWVudF9pZDpzZWNyZXQ=",
 ```
+
 ### Verify the Application
 4. With the configurations in place, restart the local application
 
 
-5. Access the */secure* route once more, as in step 1 of the previous section.  Notice that the browser now returns a page that says *Unauthorized*, instead of being unable to find that page.  This is because that route has now been defined as an authenticated route.  Other routes that have also been defined are */login* and */logout*.
+5. Access the */secure* route again, as in step 1 of the previous section.  Notice that the browser now returns a page that says * * *Unauthorized*, instead of being unable to find that page.  This is because that route has now been defined as an authenticated route.  Other routes that have also been defined are */login* and */logout*.
 
 6. Access the */login* route.  Notice that the browser is redirected to the login page of the authentication service.
-7. Enter valid credentials in the authentication page.  Upon successful login, the browser is redirected to the */secure* route, which now shows the text **This is a sample secure route**.  At this point, the browser is now in the authenticated state, where such routes are recognizable.
+
+7. Enter valid credentials in the authentication page.  Upon successful login, the browser is redirected to the */secure* route, which now shows the text **This is a sample secure route**.  At this point, the browser is now in the authenticated state, and access to such route is now authorized, unlike in the 2nd step in this section.
+
 8. Access the */logout* route 
 
 Include the authentication feature in the distribution package
