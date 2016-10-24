@@ -109,4 +109,10 @@ In the same file, enter the values for **clientId** and **base64ClientCredential
     base64ClientCredential: YXBwX2NsaWVudF9pZDpzZWNyZXQ=
 ```
 
-From the command terminal, and in the main folder of the application, run '**gulp dist**' to include the configuration in the distribution package for the application.  Deploy to the Cloud as normal.
+From the command terminal, and in the main folder of the application, run
+```
+gulp dist
+```
+to include the configuration in the distribution package for the application.  
+
+Deploy to the Cloud as normal.
