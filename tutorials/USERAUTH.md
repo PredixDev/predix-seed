@@ -88,10 +88,10 @@ app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.en
 
 4. Access any route, including the default route '*/*'.  Notice that the browser is redirected to the authentication page.  If the route is defined, the browser is redirected to it after successful login by the user.
 
-### Including the Authentication Feature in the Production Version
+### Including the Authentication Feature in Cloud Deployment
 The steps above show how authentication is enabled in a local instance of the Predix UI Seed application.  Ultimately, we want the authentication feature to be part of the production deployment.  Follow these steps to implement such:
 
-1. In the manifest.yml file, enable services by uncommenting the *services* section, and enter the name of the UAA instance that will be used.  For example:
+1. In the *manifest.yml* file, enable services by uncommenting the *services* section, and enter the name of the UAA instance that will be used.  For example:
 
 ```
   services
@@ -106,7 +106,7 @@ The steps above show how authentication is enabled in a local instance of the Pr
     base64ClientCredential: YXBwX2NsaWVudF9pZDpzZWNyZXQ=
 ```
 
-3. From the command terminal, and in the main folder of the application, run '**gulp dist**' to include the configuration in the distribution package for the application.  Deploy to production as normal.
+3. From the command terminal, and in the main folder of the application, run '**gulp dist**' to include the configuration in the distribution package for the application.  Deploy to the cloud as normal.
 
 
 
