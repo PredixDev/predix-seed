@@ -11,7 +11,7 @@ This tutorial shows how to add authentication to an instance of the Predix UI Se
 For this tutorial, we are going to first show how to make specific routes or pages of the application require authentication.  Then we will show how to make all routes/pages require authentication.
 
 ### Pre-Requisites
-This tutorial requires a running UAA service instance.  Please refer to this [**document**](https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=1544&tag=1605&journey=Build%20a%20basic%20application&resources=1580,1569,1523,1544,1547,1549,1556,1553,1570) for information on setting up a UAA instance and a set of valid credentials.  Once the service is set up, save its URL for use in the configuration steps below.
+This tutorial requires a running UAA service instance.  Please refer to this [**document**](https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=1544&tag=1605&journey=Build%20a%20basic%20application&resources=1580,1569,1523,1544,1547,1549,1556,1553,1570) for information on creating an instance and a set of valid credentials.  Once the service instance is available, save its URL for use in the configuration steps below.
 
 
 ### Steps
