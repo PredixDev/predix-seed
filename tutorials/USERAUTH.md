@@ -35,9 +35,9 @@ This tutorial requires a running UAA service instance.  Please refer to this [**
   This is a [**Base64**](https://en.wikipedia.org/wiki/Base64) encoding of the string '*app_client_id*:*\<secret\>*', where '*app_client_id*' is the literal string used for the first configuration variable, and '*\<secret\>*' is a string value of your choosing.  
   
   In a Mac OS or Unix environment, you can get this value by running the following command sequence (for example, using the string literal '*secret*' for the secret value):
-
-    *echo -n app_client_id:secret | base64*
-
+```
+echo -n app_client_id:secret | base64
+```
   In a Windows environment, [**certutil**](https://technet.microsoft.com/en-us/library/cc732443\(v=ws.11\).aspx) utility can be used to generate the same value.
   
   After running the above command sequence in your chosen environment, copy the output string into the variable.
