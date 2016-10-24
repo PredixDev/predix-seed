@@ -13,6 +13,7 @@ This tutorial requires a running UAA service instance.  Please refer to this [li
 For this tutorial, we are going to make any and all routes within the Seed application access-controlled with authentication.
 
 ### Steps
+### Configuring for Authentication
 0. Install the Seed and have it running by following the steps in the **README** document of this project.
 1. With the Seed running locally, access the */secure* route ( For example: *https://localhost:5000/secure* ).  You should see a page that says the site is unavailable ( browser shows **cannot GET /secure** ).  This is because the route has not been defined yet.
 
@@ -45,8 +46,8 @@ For this tutorial, we are going to make any and all routes within the Seed appli
     "uaaURL": "https://162665f2-e477-488a-93d1-bb33ccb3d568.predix-uaa.run.aws-usw02-pr.ice.predix.io",
     "base64ClientCredential": "YXBwX2NsaWVudF9pZDpzZWNyZXQ=",
 ```
-
-4. Restart the local application and test the route
+### Testing the Authenticated Application
+4. With the configurations in place, restart the local application
 
 
 5. Include the authentication feature in the distribution package
