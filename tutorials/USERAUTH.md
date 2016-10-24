@@ -8,7 +8,7 @@ Real-world web applications almost always involve controlling access to informat
 
 This tutorial shows how to add authentication to an instance of the Predix UI Seed.  Specifically, we use the UAA service that has its own login page.  Upon successful login, the user is redirected back to the Seed application.  From there the user is able to further interact with the application until they de-authenticate their session by logging  out.
 
-For this tutorial, we are going to first show how to make specific routes or pages of the application require authentication.  Then we will show how to make all routes/pages require authentication.
+For this tutorial, we first show how to make specific routes or pages of the application require authentication.  Then we show how to make all routes/pages require authentication.
 
 ### Pre-Requisites
 This tutorial requires a running UAA service instance.  Please refer to this [**document**](https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=1544&tag=1605&journey=Build%20a%20basic%20application&resources=1580,1569,1523,1544,1547,1549,1556,1553,1570) for information on creating an instance and a set of valid credentials.  Once the service instance is available, save its URL for use in the configuration steps below.
