@@ -70,7 +70,7 @@ The previous sections show how authentication can be added to selected routes in
 app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist')));
 ```
 
-2. Insert this code block inside the *if(uaaIsConfigured) {...* block, as the last route definition:
+2. Insert this code block inside the *if(uaaIsConfigured) {...}* block, as the last route definition:
 
 ```
   app.get('/', passport.authenticate('main', {
@@ -80,17 +80,7 @@ app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.en
   );
 ```
 
-3. Restart the application
+3. Restart the application.
 
-Include the authentication feature in the distribution package
-
-  Adding the same configuration for the deployed version of the application is done by putting the same 3 values in the deployment manifest file.
-  
-  After the changes are made to the manifest file, run the gulp distribution task
-  
-6. Test the authenticated routes
-
-7. Add authentication to the all routes in the application.
-
-8. Test the authentication for the entire application
+4. Access any route, including the default route '*/*'.  Notice that the browser is redirected to the authentication page.
 
