@@ -106,7 +106,7 @@ The steps above show how authentication is enabled in a local instance of the Pr
     base64ClientCredential: YXBwX2NsaWVudF9pZDpzZWNyZXQ=
 ```
 
-3. From the command terminal, and in the main folder of the application, run '**gulp dist**' to include the configuration in the distribution package for the application.  Deploy to the cloud as normal.
+3. From the command terminal, and in the main folder of the application, run '**gulp dist**' to include the configuration in the distribution package for the application.  Deploy to the Cloud as normal.
 
 
 
