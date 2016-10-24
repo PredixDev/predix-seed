@@ -66,7 +66,7 @@ This tutorial requires a running UAA service instance.  Please refer to this [li
 9. Access the */secure* route.  Notice that we get the *Unauthorized* result again, because the browser session is now un-authenticated.  Accessing the other routes mentioned in step 2 of this section (except */login*) should now return *Unauthorized* as well.
 
 ### Adding Authentication to All Routes
-The previous sections show how authentication can be added to selected routes in the application.  Oftentimes, all routes need to be placed beyond authentication.  To achieve this, follow these steps:
+The previous sections show how authentication can be added to selected routes in the application.  Oftentimes, all routes need to be accessible only after authentication.  To achieve this, follow these steps:
 
 1. Comment out this line in *server/app.js*:
 
