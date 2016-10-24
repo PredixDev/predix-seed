@@ -39,7 +39,7 @@ This tutorial requires a running UAA service instance.  Please refer to this [li
 
   In a Windows environment, [**certutil**](https://technet.microsoft.com/en-us/library/cc732443\(v=ws.11\).aspx) utility can be used to generate the same value.
   
-  After running the above command in your chosen environment, copy the output (which should be a string) and paste it to the **base64Credential** variable in the configuration file.
+  After running the above command in your chosen environment, use the output for the value of this variable in the configuration file.
 
   Here is an example of all three configuration variables in *server/localConfig.json* populated with their respective values :
   
