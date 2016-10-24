@@ -33,7 +33,7 @@ This tutorial requires a running UAA service instance.  Please refer to this [li
   #### base64ClientCredential
   This is a [**Base64**](https://en.wikipedia.org/wiki/Base64) encoding of the string '*app_client_id*:*\<secret\>*', where '*app_client_id*' is the literal string used for the first configuration variable, and '*\<secret\>*' is a string value of your choosing.  
   
-  In a Mac OS or Unix environment, you can get the value by running this command sequence (for example, using the string literal '*secret*' for the secret value:
+  In a Mac OS or Unix environment, you can get the value by running this command sequence (for example, using the string literal '*secret*' for the secret value):
 
     *echo -n app_client_id:secret | base64*
 
