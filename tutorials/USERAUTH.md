@@ -29,18 +29,18 @@ This tutorial requires a running UAA service instance.  Please refer to this [**
   For UAA-based authentication (which is what we are using), use the literal value '*app_client_id*'
   
   #### uaaURL
-  This is the URL of an existing UAA service.  For information on how to set up UAA service, please refer to the link in the **Pre-Requisites** section.  With the service running and a set of credentials (user and password) in hand, use the service URL as the value for this variable.
+  This is the URL of an existing UAA service, mentioned in the **Pre-Requisites** section above.  With the service running and a set of credentials (user and password) in hand, use the service URL as the value for this variable.
   
   #### base64ClientCredential
   This is a [**Base64**](https://en.wikipedia.org/wiki/Base64) encoding of the string '*app_client_id*:*\<secret\>*', where '*app_client_id*' is the literal string used for the first configuration variable, and '*\<secret\>*' is a string value of your choosing.  
   
-  In a Mac OS or Unix environment, you can get the value by running this command sequence (for example, using the string literal '*secret*' for the secret value):
+  In a Mac OS or Unix environment, you can get this value by running the following command sequence (for example, using the string literal '*secret*' for the secret value):
 
     *echo -n app_client_id:secret | base64*
 
   In a Windows environment, [**certutil**](https://technet.microsoft.com/en-us/library/cc732443\(v=ws.11\).aspx) utility can be used to generate the same value.
   
-  After running the above command in your chosen environment, use the output for the value of this variable in the configuration file.
+  After running the above command sequence in your chosen environment, copy the output string into the variable.
 
   Here is an example of all three configuration variables in *server/localConfig.json* populated with their respective values :
   
