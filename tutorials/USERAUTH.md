@@ -76,13 +76,13 @@ Comment out this line in *server/app.js*:
 
 In the same file insert this code inside the *if(uaaIsConfigured) {...}* block, as the last route definition:
 
-    ```
+   ```
     app.get('/', passport.authenticate('main', {
   	  noredirect: false // redirect a user to the authentication page
       }),
       express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist'))
     );
-    ```
+   ```
 
 Restart the application.
 
@@ -93,24 +93,24 @@ The steps above show how authentication is enabled in a local instance of the Pr
 
 In the *manifest.yml* file, enable services by uncommenting the *services* section, and enter the name of the UAA instance that will be used.  For example:
 
-    ```
+   ```
     services
     - my-uaa-service
-    ```
+   ```
 
 In the same file, enter the values for **clientId** and **base64ClientCredential** that were used (in the previous sections above).  For Example:
 
-    ```
+   ```
     env:
       clientId: app_client_id
       base64ClientCredential: YXBwX2NsaWVudF9pZDpzZWNyZXQ=
-    ```
+   ```
 
 From the command terminal, and in the main folder of the application, run
 
-    ```
+   ```
     gulp dist
-    ```
+   ```
     
 to include the configuration in the distribution package for the application.  
 
