@@ -44,9 +44,11 @@ This tutorial requires a running UAA service instance.  Please refer to this [li
   Here is an example of all three configuration variables in *server/localConfig.json* populated with their respective values :
   
 ```
+    ...
     "clientId": "app_client_id",
     "uaaURL": "https://162665f2-e477-488a-93d1-bb33ccb3d568.predix-uaa.run.aws-usw02-pr.ice.predix.io",
     "base64ClientCredential": "YXBwX2NsaWVudF9pZDpzZWNyZXQ=",
+    ...
 ```
 
 ### Verify the Authentication Feature
