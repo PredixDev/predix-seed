@@ -47,7 +47,7 @@ For this tutorial, we are going to make any and all routes within the Seed appli
     "base64ClientCredential": "YXBwX2NsaWVudF9pZDpzZWNyZXQ=",
 ```
 
-### Verify the Application
+### Verify the Authentication Feature
 4. With the configurations in place, restart the local application
 
 
