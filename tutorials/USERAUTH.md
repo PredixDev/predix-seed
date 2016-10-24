@@ -6,7 +6,7 @@
 ## Introduction
 Real-world web applications almost always involve controlling access to information.  For this reason one of the most needed features in a web application is authentication.  Authenticating users makes the application more secure by allowing only authorized users access specific features and information.
 
-This tutorial shows how to add authentication to an instance of the Predix UI Seed.  Specifically, we use the UAA service that has its own page to which the user is directed to enter their credentials.  Upon successful login, the user is redirected again to the Seed application.  From there the user is able to further interact with the application until they de-authenticate their session by logging  out.
+This tutorial shows how to add authentication to an instance of the Predix UI Seed.  Specifically, we use the UAA service that has its own login page.  Upon successful login, the user is redirected back to the Seed application.  From there the user is able to further interact with the application until they de-authenticate their session by logging  out.
 
 For this tutorial, we are going to first show how to make specific routes or pages of the application require authentication.  Then we will show how to make all routes/pages require authentication.
 
