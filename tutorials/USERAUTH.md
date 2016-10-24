@@ -56,18 +56,20 @@ This tutorial requires a running UAA service instance.  Please refer to this [**
 4. With the configurations in place, restart the local application.
 
 
-5. Access the */secure* route again, as in step 1 of the previous section.  Notice that the browser now returns a page that says  *Unauthorized*, instead of being unable to find that page (as in the previous section).  This is because that route has now been defined, as an authenticated route (other routes that have also been defined are */login*, */callback*, */predix-api* and */logout*).  At this point the browser is in an unauthenticated state, and accessing such routes results in "Unauthorized" (with the exception of */login*, which redirects to the authentication service's page).
+5. Access the */secure* route again, as in step 1 of the previous section.  Notice that the browser now returns a page that says  *Unauthorized*, instead of not being able to find the page (as in the previous section).  This is because that route has now been defined, as an authenticated route (other routes that have also been defined are */login*, */callback*, */predix-api* and */logout*).  At this point authentication is in place, and the browser session is in an unauthenticated state.  Consequently, accessing such routes results in "Unauthorized" (with the exception of */login*, which redirects to the authentication service's page).
 
 6. Access the */login* route.  Notice that the browser is redirected to the login page of the authentication service.
 
-7. Enter valid credentials in the authentication page.  Upon successful login, the browser is redirected to the */secure* route, which now shows the text **This is a sample secure route**.  At this point, the browser is now in the authenticated state, and access to such route is now authorized ( in contrast with the 2nd step in this section ).
+7. Enter valid credentials in the login page and submit.  Upon successful login, the browser is redirected to the */secure* route, which now shows the text **This is a sample secure route**.  At this point, the browser session is now in the authenticated state, and access to such route is now authorized.
 
-8. Access the */logout* route.  This will put the browser session back to the un-authenticated state.
+8. Access the */logout* route.  This will put the browser session back to the unauthenticated state.
 
-9. Access the */secure* route.  Notice that we get the *Unauthorized* result again, because the browser session is now un-authenticated.  Accessing the other routes mentioned in step 2 of this section (except */login*) should now return *Unauthorized* as well.
+9. Access the */secure* route.  Notice that we get the *Unauthorized* result again, because the browser session is again unauthenticated.  Accessing the other routes mentioned in step 2 of this section (except */login*) should now return *Unauthorized* as well.
+
+This shows authentication working to enable/prevent access to routes, and how the user is given the chance to authenticate when accessing a route while in an unauthenticated state.
 
 ### Authenticating All Routes
-The previous sections show how authentication can be added to selected routes in the application.  Oftentimes, all routes need to be accessible only after authentication.  To achieve this, follow these steps:
+The previous sections show how authentication can be added to specific routes in the application.  Oftentimes, all routes need to be accessible only after authentication.  To achieve this, follow these steps:
 
 1. Comment out this line in *server/app.js*:
 
