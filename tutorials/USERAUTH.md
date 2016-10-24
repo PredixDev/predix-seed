@@ -3,14 +3,15 @@
 ## IMPORTANT NOTE: THIS DOCUMENT IS INCOMPLETE AND BEING ACTIVELY EDITED; IT SHOULD NOT BE USED UNTIL THIS NOTE IS REMOVED
 
 ## Introduction
-Real-world web applications almost always involve information that is access-controlled.  For this reason one of the most common features needed in a web application is authentication.  Users of an authenticated application will need to login in order to access and interact with most of its features and information.
+Real-world web applications almost always involve information that is access-controlled.  For this reason one of the most common features needed in a web application is authentication.  Authenticating users adds security to the application, its features and the information it serves.
 
-This tutorial shows how to add authentication to an instance of the Predix UI Seed.  Specifically, we use the UAA service that has its own page to which the user is directed to enter their credentials.  Upon successful login, the user is redirected again to the Seed application.  From there the user is able to further interact with the application until they log out.
+This tutorial shows how to add authentication to an instance of the Predix UI Seed.  Specifically, we use the UAA service that has its own page to which the user is directed to enter their credentials.  Upon successful login, the user is redirected again to the Seed application.  From there the user is able to further interact with the application until they de-authenticate their session by logging  out.
+
+For this tutorial, we are going to first show how to make an initial set of routes or pages of the application require authentication.  Then we will show how to make all pages require authentication.
 
 ### Pre-Requisites
-This tutorial requires a running UAA service instance.  Please refer to this [link]() for information on setting up a UAA instance.  Once the service is set up, note its URL, to be used for the steps below.
+This tutorial requires a running UAA service instance.  Please refer to this [link]() for information on setting up a UAA instance.  Once the service is set up, save its URL for use in the configuration steps below.
 
-For this tutorial, we are going to make any and all routes within the Seed application access-controlled with authentication.
 
 ### Steps
 ### Configure for Authentication
