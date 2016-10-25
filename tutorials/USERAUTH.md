@@ -63,7 +63,7 @@ This tutorial requires a running UAA service instance.  Please refer to this [**
 
 8. Access the */logout* route.  This will put the browser session back to the unauthenticated state.
 
-9. Access the */secure* route once more.  Notice that we get the *Unauthorized* result again, because the browser session is again unauthenticated.  Accessing the other routes mentioned in step 2 of this section (except */login*) should now return *Unauthorized* as well.
+9. Access the */secure* route once more.  Notice that we get the *Unauthorized* result again, because the browser session back to being unauthenticated, because of the previous step.  Accessing the other routes mentioned in step 2 of this section (except */login*) should now return *Unauthorized* as well.
 
 This shows authentication working to enable/prevent access to routes, and how the user is given the chance to authenticate when accessing a route while in an unauthenticated state.
 
