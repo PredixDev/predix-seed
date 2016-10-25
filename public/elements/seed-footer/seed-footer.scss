@@ -28,19 +28,25 @@ $predix-font-family : "GE Inspira Sans", sans-serif !default;
 $px-page-link-color: $gray5;
 
 .footer__container {
-  height: 4em;
+  height: 60px;
+  margin-left: 2rem;
+  margin-right: 2rem;
   -ms-flex-align: center;
 	-webkit-align-items: center;
 	-webkit-box-align: center;
   align-items: center;
 }
 
-.footer__link {
-  text-decoration: none;
+.footer__container * {
+  color: $gray5;
 }
 
-.list-inline--delimited > li:before {
-  color: $px-page-link-color;
+.footer__container li {
+  margin-left: 7px;
+}
+
+.footer__copy {
+  margin-left: 40px;
 }
 
 // Trumps

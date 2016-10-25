@@ -6,15 +6,12 @@
 <dom-module id='seed-footer'>
   <template>
     <style include="seed-footer-styles"></style>
-    <div class="flex flex--center footer__container">
-      <ul class="list-inline list-inline--delimited">
+    <div class="flex flex--right footer__container">
+      <ul class="list-inline">
         <template is="dom-repeat" items=[[footerLinks]]>
-        <li>
-          <a class="footer__link"
-             href$="[[item.href]]" target$="[[item.target]]">[[item.label]]
-          </a>
-        </li>
+        <li>[[item.label]]</li>
         </template>
+        <span class="footer__copy">&copy;2016 General Electric</span>
     </ul>
     <div>
   </template>
