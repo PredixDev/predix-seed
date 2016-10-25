@@ -116,4 +116,10 @@ From the command terminal, and in the main folder of the application, run
     
 to include the configuration in the distribution package for the application.  
 
-Deploy to the Cloud as normal.
+Deploy to the Cloud as usual.  
+
+Perform the same steps above to verify that authentication is working.
+
+## Conclusion
+
+This document has shown how to add Authentication to an instance of the Seed, and apply the feature to both specific and all routes.  It has also shown how to apply the feature in both local and cloud deployments.  For any questions or issues with this document and/or feature, please submit a github issue to this project.
