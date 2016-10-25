@@ -1,6 +1,6 @@
 {
   "name": "predix-seed",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "private": true,
   "ignore": [
     "**/.*",
@@ -11,7 +11,8 @@
     "tests",
     "target",
     "test-target",
-    "sass"
+    "sass",
+    "tutorials"
   ],
   "dependencies": {
     "es6-promise": "^3.3.1",
