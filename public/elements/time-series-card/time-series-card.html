@@ -1,6 +1,9 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/px-card/px-card.html">
 <link rel="import" href="../../bower_components/px-vis-timeseries/px-vis-timeseries.html">
+<link rel="import" href="../../bower_components/px-rangepicker/px-rangepicker.html">
+<link rel="import" href="../../bower_components/px-vis/px-vis-data.html">
+<link rel="import" href="../../bower_components/px-vis/px-vis-data-converter.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
 <script type="text/javascript" src="../../bower_components/px/dist/px.min.js"></script>
@@ -8,151 +11,127 @@
 <dom-module id="time-series-card">
   <template>
     <px-card header-text="Time Series Card">
+
+      <px-rangepicker
+        id="rangepicker"
+        range="{{range}}"
+        date-format="YYYY/MM/DD"
+        time-format="hh:mm:ss A"
+        show-buttons="true"
+        show-time-zone="text">
+      </px-rangepicker>
       <px-vis-timeseries
-        id="tsChart"
-        height="400"
-        selection-type="xy"
-        register-location="top"
-        include-all-series="true">
+        id="timeSerie"
+        options = '{
+          "width": "1000",
+          "height": "500",
+          "enableTooltip":true,
+          "registerLocation":"both",
+          "eventConfig": {
+            "Recalibrate":{
+              "color": "blue",
+              "icon": "fa-camera",
+              "type": "fa",
+              "offset":[0,0]
+            },
+            "Fan start":{
+              "color": "green",
+              "icon": "\uf015",
+              "type": "unicode",
+              "offset":[1,0]
+            },
+            "Fan stop":{
+              "color": "red",
+              "icon": "\uf016",
+              "type": "unicode",
+              "offset":[0,-20]
+            }
+          },
+          "thresholdData":[
+            { "for":"y0", "type":"max", "value":35.4784 },
+            { "for":"y0", "type":"min", "value":7.6531 },
+            { "for":"y0", "type":"mean", "value":15.330657585139331 },
+            { "for":"y1", "type":"mean", "value":75 },
+            { "for":"", "type":"quartile", "value":17 }
+          ],
+          "showThresholdBox":false,
+          "selectionType": "xAxis",
+          "xAxisConfig": {
+            "title": "Date",
+            "tickFormat": "%b %d"
+          },
+          "yAxisConfig": {
+            "title": "Hz"
+          }
+        }'
+        series-config='[[seriesConfig]]'
+        default-series-config='{
+            "type": "line",
+            "yAxisUnit": "Hz",
+            "x": "TimeStamp",
+            "xMin": "dynamic",
+            "xMax": "dynamic",
+            "yMin": 0,
+            "yMax": "dynamic"
+          }'
+        chart-data="[[chartData]]"
+        event-data="[[eventData]]"
+        range="[[range]]">
       </px-vis-timeseries>
-      <!--<button on-click="saveBtnClicked">Save</button>-->
-      <!--
-      <iron-ajax
-        url="/api/time-series/core-vibe/1"
-        last-response="{{_coreVibeRearCoreVibeData}}"
-        auto>
-      </iron-ajax>
-      <iron-ajax
-        url="/api/time-series/core-vibe/2"
-        last-response="{{_deltaEgtCruiseData}}"
-        auto>
-      </iron-ajax>
-      <px-chart id="tsChart">
-        <px-chart-controls data-controls show-refresh="true" show-date-range="true"></px-chart-controls>
-        <px-chart-yaxis id="firstAxis" offset="0"></px-chart-yaxis>
-        <px-chart-yaxis id="anotherAxis" opposite="true" offset="-2.5"></px-chart-yaxis>
-      </px-chart>
-      -->
+      <px-vis-data
+        id = "seriesAjax"
+        request-data = '[{
+          "type":"line",
+          "name":"mySeries",
+            "url":"../../bower_components/px-demo-data/demo-data/aviation/delta-egt-cruise.json"
+          },{
+            "type":"line",
+            "url":"../../bower_components/px-demo-data/demo-data/aviation/hpt-acc-position-cruise.json"
+        }]'
+        data-var="originalData"
+        lists="append"
+        response-data="{{originalData}}">
+      </px-vis-data>
+      <px-vis-data-converter
+        data-key = "series"
+        id-key = "name"
+        original-data = '[[originalData]]'
+        series-config="{{seriesConfig}}"
+        chart-data="{{chartData}}">
+      </px-vis-data-converter>
+      <px-vis-data
+        id = "eventAjax"
+        request-data = '[{
+            "url":"../../bower_components/px-demo-data/demo-data/aviation/delta-egt-cruise-events.json"
+        }]'
+        data-var="eventData"
+        lists = "flat"
+        response-data="{{eventData}}">
+      </px-vis-data>
+
     </px-card>
   </template>
 </dom-module>
 <script>
-  Polymer({
-    is: 'time-series-card',
-    properties: {
-      config: {
-          type: Object
-      },
-      _coreVibeRearCoreVibeData: {
+Polymer({
+  is: 'time-series-card',
+  properties: {
+    config: {
         type: Object
-      },
-      _cruiseSeries: {
-        type: Object,
-        computed: '_computeCoreVibeSeries(_coreVibeRearCoreVibeData)'
-      },
-      _deltaEgtCruiseData: {
-        type: Object
-      },
-      _deltaEgtCruiseSeries: {
-        type: Object,
-        computed: '_computeDeltaEgtCruiseSeries(_deltaEgtCruiseData)'
-      },
-      chartData: [
-        {"x":1465416480000,"y":"0"},
-        {"x":1465416510000,"y":"0.453"},
-        {"x":1465416540000,"y":"0.897277832"},
-        {"x":1465416570000,"y":"0.750010101"},
-        {"x":1465416600000,"y":"1.1211699"},
-        {"x":1465416630000,"y":"1.44"},
-        {"x":1465416660000,"y":"1.16354478"},
-        {"x":1465416690000,"y":"0.24"},
-        {"x":1465416720000,"y":"0.35644"},
-        {"x":1465416750000,"y":"0.755643"},
-        {"x":1465416780000,"y":"1.65"},
-        {"x":1465416810000,"y":"2.010009"},
-        {"x":1465416840000,"y":"1.5884762"},
-        {"x":1465416870000,"y":"1.15"}
-      ]
-    },
+    }
+  },
 
-    observers: [
-      '_addCoreVibeSeries(_cruiseSeries)',
-      '_addDeltaEgtCruiseSeries(_deltaEgtCruiseSeries)'
-    ],
+  ready: function(){
+    var rangepicker = this.$.rangepicker,
+        btnSnap = this.$.btnSnap,
+        timeSerie = this.$.timeSerie;
 
-    _timeSeriesDataTransformer: null,
+    rangepicker.range = {
+        "from":"2014-04-10T04:01:00.000Z",
+        "to":"2015-04-01T20:42:00.000Z"
+    };
 
-    ready: function(){
-      this.$.tsChart.chartData = this.chartData;
-      //this._timeSeriesDataTransformer = new px.timeseries.dataTransformer();
-    },
+  },
 
-    _computeCoreVibeSeries: function(data) {
-      console.log(data);
-      var series = this._timeSeriesDataTransformer.transform(data.tags)[0];
-      series.id = series.name;
-      series.axisId = 'anotherAxis';
-      return series;
-    },
-
-    _computeDeltaEgtCruiseSeries: function(data) {
-        console.log(data);
-      var series = this._timeSeriesDataTransformer.transform(data.tags)[0];
-      series.id = series.name;
-      series.axisId = "firstAxis";
-      series.upperThreshold = "30.5";
-      series.lowerThreshold = "6.25";
-      return series;
-    },
-
-    _addCoreVibeSeries: function(series) {
-      //this.$.tsChart.addSeries(series);
-    },
-
-    _addDeltaEgtCruiseSeries: function(series) {
-      //this.$.tsChart.addSeries(series);
-    },
-    chartData: [
-      {"x":1465416410000,"y":"0.34"},
-      {"x":1465416420000,"y":"0.453"},
-      {"x":1465416430000,"y":"0.48203947097"},
-      {"x":1465416440000,"y":"0.50238696"},
-      {"x":1465416450000,"y":"0.5411699"},
-      {"x":1465416460000,"y":"0.7"},
-      {"x":1465416470000,"y":"0.66"},
-      {"x":1465416480000,"y":"0.61"},
-      {"x":1465416490000,"y":"0.7845"},
-      {"x":1465416500000,"y":"0.755643"},
-      {"x":1465416510000,"y":"0.94"},
-      {"x":1465416520000,"y":"1.05"},
-      {"x":1465416530000,"y":"1.17277832"},
-      {"x":1465416540000,"y":"1.350010101"},
-      {"x":1465416550000,"y":"1.211699"},
-      {"x":1465416560000,"y":"1.4"},
-      {"x":1465416570000,"y":"1.26354478"},
-      {"x":1465416580000,"y":"1.24"},
-      {"x":1465416590000,"y":"1.35644"},
-      {"x":1465416600000,"y":"1.355643"},
-      {"x":1465416610000,"y":"1.4"},
-      {"x":1465416620000,"y":"1.32"},
-      {"x":1465416630000,"y":"1.197277832"},
-      {"x":1465416640000,"y":"0.9750010101"},
-      {"x":1465416650000,"y":"1.1211699"},
-      {"x":1465416660000,"y":"1.01"},
-      {"x":1465416670000,"y":"0.89354478"},
-      {"x":1465416680000,"y":"0.97"},
-      {"x":1465416690000,"y":"0.82644"},
-      {"x":1465416700000,"y":"0.755643"},
-      {"x":1465416710000,"y":"0.735"},
-      {"x":1465416720000,"y":"0.653"},
-      {"x":1465416730000,"y":"0.597277832"},
-      {"x":1465416740000,"y":"0.650010101"},
-      {"x":1465416750000,"y":"0.6311699"},
-      {"x":1465416760000,"y":"0.54"},
-      {"x":1465416770000,"y":"0.5416354478"},
-      {"x":1465416780000,"y":"0.53"},
-      {"x":1465416790000,"y":"0.51644"},
-      {"x":1465416800000,"y":"0.5055643"}
-    ]
-  });
+});
 </script>
