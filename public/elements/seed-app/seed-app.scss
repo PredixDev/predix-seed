@@ -55,8 +55,8 @@ $inuit-enable-layout--full  : true;
   width: 100%;
   display: block;
   margin: auto;
-  h1, h2 {
-    @include inuit-font-size(24px);
+  h3 {
+    @include inuit-font-size(20px);
     margin: 0;
     line-height: calculateRem(60px);
     font-weight: normal;
@@ -70,7 +70,7 @@ $inuit-enable-layout--full  : true;
     }
 
   }
-  h2 {
+  h3, h4 {
     color:$gray6;
     @include media-query(palm) {
       display: none;
