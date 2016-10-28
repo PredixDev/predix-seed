@@ -23,10 +23,8 @@
       <px-vis-timeseries
         id="timeSerie"
         options = '{
-          "width": "1000",
-          "height": "500",
           "enableTooltip":true,
-          "registerLocation":"both",
+          "registerLocation":"none",
           "eventConfig": {
             "Recalibrate":{
               "color": "blue",
@@ -76,7 +74,8 @@
           }'
         chart-data="[[chartData]]"
         event-data="[[eventData]]"
-        range="[[range]]">
+        range="[[range]]"
+        height="400">
       </px-vis-timeseries>
       <px-vis-data
         id = "seriesAjax"
