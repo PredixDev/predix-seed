@@ -1,0 +1,23 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<!-- import page level css -->
+<link rel="import" href="content-header-styles.html">
+
+<dom-module id="content-header">
+  <template>
+    <style include="content-header-styles"></style>    
+    <div class="header__content">
+      <h2>[[title]]</h2>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'content-header',
+      properties: {
+        title: {
+          type: String,
+          reflectToAttribute: true
+        }
+      }
+    });
+  </script>
+</dom-module>

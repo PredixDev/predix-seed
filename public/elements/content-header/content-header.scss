@@ -1,0 +1,19 @@
+// Settings
+@import "px-colors-design/_settings.colors.scss";
+@import "px-defaults-design/_settings.defaults.scss";
+
+// Generic
+@import "px-helpers-design/_generic.helpers.scss";
+
+div.header__content {
+  background-color: $white;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+}
+
+h2 {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+}
