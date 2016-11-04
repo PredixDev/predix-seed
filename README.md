@@ -97,8 +97,8 @@ After the last step above, there should be the following folder structure.  Belo
  wct.conf.js
 ```
 
-###<root>
-###dist
+####<root>
+####dist
 ˪node_modules
 ˪public
   ˪bower_components
