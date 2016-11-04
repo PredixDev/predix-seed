@@ -83,9 +83,7 @@ root
    time-series-routes.js
    view-service-routes.js
 ˪tasks
-
 ˪test
-
 ˪tutorials
  .travis.yml
  bower.json
