@@ -30,12 +30,13 @@
     "px": "^1.4.3",
     "px-app-nav": "^1.9.1",
     "px-card": "^0.5.3",
-    "px-context-browser": "^1.3.0",
+    "px-context-browser": "^1.3.7",
     "px-deck-selector": "^1.5.0",
     "px-sample-cards": "^0.6.0",
     "px-theme": "^1.1.2",
     "px-vis-timeseries": "^0.3.0",
-    "px-vis-xy-chart": "^0.1.0"
+    "px-vis-xy-chart": "^0.1.0",
+    "px-view-header": "^0.1.1"
   },
   "devDependencies": {
     "px-forms-design": "^0.3.17",
