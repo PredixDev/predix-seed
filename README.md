@@ -58,7 +58,7 @@ gulp dist
 ## Folder Structure
 After the last step above, there should be the following folder structure.  Below is a brief description of the essential folders and files:
 ```
-root
+<root>
 ˪dist
 ˪node_modules
 ˪public
