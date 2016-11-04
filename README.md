@@ -122,21 +122,33 @@ After the last step above, there should be the following folder structure.  Belo
 ####time-series-routes.js
 ####view-service-routes.js
 ####tasks
+Folder that contains Gulp task definitions
 ####test
+Folder for test code
 ####tutorials
+Folder containing tutorials on different features
 ####.travis.yml
+Travis configuration file
 ####bower.json
+Components dependency file
 ####gulpfile.js
+Gulp tasks configuration file
 ####HISTORY.md
+Change history details
 ####LICENSE.md
+Licensing details
 ####manifest.yml
+Cloud deployment configuration file
 ####OSS_Notice.pdf
+Contains legal notices
 ####package.json
+NPM dependency configuration
 
 ####README.md
 This file
 
 ####wct.conf.js
+Configuration file for running Web Component Tester tests on the local elements of the seed.
 
 ### Deploy to the cloud
 First make sure you're logged in to the Predix Cloud using the `cf login` command.
