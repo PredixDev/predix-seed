@@ -36,7 +36,6 @@ Change directory into the new project you just cloned, then install dependencies
 npm install
 bower install
 ```
-
 ## Running the app locally
 The default gulp task will start a local web server.  Just run this command:
 ```
@@ -55,6 +54,16 @@ You will need to run this command every time before you deploy to the Cloud.
 ```
 gulp dist
 ```
+
+## Folder Structure
+After the last step above, there should be the following folder structure.  Below is a brief description of the essential folders and files:
+
+root
+˪public
+˪server
+˪tasks
+˪test
+˪tutorials
 
 ### Deploy to the cloud
 First make sure you're logged in to the Predix Cloud using the `cf login` command.
