@@ -57,18 +57,30 @@ gulp dist
 
 ## Folder Structure
 After the last step above, there should be the following folder structure.  Below is a brief description of the essential folders and files:
-
+```
 root
+˪dist
+˪node_modules
 ˪public
-
+  ˪bower_components
+  ˪elements
+   _index-inline-loading-script.js
+   _index.html
+   favicon.png
+   index-inline-styles.html
+   index-inline.css
+   index.html
+   seed-theme-styles.html
+   seed-theme.scss
 ˪server
+  ˪ sample-data
 
 ˪tasks
 
 ˪test
 
 ˪tutorials
-
+```
 
 ### Deploy to the cloud
 First make sure you're logged in to the Predix Cloud using the `cf login` command.
