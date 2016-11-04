@@ -60,10 +60,15 @@ After the last step above, there should be the following folder structure.  Belo
 
 root
 ˪public
+
 ˪server
+
 ˪tasks
+
 ˪test
+
 ˪tutorials
+
 
 ### Deploy to the cloud
 First make sure you're logged in to the Predix Cloud using the `cf login` command.
