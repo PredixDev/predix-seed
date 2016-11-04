@@ -97,6 +97,44 @@ After the last step above, there should be the following folder structure.  Belo
  wct.conf.js
 ```
 
+###<root>
+###dist
+˪node_modules
+˪public
+  ˪bower_components
+  ˪elements
+   _index-inline-loading-script.js
+   _index.html
+   favicon.png
+   index-inline-styles.html
+   index-inline.css
+   index.html
+   seed-theme-styles.html
+   seed-theme.scss
+˪server
+  ˪sample-data
+   app.js
+   localConfig.json
+   passport-config.js
+   predix-asset-routes.js
+   predix-config.js
+   proxy.js
+   time-series-routes.js
+   view-service-routes.js
+˪tasks
+˪test
+˪tutorials
+ .travis.yml
+ bower.json
+ gulpfile.js
+ HISTORY.md
+ LICENSE.md
+ manifest.yml
+ OSS_Notice.pdf
+ package.json
+ README.md
+ wct.conf.js
+
 ### Deploy to the cloud
 First make sure you're logged in to the Predix Cloud using the `cf login` command.
 Then deploy your app using this command:
