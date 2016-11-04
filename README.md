@@ -73,13 +73,30 @@ root
    seed-theme-styles.html
    seed-theme.scss
 ˪server
-  ˪ sample-data
-
+  ˪sample-data
+   app.js
+   localConfig.json
+   passport-config.js
+   predix-asset-routes.js
+   predix-config.js
+   proxy.js
+   time-series-routes.js
+   view-service-routes.js
 ˪tasks
 
 ˪test
 
 ˪tutorials
+ .travis.yml
+ bower.json
+ gulpfile.js
+ HISTORY.md
+ LICENSE.md
+ manifest.yml
+ OSS_Notice.pdf
+ package.json
+ README.md
+ wct.conf.js
 ```
 
 ### Deploy to the cloud
