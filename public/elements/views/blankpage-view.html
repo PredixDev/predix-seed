@@ -1,12 +1,29 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/px-sample-cards/blank-card.html">
+<link rel="import" href="../../bower_components/px-card/px-card.html">
+<link rel="import" href="../../bower_components/google-apis/google-apis.html">
+<link rel="import" href="../../bower_components/google-apis/google-maps-api.html">
+<link rel="import" href="../../bower_components/google-map/google-map.html">
 <link rel="import" href="../../bower_components/px-view-header/px-view-header.html">
+<link rel="import" href="../../bower_components/px-typeahead/px-typeahead.html"/>
 <dom-module id="blankpage-view">
+<style>
+  google-map {
+    height: 600px;
+  }
+</style>
   <template>
-    <px-view-header title="Blank Card" style="display: block; margin-bottom: 6px;"></px-view-header>
-    <blank-card id="myCard">
-      An example of a blank card without any content (except for this brief description).  Replace this with the actual content for your application.
-    </blank-card>
+    <!-- <px-view-header title="Track your Vehicles" style="display: block; margin-bottom: 6px;"></px-view-header> -->
+    <px-card header-text="Search Vehicles">
+      <px-typeahead 
+      max-suggestions="10" 
+      placeholder="Enter Vehicle ID" 
+      local-candidates='["Alabama","1258","7785","Alaska","American Samoa","District Of Columbia","Federated States Of Micronesia","Florida","Georgia","Guam","Hawaii","Idaho","Illinois","Indiana","Iowa"]'>
+      </px-typeahead>
+    </px-card>
+    <px-card header-text="Map">
+    <google-map latitude="19.17812167" longitude="72.988556358"></google-map>
+    </px-card>
+    
   </template>
   <script>
     Polymer({

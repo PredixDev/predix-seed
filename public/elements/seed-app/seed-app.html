@@ -22,10 +22,10 @@
     <!-- apply imported seed app style module -->
     <style include="seed-app-styles"></style>
 
-    <header role="banner" class="flex flex--middle">
+    <header role="banner" class="flex flex--middle">	
       <div class="viewport flex">
         <h3 class="flex__item">
-          <ge-svg-logo class="u-mr--"></ge-svg-logo> Seed Application
+          <ge-svg-logo class="u-mr--"></ge-svg-logo> Vehicle Tracker Application
         </h3>
         <div class="flex__item">
           <div class="flex" style="text-align:right;">
@@ -68,7 +68,7 @@
           <!-- /blankpage route and view -->
           <app-route
             route="[[_route]]"
-            pattern="/blankpage"
+            pattern="/track"
             active="{{_blankpageActive}}">
           </app-route>
           <px-view
@@ -112,13 +112,13 @@
           type: Array,
           value: function() {
             return [{
-              "label": "Dashboards",
+              "label": "Dashboard",
               "path": "/dashboards",
               "icon": "fa-tachometer"
             }, {
-              "label": "Blank Page",
-              "path": "/blankpage",
-              "icon": "fa-file-o"
+              "label": "Track",
+              "path": "/track",
+              "icon": "fa-search"
             }]
           }
         },
