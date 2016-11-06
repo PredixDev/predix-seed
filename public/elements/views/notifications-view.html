@@ -1,0 +1,102 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/px-widget-cards/px-twoup.html">
+<link rel="import" href="../../bower_components/px-theme/px-theme.html">
+<link rel="import" href="../../bower_components/px-card/px-card.html">
+<link rel="import" href="../../bower_components/px-inbox/px-inbox.html">
+<link rel="import" href="../../bower_components/px-inbox/px-inbox-detail.html">
+<link rel="import" href="../../bower_components/px-inbox/css/px-inbox-styles.html">
+
+<dom-module id="notifications-view">
+
+  <template>
+  
+  <px-inbox id="inbox1" list-items='[{"id":"1","title":"CMS Cold Spot","subtitle":"GT240182","severity":"important","date":"2016-10-05T01:29"},{"id":"2","title":"Drum Level Anomaly","subtitle":"Block 2","severity":"warning","date":"2016-10-04T01:27"},{"id":"3","title":"GT Vibration","subtitle":"GT20145","severity":"error","date":"2016-10-03T01:21"},{"id":"4","title":"Drum Level Anomaly","subtitle":"Block 4","severity":"information","date":"2016-10-03T01:05"},{"id":"5","title":"GT Trip","subtitle":"GT23193","severity":"important","date":"2016-10-02T12:30"},{"id":"6","title":"CMS Cold Spot","subtitle":"GT29372","severity":"warning","date":"2016-10-02T01:33"},{"id":"7","title":"Drum Level Anomaly","subtitle":"Block 4","severity":"information","date":"2016-09-12T01:05"},{"id":"8","title":"GT Trip","subtitle":"GT23193","severity":"important","date":"2016-09-02T12:30"},{"id":"9","title":"GT Stall","subtitle":"GT29372","severity":"error","date":"2016-09-15T01:33"},{"id":"10","title":"CMS Cold Spot","subtitle":"GT29372","severity":"warning","date":"2016-09-04T01:33"}]'>
+    <px-card>
+    <style include="px-inbox-styles"></style>
+    <template is="dom-if" if="{{id}}">
+      <div class="header flex flex--left">
+        <div id="icon" class$="{{severity}} u-mr-">
+          <div class="svg-canvas">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-triangle">
+              <polygon points="0,27 15,0 30,27"/>
+            </svg>
+          </div>
+          <span class="number"></span>
+        </div>
+        <span class="epsilon" style="line-height:30px;">{{title}}</span>
+      </div>
+      <div class="details">
+        <span class="caps title">Alert Information</span>
+        <div class="flex u-mt">
+          <div class="flex__item">
+            <span class="label">Alert ID</span><br/>
+            <span>749581</span>
+          </div>
+          <div class="flex__item">
+            <span class="label">Alert Source</span><br/>
+            <span>Combustion</span>
+          </div>
+        </div>
+        <div class="flex u-mt">
+          <div class="flex__item">
+            <span class="label">Received Date/Time</span><br/>
+            <span>2016-10-05T08:00</span>
+          </div>
+          <div class="flex__item">
+            <span class="label">Case Number</span><br/>
+            <span>127587937</span>
+          </div>
+        </div>
+      </div>
+      <div class="details">
+        <span class="caps title">Asset Information</span>
+        <div class="flex u-mt">
+          <div class="flex__item">
+            <span class="label">Customer</span><br/>
+            <span>Customer Name</span>
+          </div>
+          <div class="flex__item">
+            <span class="label">Serial Number</span><br/>
+            <span>GT769375</span>
+          </div>
+        </div>
+        <div class="flex u-mt">
+          <div class="flex__item">
+            <span class="label">DLN Type</span><br/>
+            <span>DLN 2.6</span>
+          </div>
+          <div class="flex__item">
+            <span class="label">Model</span><br/>
+            <span>7FA+e</span>
+          </div>
+        </div>
+      </div>
+    </template>
+    </px-card>
+  </px-inbox>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'notifications-view',
+      properties: {
+		  },
+      ready: function() {
+        console.log('notifications-view ready()')
+      }
+    });
+    window.addEventListener('WebComponentsReady', function() {
+
+      setTimeout(function() {
+        var inbox = document.querySelector('#inbox1');
+        inbox.addEventListener('selected-item-changed', function() {
+          var detail = document.querySelector('px-card');
+          detail.id = 'detail' + this.selectedItem;
+          detail.title = inbox.listItems.find(x => x.id === inbox.selectedItem).title;
+          detail.severity = inbox.listItems.find(x => x.id === inbox.selectedItem).severity;
+        });
+      }, 5);
+
+    });
+  </script>
+</dom-module>

@@ -96,6 +96,17 @@
             element-href="/elements/views/analytics-view.html">
           </px-view>
 
+          <!-- Notifications Page route and view -->
+          <app-route
+            route="[[_route]]"
+            pattern="/notifications"
+            active="{{_notificationsActive}}">
+          </app-route>
+          <px-view
+            active="[[_notificationsActive]]"
+            element-href="/elements/views/notifications-view.html">
+          </px-view>
+
         </main>
 
       </div>
@@ -143,6 +154,10 @@
               "label": "Analytics",
               "path": "/analytics",
               "icon": "fa-bar-chart"
+            },{
+              "label": "Notifications",
+              "path": "/notifications",
+              "icon": "fa-inbox"
             }]
           }
         },
