@@ -1,48 +1,100 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/px-context-browser/px-context-browser.html">
-<link rel="import" href="../../bower_components/px-deck-selector/px-deck-selector.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
-
-<!-- local px-deck -->
-<link rel="import" href="../../elements/px-deck/px-deck-index.html">
+<link rel="import" href="../../bower_components/px-kpi/px-kpi.html">
+<link rel="import" href="../../bower_components/px-kpi/px-kpi-list.html">
+<link rel="import" href="../../bower_components/px-widget-cards/px-sixup.html">
+<link rel="import" href="../../bower_components/px-widget-cards/px-twoup.html">
+<link rel="import" href="../../bower_components/px-theme/px-theme.html">
 
 <dom-module id="dashboards-view">
   <template>
 
     <script type="text/javascript" src="../../bower_components/es6-promise/es6-promise.min.js"></script>
+    <style>
+      body {
+        background-color: #525156;
+      }
+    </style>
+    <px-sixup id="widgetsx6" widget-header="DASHBOARD" widget-icon="fa-bar-chart">
+      <div class=widget-1>
+        <px-kpi id="kpi-1" title="Revenue" value="3.9B" uom="USD" status-icon="circle" status-color="green" spark-type="line"></px-kpi>
+      </div>
+      <div class=widget-2>
+        <px-kpi id="kpi-2" title="Profit" value="1.4B" uom="USD" status-icon="circle" status-color="orange" spark-type="line"></px-kpi>
+      </div>
+      <div class=widget-3>
+        <px-kpi id="kpi-3" title="Orders" value="30M" uom="USD" status-icon="arrow-up" status-label="12%" status-color="green" spark-type="line"></px-kpi>
+      </div>
+      <div class=widget-4>
+        <px-kpi id="kpi-4" title="Inventory" value="10.4" uom="Days" status-icon="calendar" status-color="red" spark-type="line"></px-kpi>
+      </div>
+      <div class=widget-5>
+        <px-kpi id="kpi-5" title="Customer Satisfaction" value="8.3" uom="/10" status-icon="smile-o" status-color="orange" spark-type="line"></px-kpi>
+      </div>
+      <div class=widget-6>
+        <px-kpi id="kpi-6" title="Employee Satisfaction" value="9.7" uom="/10" status-icon="smile-o" status-color="green" spark-type="line"></px-kpi>
+      </div>
+    </px-sixup>
 
-    <!-- contextIronAjax used to load data from local Predix Asset API -->
-    <iron-ajax
-      id="contextIronAjax"
-      url="/api/predix-asset/root/root"
-      last-response="{{_browserContext}}">
-    </iron-ajax>
-
-    <!-- decksIronAjax used to load data from local View Service API -->
-    <iron-ajax
-      id="decksIronAjax"
-      url="[[_decksUrl]]"
-      last-response="{{_decksResponse}}">
-      <!-- auto -->
-    </iron-ajax>
-
-    <!-- px-context-browser element -->
-    <px-context-browser
-      id="contextBrowser"
-      label-field="name"
-      id-field="id"
-      browser-context="[[_initialBrowserContext]]"
-      show-chevron="true">
-      <px-deck-selector
-        decks="[[_decks]]"
-        selected-deck="{{_selectedDeck}}">
-      </px-deck-selector>
-    </px-context-browser>
-
-    <px-deck-index
-      view-service-base-url="[[viewServiceBaseUrl]]"
-      deck-id="[[_selectedDeckId]]">
-    </px-deck-index>
+    <px-twoup id="widgetsx2" widget-header="Asset Data" widget-icon="fa-eye">
+      <div class=widget-1>
+        <px-kpi-list title="MH 04 GT 7785" 
+                     values="[{
+          'label': 'Availability',
+          'value': '99',
+          'uom': '%'
+        },{
+          'label': 'Reliability',
+          'value': '92.5',
+          'uom': '%'
+        },{
+          'label': 'Starts',
+          'value': '5',
+          'uom': ''
+        },{
+          'label': 'Fired',
+          'value': '2794',
+          'uom': 'hrs'
+        },{
+          'label': 'MTBT',
+          'value': '97',
+          'uom': 'days'
+        }]"
+                     status-icon="arrow-up" 
+                     status-label="12%" 
+                     status-color="green" 
+                     footer="Last 7 days"></px-kpi-list>
+      </div>
+      <div class=widget-2>
+        <px-kpi-list title="MH 07 GT 1258" 
+                     values="[{
+          'label': 'Availability',
+          'value': '99',
+          'uom': '%'
+        },{
+          'label': 'Reliability',
+          'value': '92.5',
+          'uom': '%'
+        },{
+          'label': 'Starts',
+          'value': '5',
+          'uom': ''
+        },{
+          'label': 'Fired',
+          'value': '2794',
+          'uom': 'hrs'
+        },{
+          'label': 'MTBT',
+          'value': '97',
+          'uom': 'days'
+        }]" 
+                     status-icon="circle" 
+                     status-color="orange" 
+                     footer="Last 7 days"></px-kpi-list>
+      </div>
+    </px-twoup>
+    
+    
 
   </template>
   <script>
@@ -51,115 +103,8 @@
       is: 'dashboards-view',
 
       properties: {
-        _decks: {
-          type: Array,
-          computed: '_computeDecks(_decksResponse)'
-        },
-        _initialBrowserContext: {
-          type: Object,
-          computed: '_computeInitialBrowserContext(_browserContext)'
-        },
-        _nodeUri: {
-          type: String
-        },
-        _decksUrl: {
-          type: String,
-          computed: '_computeDecksUrl(_selectedContextTag, viewServiceBaseUrl)'
-        },
-        _selectedContextTag: {
-          type: String,
-          value: ''
-        },
-        viewServiceBaseUrl: {
-          type: String,
-          value: '/api/view-service/'
-        },
-        _selectedDeckId: {
-          type: String,
-          computed: '_computeSelectedDeckId(_selectedDeck)'
-        }
-      },
-
-      _computeDecksUrl: function() {
-        if(this._selectedContextTag) {
-          return this.viewServiceBaseUrl + "decks?tag=" + this._selectedContextTag;
-        } else {
-          return this.viewServiceBaseUrl + "decks";
-        }
-      },
-
-      _computeSelectedDeckId: function() {
-        if(this._selectedDeck) {
-          return this._selectedDeck.id;
-        }
-      },
-
-      ready: function ready() {
-        var _this = this;
-        this.$.contextBrowser.handlers = {
-          // getChildren fires when a node is 'selected'
-          getChildren: function(parent, newIndex) {
-            return _this._getChildren(parent);
-          },
-          // itemOpenHandler fires when a node's 'open' link is clicked
-          itemOpenHandler: function(item) {
-            return _this._itemOpenHandler(item);
-          }
-        };
-        // initialize context data and decks
-        this.$.contextIronAjax.generateRequest();
-        this.$.decksIronAjax.generateRequest();
-      },
-
-      _computeDecks: function() {
-        var decks = [];
-        if (this._decksResponse && this._decksResponse.length > 0) {
-          this._decksResponse.forEach(function(deck) {
-            decks.push({ name: deck.title, id: deck.id });
-          });
-        };
-        return decks;
-      },
-
-      _computeInitialBrowserContext: function(_browserContext) {
-        if(typeof this._initialBrowserContext !== 'object') {
-          return _browserContext;
-        } else {
-          return this._initialBrowserContext;
-        }
-      },
-
-      // "getChildren" handler for px-context-browser
-      // this function is passed into
-      _getChildren: function(node) {
-        var that = this;
-        return new Promise(function(resolve, reject) {
-          var req = new XMLHttpRequest();
-          req.open('GET', '/api/predix-asset' + node.uri);
-
-          req.onload = function() {
-            if (req.status === 200) {
-              that._nodeUri = node.uri;
-              // that._computeDecks();
-              resolve(JSON.parse(req.response));
-            } else {
-              reject(req.statusText);
-            }
-          };
-
-          req.onError = function() {
-            reject("Network Error");
-          };
-
-          req.send()
-        });
-      },
-
-      _itemOpenHandler: function(item) {
-        this._selectedContextTag = item.id;
-        this.$.decksIronAjax.generateRequest();
-      },
-
+        
+      } 
     });
   </script>
 </dom-module>

@@ -31,7 +31,7 @@
       </px-typeahead>
     </px-card>
     <px-card header-text="Map">
-    <google-map disable-default-ui zoom="16" latitude="{{data.latitude}}" longitude="{{data.longitude}}">
+    <google-map disable-default-ui zoom="18" latitude="{{data.latitude}}" longitude="{{data.longitude}}">
 	<google-map-marker latitude="{{data.latitude}}" longitude="{{data.longitude}}"
       title="{{data.vehicleid}}" draggable="true" ></google-map-marker>
     </google-map>
@@ -42,7 +42,16 @@
     Polymer({
       is: 'blankpage-view',
       properties: {
-		
+		  data :{
+        type: Object,
+        value: {
+    "latitude": 19.17812167,
+    "longitude": 72.98856358,
+    "altitude": 0,
+    "timestamp": 0,
+    "vehicleid": "mh03ar1258"
+      }
+    }
 	},
       ready: function() {
         console.log('blankpage-view ready()')

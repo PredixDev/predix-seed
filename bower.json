@@ -39,7 +39,8 @@
     "px-view-header": "^0.1.1",
     "px-typeahead": "^0.1.0",
     "px-kpi": "^0.1.4",
-    "google-map": "GoogleWebComponents/google-map#^1.1.14"
+    "google-map": "GoogleWebComponents/google-map#^1.1.14",
+    "px-login": "^0.5.1"
   },
   "devDependencies": {
     "px-forms-design": "^0.3.17",

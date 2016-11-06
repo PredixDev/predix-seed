@@ -11,6 +11,7 @@
 <!-- px components -->
 <link rel="import" href="../../bower_components/px-app-nav/px-app-nav.html">
 <link rel="import" href="../../bower_components/px-view/px-view.html">
+<link rel="import" href="../../bower_components/px-login/px-login.html">
 
 <link rel="import" href="../ge-svg-logo/ge-svg-logo.html">
 <link rel="import" href="../predix-logo/predix-logo.html">
@@ -42,6 +43,14 @@
           class="navbar"
           nav-items="[[navItems]]"
           path-prefix="[[pathPrefix]]">
+
+        <!-- login module using CF UAA -->
+        <px-login 
+              menu-items='[{"icon": "fa-gear", "url":"/user-settings.html", "label": "Setting Item 1"}, 
+                           {"icon": "fa-gear", "label": "Setting Item 2", "url":"/user-settings.html"}]' 
+              logout-url="logged_out.html" 
+              user-info-url="userInfo.js">
+        </px-login>
         </px-app-nav>
 
         <main class="u-pt-- u-pr-- u-pl--" role="main">
@@ -53,15 +62,15 @@
             use-hash-as-path>
           </app-location>
 
-          <!-- /dashboards rotue and view -->
+          <!-- /dashboard rotue and view -->
           <app-route
             route="[[_route]]"
-            pattern="/dashboards"
-            active="{{_dashboardsActive}}">
+            pattern="/dashboard"
+            active="{{_dashboardActive}}">
           </app-route>
 
           <px-view
-            active="[[_dashboardsActive]]"
+            active="[[_dashboardActive]]"
             element-href="/elements/views/dashboards-view.html">
           </px-view>
 
@@ -74,6 +83,17 @@
           <px-view
             active="[[_blankpageActive]]"
             element-href="/elements/views/blankpage-view.html">
+          </px-view>
+
+          <!-- Analytics Page route and view -->
+          <app-route
+            route="[[_route]]"
+            pattern="/analytics"
+            active="{{_analyticsActive}}">
+          </app-route>
+          <px-view
+            active="[[_analyticsActive]]"
+            element-href="/elements/views/analytics-view.html">
           </px-view>
 
         </main>
@@ -113,12 +133,16 @@
           value: function() {
             return [{
               "label": "Dashboard",
-              "path": "/dashboards",
+              "path": "/dashboard",
               "icon": "fa-tachometer"
             }, {
               "label": "Track",
               "path": "/track",
               "icon": "fa-search"
+            },{
+              "label": "Analytics",
+              "path": "/analytics",
+              "icon": "fa-bar-chart"
             }]
           }
         },
@@ -163,10 +187,10 @@
       },
 
       _checkForDefaultRoute: function() {
-        // set default route to /dashboards
+        // set default route to /dashboard
         var l = window.location;
         if((l.hash === "#/" || l.hash === "") && l.pathname === "/") {
-          l.hash = "/dashboards";
+          l.hash = "/dashboard";
         }
       }
 
