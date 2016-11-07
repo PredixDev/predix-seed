@@ -1,16 +1,16 @@
 ---
 applications:
-  - name: predix-ui-seed
+  - name: vds-dev
     memory: 64M
     buildpack: nodejs_buildpack
     command: node server/app.js
-#services:
- # - <your-name>-secure-uaa-instance
- # - <your-name>-timeseries-instance
- # - <your-name>-asset-instance
+services:
+  - vds-uaa
+  - vds-timeseries
+  - vds-assets
 env:
     node_env: cloud
     uaa_service_label : predix-uaa
     # Add these values for authentication in the cloud
-    #clientId: {Enter client ID, e.g. app-client-id, and place it here}
-    #base64ClientCredential: dWFhLWNsaWVudC1pZDp1YWEtY2xpZW50LWlkLXNlY3JldA==
+    clientId: vds-client1
+    base64ClientCredential: dmRzLWNsaWVudDE6dGVzdEAxMjM0
