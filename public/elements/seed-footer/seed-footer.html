@@ -9,7 +9,7 @@
     <div class="flex flex--right footer__container">
       <ul class="list-inline">
         <template is="dom-repeat" items=[[footerLinks]]>
-        <li>[[item.label]]</li>
+        <li><a class="footer__link" href="[[item.href]]">[[item.label]]</a></li>
         </template>
         <span class="footer__copy">&copy;2016 General Electric</span>
     </ul>

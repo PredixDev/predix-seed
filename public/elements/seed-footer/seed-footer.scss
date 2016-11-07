@@ -49,6 +49,10 @@ $px-page-link-color: $gray5;
   margin-left: 40px;
 }
 
+.footer__link {
+  text-decoration: none;
+}
+
 // Trumps
 $inuit-enable-margins--small: true;
 $inuit-enable-margins--large: true;
