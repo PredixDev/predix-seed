@@ -61,5 +61,10 @@
     "px-code-design": "^0.2.11",
     "px-headings-design": "^0.2.14",
     "px-buttons-design": "^0.4.26"
+  },
+  "resolutions": {
+    "polymer": "~1.6.1",
+    "es6-promise": "~3.2.2",
+    "px-vis": "~0.5.0"
   }
 }
