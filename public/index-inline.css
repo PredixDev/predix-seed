@@ -40,15 +40,6 @@
 /**
      * Dark
      */
-:root {
-  --px-app-nav-background-color: #242326;
-  --px-app-nav-link-text-color: white;
-  --px-app-nav-link-selected-color: #086e87;
-  --px-app-nav-link-selected-active-color: #0986a4;
-  --px-app-nav-link-hover-color: #525156;
-  --px-app-nav-link-active-color: #3573c5;
-  --px-font-family: "GE Inspira Sans", sans-serif; }
-
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  *
@@ -264,7 +255,7 @@ pre {
   src: url("/bower_components/px-typography-design/type/GEInspiraSerif-BoldItalic-v01.eot?#iefix") format("embedded-opentype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-BoldItalic-v01.woff") format("woff"), url("/bower_components/px-typography-design/type/GEInspiraSerif-BoldItalic-v01.ttf") format("truetype"), url("/bower_components/px-typography-design/type/GEInspiraSerif-BoldItalic-v01.svg#GE Inspira Serif") format("svg"); }
 
 html {
-  font-family: "GE Inspira Sans", sans-serif; }
+  font-family: "GE Inspira Sans", "PingFang SC", "Heiti SC", "SimHei", "黑体", "Microsoft Yahei", "微软雅黑", sans-serif; }
 
 /**
  * Font weights
@@ -284,7 +275,7 @@ html {
  * Safari and Firefox.
  */
 :host {
-  font-family: "GE Inspira Sans", sans-serif; }
+  font-family: "GE Inspira Sans", "PingFang SC", "Heiti SC", "SimHei", "黑体", "Microsoft Yahei", "微软雅黑", sans-serif; }
 
 /* Text-level semantics
    ========================================================================== */
@@ -370,7 +361,7 @@ body {
 html, body {
   margin: 0;
   background: #3b3b3f;
-  font-family: "GE Inspira Sans", sans-serif;
+  font-family: "GE Inspira Sans", "PingFang SC", "Heiti SC", "SimHei", "黑体", "Microsoft Yahei", "微软雅黑", sans-serif;
   font-weight: normal; }
 
 body.loading #splash {

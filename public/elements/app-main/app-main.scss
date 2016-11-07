@@ -1,39 +1,16 @@
 // Settings
 @import "px-colors-design/_settings.colors.scss";
+@import "px-mixins-design/_tools.mixins.scss";
+@import "inuit-responsive-settings/_settings.responsive.scss";
+@import "inuit-responsive-tools/_tools.responsive.scss";
 
-// Generic
-@import "px-normalize-design/_generic.normalize.scss";
-@import "px-box-sizing-design/_generic.box-sizing.scss";
-@import "px-helpers-design/_generic.helpers.scss";
+@import "../../theme";
 
 // px-viewport configuration variables are documented in the px-viewport Readme.md:
 // https://github.com/predixdev/px-viewport-design
 $desk-wide-width: auto; // defaults to 100%
 $desk-wide-max-width: none; // defaults to 80rem
 $viewport-margin: 2rem; // defaults to auto
-
-// Base
-@import "px-viewport-design/_base.viewport.scss";
-@import "px-flexbox-design/_base.flexbox.scss";
-@import "px-code-design/_base.code.scss";
-@import "px-headings-design/_base.headings.scss";
-
-// Meta
-@import "px-meta-lists-design/_meta.lists.scss";
-
-// Objects
-$inuit-enable-btn--bare     : true;
-
-@import "px-buttons-design/_objects.buttons.scss";
-
-$inuit-enable-layout--small : true;
-$inuit-enable-layout--flush : true;
-$inuit-enable-layout--full  : true;
-
-@import "px-layout-design/_objects.layout.scss";
-
-@import "../../seed-theme.scss";
-
 
 // Styling for px-app-nav
 :root {
@@ -44,7 +21,6 @@ $inuit-enable-layout--full  : true;
   --px-app-nav-link-hover-color:            $gray8;
   --px-app-nav-link-active-color:           $primary-blue-hover;
 }
-
 
 
 [role=banner], [role=contentinfo] {
@@ -99,33 +75,17 @@ main {
 
 [role=contentinfo] {
   @include inuit-font-size(12px);
-  position: absolute;
-  bottom: 0;
-  width: 100%;
   color: $px-page-link-color;
+  height: 4em;
+
   a {
     text-decoration: none;
     color: $px-page-link-color;
+    &:hover, &:link, &:visited {
+      color: $px-page-link-color;
+    }
     &:hover {
       text-decoration: underline;
     }
   }
 }
-
-// Trumps
-$inuit-enable-margins--tiny             : true;
-$inuit-enable-margins--small            : true;
-$inuit-enable-margins--large            : true;
-$inuit-enable-margins--huge             : true;
-$inuit-enable-margins--none             : true;
-$inuit-enable-margins--rtl              : true;
-$inuit-enable-margins--negative-tiny    : true;
-$inuit-enable-paddings                  : true;
-$inuit-enable-paddings--tiny            : true;
-$inuit-enable-paddings--small           : true;
-$inuit-enable-paddings--large           : true;
-$inuit-enable-paddings--huge            : true;
-$inuit-enable-paddings--none            : true;
-
-@import "px-spacing-design/_trumps.spacing.scss";
-@import "px-widths-design/_trumps.widths.scss";

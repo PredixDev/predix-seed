@@ -16,6 +16,7 @@
 
   // Remove #splash div and 'loading' class from body
   var onMainElementLoaded = function() {
+    debugger;
     // Fade splash screen, then remove
     var splashEl = document.getElementById('splash');
     splashEl.parentNode.removeChild(splashEl);

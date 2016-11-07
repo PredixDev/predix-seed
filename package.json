@@ -1,5 +1,5 @@
 {
-  "name": "predix-seed",
+  "name": "predix-ui-app",
   "version": "3.0.1",
   "private": true,
   "engines": {
@@ -50,7 +50,9 @@
     "express": "^4.14.0",
     "express-http-proxy": "^0.10.0",
     "express-session": "^1.14.1",
+    "express-urlrewrite": "^1.2.0",
     "glob": "^7.0.3",
+    "http-proxy-middleware": "^0.17.2",
     "https-proxy-agent": "^1.0.0",
     "json-server": "^0.8.10",
     "lodash": "^4.11.2",

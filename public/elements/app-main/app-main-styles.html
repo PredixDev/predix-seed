@@ -1,0 +1,114 @@
+<dom-module id="app-main-styles">
+<template>
+<style>
+/*------------------------------------*    #PX-COLORS-DESIGN
+\*------------------------------------*/
+/**
+ * Brand Colors
+ */
+/**
+     * Primary
+     */
+/**
+     * Light
+     */
+/**
+     * Dark
+     */
+/**
+ * Monochromatic (gray10 is darkest, gray1 is lightest)
+ */
+/**
+ * Define grey = gray to avoid dev typos
+ */
+/**
+ * Buttons
+ */
+/**
+ * Selection
+ */
+/**
+ * Alerts
+ */
+/**
+ * Data Visualization
+ */
+/**
+     * Basic
+     */
+/**
+     * Light
+     */
+/**
+     * Dark
+     */
+:root {
+  --px-app-nav-background-color: #242326;
+  --px-app-nav-link-text-color: white;
+  --px-app-nav-link-selected-color: #086e87;
+  --px-app-nav-link-selected-active-color: #0986a4;
+  --px-app-nav-link-hover-color: #525156;
+  --px-app-nav-link-active-color: #3573c5; }
+
+[role=banner], [role=contentinfo] {
+  height: 4rem; }
+
+[role=banner] {
+  width: 100%;
+  display: block;
+  margin: auto; }
+  [role=banner] h1, [role=banner] h2 {
+    font-size: 1.6rem;
+    line-height: 1.66667;
+    margin: 0;
+    line-height: 4rem;
+    font-weight: normal;
+    color: #d1d0d8;
+    display: inline-block; }
+    [role=banner] h1 svg, [role=banner] h2 svg {
+      margin-bottom: -.1em; }
+      [role=banner] h1 svg path, [role=banner] h2 svg path {
+        fill: #d1d0d8; }
+  [role=banner] h2 {
+    color: #9999a3; }
+    @media screen and (max-width: 44.9375em) {
+      [role=banner] h2 {
+        display: none; } }
+
+.content-wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+main {
+  min-height: calc(100vh - 8rem);
+  margin-left: 0;
+  background-color: #8b8d8f;
+  overflow-x: hidden;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
+  @media screen and (max-width: 63.9375em) {
+    main {
+      margin-left: 3.66667rem; } }
+  @media screen and (min-width: 64em) {
+    main {
+      margin-left: 0; } }
+
+[role=contentinfo] {
+  font-size: 0.8rem;
+  line-height: 1.66667;
+  color: #b1b1bc;
+  height: 4em; }
+  [role=contentinfo] a {
+    text-decoration: none;
+    color: #b1b1bc; }
+    [role=contentinfo] a:hover, [role=contentinfo] a:link, [role=contentinfo] a:visited {
+      color: #b1b1bc; }
+    [role=contentinfo] a:hover {
+      text-decoration: underline; }
+
+</style>
+</template>
+</dom-module>

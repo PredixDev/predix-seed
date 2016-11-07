@@ -1,5 +1,5 @@
 {
-  "name": "predix-seed",
+  "name": "predix-ui-app",
   "version": "3.0.1",
   "private": true,
   "ignore": [
@@ -19,7 +19,7 @@
     "polymer": "^1.6.1",
     "iron-ajax": "~1.4.3",
     "iron-pages": "~1.0.8",
-    "px-view": "~1.0.1",
+    "px-view": "https://github.build.ge.com/foundry-sh/px-view.git#master",
     "q": "^1.0.0",
     "app-route": "PolymerElements/app-route#^0.9.1",
     "px-overlay": "^0.3.0",
@@ -35,7 +35,7 @@
     "px-theme": "^1.1.2",
     "px-vis-timeseries": "^0.3.0",
     "px-vis-xy-chart": "^0.1.0",
-    "px-view": "^1.0.0"
+    "imd": "^1.0.0"
   },
   "devDependencies": {
     "px-forms-design": "^0.3.17",

@@ -7,21 +7,21 @@
   <script src="../public/bower_components/web-component-tester/browser.js"></script>
 
   <!-- Import the element to test -->
-  <link rel="import" href="../public/elements/seed-app/seed-app.html">
+  <link rel="import" href="../public/elements/app-main/app-main.html">
 
 </head>
 <body>
 
   <test-fixture id="basic">
     <template>
-       <seed-app></seed-app>
+       <app-main></app-main>
     </template>
   </test-fixture>
 
   <script>
   console.log('starting tests');
   document.addEventListener('WebComponentsReady', function() {
-      suite('seed-app initial DOM tests', function() {
+      suite('app-main initial DOM tests', function() {
 
         var home;
         var seedAppFixture;
@@ -30,8 +30,8 @@
           seedAppFixture = fixture('basic');
         });
 
-        test('seed-app object should be of type "seed-app"', function() {
-          assert(seedAppFixture.is === 'seed-app', 'seed-app object has incorrect type: ' + seedAppFixture.is);
+        test('app-main object should be of type "app-main"', function() {
+          assert(seedAppFixture.is === 'app-main', 'app-main object has incorrect type: ' + seedAppFixture.is);
         });
 
         test('navItems object should be of type Array', function() {
@@ -44,7 +44,7 @@
           assert(Array.isArray(footerLinks), 'footerLinks object has incorrect type: ' + typeof footerLinks);
         });
 
-        // Test cases for seed-app DOM structure upon initial load
+        // Test cases for app-main DOM structure upon initial load
         // Elements are tested for presence and correct count
 
         test('There should be a header element', function() {
@@ -77,12 +77,12 @@
           assert(main !== null, 'main element was not found');
         });
 
-        test('There should be a seed-footer element', function() {
-          var seedFooter = Polymer.dom(seedAppFixture.root).querySelector('seed-footer');
-          assert(seedFooter !== null && typeof seedFooter !== 'undefined', 'seed-footer element was not found');
+        test('There should be a app-footer element', function() {
+          var seedFooter = Polymer.dom(seedAppFixture.root).querySelector('app-footer');
+          assert(seedFooter !== null && typeof seedFooter !== 'undefined', 'app-footer element was not found');
         });
 
-        // Test cases for correct configuration of seed-app Polymer Object
+        // Test cases for correct configuration of app-main Polymer Object
 
         test('Fixture element should contain a header which has a logo', function() {
           var seedHeader = Polymer.dom(seedAppFixture.root).querySelector('header ge-svg-logo');

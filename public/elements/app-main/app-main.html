@@ -2,7 +2,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
 <!-- import page level css -->
-<link rel="import" href="seed-app-styles.html">
+<link rel="import" href="app-main-styles.html">
 
 <!-- app route -->
 <link rel="import" href="../../bower_components/app-route/app-location.html">
@@ -14,22 +14,21 @@
 
 <link rel="import" href="../ge-svg-logo/ge-svg-logo.html">
 <link rel="import" href="../predix-logo/predix-logo.html">
-<link rel="import" href="../seed-footer/seed-footer.html">
 
-<dom-module id="seed-app">
+<dom-module id="app-main">
   <template>
 
     <!-- apply imported seed app style module -->
-    <style include="seed-app-styles"></style>
+    <style include="app-main-styles"></style>
 
     <header role="banner" class="flex flex--middle">
       <div class="viewport flex">
         <h1 class="flex__item">
-          <ge-svg-logo class="u-mr--"></ge-svg-logo> Seed Application
+          <ge-svg-logo class="u-mr--"></ge-svg-logo> Predix应用
         </h1>
         <div class="flex__item">
           <div class="flex" style="text-align:right;">
-            <h2 class="flex__item weight--normal">Powered by <predix-logo style="display:inline-block;" class="flex__item u-mr--"></predix-logo></h2>
+            <h2 class="flex__item weight--normal">运行于<predix-logo style="display:inline-block;" class="flex__item u-mr--"></predix-logo></h2>
           </div>
         </div>
       </div>
@@ -60,6 +59,10 @@
             active="{{_dashboardsActive}}">
           </app-route>
 
+          <!--<template is="dom-if" if="[[_dashboardsActive]]">-->
+            <!--<dashboards-view></dashboards-view>-->
+          <!--</template>-->
+
           <px-view
             active="[[_dashboardsActive]]"
             element-href="/elements/views/dashboards-view.html">
@@ -71,6 +74,12 @@
             pattern="/blankpage"
             active="{{_blankpageActive}}">
           </app-route>
+
+
+          <!--<template is="dom-if" if="[[_dashboardsActive]]">-->
+            <!--<blankpage-view></blankpage-view>-->
+          <!--</template>-->
+
           <px-view
             active="[[_blankpageActive]]"
             element-href="/elements/views/blankpage-view.html">
@@ -81,12 +90,23 @@
       </div>
     </div>
 
-    <seed-footer footer-links='[[footerLinks]]'></seed-footer>
+    <footer role="contentinfo" class="viewport flex flex--middle">
+      <ul class="list-inline list-inline--delimited">
+        <template is="dom-repeat" items=[[footerLinks]]>
+          <li>
+            <a class="footer__link"
+               href$="[[item.href]]" target$="[[item.target]]">[[item.label]]
+            </a>
+          </li>
+        </template>
+      </ul>
+      <small class="u-ml-">©2016 通用电气</small>
+    </footer>
 
   </template>
   <script>
     Polymer({
-      is: 'seed-app',
+      is: 'app-main',
 
       properties: {
 
@@ -101,8 +121,8 @@
           type: Object,
           value: function() {
             return {
-              version: '1.0',
-              name: 'Predix UI Seed',
+              version: '0.1',
+              name: '',
               session: {}
             }
           }
@@ -127,27 +147,14 @@
           type: Array,
           value: function() {
             return [{
-              "label": "Privacy",
+              "label": "隐私策略",
               "href": "http://www.ge.com/privacy",
               "target": "_blank"
             }, {
-              "label": "Terms",
+              "label": "使用条款",
               "href": "http://www.ge.com/terms",
               "target": "_blank"
-            }, {
-              "label": "Site Map",
-              "href": "http://www.ge.com/terms",
-              "target": "_blank"
-            }, {
-              "label": "Contact Us",
-              "href": "http://www.ge.com/contact/general",
-              "target": "_blank"
-            }, {
-              "label": "Accessibility",
-              "href": "http://www.ge.com/accessibility",
-              "target": "_blank"
-            }
-          ]
+            }]
           }
         },
 
