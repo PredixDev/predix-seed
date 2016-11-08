@@ -23,6 +23,6 @@ module.exports = function(gulp) {
         inlineCSS: true,
         inlineScripts: true
       }))
-      .pipe(gulp.dest('dist/elements/'));
+      .pipe(gulp.dest('dist/public/elements/'));
   };
 };
