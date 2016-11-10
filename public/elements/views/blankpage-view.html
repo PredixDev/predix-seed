@@ -7,8 +7,8 @@
 <link rel="import" href="../../bower_components/px-view-header/px-view-header.html">
 <link rel="import" href="../../bower_components/px-typeahead/px-typeahead.html"/>
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html"/>
-<link rel="import" href="../../bower_components/iron-icons/maps-icons.html"/>
-<link rel="import" href="../../bower_components/iron-icon/iron-icon.html"/>
+
+
 <dom-module id="blankpage-view">
 
   <template>
@@ -19,12 +19,11 @@
 	</style>
     <iron-ajax auto id="vehicleMapReadings"
    	url="https://vds-ms.run.aws-usw02-pr.ice.predix.io/readings/Test"
-    	handle-as="json"
-    	on-response="_onResponse"
-    	last-response="{{data}}">
+   	on-response="_onResponse"
+    	last-response="{{vehicle}}">
     </iron-ajax>
     
-    <px-card header-text="Track Vehicles {{data.readings.latitude}}">
+    <px-card header-text="Track Vehicles">
     <label>Selected value : {{inputValue}}</label>
       <px-typeahead 
       max-suggestions="10" 
@@ -33,11 +32,16 @@
       input-value="{{inputValue}}">
       </px-typeahead>
     </px-card>
-    <px-card header-text="Map {{data.readings.latitude}}" >
-    <google-map disable-default-ui zoom="18" latitude="{{data.readings.latitude}}" longitude="{{data.readings.latitude}}">
-	<google-map-marker latitude="{{data.readings.latitude}}" longitude="{{data.readings.longitude}}"
-      title="{{data.readings.vehicleid}}" draggable="true" ></google-map-marker>
-    </google-map>
+    
+    <px-card header-text="Map" >
+		<google-map disable-default-ui zoom="18" latitude="{{vehicle.readings.latitude}}" longitude="{{vehicle.readings.longitude}}">
+			<google-map-marker latitude="{{vehicle.readings.latitude}}" 
+				longitude="{{vehicle.readings.longitude}}"
+      		title="{{vehicle.readings.vehicleid}}" 
+      		draggable="true" 
+      		icon="../car.png">
+      	</google-map-marker>
+		</google-map>
     </px-card>
     
   </template>
@@ -52,11 +56,14 @@
 	_updateMapData: function(){
 		this.async(function() {
               this.$.vehicleMapReadings.generateRequest();
-            }, 15000);
+            }, 2000);
 	},
 	_onResponse: function(){
 		console.log("Maps: received response");
 		this._updateMapData();		
+	},
+	_onTypeHeadChange: function(){
+		console.log("Called _onTypeHeadChange");
 	},
       ready: function() {
         console.log('blankpage-view ready()')
