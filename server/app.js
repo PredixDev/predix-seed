@@ -66,7 +66,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 var server = app.listen(process.env.VCAP_APP_PORT || 5000, function () {
 	console.log ('Server started on port: ' + server.address().port);
 });
-app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist')));
+// app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist')));
 
 /*******************************************************
 SET UP MOCK API ROUTES
@@ -105,7 +105,7 @@ if (uaaIsConfigured) {
   	failureRedirect: '/'
   }), function(req, res) {
   	console.log('Redirecting to secure route...');
-  	res.redirect('/secure');
+  	res.redirect('/');
     });
 
   //secure route checks for authentication
@@ -129,6 +129,13 @@ app.get('/logout', function(req, res) {
 app.get('/favicon.ico', function (req, res) {
 	res.send('favicon.ico');
 });
+
+//secure route checks for authentication
+app.use('/', passport.authenticate('main', {
+  noredirect: false //Don't redirect a user to the authentication page, just show an error
+  }),
+  express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist'))
+);
 
 // Sample route middleware to ensure user is authenticated.
 //   Use this route middleware on any resource that needs to be protected.  If
