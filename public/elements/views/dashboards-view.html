@@ -1,48 +1,78 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/px-context-browser/px-context-browser.html">
-<link rel="import" href="../../bower_components/px-deck-selector/px-deck-selector.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
-
-<!-- local px-deck -->
-<link rel="import" href="../../elements/px-deck/px-deck-index.html">
+<link rel="import" href="../../bower_components/px-kpi/px-kpi.html">
+<link rel="import" href="../../bower_components/px-kpi/px-kpi-list.html">
+<link rel="import" href="../../bower_components/px-widget-cards/px-sixup.html">
+<link rel="import" href="../../bower_components/px-widget-cards/px-twoup.html">
+<link rel="import" href="../../bower_components/px-theme/px-theme.html">
+<link rel="import" href="../../bower_components/px-dropdown/px-dropdown.html">
+<link rel="import" href="../../bower_components/px-dropdown/px-dropdown-content.html">
 
 <dom-module id="dashboards-view">
   <template>
 
     <script type="text/javascript" src="../../bower_components/es6-promise/es6-promise.min.js"></script>
-
-    <!-- contextIronAjax used to load data from local Predix Asset API -->
-    <iron-ajax
-      id="contextIronAjax"
-      url="/api/predix-asset/root/root"
-      last-response="{{_browserContext}}">
-    </iron-ajax>
-
-    <!-- decksIronAjax used to load data from local View Service API -->
-    <iron-ajax
-      id="decksIronAjax"
-      url="[[_decksUrl]]"
-      last-response="{{_decksResponse}}">
-      <!-- auto -->
-    </iron-ajax>
-
-    <!-- px-context-browser element -->
-    <px-context-browser
-      id="contextBrowser"
-      label-field="name"
-      id-field="id"
-      browser-context="[[_initialBrowserContext]]"
-      show-chevron="true">
-      <px-deck-selector
-        decks="[[_decks]]"
-        selected-deck="{{_selectedDeck}}">
-      </px-deck-selector>
-    </px-context-browser>
-
-    <px-deck-index
-      view-service-base-url="[[viewServiceBaseUrl]]"
-      deck-id="[[_selectedDeckId]]">
-    </px-deck-index>
+    <style>
+      body {
+        background-color: #525156;
+      }
+    </style>
+    
+	<iron-ajax auto
+		id="vehicleReadings"
+		url="https://vds-ms.run.aws-usw02-pr.ice.predix.io/readings/{{selectedKey}}"      
+      on-response="_onResponse"      
+      last-response="{{vehicle}}">
+    </iron-ajax>	
+    
+	<px-twoup id="widgetsx2" widget-header="Vehicle" widget-icon="fa-car" >
+      <div class=widget-1>
+        <!-- Dropdown to select the Vehicle -->
+	<px-dropdown display-value="Select Vehicle" value="{{selectedValue}}" selected-key="{{selectedKey}}">
+  		<px-dropdown-content 
+			class="px-dropdown-content" 
+			extend-dropdown="true" 
+			extend-dropdown-by="25" 
+			max-cont-character-width="10" 
+			items='[{"key":"MHO4GT7785", "val": "MHO4GT7785"},
+				{"key":"Test", "val": "Test"},
+				{"key":"MH48F2184", "val": "MH48F2184"}, 
+				{"key":"MHO4GT1259", "val": "MHO4GT1259"}]'>
+ 		 </px-dropdown-content>
+	</px-dropdown>
+      </div>
+      <div class=widget-2>
+	<ul class="list-ui">
+ 		 <li class="list-ui__item">Vehicle : {{selectedValue}}</li>
+		<!-- To use the Key in anyplace-->
+		<!-- <li class="list-ui__item">Key : {{selectedKey}}</li> -->
+		<!-- create a flag in Android app to check the connected status -->
+		 <li class="list-ui__item">Connected :	Yes</li>
+		 <li class="list-ui__item"><a href="/#/track">Track Vehicle</a></li>
+	</ul>
+	</div>
+    </px-twoup>
+    
+    <px-sixup id="widgetsx6" widget-header="DASHBOARD" widget-icon="fa-bar-chart">
+      <div class=widget-1>
+        <px-kpi id="kpi-1" title="Speed" value="{{vehicle.readings.speed}}" status-icon="circle" status-color="green" spark-type="line"></px-kpi>
+      </div>
+      <div class=widget-2>
+        <px-kpi id="kpi-2" title="Fuel Level" value="{{vehicle.readings.fuelLevel}}" status-icon="circle" status-color="orange" spark-type="line"></px-kpi>
+      </div>
+      <div class=widget-3>
+        <px-kpi id="kpi-3" title="Air Temperature" value="{{vehicle.readings.airIntakeTemp}}" uom="" status-icon="arrow-up" status-label="12%" status-color="green" spark-type="line"></px-kpi>
+      </div>
+      <div class=widget-4>
+        <px-kpi id="kpi-4" title="Engine RPM" value="{{vehicle.readings.engineRpm}}" uom="" status-icon="calendar" status-color="red" spark-type="line"></px-kpi>
+      </div>
+      <div class=widget-5>
+        <px-kpi id="kpi-5" title="FUEL CONSUMPTION RATE" value="{{vehicle.readings.fuelConsumptionRate}}" uom="" status-icon="smile-o" status-color="orange" spark-type="line"></px-kpi>
+      </div>
+      <div class=widget-6>
+        <px-kpi id="kpi-6" title="ENGINE RUNTIME" value="{{vehicle.readings.engineRuntime}}" uom="" status-icon="smile-o" status-color="green" spark-type="line"></px-kpi>
+      </div>
+    </px-sixup> 
 
   </template>
   <script>
@@ -51,115 +81,17 @@
       is: 'dashboards-view',
 
       properties: {
-        _decks: {
-          type: Array,
-          computed: '_computeDecks(_decksResponse)'
-        },
-        _initialBrowserContext: {
-          type: Object,
-          computed: '_computeInitialBrowserContext(_browserContext)'
-        },
-        _nodeUri: {
-          type: String
-        },
-        _decksUrl: {
-          type: String,
-          computed: '_computeDecksUrl(_selectedContextTag, viewServiceBaseUrl)'
-        },
-        _selectedContextTag: {
-          type: String,
-          value: ''
-        },
-        viewServiceBaseUrl: {
-          type: String,
-          value: '/api/view-service/'
-        },
-        _selectedDeckId: {
-          type: String,
-          computed: '_computeSelectedDeckId(_selectedDeck)'
-        }
+        
       },
-
-      _computeDecksUrl: function() {
-        if(this._selectedContextTag) {
-          return this.viewServiceBaseUrl + "decks?tag=" + this._selectedContextTag;
-        } else {
-          return this.viewServiceBaseUrl + "decks";
-        }
+      _updateData: function() {
+            this.async(function() {
+              this.$.vehicleReadings.generateRequest();
+            }, 2000);
       },
-
-      _computeSelectedDeckId: function() {
-        if(this._selectedDeck) {
-          return this._selectedDeck.id;
-        }
-      },
-
-      ready: function ready() {
-        var _this = this;
-        this.$.contextBrowser.handlers = {
-          // getChildren fires when a node is 'selected'
-          getChildren: function(parent, newIndex) {
-            return _this._getChildren(parent);
-          },
-          // itemOpenHandler fires when a node's 'open' link is clicked
-          itemOpenHandler: function(item) {
-            return _this._itemOpenHandler(item);
-          }
-        };
-        // initialize context data and decks
-        this.$.contextIronAjax.generateRequest();
-        this.$.decksIronAjax.generateRequest();
-      },
-
-      _computeDecks: function() {
-        var decks = [];
-        if (this._decksResponse && this._decksResponse.length > 0) {
-          this._decksResponse.forEach(function(deck) {
-            decks.push({ name: deck.title, id: deck.id });
-          });
-        };
-        return decks;
-      },
-
-      _computeInitialBrowserContext: function(_browserContext) {
-        if(typeof this._initialBrowserContext !== 'object') {
-          return _browserContext;
-        } else {
-          return this._initialBrowserContext;
-        }
-      },
-
-      // "getChildren" handler for px-context-browser
-      // this function is passed into
-      _getChildren: function(node) {
-        var that = this;
-        return new Promise(function(resolve, reject) {
-          var req = new XMLHttpRequest();
-          req.open('GET', '/api/predix-asset' + node.uri);
-
-          req.onload = function() {
-            if (req.status === 200) {
-              that._nodeUri = node.uri;
-              // that._computeDecks();
-              resolve(JSON.parse(req.response));
-            } else {
-              reject(req.statusText);
-            }
-          };
-
-          req.onError = function() {
-            reject("Network Error");
-          };
-
-          req.send()
-        });
-      },
-
-      _itemOpenHandler: function(item) {
-        this._selectedContextTag = item.id;
-        this.$.decksIronAjax.generateRequest();
-      },
-
+      _onResponse: function() {
+            console.log('received response');
+            this._updateData();
+          } 
     });
   </script>
 </dom-module>
