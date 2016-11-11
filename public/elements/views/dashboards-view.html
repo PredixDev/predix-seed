@@ -5,6 +5,8 @@
 <link rel="import" href="../../bower_components/px-widget-cards/px-sixup.html">
 <link rel="import" href="../../bower_components/px-widget-cards/px-twoup.html">
 <link rel="import" href="../../bower_components/px-theme/px-theme.html">
+<link rel="import" href="../../bower_components/px-dropdown/px-dropdown.html">
+<link rel="import" href="../../bower_components/px-dropdown/px-dropdown-content.html">
 
 <dom-module id="dashboards-view">
   <template>
@@ -18,11 +20,38 @@
     
 	<iron-ajax auto
 		id="vehicleReadings"
-		url="https://vds-ms.run.aws-usw02-pr.ice.predix.io/readings/Test"      
+		url="https://vds-ms.run.aws-usw02-pr.ice.predix.io/readings/{{selectedKey}}"      
       on-response="_onResponse"      
       last-response="{{vehicle}}">
     </iron-ajax>	
     
+	<px-twoup id="widgetsx2" widget-header="Vehicle" widget-icon="fa-car" >
+      <div class=widget-1>
+        <!-- Dropdown to select the Vehicle -->
+	<px-dropdown display-value="Select Vehicle" value="{{selectedValue}}" selected-key="{{selectedKey}}">
+  		<px-dropdown-content 
+			class="px-dropdown-content" 
+			extend-dropdown="true" 
+			extend-dropdown-by="25" 
+			max-cont-character-width="10" 
+			items='[{"key":"MHO4GT7785", "val": "MHO4GT7785"},
+				{"key":"Test", "val": "Test"},
+				{"key":"MH48F2184", "val": "MH48F2184"}, 
+				{"key":"MHO4GT1259", "val": "MHO4GT1259"}]'>
+ 		 </px-dropdown-content>
+	</px-dropdown>
+      </div>
+      <div class=widget-2>
+	<ul class="list-ui">
+ 		 <li class="list-ui__item">Vehicle : {{selectedValue}}</li>
+		<!-- To use the Key in anyplace-->
+		<!-- <li class="list-ui__item">Key : {{selectedKey}}</li> -->
+		<!-- create a flag in Android app to check the connected status -->
+		 <li class="list-ui__item">Connected :	Yes</li>
+		 <li class="list-ui__item"><a href="/#/track">Track Vehicle</a></li>
+	</ul>
+	</div>
+    </px-twoup>
     
     <px-sixup id="widgetsx6" widget-header="DASHBOARD" widget-icon="fa-bar-chart">
       <div class=widget-1>
@@ -35,7 +64,7 @@
         <px-kpi id="kpi-3" title="Air Temperature" value="{{vehicle.readings.airIntakeTemp}}" uom="" status-icon="arrow-up" status-label="12%" status-color="green" spark-type="line"></px-kpi>
       </div>
       <div class=widget-4>
-        <px-kpi id="kpi-4" title="Engine RPM" value="{{vehicle.readings.engineRpm}}" uom="rpm" status-icon="calendar" status-color="red" spark-type="line"></px-kpi>
+        <px-kpi id="kpi-4" title="Engine RPM" value="{{vehicle.readings.engineRpm}}" uom="" status-icon="calendar" status-color="red" spark-type="line"></px-kpi>
       </div>
       <div class=widget-5>
         <px-kpi id="kpi-5" title="FUEL CONSUMPTION RATE" value="{{vehicle.readings.fuelConsumptionRate}}" uom="" status-icon="smile-o" status-color="orange" spark-type="line"></px-kpi>
@@ -43,26 +72,7 @@
       <div class=widget-6>
         <px-kpi id="kpi-6" title="ENGINE RUNTIME" value="{{vehicle.readings.engineRuntime}}" uom="" status-icon="smile-o" status-color="green" spark-type="line"></px-kpi>
       </div>
-    </px-sixup>
-
-    <px-twoup id="widgetsx2" widget-header="Asset Data" widget-icon="fa-eye">
-      <div class=widget-1>
-        <px-kpi-list title="MH 04 GT 7785" 
-                     values="[{ }]"
-                     status-icon="arrow-up"
-                     status-color="green" 
-                     footer="Last 7 days"></px-kpi-list>
-      </div>
-      <div class=widget-2>
-        <px-kpi-list title="MH 07 GT 1258" 
-                     values="[{}]" 
-                     status-icon="circle" 
-                     status-color="orange" 
-                     footer="Last 7 days"></px-kpi-list>
-      </div>
-    </px-twoup>
-    
-    
+    </px-sixup> 
 
   </template>
   <script>

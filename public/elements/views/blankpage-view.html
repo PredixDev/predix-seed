@@ -7,7 +7,10 @@
 <link rel="import" href="../../bower_components/px-view-header/px-view-header.html">
 <link rel="import" href="../../bower_components/px-typeahead/px-typeahead.html"/>
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html"/>
-
+<link rel="import" href="../../bower_components/px-widget-cards/px-twoup.html">
+<link rel="import" href="../../bower_components/px-dropdown/px-dropdown.html">
+<link rel="import" href="../../bower_components/px-dropdown/px-dropdown-content.html">
+<link rel="import" href="../../bower_components/px-theme/px-theme.html">
 
 <dom-module id="blankpage-view">
 
@@ -18,20 +21,38 @@
  	 }
 	</style>
     <iron-ajax auto id="vehicleMapReadings"
-   	url="https://vds-ms.run.aws-usw02-pr.ice.predix.io/readings/Test"
+   	url="https://vds-ms.run.aws-usw02-pr.ice.predix.io/readings/{{selectedKey}}"
    	on-response="_onResponse"
     	last-response="{{vehicle}}">
     </iron-ajax>
     
-    <px-card header-text="Track Vehicles">
-    <label>Selected value : {{inputValue}}</label>
-      <px-typeahead 
-      max-suggestions="10" 
-      placeholder="Enter Vehicle ID" 
-      local-candidates='["7824","1258","7785","9731","7896","1659","1240","Test"]'
-      input-value="{{inputValue}}">
-      </px-typeahead>
-    </px-card>
+    <px-twoup id="widgetsx2" widget-header="Track Vehicle" widget-icon="fa-car" >
+      <div class=widget-1>
+        <!-- Dropdown to select the Vehicle -->
+	<px-dropdown display-value="Select Vehicle" value="{{selectedValue}}" selected-key="{{selectedKey}}">
+  		<px-dropdown-content 
+			class="px-dropdown-content" 
+			extend-dropdown="true" 
+			extend-dropdown-by="25" 
+			max-cont-character-width="10" 
+			items='[{"key":"MHO4GT7785", "val": "MHO4GT7785"},
+				{"key":"Test", "val": "Test"},
+				{"key":"MH48F2184", "val": "MH48F2184"}, 
+				{"key":"MHO4GT1259", "val": "MHO4GT1259"}, 
+				{"key":"All", "val": "All Vehicles"}]'>
+ 		 </px-dropdown-content>
+	</px-dropdown>
+      </div>
+      <div class=widget-2>
+	<ul class="list-ui">
+ 		 <li class="list-ui__item">Vehicle : {{selectedValue}}</li>
+		<!-- To use the Key in anyplace-->
+		<!-- <li class="list-ui__item">Key : {{selectedKey}}</li> -->
+		<!-- create a flag in Android app to check the connected status flag -->
+		 <li class="list-ui__item">Connected :	Yes</li>
+	</ul>
+	</div>
+    </px-twoup>
     
     <px-card header-text="Map" >
 		<google-map disable-default-ui zoom="18" latitude="{{vehicle.readings.latitude}}" longitude="{{vehicle.readings.longitude}}">
