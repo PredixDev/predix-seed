@@ -31,7 +31,7 @@
     "px-app-nav": "^1.9.1",
     "px-card": "^0.5.3",
     "px-context-browser": "^1.3.7",
-    "px-deck-selector": "^1.5.0",
+    "px-deck-selector": "^1.5.5",
     "px-sample-cards": "^0.6.0",
     "px-theme": "^1.1.2",
     "px-vis-timeseries": "^0.3.0",
