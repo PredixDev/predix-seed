@@ -51,7 +51,7 @@ module.exports = function(gulp, plugins) {
       }))
       .pipe(gulp.dest(styleModuleDest));
 
-    gulp.src('./public/index-inline.scss')
+    return gulp.src('./public/index-inline.scss')
       .pipe(plugins.sass({
           includePaths: './public/bower_components',
           importer: importOnce,
