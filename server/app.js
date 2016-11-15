@@ -66,7 +66,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 var server = app.listen(process.env.VCAP_APP_PORT || 5000, function () {
 	console.log ('Server started on port: ' + server.address().port);
 });
-app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist')));
+app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public')));
 
 /*******************************************************
 SET UP MOCK API ROUTES

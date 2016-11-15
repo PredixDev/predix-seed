@@ -3,12 +3,10 @@ public/bower_components
 public/polymer-loader.vulcanized.html
 test-target
 main.min.css
-dist/public
-dist/www
 .idea
 npm-debug.log
 *.log
 .DS_Store
 temp
-dist/
+dist
 .github/
