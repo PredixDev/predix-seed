@@ -10,7 +10,7 @@
 // https://github.com/predixdev/px-viewport-design
 $desk-wide-width: auto; // defaults to 100%
 $desk-wide-max-width: none; // defaults to 80rem
-$viewport-margin: 2rem; // defaults to auto
+$viewport-margin: 0; // defaults to auto
 
 // Base
 @import "px-viewport-design/_base.viewport.scss";
@@ -81,6 +81,10 @@ $inuit-enable-layout--full  : true;
 .content-wrapper {
   position: relative;
   display: flex;
+}
+
+header > div.viewport {
+  margin: 0 15px;
 }
 
 main {
