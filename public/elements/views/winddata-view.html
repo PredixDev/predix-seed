@@ -1,0 +1,56 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/px-sample-cards/blank-card.html">
+<link rel="import" href="../../bower_components/px-vis-timeseries/px-vis-timeseries.html">
+<!-- <link rel="import" href="../../bower_components/px-datetime-picker/px-datetime-picker.html"> -->
+<!-- <link rel="import" href="../../bower_components/px-vis/px-vis-data-converter.html"> -->
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="winddata-view">
+  <template>
+
+    <px-card header-text="Wind Data">
+
+      <px-vis-timeseries
+        width="800"
+        height="300"
+        prevent-resize="true"
+        enable-tooltip="true"
+        register-location="none"
+        include-all-series
+        y-axis-config='{"title": "Hz"}'
+        series-config='{"cruise-vibration": {
+          "type":"line",
+          "x": "x",
+          "y": "y",
+          "yAxisUnit": "Hz"
+        }}'
+        selection-type= "xy"
+        chart-data={{tsChartData}}
+      </px-vis-timeseries>
+      <!-- <iron-ajax url="/api/time-series/delta-egt/1" id="tsQueryElement" last-response="{{rawTsData}}" auto><iron-ajax> -->
+      <iron-ajax url="/windy/services/windservices/yearly_data/sensor_id/Compressor-2015:CompressionRatio?order=asc&starttime=1y-ago" id="tsQueryElement" last-response="{{rawTsData}}" auto><iron-ajax>
+    </px-card>
+  </template>
+  <script>
+    Polymer({
+      is: 'winddata-view',
+      properties: {
+        tsChartData: {
+          type: Array
+        },
+        rawTsData: {
+          type: Object,
+          observer: '_formatDataForChart'
+        }
+      },
+      _formatDataForChart: function(raw) {
+        var series = [];
+        var datapoints = raw.tags[0].results[0].values || raw.tags[0].results[0].datapoints;
+        datapoints.forEach(function(point) {
+          series.push({x: point[0], y: point[1]});
+        });
+        this.tsChartData = series;
+      }
+    });
+  </script>
+</dom-module>

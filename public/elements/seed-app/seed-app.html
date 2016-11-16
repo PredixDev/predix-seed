@@ -76,6 +76,17 @@
             element-href="/elements/views/blankpage-view.html">
           </px-view>
 
+          <!-- /winddata route and view -->
+          <app-route
+            route="[[_route]]"
+            pattern="/winddata"
+            active="{{_winddataActive}}">
+          </app-route>
+          <px-view
+            active="[[_winddataActive]]"
+            element-href="/elements/views/winddata-view.html">
+          </px-view>
+
         </main>
 
       </div>
@@ -119,7 +130,13 @@
               "label": "Blank Page",
               "path": "/blankpage",
               "icon": "fa-file-o"
-            }]
+            },
+            {
+              "label": "Wind Data",
+              "path": "/winddata",
+              "icon": "fa-line-chart"
+            }
+            ]
           }
         },
 

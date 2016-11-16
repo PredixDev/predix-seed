@@ -116,6 +116,11 @@ if (uaaIsConfigured) {
     // modify this to send a secure.html file if desired.
   	res.send('<h2>This is a sample secure route.</h2>');
   });
+
+  app.get('/windy/*', passport.authenticate('main', { noredirect: true}),
+    // proxy.addClientTokenMiddleware,  
+    proxy.customProxyMiddleware('/windy', 'https://ui-int-winddata-service.run.aws-usw02-pr.ice.predix.io')
+  );
 }
 
 //logout route
