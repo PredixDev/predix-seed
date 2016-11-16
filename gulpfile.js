@@ -55,7 +55,9 @@ gulp.task('dist:clean', getTask('dist.clean'));
 // -----------------------------------------------------------------------------
 //  Task: Default (compile source, start server, watch for changes)
 // -----------------------------------------------------------------------------
-gulp.task('default', ['compile:all', (dev ? 'serve:dev:start' : 'serve:dist:start'), 'watch:public']);
+gulp.task('default', function (cb) {
+  gulpSequence('compile:all', (dev ? 'serve:dev:start' : 'serve:dist:start'), 'watch:public')(cb);
+});
 
 // -----------------------------------------------------------------------------
 //  Task: Dist (Build app ready for deployment)
