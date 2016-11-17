@@ -430,8 +430,8 @@ a {
 .viewport {
   width: auto;
   max-width: none;
-  margin-right: 2rem;
-  margin-left: 2rem; }
+  margin-right: 0;
+  margin-left: 0; }
 
 .viewport--full-height {
   min-height: 100vh; }
@@ -838,6 +838,9 @@ button.btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
+
+header > div.viewport {
+  margin: 0 15px; }
 
 main {
   min-height: calc(100vh - 8rem);
