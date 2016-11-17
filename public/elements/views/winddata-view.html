@@ -28,7 +28,8 @@
         chart-data={{tsChartData}}
       </px-vis-timeseries>
       <!-- <iron-ajax url="/api/time-series/delta-egt/1" id="tsQueryElement" last-response="{{rawTsData}}" auto><iron-ajax> -->
-      <iron-ajax url="/windy/services/windservices/yearly_data/sensor_id/Compressor-2015:CompressionRatio?order=asc&starttime=1y-ago" id="tsQueryElement" last-response="{{rawTsData}}" auto><iron-ajax>
+      <!-- <iron-ajax url="/windy/services/windservices/yearly_data/sensor_id/Compressor-2015:CompressionRatio?order=asc&starttime=1y-ago" id="tsQueryElement" last-response="{{rawTsData}}" auto><iron-ajax> -->
+      <iron-ajax url="/predix-api/predix-timeseries/v1/datapoints" id="tsQueryElement" body="{{timeseriesQuery}}" last-response="{{rawTsData}}" method="POST" content-type="application/json"></iron-ajax>
     </px-card>
   </template>
   <script>
@@ -41,8 +42,26 @@
         rawTsData: {
           type: Object,
           observer: '_formatDataForChart'
+        },
+        timeseriesQuery: {
+          type: Object,
+          value: function() {
+            return {
+              "start": "1y-ago",
+              "tags": [
+                {
+                  "name": "Compressor-2015:CompressionRatio"
+                }
+              ]
+            };
+          }
         }
       },
+
+      ready: function() {
+        this.$.tsQueryElement.generateRequest();
+      },
+
       _formatDataForChart: function(raw) {
         var series = [];
         var datapoints = raw.tags[0].results[0].values || raw.tags[0].results[0].datapoints;
