@@ -27,6 +27,8 @@ if (node_env === 'development') {
 	proxy.setUaaConfig(devConfig);
 }
 
+var windServiceURL = process.env.windServiceURL || devConfig.windServiceURL;
+
 console.log('************'+node_env+'******************');
 
 var uaaIsConfigured = config.clientId &&
@@ -117,10 +119,12 @@ if (uaaIsConfigured) {
   	res.send('<h2>This is a sample secure route.</h2>');
   });
 
-  app.get('/windy/*', passport.authenticate('main', { noredirect: true}),
-    // proxy.addClientTokenMiddleware,  
-    proxy.customProxyMiddleware('/windy', 'https://ui-int-winddata-service.run.aws-usw02-pr.ice.predix.io')
-  );
+  if (windServiceURL) {
+    app.get('/windy/*', passport.authenticate('main', { noredirect: true}),
+      // proxy.addClientTokenMiddleware,
+      proxy.customProxyMiddleware('/windy', windServiceURL)
+    );
+  }
 }
 
 //logout route
