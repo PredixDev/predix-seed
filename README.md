@@ -18,7 +18,6 @@ This repository serves as an app scaffolding structure for any new Predix UI bas
   cd px-your-app && rm -rf .git
 ```
 
-
 ### Livereload
 
 Download Chrome extension [livereload](https://chrome.google.com/webstore/detail/jnihajbhpnppcggbcgedagnkighmdlei) and enjoy it

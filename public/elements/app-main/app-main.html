@@ -48,45 +48,24 @@
           <!-- app-location captures url and assigns _route value -->
           <app-location
             id="carbonLocation"
-            route="{{_route}}"
-            use-hash-as-path>
+            route="{{_route}}">
           </app-location>
 
-          <!-- /dashboards rotue and view -->
           <app-route
             route="[[_route]]"
-            pattern="/dashboards"
-            active="{{_dashboardsActive}}">
+            pattern="/:page"
+            data="{{routeData}}">
           </app-route>
 
-          <!--<template is="dom-if" if="[[_dashboardsActive]]">-->
-            <!--<dashboards-view></dashboards-view>-->
-          <!--</template>-->
-
-          <px-view
-            active="[[_dashboardsActive]]"
-            element-href="/elements/views/dashboards-view.html">
-          </px-view>
-
-          <!-- /blankpage route and view -->
-          <app-route
-            route="[[_route]]"
-            pattern="/blankpage"
-            active="{{_blankpageActive}}">
-          </app-route>
-
-
-          <!--<template is="dom-if" if="[[_dashboardsActive]]">-->
-            <!--<blankpage-view></blankpage-view>-->
-          <!--</template>-->
-
-          <px-view
-            active="[[_blankpageActive]]"
-            element-href="/elements/views/blankpage-view.html">
-          </px-view>
+          <!-- child route render here -->
+          <template is="dom-repeat" items="[[_routePages]]">
+            <px-view
+              active="[[_equals(routeData.page, item.page)]]"
+              element-href="[[item.elementHref]]">
+            </px-view>
+          </template>
 
         </main>
-
       </div>
     </div>
 
@@ -109,11 +88,20 @@
       is: 'app-main',
 
       properties: {
-
-
-        routesActive: {
-          type: Boolean,
-          value: false
+        // route config
+        _routePages: {
+          type: Array,
+          readOnly: true,
+          value: [
+            {
+              page: 'dashboards',
+              elementHref: '/elements/views/dashboards-view.html'
+            },
+            {
+              page: 'blankpage',
+              elementHref: '/elements/views/blankpage-view.html'
+            }
+          ]
         },
 
         //Global application object
@@ -133,11 +121,11 @@
           value: function() {
             return [{
               "label": "Dashboards",
-              "path": "/dashboards",
+              "path": "dashboards",
               "icon": "fa-tachometer"
             }, {
               "label": "Blank Page",
-              "path": "/blankpage",
+              "path": "blankpage",
               "icon": "fa-file-o"
             }]
           }
@@ -161,7 +149,7 @@
         // Sets app default base URL for client-side routing
         pathPrefix: {
           type: String,
-          value: '#'
+          value: '/'
         }
       },
 
@@ -172,9 +160,15 @@
       _checkForDefaultRoute: function() {
         // set default route to /dashboards
         var l = window.location;
-        if((l.hash === "#/" || l.hash === "") && l.pathname === "/") {
-          l.hash = "/dashboards";
+        if (l.pathname === '/') {
+          // redirect to index
+          window.history.replaceState({}, null, '/dashboards');
+          window.dispatchEvent(new CustomEvent('location-changed'));
         }
+      },
+
+      _equals: function(a, b) {
+        return a === b;
       }
 
     });
