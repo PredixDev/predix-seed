@@ -144,7 +144,7 @@ app.get('/favicon.ico', function (req, res) {
 app.use('/', passport.authenticate('main', {
   noredirect: false //Don't redirect a user to the authentication page, just show an error
   }),
-  express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist'))
+  express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public'))
 );
 
 // Sample route middleware to ensure user is authenticated.
