@@ -25,7 +25,8 @@ cd predix-seed
 ```
 
 ### Install tools
-If you don't have them already, you'll need node, bower and gulp to be installed globally on your machine.
+If you don't have them already, you'll need node, bower and gulp to be installed globally on your machine.  
+
 1. Install [node](https://nodejs.org/en/download/).  This includes npm - the node package manager.  
 2. Install [bower](https://bower.io/) globally `npm install bower -g`  
 3. Install [gulp](http://gulpjs.com/) globally `npm install gulp -g`  
