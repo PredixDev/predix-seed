@@ -120,8 +120,9 @@ if (uaaIsConfigured) {
   	res.send('<h2>This is a sample secure route.</h2>');
   });
 
-  if (windServiceURL) {
+  if (windServiceURL && windServiceURL.indexOf('https') === 0) {
     app.get('/windy/*', passport.authenticate('main', { noredirect: true}),
+      // if calling a secure microservice, you can use this middleware to add a client token.
       // proxy.addClientTokenMiddleware,
       proxy.customProxyMiddleware('/windy', windServiceURL)
     );
