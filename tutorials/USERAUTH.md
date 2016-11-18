@@ -73,7 +73,7 @@ The previous sections show how authentication can be added to specific routes in
 Comment out this line in *server/app.js*:
 
    ```
-    app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist')));
+    app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public')));
    ```
 
 In the same file insert this code inside the *if(uaaIsConfigured) {...}* block, as the last route definition:
@@ -82,7 +82,7 @@ In the same file insert this code inside the *if(uaaIsConfigured) {...}* block, 
     app.get('/', passport.authenticate('main', {
   	  noredirect: false // redirect a user to the authentication page
       }),
-      express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist'))
+      express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public'))
     );
    ```
 
