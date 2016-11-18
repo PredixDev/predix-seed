@@ -1,8 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/px-sample-cards/blank-card.html">
+<link rel="import" href="../../bower_components/px-card/px-card.html">
 <link rel="import" href="../../bower_components/px-vis-timeseries/px-vis-timeseries.html">
-<!-- <link rel="import" href="../../bower_components/px-datetime-picker/px-datetime-picker.html"> -->
-<!-- <link rel="import" href="../../bower_components/px-vis/px-vis-data-converter.html"> -->
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
 <dom-module id="winddata-view">
@@ -27,9 +25,9 @@
         selection-type= "xy"
         chart-data={{tsChartData}}
       </px-vis-timeseries>
-      <!-- <iron-ajax url="/api/time-series/delta-egt/1" id="tsQueryElement" last-response="{{rawTsData}}" auto><iron-ajax> -->
+      <iron-ajax url="/api/time-series/delta-egt/1" id="tsQueryElement" last-response="{{rawTsData}}" auto><iron-ajax>
       <!-- <iron-ajax url="/windy/services/windservices/yearly_data/sensor_id/Compressor-2015:CompressionRatio?order=asc&starttime=1y-ago" id="tsQueryElement" last-response="{{rawTsData}}" auto><iron-ajax> -->
-      <iron-ajax url="/predix-api/predix-timeseries/v1/datapoints" id="tsQueryElement" body="{{timeseriesQuery}}" last-response="{{rawTsData}}" method="POST" content-type="application/json"></iron-ajax>
+      <!-- <iron-ajax url="/predix-api/predix-timeseries/v1/datapoints" id="tsQueryElement" body="{{timeseriesQuery}}" last-response="{{rawTsData}}" method="POST" content-type="application/json" auto></iron-ajax> -->
     </px-card>
   </template>
   <script>
@@ -56,10 +54,6 @@
             };
           }
         }
-      },
-
-      ready: function() {
-        this.$.tsQueryElement.generateRequest();
       },
 
       _formatDataForChart: function(raw) {
