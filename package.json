@@ -24,6 +24,7 @@
     "gulp-clean": "^0.3.2",
     "gulp-ejs": "^1.2.2",
     "gulp-inline-source": "^2.1.0",
+    "gulp-livereload": "^3.8.1",
     "gulp-load-plugins": "^1.1.0",
     "gulp-nodemon": "^2.0.6",
     "gulp-rename": "^1.2.2",
@@ -46,6 +47,7 @@
   },
   "dependencies": {
     "body-parser": "^1.15.2",
+    "connect-history-api-fallback": "^1.3.0",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "express-http-proxy": "^0.10.0",

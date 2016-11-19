@@ -67,7 +67,6 @@ var server = app.listen(process.env.VCAP_APP_PORT || 5000, function () {
 	console.log ('Server started on port: ' + server.address().port);
 });
 app.use(require('./rewrite.js'));
-app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist')));
 
 /*******************************************************
 SET UP MOCK API ROUTES
@@ -130,6 +129,11 @@ app.get('/logout', function(req, res) {
 app.get('/favicon.ico', function (req, res) {
 	res.send('favicon.ico');
 });
+
+// history fallback
+app.use(require('connect-history-api-fallback')());
+
+app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist')));
 
 // Sample route middleware to ensure user is authenticated.
 //   Use this route middleware on any resource that needs to be protected.  If

@@ -7,6 +7,7 @@ const stylemod = require('gulp-style-modules');
 const autoprefixer = require('gulp-autoprefixer');
 const path = require('path');
 const importOnce = require('node-sass-import-once');
+const livereload = require('gulp-livereload');
 
 var getName = function(file) {
   return path.basename(file.path, path.extname(file.path));
@@ -50,6 +51,7 @@ module.exports = function(gulp, plugins) {
           return getName(file) + '-styles';
         }
       }))
+      .pipe(livereload())
       .pipe(gulp.dest(styleModuleDest));
 
     gulp.src([
@@ -64,6 +66,7 @@ module.exports = function(gulp, plugins) {
           }
         })
         .on('error', plugins.sass.logError))
+      .pipe(livereload())
       .pipe(autoprefixer())
       .pipe(gulp.dest('./public'));
 
