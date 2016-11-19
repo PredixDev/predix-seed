@@ -17,6 +17,7 @@
   ],
   "devDependencies": {
     "autoprefixer": "^6.3.6",
+    "connect-history-api-fallback": "^1.3.0",
     "connect-modrewrite": "^0.7.9",
     "glob": "^5.0.13",
     "gulp": "^3.9.0",
