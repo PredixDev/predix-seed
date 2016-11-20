@@ -19,9 +19,7 @@
     "polymer": "^1.6.1",
     "iron-ajax": "~1.4.3",
     "iron-pages": "~1.0.8",
-    "px-view": "https://github.build.ge.com/foundry-sh/px-view.git#master",
     "q": "^1.0.0",
-    "app-route": "PolymerElements/app-route#^0.9.1",
     "px-overlay": "^0.3.0",
     "px-simple-horizontal-bar-chart": "^0.6.1",
     "px-widget-cards": "^2.1.0",
@@ -29,13 +27,16 @@
     "px": "^1.4.3",
     "px-app-nav": "^1.9.1",
     "px-card": "^0.5.3",
-    "px-context-browser": "^1.3.0",
+    "app-route": "https://github.build.ge.com/foundry-sh/app-route.git#master",
+    "px-view": "https://github.build.ge.com/foundry-sh/px-view.git#master",
+    "px-context-browser": "https://github.build.ge.com/foundry-sh/px-context-browser.git#master",
     "px-deck-selector": "^1.5.0",
     "px-sample-cards": "^0.6.0",
     "px-theme": "^1.1.2",
     "px-vis-timeseries": "^0.3.0",
     "px-vis-xy-chart": "^0.1.0",
-    "imd": "^1.0.0"
+    "imd": "^1.0.0",
+    "fetch": "^2.0.1"
   },
   "devDependencies": {
     "px-forms-design": "^0.3.17",

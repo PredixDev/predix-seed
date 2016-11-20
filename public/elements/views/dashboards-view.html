@@ -11,16 +11,10 @@
 
     <script type="text/javascript" src="../../bower_components/es6-promise/es6-promise.min.js"></script>
 
-    <!-- contextIronAjax used to load data from local Predix Asset API -->
-    <iron-ajax
-      id="contextIronAjax"
-      url="/api/predix-asset/root/root"
-      last-response="{{_browserContext}}">
-    </iron-ajax>
-
     <!-- decksIronAjax used to load data from local View Service API -->
     <iron-ajax
       id="decksIronAjax"
+      auto
       url="[[_decksUrl]]"
       last-response="{{_decksResponse}}">
       <!-- auto -->
@@ -31,7 +25,8 @@
       id="contextBrowser"
       label-field="name"
       id-field="id"
-      browser-context="[[_initialBrowserContext]]"
+      browser-context="[[_rootAsset]]"
+      selected-item="{{_selectedAsset}}"
       show-chevron="true">
       <px-deck-selector
         decks="[[_decks]]"
@@ -53,42 +48,36 @@
       properties: {
         _decks: {
           type: Array,
-          computed: '_computeDecks(_decksResponse)'
+          computed: '_getDecks(_decksResponse)'
         },
-        _initialBrowserContext: {
+        _rootAsset: {
           type: Object,
-          computed: '_computeInitialBrowserContext(_browserContext)'
-        },
-        _nodeUri: {
-          type: String
         },
         _decksUrl: {
           type: String,
-          computed: '_computeDecksUrl(_selectedContextTag, viewServiceBaseUrl)'
+          computed: '_getDecksUrl(_openedAsset)'
         },
-        _selectedContextTag: {
-          type: String,
-          value: ''
+        _openedAsset: {
+          type: Object
         },
         viewServiceBaseUrl: {
           type: String,
           value: '/api/view-service/'
         },
+        assetServiceBaseUrl: {
+          type: String,
+          value: '/api/predix-asset'
+        },
         _selectedDeckId: {
           type: String,
-          computed: '_computeSelectedDeckId(_selectedDeck)'
+          computed: '_getSelectedDeckId(_selectedDeck)'
         }
       },
 
-      _computeDecksUrl: function() {
-        if(this._selectedContextTag) {
-          return this.viewServiceBaseUrl + "decks?tag=" + this._selectedContextTag;
-        } else {
-          return this.viewServiceBaseUrl + "decks";
-        }
+      _getDecksUrl: function(asset) {
+        return this.viewServiceBaseUrl + "decks?tag=" + asset.id;
       },
-
-      _computeSelectedDeckId: function() {
+      _getSelectedDeckId: function() {
         if(this._selectedDeck) {
           return this._selectedDeck.id;
         }
@@ -102,16 +91,18 @@
             return _this._getChildren(parent);
           },
           // itemOpenHandler fires when a node's 'open' link is clicked
-          itemOpenHandler: function(item) {
-            return _this._itemOpenHandler(item);
-          }
+          itemOpenHandler: this.openAsset.bind(this)
         };
-        // initialize context data and decks
-        this.$.contextIronAjax.generateRequest();
-        this.$.decksIronAjax.generateRequest();
+
+        // Load root asset
+        fetch(this.assetServiceBaseUrl+'/root/root').then(function(res) {
+          return res.json();
+        }).then(function(rootAsset) {
+          _this.set('_rootAsset', rootAsset);
+        });
       },
 
-      _computeDecks: function() {
+      _getDecks: function() {
         var decks = [];
         if (this._decksResponse && this._decksResponse.length > 0) {
           this._decksResponse.forEach(function(deck) {
@@ -121,44 +112,22 @@
         return decks;
       },
 
-      _computeInitialBrowserContext: function(_browserContext) {
-        if(typeof this._initialBrowserContext !== 'object') {
-          return _browserContext;
-        } else {
-          return this._initialBrowserContext;
-        }
+      _getRootAsset: function(_browserContext) {
+        return this._rootAsset || (this._rootAsset = _browserContext);
       },
 
       // "getChildren" handler for px-context-browser
-      // this function is passed into
+      // this function shall return a promise to the asset data
       _getChildren: function(node) {
-        var that = this;
-        return new Promise(function(resolve, reject) {
-          var req = new XMLHttpRequest();
-          req.open('GET', '/api/predix-asset' + node.uri);
-
-          req.onload = function() {
-            if (req.status === 200) {
-              that._nodeUri = node.uri;
-              // that._computeDecks();
-              resolve(JSON.parse(req.response));
-            } else {
-              reject(req.statusText);
-            }
-          };
-
-          req.onError = function() {
-            reject("Network Error");
-          };
-
-          req.send()
+        return fetch(this.assetServiceBaseUrl + node.uri).then(function(res) {
+          return res.json();
         });
       },
 
-      _itemOpenHandler: function(item) {
-        this._selectedContextTag = item.id;
-        this.$.decksIronAjax.generateRequest();
-      },
+      // An asset is opened,
+      openAsset: function(asset) {
+        this._openedAsset = asset;
+      }
 
     });
   </script>
