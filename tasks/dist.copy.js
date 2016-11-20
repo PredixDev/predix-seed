@@ -10,7 +10,8 @@ module.exports = function(gulp) {
       'public/index.html',
       'public/*.css',
       'public/images/*',
-      'public/bower_components/px-typography-design/type/*'
+      'public/bower_components/px-typography-design/type/*',
+      'public/bower_components/font-awesome/fonts/*'
     ], {base: 'public'})
       .pipe(gulp.dest('./dist'));
   };
