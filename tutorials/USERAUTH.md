@@ -87,7 +87,7 @@ Restart the application.
 
 Access any route, including the default route '*/*'.  Notice that the browser is redirected to the authentication page.  If the route is defined, the browser is redirected to it after successful login by the user.
 
-### Including Authentication in Cloud Deployment
+### Deploying to the Cloud
 The previous steps showed how authentication is enabled in a local instance of the Predix UI Seed application.  Ultimately, we want the authentication feature to be part of deployments to the Cloud.  To achieve this, perform these steps:
 
 In the *manifest.yml* file (or your designated manifest file), enable services by uncommenting the *services* section, and enter the name of the UAA instance that will be used.  For example:
@@ -116,9 +116,6 @@ to include the configuration in the distribution package for the application.
 Deploy to the Cloud as usual.  
 
 Perform the same steps above to verify that authentication is working.
-
-## Troubleshooting
-
 
 ## Conclusion
 
