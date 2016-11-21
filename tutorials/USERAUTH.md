@@ -58,15 +58,11 @@ This tutorial also requires knowledge of and practical experience with the Predi
 
 6. Access the */login* route.  Notice that the browser is redirected to the UAA login page.
 
-7. Enter valid credentials in the login page and click on Submit.  Upon successful login, the browser is redirected to the */secure* route, which now shows the text **This is a sample secure route**.  At this point, the browser session is now in the authenticated state, and access to such route is now authorized.
-
-We have just shown how to integrate UAA with authentication-requiring routes/pages in an instance of the Seed.
+7. Enter valid credentials in the login page and click on Submit.  Upon successful login, the browser is redirected to the */secure* route, which now shows the text **This is a sample secure route**.  At this point, the browser session is now in the authenticated state, and access to such route is now authorized.  We have just shown how to integrate UAA with authentication-requiring routes/pages in an instance of the Seed.
 
 8. Access the */logout* route.  This will put the browser session back to the unauthenticated state.
 
-9. Access the */secure* route once more.  Notice that we get the *Unauthorized* result again, because the browser session is now back to being unauthenticated.  Accessing the other routes mentioned in step 2 of this section (except */login*) should now return *Unauthorized* as well.
-
-We have just shown how authentication enables access to specific routes or pages, and how the user is given the chance to authenticate when accessing a route while in an unauthenticated state.
+9. Access the */secure* route once more.  Notice that we get the *Unauthorized* result again, because the browser session is now back to being unauthenticated.  Accessing the other routes mentioned in step 2 of this section (except */login*) should now return *Unauthorized* as well.  We have just shown how authentication enables access to specific routes or pages, and how the user is given the chance to authenticate when accessing a route while in an unauthenticated state.
 
 ### Authenticating All Routes
 The previous sections show how authentication can be added to specific routes in the application.  Oftentimes, all defined need to be accessible only after authentication.  To achieve this, follow these steps:
