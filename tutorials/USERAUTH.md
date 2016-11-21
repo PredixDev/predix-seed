@@ -1,13 +1,11 @@
 # Tutorial : User Authentication with UAA
 
 ## Introduction
-Real-world web applications almost always involve controlling access to information.  For this reason one of the most needed features in a web application is authentication.  Authenticating users makes the application more secure by allowing only authorized users access specific features and information.
+Web applications almost always involve controlling access to information and features.  For this reason one commonly essential feature is that of authentication.  Requiring users and/or processes to authenticate themselves is part of the overall access control system through which a web application is made secure.
 
-This tutorial shows how to add authentication to an instance of the Predix UI Seed.  Specifically, we use the UAA service that has its own login page, to which the unauthenticated user is directed.  Upon successful login, the user is redirected back to the Seed application.  From there the user is able to further interact with the application until they de-authenticate their session by logging  out.
+This tutorial shows how to add authentication to an instance of the Predix UI Seed.  Specifically, we use the UAA service that has its own user interface.  Upon successful login through such interface, the user is redirected back to the instance of the Seed.  From there the user is able to further interact with the application and access its features.  This authenticated session lasts until they log  out.  We first show how to place specific routes or pages of the application under access control.  Then we show how to make such routes or pages require authentication.
 
-For this tutorial, we first show how to make specific routes or pages of the application require authentication.  Then we show how to make all routes/pages require authentication.
-
-If you prefer a video, a tutorial of the same topic can be seen [**here**](http://www.youtube.com?).
+If you prefer a video version of this tutorial instead, one is available [**here**](http://www.youtube.com?).
 
 ### Pre-Requisites
 This tutorial requires a running UAA service instance.  Please refer to this [**document**](https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=1544&tag=1605&journey=Build%20a%20basic%20application&resources=1580,1569,1523,1544,1547,1549,1556,1553,1570) for information on creating an instance and a set of valid credentials.  Once the service instance is available, save its URL for use in the configuration steps below.
@@ -65,7 +63,7 @@ This tutorial requires a running UAA service instance.  Please refer to this [**
 
 9. Access the */secure* route once more.  Notice that we get the *Unauthorized* result again, because the browser session back to being unauthenticated, because of the previous step.  Accessing the other routes mentioned in step 2 of this section (except */login*) should now return *Unauthorized* as well.
 
-This shows authentication working to enable/prevent access to routes, and how the user is given the chance to authenticate when accessing a route while in an unauthenticated state.
+We have just shown how authentication enables access to specific routes or pages, and how the user is given the chance to authenticate when accessing a route while in an unauthenticated state.
 
 ### Authenticating All Routes
 The previous sections show how authentication can be added to specific routes in the application.  Oftentimes, all routes need to be accessible only after authentication.  To achieve this, follow these steps:
