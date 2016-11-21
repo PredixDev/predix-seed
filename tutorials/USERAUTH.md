@@ -1,7 +1,7 @@
 # Tutorial : User Authentication with UAA
 
 ## Introduction
-Web applications almost always involve controlling access to information and features.  For this reason one commonly essential feature is that of authentication.  Requiring users and/or processes to authenticate themselves is part of the overall access control system through which a web application is made secure.
+Web applications almost always involve controlling access to information and features.  For this reason one commonly needed feature is that of authentication.  Requiring users and/or processes to authenticate themselves is part of the overall access control system through which a web application is made secure.
 
 This tutorial shows how to add authentication to an instance of the Predix UI Seed.  Specifically, we use the UAA authentication service that has its own user interface.  With an unauthenticated browser session, accessing any restricted page of the application should cause the user to be redirected to the UAA login page.  Upon successful login the user is redirected back to the application.  From there the user is able to access the application's restricted pages and information.  This authenticated session lasts until the user logs out.  We first show how to restrict access pecific routes or pages of the application.  Then we show how to make such routes or pages require authentication.
 
