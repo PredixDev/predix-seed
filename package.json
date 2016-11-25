@@ -13,12 +13,11 @@
     "start": "node server/app.js"
   },
   "keywords": [
-    "predix-app"
+    "predix-seed"
   ],
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "connect-modrewrite": "^0.7.9",
-    "glob": "^5.0.13",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-clean": "^0.3.2",
