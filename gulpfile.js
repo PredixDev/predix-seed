@@ -64,5 +64,5 @@ gulp.task('default', function (cb) {
 // -----------------------------------------------------------------------------
 
 gulp.task('dist', function (cb) {
-  gulpSequence('compile:all', 'dist:clean', 'dist:copy', 'vulcanize')(cb);
+  gulpSequence('compile:all', 'dist:clean', 'dist:copy')(cb);
 });
