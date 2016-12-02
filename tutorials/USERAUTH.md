@@ -1,17 +1,18 @@
 # Tutorial : User Authentication with UAA
 
 ## Introduction
-Real-world web applications almost always involve controlling access to information.  For this reason one of the most needed features in a web application is authentication.  Authenticating users makes the application more secure by allowing only authorized users access specific features and information.
+Web applications almost always involve controlling access to information and features.  For this reason one commonly needed feature is that of authentication.  Requiring login for an application's restricted portions is part of the overall access control mechanism through which a web application is made secure.
 
-This tutorial shows how to add authentication to an instance of the Predix UI Seed.  Specifically, we use the UAA service that has its own login page, to which the unauthenticated user is directed.  Upon successful login, the user is redirected back to the Seed application.  From there the user is able to further interact with the application until they de-authenticate their session by logging  out.
+This tutorial shows how to add authentication to an instance of the Predix UI Seed.  Specifically, we use the UAA authentication service that has its own user interface.  With an unauthenticated browser session, accessing any restricted page of the application should cause the user to be redirected to the UAA login page.  Upon successful login the user is redirected back to the application.  From there the user is able to access the application's restricted pages and information.  This authenticated session lasts until the user logs out.  
 
-For this tutorial, we first show how to make specific routes or pages of the application require authentication.  Then we show how to make all routes/pages require authentication.
+We first show how to restrict access to specific routes or pages of the application.  Then we show how to make such routes or pages require authentication.  Finally, we show how to require authentication for all routes and pages of the application.
 
-If you prefer a video, a tutorial of the same topic can be seen [**here**](http://www.youtube.com?).
+If you prefer a video version of this tutorial instead, one is available [**here**](http://www.youtube.com?).
 
 ### Pre-Requisites
-This tutorial requires a running UAA service instance.  Please refer to this [**document**](https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=1544&tag=1605&journey=Build%20a%20basic%20application&resources=1580,1569,1523,1544,1547,1549,1556,1553,1570) for information on creating an instance and a set of valid credentials.  Once the service instance is available, save its URL for use in the configuration steps below.
+This tutorial requires a running UAA service instance.  Please refer to this [**UAA tutorial**](https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=1544&tag=1605&journey=Build%20a%20basic%20application&resources=1580,1569,1523,1544,1547,1549,1556,1553,1570) for information on creating an instance and a set of valid credentials.  Once the instance is available, save its URL for use in the configuration steps below.
 
+This tutorial also requires knowledge of and practical experience with the Predix UI Seed (this project).  You should have been able to install, minimally configure, and deploy the Seed prior to performing this tutorial.  Please refer to the README document of this project for this requirement. 
 
 ## Steps
 ### Configure for Authentication
@@ -25,10 +26,10 @@ This tutorial requires a running UAA service instance.  Please refer to this [**
 3. Replace the values of these variables with the following:
 
   #### clientId
-  For UAA-based authentication (which is what we are using), use the literal value '*app_client_id*'
+  For UAA-based authentication (which is what we use here), use the literal value '*app_client_id*'
   
   #### uaaURL
-  This is the URL of an existing UAA service, mentioned in the **Pre-Requisites** section above.  With the service running and a set of credentials (user and password) in hand, use the service URL as the value for this variable.
+  This is the URL of an existing UAA service, mentioned in the **Pre-Requisites** section above.  With the service running and a set of credentials in hand (user and password), use the service URL as the value for this variable.
   
   #### base64ClientCredential
   This is a [**Base64**](https://en.wikipedia.org/wiki/Base64) encoding of the string '*app_client_id*:*\<secret\>*', where '*app_client_id*' is the literal string used for the first configuration variable, and '*\<secret\>*' is a string value of your choosing.  
@@ -55,25 +56,23 @@ This tutorial requires a running UAA service instance.  Please refer to this [**
 4. With the configurations in place, restart the local application.
 
 
-5. Access the */secure* route again, as in step 1 of the previous section.  Notice that the browser now returns a page that says  *Unauthorized*, instead of not being able to find the page (as in the previous section).  This is because that route has now been defined, as an authenticated route (other routes that have also been defined are */login*, */callback*, */predix-api* and */logout*).  At this point authentication is in place, and the browser session is in an unauthenticated state.  Consequently, accessing such routes results in "Unauthorized" (with the exception of */login*, which redirects to the authentication service's page).
+5. Access the */secure* route again, as in step 1 of the previous section.  Notice that the browser now returns a page that says  *Unauthorized*, instead of not being able to find the page (as in the previous section).  This is because that route has now been defined, as an authenticated route (other routes that have also been defined are */login*, */callback*, */predix-api* and */logout*).  At this point authentication is in place, and your browser session is in an unauthenticated state.  Consequently, accessing such routes results in "Unauthorized" (with the exception of */login*, which redirects to the authentication service's page).
 
-6. Access the */login* route.  Notice that the browser is redirected to the login page of the authentication service.
+6. Access the */login* route.  Notice that the browser is redirected to the UAA login page.
 
-7. Enter valid credentials in the login page and submit.  Upon successful login, the browser is redirected to the */secure* route, which now shows the text **This is a sample secure route**.  At this point, the browser session is now in the authenticated state, and access to such route is now authorized.
+7. Enter valid credentials in the login page and click on Submit.  Upon successful login, the browser is redirected to the */secure* route, which now shows the text **This is a sample secure route**.  At this point, the browser session is now in the authenticated state, and access to such route is now authorized.  We have just shown how to integrate UAA with authentication-requiring routes/pages in an instance of the Seed.
 
 8. Access the */logout* route.  This will put the browser session back to the unauthenticated state.
 
-9. Access the */secure* route once more.  Notice that we get the *Unauthorized* result again, because the browser session back to being unauthenticated, because of the previous step.  Accessing the other routes mentioned in step 2 of this section (except */login*) should now return *Unauthorized* as well.
-
-This shows authentication working to enable/prevent access to routes, and how the user is given the chance to authenticate when accessing a route while in an unauthenticated state.
+9. Access the */secure* route once more.  Notice that we get the *Unauthorized* result again, because the browser session is now back to being unauthenticated.  Accessing the other routes mentioned in step 2 of this section (except */login*) should now return *Unauthorized* as well.  We have just shown how authentication enables access to specific routes or pages, and how the user is given the chance to authenticate when accessing a route while in an unauthenticated state.
 
 ### Authenticating All Routes
-The previous sections show how authentication can be added to specific routes in the application.  Oftentimes, all routes need to be accessible only after authentication.  To achieve this, follow these steps:
+The previous sections show how authentication can be added to specific routes in the application.  Oftentimes, all defined need to be accessible only after authentication.  To achieve this, follow these steps:
 
 Comment out this line in *server/app.js*:
 
    ```
-    app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist')));
+    app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public')));
    ```
 
 In the same file insert this code inside the *if(uaaIsConfigured) {...}* block, as the last route definition:
@@ -82,7 +81,7 @@ In the same file insert this code inside the *if(uaaIsConfigured) {...}* block, 
     app.get('/', passport.authenticate('main', {
   	  noredirect: false // redirect a user to the authentication page
       }),
-      express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist'))
+      express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public'))
     );
    ```
 
@@ -90,17 +89,17 @@ Restart the application.
 
 Access any route, including the default route '*/*'.  Notice that the browser is redirected to the authentication page.  If the route is defined, the browser is redirected to it after successful login by the user.
 
-### Including Authentication in Cloud Deployment
-The steps above show how authentication is enabled in a local instance of the Predix UI Seed application.  Ultimately, we want the authentication feature to be part of deployments to the Cloud.  To achieve this, perform these steps:
+### Deploying to the Cloud
+The previous steps showed how authentication is enabled in a local instance of the Predix UI Seed application.  Ultimately, we want the authentication feature to be part of deployments to the Cloud.  To achieve this, perform these steps:
 
-In the *manifest.yml* file, enable services by uncommenting the *services* section, and enter the name of the UAA instance that will be used.  For example:
+In the *manifest.yml* file (or your designated manifest file), enable services by uncommenting the *services* section, and enter the name of the UAA instance that will be used.  For example:
 
    ```
     services
     - my-uaa-service
    ```
 
-In the same file, enter the values for **clientId** and **base64ClientCredential** that were used (in the previous sections above).  For Example:
+In the same file, enter the values for **clientId** and **base64ClientCredential** that were used in the previous sections.  For Example:
 
    ```
     env:
@@ -120,9 +119,6 @@ Deploy to the Cloud as usual.
 
 Perform the same steps above to verify that authentication is working.
 
-## Troubleshooting
-
-
 ## Conclusion
 
-This document has shown how to add Authentication to an instance of the Seed, and apply the feature to both specific and all routes.  It has also shown how to apply the feature in both local and cloud deployments.  For any questions or issues with this document and/or feature, please submit a github issue to this project.
+This document has shown how to add Authentication to an instance of the Seed, and apply the feature to specific, and later, all routes.  It has also shown how to apply the feature in both local and cloud deployments.  For any questions or issues with this document and/or feature, please submit a github issue to this project.

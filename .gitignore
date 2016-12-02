@@ -3,7 +3,6 @@ public/bower_components
 public/polymer-loader.vulcanized.html
 test-target
 public/index.html
-public/index-inline.css
 public/**/*-styles.html
 main.min.css
 .idea
