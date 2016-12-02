@@ -1,13 +1,14 @@
 {
   "development": {
     "note": "Out of the box, the predix-seed app uses mock data, so these values are not required.  Set these values for connecting to real Predix services.",
-    "clientId": "app_client_id",
-    "base64ClientCredential": "YXBwX2NsaWVudF9pZDpzZWNyZXQ=",
+    "clientId": "{UAA Client ID created}",
+    "uaaURL": "{The UAA URI end point to get auth token }",
+    "base64ClientCredential": "{Get clientID:clientSecret then base64 encode and place it here}",
     "appURL": "http://localhost:5000",
-    "timeseriesURL": "https://time-series-store-predix.run.aws-usw02-pr.ice.predix.io/v1/datapoints",
-    "timeseriesZoneId": "9eceed2f-a9ef-428f-b048-69dee535c1ac",
+    "timeseriesURL": "{Time Series URL from VCAPS}",
+    "timeseriesZoneId": "{The Zone ID for the Timeseries Service Created}",
     "assetURL": "{Asset URL from VCAPS}",
     "assetZoneId": "{The Zone ID for the Asset Service Created}",
-    "windServiceURL": "https://ui-int-winddata-service.run.aws-usw02-pr.ice.predix.io"
+    "windServiceURL": "{URL of the microservice <your-name>-winddata-timeseries-service}, e.g.  https://your-name-winddata-timeseries-service.run.asw-usw02-pr.predix.io"
   }
 }
