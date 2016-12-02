@@ -33,8 +33,8 @@ gulp.task('watch:public', getTask('watch.public'));
 // -----------------------------------------------------------------------------
 // Task: Exposes gulp test:local and gulp test:remote
 // -----------------------------------------------------------------------------
-require('web-component-tester')
-  .gulp.init(gulp);
+// require('web-component-tester')
+//   .gulp.init(gulp);
 
 // -----------------------------------------------------------------------------
 // Task: Compile : Vulcanize, vulanize app & views prior to deployment
