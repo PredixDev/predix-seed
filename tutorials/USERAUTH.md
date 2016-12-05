@@ -32,7 +32,7 @@ This tutorial also requires knowledge of and practical experience with the Predi
   This is the URL of an existing UAA service, mentioned in the **Pre-Requisites** section above.  With the service running and a set of credentials in hand (user and password), use the service URL as the value for this variable.
   
   #### base64ClientCredential
-  This is a [**Base64**](https://en.wikipedia.org/wiki/Base64) encoding of the string '*app_client_id*:*\<secret\>*', where '*app_client_id*' is the literal string used for the first configuration variable, and '*\<secret\>*' is a string value of your choosing.  
+  This is a [**Base64**](https://en.wikipedia.org/wiki/Base64) encoding of the string '*app_client_id*:*\<secret\>*', where '*app_client_id*' is the literal string used for the first configuration variable, and '*\<secret\>*' is any text value of your own choosing.  
   
   In a Mac OS or Unix environment, you can get this value by running the following command sequence (for example, using the string literal '*secret*' for the secret value):
   ```
