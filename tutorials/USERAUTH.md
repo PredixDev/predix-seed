@@ -67,7 +67,7 @@ This tutorial also requires knowledge of and practical experience with the Predi
 9. Access the */secure* route once more.  Notice that we get the *Unauthorized* result again, because the browser session is now back to being unauthenticated.  Accessing the other routes mentioned in step 2 of this section (except */login*) should now return *Unauthorized* as well.  We have just shown how authentication enables access to specific routes or pages, and how the user is given the chance to authenticate when accessing a route while in an unauthenticated state.
 
 ### Authenticating All Routes
-The previous sections show how authentication can be added to specific routes in the application.  Oftentimes, all defined need to be accessible only after authentication.  To achieve this, follow these steps:
+The previous sections show how authentication can be added to specific routes in the application.  Oftentimes, all routes (except the login route) need to be accessible only after authentication.  To achieve this, follow these steps:
 
 Comment out this line in *server/app.js*:
 
