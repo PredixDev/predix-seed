@@ -27,10 +27,10 @@
       </px-vis-timeseries>
       <!-- Choose one of these iron-ajax elements to load data from the source of your choice.
         First option loads sample data from a json file in the server/sample-data directory. -->
-      <iron-ajax url="/api/time-series/delta-egt/1" id="tsQueryElement" last-response="{{rawTsData}}" auto><iron-ajax>
+      <iron-ajax url="/api/time-series/delta-egt/1" id="tsQueryElement" last-response="{{rawTsData}}" auto></iron-ajax>
 
       <!-- Second option loads data from a custom wind data microservice.  -->
-      <!-- <iron-ajax url="/windy/services/windservices/yearly_data/sensor_id/Compressor-2015:CompressionRatio?order=asc&starttime=1y-ago" id="tsQueryElement" last-response="{{rawTsData}}" auto><iron-ajax> -->
+      <!-- <iron-ajax url="/windy/services/windservices/yearly_data/sensor_id/Compressor-2015:CompressionRatio?order=asc&starttime=1y-ago" id="tsQueryElement" last-response="{{rawTsData}}" auto></iron-ajax> -->
 
       <!-- Third option loads data from Predix Time Series directly.
         Note this is a POST request, and the time series tag name is hardcoded below. -->
