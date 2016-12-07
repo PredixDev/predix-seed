@@ -13,13 +13,17 @@ This tutorial shows how to use the Predix UI Seed to consume machine data genera
 #### UAA
 #### Predix Data Service Installers
 
+## Architecture Overview
+Server-side sessions, authentication tokens, precluding CORS
+
 ## Steps
 
 #### 1. Download Predix UI Seed and Run Locally
 #### 2. Create/Obtain Predix Data Service
 #### 3. Create/Obtain UAA Service and Credentials
-#### 4. Configure and Test Local Seed
-#### 5. Configure and Test Cloud Deployment
+#### 4. Configure the Seed for UAA and Data Service
+#### 5. Enable the Visualization
+#### 5. Configure for Cloud Deployment
 
 ## Troubleshooting
 
