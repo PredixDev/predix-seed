@@ -7,19 +7,19 @@ This tutorial shows how to use the Predix UI Seed to consume machine data genera
 
 ## Pre-Requisites
 
-### Bower
-### Node
-### CloudFoundry
-### UAA
-### Predix Data Service Installers
+#### Bower
+#### Node
+#### CloudFoundry
+#### UAA
+#### Predix Data Service Installers
 
 ## Steps
 
-### 1. Download Predix UI Seed and Run Locally
-### 2. Create/Obtain Predix Data Service
-### 3. Create/Obtain UAA Service and Credentials
-### 4. Configure Data Service Into Seed
-### 5. Test Local Deployment
-### 6. Configure and Deploy for Cloud Deployment
+#### 1. Download Predix UI Seed and Run Locally
+#### 2. Create/Obtain Predix Data Service
+#### 3. Create/Obtain UAA Service and Credentials
+#### 4. Configure Data Service Into Seed
+#### 5. Test Local Deployment
+#### 6. Configure and Deploy for Cloud Deployment
 
 
