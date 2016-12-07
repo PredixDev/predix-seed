@@ -28,4 +28,3 @@ Server-side sessions, authentication tokens, precluding CORS
 ## Troubleshooting
 
 ## Conclusion
-
