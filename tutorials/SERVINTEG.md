@@ -23,7 +23,8 @@ Server-side sessions, authentication tokens, precluding CORS
 #### 3. Create/Obtain UAA Service and Credentials
 #### 4. Configure the Seed for UAA and Data Service
 #### 5. Enable the Visualization
-#### 5. Configure for Cloud Deployment
+#### 6. Configure for Cloud Deployment
+
 
 ## Troubleshooting
 
