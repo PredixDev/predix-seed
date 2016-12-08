@@ -12,7 +12,7 @@ If you prefer a video version (on which this written version is based) one is av
 ### Pre-Requisites
 This tutorial requires a running UAA service instance.  Please refer to this [**tutorial**](https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=1544&tag=1605&journey=Build%20a%20basic%20application&resources=1580,1569,1523,1544,1547,1549,1556,1553,1570) for information on creating an instance and a set of valid credentials.  Once the instance is available, save its URL for use in the configuration steps below.
 
-This tutorial also requires knowledge of and practical experience with the Predix UI Seed (this project).  You should have been able to install, minimally configure, and deploy the Seed prior to performing this tutorial.  Please refer to the README document of this project for this requirement. 
+This tutorial also requires knowledge of and practical experience with the Predix UI Seed (this project).  You should have been able to install, minimally configure, and deploy the Seed prior to performing this tutorial.  Please refer to the README document of this project for this requirement.
 
 ## Steps
 ### Configure for Authentication
@@ -27,23 +27,23 @@ This tutorial also requires knowledge of and practical experience with the Predi
 
   #### clientId
   For UAA-based authentication (which is what we use here), use the literal value '*app_client_id*'
-  
+
   #### uaaURL
   This is the URL of an existing UAA service, mentioned in the **Pre-Requisites** section above.  With the service running and a set of credentials in hand (user and password), use the service URL as the value for this variable.
-  
+
   #### base64ClientCredential
   This is a [**Base64**](https://en.wikipedia.org/wiki/Base64) encoding of the string '*app_client_id*:*\<secret\>*', where '*app_client_id*' is the literal string used for the first configuration variable, and '*\<secret\>*' is any text value of your own choosing.  
-  
+
   In a Mac OS or Unix environment, you can get this value by running the following command sequence (for example, using the string literal '*secret*' for the secret value):
   ```
     echo -n app_client_id:secret | base64
   ```
   In a Windows environment, [**certutil**](https://technet.microsoft.com/en-us/library/cc732443\(v=ws.11\).aspx) utility can be used to generate the same value.
-  
+
   After running the above command sequence in your chosen environment, copy the output string into the variable.
 
   Here is an example of all three configuration variables in *server/localConfig.json* populated with their respective values :
-  
+
   ```
     ...
     "clientId": "app_client_id",
@@ -67,27 +67,18 @@ This tutorial also requires knowledge of and practical experience with the Predi
 9. Access the */secure* route once more.  Notice that we get the *Unauthorized* result again, because the browser session is now back to being unauthenticated.  Accessing the other routes mentioned in step 2 of this section (except */login*) should now return *Unauthorized* as well.  We have just shown how authentication enables access to specific routes or pages, and how the user is given the chance to authenticate when accessing a route while in an unauthenticated state.
 
 ### Authenticating All Routes
-The previous sections show how authentication can be added to specific routes in the application.  Oftentimes, all routes (except the login route) need to be accessible only after authentication.  To achieve this, follow these steps:
+The previous sections show how authentication can be added to specific routes in the application.  Oftentimes, all routes (except the login route) need to be accessible only after authentication.  Since this is such a common pattern it is enabled by default, when you configured UAA above.  This is the snippet of code that addes authentication to all routes in the application:
 
-Comment out this line in *server/app.js*:
+```
+//Use this route to make the entire app secure.  This forces login for any path in the entire app.
+app.use('/', passport.authenticate('main', {
+  noredirect: false //Don't redirect a user to the authentication page, just show an error
+  }),
+  express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public'))
+);
+```
 
-   ```
-    app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public')));
-   ```
-
-In the same file insert this code inside the *if(uaaIsConfigured) {...}* block, as the last route definition:
-
-   ```
-    app.get('/', passport.authenticate('main', {
-  	  noredirect: false // redirect a user to the authentication page
-      }),
-      express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public'))
-    );
-   ```
-
-Restart the application.
-
-Access any route, including the default route '*/*'.  Notice that the browser is redirected to the authentication page.  If the route is defined, the browser is redirected to it after successful login by the user.
+Now you can access any route, including the default route '*/*'.  Notice that the browser is redirected to the authentication page.  If the route is defined, the browser is redirected to it after successful login by the user.
 
 ### Deploying to the Cloud
 The previous steps showed how authentication is enabled in a local instance of the Predix UI Seed application.  Ultimately, we want the authentication feature to be part of deployments to the Cloud.  To achieve this, perform these steps:
@@ -112,7 +103,7 @@ From the command terminal, and in the main folder of the application, run
    ```
     gulp dist
    ```
-    
+
 to include the configuration in the distribution package for the application.  
 
 Deploy to the Cloud as usual.  
