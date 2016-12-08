@@ -91,9 +91,8 @@ app.use('/api/time-series', jsonServer.router(timeSeriesRoutes));
 /****************************************************************************
 	SET UP EXPRESS ROUTES
 *****************************************************************************/
-app.use(history());
-
 if (!uaaIsConfigured) { // no restrictions
+  app.use(history());
   app.use(require('./static.js'));
 } else {
   //login route redirect to predix uaa login page
@@ -128,7 +127,9 @@ if (!uaaIsConfigured) { // no restrictions
   //Use this route to make the entire app secure.  This forces login for any path in the entire app.
   app.use('/', passport.authenticate('main', {
     noredirect: false //Don't redirect a user to the authentication page, just show an error
-    }), app.use(require('./static.js'))
+    }),
+    history(),
+    require('./static.js')
   );
   //Or remove the above route, and follow this pattern to create secure routes,
   // if only some portions of the app are secure.
