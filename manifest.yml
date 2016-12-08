@@ -4,7 +4,7 @@ applications:
     memory: 64M
     buildpack: nodejs_buildpack
     command: node server/app.js
-    path: dist
+
 #services:
  # - <your-name>-secure-uaa-instance
  # - <your-name>-timeseries-instance
