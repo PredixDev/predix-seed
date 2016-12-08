@@ -59,12 +59,14 @@ html {
   /* [1] */
   line-height: 1.33333;
   /* [1] */
-  background-color: white;
-  color: black;
   overflow-y: scroll;
   /* [2] */
   min-height: 100%;
-  /* [3] */
+  /* [3] */ }
+
+:host, html {
+  background-color: white;
+  color: black;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
           text-size-adjust: 100%;
@@ -758,8 +760,8 @@ code {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../font-awesome/fonts/fontawesome-webfont.eot?v=4.4.0");
-  src: url("../font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.4.0") format("embedded-opentype"), url("../font-awesome/fonts/fontawesome-webfont.woff2?v=4.4.0") format("woff2"), url("../font-awesome/fonts/fontawesome-webfont.woff?v=4.4.0") format("woff"), url("../font-awesome/fonts/fontawesome-webfont.ttf?v=4.4.0") format("truetype"), url("../font-awesome/fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular") format("svg");
+  src: url("fontawesome/fontawesome-webfont.eot?v=4.4.0");
+  src: url("fontawesome/fontawesome-webfont.eot?#iefix&v=4.4.0") format("embedded-opentype"), url("fontawesome/fontawesome-webfont.woff2?v=4.4.0") format("woff2"), url("fontawesome/fontawesome-webfont.woff?v=4.4.0") format("woff"), url("fontawesome/fontawesome-webfont.ttf?v=4.4.0") format("truetype"), url("fontawesome/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 

@@ -59,12 +59,14 @@ html {
   /* [1] */
   line-height: 1.33333;
   /* [1] */
-  background-color: white;
-  color: black;
   overflow-y: scroll;
   /* [2] */
   min-height: 100%;
-  /* [3] */
+  /* [3] */ }
+
+:host, html {
+  background-color: white;
+  color: black;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
           text-size-adjust: 100%;

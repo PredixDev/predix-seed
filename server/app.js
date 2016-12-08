@@ -18,6 +18,8 @@ var proxy = require('./proxy'); // used when requesting data from real services.
 var config = require('./predix-config');
 // configure passport for authentication with UAA
 var passportConfig = require('./passport-config');
+var history = require('connect-history-api-fallback');
+var rewrite = require('express-urlrewrite');
 
 // if running locally, we need to set up the proxy from local config file:
 var node_env = process.env.node_env || 'development';
@@ -26,6 +28,8 @@ if (node_env === 'development') {
 	proxy.setServiceConfig(config.buildVcapObjectFromLocalConfig(devConfig));
 	proxy.setUaaConfig(devConfig);
 }
+
+var windServiceURL = process.env.windServiceURL || devConfig.windServiceURL;
 
 console.log('************'+node_env+'******************');
 
@@ -66,7 +70,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 var server = app.listen(process.env.VCAP_APP_PORT || 5000, function () {
 	console.log ('Server started on port: ' + server.address().port);
 });
-app.use(require('./rewrite.js'));
+
+// Rewrite font files to local
+app.use(rewrite('/type/*', '/bower_components/px-typography-design/type/$1'));
+app.use(rewrite('/fontawesome/*', '/bower_components/font-awesome/fonts/$1'));
 
 /*******************************************************
 SET UP MOCK API ROUTES
@@ -84,8 +91,11 @@ app.use('/api/time-series', jsonServer.router(timeSeriesRoutes));
 /****************************************************************************
 	SET UP EXPRESS ROUTES
 *****************************************************************************/
+app.use(history());
 
-if (uaaIsConfigured) {
+if (!uaaIsConfigured) { // no restrictions
+  app.use(require('./static.js'));
+} else {
   //login route redirect to predix uaa login page
   app.get('/login',passport.authenticate('predix', {'scope': ''}), function(req, res) {
     // The request will be redirected to Predix for authentication, so this
@@ -94,28 +104,43 @@ if (uaaIsConfigured) {
 
   // access real Predix services using this route.
   // the proxy will add UAA token and Predix Zone ID.
-  app.use('/predix-api',
-  	passport.authenticate('main', {
-  		noredirect: true
-  	}),
-  	proxy.router);
+  app.use('/predix-api', passport.authenticate('main', {
+    noredirect: true
+  }), proxy.router);
 
   //callback route redirects to secure route after login
   app.get('/callback', passport.authenticate('predix', {
-  	failureRedirect: '/'
+    failureRedirect: '/'
   }), function(req, res) {
-  	console.log('Redirecting to secure route...');
-  	res.redirect('/secure');
-    });
-
-  //secure route checks for authentication
-  app.get('/secure', passport.authenticate('main', {
-  	noredirect: true //Don't redirect a user to the authentication page, just show an error
-    }), function(req, res) {
-  	console.log('Accessing the secure route');
-    // modify this to send a secure.html file if desired.
-  	res.send('<h2>This is a sample secure route.</h2>');
+    console.log('Redirecting to secure route...');
+    res.redirect('/');
   });
+
+  // example of calling a custom microservice.
+  if (windServiceURL && windServiceURL.indexOf('https') === 0) {
+    app.get('/windy/*', passport.authenticate('main', { noredirect: true}),
+      // if calling a secure microservice, you can use this middleware to add a client token.
+      // proxy.addClientTokenMiddleware,
+      proxy.customProxyMiddleware('/windy', windServiceURL)
+    );
+  }
+
+  //Use this route to make the entire app secure.  This forces login for any path in the entire app.
+  app.use('/', passport.authenticate('main', {
+    noredirect: false //Don't redirect a user to the authentication page, just show an error
+    }), app.use(require('./static.js'))
+  );
+  //Or remove the above route, and follow this pattern to create secure routes,
+  // if only some portions of the app are secure.
+  /*
+  app.get('/secure', passport.authenticate('main', {
+    noredirect: true //Don't redirect a user to the authentication page, just show an error
+    }), function(req, res) {
+    console.log('Accessing the secure route');
+    // modify this to send a secure.html file if desired.
+    res.send('<h2>This is a sample secure route.</h2>');
+  });
+  */
 }
 
 //logout route
@@ -129,11 +154,6 @@ app.get('/logout', function(req, res) {
 app.get('/favicon.ico', function (req, res) {
 	res.send('favicon.ico');
 });
-
-// history fallback
-app.use(require('connect-history-api-fallback')());
-
-app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../dist')));
 
 // Sample route middleware to ensure user is authenticated.
 //   Use this route middleware on any resource that needs to be protected.  If

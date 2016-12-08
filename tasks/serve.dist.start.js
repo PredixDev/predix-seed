@@ -9,7 +9,7 @@ module.exports = function() {
   return function() {
     nodemon({
         script: 'server/app.js'
-        , env: { 'base-dir' : '/../dist'}
+        , env: { 'base-dir' : '/../dist/public'}
       })
       .on('restart', function() {
         console.log('app.js restarted');

@@ -1,6 +1,6 @@
 {
   "name": "predix-ui-app",
-  "version": "3.0.1",
+  "version": "3.0.3",
   "private": true,
   "ignore": [
     "**/.*",
@@ -11,7 +11,8 @@
     "tests",
     "target",
     "test-target",
-    "sass"
+    "sass",
+    "tutorials"
   ],
   "dependencies": {
     "es6-promise": "^3.3.1",
@@ -19,6 +20,7 @@
     "polymer": "^1.6.1",
     "iron-ajax": "~1.4.3",
     "iron-pages": "~1.0.8",
+    "px-view": "https://github.build.ge.com/foundry-sh/px-view.git#master",
     "q": "^1.0.0",
     "px-overlay": "^0.3.0",
     "px-simple-horizontal-bar-chart": "^0.6.1",
@@ -28,13 +30,13 @@
     "px-app-nav": "^1.9.1",
     "px-card": "^0.5.3",
     "app-route": "https://github.build.ge.com/foundry-sh/app-route.git#master",
-    "px-view": "https://github.build.ge.com/foundry-sh/px-view.git#master",
     "px-context-browser": "https://github.build.ge.com/foundry-sh/px-context-browser.git#master",
-    "px-deck-selector": "^1.5.0",
+    "px-deck-selector": "^1.5.5",
     "px-sample-cards": "^0.6.0",
-    "px-theme": "^1.1.2",
-    "px-vis-timeseries": "^0.3.0",
-    "px-vis-xy-chart": "^0.1.0",
+    "px-theme": "^2.0.1",
+    "px-vis-timeseries": "^0.5.6",
+    "px-vis-xy-chart": "^0.2.14",
+    "px-view-header": "^0.1.1",
     "imd": "^1.0.0",
     "fetch": "^2.0.1"
   },
@@ -45,7 +47,8 @@
     "px-flexbox-design": "^0.3.9",
     "px-viewport-design": "^0.4.6",
     "px-list-inline-design": "^0.2.11",
-    "px-defaults-design": "^0.2.9",
+    "px-defaults-design": "^0.3.0",
+    "px-functions-design": "^1.0.0",
     "px-normalize-design": "^0.3.9",
     "px-colors-design": "^0.2.16",
     "px-box-sizing-design": "^0.2.8",
@@ -55,5 +58,8 @@
     "px-code-design": "^0.2.11",
     "px-headings-design": "^0.2.14",
     "px-buttons-design": "^0.4.26"
+  },
+  "resolutions": {
+    "px-theme": "^2.0.1"
   }
 }

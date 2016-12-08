@@ -1,0 +1,135 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/px-card/px-card.html">
+<link rel="import" href="../../bower_components/px-vis-timeseries/px-vis-timeseries.html">
+<link rel="import" href="../../bower_components/px-rangepicker/px-rangepicker.html">
+<link rel="import" href="../../bower_components/px-vis/px-vis-data.html">
+<link rel="import" href="../../bower_components/px-vis/px-vis-data-converter.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<script type="text/javascript" src="../../bower_components/px/dist/px.min.js"></script>
+
+<dom-module id="time-series-card">
+  <template>
+    <px-card header-text="Time Series Card">
+
+      <px-rangepicker
+        id="rangepicker"
+        range="{{range}}"
+        date-format="YYYY/MM/DD"
+        time-format="hh:mm:ss A"
+        show-buttons="true">
+      </px-rangepicker>
+      <px-vis-timeseries
+        id="timeSerie"
+        options = '{
+          "enableTooltip":true,
+          "registerLocation":"none",
+          "eventConfig": {
+            "Recalibrate":{
+              "color": "blue",
+              "icon": "fa-camera",
+              "type": "fa",
+              "offset":[0,0]
+            },
+            "Fan start":{
+              "color": "green",
+              "icon": "\uf015",
+              "type": "unicode",
+              "offset":[1,0]
+            },
+            "Fan stop":{
+              "color": "red",
+              "icon": "\uf016",
+              "type": "unicode",
+              "offset":[0,-20]
+            }
+          },
+          "thresholdData":[
+            { "for":"y0", "type":"max", "value":35.4784 },
+            { "for":"y0", "type":"min", "value":7.6531 },
+            { "for":"y0", "type":"mean", "value":15.330657585139331 },
+            { "for":"y1", "type":"mean", "value":75 },
+            { "for":"", "type":"quartile", "value":17 }
+          ],
+          "showThresholdBox":false,
+          "selectionType": "xAxis",
+          "xAxisConfig": {
+            "title": "Date",
+            "tickFormat": "%b %d"
+          },
+          "yAxisConfig": {
+            "title": "Hz"
+          }
+        }'
+        series-config='[[seriesConfig]]'
+        default-series-config='{
+            "type": "line",
+            "yAxisUnit": "Hz",
+            "x": "TimeStamp",
+            "xMin": "dynamic",
+            "xMax": "dynamic",
+            "yMin": 0,
+            "yMax": "dynamic"
+          }'
+        chart-data="[[chartData]]"
+        event-data="[[eventData]]"
+        range="[[range]]"
+        height="400">
+      </px-vis-timeseries>
+      <px-vis-data
+        id = "seriesAjax"
+        request-data = '[{
+          "type":"line",
+          "name":"mySeries",
+            "url":"../../bower_components/px-demo-data/demo-data/aviation/delta-egt-cruise.json"
+          },{
+            "type":"line",
+            "url":"../../bower_components/px-demo-data/demo-data/aviation/hpt-acc-position-cruise.json"
+        }]'
+        data-var="originalData"
+        lists="append"
+        response-data="{{originalData}}">
+      </px-vis-data>
+      <px-vis-data-converter
+        data-key = "series"
+        id-key = "name"
+        original-data = '[[originalData]]'
+        series-config="{{seriesConfig}}"
+        chart-data="{{chartData}}">
+      </px-vis-data-converter>
+      <px-vis-data
+        id = "eventAjax"
+        request-data = '[{
+            "url":"../../bower_components/px-demo-data/demo-data/aviation/delta-egt-cruise-events.json"
+        }]'
+        data-var="eventData"
+        lists = "flat"
+        response-data="{{eventData}}">
+      </px-vis-data>
+
+    </px-card>
+  </template>
+</dom-module>
+<script>
+Polymer({
+  is: 'time-series-card',
+  properties: {
+    config: {
+        type: Object
+    }
+  },
+
+  ready: function(){
+    var rangepicker = this.$.rangepicker,
+        btnSnap = this.$.btnSnap,
+        timeSerie = this.$.timeSerie;
+
+    rangepicker.range = {
+        "from":"2014-04-10T04:01:00.000Z",
+        "to":"2015-04-01T20:42:00.000Z"
+    };
+
+  },
+
+});
+</script>

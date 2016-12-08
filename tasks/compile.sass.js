@@ -54,7 +54,7 @@ module.exports = function(gulp, plugins) {
       .pipe(livereload())
       .pipe(gulp.dest(styleModuleDest));
 
-    gulp.src([
+    return gulp.src([
       './public/index-inline.scss',
       './public/global.scss'
     ]).pipe(plugins.sass({
