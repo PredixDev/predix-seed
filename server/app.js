@@ -27,7 +27,7 @@ if (node_env === 'development') {
 	proxy.setUaaConfig(devConfig);
 }
 
-var windServiceURL = process.env.windServiceURL || devConfig.windServiceURL;
+var windServiceURL = devConfig ? devConfig.windServiceURL : process.env.windServiceURL;
 
 console.log('************'+node_env+'******************');
 
