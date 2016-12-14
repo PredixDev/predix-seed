@@ -1,5 +1,4 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/px-view/px-view.html">
 
 <dom-module id="px-deck">
@@ -13,9 +12,6 @@
         element-data="[[item]]"></px-view>
     </template>
   </template>
-
-  <!-- include lodash utility library -->
-  <script src="../../bower_components/lodash/dist/lodash.min.js"></script>
 
   <script>
     Polymer({
@@ -40,8 +36,10 @@
       },
 
       _cardIsVisible: function(card) {
-        var includes = _.includes(this._cards, card);
-        return includes;
+        var found = this._cards.find(function(elem, index, array) {
+          return card["id"] === elem["id"];
+        });
+        return (typeof found !== 'undefined');
       },
 
       _filterCards: function(card) {
