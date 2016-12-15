@@ -52,14 +52,11 @@ $inuit-enable-layout--full  : true;
     display:inline-block;
     svg {
       margin-bottom: -.1em;
-      path{
-        fill: var(--px-seed-app-logo-color, $px-page-banner-meatball-color);
-      }
     }
 
   }
   h3, h4 {
-    color:$gray6;
+    color: var(--px-seed-header-text-color, $gray6);
     @include media-query(palm) {
       display: none;
     };
