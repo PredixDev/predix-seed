@@ -26,15 +26,15 @@ This tutorial also requires knowledge of and practical experience with the Predi
 3. Replace the values of these variables with the following:
 
   #### clientId
-  For UAA-based authentication (which is what we use here), use the literal value '*app_client_id*'
+  For UAA-based authentication (which is what we use here), use the same value that was used for **clientId** in your UAA instance creation, as mentioned in the **Pre-Requisites** section above.
 
   #### uaaURL
-  This is the URL of an existing UAA service, mentioned in the **Pre-Requisites** section above.  With the service running and a set of credentials in hand (user and password), use the service URL as the value for this variable.
+  This is the URL of the UAA instance that was created in the **Pre-Requisites** section.  With the service running and a set of credentials in hand (user and password), use the service URL as the value for this variable.
 
   #### base64ClientCredential
-  This is a [**Base64**](https://en.wikipedia.org/wiki/Base64) encoding of the string '*app_client_id*:*\<secret\>*', where '*app_client_id*' is the literal string used for the first configuration variable, and '*\<secret\>*' is any text value of your own choosing.  
+  This is a [**Base64**](https://en.wikipedia.org/wiki/Base64) encoding of the string '*<clientId>*:*\<secret\>*', where '*<clientId>*' is the value of the **clientId** configuration variable, and '*\<secret\>*' is the 'secret' value used in the UAA instance creation.  
 
-  In a Mac OS or Unix environment, you can get this value by running the following command sequence (for example, using the string literal '*secret*' for the secret value):
+  In a Mac OS or Unix environment, you can get this value by running the following command sequence (for example, using the string literals '*app_client_id*' and '*secret*' for **clientId** and secret values, respectively):
   ```
     echo -n app_client_id:secret | base64
   ```
