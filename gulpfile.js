@@ -31,12 +31,6 @@ gulp.task('serve:dist:start', ['dist'], getTask('serve.dist.start'));
 gulp.task('watch:public', getTask('watch.public'));
 
 // -----------------------------------------------------------------------------
-// Task: Exposes gulp test:local and gulp test:remote
-// -----------------------------------------------------------------------------
-// require('web-component-tester')
-//   .gulp.init(gulp);
-
-// -----------------------------------------------------------------------------
 // Task: Dist (Build app ready for deployment)
 // 	clean, compile:sass, compile:index, copy, vulcanize
 // -----------------------------------------------------------------------------
