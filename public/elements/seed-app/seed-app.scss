@@ -34,21 +34,9 @@ $inuit-enable-layout--full  : true;
 
 @import "../../seed-theme.scss";
 
-
-// Styling for px-app-nav
-:root {
-  --px-app-nav-background-color:            $gray10;
-  --px-app-nav-link-text-color:             $white;
-  --px-app-nav-link-selected-color:         $select-blue-pressed;
-  --px-app-nav-link-selected-active-color:  $select-blue-hover;
-  --px-app-nav-link-hover-color:            $gray8;
-  --px-app-nav-link-active-color:           $primary-blue-hover;
-}
-
-
-
 [role=banner], [role=contentinfo] {
   height: calculateRem(60px);
+  background: var(--px-seed-header-background-color);
 }
 
 [role=banner] {
@@ -60,12 +48,12 @@ $inuit-enable-layout--full  : true;
     margin: 0;
     line-height: calculateRem(60px);
     font-weight: normal;
-    color: $px-page-banner-text-color;
+    color: var(--px-seed-header-text-color, $px-page-banner-text-color);
     display:inline-block;
     svg {
       margin-bottom: -.1em;
       path{
-        fill: $px-page-banner-meatball-color;
+        fill: var(--px-seed-app-logo-color, $px-page-banner-meatball-color);
       }
     }
 
@@ -90,7 +78,7 @@ header > div.viewport {
 main {
   min-height: calc(100vh - #{calculateRem(120px)});
   margin-left: 0;
-  background-color: $px-page-main-content-area-background-color;
+  background-color: var(--px-seed-app-main-content-area-background-color, $px-page-main-content-area-background-color);
   overflow-x: hidden;
   @include media-query(portable) {
     margin-left: calculateRem(55px);
