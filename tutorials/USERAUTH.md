@@ -32,7 +32,7 @@ This tutorial also requires knowledge of and practical experience with the Predi
   This is the URL of the UAA instance that was created in the **Pre-Requisites** section.  With the service running and a set of credentials in hand (user and password), use the service URL as the value for this variable.
 
   #### base64ClientCredential
-  This is a [**Base64**](https://en.wikipedia.org/wiki/Base64) encoding of the string '*<clientId>*:*\<secret\>*', where '*<clientId>*' is the value of the **clientId** configuration variable, and '*\<secret\>*' is the 'secret' value used in the UAA instance creation.  
+  This is a [**Base64**](https://en.wikipedia.org/wiki/Base64) encoding of the string '*\<clientId\>*:*\<secret\>*', where '*\<clientId\>*' is the value of the **clientId** configuration variable, and '*\<secret\>*' is the 'secret' value used in the UAA instance creation.  
 
   In a Mac OS or Unix environment, you can get this value by running the following command sequence (for example, using the string literals '*app_client_id*' and '*secret*' for **clientId** and secret values, respectively):
   ```
