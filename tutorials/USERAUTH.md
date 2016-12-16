@@ -10,7 +10,17 @@ We first show how to restrict access to specific routes or pages of the applicat
 If you prefer a video version (on which this written version is based) one is available [**here**](https://youtu.be/AiJ2IFJoTHg?list=PLibNgo_CBeuujvRV26_uLTksm1ezh7oGd).
 
 ### Pre-Requisites
-This tutorial requires a running UAA service instance.  Please refer to this [**tutorial**](https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=1544&tag=1605&journey=Build%20a%20basic%20application&resources=1580,1569,1523,1544,1547,1549,1556,1553,1570) for information on creating an instance and a set of valid credentials.  Once the instance is available, save its URL for use in the configuration steps below.
+This tutorial requires a running UAA service instance.  Please refer to this [**tutorial**](https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=1544&tag=1605&journey=Build%20a%20basic%20application&resources=1580,1569,1523,1544,1547,1549,1556,1553,1570) for information on creating an instance and a set of valid credentials.  UAA instance creation will involve the following values:
+
+    - URL
+
+    - clientId
+
+    - secret
+    
+    - username / password (credentials) 
+    
+Save these values for use in the configuration steps below.
 
 This tutorial also requires knowledge of and practical experience with the Predix UI Seed (this project).  You should have been able to install, minimally configure, and deploy the Seed prior to performing this tutorial.  Please refer to the README document of this project for this requirement.
 
@@ -26,15 +36,15 @@ This tutorial also requires knowledge of and practical experience with the Predi
 3. Replace the values of these variables with the following:
 
   #### clientId
-  For UAA-based authentication (which is what we use here), use the literal value '*app_client_id*'
+  For UAA-based authentication (which is what we use here), use the same value that was used for **clientId** in your UAA instance creation, as mentioned in the **Pre-Requisites** section above.
 
   #### uaaURL
-  This is the URL of an existing UAA service, mentioned in the **Pre-Requisites** section above.  With the service running and a set of credentials in hand (user and password), use the service URL as the value for this variable.
+  This is the URL of the UAA instance that was created in the **Pre-Requisites** section.  With the service running and a set of credentials in hand (user and password), use the service URL as the value for this variable.
 
   #### base64ClientCredential
-  This is a [**Base64**](https://en.wikipedia.org/wiki/Base64) encoding of the string '*app_client_id*:*\<secret\>*', where '*app_client_id*' is the literal string used for the first configuration variable, and '*\<secret\>*' is any text value of your own choosing.  
+  This is a [**Base64**](https://en.wikipedia.org/wiki/Base64) encoding of the string '*\<clientId\>*:*\<secret\>*', where '*\<clientId\>*' is the value of the **clientId** configuration variable, and '*\<secret\>*' is the 'secret' value used in the UAA instance creation.  
 
-  In a Mac OS or Unix environment, you can get this value by running the following command sequence (for example, using the string literal '*secret*' for the secret value):
+  In a Mac OS or Unix environment, you can get this value by running the following command sequence (for example, using the string literals '*app_client_id*' and '*secret*' for **clientId** and **secret** values, respectively):
   ```
     echo -n app_client_id:secret | base64
   ```
@@ -112,4 +122,8 @@ Perform the same steps above to verify that authentication is working.
 
 ## Conclusion
 
-This document has shown how to add Authentication to an instance of the Seed, and apply the feature to specific, and later, all routes.  It has also shown how to apply the feature in both local and cloud deployments.  For any questions or issues with this document and/or feature, please submit a github issue to this project.
+This document has shown how to add Authentication to an instance of the Seed, and apply the feature to specific, and later, all routes.  It has also shown how to apply the feature in both local and cloud deployments.
+
+## Support and Further Information
+
+For more information on this tutorial, you can ask questions and file tickets on <a href="https://www.predix.io/community" target="_blank">https://www.predix.io/community</a>.

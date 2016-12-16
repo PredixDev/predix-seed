@@ -56,117 +56,20 @@ You will need to run this command every time before you deploy to the Cloud.
 gulp dist
 ```
 
-## Folder Structure
-After the last step above, there should be the following folder structure.  Below is a brief description of the essential folders and files:
-```
-<root>
-˪dist
-˪node_modules
-˪public
-  ˪bower_components
-  ˪elements
-   _index-inline-loading-script.js
-   _index.html
-   favicon.png
-   index-inline-styles.html
-   index-inline.css
-   index.html
-   seed-theme-styles.html
-   seed-theme.scss
-˪server
-  ˪sample-data
-   app.js
-   localConfig.json
-   passport-config.js
-   predix-asset-routes.js
-   predix-config.js
-   proxy.js
-   time-series-routes.js
-   view-service-routes.js
-˪tasks
-˪test
-˪tutorials
- .travis.yml
- bower.json
- gulpfile.js
- HISTORY.md
- LICENSE.md
- manifest.yml
- OSS_Notice.pdf
- package.json
- README.md
- wct.conf.js
-```
 
-####\<root\>
-####dist
-####node_modules
-####public
-####bower_components
-####elements
-####_index-inline-loading-script.js
-####_index.html
-####favicon.png
-####index-inline-styles.html
-####index-inline.css
-####index.html
-####seed-theme-styles.html
-####seed-theme.scss
-####server
-####sample-data
-####app.js
-####localConfig.json
-####passport-config.js
-####predix-asset-routes.js
-####predix-config.js
-####proxy.js
-####time-series-routes.js
-####view-service-routes.js
-####tasks
-Folder that contains Gulp task definitions
-####test
-Folder for test code
-####tutorials
-Folder containing tutorials on different features
-####.travis.yml
-Travis configuration file
-####bower.json
-Components dependency file
-####gulpfile.js
-Gulp tasks configuration file
-####HISTORY.md
-Change history details
-####LICENSE.md
-Licensing details
-####manifest.yml
-Cloud deployment configuration file
-####OSS_Notice.pdf
-Contains legal notices
-####package.json
-NPM dependency configuration
+## Push to the Cloud
 
-####README.md
-This file
+### Pre-Requisites
+Pushing (deploying) to a cloud environment requires knowledge of the commands involved and a valid user account with the environment.  GE uses Cloud Foundry for its cloud platform.  For information on the GE Cloud Foundry, refer to this [link](http://TODO).
 
-####wct.conf.js
-Configuration file for running Web Component Tester tests on the local elements of the seed.
-
-### Deploy to the cloud
-First make sure you're logged in to the Predix Cloud using the `cf login` command.
-Then deploy your app using this command:
-```
-cf push my-seed-app
-```
-You can give the app any unique name you like.  In the above, "my-seed-app" is just an example.
-
-## Push to the cloud
-Now that you have the required services created, we can configure our web app to use them.
+### Steps
+The simplest way to push the Seed application to a cloud environment is by modifying the default manifest file (manifest.yml) and using the **cf push** command, as follows:
 
 1. Update manifest.yml
 
 	Change the name field in your manifest.yml.  
 	Uncomment the services section, and change the names to match your service instances.
-	Uncommen the clientId and base64ClientCredential environment variables and enter the correct values for your UAA client.
+	Uncomment the clientId and base64ClientCredential environment variables and enter the correct values for your UAA client.
 	```
 	---
 	applications:
@@ -186,16 +89,29 @@ Now that you have the required services created, we can configure our web app to
 	    #base64ClientCredential: dWFhLWNsaWVudC1pZDp1YWEtY2xpZW50LWlkLXNlY3JldA==
 	```
 
-4. Push to the cloud.
+2. Push to the cloud.
 
 	```
 	cf push
 	```
 
-- Ask questions and file tickets on <a href="https://www.predix.io/community" target="_blank">https://www.predix.io/community</a>.
+3. Access the cloud deployment of your Seed application
+
+  The output of the **cf push** command includes the URL to which your application was deployed.  Below is an example:
+  
+  API endpoint:   https://api.endpoint.svc.ice.ge.com (API version: 2.62.0)   
+  User:           john.doe@ge.com   
+  Org:            predix-org   
+  Space:          predix-space   
+
+  Access your Seed application by loading the **API Endpoint** above in a web browser
+  
+## Support and Further Information
+
+Ask questions and file tickets on <a href="https://www.predix.io/community" target="_blank">https://www.predix.io/community</a>.
 
 # Copyright
-Copyright &copy; 2015 GE Global Research. All rights reserved.
+Copyright &copy; 2015, 2016 GE Global Research. All rights reserved.
 
 The copyright to the computer software herein is the property of
 GE Global Research. The software may be used and/or copied only
