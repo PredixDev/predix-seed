@@ -23,6 +23,8 @@
 }
 
 // Trumps
-$inuit-enable-margins--none  : true;
-$inuit-enable-paddings--huge : true;
+$inuit-enable-margins--none    : true;
+$inuit-enable-paddings--huge   : true;
+$inuit-enable-margins--small   : true;
+$inuit-enable-margins--large   : true;
 @import 'px-spacing-design/_trumps.spacing.scss';
