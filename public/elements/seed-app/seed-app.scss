@@ -55,8 +55,9 @@ $inuit-enable-layout--full  : true;
     }
 
   }
+
   h3, h4 {
-    color: var(--px-seed-header-text-color, $gray6);
+    color: var(--px-seed-header-text-color, $gray4);
     @include media-query(palm) {
       display: none;
     };
