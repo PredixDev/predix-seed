@@ -151,13 +151,6 @@ This file
 ####wct.conf.js
 Configuration file for running Web Component Tester tests on the local elements of the seed.
 
-### Deploy to the cloud
-First make sure you're logged in to the Predix Cloud using the `cf login` command.
-Then deploy your app using this command:
-```
-cf push my-seed-app
-```
-You can give the app any unique name you like.  In the above, "my-seed-app" is just an example.
 
 ## Push to the cloud
 Now that you have the required services created, we can configure our web app to use them.
@@ -166,7 +159,7 @@ Now that you have the required services created, we can configure our web app to
 
 	Change the name field in your manifest.yml.  
 	Uncomment the services section, and change the names to match your service instances.
-	Uncommen the clientId and base64ClientCredential environment variables and enter the correct values for your UAA client.
+	Uncomment the clientId and base64ClientCredential environment variables and enter the correct values for your UAA client.
 	```
 	---
 	applications:
