@@ -56,12 +56,14 @@ $inuit-enable-layout--full  : true;
 
   }
 
-  h3, h4 {
+  h3.app-title {
     color: var(--px-seed-header-text-color, $gray4);
-    @include media-query(palm) {
-      display: none;
-    };
   }
+
+  h4.logo {
+    color: var(--px-seed-header-text-color, $gray6);
+  }
+
 }
 
 .content-wrapper {
