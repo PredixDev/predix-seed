@@ -56,6 +56,8 @@
     "px-starter-kit-design": "^0.7.0",
     "px-code-design": "^1.1.1",
     "px-headings-design": "^0.3.1",
-    "px-buttons-design": "^1.1.2"
+    "px-buttons-design": "^1.1.2",
+    "px-actionable-text-icons-design": "^1.1.1",
+    "px-spacing-design": "^0.4.1"
   }
 }

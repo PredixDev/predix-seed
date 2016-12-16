@@ -16,12 +16,11 @@
 
     <!-- apply imported style module -->
     <style include="three-widgets-card-styles"></style>
-
     <px-threeup id="widgetsx3" widget-header="Predix UI Components" widget-icon="fa-area-chart">
       <div class="widget-1">
-        <h1 class="epsilon">
+        <p class="chart-header u-m0 u-pb++">
           [[_simpleDataValuesB.data.name]]
-        </h1>
+        </p>
         <div class="flex">
           <div class="flex">
             <div class="large-value">987</div>
@@ -52,9 +51,9 @@
         </iron-ajax>
       </div>
       <div class="widget-2">
-        <h1 class="epsilon">
+        <p class="chart-header u-m0 u-pb++">
           [[_simpleDataValuesA.data.name]]
-        </h1>
+        </p>
         <px-simple-horizontal-bar-chart
           width="auto"
           height="197"
@@ -68,9 +67,9 @@
         </iron-ajax>
       </div>
       <div class="widget-3">
-        <h1 class="epsilon">
+        <p class="chart-header u-m0 u-pb++">
           [[_simpleDataValuesC.data.name]]
-        </h1>
+        </p>
         <px-simple-bar-chart
           width="auto"
           height="195"
