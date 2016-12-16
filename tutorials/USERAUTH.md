@@ -122,4 +122,8 @@ Perform the same steps above to verify that authentication is working.
 
 ## Conclusion
 
-This document has shown how to add Authentication to an instance of the Seed, and apply the feature to specific, and later, all routes.  It has also shown how to apply the feature in both local and cloud deployments.  For any questions or issues with this document and/or feature, please submit a github issue to this project.
+This document has shown how to add Authentication to an instance of the Seed, and apply the feature to specific, and later, all routes.  It has also shown how to apply the feature in both local and cloud deployments.
+
+## Support and Further Information
+
+For more information on this tutorial, you can ask questions and file tickets on <a href="https://www.predix.io/community" target="_blank">https://www.predix.io/community</a>.
