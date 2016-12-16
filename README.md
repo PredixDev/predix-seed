@@ -57,7 +57,7 @@ gulp dist
 ```
 
 
-## Push to the cloud
+## Push to the Cloud
 The simplest way to push the Seed application to a cloud environment is by modifying the default manifest file (manifest.yml) and using the **cf push** command, as follows:
 
 1. Update manifest.yml
