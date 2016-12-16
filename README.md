@@ -84,12 +84,23 @@ The simplest way to push the Seed application to a cloud environment is by modif
 	    #base64ClientCredential: dWFhLWNsaWVudC1pZDp1YWEtY2xpZW50LWlkLXNlY3JldA==
 	```
 
-4. Push to the cloud.
+2. Push to the cloud.
 
 	```
 	cf push
 	```
 
+3. Access the cloud deployment of your Seed application
+
+  The output of the **cf push** command includes the URL to which your application was deployed.  Below is an example:
+  
+  API endpoint:   https://api.endpoint.svc.ice.ge.com (API version: 2.62.0)   
+  User:           john.doe@ge.com   
+  Org:            predix-org   
+  Space:          predix-space   
+
+  Access your Seed application by loading the **API Endpoint** above in a web browser
+  
 ## Support and Further Information
 
 Ask questions and file tickets on <a href="https://www.predix.io/community" target="_blank">https://www.predix.io/community</a>.
