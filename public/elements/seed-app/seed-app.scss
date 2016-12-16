@@ -59,7 +59,7 @@ $inuit-enable-layout--full  : true;
 
   }
   h3, h4 {
-    color:$gray6;
+    color:$gray4;
     @include media-query(palm) {
       display: none;
     };
