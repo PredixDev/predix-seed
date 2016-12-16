@@ -111,7 +111,7 @@ The simplest way to push the Seed application to a cloud environment is by modif
 Ask questions and file tickets on <a href="https://www.predix.io/community" target="_blank">https://www.predix.io/community</a>.
 
 # Copyright
-Copyright &copy; 2015 GE Global Research. All rights reserved.
+Copyright &copy; 2015, 2016 GE Global Research. All rights reserved.
 
 The copyright to the computer software herein is the property of
 GE Global Research. The software may be used and/or copied only
