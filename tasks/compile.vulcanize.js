@@ -23,7 +23,9 @@ module.exports = function(gulp) {
           'public/bower_components/iron-iconset-svg/iron-iconset-svg.html',
           'public/bower_components/iron-icon/iron-icon.html',
           'public/bower_components/iron-ajax/iron-ajax.html',
-          'public/bower_components/iron-ajax/iron-request.html'
+          'public/bower_components/iron-ajax/iron-request.html',
+          'public/bower_components/px-card/px-card-header.html',
+          'public/bower_components/px-card/px-card.html'
         ],
         stripComments: true,
         inlineCSS: true,
