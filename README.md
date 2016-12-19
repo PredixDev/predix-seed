@@ -60,7 +60,7 @@ gulp dist
 ## Push to the Cloud
 
 ### Pre-Requisites
-Pushing (deploying) to a cloud environment requires knowledge of the commands involved and a valid user account with the environment.  GE uses Cloud Foundry for its cloud platform.  For information on the GE Cloud Foundry, refer to this [link](http://TODO).
+Pushing (deploying) to a cloud environment requires knowledge of the commands involved and a valid user account with the environment.  GE uses Cloud Foundry for its cloud platform.  For information on Cloud Foundry, refer to this [link](https://github.com/cloudfoundry/cli#downloads).
 
 ### Steps
 The simplest way to push the Seed application to a cloud environment is by modifying the default manifest file (manifest.yml) and using the **cf push** command, as follows:
