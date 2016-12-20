@@ -71,6 +71,9 @@
         _selectedDeckId: {
           type: String,
           computed: '_getSelectedDeckId(_selectedDeck)'
+        },
+        _selectedAsset: {
+          observer: '_onAssetSelected'
         }
       },
 
@@ -123,7 +126,12 @@
           return res.json();
         });
       },
-
+      _onAssetSelected: function(asset) {
+        // handle opening initial asset on page load
+        if (!this._openedAsset && asset.id) {
+          this.openAsset(asset);
+        }
+      },
       // An asset is opened,
       openAsset: function(asset) {
         this._openedAsset = asset;
