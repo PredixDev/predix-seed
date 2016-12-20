@@ -2,13 +2,14 @@ node_modules
 public/bower_components
 public/polymer-loader.vulcanized.html
 test-target
+public/index.html
+public/**/*-styles.html
+public/index-inline.css
 main.min.css
-dist/public
-dist/www
 .idea
 npm-debug.log
 *.log
 .DS_Store
 temp
-dist/
+dist
 .github/

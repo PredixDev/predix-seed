@@ -7,6 +7,7 @@ const stylemod = require('gulp-style-modules');
 const autoprefixer = require('gulp-autoprefixer');
 const path = require('path');
 const importOnce = require('node-sass-import-once');
+const cssmin = require('gulp-cssmin');
 
 var getName = function(file) {
   return path.basename(file.path, path.extname(file.path));
@@ -24,7 +25,6 @@ module.exports = function(gulp, plugins) {
 
     gulp.src([
         './public/*.scss',
-        '!./public/index-inline.scss',
         './public/elements/*.scss',
         './public/elements/**/*.scss'
       ])
@@ -38,6 +38,7 @@ module.exports = function(gulp, plugins) {
         })
         .on('error', plugins.sass.logError))
       .pipe(autoprefixer())
+      .pipe(cssmin())
       .pipe(stylemod({
         // All files will be named 'styles.html'
         filename: function(file) {
@@ -50,19 +51,6 @@ module.exports = function(gulp, plugins) {
         }
       }))
       .pipe(gulp.dest(styleModuleDest));
-
-    gulp.src('./public/index-inline.scss')
-      .pipe(plugins.sass({
-          includePaths: './public/bower_components',
-          importer: importOnce,
-          importOnce: {
-            index: true,
-            bower: true
-          }
-        })
-        .on('error', plugins.sass.logError))
-      .pipe(autoprefixer())
-      .pipe(gulp.dest('./public'));
 
   };
 };

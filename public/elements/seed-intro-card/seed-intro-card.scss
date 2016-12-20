@@ -7,24 +7,12 @@
 @import "px-helpers-design/_generic.helpers.scss";
 
 // Base
-
 @import "px-flexbox-design/_base.flexbox.scss";
 @import "px-viewport-design/_base.viewport.scss";
 @import "px-headings-design/_base.headings.scss";
 
 // Objects
+@import 'px-actionable-text-icons-design/_objects.actionable.scss';
+
 // Component
-
-.large-value {
-  @include inuit-font-size(30px);
-}
-.chart-header{
-  font-weight: bold; 
-}
-
 // Trumps
-$inuit-enable-margins--none    : true;
-$inuit-enable-paddings--huge   : true;
-$inuit-enable-margins--small   : true;
-$inuit-enable-margins--large   : true;
-@import 'px-spacing-design/_trumps.spacing.scss';

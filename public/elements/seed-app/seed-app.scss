@@ -10,7 +10,7 @@
 // https://github.com/predixdev/px-viewport-design
 $desk-wide-width: auto; // defaults to 100%
 $desk-wide-max-width: none; // defaults to 80rem
-$viewport-margin: 2rem; // defaults to auto
+$viewport-margin: 0; // defaults to auto
 
 // Base
 @import "px-viewport-design/_base.viewport.scss";
@@ -34,48 +34,36 @@ $inuit-enable-layout--full  : true;
 
 @import "../../seed-theme.scss";
 
-
-// Styling for px-app-nav
-:root {
-  --px-app-nav-background-color:            $gray10;
-  --px-app-nav-link-text-color:             $white;
-  --px-app-nav-link-selected-color:         $select-blue-pressed;
-  --px-app-nav-link-selected-active-color:  $select-blue-hover;
-  --px-app-nav-link-hover-color:            $gray8;
-  --px-app-nav-link-active-color:           $primary-blue-hover;
-}
-
-
-
 [role=banner], [role=contentinfo] {
   height: calculateRem(60px);
+  background: var(--px-seed-header-background-color);
 }
 
 [role=banner] {
   width: 100%;
   display: block;
   margin: auto;
-  h1, h2 {
-    @include inuit-font-size(24px);
+  h3 {
+    @include inuit-font-size(20px);
     margin: 0;
     line-height: calculateRem(60px);
     font-weight: normal;
-    color: $px-page-banner-text-color;
+    color: var(--px-seed-header-text-color, $px-page-banner-text-color);
     display:inline-block;
     svg {
       margin-bottom: -.1em;
-      path{
-        fill: $px-page-banner-meatball-color;
-      }
     }
 
   }
-  h2 {
-    color:$gray6;
-    @include media-query(palm) {
-      display: none;
-    };
+
+  h3.app-title {
+    color: var(--px-seed-header-text-color, $gray4);
   }
+
+  h3.logo {
+    color: var(--px-seed-header-text-color, $gray6);
+  }
+
 }
 
 .content-wrapper {
@@ -83,10 +71,14 @@ $inuit-enable-layout--full  : true;
   display: flex;
 }
 
+header > div.viewport {
+  margin: 0 15px;
+}
+
 main {
   min-height: calc(100vh - #{calculateRem(120px)});
   margin-left: 0;
-  background-color: $px-page-main-content-area-background-color;
+  background-color: var(--px-seed-app-main-content-area-background-color, $px-page-main-content-area-background-color);
   overflow-x: hidden;
   @include media-query(portable) {
     margin-left: calculateRem(55px);

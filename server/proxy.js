@@ -77,20 +77,15 @@ function cleanResponseHeaders (rsp, data, req, res, cb) {
 	cb(null, data);
 }
 
-function buildDecorator(key, credentials) {
-	var zoneId = getEndpointAndZone(key, credentials).zoneId;
+function buildDecorator(zoneId) {
 	var decorator = function(req) {
-		// if (req.session) {
-		// 	console.log('session: ' + JSON.stringify(req.session));
-		// } else {
-		// 	console.log('no session');
-		// }
-		// console.log('zone id: ' + zoneId);
 		if (corporateProxyAgent) {
 			req.agent = corporateProxyAgent;
 		}
 		req.headers['Content-Type'] = 'application/json';
-		req.headers['Predix-Zone-Id'] = zoneId;
+		if (zoneId) {
+			req.headers['Predix-Zone-Id'] = zoneId;
+		}
 		return req;
 	};
 	return decorator;
@@ -123,7 +118,7 @@ var setProxyRoute = function(key, credentials) {
 	console.log('setting proxy route for key: ' + key);
 	console.log('serviceEndpoint: ' + routeOptions.serviceEndpoint);
 	// console.log('zone id: ' + routeOptions.zoneId);
-	var decorator = buildDecorator(key, credentials);
+	var decorator = buildDecorator(routeOptions.zoneId);
 
 	router.use('/' + key, expressProxy(routeOptions.serviceEndpoint, {
 		https: true,
@@ -136,8 +131,10 @@ var setProxyRoute = function(key, credentials) {
 	}));
 };
 
-// Fetches client token and stores in session.
-router.use('/', function(req,res,next){
+// Fetches client token, adds to request headers, and stores in session.
+// Returns 403 if no session.
+// Use this middleware to proxy a request to a secure service, using a client token.
+var addClientTokenMiddleware = function(req, res, next) {
 	function errorHandler(errorString) {
 		// TODO: fix, so it doesn't return a status 200.
 		//  Tried sendStatus, but headers were already set.
@@ -161,7 +158,9 @@ router.use('/', function(req,res,next){
 	} else {
 		next(res.sendStatus(403).send('Forbidden'));
 	}
-});
+};
+
+router.use('/', addClientTokenMiddleware);
 
 // TODO: Support for multiple instances of the same service.
 var setProxyRoutes = function() {
@@ -175,10 +174,34 @@ var setProxyRoutes = function() {
 		setProxyRoute(key, vcapServices[key][0].credentials);
 	});
 };
+// TODO: only call this, if we find a vcapstring in environment?
 setProxyRoutes();
+
+// Use this to set up your own proxy route to your custom microservice.
+// Path and arguments after the pathPrefix will be passed on to the target endpoint.
+//  pathPrefix: the path that clients will call in your express app.
+//  endpoint: the URL of your custom microservice.
+// example usage:
+//  customProxyMiddleware('/my-custom-api', 'https://my-custom-service.run.aws-usw02-pr.ice.predix.io')
+var customProxyMiddleware = function(pathPrefix, endpoint) {
+	console.log('custom endpoint: ' + endpoint);
+	return expressProxy(endpoint, {
+		https: true,
+		forwardPath: function (req) {
+			var path = req.url.replace(pathPrefix, '');
+			console.log('proxying to:', path);
+			return path;
+		},
+		intercept: cleanResponseHeaders,
+		decorateRequest: buildDecorator()
+	});
+};
 
 module.exports = {
 	router: router,
 	setServiceConfig: setServiceConfig,
-	setUaaConfig: setUaaConfig
+	setUaaConfig: setUaaConfig,
+	customProxyMiddleware: customProxyMiddleware,
+	addClientTokenMiddleware: addClientTokenMiddleware,
+	expressProxy: expressProxy
 };

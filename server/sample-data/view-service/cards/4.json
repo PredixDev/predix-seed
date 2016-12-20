@@ -3,7 +3,8 @@
   "title": "Time Series",
   "slug": "time-series-card",
   "attributes": {
-    "elementHref": "/elements/time-series-card/time-series-card.html"
+    "elementHref": "/elements/time-series-card/time-series-card.html",
+    "dataUrl": "/api/time-series/core-vibe/1"
   },
   "createTimeStamp": "2015-11-24T23:02:53.816Z",
   "tags": []

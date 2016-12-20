@@ -8,17 +8,24 @@
   <link rel="shortcut icon" type="image/png" href="favicon.png">
 
   <!-- inline CSS for splash screen -->
-  <link rel="stylesheet" type="text/css" href="index-inline.css" inline>
-  <link rel="import" href="../bower_components/px-theme/px-theme-styles.html">
-  <style include="px-theme-styles" is="custom-style"></style>
 
+  <link rel="import" href="index-inline-styles.html">
+  <style include="index-inline-styles" is="custom-style"></style>
+
+  <link rel="import" href="bower_components/px-theme/px-theme-styles.html">
+  <style include="px-theme-styles" is="custom-style"></style>
   <script>
-    // Setup Polymer options
-    window.Polymer = {
-      // lazyRegister: true, // lazyRegister: true is necessary for px-view
-      // dom: 'shadow' // default to shadow-dom with shady-dom fall-back
-    };
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-72329845-2', 'auto');
+    ga('send', 'pageview');
+
   </script>
+
+  <link rel="import" href="bower_components/polymer/polymer.html">
 
   <!-- Async HTML Imports do not block rending. Benefit of keeping it declarative
       (instead of dynamically loading it later in JS) is that the parser can go to
