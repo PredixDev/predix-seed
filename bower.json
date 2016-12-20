@@ -60,6 +60,15 @@
     "px-buttons-design": "^0.4.26"
   },
   "resolutions": {
-    "px-theme": "^2.0.1"
+    "px-theme": "^2.0.1",
+    "es6-promise": "^3.3.1",
+    "px-defaults-design": "^1.0.2",
+    "px-colors-design": "^0.3.0",
+    "px-card": "^0.6.0",
+    "px-polymer-font-awesome": "^0.1.9",
+    "px-mixins-design": "^0.3.0",
+    "px-simple-chart-common-behavior": "^1.6.0",
+    "px-spacing-design": "^0.4.0",
+    "px-tooltip": "^0.10.0"
   }
 }
