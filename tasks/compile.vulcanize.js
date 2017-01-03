@@ -28,7 +28,7 @@ module.exports = function(gulp) {
           'public/bower_components/px-card/px-card.html'
         ],
         stripComments: true,
-        inlineCss: true,
+        inlineCSS: true,
         inlineScripts: true
       }))
       .pipe(gulp.dest('dist/public/elements/'));
