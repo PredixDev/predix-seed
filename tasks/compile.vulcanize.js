@@ -11,7 +11,7 @@ module.exports = function(gulp) {
     return gulp.src('public/loader.html', {base: 'public/'})
       .pipe(vulcanize({
         stripComments: true,
-        inlineCSS: true,
+        inlineCss: true,
         inlineScripts: true
       }))
       .pipe(gulp.dest('dist/'));
