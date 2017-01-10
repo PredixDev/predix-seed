@@ -27,7 +27,7 @@ if (node_env === 'development') {
 	proxy.setUaaConfig(devConfig);
 }
 
-var windServiceURL = process.env.windServiceURL || devConfig.windServiceURL;
+var windServiceURL = process.env.windServiceURL || ( typeof devConfig !== 'undefined' ? devConfig.windServiceURL : '' );
 
 console.log('************'+node_env+'******************');
 
@@ -111,15 +111,6 @@ if (!uaaIsConfigured) { // no restrictions
   	res.redirect('/');
     });
 
-  // example of calling a custom microservice.
-  if (windServiceURL && windServiceURL.indexOf('https') === 0) {
-    app.get('/windy/*', passport.authenticate('main', { noredirect: true}),
-      // if calling a secure microservice, you can use this middleware to add a client token.
-      // proxy.addClientTokenMiddleware,
-      proxy.customProxyMiddleware('/windy', windServiceURL)
-    );
-  }
-
   //Use this route to make the entire app secure.  This forces login for any path in the entire app.
   app.use('/', passport.authenticate('main', {
     noredirect: false //Don't redirect a user to the authentication page, just show an error
@@ -150,22 +141,6 @@ app.get('/logout', function(req, res) {
 app.get('/favicon.ico', function (req, res) {
 	res.send('favicon.ico');
 });
-
-// Sample route middleware to ensure user is authenticated.
-//   Use this route middleware on any resource that needs to be protected.  If
-//   the request is authenticated (typically via a persistent login session),
-//   the request will proceed.  Otherwise, the user will be redirected to the
-//   login page.
-//currently not being used as we are using passport-oauth2-middleware to check if
-//token has expired
-/*
-function ensureAuthenticated(req, res, next) {
-    if(req.isAuthenticated()) {
-        return next();
-    }
-    res.redirect('/');
-}
-*/
 
 ////// error handlers //////
 // catch 404 and forward to error handler
