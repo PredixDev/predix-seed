@@ -1,6 +1,6 @@
 ---
 applications:
-  - name: predix-ui-seed-test
+  - name: simpleseed
     memory: 64M
     buildpack: nodejs_buildpack
     command: node server/app.js
