@@ -8,7 +8,7 @@ const vulcanize = require('gulp-vulcanize');
 
 module.exports = function(gulp) {
   return function () {
-    return gulp.src(['public/elements/seed-app/seed-app.html', 'public/elements/views/dashboards-view.html'], { base: 'public/elements/' })
+    return gulp.src(['public/elements/seed-app/seed-app.html'], { base: 'public/elements/' })
       .pipe(vulcanize({
         abspath: '',
         excludes: [
