@@ -23,7 +23,7 @@ var styleModuleDest = function(file) {
 module.exports = function(gulp, plugins) {
   return function() {
 
-    gulp.src([
+    return gulp.src([
         './public/*.scss',
         './public/elements/*.scss',
         './public/elements/**/*.scss'
