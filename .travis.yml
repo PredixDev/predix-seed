@@ -1,4 +1,4 @@
 script:
-  - rm -rf /root/.npm/*.lock.STALE
+  - npm install -g bower
   - npm install
   - bower --allow-root install
