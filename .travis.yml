@@ -1,4 +1,6 @@
-script:
+before_script:
+  - npm update -g npm
   - npm install -g bower
+script:
   - npm install
   - bower --allow-root install
