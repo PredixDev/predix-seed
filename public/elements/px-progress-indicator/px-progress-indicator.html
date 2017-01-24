@@ -1,0 +1,57 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/px-polymer-font-awesome/px-polymer-font-awesome.html">
+<link rel="import" href="px-progress-indicator-styles.html">
+
+<dom-module id="px-progress-indicator">
+  <template>
+   <style include="px-progress-indicator-styles"></style>
+    <div id="wrapper">
+      <iron-icon icon="fa:fa-graduation-cap" class="learning-hat"></iron-icon>
+    <template id="progress-icons" is="dom-repeat" items="[[progressDetails]]">
+      <div id="progress-item-[[item.id]]" class$="{{getProgressShellClasses(item)}}" on-click="itemClick">
+        <div class$="{{getProgressIconClasses(item)}}">
+          <div class="current-indicator">
+            <iron-icon icon="" class="learning-hat"></iron-icon>
+          </div>
+        </div>
+      </div>
+      <div class="connecting-line"></div>
+    </template>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'px-progress-indicator',
+      properties: {
+        progressDetails: []
+      },
+
+      getProgressShellClasses: function(item) {
+        var classes = 'progress-shell';
+        classes += ( item.current ? ' progress-shell-current' : '');
+        return classes;
+      },
+
+      getProgressIconClasses: function(item) {
+        var classes = 'progress-icon';
+        if (item.completed) {
+          classes += ' progress-icon-completed';
+        }
+        else {
+          classes += (item.started ? ' progress-icon-inprogress' : ' progress-icon-unstarted');
+        }
+        classes += (item.current ? ' progress-icon-current' : '');
+        return classes;
+      },
+
+      itemClick: function(event) {
+        var itemId = event.currentTarget.id.substr(14);
+        var tourFeatureEvent = new Event("TOUR_FEATURE", {"bubbles": true, "cancelable": false});
+        tourFeatureEvent.tourID = itemId;
+        window.dispatchEvent(tourFeatureEvent);
+      }
+
+    });
+  </script>
+</dom-module>

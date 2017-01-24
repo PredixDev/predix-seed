@@ -1,0 +1,73 @@
+$highlight-current  : #3ab4d4;
+
+:host {
+  height: 18px;
+}
+
+.progress-shell {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 9px;
+  border: 2px solid;
+  overflow: hidden;
+  margin-left: -3px;
+  border-color: $highlight-current;
+  position: relative;
+  background-color: rgba(210, 210, 210, 0.1);
+}
+
+.progress-shell:first-of-type {
+  margin-left: 0px;
+}
+
+.progress-icon {
+  display: block;
+  height: 20px;
+  width: 20px;
+  border-radius: 0px;
+  background-color: $highlight-current;
+}
+
+.progress-icon-completed {
+  margin-top: 0px;
+}
+
+.progress-icon-inprogress {
+  margin-top: 9px;
+}
+
+.progress-icon-unstarted {
+  margin-top: 20px;
+}
+
+.connecting-line {
+  display: inline-block;
+  vertical-align: middle;
+  width: 25px;
+  height: 2px;
+  margin-top: -13px;
+  margin-left: -3px;
+  background-color: $highlight-current;
+}
+
+.connecting-line:last-of-type {
+  display: none;
+}
+
+.progress-shell-current .current-indicator {
+  width: 10px;
+  height: 10px;
+  top: 2px;
+  left: 2px;
+  border-radius: 5px;
+  border: 0px;
+  position: absolute;
+  background-color: #fff;
+}
+
+.learning-hat {
+  --iron-icon-height: 48px;
+  color: #fff;
+  margin-right: 10px;
+}

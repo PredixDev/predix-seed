@@ -15,6 +15,7 @@
 <link rel="import" href="../ge-svg-logo/ge-svg-logo.html">
 <link rel="import" href="../predix-logo/predix-logo.html">
 <link rel="import" href="../seed-footer/seed-footer.html">
+<link rel="import" href="../px-progress-indicator/px-progress-indicator.html">
 
 <dom-module id="seed-app">
   <template>
@@ -22,9 +23,13 @@
     <!-- apply imported seed app style module -->
     <style include="seed-app-styles"></style>
 
-    <header role="banner" class="flex flex--middle">
+    <header id="seed-header" role="banner" class="flex flex--middle">
       <div class="viewport flex">
         <h3 class="flex__item app-title"><ge-svg-logo class="u-mr--"></ge-svg-logo> Seed Application</h3>
+        <px-progress-indicator
+          style="margin-top: 12px;"
+          progress-details='[[progressDetails]]'>
+        </px-progress-indicator>
         <div class="flex__item">
           <div class="flex" style="text-align:right;">
             <h3 class="flex__item weight--normal logo">Powered by <predix-logo style="display:inline-block; width: 82px;" class="flex__item"></predix-logo></h3>
@@ -37,12 +42,13 @@
 
       <div class="content-wrapper">
         <px-app-nav
+          id="app-nav",
           class="navbar"
           nav-items="[[navItems]]"
           path-prefix="[[pathPrefix]]">
         </px-app-nav>
 
-        <main class="u-pt-- u-pr-- u-pl--" role="main">
+        <main id="content-area" class="u-pt-- u-pr-- u-pl--" role="main">
 
           <!-- app-location captures url and assigns _route value -->
           <app-location
@@ -168,6 +174,18 @@
           }
         },
 
+        progressDetails: {
+          type: Array,
+          value: function() {
+            return [
+              { id: 1, started: true, completed: true, current: false},
+              { id: 2, started: true, completed: true, current: false},
+              { id: 3, started: false, completed: false, current: true},
+              { id: 4, started: false, completed: false, current: false}
+            ]
+          }
+        },
+
         // Sets app default base URL for client-side routing
         pathPrefix: {
           type: String,
@@ -177,6 +195,17 @@
 
       ready: function(){
         this._checkForDefaultRoute();
+        window.addEventListener('TOUR_FEATURE', this.tourFeature);
+      },
+
+      tourFeature: function(event) {
+        var tourID = event.tourID;
+        if (window.isTouring) {
+          hopscotch.endTour(false);
+          window.isTouring = false;
+        }
+        hopscotch.startTour(window.hopscotchTour['tour' + tourID]);
+        window.isTouring = true;
       },
 
       _checkForDefaultRoute: function() {
@@ -186,7 +215,6 @@
           l.hash = "/dashboards";
         }
       }
-
     });
   </script>
 </dom-module>

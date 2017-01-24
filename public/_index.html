@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="bower_components/hopscotch/dist/css/hopscotch.css">
 
   <!-- inline CSS for splash screen -->
 
@@ -39,6 +40,7 @@
     href="/elements/seed-app/seed-app.html"
     async>
 
+
 </head>
 <!--
   'loading' class on <body> avoids "Flash of Unstyled Concent"
@@ -56,6 +58,9 @@
   <!-- Inline script to load app and remove splash screen
        Gulp will inline this script via the compile.index task -->
   <script src="_index-inline-loading-script.js" inline></script>
+
+  <script src="bower_components/hopscotch/dist/js/hopscotch.js"></script>
+  <script src="product_tour.js"></script>
 
 </body>
 </html>
