@@ -67,7 +67,13 @@ $highlight-current  : #3ab4d4;
 }
 
 .learning-hat {
-  --iron-icon-height: 48px;
+  --iron-icon-height: 20px;
   color: #fff;
   margin-right: 10px;
+}
+
+.progress-icon-character {
+  --iron-icon-height: 12px;
+  margin-top: -6px;
+  margin-left: -5px;
 }

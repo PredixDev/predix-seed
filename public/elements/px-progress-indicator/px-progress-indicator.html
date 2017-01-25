@@ -12,7 +12,7 @@
       <div id="progress-item-[[item.id]]" class$="{{getProgressShellClasses(item)}}" on-click="itemClick">
         <div class$="{{getProgressIconClasses(item)}}">
           <div class="current-indicator">
-            <iron-icon icon="" class="learning-hat"></iron-icon>
+            <iron-icon icon$="{{getIcon(item)}}" class="learning-hat progress-icon-character"></iron-icon>
           </div>
         </div>
       </div>
@@ -43,6 +43,13 @@
         }
         classes += (item.current ? ' progress-icon-current' : '');
         return classes;
+      },
+
+      getIcon: function(item) {
+        if (item.completed) {
+          return "fa:fa-check";
+        }
+        return "";
       },
 
       itemClick: function(event) {
