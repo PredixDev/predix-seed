@@ -27,7 +27,6 @@
       <div class="viewport flex">
         <h3 class="flex__item app-title"><ge-svg-logo class="u-mr--"></ge-svg-logo> Seed Application</h3>
         <px-progress-indicator
-          style="margin-top: 12px;"
           progress-details='[[progressDetails]]'>
         </px-progress-indicator>
         <div class="flex__item">
@@ -178,10 +177,10 @@
           type: Array,
           value: function() {
             return [
-              { id: 1, started: true, completed: true, current: false},
-              { id: 2, started: true, completed: true, current: false},
-              { id: 3, started: false, completed: false, current: true},
-              { id: 4, started: false, completed: false, current: false}
+              { id: 1, label: "Basic Shell Application", started: true, completed: true, current: false},
+              { id: 2, label: "UAA Integration", started: true, completed: true, current: false},
+              { id: 3, label: "Asset Data Integration", started: false, completed: false, current: true},
+              { id: 4, label: "Edge Analytics", started: false, completed: false, current: false}
             ]
           }
         },

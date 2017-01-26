@@ -4,7 +4,7 @@ window.hopscotchTour = {
     steps: [
     {
       title: "Basic Seed Application",
-      content: "Congratulations!  You have successfully installed a basic form of the Predix UI Seed, with essential features like header, navigation, content area and footer.",
+      content: "Congratulations!  You have successfully installed a basic form of the Predix UI Seed, with essential features like header, navigation, content area and footer. The corresponding documentaion for this step is <a style=\"font-weight: bold; text-decoration: none;\" target=\"_new\" href=\"https://www.predix.io/docs/?b=#Uva9INX3\">here</a>",
       target: "progress-item-1",
       xOffset: -20,
       placement: "bottom",

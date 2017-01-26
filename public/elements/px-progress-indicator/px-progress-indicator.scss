@@ -5,20 +5,16 @@ $highlight-current  : #3ab4d4;
 }
 
 .progress-shell {
-  display: inline-block;
+  display: block;
   width: 14px;
   height: 14px;
   border-radius: 9px;
   border: 2px solid;
   overflow: hidden;
-  margin-left: -3px;
+  margin: 5px auto;
   border-color: $highlight-current;
   position: relative;
   background-color: rgba(210, 210, 210, 0.1);
-}
-
-.progress-shell:first-of-type {
-  margin-left: 0px;
 }
 
 .progress-icon {
@@ -43,12 +39,12 @@ $highlight-current  : #3ab4d4;
 
 .connecting-line {
   display: inline-block;
-  vertical-align: middle;
-  width: 25px;
-  height: 2px;
-  margin-top: -13px;
-  margin-left: -3px;
-  background-color: $highlight-current;
+  vertical-align: top;
+  width: 75px;
+  height: 10px;
+  margin: auto -25px;
+  margin-top: 14px;
+  border-top: 1px solid $highlight-current;
 }
 
 .connecting-line:last-of-type {
@@ -69,6 +65,7 @@ $highlight-current  : #3ab4d4;
 .learning-hat {
   --iron-icon-height: 20px;
   color: #fff;
+  margin-top: -25px;
   margin-right: 10px;
 }
 
@@ -76,4 +73,17 @@ $highlight-current  : #3ab4d4;
   --iron-icon-height: 12px;
   margin-top: -6px;
   margin-left: -5px;
+}
+
+.path-label {
+  color: #fff;
+  width: 60px;
+  font-size: 11px;
+  text-align: center;
+}
+
+.node-shell {
+  height: 60px;
+  width: 60px;
+  display: inline-block;
 }
