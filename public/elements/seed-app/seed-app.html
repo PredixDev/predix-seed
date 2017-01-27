@@ -15,8 +15,12 @@
 <link rel="import" href="../ge-svg-logo/ge-svg-logo.html">
 <link rel="import" href="../predix-logo/predix-logo.html">
 <link rel="import" href="../seed-footer/seed-footer.html">
-<link rel="import" href="../px-progress-indicator/px-progress-indicator.html">
-
+<link rel="import" href="../px-path-guide/px-path-guide.html">
+<link rel="stylesheet" href="../../bower_components/hopscotch/dist/css/hopscotch.css">
+<script src="../../bower_components/hopscotch/dist/js/hopscotch.js"></script>
+<!--
+<script src="product_tour.js"></script>
+-->
 <dom-module id="seed-app">
   <template>
 
@@ -26,9 +30,13 @@
     <header id="seed-header" role="banner" class="flex flex--middle">
       <div class="viewport flex">
         <h3 class="flex__item app-title"><ge-svg-logo class="u-mr--"></ge-svg-logo> Seed Application</h3>
-        <px-progress-indicator
-          progress-details='[[progressDetails]]'>
-        </px-progress-indicator>
+        <px-path-guide
+          id="path-guide"
+          launch-icon="fa:fa-graduation-cap"
+          completed-step-icon="fa:fa-check"
+          current-step-icon="fa:fa-clock-o"
+          path-state='[[progressDetails]]'>
+        </px-path-guide>
         <div class="flex__item">
           <div class="flex" style="text-align:right;">
             <h3 class="flex__item weight--normal logo">Powered by <predix-logo style="display:inline-block; width: 82px;" class="flex__item"></predix-logo></h3>
@@ -174,14 +182,18 @@
         },
 
         progressDetails: {
-          type: Array,
+          type: Object,
           value: function() {
-            return [
-              { id: 1, label: "Basic Shell Application", started: true, completed: true, current: false},
-              { id: 2, label: "UAA Integration", started: true, completed: true, current: false},
-              { id: 3, label: "Asset Data Integration", started: false, completed: false, current: true},
-              { id: 4, label: "Edge Analytics", started: false, completed: false, current: false}
-            ]
+            return {
+              name: 'Seed Development',
+              steps:
+              [
+                { id: 1, label: "Basic Shell Application", started: true, completed: true, current: false},
+                { id: 2, label: "UAA Integration", started: true, completed: true, current: false},
+                { id: 3, label: "Asset Data Integration", started: false, completed: false, current: true},
+                { id: 4, label: "Edge Analytics", started: false, completed: false, current: false}
+              ]
+            }
           }
         },
 
