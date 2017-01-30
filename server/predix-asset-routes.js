@@ -10,6 +10,10 @@ var getRoutes = function() {
   _.each(levels, function(level) {
     routes[level] = getLevelData(level);
   });
+
+  var compressorJson = require(path.resolve(__dirname, './sample-data/predix-asset/compressor-2017.json'));
+  routes["compressor-2017"] = compressorJson;
+
   return routes;
 };
 
