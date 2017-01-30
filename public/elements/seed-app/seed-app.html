@@ -85,6 +85,17 @@
             element-href="/elements/views/winddata-view.html">
           </px-view>
 
+          <!-- /simple-asset route and view -->
+          <app-route
+            route="[[_route]]"
+            pattern="/simple-asset"
+            active="{{_simple-assetActive}}">
+          </app-route>
+          <px-view
+            active="[[_simple-assetActive]]"
+            element-href="/elements/views/simple-asset-view.html">
+          </px-view>
+
         </main>
 
       </div>
@@ -126,10 +137,18 @@
             }, {
               "label": "Blank Page",
               "path": "/blankpage",
-              "icon": "fa-file-o"
+              "icon": "fa-file"
             }
-            /*
+            //Uncomment this block to show the Simple Asset navigation item on the menu.
+            /* // asset-nav-item
+            ,{
+              "label": "Simple Asset",
+              "path": "/simple-asset",
+              "icon": "fa-sitemap"
+            }
+            // end asset-nav-item */
             //Uncomment this block to show the Wind Data navigation item on the menu.
+            /*
             ,{
               "label": "Wind Data",
               "path": "/winddata",

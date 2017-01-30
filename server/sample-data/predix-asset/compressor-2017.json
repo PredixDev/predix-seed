@@ -1,0 +1,130 @@
+[{
+	"complexType": "Asset",
+	"uri": "/asset/compressor-2017",
+	"classificationUri": "/classification/GE_COMPRESSOR_CYLINDER",
+	"assetId": "compressor-2017",
+	"description": "GE Compressor",
+	"group": "/group/plant-richmond-refinery",
+	"assetTag": {
+		"crank-frame-compressionratio": {
+			"complexType": "AssetTag",
+      "label": "Compression Ratio",
+			"tagUri": "/tag/crank-frame-compressionratio",
+			"hiAlarmThreshold": 3,
+			"loAlarmThreshold": 2.5,
+			"tagDatasource": {
+	  		"sourceTagId": "Compressor-2017:CompressionRatio",
+				"nodeName": "Compressor-2017:CompressionRatio",
+				"isKpi": "true",
+				"fieldUri": "asset/adh-field-123",
+				"controllerUri": "/sample/machine/controller",
+				"machineUri": "/Compressor-2017:CompressionRatio"
+			}
+		},
+		"crank-frame-dischargepressure": {
+			"complexType": "AssetTag",
+      "label": "Discharge Pressure",
+			"tagUri": "/tag/crank-frame-dischargepressure",
+			"hiAlarmThreshold": 23,
+			"loAlarmThreshold": 0,
+			"tagDatasource": {
+        "sourceTagId": "Compressor-2017:DischargePressure",
+				"nodeName": "Compressor-2017:DischargePressure",
+				"isKpi": "true",
+				"controllerUri": "/sample/machine/controller",
+				"machineUri": "/Compressor-2017:DischargePressure",
+				"tagExtensionsUri": "/asset/compressor-2017.tag-extensions.crank-frame-discharge-pressure"
+			}
+		},
+		"crank-frame-suctionpressure": {
+			"complexType": "AssetTag",
+      "label": "Suction Pressure",
+			"tagUri": "/tag/crank-frame-suctionpressure",
+			"hiAlarmThreshold": 0.21,
+			"loAlarmThreshold": 0,
+			"tagDatasource": {
+        "sourceTagId": "Compressor-2017:SuctionPressure",
+				"nodeName": "Compressor-2017:SuctionPressure",
+				"fieldUri": "asset/adh-field-456",
+				"controllerUri": "/sample/machine/controller",
+				"machineUri": "/Compressor-2017:SuctionPressure"
+			}
+		},
+		"crank-frame-maxpressure": {
+			"complexType": "AssetTag",
+      "label": "Max Pressure",
+			"tagUri": "/tag/crank-frame-maxpressure",
+			"hiAlarmThreshold": 26,
+			"loAlarmThreshold": 22,
+			"tagDatasource": {
+        "sourceTagId": "Compressor-2017:MaximumPressure",
+				"nodeName": "Compressor-2017:MaximumPressure",
+				"fieldUri": "asset/adh-field-456",
+				"controllerUri": "/sample/machine/controller",
+				"machineUri": "/Compressor-2017:MaximumPressure"
+			}
+		},
+		"crank-frame-minpressure": {
+			"complexType": "AssetTag",
+      "label": "Min Pressure",
+			"tagUri": "/tag/crank-frame-minpressure",
+			"hiAlarmThreshold": 0,
+			"loAlarmThreshold": 0,
+			"tagDatasource": {
+        "sourceTagId": "Compressor-2017:MinimumPressure",
+				"nodeName": "Compressor-2017:MinimumPressure",
+				"fieldUri": "asset/adh-field-456",
+				"controllerUri": "/sample/machine/controller",
+				"machineUri": "/Compressor-2017:MinimumPressure"
+			}
+		},
+		"crank-frame-velocity": {
+			"complexType": "AssetTag",
+      "label": "Velocity",
+			"tagUri": "/tag/crank-frame-velocity",
+			"hiAlarmThreshold": 0.07,
+			"loAlarmThreshold": 0,
+			"tagDatasource": {
+        "sourceTagId": "Compressor-2017:Velocity",
+				"nodeName": "Compressor-2017:Velocity",
+				"isKpi": "true",
+				"fieldUri": "asset/adh-field-456",
+				"controllerUri": "/sample/machine/controller",
+				"machineUri": "/Compressor-2017:Velocity"
+			}
+		},
+		"crank-frame-temperature": {
+			"complexType": "AssetTag",
+      "label": "Temperature",
+			"tagUri": "/tag/crank-frame-temperature",
+			"hiAlarmThreshold": 80,
+			"loAlarmThreshold": 65,
+			"tagDatasource": {
+        "sourceTagId": "Compressor-2017:Temperature",
+				"nodeName": "Compressor-2017:Temperature",
+				"fieldUri": "asset/adh-field-456",
+				"controllerUri": "/sample/machine/controller",
+				"machineUri": "/Compressor-2017:Temperature"
+			}
+		}
+	},
+	"attributes": {
+		"machineControllerId": {
+			"complexType": "Attribute",
+			"type": "string",
+			"enumeration": [],
+			"value": [
+				"/asset/Bently.Nevada.3500.Rack1"
+			]
+		},
+		"summaryTag": {
+			"complexType": "Attribute",
+			"type": "string",
+			"enumeration": [],
+			"value": [
+				"crank-frame-velocity",
+				"crank-frame-compressionratio"
+			]
+		}
+	}
+}]
