@@ -17,11 +17,17 @@ These are the main branches for the Seed, each one intended for a specific purpo
 
 ### Seed Branches
 
+#### develop #####
+Development branch, latest version as of January 2017.  Contains several examples of Predix UI Components (context browser, charts, time-series visualization), and integration with UAA and Predix time series services.
+
+#### master ####
+Production branch, base for **develop** branch.
+
 #### essential ####
 Minimal version, just enough to start a web application prototype.  It contains basic server-side routing and essential frontend features such as branding, header, navigation, sample card and footer.
 
 #### reference ####
-Contains features found in the preceding branches, and working integration with Predix Time Series service.  Includes the necessary visualization components and frontend code to consume server-side time series data.  This is the showcase version of the Seed.
+As of the time of writing, this is a future branch, envisioned to contain features found in the preceding branches, and working integration with Predix Asset service.  This will be the showcase version of the Seed.
 
 ## Getting Started
 
