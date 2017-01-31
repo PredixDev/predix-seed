@@ -16,8 +16,6 @@
     "predix-seed"
   ],
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
-    "connect-modrewrite": "^0.7.9",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-clean": "^0.3.2",
@@ -31,7 +29,6 @@
     "gulp-sequence": "^0.4.6",
     "gulp-style-modules": "^0.1.0",
     "gulp-vulcanize": "^6.1.0",
-    "http-rewrite-middleware": "^0.1.6",
     "merge-stream": "^1.0.0",
     "node-sass": "^3.8.0",
     "node-sass-import-once": "^1.2.0",
@@ -48,10 +45,8 @@
     "express": "^4.14.0",
     "express-http-proxy": "^0.10.0",
     "express-session": "^1.14.1",
-    "glob": "^7.0.3",
     "https-proxy-agent": "^1.0.0",
     "json-server": "^0.8.10",
-    "lodash": "^4.11.2",
     "passport": "^0.3.2",
     "passport-oauth2-middleware": "^1.0.2",
     "passport-predix-oauth": "^0.1.2",
