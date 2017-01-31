@@ -77,14 +77,14 @@
           assert(appLocation !== null, 'app-location element was not found');
         });
 
-        test('There should be initially 3 app-route elements', function() {
+        test('There should be initially 4 app-route elements', function() {
           var appRoutes = Polymer.dom(seedAppFixture.root).querySelectorAll('app-route');
-          assert(appRoutes.length === 3, 'app-route is not exactly 2 instances');
+          assert(appRoutes.length === 4, 'app-route is not exactly 4 instances');
         });
 
-        test('There should be initially 3 px-view elements', function() {
+        test('There should be initially 4 px-view elements', function() {
           var pxViews = Polymer.dom(seedAppFixture.root).querySelectorAll('px-view');
-          assert(pxViews.length === 3, 'px-view is not exactly 2 instances');
+          assert(pxViews.length === 4, 'px-view is not exactly 4 instances');
         });
 
         test('There should be a main element', function() {
