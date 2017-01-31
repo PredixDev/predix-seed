@@ -13,17 +13,32 @@ The backend of the Seed is implemented as a NodeJS/Express web server.  It prese
 
 The features offered by the Seed are from open-source component projects, many of which are actively discussed and maintained.  This provides developers with available documentation and help in using such components for their projects.
 
+These are the main branches for the Seed, each one intended for a specific purpose:
+
+### Seed Branches
+
+**essential**
+Minimal version, just enough to start a web application prototype.  It contains basic server-side routing and essential frontend features such as branding, header, navigation, sample card and footer.
+
+**intermediate1**
+
+**intermediate2**
+
+**reference-app**
+Contains features found in the preceding branches, and working integration with Predix Time Series service.  Includes the necessary visualization components and frontend code to consume server-side time series data.  This is the showcase version of the Seed.
+
 ## Getting Started
 
 ### Get the source code
 Make a directory for your project.  Clone or download and extract the seed in that directory.
 ```
-git clone https://github.com/PredixDev/predix-seed.git  
-cd predix-seed  
+git clone https://github.com/PredixDev/predix-seed.git <target directory>
+cd <target directory>
 ```
+(In the above git command the target directory has a default value of '**predix-seed**'.)
 
 ### Install tools
-If you don't have them already, you'll need node, bower and gulp to be installed globally on your machine.  
+If you don't have them already, you'll need Node, Bower and Gulp to be installed globally on your machine.  
 
 1. Install [node](https://nodejs.org/en/download/).  This includes npm - the node package manager.  
 2. Install [bower](https://bower.io/) globally `npm install bower -g`  
