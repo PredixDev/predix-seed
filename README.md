@@ -20,11 +20,7 @@ These are the main branches for the Seed, each one intended for a specific purpo
 #### essential ####
 Minimal version, just enough to start a web application prototype.  It contains basic server-side routing and essential frontend features such as branding, header, navigation, sample card and footer.
 
-#### intermediate1 ####
-
-#### intermediate2 ####
-
-#### reference-app ####
+#### reference ####
 Contains features found in the preceding branches, and working integration with Predix Time Series service.  Includes the necessary visualization components and frontend code to consume server-side time series data.  This is the showcase version of the Seed.
 
 ## Getting Started
