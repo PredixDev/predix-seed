@@ -1,35 +1,50 @@
 # Predix UI Seed
 
-### IMPORTANT NOTE
-
-On October 6, 2016 this project was switched to a new, simplified implementation that includes using Polymer instead of AngularJS and removes dependencies on micro-services.  For the previous implementation in AngularJS please refer to the 'develop-angular' and/or 'master-angular' branches.
-
 ## What is the Predix UI Seed?
-The Predix UI Seed ("Seed") is a web application starter kit aimed to accelerate Predix application development.   It comes in the form of a simple web application, with code examples on features such as branding, theming, layout, navigation, responsiveness, organization of views, data presentation and micro-services integration, to name some.  These working code samples can be straightforwardly customized and adapted to specific application needs. Predix application projects can directly use, remove from or add to these features to achieve prototype or production state much faster than through building everything from scratch.  This speeds up application development, letting developers focus on functionality, instead of having to make boilerplate concerns work.
+The Predix UI Seed ("Seed") is a starter kit intended to accelerate Predix web application development.  It is an application template complete with frontend, server-side and deployment portions.  It uses [Polymer](http://www.polymer-project.org), [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components), SASS style files and specific JavaScript libraries for the frontend.  For the backend, it uses [NodeJS](http://nodejs.org) and specific modules.  For build and deployment, it uses the [Gulp](http://gulpjs.com/) utility together with specific plug-ins for packaging an application that can be deployed locally or to a cloud container.
 
-As its name indicates the Seed is built on [Polymer](http://www.polymer-project.org).  Based on the [Web Component API](https://developer.mozilla.org/en-US/docs/Web/Web_Components), Polymer is a component framework that prefers the browser's native capabilities over HTML and JavaScript enhancements, wherever possible.  And where there are differences in currently available features, polyfills are provided towards consistent cross-browser behavior.  By adopting the Polymer strategy the Seed ensures high consistency of application behavior across browsers, and the best chances of compatibility with future browser versions.
+Through working code examples and extensive embedded comments the Seed provides directly-usable features such as layout, branding, theming, navigation, backend routing, responsiveness, organization of views, and micro-services integration, to name some.  The examples can be customized and adapted to specific needs in a straightforward manner.  The Seed also comes with look and feel that aligns with Predix UI Design.  All of these speed up application prototyping/development by enabling developers to focus on product functionality, instead of boilerplate concerns or simply getting an application started.
 
-Most of the frontend components provided in the Seed are from [Predix UI Components](http://predixdev.github.io/predix-ui/), which are also built on Polymer.  These re-usable UI building blocks have been researched and designed to address the most common UI patterns.  Both built upon Polymer, the Seed and Px Components work together out-of-the-box.  Px Components can be used independently, or in combination with one another and with the Seed.  This achieves consistent behavior, look-and-feel, and high code re-use.
+Polymer is a component framework that relies on the browser's native capabilities over HTML and JavaScript enhancements.  Where there are differences in currently available features, polyfills are provided towards consistent cross-browser behavior.  By adopting the Polymer strategy the Seed strives for high cross-browser compatibility, as well as compatibility with future versions.
 
-The backend of the Seed is now implemented as a NodeJS/Express web server.  It presently includes a minimal set of public modules and a couple of Predix-specific modules (for session and proxy concerns, for example).  Similar to the frontend, it is also straightforwardly customizable, even replaceable by another server application, if so desired.  [NodeJS](http://nodejs.org) is a server-side application framework based on JavaScript.  It enjoys strong growth and huge adoption in the server applications community.
+Most of the frontend components provided in the Seed are from [Predix UI Components](http://www.predix-ui.com/), which are also built on Polymer.  These frontend building blocks have been researched and designed to address common UI component needs.  Predix UI Components can be used independently, or in combination with one another and with the Seed.  This achieves consistent behavior, look-and-feel, and high code re-use.
 
-The features offered by the Seed are from open-source component projects, many of which are actively discussed and contributed to.  This provides developers with available documentation and help in using such components for their projects.
+The backend of the Seed is implemented as a NodeJS/Express web server.  It presently includes a minimal set of public modules and a couple of Predix-specific modules (for session and proxy concerns, for example).  Similar to the frontend, it is also straightforwardly customizable, even replaceable by another server application, if so desired.  [NodeJS](http://nodejs.org) is a server-side application framework based on JavaScript.  It enjoys strong growth and huge adoption in the server applications community.
+
+The features offered by the Seed are from open-source component projects, many of which are actively discussed and maintained.  This provides developers with available documentation and help in using such components for their projects.
+
+These are the main branches for the Seed, each one intended for a specific purpose:
+
+### Seed Branches
+
+#### develop #####
+Development branch, latest version as of January 2017.  Contains several examples of Predix UI Components (context browser, charts, time-series visualization), and integration with UAA and Predix time series services.
+
+#### master ####
+Production branch, base for **develop** branch.
+
+#### essential ####
+Minimal version, just enough to start a web application prototype.  It contains basic server-side routing and essential frontend features such as branding, header, navigation, sample card and footer.
+
+#### reference ####
+As of the time of writing, this is a future branch, envisioned to contain features found in the preceding branches, and working integration with Predix Asset service.  This will be the showcase version of the Seed.
 
 ## Getting Started
 
 ### Get the source code
 Make a directory for your project.  Clone or download and extract the seed in that directory.
 ```
-git clone https://github.com/PredixDev/predix-seed.git  
-cd predix-seed  
+git clone https://github.com/PredixDev/predix-seed.git <target directory>
+cd <target directory>
 ```
+(In the above git command the target directory has a default value of '**predix-seed**'.)
 
 ### Install tools
-If you don't have them already, you'll need node, bower and gulp to be installed globally on your machine.  
+If you don't have them already, you'll need Node, Bower and Gulp to be installed globally on your machine.  
 
 1. Install [node](https://nodejs.org/en/download/).  This includes npm - the node package manager.  
 2. Install [bower](https://bower.io/) globally `npm install bower -g`  
-3. Install [gulp](http://gulpjs.com/) globally `npm install gulp -g`  
+3. Install [gulp](http://gulpjs.com/) globally `npm install gulp-cli -g`  
 
 ### Install the dependencies
 Change directory into the new project you just cloned, then install dependencies.
@@ -56,117 +71,20 @@ You will need to run this command every time before you deploy to the Cloud.
 gulp dist
 ```
 
-## Folder Structure
-After the last step above, there should be the following folder structure.  Below is a brief description of the essential folders and files:
-```
-<root>
-˪dist
-˪node_modules
-˪public
-  ˪bower_components
-  ˪elements
-   _index-inline-loading-script.js
-   _index.html
-   favicon.png
-   index-inline-styles.html
-   index-inline.css
-   index.html
-   seed-theme-styles.html
-   seed-theme.scss
-˪server
-  ˪sample-data
-   app.js
-   localConfig.json
-   passport-config.js
-   predix-asset-routes.js
-   predix-config.js
-   proxy.js
-   time-series-routes.js
-   view-service-routes.js
-˪tasks
-˪test
-˪tutorials
- .travis.yml
- bower.json
- gulpfile.js
- HISTORY.md
- LICENSE.md
- manifest.yml
- OSS_Notice.pdf
- package.json
- README.md
- wct.conf.js
-```
 
-####\<root\>
-####dist
-####node_modules
-####public
-####bower_components
-####elements
-####_index-inline-loading-script.js
-####_index.html
-####favicon.png
-####index-inline-styles.html
-####index-inline.css
-####index.html
-####seed-theme-styles.html
-####seed-theme.scss
-####server
-####sample-data
-####app.js
-####localConfig.json
-####passport-config.js
-####predix-asset-routes.js
-####predix-config.js
-####proxy.js
-####time-series-routes.js
-####view-service-routes.js
-####tasks
-Folder that contains Gulp task definitions
-####test
-Folder for test code
-####tutorials
-Folder containing tutorials on different features
-####.travis.yml
-Travis configuration file
-####bower.json
-Components dependency file
-####gulpfile.js
-Gulp tasks configuration file
-####HISTORY.md
-Change history details
-####LICENSE.md
-Licensing details
-####manifest.yml
-Cloud deployment configuration file
-####OSS_Notice.pdf
-Contains legal notices
-####package.json
-NPM dependency configuration
+## Push to the Cloud
 
-####README.md
-This file
+### Pre-Requisites
+Pushing (deploying) to a cloud environment requires knowledge of the commands involved and a valid user account with the environment.  GE uses Cloud Foundry for its cloud platform.  For information on Cloud Foundry, refer to this [link](http://docs.cloudfoundry.org/cf-cli/index.html).
 
-####wct.conf.js
-Configuration file for running Web Component Tester tests on the local elements of the seed.
-
-### Deploy to the cloud
-First make sure you're logged in to the Predix Cloud using the `cf login` command.
-Then deploy your app using this command:
-```
-cf push my-seed-app
-```
-You can give the app any unique name you like.  In the above, "my-seed-app" is just an example.
-
-## Push to the cloud
-Now that you have the required services created, we can configure our web app to use them.
+### Steps
+The simplest way to push the Seed application to a cloud environment is by modifying the default manifest file (manifest.yml) and using the **cf push** command, as follows:
 
 1. Update manifest.yml
 
 	Change the name field in your manifest.yml.  
 	Uncomment the services section, and change the names to match your service instances.
-	Uncommen the clientId and base64ClientCredential environment variables and enter the correct values for your UAA client.
+	Uncomment the clientId and base64ClientCredential environment variables and enter the correct values for your UAA client.
 	```
 	---
 	applications:
@@ -186,16 +104,29 @@ Now that you have the required services created, we can configure our web app to
 	    #base64ClientCredential: dWFhLWNsaWVudC1pZDp1YWEtY2xpZW50LWlkLXNlY3JldA==
 	```
 
-4. Push to the cloud.
+2. Push to the cloud.
 
 	```
 	cf push
 	```
 
-- Ask questions and file tickets on <a href="https://www.predix.io/community" target="_blank">https://www.predix.io/community</a>.
+3. Access the cloud deployment of your Seed application
+
+  The output of the **cf push** command includes the URL to which your application was deployed.  Below is an example:
+  
+  API endpoint:   https://api.endpoint.svc.ice.ge.com (API version: 2.62.0)   
+  User:           john.doe@ge.com   
+  Org:            predix-org   
+  Space:          predix-space   
+
+  Access your Seed application by loading the **API Endpoint** above in a web browser
+  
+## Support and Further Information
+
+Ask questions and file tickets on <a href="https://www.predix.io/community" target="_blank">https://www.predix.io/community</a>.
 
 # Copyright
-Copyright &copy; 2015 GE Global Research. All rights reserved.
+Copyright &copy; 2015, 2016, 2017 GE Global Research. All rights reserved.
 
 The copyright to the computer software herein is the property of
 GE Global Research. The software may be used and/or copied only
