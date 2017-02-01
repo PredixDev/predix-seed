@@ -1,3 +1,4 @@
+/*
 window.hopscotchTour = {
   'tour1' : {
     id: "basic-seed-features",

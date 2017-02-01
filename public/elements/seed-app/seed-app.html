@@ -32,10 +32,11 @@
         <h3 class="flex__item app-title"><ge-svg-logo class="u-mr--"></ge-svg-logo> Seed Application</h3>
         <px-path-guide
           id="path-guide"
-          launch-icon="fa:fa-graduation-cap"
+          launch-icon="fa:fa-train"
           completed-step-icon="fa:fa-check"
           current-step-icon="fa:fa-clock-o"
-          path-state='[[progressDetails]]'>
+          path-state='[[progressDetails]]'
+          style="margin-top: 10px;">
         </px-path-guide>
         <div class="flex__item">
           <div class="flex" style="text-align:right;">
@@ -188,10 +189,10 @@
               name: 'Seed Development',
               steps:
               [
-                { id: 1, label: "Basic Shell Application", started: true, completed: true, current: false},
-                { id: 2, label: "UAA Integration", started: true, completed: true, current: false},
-                { id: 3, label: "Asset Data Integration", started: false, completed: false, current: true},
-                { id: 4, label: "Edge Analytics", started: false, completed: false, current: false}
+                { id: 1, label: "Basic App", started: true, completed: true, current: false},
+                { id: 2, label: "UAA", started: true, completed: true, current: false},
+                { id: 3, label: "Asset Data", started: false, completed: false, current: true},
+                { id: 4, label: "Analytics", started: false, completed: false, current: false}
               ]
             }
           }
