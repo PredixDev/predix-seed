@@ -1,12 +1,14 @@
-/*
 window.hopscotchTour = {
   'tour1' : {
-    id: "basic-seed-features",
+    id: "basic-application",
+    i18n: {
+      stepNums: ['1', '1.1', '1.2', '1.3', '1.4', '1.5']
+    },
     steps: [
     {
-      title: "Basic Seed Application",
-      content: "Congratulations!  You have successfully installed a basic form of the Predix UI Seed, with essential features like header, navigation, content area and footer. The corresponding documentaion for this step is <a style=\"font-weight: bold; text-decoration: none;\" target=\"_new\" href=\"https://www.predix.io/docs/?b=#Uva9INX3\">here</a>",
-      target: "progress-item-1",
+      title: "Basic Application",
+      content: "Congratulations!  You have successfully installed a basic form of the Predix UI Seed, with essential features like header, navigation, content area and footer. The corresponding documentaion for this step is <a style=\"font-weight: bold; text-decoration: none;\" target=\"_new\" href=\"https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=2101&tag=2100&journey=Predix%20UI%20Seed&resources=2101,2225\">here</a>",
+      target: "step-item-1",
       xOffset: -20,
       placement: "bottom",
     },
@@ -46,12 +48,15 @@ window.hopscotchTour = {
     ]
   },
   'tour2' : {
-    id: 'visualization-features',
+    id: 'uaa-integration',
+    i18n: {
+      stepNums: ['2', '2.1', '2.2']
+    },
     steps: [
     {
-      title: "Advanced Visual Components",
-      content: "Congratulations!  You have successfully installed advanced components like the Context Browser and Charts as part of enhanced visual features for the Predix UI Seed.",
-      target: "progress-item-2",
+      title: "UAA Integration",
+      content: "Congratulations!  You have successfully integrated your application frontend with UAA service.  This will allow you to secure all or specific portions of your application.  You can follow this <a target=\"_blank\" style=\"text-decoration: none; font-weight: bold;\" href=\"https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=2105&tag=2108&journey=UAA%20Dashboard\">link</a> to review the relevant guide for this step.",
+      target: "step-item-2",
       xOffset: -20,
       placement: "bottom",
     },
@@ -72,12 +77,15 @@ window.hopscotchTour = {
     ]
   },
   'tour3' : {
-    id: 'data-integration',
+    id: 'asset-data-integration',
+    i18n: {
+      stepNums: ['3']
+    },
     steps: [
     {
-      title: "Advanced Data Components",
-      content: "You are currently at a stage of the Predix UI Seed where you will be adding features for data integration, specifically with an instance of the Time Seriex Predix Service.",
-      target: "progress-item-3",
+      title: "Asset Data Integration",
+      content: "You are currently at a stage of the Predix UI Seed where you will be adding features for data integration, specifically with an instance of the Asset Data Service.",
+      target: "step-item-3",
       xOffset: -20,
       placement: "bottom",
     }
@@ -85,11 +93,14 @@ window.hopscotchTour = {
   },
   'tour4' : {
     id: 'analytics-features',
+    i18n: {
+      stepNums: ['4']
+    },
     steps: [
     {
-      title: "Advanced Analytics",
-      content: "Your next step is the installation of advanced analytics features.  Upon completion of your current step, these features will be enabled.",
-      target: "progress-item-4",
+      title: "Analytics",
+      content: "Your next step will be the installation of analytics features.  Upon completion of your current step, these features will be enabled.",
+      target: "step-item-4",
       xOffset: -20,
       placement: "bottom",
     }

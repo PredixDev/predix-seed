@@ -18,6 +18,7 @@
 <link rel="import" href="../px-path-guide/px-path-guide.html">
 <link rel="stylesheet" href="../../bower_components/hopscotch/dist/css/hopscotch.css">
 <script src="../../bower_components/hopscotch/dist/js/hopscotch.js"></script>
+<script src="../../elements/dev-coach/feature_tour.js"></script>
 <!--
 <script src="product_tour.js"></script>
 -->
@@ -34,7 +35,9 @@
           id="path-guide"
           launch-icon="fa:fa-train"
           completed-step-icon="fa:fa-check"
-          current-step-icon="fa:fa-clock-o"
+          current-step-icon="fa:fa-asterisk"
+          connector-length="50"
+          step-click-event="[[tourFeatureEventString]]"
           path-state='[[progressDetails]]'
           style="margin-top: 10px;">
         </px-path-guide>
@@ -198,6 +201,8 @@
           }
         },
 
+        tourFeatureEventString: 'TOUR_FEATURE',
+
         // Sets app default base URL for client-side routing
         pathPrefix: {
           type: String,
@@ -207,7 +212,7 @@
 
       ready: function(){
         this._checkForDefaultRoute();
-        window.addEventListener('TOUR_FEATURE', this.tourFeature);
+        window.addEventListener(this.tourFeatureEventString, this.tourFeature);
       },
 
       tourFeature: function(event) {

@@ -5,70 +5,61 @@
 
 <dom-module id="px-path-guide">
   <template>
-   <style include="px-path-guide-styles"></style>
+    <style include="px-path-guide-styles"></style>
     <div id="wrapper">
-      <iron-icon icon$="[[launchIcon]]" class="learning-hat"></iron-icon>
-      <template id="progress-icons" is="dom-repeat" items="[[pathState.steps]]">
-        <div class="node-shell">
-           <div id="progress-item-[[item.id]]" class$="[[getProgressShellClasses(item)]]" on-click="itemClick">
-             <div class$="[[getProgressIconClasses(item)]]">
-               <div class="current-indicator">
-                 <iron-icon icon$="[[getIcon(item)]]" class="learning-hat progress-icon-character"></iron-icon>
-               </div>
+      <iron-icon id="launch-icon" icon$="[[launchIcon]]" class="launch-icon"></iron-icon>
+      <template id="steps" is="dom-repeat" items="[[pathState.steps]]">
+        <div id="step-item-[[item.id]]" class="node-shell" on-click="itemClick">
+           <div
+              class="step-shell"
+              style$="border-color: [[getBaseColor()]];">
+             <div class="step-icon-holder">
+               <iron-icon icon$="[[getIcon(item)]]" class="step-icon"></iron-icon>
              </div>
            </div>
            <div class="step-label">[[item.label]]</div>
         </div>
-        <div class="connecting-line"></div>
+        <div class="step-connector"
+             style$="width: [[connectorLength]]px; border-color: [[getBaseColor()]];"></div>
       </template>
     </div>
   </template>
   <script>
+
+// TODOS:
+// Comments
+//
     Polymer({
       is: 'px-path-guide',
       properties: {
-        launchIcon: String,
-        completedStepIcon: String,
-        currentStepIcon: String,
-        iconColor: String,
-        mainColor: String,
-        connectLineLength: Number,
+        baseColor: '#3ab4d4',
+        fillColor: '#fff',
+        launchIcon: 'fa:fa-train',
+        completedStepIcon: 'fa:fa-check',
+        currentStepIcon: 'fa:fa-circle',
+        connectorLength: '50',
         pathState: {
           type: Object
         },
-        pathConfig: {
-          type: Object
-        },
-        stepClickEvent: String
-      },
-
-      getProgressShellClasses: function(item) {
-        var classes = 'progress-shell';
-        classes += ( item.current ? ' progress-shell-current' : '');
-        return classes;
-      },
-
-      getProgressIconClasses: function(item) {
-        var classes = 'progress-icon';
-        if (item.completed) {
-          classes += ' progress-icon-completed';
-        }
-        else {
-          classes += (item.started ? ' progress-icon-inprogress' : ' progress-icon-unstarted');
-        }
-        classes += (item.current ? ' progress-icon-current' : '');
-        return classes;
+        stepClickEvent: ''
       },
 
       getIcon: function(item) {
         if (item.completed) {
           return this.completedStepIcon;
         }
+        else if (item.current) {
+          return this.currentStepIcon;
+        }
         return "";
       },
 
+      getBaseColor: function() {
+        return ( this.baseColor ? this.baseColor : '#3ab4d4');
+      },
+
       itemClick: function(event) {
-        var itemId = event.currentTarget.id.substr(14);
+        var itemId = event.currentTarget.id.substr(10);
         var tourFeatureEvent = new Event(this.stepClickEvent, {"bubbles": true, "cancelable": false});
         tourFeatureEvent.tourID = itemId;
         window.dispatchEvent(tourFeatureEvent);
