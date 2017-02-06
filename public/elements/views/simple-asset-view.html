@@ -17,10 +17,14 @@
       <iron-ajax url="/api/predix-asset/compressor-2017" id="assetQueryElement" last-response="{{rawAssetData}}" auto></iron-ajax>
       <!-- end mock-asset-service -->
 
-      <!-- Second option loads data from Predix Time Series directly. -->
+      <!-- Second option loads compressor data from Predix Time Series directly. -->
       <!-- real-asset-service
       <iron-ajax url="/predix-api/predix-asset/asset/compressor-2017" id="assetQueryElement" last-response="{{rawAssetData}}" auto></iron-ajax>
       end real-asset-service -->
+
+      <!-- Third option loads jet engine data from Predix Time Series directly. -->
+      <!-- <iron-ajax url="/predix-api/predix-asset/engine" id="assetQueryElement" last-response="{{rawAssetData}}" auto></iron-ajax> -->
+
     </px-card>
   </template>
   <script>
@@ -43,6 +47,14 @@
       },
 
       _formatDataForTable: function(raw) {
+        if (raw[0].assetTag) {
+          this._formatAssetTagsForTable(raw);
+        } else {
+          this._formatEngineDataForTable(raw);
+        }
+      },
+
+      _formatAssetTagsForTable: function(raw) {
         var sensor, sensors = [];
         var assetTags = raw[0].assetTag;
         for (var property in assetTags) {
@@ -55,6 +67,16 @@
         }
         this.assetTableData = sensors;
         this.assetDescription = raw[0].description + ": " + raw[0].assetId;
+      },
+
+      _formatEngineDataForTable: function(raw) {
+        raw.forEach(function(engine) {
+          engine.partUri = engine.jetEnginePart.uri;
+          engine.partSerialNo = engine.jetEnginePart.sNo;
+          delete engine.jetEnginePart;
+        })
+        this.assetTableData = raw;
+        this.assetDescription = "Jet Engines";
       }
     });
   </script>
