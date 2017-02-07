@@ -6,21 +6,20 @@
 <dom-module id="px-path-guide">
   <template>
     <style include="px-path-guide-styles"></style>
-    <div id="wrapper">
-      <iron-icon id="launch-icon" icon$="[[launchIcon]]" class="launch-icon"></iron-icon>
+    <div id="main">
+      <div id="launch-wrapper">
+        <iron-icon id="launch-icon" icon$="[[launchIcon]]" class="launch-icon"></iron-icon>
+      </div>
       <template id="steps" is="dom-repeat" items="[[pathState.steps]]">
         <div id="step-item-[[item.id]]" class="node-shell" on-click="itemClick">
-           <div
-              class="step-shell"
-              style$="border-color: [[getBaseColor()]];">
-             <div class="step-icon-holder">
+           <div class="step-shell">
+             <div class="step-icon-wrapper">
                <iron-icon icon$="[[getIcon(item)]]" class="step-icon"></iron-icon>
              </div>
            </div>
            <div class="step-label">[[item.label]]</div>
         </div>
-        <div class="step-connector"
-             style$="width: [[connectorLength]]px; border-color: [[getBaseColor()]];"></div>
+        <div class="step-connector"></div>
       </template>
     </div>
   </template>
@@ -32,12 +31,9 @@
     Polymer({
       is: 'px-path-guide',
       properties: {
-        baseColor: '#3ab4d4',
-        fillColor: '#fff',
-        launchIcon: 'fa:fa-train',
+        launchIcon: 'fa:fa-graduation-cap',
         completedStepIcon: 'fa:fa-check',
         currentStepIcon: 'fa:fa-circle',
-        connectorLength: '50',
         pathState: {
           type: Object
         },
@@ -52,10 +48,6 @@
           return this.currentStepIcon;
         }
         return "";
-      },
-
-      getBaseColor: function() {
-        return ( this.baseColor ? this.baseColor : '#3ab4d4');
       },
 
       itemClick: function(event) {

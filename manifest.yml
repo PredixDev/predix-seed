@@ -1,6 +1,6 @@
 ---
 applications:
-  - name: predixuiseed-progresstour
+  - name: predixseed-with-path-guide
     memory: 64M
     buildpack: nodejs_buildpack
     command: node server/app.js

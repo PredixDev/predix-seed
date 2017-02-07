@@ -15,32 +15,23 @@
 <link rel="import" href="../ge-svg-logo/ge-svg-logo.html">
 <link rel="import" href="../predix-logo/predix-logo.html">
 <link rel="import" href="../seed-footer/seed-footer.html">
-<link rel="import" href="../px-path-guide/px-path-guide.html">
-<link rel="stylesheet" href="../../bower_components/hopscotch/dist/css/hopscotch.css">
-<script src="../../bower_components/hopscotch/dist/js/hopscotch.js"></script>
-<script src="../../elements/dev-coach/feature_tour.js"></script>
-<!--
-<script src="product_tour.js"></script>
--->
+
 <dom-module id="seed-app">
   <template>
 
     <!-- apply imported seed app style module -->
     <style include="seed-app-styles"></style>
-
+    <style>
+      :host {
+        --px-path-guide-line-color: yellow;
+        --px-path-guide-fill-color: gray;
+        --px-path-guide-font-color: yellow;
+        --px-path-guide-connector-length: 100px;
+      }
+    </style>
     <header id="seed-header" role="banner" class="flex flex--middle">
       <div class="viewport flex">
         <h3 class="flex__item app-title"><ge-svg-logo class="u-mr--"></ge-svg-logo> Seed Application</h3>
-        <px-path-guide
-          id="path-guide"
-          launch-icon="fa:fa-train"
-          completed-step-icon="fa:fa-check"
-          current-step-icon="fa:fa-asterisk"
-          connector-length="50"
-          step-click-event="[[tourFeatureEventString]]"
-          path-state='[[progressDetails]]'
-          style="margin-top: 10px;">
-        </px-path-guide>
         <div class="flex__item">
           <div class="flex" style="text-align:right;">
             <h3 class="flex__item weight--normal logo">Powered by <predix-logo style="display:inline-block; width: 82px;" class="flex__item"></predix-logo></h3>

@@ -1,19 +1,23 @@
 // Default color values
-// customizable outside of component using custom CSS properties
-// inside the var()
-$fill-color  : var(--px-path-guide-fill-color, #3ab4d4);
-$line-color  : var(--px-path-guide-line-color, #fff);
-$font-color  : var(--px-path-guide-font-color, #fff);
-$connector-length : var(--px-path-guide-connector-length, 50px);
+// $base-color  : #3ab4d4;
+$base-color  : #f00;
+$font-color  : #fff;
+
+:host {
+  height: 18px;
+}
+
+#main {
+  height: 60px;
+}
 
 #launch-wrapper {
   display: inline-block;
   vertical-align: top;
   height: 30px;
   width: 30px;
-  border-radius: 16px;
-  border: 2px solid $line-color;
-  background-color: $fill-color;
+  border-radius: 15px;
+  background-color: $base-color;
 }
 
 .step-shell {
@@ -24,27 +28,27 @@ $connector-length : var(--px-path-guide-connector-length, 50px);
   border: 2px solid;
   overflow: hidden;
   margin: 5px auto;
-  border-color: $line-color;
+  border-color: $base-color;
   position: relative;
-  background-color: rgba(256, 256, 256, 0.1);
+  background-color: rgba(210, 210, 210, 0.1);
 }
 
-.step-icon-wrapper {
+.step-icon-holder {
   display: block;
   height: 20px;
   width: 20px;
   border-radius: 0px;
-  background-color: $fill-color;
+  background-color: $base-color;
 }
 
 .step-connector {
   display: inline-block;
   vertical-align: top;
-  width: $connector-length;
+  width: 60px;
   height: 10px;
   margin: auto -25px;
   margin-top: 14px;
-  border-top: 1px solid $line-color;
+  border-top: 1px solid $base-color;
 }
 
 .step-connector:last-of-type {
@@ -52,6 +56,7 @@ $connector-length : var(--px-path-guide-connector-length, 50px);
 }
 
 .launch-icon {
+
   color: $font-color;
   height: 16px;
   margin-top: 8px;
@@ -61,14 +66,14 @@ $connector-length : var(--px-path-guide-connector-length, 50px);
 .step-icon {
   height: 13px;
   color: $font-color;
-  margin-top: -7px;
-  margin-left: -4px;
+  margin-top: -6px;
+  margin-left: -5px;
 }
 
 .step-label {
   color: $font-color;
   width: 60px;
-  font-size: 12px;
+  font-size: 11px;
   text-align: center;
 }
 
