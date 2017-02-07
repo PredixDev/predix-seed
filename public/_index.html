@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="import" href="bower_components/polymer/polymer.html">
 
   <!-- inline CSS for splash screen -->
 
@@ -14,23 +15,8 @@
 
   <link rel="import" href="bower_components/px-theme/px-theme-styles.html">
   <style include="px-theme-styles" is="custom-style"></style>
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-72329845-2', 'auto');
-    ga('send', 'pageview');
-
-  </script>
-
-  <link rel="import" href="bower_components/polymer/polymer.html">
-
-  <!-- Developer coaching files -->
-  <link rel="import" href="/elements/dev-coach/dev-coach.html">
-
-  <!-- Async HTML Imports do not block rending. Benefit of keeping it declarative
+  <!-- Async HTML Imports do not block rendering. Benefit of keeping it declarative
       (instead of dynamically loading it later in JS) is that the parser can go to
       town pre-fetching resources, etc. -->
   <link
@@ -57,5 +43,8 @@
   <!-- Inline script to load app and remove splash screen
        Gulp will inline this script via the compile.index task -->
   <script src="_index-inline-loading-script.js" inline></script>
+
+  <!-- Developer coaching files -->
+  <script src="/elements/dev-coach/dev-coach-init.js"></script>
 </body>
 </html>

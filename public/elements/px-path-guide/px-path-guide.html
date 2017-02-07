@@ -6,7 +6,7 @@
 <dom-module id="px-path-guide">
   <template>
     <style include="px-path-guide-styles"></style>
-    <div id="main">
+    <div id="main" draggable="true">
       <div id="launch-wrapper">
         <iron-icon id="launch-icon" icon$="[[launchIcon]]" class="launch-icon"></iron-icon>
       </div>
@@ -24,10 +24,6 @@
     </div>
   </template>
   <script>
-
-// TODOS:
-// Comments
-//
     Polymer({
       is: 'px-path-guide',
       properties: {
