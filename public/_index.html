@@ -8,9 +8,12 @@
   <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 
   <!-- inline CSS for splash screen -->
-  <link rel="stylesheet" type="text/css" href="index-inline.css" inline>
-  <link rel="stylesheet" href="global.css">
 
+  <link rel="import" href="index-inline-styles.html">
+  <style include="index-inline-styles" is="custom-style"></style>
+
+  <link rel="import" href="bower_components/px-theme/px-theme-styles.html">
+  <style include="px-theme-styles" is="custom-style"></style>
   <script>
     // Setup Polymer options
     window.Polymer = {
@@ -18,6 +21,8 @@
       dom: 'shady' // default to shadow-dom with shady-dom fall-back
     };
   </script>
+
+  <link rel="import" href="bower_components/polymer/polymer.html">
 
   <!-- Async HTML Imports do not block rending. Benefit of keeping it declarative
       (instead of dynamically loading it later in JS) is that the parser can go to

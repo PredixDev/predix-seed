@@ -23,12 +23,15 @@
 
     <header role="banner" class="flex flex--middle">
       <div class="viewport flex">
-        <h3 class="flex__item">
-          <ge-svg-logo class="u-mr--"></ge-svg-logo> Predix应用
+        <h3 class="flex__item app-title">
+          <ge-svg-logo class="u-mr--"></ge-svg-logo>
+          Predix应用
         </h3>
         <div class="flex__item">
           <div class="flex" style="text-align:right;">
-            <h4 class="flex__item weight--normal">运行于 <predix-logo style="display:inline-block;" class="flex__item u-mr--"></predix-logo></h4>
+            <h3 class="flex__item weight--normal logo">
+              运行于 <predix-logo style="display:inline-block; width: 82px;" class="flex__item"></predix-logo>
+            </h3>
           </div>
         </div>
       </div>
@@ -65,11 +68,22 @@
             </px-view>
           </template>
 
+          <!-- /simple-asset route and view -->
+          <app-route
+            route="[[_route]]"
+            pattern="/simple-asset"
+            active="{{_simple-assetActive}}">
+          </app-route>
+          <px-view
+            active="[[_simple-assetActive]]"
+            element-href="/elements/views/simple-asset-view.html">
+          </px-view>
+
         </main>
       </div>
     </div>
 
-    <footer role="contentinfo" class="viewport flex flex--middle">
+    <footer role="contentinfo" class="viewport flex flex--middle u-ph-">
       <ul class="list-inline list-inline--delimited">
         <template is="dom-repeat" items=[[footerLinks]]>
           <li>
@@ -96,6 +110,14 @@
             {
               page: 'dashboards',
               elementHref: '/elements/views/dashboards-view.html'
+            },
+            {
+              page: 'simple-asset',
+              elementHref: '/elements/views/simple-asset-view.html'
+            },
+            {
+              page: 'winddata',
+              elementHref: '/elements/views/winddata-view.html'
             },
             {
               page: 'blankpage',
@@ -126,8 +148,19 @@
             }, {
               "label": "Blank Page",
               "path": "blankpage",
-              "icon": "fa-file-o"
-            }]
+              "icon": "fa-file"
+            },
+              {
+              "label": "Simple Asset",
+              "path": "simple-asset",
+              "icon": "fa-sitemap"
+            },
+              {
+              "label": "Wind Data",
+              "path": "winddata",
+              "icon": "fa-line-chart"
+            }
+            ]
           }
         },
 

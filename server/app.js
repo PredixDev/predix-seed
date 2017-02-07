@@ -131,9 +131,9 @@ if (!uaaIsConfigured) { // no restrictions
     history(),
     require('./static.js')
   );
-  //Or remove the above route, and follow this pattern to create secure routes,
+
+  //Or you can follow this pattern to create secure routes,
   // if only some portions of the app are secure.
-  /*
   app.get('/secure', passport.authenticate('main', {
     noredirect: true //Don't redirect a user to the authentication page, just show an error
     }), function(req, res) {
@@ -141,7 +141,7 @@ if (!uaaIsConfigured) { // no restrictions
     // modify this to send a secure.html file if desired.
     res.send('<h2>This is a sample secure route.</h2>');
   });
-  */
+
 }
 
 //logout route

@@ -1,0 +1,66 @@
+// Settings
+@import "px-colors-design/_settings.colors.scss";
+@import "px-defaults-design/_settings.defaults.scss";
+
+// Generic
+@import "px-helpers-design/_generic.helpers.scss";
+
+$desk-wide-width: auto; // defaults to 100%
+$desk-wide-max-width: none; // defaults to 80rem
+$viewport-margin: 2rem; // defaults to auto
+
+// Base
+@import "px-viewport-design/_base.viewport.scss";
+@import "px-flexbox-design/_base.flexbox.scss";
+
+// Meta
+@import "px-meta-lists-design/_meta.lists.scss";
+
+@import "px-mixins-design/_tools.mixins.scss";
+
+$inuit-webfont-path: '/bower_components/px-typography-design/type';
+$predix-font-family : "GE Inspira Sans", sans-serif !default;
+
+:host {
+  font-family: $predix-font-family;
+}
+
+$px-page-link-color: $gray5;
+
+.footer__container {
+  background: var(--px-seed-footer-background-color);
+  height: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
+  -ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+  align-items: center;
+}
+
+.footer__container * {
+  color: $gray5;
+}
+
+.footer__container li {
+  margin-left: 7px;
+}
+
+.footer__copy {
+  margin-left: 40px;
+  font-size: 12px;
+}
+
+.footer__link {
+  font-size: 12px;
+  text-align: right;
+  text-decoration: none;
+}
+
+// Trumps
+$inuit-enable-margins--small: true;
+$inuit-enable-margins--large: true;
+$inuit-enable-list-inline--delimited: true;
+
+@import "px-spacing-design/_trumps.spacing.scss";
+@import "px-list-inline-design/_objects.list-inline.scss";

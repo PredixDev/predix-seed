@@ -44,7 +44,22 @@
           assert(Array.isArray(footerLinks), 'footerLinks object has incorrect type: ' + typeof footerLinks);
         });
 
-        // Test cases for app-main DOM structure upon initial load
+        test('routesActive property should be defined', function() {
+          var routesActive = seedAppFixture.properties.routesActive;
+          assert(typeof routesActive === 'object', 'routesActive boolean has is undefined/null');
+        });
+
+        test('global property should be defined', function() {
+          var globalObject = seedAppFixture.properties.global.value();
+          assert(globalObject instanceof Object, 'global object has is undefined/null');
+        });
+
+        test('pathPrefix property should be defined', function() {
+          var pathPrefix = seedAppFixture.properties.pathPrefix;
+          assert(pathPrefix instanceof Object, 'pathPrefix object has is undefined/null');
+        });
+
+        // Test cases for seed-main DOM structure upon initial load
         // Elements are tested for presence and correct count
 
         test('There should be a header element', function() {
@@ -62,14 +77,14 @@
           assert(appLocation !== null, 'app-location element was not found');
         });
 
-        test('There should be initially 2 app-route elements', function() {
+        test('There should be initially 3 app-route elements', function() {
           var appRoutes = Polymer.dom(seedAppFixture.root).querySelectorAll('app-route');
-          assert(appRoutes.length === 2, 'app-route is not exactly 2 instances');
+          assert(appRoutes.length === 3, 'app-route is not exactly 2 instances');
         });
 
-        test('There should be initially 2 px-view elements', function() {
+        test('There should be initially 3 px-view elements', function() {
           var pxViews = Polymer.dom(seedAppFixture.root).querySelectorAll('px-view');
-          assert(pxViews.length === 2, 'px-view is not exactly 2 instances');
+          assert(pxViews.length === 3, 'px-view is not exactly 2 instances');
         });
 
         test('There should be a main element', function() {
@@ -84,9 +99,14 @@
 
         // Test cases for correct configuration of app-main Polymer Object
 
-        test('Fixture element should contain a header which has a logo', function() {
+        test('Fixture element should contain a header which has a GE logo', function() {
           var seedHeader = Polymer.dom(seedAppFixture.root).querySelector('header ge-svg-logo');
           assert(seedHeader !== null, '"header ge-svg-logo" path was not found');
+        });
+
+        test('Fixture element should contain a header which has a Predix logo', function() {
+          var seedHeader = Polymer.dom(seedAppFixture.root).querySelector('header predix-logo');
+          assert(seedHeader !== null, '"header predix-logo" path was not found');
         });
 
         test('Menu item for blank page should be configured correctly', function() {

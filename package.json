@@ -1,6 +1,6 @@
 {
   "name": "predix-ui-app",
-  "version": "3.0.3",
+  "version": "3.1.0",
   "private": true,
   "engines": {
     "node": ">=0.10.0"
@@ -22,6 +22,7 @@
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-clean": "^0.3.2",
+    "gulp-cssmin": "^0.1.7",
     "gulp-ejs": "^1.2.2",
     "gulp-inline-source": "^2.1.0",
     "gulp-livereload": "^3.8.1",

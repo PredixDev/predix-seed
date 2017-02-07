@@ -11,7 +11,7 @@ module.exports = function(gulp) {
     livereload({ start: true });
     livereload.listen({ port: 12315 });
     gulp.watch('./public/**/*.scss', ['compile:sass']);
-    gulp.watch(['./public/_index.html','./public/_index-inline-loading-script.js','./public/index-inline.css'],
+    gulp.watch(['./public/_index.html','./public/_index-inline-loading-script.js','./public/index-inline.scss'],
     ['compile:index']);
   };
 };

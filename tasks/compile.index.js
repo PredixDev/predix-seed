@@ -9,7 +9,7 @@ const livereload = require('gulp-livereload');
 
 module.exports = function(gulp) {
   return function() {
-    gulp.src('./public/_index.html')
+    return gulp.src('./public/_index.html')
       .pipe(inlinesource())
       .pipe(livereload())
       .pipe(rename('index.html'))
