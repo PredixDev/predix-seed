@@ -30,9 +30,19 @@
     // Polymer.importHref(['/elements/dev-coach/dev-coach.html'], function(){});
     var link = document.createElement('link');
     link.setAttribute('rel', 'import');
-    link.setAttribute('href', '/elements/dev-coach/dev-coach.html');
+    link.setAttribute('href', '/elements/dev-guide/dev-guide-imports.html');
     link.onload = setTimeout(onCoachingLoaded, 2000);
     document.head.appendChild(link);
+  }
+
+  function tourFeature(event) {
+    var tourID = event.payload.id;
+    if (window.predix.isTouring) {
+      window.predix.hopscotch.endTour(false);
+      window.predix.isTouring = false;
+    }
+    window.predix.hopscotch.startTour(window.predix.hopscotchTour['tour' + tourID]);
+    window.predix.isTouring = true;
   }
 
   function onCoachingLoaded() {
@@ -42,11 +52,19 @@
       // configure it and attach it to the <body> element
       window.predix = window.predix || {};
       var pathGuideEl = document.createElement('px-path-guide');
+
+      var configProps = ['id', 'launchIcon', 'completedStepIcon', 'currentStepIcon', 'stepClickEventName'];
+
       pathGuideEl.id = "path-guide";
-      pathGuideEl.launchIcon = "fa:fa-train";
+      pathGuideEl.launchIcon = "fa:fa-tachometer";
       pathGuideEl.completedStepIcon = "fa:fa-check";
       pathGuideEl.currentStepIcon = "fa:fa-circle";
-      // step-click-event="[[tourFeatureEventString]]"
+      pathGuideEl.stepClickEventName = window.predix.featureTourEventName;
+
+      for (var i=0; i < configProps.length; i++) {
+        pathGuideEl[configProps[i]] = window.predix.pathGuideConfig[configProps[i]] || pathGuideEl[configProps[i]];
+      }
+
       pathGuideEl.pathState =
       {
         name: 'Seed Development',
@@ -67,6 +85,8 @@
       pathGuideEl.style.top = '10px';
       window.predix.pathGuideElement = pathGuideEl;
       document.body.appendChild(pathGuideEl);
+
+      window.addEventListener(window.predix.featureTourEventName, tourFeature);
     }
   }
 

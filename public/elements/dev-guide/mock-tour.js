@@ -1,4 +1,5 @@
-window.hopscotchTour = {
+window.predix = window.predix || {};
+window.predix.hopscotchTour = {
   'tour1' : {
     id: "basic-application",
     i18n: {

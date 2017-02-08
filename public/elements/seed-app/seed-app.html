@@ -176,24 +176,6 @@
           }
         },
 
-        progressDetails: {
-          type: Object,
-          value: function() {
-            return {
-              name: 'Seed Development',
-              steps:
-              [
-                { id: 1, label: "Basic App", started: true, completed: true, current: false},
-                { id: 2, label: "UAA", started: true, completed: true, current: false},
-                { id: 3, label: "Asset Data", started: false, completed: false, current: true},
-                { id: 4, label: "Analytics", started: false, completed: false, current: false}
-              ]
-            }
-          }
-        },
-
-        tourFeatureEventString: 'TOUR_FEATURE',
-
         // Sets app default base URL for client-side routing
         pathPrefix: {
           type: String,
@@ -203,17 +185,6 @@
 
       ready: function(){
         this._checkForDefaultRoute();
-        window.addEventListener(this.tourFeatureEventString, this.tourFeature);
-      },
-
-      tourFeature: function(event) {
-        var tourID = event.tourID;
-        if (window.isTouring) {
-          hopscotch.endTour(false);
-          window.isTouring = false;
-        }
-        hopscotch.startTour(window.hopscotchTour['tour' + tourID]);
-        window.isTouring = true;
       },
 
       _checkForDefaultRoute: function() {

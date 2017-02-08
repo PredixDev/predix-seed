@@ -27,13 +27,13 @@
     Polymer({
       is: 'px-path-guide',
       properties: {
-        launchIcon: 'fa:fa-graduation-cap',
+        launchIcon: 'fa:fa-train',
         completedStepIcon: 'fa:fa-check',
         currentStepIcon: 'fa:fa-circle',
         pathState: {
           type: Object
         },
-        stepClickEvent: ''
+        stepClickEventName: ''
       },
 
       getIcon: function(item) {
@@ -47,10 +47,10 @@
       },
 
       itemClick: function(event) {
-        var itemId = event.currentTarget.id.substr(10);
-        var tourFeatureEvent = new Event(this.stepClickEvent, {"bubbles": true, "cancelable": false});
-        tourFeatureEvent.tourID = itemId;
-        window.dispatchEvent(tourFeatureEvent);
+        var stepId = event.currentTarget.id.substr(10);
+        var stepClickEvent = new Event(this.stepClickEventName, {"bubbles": true, "cancelable": false});
+        stepClickEvent.payload = { id : stepId };
+        window.dispatchEvent(stepClickEvent);
       }
 
     });
