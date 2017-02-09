@@ -1,0 +1,26 @@
+<!-- import polymer -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="seed-footer-styles.html">
+
+<dom-module id='seed-footer'>
+  <template>
+    <style include="seed-footer-styles"></style>
+    <div class="flex flex--right footer__container">
+      <ul class="list-inline">
+        <template is="dom-repeat" items=[[footerLinks]]>
+        <li><a class="footer__link" href="[[item.href]]">[[item.label]]</a></li>
+        </template>
+        <span class="footer__copy">&copy;2016 General Electric</span>
+    </ul>
+    <div>
+  </template>
+  <script>
+  Polymer({
+    is: 'seed-footer',
+    properties: {
+      footerLinks: []
+    }
+  });
+  </script>
+</dom-module>
