@@ -13,6 +13,3 @@ npm-debug.log
 temp
 dist
 .github/
-public/index.html
-public/global.css
-public/index-inline.css

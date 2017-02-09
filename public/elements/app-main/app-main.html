@@ -14,6 +14,7 @@
 
 <link rel="import" href="../ge-svg-logo/ge-svg-logo.html">
 <link rel="import" href="../predix-logo/predix-logo.html">
+<link rel="import" href="../seed-footer/seed-footer.html">
 
 <dom-module id="app-main">
   <template>
@@ -83,19 +84,8 @@
       </div>
     </div>
 
-    <footer role="contentinfo" class="viewport flex flex--middle u-ph-">
-      <ul class="list-inline list-inline--delimited">
-        <template is="dom-repeat" items=[[footerLinks]]>
-          <li>
-            <a class="footer__link"
-               href$="[[item.href]]" target$="[[item.target]]">[[item.label]]
-            </a>
-          </li>
-        </template>
-      </ul>
-      <small class="u-ml-">©2016 通用电气</small>
-    </footer>
-
+    <seed-footer footer-links='[[footerLinks]]'></seed-footer>
+    
   </template>
   <script>
     Polymer({
