@@ -8,7 +8,7 @@ module.exports = function(gulp) {
   return function() {
     return gulp.src([
       'public/index.html',
-      'public/*.css',
+      'public/*-styles.html',
       'public/images/*',
       'public/bower_components/px-typography-design/type/*',
       'public/bower_components/font-awesome/fonts/*'
