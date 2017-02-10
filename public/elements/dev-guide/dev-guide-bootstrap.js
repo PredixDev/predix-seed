@@ -56,9 +56,8 @@
       var configProps = ['id', 'launchIcon', 'completedStepIcon', 'currentStepIcon', 'stepClickEventName'];
 
       pathGuideEl.id = "path-guide";
-      pathGuideEl.launchIcon = "fa:fa-tachometer";
-      pathGuideEl.completedStepIcon = "fa:fa-check";
-      pathGuideEl.currentStepIcon = "fa:fa-circle";
+      pathGuideEl.completedStepIcon = "fa-check";
+      pathGuideEl.currentStepIcon = "fa-circle";
       pathGuideEl.stepClickEventName = window.predix.featureTourEventName;
 
       for (var i=0; i < configProps.length; i++) {

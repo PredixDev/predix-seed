@@ -7,15 +7,10 @@
   <template>
     <style include="px-path-guide-styles"></style>
     <div id="main" draggable="true">
-      <div id="launch-wrapper">
-        <iron-icon id="launch-icon" icon$="[[launchIcon]]" class="launch-icon"></iron-icon>
-      </div>
       <template id="steps" is="dom-repeat" items="[[pathState.steps]]">
         <div id="step-item-[[item.id]]" class="node-shell" on-click="itemClick">
-           <div class="step-shell">
-             <div class="step-icon-wrapper">
-               <iron-icon icon$="[[getIcon(item)]]" class="step-icon"></iron-icon>
-             </div>
+           <div class$="step-shell [[getStepIconClasses(item)]]">
+             <i class$="fa [[getIcon(item)]]"></i>
            </div>
            <div class="step-label">[[item.label]]</div>
         </div>
@@ -27,9 +22,8 @@
     Polymer({
       is: 'px-path-guide',
       properties: {
-        launchIcon: 'fa:fa-train',
-        completedStepIcon: 'fa:fa-check',
-        currentStepIcon: 'fa:fa-circle',
+        completedStepIcon: 'fa-check',
+        currentStepIcon: 'fa-circle',
         pathState: {
           type: Object
         },
@@ -44,6 +38,14 @@
           return this.currentStepIcon;
         }
         return "";
+      },
+
+      getStepIconClasses: function(item) {
+        var classes = '';
+        if (item.current) {
+          classes += 'current-step';
+        }
+        return classes;
       },
 
       itemClick: function(event) {

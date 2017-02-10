@@ -4,37 +4,34 @@
 $fill-color  : var(--px-path-guide-fill-color, #3ab4d4);
 $line-color  : var(--px-path-guide-line-color, #fff);
 $font-color  : var(--px-path-guide-font-color, #fff);
-$connector-length : var(--px-path-guide-connector-length, 50px);
+$connector-length : var(--px-path-guide-connector-length, 100px);
+$step-height : var(--px-path-guide-step-height, 20px);
+$step-width : var(--px-path-guide-step-width, 20px);
+$step-radius : var(--px-path-guide-step-radius, 10px);
 
-#launch-wrapper {
-  display: inline-block;
-  vertical-align: top;
-  height: 30px;
-  width: 30px;
-  border-radius: 16px;
-  border: 2px solid $line-color;
-  background-color: $fill-color;
+iron-icon {
+  --iron-icon-width: 14px;
+  --iron-icon-height: 14px;
+  --iron-icon-fill-color: $font-color;
+  left: 50%;
+  margin-left: -6px;
 }
 
 .step-shell {
   display: block;
-  width: 14px;
-  height: 14px;
-  border-radius: 9px;
-  border: 2px solid;
-  overflow: hidden;
-  margin: 5px auto;
+  width: $step-width;
+  height: $step-height;
+  border-radius: $step-radius;
+  border: 1px solid;
+  margin-left: auto;
+  margin-right: auto;
   border-color: $line-color;
   position: relative;
-  background-color: rgba(256, 256, 256, 0.1);
+  background-color: $fill-color;
 }
 
-.step-icon-wrapper {
-  display: block;
-  height: 20px;
-  width: 20px;
-  border-radius: 0px;
-  background-color: $fill-color;
+.current-step {
+  border: 1px double $line-color;
 }
 
 .step-connector {
@@ -43,26 +40,12 @@ $connector-length : var(--px-path-guide-connector-length, 50px);
   width: $connector-length;
   height: 10px;
   margin: auto -25px;
-  margin-top: 14px;
+  margin-top: $step-radius;
   border-top: 1px solid $line-color;
 }
 
 .step-connector:last-of-type {
   display: none;
-}
-
-.launch-icon {
-  color: $font-color;
-  height: 16px;
-  margin-top: 8px;
-  margin-left: 4px;
-}
-
-.step-icon {
-  height: 13px;
-  color: $font-color;
-  margin-top: -7px;
-  margin-left: -4px;
 }
 
 .step-label {

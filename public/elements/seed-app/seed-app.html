@@ -21,7 +21,11 @@
 
     <!-- apply imported seed app style module -->
     <style include="seed-app-styles"></style>
-    <style>
+
+    <!-- this style was placed here because px-path-guide will be programmatically
+         placed inside this template -->
+    <!-- modify this style element to customize the appearance of the path guide -->
+    <style id="px-path-guide-custom-styles">
       :host {
         --px-path-guide-line-color: yellow;
         --px-path-guide-fill-color: gray;
@@ -29,6 +33,7 @@
         --px-path-guide-connector-length: 100px;
       }
     </style>
+
     <header id="seed-header" role="banner" class="flex flex--middle">
       <div class="viewport flex">
         <h3 class="flex__item app-title"><ge-svg-logo class="u-mr--"></ge-svg-logo> Seed Application</h3>
