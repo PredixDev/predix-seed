@@ -53,7 +53,7 @@
       window.predix = window.predix || {};
       var pathGuideEl = document.createElement('px-path-guide');
 
-      var configProps = ['id', 'launchIcon', 'completedStepIcon', 'currentStepIcon', 'stepClickEventName'];
+      var configProps = ['id', 'completedStepIcon', 'currentStepIcon', 'stepClickEventName'];
 
       pathGuideEl.id = "path-guide";
       pathGuideEl.completedStepIcon = "fa-check";

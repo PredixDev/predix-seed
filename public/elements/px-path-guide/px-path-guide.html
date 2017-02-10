@@ -8,13 +8,11 @@
     <style include="px-path-guide-styles"></style>
     <div id="main" draggable="true">
       <template id="steps" is="dom-repeat" items="[[pathState.steps]]">
-        <div id="step-item-[[item.id]]" class="node-shell" on-click="itemClick">
-           <div class$="step-shell [[getStepIconClasses(item)]]">
-             <i class$="fa [[getIcon(item)]]"></i>
-           </div>
-           <div class="step-label">[[item.label]]</div>
+        <div id="step-item-[[item.id]]" class="step-connector" on-click="itemClick">
+          <div class$="step-icon [[getStepState(item)]]"></div>
+          <iron-icon class$="[[getStepState(item)]]" icon$="fa:[[getIcon(item)]]"></iron-icon>
+          <div class$="step-label [[getStepState(item)]]">[[item.label]]</div>
         </div>
-        <div class="step-connector"></div>
       </template>
     </div>
   </template>
@@ -40,10 +38,13 @@
         return "";
       },
 
-      getStepIconClasses: function(item) {
+      getStepState: function(item) {
         var classes = '';
+        if (item.completed) {
+          classes += 'completed';
+        }
         if (item.current) {
-          classes += 'current-step';
+          classes += 'current';
         }
         return classes;
       },

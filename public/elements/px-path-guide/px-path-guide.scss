@@ -1,62 +1,85 @@
 // Default color values
-// customizable outside of component using custom CSS properties
-// inside the var()
+// customizable outside of component using custom CSS properties ("--px-...")
 $fill-color  : var(--px-path-guide-fill-color, #3ab4d4);
 $line-color  : var(--px-path-guide-line-color, #fff);
 $font-color  : var(--px-path-guide-font-color, #fff);
-$connector-length : var(--px-path-guide-connector-length, 100px);
-$step-height : var(--px-path-guide-step-height, 20px);
-$step-width : var(--px-path-guide-step-width, 20px);
-$step-radius : var(--px-path-guide-step-radius, 10px);
+$connector-length : var(--px-path-guide-connector-length, 80px);
+$step-diameter : var(--px-path-guide-step-diameter, 14px);
+$step-radius : var(--px-path-guide-step-radius, 7px);
+$current-step-diameter : var(--px-path-guide-current-step-diameter, 24px);
+$current-step-radius : var(--px-path-guide-current-step-radius, 12px);
+$current-step-fill-color: var(--px-path-guide-current-step-fill-color, #fff);
+$current-step-line-color  : var(--px-path-guide-current-step-line-color, #0f0);
+$current-step-font-color  : var(--px-path-guide-current-step-font-color, #3ab4d4);
+$current-step-font-weight  : var(--px-path-guide-current-step-font-weight, bold);
 
-iron-icon {
-  --iron-icon-width: 14px;
-  --iron-icon-height: 14px;
-  --iron-icon-fill-color: $font-color;
-  left: 50%;
-  margin-left: -6px;
-}
-
-.step-shell {
+.step-icon {
   display: block;
-  width: $step-width;
-  height: $step-height;
+  width: $step-diameter;
+  height: $step-diameter;
   border-radius: $step-radius;
   border: 1px solid;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: -$step-radius;
+  margin-top: -$step-radius;
   border-color: $line-color;
   position: relative;
   background-color: $fill-color;
 }
 
-.current-step {
-  border: 1px double $line-color;
+.step-icon.current {
+  width: $current-step-diameter;
+  height: $current-step-diameter;
+  border-radius: $current-step-radius;
+  border-color: $current-step-line-color;
+  background-color: $current-step-fill-color;
+  font-weight: $current-step-font-weight;
+  margin-left: -$current-step-radius;
+  margin-top: -$current-step-radius;
 }
 
-.step-connector {
-  display: inline-block;
-  vertical-align: top;
-  width: $connector-length;
-  height: 10px;
-  margin: auto -25px;
-  margin-top: $step-radius;
-  border-top: 1px solid $line-color;
+iron-icon {
+  position: absolute;
+  --iron-icon-width: 14px;
+  --iron-icon-height: 14px;
+  --iron-icon-fill-color: $font-color;
+  left: -6px;
+  top: -6px;
 }
 
-.step-connector:last-of-type {
-  display: none;
+iron-icon.current {
+  --iron-icon-fill-color: $current-step-font-color;
 }
 
 .step-label {
+  position: absolute;
   color: $font-color;
-  width: 60px;
+  width: 70px;
   font-size: 12px;
   text-align: center;
+  top: 20px;
+  left: -35px;
 }
 
-.node-shell {
-  height: 40px;
-  width: 60px;
+.step-label.current {
+  position: absolute;
+  color: $current-step-font-color;
+  font-weight: $current-step-font-weight;
+  width: 70px;
+  font-size: 12px;
+  text-align: center;
+  top: 20px;
+  left: -35px;
+}
+
+.step-connector {
+  position: relative;
+  vertical-align:middle;
   display: inline-block;
+  width: $connector-length;
+  height: 1px;
+  background-color: $line-color;
+}
+
+.step-connector:last-of-type {
+  width: 1px;
 }
