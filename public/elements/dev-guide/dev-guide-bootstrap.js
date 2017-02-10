@@ -82,6 +82,22 @@
       pathGuideEl.style.marginLeft = "-" + halfWidth + "px";
       pathGuideEl.style.marginLeft = "-130px"; // <-------- temporary code
       pathGuideEl.style.top = '10px';
+
+      // pathGuideEl.customStyle['--px-path-guide-step-diameter'] = '20px';
+      // pathGuideEl.customStyle['--px-path-guide-step-radius'] = '10px';
+      // pathGuideEl.customStyle['--px-path-guide-line-color'] = '#fff';
+      // pathGuideEl.customStyle['--px-path-guide-fill-color'] = '#888';
+      // pathGuideEl.customStyle['--px-path-guide-font-color'] = '#fff';
+      // pathGuideEl.customStyle['--px-path-guide-connector-length'] = '100px';
+      // pathGuideEl.customStyle['--px-path-guide-current-step-diameter'] = '24px';
+      // pathGuideEl.customStyle['--px-path-guide-current-step-radius'] = '12px';
+      // pathGuideEl.customStyle['--px-path-guide-current-step-fill-color'] = '#fff';
+      // pathGuideEl.customStyle['--px-path-guide-current-step-line-color'] = '#fff';
+      // pathGuideEl.customStyle['--px-path-guide-current-step-font-color'] = '#888';
+      // pathGuideEl.customStyle['--px-path-guide-current-step-font-weight'] = 'bold';
+      // pathGuideEl.updateStyles();
+
+
       window.predix.pathGuideElement = pathGuideEl;
       document.body.appendChild(pathGuideEl);
 

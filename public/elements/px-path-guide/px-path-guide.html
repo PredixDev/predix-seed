@@ -51,7 +51,10 @@
 
       itemClick: function(event) {
         var stepId = event.currentTarget.id.substr(10);
-        var stepClickEvent = new Event(this.stepClickEventName, {"bubbles": true, "cancelable": false});
+        var stepClickEvent =
+          new Event(this.stepClickEventName,
+            {"bubbles": true, "cancelable": false}
+          );
         stepClickEvent.payload = { id : stepId };
         window.dispatchEvent(stepClickEvent);
       }

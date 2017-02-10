@@ -1,58 +1,58 @@
-// Default color values
-// customizable outside of component using custom CSS properties ("--px-...")
-$fill-color  : var(--px-path-guide-fill-color, #3ab4d4);
-$line-color  : var(--px-path-guide-line-color, #fff);
-$font-color  : var(--px-path-guide-font-color, #fff);
-$connector-length : var(--px-path-guide-connector-length, 80px);
-$step-diameter : var(--px-path-guide-step-diameter, 14px);
-$step-radius : var(--px-path-guide-step-radius, 7px);
-$current-step-diameter : var(--px-path-guide-current-step-diameter, 24px);
-$current-step-radius : var(--px-path-guide-current-step-radius, 12px);
-$current-step-fill-color: var(--px-path-guide-current-step-fill-color, #fff);
-$current-step-line-color  : var(--px-path-guide-current-step-line-color, #0f0);
-$current-step-font-color  : var(--px-path-guide-current-step-font-color, #3ab4d4);
-$current-step-font-weight  : var(--px-path-guide-current-step-font-weight, bold);
+:host {
+  --px-path-guide-fill-color: #3ab4d4;
+  --px-path-guide-line-color: #fff;
+  --px-path-guide-font-color: #fff;
+  --px-path-guide-connector-length: 80px;
+  --px-path-guide-step-diameter: 16px;
+  --px-path-guide-step-radius: 8px;
+  --px-path-guide-current-step-diameter: 28px;
+  --px-path-guide-current-step-radius: 14px;
+  --px-path-guide-current-step-fill-color: #fff;
+  --px-path-guide-current-step-line-color: #3ab4d4;
+  --px-path-guide-current-step-font-color: #3ab4d4;
+  --px-path-guide-current-step-font-weight: bold;
+}
 
 .step-icon {
   display: block;
-  width: $step-diameter;
-  height: $step-diameter;
-  border-radius: $step-radius;
+  width: var(--px-path-guide-step-diameter);
+  height: var(--px-path-guide-step-diameter);
+  border-radius: var(--px-path-guide-step-radius);
   border: 1px solid;
-  margin-left: -$step-radius;
-  margin-top: -$step-radius;
-  border-color: $line-color;
+  margin-left: -var(--px-path-guide-step-radius);
+  margin-top: -var(--px-path-guide-step-radius);
+  border-color: var(--px-path-guide-line-color);
   position: relative;
-  background-color: $fill-color;
+  background-color: var(--px-path-guide-fill-color);
 }
 
 .step-icon.current {
-  width: $current-step-diameter;
-  height: $current-step-diameter;
-  border-radius: $current-step-radius;
-  border-color: $current-step-line-color;
-  background-color: $current-step-fill-color;
-  font-weight: $current-step-font-weight;
-  margin-left: -$current-step-radius;
-  margin-top: -$current-step-radius;
+  width: var(--px-path-guide-current-step-diameter);
+  height: var(--px-path-guide-current-step-diameter);
+  border-radius: var(--px-path-guide-current-step-radius);
+  border-color: var(--px-path-guide-current-step-line-color);
+  background-color: var(--px-path-guide-current-step-fill-color);
+  font-weight: var(--px-path-guide-current-step-font-weight);
+  margin-left: -var(--px-path-guide-current-step-radius);
+  margin-top: -var(--px-path-guide-current-step-radius);
 }
 
 iron-icon {
   position: absolute;
   --iron-icon-width: 14px;
   --iron-icon-height: 14px;
-  --iron-icon-fill-color: $font-color;
-  left: -6px;
+  --iron-icon-fill-color: var(--px-path-guide-font-color);
+  left: -5px;
   top: -6px;
 }
 
 iron-icon.current {
-  --iron-icon-fill-color: $current-step-font-color;
+  --iron-icon-fill-color: var(--px-path-guide-current-step-font-color);
 }
 
 .step-label {
   position: absolute;
-  color: $font-color;
+  color: var(--px-path-guide-font-color);
   width: 70px;
   font-size: 12px;
   text-align: center;
@@ -62,8 +62,8 @@ iron-icon.current {
 
 .step-label.current {
   position: absolute;
-  color: $current-step-font-color;
-  font-weight: $current-step-font-weight;
+  color: var(--px-path-guide-current-step-font-color);
+  font-weight: var(--px-path-guide-current-step-font-weight);
   width: 70px;
   font-size: 12px;
   text-align: center;
@@ -75,9 +75,9 @@ iron-icon.current {
   position: relative;
   vertical-align:middle;
   display: inline-block;
-  width: $connector-length;
+  width: var(--px-path-guide-connector-length);
   height: 1px;
-  background-color: $line-color;
+  background-color: var(--px-path-guide-line-color);
 }
 
 .step-connector:last-of-type {
