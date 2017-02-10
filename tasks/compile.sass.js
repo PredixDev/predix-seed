@@ -8,7 +8,6 @@ const autoprefixer = require('gulp-autoprefixer');
 const path = require('path');
 const importOnce = require('node-sass-import-once');
 const cssmin = require('gulp-cssmin');
-const livereload = require('gulp-livereload');
 
 var getName = function(file) {
   return path.basename(file.path, path.extname(file.path));
@@ -51,7 +50,6 @@ module.exports = function(gulp, plugins) {
           return getName(file) + '-styles';
         }
       }))
-      .pipe(livereload())
       .pipe(gulp.dest(styleModuleDest));
   };
 };

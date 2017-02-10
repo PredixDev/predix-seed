@@ -4,7 +4,6 @@
 //   Task: Serve
 // -------------------------------------
 const nodemon = require('gulp-nodemon');
-const livereload = require('gulp-livereload');
 
 module.exports = function() {
   return function() {
