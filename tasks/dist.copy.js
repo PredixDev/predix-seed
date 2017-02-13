@@ -11,7 +11,8 @@ module.exports = function(gulp) {
       'public/*-styles.html',
       'public/images/*',
       'public/bower_components/px-typography-design/type/*',
-      'public/bower_components/font-awesome/fonts/*'
+      'public/bower_components/font-awesome/fonts/*',
+      'public/bower_components/px-demo-data/demo-data/**'
     ], {base: 'public'})
       .pipe(gulp.dest('./dist'));
   };
