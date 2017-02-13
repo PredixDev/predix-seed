@@ -63,9 +63,5 @@
     "px-buttons-design": "^1.1.2",
     "px-actionable-text-icons-design": "^1.1.1",
     "px-spacing-design": "^0.4.1"
-  },
-  "resolutions": {
-    "px-vis": "^1.0.0",
-    "pxd3": "~4.4.0"
   }
 }
