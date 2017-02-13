@@ -2,7 +2,7 @@
   "id":2,
   "tags":[  
     {  
-      "name":"delta-egt-cruise",
+      "name":"delta-egt",
       "results":[  
         {  
           "datapoints":[  
@@ -2598,7 +2598,7 @@
       "mean": 15.330657585139331
     },
     {  
-      "name":"hpt-acc-position-cruise",
+      "name":"hpt-acc",
       "results":[
         {  
           "datapoints":[  
@@ -5407,8 +5407,5 @@
       "time":1412163600000,
       "label":"Default"
     }
-  ],
-  "max":35.4784,
-  "min":7.6531,
-  "mean":15.330657585139331
+  ]
 }
