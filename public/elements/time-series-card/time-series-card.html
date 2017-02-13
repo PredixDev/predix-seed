@@ -2,7 +2,6 @@
 <link rel="import" href="../../bower_components/px-card/px-card.html">
 <link rel="import" href="../../bower_components/px-vis-timeseries/px-vis-timeseries.html">
 <link rel="import" href="../../bower_components/px-rangepicker/px-rangepicker.html">
-<link rel="import" href="../../bower_components/px-vis/px-vis-data.html">
 <link rel="import" href="../../bower_components/px-vis/px-vis-data-converter.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
@@ -12,19 +11,45 @@
   <template>
     <px-card header-text="Time Series Card">
 
+      <iron-ajax
+        url="/api/time-series/delta-egt/2?name=Compressor-2015:CompressionRatio&starttime=1y-ago"
+        id="tsQueryElement"
+        last-response="{{rawTsData}}"
+        content-type="application/json"
+        auto></iron-ajax>
+
       <px-rangepicker
         id="rangepicker"
         range="{{range}}"
-        date-format="MM/DD/YYYY"
+        date-format="YYYY/MM/DD"
         time-format="hh:mm:ss A"
         show-buttons="true">
       </px-rangepicker>
+
+      <px-vis-data-converter
+        data-key="data"
+        id-key="name"
+        original-data="[[originalData]]"
+        series-config="{{seriesConfig}}"
+        chart-data="{{chartData}}">
+      </px-vis-data-converter>
+
       <px-vis-timeseries
-        id="timeSerie"
+        width="800"
+        height="400"
+        enable-tooltip
+        hide-gridlines-x
+        include-all-series
+        register-location="side"
+        show-threshold-box="false"
         options = '{
-          "enableTooltip":true,
-          "registerLocation":"none",
           "eventConfig": {
+            "Default":{
+              "color": "red",
+              "icon": "fa-circle",
+              "type": "fa",
+              "offset":[0,0]
+            },
             "Recalibrate":{
               "color": "blue",
               "icon": "fa-camera",
@@ -33,26 +58,17 @@
             },
             "Fan start":{
               "color": "green",
-              "icon": "fa-stop",
-              "type": "fa",
+              "icon": "\uf015",
+              "type": "unicode",
               "offset":[0,0]
             },
             "Fan stop":{
               "color": "red",
-              "icon": "fa-stop",
+              "icon": "fa-cloud",
               "type": "fa",
               "offset":[0,0]
             }
           },
-          "thresholdData":[
-            { "for":"y0", "type":"max", "value":35.4784 },
-            { "for":"y0", "type":"min", "value":7.6531 },
-            { "for":"y0", "type":"mean", "value":15.330657585139331 },
-            { "for":"y1", "type":"mean", "value":75 },
-            { "for":"", "type":"quartile", "value":17 }
-          ],
-          "showThresholdBox":false,
-          "selectionType": "xAxis",
           "xAxisConfig": {
             "title": "Date",
             "tickFormat": "%b %d"
@@ -61,51 +77,12 @@
             "title": "Hz"
           }
         }'
-        series-config='[[seriesConfig]]'
-        default-series-config='{
-            "type": "line",
-            "yAxisUnit": "Hz",
-            "x": "TimeStamp",
-            "xMin": "dynamic",
-            "xMax": "dynamic",
-            "yMin": 0,
-            "yMax": "dynamic"
-          }'
+        range="[[range]]"
+        series-config="[[seriesConfig]]"
         chart-data="[[chartData]]"
         event-data="[[eventData]]"
-        range="[[range]]"
-        height="400">
+        threshold-data="[[thresholdData]]">
       </px-vis-timeseries>
-      <px-vis-data
-        id = "seriesAjax"
-        request-data = '[{
-          "type":"line",
-          "name":"mySeries",
-            "url":"../../bower_components/px-demo-data/demo-data/aviation/delta-egt-cruise.json"
-          },{
-            "type":"line",
-            "url":"../../bower_components/px-demo-data/demo-data/aviation/hpt-acc-position-cruise.json"
-        }]'
-        data-var="originalData"
-        lists="append"
-        response-data="{{originalData}}">
-      </px-vis-data>
-      <px-vis-data-converter
-        data-key = "series"
-        id-key = "name"
-        original-data = '[[originalData]]'
-        series-config="{{seriesConfig}}"
-        chart-data="{{chartData}}">
-      </px-vis-data-converter>
-      <px-vis-data
-        id = "eventAjax"
-        request-data = '[{
-            "url":"../../bower_components/px-demo-data/demo-data/aviation/delta-egt-cruise-events.json"
-        }]'
-        data-var="eventData"
-        lists = "flat"
-        response-data="{{eventData}}">
-      </px-vis-data>
 
     </px-card>
   </template>
@@ -114,22 +91,83 @@
 Polymer({
   is: 'time-series-card',
   properties: {
-    config: {
-        type: Object
+    originalData: {
+      type: Array
+    },
+    eventData: {
+      type: Array
+    },
+    thresholdData: {
+      type: Array
+    },
+    rawTsData: {
+      type: Object,
+      observer: '_formatDataForChart'
     }
   },
 
-  ready: function(){
-    var rangepicker = this.$.rangepicker,
-        btnSnap = this.$.btnSnap,
-        timeSerie = this.$.timeSerie;
+  _formatDataForChart: function(raw) {
+    // for px vis data converter
+    // github.com/PredixDev/px-vis/blob/master/px-vis-data-converter.html#L21
+    var data = raw.tags.map(function(n) {
+      var datapoints = n.results[0].values || n.results[0].datapoints;
 
-    rangepicker.range = {
-        "from":"2014-04-10T04:01:00.000Z",
-        "to":"2015-04-01T20:42:00.000Z"
-    };
+      var pointXArr = datapoints.map(function(point) {
+        return point[0];
+      });
 
+      return {
+        name: n.name,
+        data: datapoints,
+        range: {
+          max: pointXArr[pointXArr.length - 1],
+          min: pointXArr[0]
+        },
+        threshold: ['max', 'min', 'mean'].map(function(d) {
+          return {
+            for: n.name,
+            type: d,
+            value: n[d]
+          }
+        })
+      }
+    });
+
+    var thresholdData = data.reduce(function(prev, next) {
+      prev = prev.concat(next.threshold);
+      return prev;
+    }, []);
+
+    this.eventData = raw.events;
+    this.originalData = data;
+    this.thresholdData = thresholdData;
+
+    // count for rangepicker
+    var rangeFrom = Math.min.apply(null, data.map(function(n) {
+      return n.range.min;
+    }));
+    var rangeTo = Math.max.apply(null, data.map(function(n) {
+      return n.range.max;
+    }));
+
+    this._updateRangePicker(rangeFrom, rangeTo);
   },
+  // set time range for rangepicker
+  _updateRangePicker: function(from, to) {
+    var range = {
+      from: new Date(from).toISOString(),
+      to: new Date(to).toISOString(),
+    };
+    var $rangePicker = this.$.rangepicker;
 
+    $rangePicker.range = range;
+
+    ['from', 'to'].map(function(which) {
+      var picker = $rangePicker.querySelector('px-calendar-picker#' + which);
+      picker.blockDatesBefore = range.from;
+      picker.blockDatesAfter = range.to;
+      picker.baseDate = moment(range[which]);
+    });
+  }
 });
 </script>
