@@ -35,6 +35,7 @@
     "px-deck-selector": "^1.5.5",
     "px-sample-cards": "^0.7.1",
     "px-theme": "^2.0.1",
+    "px-dark-theme": "^1.0.1",
     "px-vis-timeseries": "^0.6.2",
     "px-vis-xy-chart": "^0.3.0",
     "px-view-header": "^0.2.0",
