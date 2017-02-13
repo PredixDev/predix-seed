@@ -41,10 +41,16 @@
         enable-tooltip
         hide-gridlines-x
         include-all-series
-        register-location="top"
+        register-location="side"
         show-threshold-box="false"
         options = '{
           "eventConfig": {
+            "Default":{
+              "color": "red",
+              "icon": "fa-circle",
+              "type": "fa",
+              "offset":[0,0]
+            },
             "Recalibrate":{
               "color": "blue",
               "icon": "fa-camera",
@@ -53,13 +59,13 @@
             },
             "Fan start":{
               "color": "green",
-              "icon": "fa-stop",
-              "type": "fa",
+              "icon": "\uf015",
+              "type": "unicode",
               "offset":[0,0]
             },
             "Fan stop":{
               "color": "red",
-              "icon": "fa-stop",
+              "icon": "fa-cloud",
               "type": "fa",
               "offset":[0,0]
             }
@@ -78,6 +84,7 @@
         event-data="[[eventData]]"
         threshold-data="[[thresholdData]]">
       </px-vis-timeseries>
+
     </px-card>
   </template>
 </dom-module>
