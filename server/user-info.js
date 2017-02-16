@@ -2,7 +2,8 @@
 //function below hits the UAA endpoint with the access token and fetches user information 
 var request = require('request');
 
-var getUserInfo = function(accessToken, uaaURL, callback){
+var getUserInfo = function (accessToken, uaaURL, callback) {
+  //console.log("Access Token: " + accessToken + "\nuaaURL: " + uaaURL);
 	var options = {
 		method: 'GET',
 		url: uaaURL + '/userinfo',
@@ -11,15 +12,28 @@ var getUserInfo = function(accessToken, uaaURL, callback){
 		}
 	};
 
-	request(options, function(err, response, body) {
-        if (!err) {
-            var userDetails = JSON.parse(body);
-            callback(userDetails);
+	request(options, function (err, response, body) {
+		if (!err) {
+			var userDetails = JSON.parse(body);
+			callback(userDetails);
 		} else {
-            console.log(response.statusCode);
+			console.log(response.statusCode);
 			console.log('ERROR fetching client token: ' + err);
 		}
 	});
 };
 
-module.exports = getUserInfo;
+module.exports = function(uaaURL){
+  return function(req, res, next){
+    if (!req.user.details){
+      getUserInfo(req.session.passport.user.ticket.access_token, uaaURL, function(userDetails){
+        console.log(userDetails);
+        req.user.details = userDetails;
+        next();
+      });
+    }
+    else{
+      next();
+    }
+  }
+};
