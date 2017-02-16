@@ -4,6 +4,7 @@
 	"classificationUri": "/classification/GE_COMPRESSOR_CYLINDER",
 	"assetId": "compressor-2017",
 	"description": "GE Compressor",
+	"filter": "group=/group/plant-richmond-refinery",
 	"group": "/group/plant-richmond-refinery",
 	"assetTag": {
 		"crank-frame-compressionratio": {

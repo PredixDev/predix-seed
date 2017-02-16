@@ -1,0 +1,18 @@
+[
+  {
+    "filter": "parent=/group/root",
+    "parent": "/group/root",
+    "description": "Predix Energy",
+    "uri": "/group/enterprise-predix",
+    "level": "enterprise",
+    "name": "Predix Energy"
+  },
+  {
+    "filter": "parent=/group/enterprise-predix",
+    "parent": "/group/enterprise-predix",
+    "description": "Richmond Refinery",
+    "uri": "/group/plant-richmond-refinery",
+    "level": "plant",
+    "name": "Richmond Refinery 1"
+  }
+]
