@@ -123,7 +123,18 @@ if (!uaaIsConfigured) { // no restrictions
   //Use this route to make the entire app secure.  This forces login for any path in the entire app.
   app.use('/', passport.authenticate('main', {
     noredirect: false //Don't redirect a user to the authentication page, just show an error
-    }),
+  }),
+  function (req, res, next) { //workaround to get userinfo from accesstoken
+      if (!req.user.details) {
+        userInfo(req.session.passport.user.ticket.access_token, config.uaaURL, function (userDetails) {
+          req.user.details = userDetails;
+          console.log(req.user.details);
+          next();
+        });
+      } else {
+        next();
+      }
+    },
     express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public'))
   );
 
