@@ -25,7 +25,7 @@
     <header role="banner" class="flex flex--middle">
       <div class="viewport flex">
         <h3 class="flex__item">
-          <ge-svg-logo class="u-mr--"></ge-svg-logo> Web Application
+          <ge-svg-logo class="u-mr--"></ge-svg-logo> RMD Reference App
         </h3>
         <div class="flex__item">
           <div class="flex" style="text-align:right;">
@@ -53,15 +53,15 @@
             use-hash-as-path>
           </app-location>
 
-          <!-- /blankpage route and view -->
+          <!-- main /rmd route and view -->
           <app-route
             route="[[_route]]"
-            pattern="/blankpage"
-            active="{{_blankpageActive}}">
+            pattern="/rmd"
+            active="{{_rmdActive}}">
           </app-route>
           <px-view
-            active="[[_blankpageActive]]"
-            element-href="/elements/views/blankpage-view.html">
+            active="[[_rmdActive]]"
+            element-href="/elements/views/rmd-view.html">
           </px-view>
 
         </main>
@@ -90,20 +90,29 @@
           value: function() {
             return {
               version: '1.0',
-              name: 'Predix UI Seed - Simplest Form',
+              name: 'Predix UI Seed - RMD Reference App',
               session: {}
             }
           }
         },
 
+        // Links to appear in the main navigation - px-app-nav component
+        // See http://fontawesome.io/icons/ for available icons
         navItems: {
           type: Array,
           value: function() {
-            return [{
-              "label": "Blank Page",
-              "path": "/blankpage",
-              "icon": "fa-file-o"
-            }]
+            return [
+              {
+                "label": "Asset Monitoring",
+                "path": "/rmd",
+                "icon": "fa-line-chart"
+              },
+              {
+                "label": "About",
+                "path": "/about",
+                "icon": "fa-info-circle"
+              }
+            ]
           }
         },
 
@@ -134,7 +143,7 @@
         // set default route to /dashboards
         var l = window.location;
         if((l.hash === "#/" || l.hash === "") && l.pathname === "/") {
-          l.hash = "/blankpage";
+          l.hash = "/rmd";
         }
       }
 
