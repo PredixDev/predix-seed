@@ -3,7 +3,7 @@
 var request = require('request');
 
 var getUserInfo = function (accessToken, uaaURL, callback) {
-  //console.log("Access Token: " + accessToken + "\nuaaURL: " + uaaURL);
+
 	var options = {
 		method: 'GET',
 		url: uaaURL + '/userinfo',
