@@ -13,6 +13,7 @@ module.exports = function(gulp) {
         stripComments: true,
         // list of files to exclude or to lazy-load
         excludes: [
+          'public/bower_components/px-polymer-font-awesome/font-awesome-icons.html',
           'public/bower_components/px-vis/px-vis-imports.html',
           'public/bower_components/pxmoment-timezone/builds/moment-timezone-with-data.min.js',
           'public/bower_components/numbro/dist/languages.min.js',
