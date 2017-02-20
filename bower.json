@@ -23,6 +23,7 @@
     "iron-pages": "~1.0.8",
     "px-view": "^1.0.3",
     "app-route": "https://github.build.ge.com/foundry-sh/app-route.git#master",
+    "px-polymer-font-awesome": "https://github.build.ge.com/foundry-sh/px-polymer-font-awesome.git#master",
     "px-overlay": "^0.4.0",
     "px-simple-line-chart": "^1.7.0",
     "px-simple-horizontal-bar-chart": "^0.8.0",
@@ -63,5 +64,10 @@
     "px-buttons-design": "^1.1.2",
     "px-actionable-text-icons-design": "^1.1.1",
     "px-spacing-design": "^0.4.1"
+  },
+  "resolutions": {
+    "px-polymer-font-awesome": "master",
+    "px-context-browser": "master",
+    "app-route": "master"
   }
 }
