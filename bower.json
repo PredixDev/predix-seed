@@ -41,7 +41,7 @@
     "px-view-header": "^0.2.0",
     "imd": "^1.0.0",
     "fetch": "^2.0.1",
-    "px-vis-timeseries": "1.0.0-beta"
+    "px-vis-timeseries": "1.0.0-beta-2"
   },
   "devDependencies": {
     "px-forms-design": "^1.1.1",
