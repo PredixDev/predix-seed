@@ -36,12 +36,12 @@
     "px-sample-cards": "^0.7.1",
     "px-theme": "^2.0.1",
     "px-dark-theme": "^1.0.1",
-    "px-vis-timeseries": "~1.0.0",
     "px-vis-xy-chart": "^0.3.0",
     "px-view-header": "^0.2.0",
     "imd": "^1.0.0",
     "fetch": "^2.0.1",
-    "px-vis-timeseries": "1.0.0-beta-2"
+    "px-vis-timeseries": "1.0.0-beta-2",
+    "es6-shim": "^0.35.3"
   },
   "devDependencies": {
     "px-forms-design": "^1.1.1",

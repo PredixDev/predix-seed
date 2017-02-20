@@ -5,7 +5,7 @@
 <dom-module id="px-deck">
 
   <template>
-    <template id="cards" is="dom-repeat" items="[[_cards]]" filter="_filterCards">
+    <template id="cards" is="dom-repeat" items="[[_cards]]">
       <px-view
         id="[[item.id]]"
         active
@@ -13,9 +13,6 @@
         element-data="[[item]]"></px-view>
     </template>
   </template>
-
-  <!-- include lodash utility library -->
-  <script src="../../bower_components/lodash/dist/lodash.min.js"></script>
 
   <script>
     Polymer({
@@ -37,15 +34,6 @@
 
       _refreshFilter: function() {
         this.$.cards.render();
-      },
-
-      _cardIsVisible: function(card) {
-        var includes = _.includes(this._cards, card);
-        return includes;
-      },
-
-      _filterCards: function(card) {
-        return this._cardIsVisible(card);
       },
 
       _computeCards: function() {

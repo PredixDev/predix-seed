@@ -19,9 +19,6 @@
 
   </template>
 
-  <!-- include lodash utility library -->
-  <script src="../../bower_components/lodash/dist/lodash.min.js"></script>
-
   <script>
     Polymer({
 
@@ -78,9 +75,9 @@
           this.set('_decks', []);
         }
         // find existing deck
-        var that = this;
-        var index = _.findIndex(this._decks, function(o) {
-          return o.id === that.deckId
+        var _this = this;
+        var index = this._decks.findIndex(function(o) {
+          return o.id === _this.deckId;
         });
         if(index === -1 && this.deckId) {
           // deck is new
