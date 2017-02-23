@@ -20,6 +20,7 @@ module.exports = function(gulp) {
           'public/bower_components/px-tooltip/px-tooltip.html',
           'public/bower_components/px-view/px-view.html',
           'public/bower_components/iron-meta/iron-meta.html',
+          'public/bower_components/px-context-browser/px-context-browser.html',
           'public/bower_components/iron-iconset-svg/iron-iconset-svg.html',
           'public/bower_components/iron-icon/iron-icon.html',
           'public/bower_components/iron-ajax/iron-ajax.html',
