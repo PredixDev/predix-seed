@@ -18,6 +18,8 @@ var proxy = require('./routes/proxy'); // used when requesting data from real se
 var config = require('./predix-config');
 // configure passport for authentication with UAA
 var passportConfig = require('./passport-config');
+// getting user information from UAA
+var userInfo = require('./routes/user-info');
 
 // if running locally, we need to set up the proxy from local config file:
 var node_env = process.env.node_env || 'development';
@@ -84,11 +86,19 @@ app.use('/mock-api/time-series', jsonServer.router(mockTimeSeriesRoutes));
 
 if (!uaaIsConfigured) { // no restrictions
   app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public')));
+  app.get('/userinfo', function(req, res) {
+    res.send({user_name: 'Sample User'});
+  });
 } else {
   //login route redirect to predix uaa login page
   app.get('/login',passport.authenticate('predix', {'scope': ''}), function(req, res) {
     // The request will be redirected to Predix for authentication, so this
     // function will not be called.
+  });
+
+  // route to fetch user info from UAA for use in the browser
+  app.get('/userinfo', userInfo(config.uaaURL), function(req, res) {
+    res.send(req.user.details);
   });
 
   // access real Predix services using this route.
