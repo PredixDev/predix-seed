@@ -18,6 +18,8 @@ var proxy = require('./proxy'); // used when requesting data from real services.
 var config = require('./predix-config');
 // configure passport for authentication with UAA
 var passportConfig = require('./passport-config');
+// getting user information from UAA
+var userInfo = require('./user-info');
 
 // if running locally, we need to set up the proxy from local config file:
 var node_env = process.env.node_env || 'development';
@@ -88,11 +90,19 @@ app.use('/api/time-series', jsonServer.router(timeSeriesRoutes));
 
 if (!uaaIsConfigured) { // no restrictions
   app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public')));
+  app.get('/userinfo', function(req, res) {
+    res.send({user_name: 'Sample User'});
+  });
 } else {
   //login route redirect to predix uaa login page
   app.get('/login',passport.authenticate('predix', {'scope': ''}), function(req, res) {
     // The request will be redirected to Predix for authentication, so this
     // function will not be called.
+  });
+
+  // route to fetch user info from UAA for use in the browser
+  app.get('/userinfo', userInfo(config.uaaURL), function(req, res) {
+    res.send(req.user.details);
   });
 
   // access real Predix services using this route.
@@ -123,7 +133,7 @@ if (!uaaIsConfigured) { // no restrictions
   //Use this route to make the entire app secure.  This forces login for any path in the entire app.
   app.use('/', passport.authenticate('main', {
     noredirect: false //Don't redirect a user to the authentication page, just show an error
-    }),
+  }),
     express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public'))
   );
 
