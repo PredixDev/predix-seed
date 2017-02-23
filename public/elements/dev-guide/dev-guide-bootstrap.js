@@ -56,7 +56,7 @@
       var configProps = ['id', 'completedStepIcon', 'currentStepIcon', 'stepClickEventName'];
 
       pathGuideEl.id = "path-guide";
-      pathGuideEl.completedStepIcon = "fa-check";
+      pathGuideEl.completedStepIcon = "fa-diamond";
       pathGuideEl.currentStepIcon = "fa-circle";
       pathGuideEl.stepClickEventName = window.predix.featureTourEventName;
 
@@ -64,39 +64,51 @@
         pathGuideEl[configProps[i]] = window.predix.pathGuideConfig[configProps[i]] || pathGuideEl[configProps[i]];
       }
 
-      pathGuideEl.pathState =
-      {
-        name: 'Seed Development',
-        steps:
-        [
+      pathGuideEl.steps = [
           { id: 1, label: "Basic App", started: true, completed: true, current: false},
           { id: 2, label: "UAA", started: true, completed: true, current: false},
           { id: 3, label: "Asset Data", started: false, completed: false, current: true},
           { id: 4, label: "Analytics", started: false, completed: false, current: false}
-        ]
-      };
+        ];
       pathGuideEl.style.position = 'absolute';
       var width = pathGuideEl.clientWidth;
       var halfWidth = width / 2;
       pathGuideEl.style.left = "50%";
       pathGuideEl.style.marginLeft = "-" + halfWidth + "px";
       pathGuideEl.style.marginLeft = "-130px"; // <-------- temporary code
-      pathGuideEl.style.top = '10px';
+      pathGuideEl.style.top = '20px';
 
-      // pathGuideEl.customStyle['--px-path-guide-step-diameter'] = '20px';
-      // pathGuideEl.customStyle['--px-path-guide-step-radius'] = '10px';
-      // pathGuideEl.customStyle['--px-path-guide-line-color'] = '#fff';
-      // pathGuideEl.customStyle['--px-path-guide-fill-color'] = '#888';
-      // pathGuideEl.customStyle['--px-path-guide-font-color'] = '#fff';
-      // pathGuideEl.customStyle['--px-path-guide-connector-length'] = '100px';
-      // pathGuideEl.customStyle['--px-path-guide-current-step-diameter'] = '24px';
-      // pathGuideEl.customStyle['--px-path-guide-current-step-radius'] = '12px';
-      // pathGuideEl.customStyle['--px-path-guide-current-step-fill-color'] = '#fff';
-      // pathGuideEl.customStyle['--px-path-guide-current-step-line-color'] = '#fff';
-      // pathGuideEl.customStyle['--px-path-guide-current-step-font-color'] = '#888';
-      // pathGuideEl.customStyle['--px-path-guide-current-step-font-weight'] = 'bold';
-      // pathGuideEl.updateStyles();
+      /* icon styles */
+      pathGuideEl.customStyle['--px-path-guide-icon-size'] = '16px';
+      pathGuideEl.customStyle['--px-path-guide-icon-color'] = '#3ab4d4';
+      pathGuideEl.customStyle['--px-path-guide-icon-top'] = '-8px';
+      pathGuideEl.customStyle['--px-path-guide-icon-left'] = '-8px';
+      pathGuideEl.customStyle['--px-path-guide-current-icon-size'] = '20px';
+      pathGuideEl.customStyle['--px-path-guide-current-icon-color'] = '#3ab4d4';
+      pathGuideEl.customStyle['--px-path-guide-current-icon-top'] = '-10px';
+      pathGuideEl.customStyle['--px-path-guide-current-icon-left'] = '-10px';
 
+      /* connector styles */
+      pathGuideEl.customStyle['--px-path-guide-connector-color'] = '#3ab4d4';
+      pathGuideEl.customStyle['--px-path-guide-connector-length'] = '150px';
+
+      /* node/step styles */
+      pathGuideEl.customStyle['--px-path-guide-step-diameter'] = '30px';
+      pathGuideEl.customStyle['--px-path-guide-step-radius'] = '15px';
+      pathGuideEl.customStyle['--px-path-guide-step-border-color'] = '#3ab4d4';
+      pathGuideEl.customStyle['--px-path-guide-step-fill-color'] = 'transparent';
+      pathGuideEl.customStyle['--px-path-guide-step-label-color'] = '#fff';
+      pathGuideEl.customStyle['--px-path-guide-step-label-font-weight'] = 'normal';
+      pathGuideEl.customStyle['--px-path-guide-current-step-diameter'] = '50px';
+      pathGuideEl.customStyle['--px-path-guide-current-step-radius'] = '25px';
+      pathGuideEl.customStyle['--px-path-guide-current-step-border-color'] = '#3ab4d4';
+      pathGuideEl.customStyle['--px-path-guide-current-step-fill-color'] = 'transparent';
+
+      /* label styles */
+      pathGuideEl.customStyle['--px-path-guide-current-step-label-color'] = '#3ab4d4';
+      pathGuideEl.customStyle['--px-path-guide-current-step-label-font-weight'] = 'bold';
+
+      pathGuideEl.updateStyles();
 
       window.predix.pathGuideElement = pathGuideEl;
       document.body.appendChild(pathGuideEl);

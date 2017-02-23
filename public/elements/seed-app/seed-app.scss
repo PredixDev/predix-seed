@@ -35,7 +35,7 @@ $inuit-enable-layout--full  : true;
 @import "../../seed-theme.scss";
 
 [role=banner], [role=contentinfo] {
-  height: calculateRem(60px);
+  height: calculateRem(80px);
   background: var(--px-seed-header-background-color);
 }
 

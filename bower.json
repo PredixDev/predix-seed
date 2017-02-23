@@ -39,6 +39,7 @@
     "px-vis-timeseries": "^0.6.2",
     "px-vis-xy-chart": "^0.3.0",
     "px-view-header": "^0.2.0",
+    "px-path-guide": "^1.0.0",
     "string": "^3.3.3"
   },
   "devDependencies": {
