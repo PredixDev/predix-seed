@@ -4,8 +4,6 @@ applications:
     memory: 64M
     buildpack: nodejs_buildpack
     command: node server/app.js
-    disk_quota: 512M
-    random-route: true
     path: dist
 #services:
  # - <your-name>-secure-uaa-instance
