@@ -96,16 +96,16 @@
       pathGuideEl.customStyle['--px-path-guide-step-diameter'] = '30px';
       pathGuideEl.customStyle['--px-path-guide-step-radius'] = '15px';
       pathGuideEl.customStyle['--px-path-guide-step-border-color'] = '#3ab4d4';
-      pathGuideEl.customStyle['--px-path-guide-step-fill-color'] = 'transparent';
-      pathGuideEl.customStyle['--px-path-guide-step-label-color'] = '#fff';
-      pathGuideEl.customStyle['--px-path-guide-step-label-font-weight'] = 'normal';
+      pathGuideEl.customStyle['--px-path-guide-step-fill-color'] = '#2c404c';
       pathGuideEl.customStyle['--px-path-guide-current-step-diameter'] = '50px';
       pathGuideEl.customStyle['--px-path-guide-current-step-radius'] = '25px';
       pathGuideEl.customStyle['--px-path-guide-current-step-border-color'] = '#3ab4d4';
-      pathGuideEl.customStyle['--px-path-guide-current-step-fill-color'] = 'transparent';
+      pathGuideEl.customStyle['--px-path-guide-current-step-fill-color'] = '#0a9ec1';
 
       /* label styles */
-      pathGuideEl.customStyle['--px-path-guide-current-step-label-color'] = '#3ab4d4';
+      pathGuideEl.customStyle['--px-path-guide-step-label-color'] = '#999';
+      pathGuideEl.customStyle['--px-path-guide-step-label-font-weight'] = 'normal';
+      pathGuideEl.customStyle['--px-path-guide-current-step-label-color'] = '#fff';
       pathGuideEl.customStyle['--px-path-guide-current-step-label-font-weight'] = 'bold';
 
       pathGuideEl.updateStyles();
