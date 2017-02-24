@@ -86,7 +86,7 @@
       pathGuideEl.customStyle['--px-path-guide-current-icon-size'] = '20px';
       pathGuideEl.customStyle['--px-path-guide-current-icon-color'] = '#3ab4d4';
       pathGuideEl.customStyle['--px-path-guide-current-icon-top'] = '-10px';
-      pathGuideEl.customStyle['--px-path-guide-current-icon-left'] = '-10px';
+      pathGuideEl.customStyle['--px-path-guide-current-icon-left'] = '-9px';
 
       /* connector styles */
       pathGuideEl.customStyle['--px-path-guide-connector-color'] = '#3ab4d4';
@@ -97,10 +97,10 @@
       pathGuideEl.customStyle['--px-path-guide-step-radius'] = '15px';
       pathGuideEl.customStyle['--px-path-guide-step-border-color'] = '#3ab4d4';
       pathGuideEl.customStyle['--px-path-guide-step-fill-color'] = '#2c404c';
-      pathGuideEl.customStyle['--px-path-guide-current-step-diameter'] = '50px';
-      pathGuideEl.customStyle['--px-path-guide-current-step-radius'] = '25px';
-      pathGuideEl.customStyle['--px-path-guide-current-step-border-color'] = '#3ab4d4';
-      pathGuideEl.customStyle['--px-path-guide-current-step-fill-color'] = '#0a9ec1';
+      pathGuideEl.customStyle['--px-path-guide-current-step-diameter'] = '40px';
+      pathGuideEl.customStyle['--px-path-guide-current-step-radius'] = '20px';
+      pathGuideEl.customStyle['--px-path-guide-current-step-border-color'] = '#fff';
+      pathGuideEl.customStyle['--px-path-guide-current-step-fill-color'] = '#2c404c';
 
       /* label styles */
       pathGuideEl.customStyle['--px-path-guide-step-label-color'] = '#999';

@@ -40,6 +40,7 @@
 
  .hopscotch-bubble {
    --main-bg-color: #f5eb9a;
+   border-radius: 7px;
  }
 
 .animated {
@@ -406,7 +407,7 @@ div.hopscotch-bubble .hopscotch-bubble-close {
   appearance: none;
   border: 0;
   color: #000;
-  background: transparent url(../img/sprite-green.png) -192px -92px no-repeat;
+  background: transparent url(img/sprite-green.png) -192px -92px no-repeat;
   display: block;
   padding: 8px;
   position: absolute;
@@ -414,25 +415,25 @@ div.hopscotch-bubble .hopscotch-bubble-close {
   text-indent: -9999px;
   width: 8px;
   height: 8px;
-  top: 0;
-  right: 0;
+  top: 5px;
+  right: 5px;
 }
 div.hopscotch-bubble .hopscotch-bubble-close.hide,
 div.hopscotch-bubble .hopscotch-bubble-close.hide-all {
   display: none;
 }
 div.hopscotch-bubble .hopscotch-bubble-number {
-  background: transparent url(../img/sprite-green.png) 0 0 no-repeat;
-  color: #fff;
+  color: #000;
   display: block;
   float: left;
-  font-size: 17px;
+  font-size: 24px;
   font-weight: bold;
   line-height: 31px;
   padding: 0 10px 0 0;
   text-align: center;
   width: 30px;
   height: 30px;
+  margin-top: -7px;
 }
 div.hopscotch-bubble .hopscotch-bubble-arrow-container {
   position: absolute;
@@ -448,7 +449,6 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.up {
   top: -17px;
   left: 10px;
 }
-
 div.hopscotch-bubble .hopscotch-bubble-arrow-container.up .hopscotch-bubble-arrow {
   border-bottom: 17px solid var(--main-bg-color);
   border-left: 17px solid transparent;
@@ -457,58 +457,39 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.up .hopscotch-bubble-arro
 }
 
 div.hopscotch-bubble .hopscotch-bubble-arrow-container.down {
-  bottom: -39px;
   left: 10px;
 }
 div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-arrow {
-  border-top: 17px solid #ffffff;
+  border-top: 17px solid var(--main-bg-color);
   border-left: 17px solid transparent;
   border-right: 17px solid transparent;
   position: relative;
-  top: -24px;
 }
-div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-arrow-border {
-  border-top: 17px solid #000000;
-  border-top: 17px solid rgba(0, 0, 0, 0.5);
-  border-left: 17px solid transparent;
-  border-right: 17px solid transparent;
-}
+
 div.hopscotch-bubble .hopscotch-bubble-arrow-container.left {
   top: 10px;
   left: -22px;
 }
 div.hopscotch-bubble .hopscotch-bubble-arrow-container.left .hopscotch-bubble-arrow {
   border-bottom: 17px solid transparent;
-  border-right: 17px solid #ffffff;
+  border-right: 17px solid var(--main-bg-color);
   border-top: 17px solid transparent;
   position: relative;
-  left: 7px;
-  top: -34px;
+  left: 5px;
 }
-div.hopscotch-bubble .hopscotch-bubble-arrow-container.left .hopscotch-bubble-arrow-border {
-  border-right: 17px solid #000000;
-  border-right: 17px solid rgba(0, 0, 0, 0.5);
-  border-bottom: 17px solid transparent;
-  border-top: 17px solid transparent;
-}
+
 div.hopscotch-bubble .hopscotch-bubble-arrow-container.right {
   top: 10px;
-  right: -39px;
+  right: -37px;
 }
 div.hopscotch-bubble .hopscotch-bubble-arrow-container.right .hopscotch-bubble-arrow {
   border-bottom: 17px solid transparent;
-  border-left: 17px solid #ffffff;
+  border-left: 17px solid var(--main-bg-color);
   border-top: 17px solid transparent;
   position: relative;
-  left: -7px;
-  top: -34px;
+  left: -5px;
 }
-div.hopscotch-bubble .hopscotch-bubble-arrow-container.right .hopscotch-bubble-arrow-border {
-  border-left: 17px solid #000000;
-  border-left: 17px solid rgba(0, 0, 0, 0.5);
-  border-bottom: 17px solid transparent;
-  border-top: 17px solid transparent;
-}
+
 div.hopscotch-bubble .hopscotch-actions {
   margin: 10px 0 0;
   text-align: right;

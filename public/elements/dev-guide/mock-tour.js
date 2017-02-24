@@ -11,7 +11,7 @@ window.predix.hopscotchTour = {
       content: "Congratulations!  You have successfully installed a basic form of the Predix UI Seed, with essential features like header, navigation, content area and footer. The corresponding documentaion for this step is <a style=\"font-weight: bold; text-decoration: none;\" target=\"_new\" href=\"https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=2101&tag=2100&journey=Predix%20UI%20Seed&resources=2101,2225\">here</a>",
       target: "step-item-1",
       xOffset: -32,
-      yOffset: 40,
+      yOffset: 30,
       placement: "bottom",
     },
     {
@@ -60,7 +60,7 @@ window.predix.hopscotchTour = {
       content: "Congratulations!  You have successfully integrated your application frontend with UAA service.  This will allow you to secure all or specific portions of your application.  You can follow this <a target=\"_blank\" style=\"text-decoration: none; font-weight: bold;\" href=\"https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=2105&tag=2108&journey=UAA%20Dashboard\">link</a> to review the relevant guide for this step.",
       target: "step-item-2",
       xOffset: -32,
-      yOffset: 40,
+      yOffset: 30,
       placement: "bottom",
     },
     {
