@@ -14,15 +14,17 @@
 
       <!-- First option loads sample data from a json file in the server/sample-data directory. -->
       <!-- mock-asset-service -->
-      <iron-ajax url="/api/predix-asset/compressor-2017" id="assetQueryElement" last-response="{{rawAssetData}}" auto></iron-ajax>
+      <iron-ajax url="/mock-api/predix-asset/asset?filter=group=/group/plant-richmond-refinery" id="assetQueryElement" last-response="{{rawAssetData}}" auto></iron-ajax>
       <!-- end mock-asset-service -->
 
-      <!-- Second option loads compressor data from Predix Time Series directly. -->
+      <!-- Second option loads compressor data from Predix Time Series directly.
+            You can use this option if you used the fast install script. -->
       <!-- real-asset-service
       <iron-ajax url="/predix-api/predix-asset/asset/compressor-2017" id="assetQueryElement" last-response="{{rawAssetData}}" auto></iron-ajax>
       end real-asset-service -->
 
-      <!-- Third option loads jet engine data from Predix Time Series directly. -->
+      <!-- Third option loads jet engine data from Predix Time Series directly.
+            You can use this option if you inserted jet engine data using the Predix Toolkit -->
       <!-- <iron-ajax url="/predix-api/predix-asset/engine" id="assetQueryElement" last-response="{{rawAssetData}}" auto></iron-ajax> -->
 
     </px-card>

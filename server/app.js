@@ -13,13 +13,13 @@ var bodyParser = require('body-parser');
 var passport;  // only used if you have configured properties for UAA
 // simple in-memory session is used here. use connect-redis for production!!
 var session = require('express-session');
-var proxy = require('./proxy'); // used when requesting data from real services.
+var proxy = require('./routes/proxy'); // used when requesting data from real services.
 // get config settings from local file or VCAPS env var in the cloud
 var config = require('./predix-config');
 // configure passport for authentication with UAA
 var passportConfig = require('./passport-config');
 // getting user information from UAA
-var userInfo = require('./user-info');
+var userInfo = require('./routes/user-info');
 
 // if running locally, we need to set up the proxy from local config file:
 var node_env = process.env.node_env || 'development';
@@ -29,9 +29,7 @@ if (node_env === 'development') {
 	proxy.setUaaConfig(devConfig);
 }
 
-var windServiceURL = devConfig ? devConfig.windServiceURL : process.env.windServiceURL;
-
-console.log('************'+node_env+'******************');
+console.log('************ Environment: '+node_env+'******************');
 
 var uaaIsConfigured = config.clientId &&
     config.uaaURL &&
@@ -75,14 +73,12 @@ var server = app.listen(process.env.VCAP_APP_PORT || 5000, function () {
 SET UP MOCK API ROUTES
 *******************************************************/
 // Import route modules
-var viewServiceRoutes = require('./view-service-routes.js')();
-var assetRoutes = require('./predix-asset-routes.js')();
-var timeSeriesRoutes = require('./time-series-routes.js')();
+var mockAssetRoutes = require('./routes/mock-asset.js')();
+var mockTimeSeriesRoutes = require('./routes/mock-time-series.js')();
 
 // add mock API routes.  (Remove these before deploying to production.)
-app.use('/api/view-service', jsonServer.router(viewServiceRoutes));
-app.use('/api/predix-asset', jsonServer.router(assetRoutes));
-app.use('/api/time-series', jsonServer.router(timeSeriesRoutes));
+app.use('/mock-api/predix-asset', jsonServer.router(mockAssetRoutes));
+app.use('/mock-api/time-series', jsonServer.router(mockTimeSeriesRoutes));
 
 /****************************************************************************
 	SET UP EXPRESS ROUTES
@@ -122,13 +118,13 @@ if (!uaaIsConfigured) { // no restrictions
     });
 
   // example of calling a custom microservice.
-  if (windServiceURL && windServiceURL.indexOf('https') === 0) {
-    app.get('/windy/*', passport.authenticate('main', { noredirect: true}),
-      // if calling a secure microservice, you can use this middleware to add a client token.
-      // proxy.addClientTokenMiddleware,
-      proxy.customProxyMiddleware('/windy', windServiceURL)
-    );
-  }
+  // if (windServiceURL && windServiceURL.indexOf('https') === 0) {
+  //   app.get('/windy/*', passport.authenticate('main', { noredirect: true}),
+  //     // if calling a secure microservice, you can use this middleware to add a client token.
+  //     // proxy.addClientTokenMiddleware,
+  //     proxy.customProxyMiddleware('/windy', windServiceURL)
+  //   );
+  // }
 
   //Use this route to make the entire app secure.  This forces login for any path in the entire app.
   app.use('/', passport.authenticate('main', {

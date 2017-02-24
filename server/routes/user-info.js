@@ -27,7 +27,7 @@ module.exports = function(uaaURL){
   return function(req, res, next){
     if (!req.user.details){
       getUserInfo(req.session.passport.user.ticket.access_token, uaaURL, function(userDetails){
-        console.log(userDetails);
+        // console.log(userDetails);
         req.user.details = userDetails;
         next();
       });

@@ -77,16 +77,6 @@
           assert(appLocation !== null, 'app-location element was not found');
         });
 
-        test('There should be initially 3 app-route elements', function() {
-          var appRoutes = Polymer.dom(seedAppFixture.root).querySelectorAll('app-route');
-          assert(appRoutes.length === 3, 'app-route is not exactly 2 instances');
-        });
-
-        test('There should be initially 3 px-view elements', function() {
-          var pxViews = Polymer.dom(seedAppFixture.root).querySelectorAll('px-view');
-          assert(pxViews.length === 3, 'px-view is not exactly 2 instances');
-        });
-
         test('There should be a main element', function() {
           var main = Polymer.dom(seedAppFixture.root).querySelector('main');
           assert(main !== null, 'main element was not found');
@@ -112,11 +102,6 @@
         test('Menu item for blank page should be configured correctly', function() {
           var homeView = Polymer.dom(seedAppFixture.root).querySelector('px-view[element-href="/elements/views/blankpage-view.html"]');
           assert(homeView !== null, 'blank page menu navigation menu item was not found');
-        });
-
-        test('Menu item for dashboard should be configured correctly', function() {
-          var dashboardsView = Polymer.dom(seedAppFixture.root).querySelector('px-view[element-href="/elements/views/dashboards-view.html"]');
-          assert(dashboardsView !== null, 'dashboards menu navigation menu item was not found');
         });
 
       });

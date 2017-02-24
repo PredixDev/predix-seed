@@ -11,6 +11,7 @@
 <!-- px components -->
 <link rel="import" href="../../bower_components/px-app-nav/px-app-nav.html">
 <link rel="import" href="../../bower_components/px-view/px-view.html">
+<link rel="import" href="../../bower_components/px-login/px-login.html">
 
 <link rel="import" href="../ge-svg-logo/ge-svg-logo.html">
 <link rel="import" href="../predix-logo/predix-logo.html">
@@ -22,13 +23,13 @@
     <!-- apply imported seed app style module -->
     <style include="seed-app-styles"></style>
 
-    <header role="banner" class="flex flex--middle">
-      <div class="viewport flex">
-        <h3 class="flex__item app-title"><ge-svg-logo class="u-mr--"></ge-svg-logo> Seed Application</h3>
-        <div class="flex__item">
-          <div class="flex" style="text-align:right;">
-            <h3 class="flex__item weight--normal logo">Powered by <predix-logo style="display:inline-block; width: 82px;" class="flex__item"></predix-logo></h3>
-          </div>
+    <header role="banner">
+      <div class="viewport flex flex--justify flex--middle">
+        <h3>
+          <ge-svg-logo class="u-mr--"></ge-svg-logo> RMD Reference App
+        </h3>
+        <div>
+          <px-login style="margin-left: auto;" user-name="Sample User"></px-login>
         </div>
       </div>
     </header>
@@ -51,40 +52,16 @@
             use-hash-as-path>
           </app-location>
 
-          <!-- /dashboards route and view -->
+          <!-- main /rmd route and view -->
           <app-route
             route="[[_route]]"
-            pattern="/dashboards"
-            active="{{_dashboardsActive}}">
-          </app-route>
-
-          <px-view
-            active="[[_dashboardsActive]]"
-            element-href="/elements/views/dashboards-view.html">
-          </px-view>
-
-          <!-- /blankpage route and view -->
-          <app-route
-            route="[[_route]]"
-            pattern="/blankpage"
-            active="{{_blankpageActive}}">
+            pattern="/rmd"
+            active="{{_rmdActive}}">
           </app-route>
           <px-view
-            active="[[_blankpageActive]]"
-            element-href="/elements/views/blankpage-view.html">
+            active="[[_rmdActive]]"
+            element-href="/elements/views/rmd-view.html">
           </px-view>
-
-          <!-- /winddata route and view -->
-          <app-route
-            route="[[_route]]"
-            pattern="/winddata"
-            active="{{_winddataActive}}">
-          </app-route>
-          <px-view
-            active="[[_winddataActive]]"
-            element-href="/elements/views/winddata-view.html">
-          </px-view>
-
           <!-- /simple-asset route and view -->
           <app-route
             route="[[_route]]"
@@ -94,7 +71,7 @@
           <px-view
             active="[[_simple-assetActive]]"
             element-href="/elements/views/simple-asset-view.html">
-          </px-view>
+         </px-view>
 
         </main>
 
@@ -121,40 +98,36 @@
           value: function() {
             return {
               version: '1.0',
-              name: 'Predix UI Seed',
+              name: 'Predix UI Seed - RMD Reference App',
               session: {}
             }
           }
         },
 
+        // Links to appear in the main navigation - px-app-nav component
+        // See http://fontawesome.io/icons/ for available icons
         navItems: {
           type: Array,
           value: function() {
-            return [{
-              "label": "Dashboards",
-              "path": "/dashboards",
-              "icon": "fa-tachometer"
-            }, {
-              "label": "Blank Page",
-              "path": "/blankpage",
-              "icon": "fa-file"
-            }
-            //Uncomment this block to show the Simple Asset navigation item on the menu.
-            /* // asset-nav-item
-            ,{
-              "label": "Simple Asset",
-              "path": "/simple-asset",
-              "icon": "fa-sitemap"
-            }
-            // end asset-nav-item */
-            //Uncomment this block to show the Wind Data navigation item on the menu.
-            /*
-            ,{
-              "label": "Wind Data",
-              "path": "/winddata",
-              "icon": "fa-line-chart"
-            }
-            */
+            return [
+              {
+                "label": "Asset Monitoring",
+                "path": "/rmd",
+                "icon": "fa-line-chart"
+              },
+              {
+                "label": "About",
+                "path": "/about",
+                "icon": "fa-info-circle"
+              }
+              //Uncomment this block to show the Simple Asset navigation item on the menu.
+              /* // asset-nav-item
+              ,{
+                "label": "Simple Asset",
+                "path": "/simple-asset",
+                "icon": "fa-sitemap"
+              }
+              // end asset-nav-item */
             ]
           }
         },
@@ -163,24 +136,8 @@
           type: Array,
           value: function() {
             return [{
-              "label": "Privacy",
-              "href": "#/dashboards",
-              "target": "_blank"
-            }, {
-              "label": "Terms",
-              "href": "#/dashboards",
-              "target": "_blank"
-            }, {
-              "label": "Contact",
-              "href": "#/dashboards",
-              "target": "_blank"
-            }, {
-              "label": "Accessibility",
-              "href": "#/dashboards",
-              "target": "_blank"
-            }, {
-              "label": "Cookies",
-              "href": "#/dashboards",
+              "label": "Sample Footer",
+              "href": "http://www.ge.com/privacy",
               "target": "_blank"
             }
           ]
@@ -199,10 +156,10 @@
       },
 
       _checkForDefaultRoute: function() {
-        // set default route to /dashboards
+        // set default route to /rmd
         var l = window.location;
         if((l.hash === "#/" || l.hash === "") && l.pathname === "/") {
-          l.hash = "/dashboards";
+          l.hash = "/rmd";
         }
       }
 
