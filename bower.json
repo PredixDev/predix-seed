@@ -15,6 +15,7 @@
     "tutorials"
   ],
   "dependencies": {
+    "hopscotch": "^0.2.6",
     "polymer": "^1.6.1",
     "px-view": "^1.0.3",
     "app-route": "PolymerElements/app-route#^0.9.1",
@@ -26,6 +27,7 @@
     "px-starter-kit-design": "^0.7.0",
     "px-theme": "^2.0.1",
     "px-view-header": "^0.2.0",
+    "px-path-guide": "^1.0.3",
     "px-login": "https://github.com/gstroup/px-login.git"
   }
 }
