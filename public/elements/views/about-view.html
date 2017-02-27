@@ -1,0 +1,23 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/px-view-header/px-view-header.html">
+<link rel="import" href="../../bower_components/px-card/px-card.html">
+
+<dom-module id="about-view">
+  <template>
+    <px-view-header title="About this appplication" style="display: block; margin-bottom: 6px;"></px-view-header>
+    <px-card id="myCard">
+      <div>
+      This is a basic remote monitoring & diagnostics application.  It connects to Predix services.
+      </div>
+    </px-card>
+  </template>
+  <script>
+    Polymer({
+      is: 'about-view',
+      properties: {},
+      ready: function() {
+        console.log('rmd-view ready()')
+      }
+    });
+  </script>
+</dom-module>
