@@ -84,8 +84,14 @@ app.use('/mock-api/time-series', jsonServer.router(mockTimeSeriesRoutes));
 	SET UP EXPRESS ROUTES
 *****************************************************************************/
 
-if (!uaaIsConfigured) { // no restrictions
+if (!uaaIsConfigured) { 
+  // no restrictions
   app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public')));
+
+  // mock UAA routes
+  app.get(['/login', '/logout'], function(req, res) {
+    res.redirect('/');
+  })
   app.get('/userinfo', function(req, res) {
     res.send({user_name: 'Sample User'});
   });

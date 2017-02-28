@@ -62,6 +62,18 @@
             active="[[_rmdActive]]"
             element-href="/elements/views/rmd-view.html">
           </px-view>
+
+          <!-- about route and view -->
+          <app-route
+            route="[[_route]]"
+            pattern="/about"
+            active="{{_aboutActive}}">
+          </app-route>
+          <px-view
+            active="[[_aboutActive]]"
+            element-href="/elements/views/about-view.html">
+          </px-view>
+
           <!-- /simple-asset route and view -->
           <app-route
             route="[[_route]]"
