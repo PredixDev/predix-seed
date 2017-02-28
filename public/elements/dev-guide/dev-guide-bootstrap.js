@@ -1,4 +1,17 @@
 (function(){
+  // Instanciate window.predix object/namespace if
+  window.predix = window.predix || {};
+
+  // Define window-level function that checks if string value
+  // is the name of a defined custom element
+  window.predix.isRegistered = function(elementName) {
+    switch(document.createElement(elementName).constructor) {
+      case HTMLElement: return false;
+      case HTMLUnknownElement: return undefined;
+    }
+    return true;
+  }
+
   // Define window-level utility function for fetching the URL parameter
   function getURLParameter(theParameter) {
     var params = window.location.search.substr(1).split('&');
@@ -10,16 +23,6 @@
       }
     }
     return false;
-  }
-
-  // Define window-level function that checks if string value
-  // is the name of a defined custom element
-  String.prototype.isRegistered = function() {
-    switch(document.createElement(this).constructor) {
-      case HTMLElement: return false;
-      case HTMLUnknownElement: return undefined;
-    }
-    return true;
   }
 
   // If URL flag for developer coaching is found,
@@ -47,10 +50,9 @@
 
   function onCoachingLoaded() {
     // if "px-path-guide" was registered
-    if ( 'px-path-guide'.isRegistered() ) {
+    if ( window.predix.isRegistered && window.predix.isRegistered('px-path-guide')) {
       // create a px-path-guide custom element,
       // configure it and attach it to the <body> element
-      window.predix = window.predix || {};
       var pathGuideEl = document.createElement('px-path-guide');
 
       var configProps = ['id', 'completedStepIcon', 'currentStepIcon', 'stepClickEventName'];
