@@ -31,12 +31,13 @@ $px-page-link-color: $gray5;
 .footer__container {
   background: var(--px-seed-footer-background-color);
   height: 60px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
   -ms-flex-align: center;
 	-webkit-align-items: center;
 	-webkit-box-align: center;
   align-items: center;
+  font-size: 12px;
 }
 
 .footer__container * {
@@ -49,13 +50,16 @@ $px-page-link-color: $gray5;
 
 .footer__copy {
   margin-left: 40px;
-  font-size: 12px;
 }
 
 .footer__link {
-  font-size: 12px;
   text-align: right;
   text-decoration: none;
+}
+
+.footer__logo {
+  display:inline-block;
+  padding-left: 5px;
 }
 
 // Trumps
