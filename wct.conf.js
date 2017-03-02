@@ -26,6 +26,7 @@ module.exports = {
       }]
     }
   },
+  persistent: false,
   suites: [
     'test/index.html'
   ]

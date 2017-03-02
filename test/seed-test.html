@@ -21,6 +21,19 @@
   <script>
   console.log('starting tests');
   document.addEventListener('WebComponentsReady', function() {
+      var server;
+      var fakeUserInfo = '{"user_name": "FromServer"}';
+
+      setup(function(){
+        server = sinon.fakeServer.create();
+        server.respondWith('GET', '/userinfo', [200, {"Content-Type": "application/json"}, fakeUserInfo]);
+        server.autoRespond = true;
+      });
+
+      teardown(function() {
+        server.restore();
+      });
+
       suite('seed-app initial DOM tests', function() {
 
         var home;
@@ -87,6 +100,11 @@
           assert(seedFooter !== null && typeof seedFooter !== 'undefined', 'seed-footer element was not found');
         });
 
+        test('There should be a px-login component in the header', function() {
+          var loginEl = Polymer.dom(seedAppFixture.root).querySelector('header px-login');
+          assert(loginEl !== null && typeof loginEl !== 'undefined', 'px-login component not found in header');
+        });
+
         // Test cases for correct configuration of seed-app Polymer Object
 
         test('Fixture element should contain a header which has a GE logo', function() {
@@ -94,14 +112,14 @@
           assert(seedHeader !== null, '"header ge-svg-logo" path was not found');
         });
 
-        test('Fixture element should contain a header which has a Predix logo', function() {
-          var seedHeader = Polymer.dom(seedAppFixture.root).querySelector('header predix-logo');
-          assert(seedHeader !== null, '"header predix-logo" path was not found');
+        test('Fixture element should contain a footer which has a Predix logo', function() {
+          var footerLogo = document.querySelector('seed-footer predix-logo');
+          assert(footerLogo !== null, '"seed-footer predix-logo" path was not found');
         });
 
-        test('Menu item for blank page should be configured correctly', function() {
-          var homeView = Polymer.dom(seedAppFixture.root).querySelector('px-view[element-href="/elements/views/blankpage-view.html"]');
-          assert(homeView !== null, 'blank page menu navigation menu item was not found');
+        test('Menu item for rmd page should be configured correctly', function() {
+          var rmd = Polymer.dom(seedAppFixture.root).querySelector('px-view[element-href="/elements/views/rmd-view.html"]');
+          assert(rmd !== null, 'rmd page menu navigation menu item was not found');
         });
 
       });
