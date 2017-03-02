@@ -1,6 +1,6 @@
 module.exports = {
   verbose: false,
-  persistent: true,
+  persistent: false,
   plugins: {
     local: {
       browsers: ['chrome']
@@ -26,7 +26,6 @@ module.exports = {
       }]
     }
   },
-  persistent: false,
   suites: [
     'test/index.html'
   ]
