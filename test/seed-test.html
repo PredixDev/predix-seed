@@ -113,8 +113,9 @@
         });
 
         test('Fixture element should contain a footer which has a Predix logo', function() {
-          var footerLogo = document.querySelector('seed-footer predix-logo');
-          assert(footerLogo !== null, '"seed-footer predix-logo" path was not found');
+          var seedFooter = Polymer.dom(seedAppFixture.root).querySelector('seed-footer');
+          var footerLogo = seedFooter.querySelector('predix-logo');
+          assert(footerLogo !== null, 'predix-logo was not found in footer');
         });
 
         test('Menu item for rmd page should be configured correctly', function() {
