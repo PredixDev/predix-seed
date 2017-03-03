@@ -112,12 +112,6 @@
           assert(seedHeader !== null, '"header ge-svg-logo" path was not found');
         });
 
-        test('Fixture element should contain a footer which has a Predix logo', function() {
-          var seedFooter = Polymer.dom(seedAppFixture.root).querySelector('seed-footer');
-          var footerLogo = seedFooter.querySelector('predix-logo');
-          assert(footerLogo !== null, 'predix-logo was not found in footer');
-        });
-
         test('Menu item for rmd page should be configured correctly', function() {
           var rmd = Polymer.dom(seedAppFixture.root).querySelector('px-view[element-href="/elements/views/rmd-view.html"]');
           assert(rmd !== null, 'rmd page menu navigation menu item was not found');
