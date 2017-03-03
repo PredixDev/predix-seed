@@ -20,6 +20,7 @@ before_script:
 - npm install
 - bower install
 script:
+- npm test
 - xvfb-run wct --skip-plugin sauce
 - if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then wct --plugin sauce --skip-plugin
   local; fi
