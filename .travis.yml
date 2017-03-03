@@ -1,6 +1,32 @@
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+- stable
+branches:
+  except:
+  - gh-pages
+addons:
+  firefox: latest
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
 before_script:
-  - npm update -g npm
-  - npm install -g bower
+- npm install web-component-tester
+- npm install bower
+- export PATH=$PWD/node_modules/.bin:$PATH
+- npm install
+- bower install
 script:
-  - npm install
-  - bower --allow-root install
+- xvfb-run wct --skip-plugin sauce
+- if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then wct --plugin sauce --skip-plugin
+  local; fi
+after_success:
+- if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then openssl aes-256-cbc -k "$DEPLOYSECRET"
+  -in deploy.enc -out deploy_key -d; fi
+- cd $TRAVIS_BUILD_DIR/scripts
+env:
+  global:
+    secure: wSGqjc+CFoOI2y4+h/LML822WLQIKfRsNqmStgybbbcgNCn/XNc2eRLj+dJhZ1/ew35Fis1cDXu58Yn49tjYL+a78ErzbRsBWcMNn8zcTpEYvPGiltU8Kvk8aU+oC0mjbqLPX3N9FIzB8TLqxbaE2AyxnADkN5Bp4TLpD9jGfoFHhHDfTzzd5V1goRXMW7PFqM+GAZ3XaqFRibzqgn4nxIixFWJfvR1uJLlUc7jF3QOgi2w+ugXzpA+0l+vQsdIN6VWWJFt6WtMpHNux0zWbU279HtqfVjyuYAV0HR1heBVfJSMoADMTuIQg/BsjmsEGT6GrMIyhmqD+zHO6MFYvufqz8TO13EEGV3j5hcz2Bjfs569XhaFkfyXhRqxOHBIut5jylReQD2x6NzPGCAwGlrSi+vIOaaAfQFuMArtJQvZ49uuOx+WQ/h6ayTVD3AlItDlWLaEFSaWhXah3PQwpqPZ1gvXYVy8x7aQRCIRamVcNCMr2y99cu0VPfdElFVKcF4FRdk370aq7tie8xxfThGIX7yKh8790GLpCTvTCsowHdxBPYkDR0PpaUaBpxER+RpXnVr0/VP7aSZARF5Bntz3U3X3fpXUsyPUM9Otm04D35uP8dVjpeEmp8nlYXzac8Y6eIqU1VJm7Imcs4OBdW5EtlTxy/rL4mJJbYKFnm8s=
