@@ -151,6 +151,9 @@ if (!uaaIsConfigured) {
 
 }
 
+// route to return info for path-guide component.
+app.use('/learningpaths', require('./routes/learning-paths')(config));
+
 //logout route
 app.get('/logout', function(req, res) {
 	req.session.destroy();

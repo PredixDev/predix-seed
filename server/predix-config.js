@@ -57,7 +57,7 @@ if(node_env === 'development') {
 
 // This vcap object is used by the proxy module.
 settings.buildVcapObjectFromLocalConfig = function(config) {
-  'use strict';
+	'use strict';
 	// console.log('local config: ' + JSON.stringify(config));
 	var vcapObj = {};
 	if (config.uaaURL) {
@@ -89,5 +89,26 @@ settings.buildVcapObjectFromLocalConfig = function(config) {
 	}
 	return vcapObj;
 };
+
+settings.isUaaConfigured = function() {
+	return settings.clientId &&
+    settings.uaaURL &&
+    settings.uaaURL.indexOf('https') === 0 &&
+    settings.base64ClientCredential;
+};
+
+settings.isAssetConfigured = function() {
+	return settings.assetURL &&
+	settings.assetURL.indexOf('https') === 0 &&
+	settings.assetZoneId &&
+	settings.assetZoneId.indexOf('{') !== 0;
+}
+
+settings.isTimeSeriesConfigured = function() {
+	return settings.timeseriesURL && 
+	settings.timeseriesURL.indexOf('https') === 0 &&
+	settings.timeseriesZoneId &&
+	settings.timeseriesZoneId.indexOf('{') !== 0;
+}
 
 module.exports = settings;

@@ -10,12 +10,14 @@
     "email": "Predix.experience@ge.com"
   },
   "scripts": {
-    "start": "node server/app.js"
+    "start": "node server/app.js",
+    "test": "node_modules/mocha/bin/mocha test/server"
   },
   "keywords": [
     "predix-seed"
   ],
   "devDependencies": {
+    "chai": "^3.5.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-clean": "^0.3.2",
@@ -31,6 +33,7 @@
     "gulp-style-modules": "^0.1.0",
     "gulp-vulcanize": "^6.1.0",
     "merge-stream": "^1.0.0",
+    "mocha": "^3.2.0",
     "node-sass": "^3.8.0",
     "node-sass-import-once": "^1.2.0",
     "open": "0.0.4",
@@ -38,7 +41,8 @@
     "postcss-cli": "^2.5.2",
     "request": "^2.58.0",
     "run-sequence": "^1.2.2",
-    "sass-import-modules": "^2.1.0"
+    "sass-import-modules": "^2.1.0",
+    "sinon": "^1.17.7"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
