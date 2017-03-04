@@ -1,16 +1,29 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/px-view-header/px-view-header.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/px-card/px-card.html">
 <link rel="import" href="../../bower_components/px-data-table/px-data-table.html">
+<link rel="import" href="../../bower_components/px-context-browser/px-context-browser.html">
 
 <dom-module id="rmd-view">
   <template>
-    <px-view-header title="RMD Card" style="display: block; margin-bottom: 6px;"></px-view-header>
+    <px-context-browser opened-item-name="Select Asset">Asset Monitoring</px-context-browser>
     <px-card id="myCard">
       stuff goes here
     </px-card>
+    <iron-ajax url="/api/predix-asset/group?filter=parent=/group/root" auto></iron-ajax>
   </template>
   <script>
+    /**
+    * this method transforms asset entity into an object format consumable by px-context-browser component
+    */
+    // var transformEntityForDisplay = function (entity) { // transform your entity to context browser entity format
+    //     entity.name = entity.description;
+    //     entity.id = entity.uri;
+    //     entity.parentId = entity.parent;
+    //     // we can only open plants or assets:
+    //     entity.isOpenable = (entity.uri.indexOf('plant') >= 0 || entity.uri.indexOf('asset') >= 0);
+    //     return entity;
+    // };
     Polymer({
       is: 'rmd-view',
       properties: {},

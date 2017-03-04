@@ -28,6 +28,8 @@
     "px-theme": "^2.0.1",
     "px-view-header": "^0.2.0",
     "px-path-guide": "^1.0.3",
-    "px-login": "https://github.com/gstroup/px-login.git"
+    "px-login": "https://github.com/gstroup/px-login.git",
+    "px-context-browser": "^1.6.7",
+    "iron-ajax": "^1.4.3"
   }
 }
