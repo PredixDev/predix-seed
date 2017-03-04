@@ -23,13 +23,13 @@
     "px-app-nav": "^1.9.1",
     "px-card": "^0.6.1",
     "px-layout-design": "^0.4.3",
-    "px-sample-cards": "^0.7.1",
     "px-starter-kit-design": "^0.7.0",
     "px-theme": "^2.0.1",
     "px-view-header": "^0.2.0",
     "px-path-guide": "^1.0.3",
     "px-login": "https://github.com/gstroup/px-login.git",
     "px-context-browser": "^1.6.7",
-    "iron-ajax": "^1.4.3"
+    "iron-ajax": "^1.4.3",
+    "px-data-table": "^1.15.19"
   }
 }
