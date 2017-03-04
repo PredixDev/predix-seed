@@ -30,12 +30,8 @@ if (node_env === 'development') {
 }
 
 console.log('************ Environment: '+node_env+'******************');
-
-var uaaIsConfigured = config.clientId &&
-    config.uaaURL &&
-    config.uaaURL.indexOf('https') === 0 &&
-    config.base64ClientCredential;
-if (uaaIsConfigured) {
+console.log('UAA is configured?', config.isUaaConfigured());
+if (config.isUaaConfigured()) {
 	passport = passportConfig.configurePassportStrategy(config);
 }
 
@@ -55,7 +51,7 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true}));
 
-if (uaaIsConfigured) {
+if (config.isUaaConfigured()) {
   app.use(passport.initialize());
   // Also use passport.session() middleware, to support persistent login sessions (recommended).
   app.use(passport.session());
@@ -69,22 +65,11 @@ var server = app.listen(process.env.VCAP_APP_PORT || 5000, function () {
 	console.log ('Server started on port: ' + server.address().port);
 });
 
-/*******************************************************
-SET UP MOCK API ROUTES
-*******************************************************/
-// Import route modules
-var mockAssetRoutes = require('./routes/mock-asset.js')();
-var mockTimeSeriesRoutes = require('./routes/mock-time-series.js')();
-
-// add mock API routes.  (Remove these before deploying to production.)
-app.use('/mock-api/predix-asset', jsonServer.router(mockAssetRoutes));
-app.use('/mock-api/time-series', jsonServer.router(mockTimeSeriesRoutes));
-
 /****************************************************************************
 	SET UP EXPRESS ROUTES
 *****************************************************************************/
 
-if (!uaaIsConfigured) { 
+if (!config.isUaaConfigured()) { 
   // no restrictions
   app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public')));
 
@@ -109,7 +94,7 @@ if (!uaaIsConfigured) {
 
   // access real Predix services using this route.
   // the proxy will add UAA token and Predix Zone ID.
-  app.use('/predix-api',
+  app.use(['/predix-api', '/api'],
   	passport.authenticate('main', {
   		noredirect: true
   	}),
@@ -150,6 +135,18 @@ if (!uaaIsConfigured) {
   });
 
 }
+
+/*******************************************************
+SET UP MOCK API ROUTES
+*******************************************************/
+// NOTE: these routes are added after the real API routes. 
+//  So, if you have configure asset, the real asset API will be used, not the mock API.
+// Import route modules
+var mockAssetRoutes = require('./routes/mock-asset.js')();
+var mockTimeSeriesRoutes = require('./routes/mock-time-series.js')();
+// add mock API routes.  (Remove these before deploying to production.)
+app.use(['/mock-api/predix-asset', '/api/predix-asset'], jsonServer.router(mockAssetRoutes));
+app.use(['/mock-api/time-series', '/api/time-series'], jsonServer.router(mockTimeSeriesRoutes));
 
 // route to return info for path-guide component.
 app.use('/learningpaths', require('./routes/learning-paths')(config));

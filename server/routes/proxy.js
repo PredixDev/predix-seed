@@ -91,16 +91,25 @@ function buildDecorator(zoneId) {
 	return decorator;
 }
 
+function isValidUrl(str) {
+	var urlObj = url.parse(str);
+	return urlObj.protocol === 'https:' && urlObj.host;
+}
+
 function getEndpointAndZone(key, credentials) {
 	var out = {};
 	// ugly code needed since vcap service variables are not consistent across services
 	// TODO: all the other predix services
-	if (key === 'predix-asset') {
-		out.serviceEndpoint = credentials.uri;
+	if (key === 'predix-uaa') {
+		// do nothing. authentication handled by the passport module.
+		// return here, so we don't display a confusing log message.
+		return out;
+	} else if (key === 'predix-asset') {
+		out.serviceEndpoint = isValidUrl(credentials.uri) ? credentials.uri : null;
 		out.zoneId = credentials.zone['http-header-value'];
 	} else if (key === 'predix-timeseries') {
 		var urlObj = url.parse(credentials.query.uri);
-		out.serviceEndpoint = urlObj.protocol + '//' + urlObj.host;
+		out.serviceEndpoint = urlObj.host ? urlObj.protocol + '//' + urlObj.host : null;
 		out.zoneId = credentials.query['zone-http-header-value'];
 	}
 	if (!out.serviceEndpoint) {
