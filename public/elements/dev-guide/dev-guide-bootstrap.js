@@ -29,15 +29,85 @@
   // then create and show path guide (attach to <body> element)
   var coaching = getURLParameter('coach');
 
+
+  // Called when the main <seed-app> element is loaded and ready,
+  // which means that the main learning overlay can be installed
   function onMainElementLoaded() {
     // Polymer.importHref(['/elements/dev-coach/dev-coach.html'], function(){});
     var link = document.createElement('link');
     link.setAttribute('rel', 'import');
     link.setAttribute('href', '/elements/dev-guide/dev-guide-imports.html');
-    link.onload = setTimeout(onCoachingLoaded, 2000);
+    link.onload = fetchLearningStatus;
     document.head.appendChild(link);
   }
 
+  // Fetches the state of the developer's learning activity by quering the
+  // installed services using the /learningpaths server route; an object should
+  // be returned with the following structure:
+  //
+  // {
+  //   appMode: 'default',
+  //   learningSequence: ['base', 'uaa', 'asset', timeseries],
+  //   services: {
+  //     base: true,
+  //     uaa:  false,
+  //     asset: false,
+  //     timeseries: false
+  //   }
+  // }
+  //
+  // The JSON above is used to construct the 'steps' attribute for the
+  // path guide overlay element
+  function fetchLearningStatus() {
+    var lp = window.predix.learningPaths = window.predix.learningPaths || {};
+    lp.httpR = new XMLHttpRequest();
+    if (!lp.httpR) {
+      console.error('ERROR: learning paths - unable to create an XMLHTTPRequest instance');
+      return;
+    }
+    lp.httpR.onreadystatechange = onLearningPathResponse;
+    lp.httpR.open('POST', '/learningpaths');
+    lp.httpR.send();
+  }
+
+  // utility function to return TRUE the first time and that only time,
+  // and return FALSE on any subsequent call
+  var usedOnce = false;
+  function useOnce() {
+    if (!usedOnce) {
+      usedOnce = true;
+      return true;
+    }
+    return false;
+  }
+
+  // handler function for the return of the /learningpaths call
+  function onLearningPathResponse() {
+    var httpR = window.predix.learningPaths.httpR;
+    if (httpR.readyState === XMLHttpRequest.DONE) {
+      if (httpR.status === 200) {
+        window.predix.learningPaths.steps = [];
+        var step;
+        var ls = window.predix.learningPaths.learningState = JSON.parse(httpR.responseText);
+        for (var i=0, sl = ls.learningSequence.length; i < sl; i++) {
+          step = {
+            id: i,
+            label: ls.learningSequence[i],
+            started: ls.services[ls.learningSequence[i]],
+            completed: ls.services[ls.learningSequence[i]],
+            current: !ls.services[ls.learningSequence[i]] && useOnce()
+          };
+          window.predix.learningPaths.steps.push(step);
+        }
+        onCoachingLoaded();
+      } else {
+        console.error('ERROR: learning paths - ' + httpR.statusText);
+      }
+    }
+  }
+
+  // callback handler for a click on each of the path guide nodes,
+  // launches the tour for that node
   function tourFeature(event) {
     var tourID = event.payload.id;
     if (window.predix.isTouring) {
@@ -48,6 +118,9 @@
     window.predix.isTouring = true;
   }
 
+  // constructs the path guide visual overlay
+  // to be called when the learning state has been fetched from
+  // the /learningpaths server route
   function onCoachingLoaded() {
     // if "px-path-guide" was registered
     if ( window.predix.isRegistered && window.predix.isRegistered('px-path-guide')) {
@@ -66,15 +139,9 @@
         pathGuideEl[configProps[i]] = window.predix.pathGuideConfig[configProps[i]] || pathGuideEl[configProps[i]];
       }
 
-      pathGuideEl.steps = [
-          { id: 1, label: "Basic App", started: true, completed: true, current: false},
-          { id: 2, label: "UAA", started: true, completed: true, current: false},
-          { id: 3, label: "Asset Data", started: false, completed: false, current: true},
-          { id: 4, label: "Analytics", started: false, completed: false, current: false}
-        ];
+      pathGuideEl.steps = window.predix.learningPaths.steps;
 
       /* Default Styles */
-
       pathGuideEl.style.position = 'absolute';
       var width = pathGuideEl.clientWidth;
       var halfWidth = width / 2;

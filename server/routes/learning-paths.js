@@ -1,16 +1,15 @@
-module.exports = (predixConfig) => {   
-    return (req, res, next) => {
-        const response = {"appMode": "default", "services": {} };
-        if (predixConfig.isUaaConfigured()) {
-            response.services.uaa = true;
-        }
-        if (predixConfig.isAssetConfigured()) {
-            response.services.asset = true;
-        }
-        if (predixConfig.isTimeSeriesConfigured()) {
-            response.services.timeseries = true;
-        }
-        res.send(response);
-        next();
+module.exports = (predixConfig) => {
+  return (req, res, next) => {
+    const response = {
+      "appMode": "default",
+      "learningSequence": ['base', 'uaa', 'asset', 'timeseries'], // sequence of learning features
+      "services": {}
     };
+    response.services.base = true,
+    response.services.uaa = predixConfig.isUaaConfigured();
+    response.services.asset = predixConfig.isAssetConfigured();
+    response.services.timeseries = predixConfig.isTimeSeriesConfigured();
+    res.send(response);
+    next();
+  };
 };
