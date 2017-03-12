@@ -22,7 +22,7 @@ gulp.task('compile:index', ['compile:sass'], getTask('compile.index'));
 // -----------------------------------------------------------------------------
 // Task: Serve : Start
 // -----------------------------------------------------------------------------
-gulp.task('serve:dev:start', getTask('serve.dev.start'));
+gulp.task('serve:dev:start', ['compile:index'], getTask('serve.dev.start'));
 gulp.task('serve:dist:start', ['dist'], getTask('serve.dist.start'));
 
 // -----------------------------------------------------------------------------
@@ -34,12 +34,12 @@ gulp.task('watch:public', getTask('watch.public'));
 // Task: Dist (Build app ready for deployment)
 // 	clean, compile:sass, compile:index, copy, vulcanize
 // -----------------------------------------------------------------------------
-gulp.task('dist', gulpSequence('dist:copy', 'bundle', 'optimize'));
+gulp.task('dist', gulpSequence('dist:clean', 'compile:index', 'dist:copy', 'bundle', 'optimize'));
 
 // -----------------------------------------------------------------------------
 // Task: Dist : Copy source files for deploy to dist/
 // -----------------------------------------------------------------------------
-gulp.task('dist:copy', ['dist:clean', 'compile:index'], getTask('dist.copy'));
+gulp.task('dist:copy', getTask('dist.copy'));
 
 // -----------------------------------------------------------------------------
 // Task: Dist : Clean 'dist/'' folder
@@ -53,5 +53,5 @@ gulp.task('optimize', getTask('optimize.htmlmin'));
 //  Task: Default (compile source, start server, watch for changes)
 // -----------------------------------------------------------------------------
 gulp.task('default', function (cb) {
-	gulpSequence('compile:index', (dev ? 'serve:dev:start' : 'serve:dist:start'), 'watch:public')(cb);
+	gulpSequence(dev ? 'serve:dev:start' : 'serve:dist:start', 'watch:public')(cb);
 });
