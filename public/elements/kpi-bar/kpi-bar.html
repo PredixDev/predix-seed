@@ -11,8 +11,8 @@
   <template>
     <style include="kpi-bar-styles"></style>
     <div class="kpi-bar-wrapper">
-      <template is="dom-repeat" items=[[datapoints]]>
-        <kpi-datapoint label="item.label" value="item.value" units="item.units"></kpi-datapoint>
+      <template is="dom-repeat" items="[[datapoints]]">
+        <kpi-datapoint label="[[item.label]]" value="[[item.value]]" units="[[item.units]]"></kpi-datapoint>
       </template>
     <div>
   </template>
