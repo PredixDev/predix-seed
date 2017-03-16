@@ -1,0 +1,28 @@
+<!-- import polymer -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<!-- import dependent comonents -->
+<link rel="import" href="kpi-datapoint.html">
+
+<!-- import page level css -->
+<link rel="import" href="kpi-bar-styles.html">
+
+<dom-module id='kpi-bar'>
+  <template>
+    <style include="kpi-bar-styles"></style>
+    <div class="kpi-bar-wrapper">
+      <template is="dom-repeat" items=[[datapoints]]>
+        <kpi-datapoint label="item.label" value="item.value" units="item.units"></kpi-datapoint>
+      </template>
+    <div>
+  </template>
+  <script>
+  Polymer({
+    is: 'kpi-bar',
+    properties: {
+      datapoints: []
+    },
+    ready: function(){}
+  });
+  </script>
+</dom-module>

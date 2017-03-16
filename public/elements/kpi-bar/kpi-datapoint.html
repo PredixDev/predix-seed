@@ -1,0 +1,34 @@
+<!-- import polymer -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="kpi-datapoint">
+  <template>
+    <style include="kpi-datapoint-styles"></style>
+    <div class="kpi-datapoint-wrapper">
+      <div class="kpi-datapoint-label">[[label]]</div>
+      <div class="kpi-datapoint-value">[[value]]</div>
+      <div class="kpi-datapoint-units">[[units]]</div>
+    <div>
+  </template>
+  <script>
+  Polymer({
+    is: 'kpi-datapoint',
+    properties: {
+      label: {
+        type: String,
+        value: ''
+      },
+      value: {
+        type: String,
+        value: ''
+      },
+      units: {
+        type: String,
+        value: ''
+      }
+    },
+    ready: function(){
+    }
+  });
+  </script>
+</dom-module>

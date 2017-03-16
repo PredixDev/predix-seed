@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+:host {
+  font-family: "GE Inspira Sans", sans-serif !default;
+}
+
+.kpi-datapoint-wrapper {
+  position: var(--kpi-datapoint-wrapper-position, relative);
+  display: var(--kpi-datapoint-wrapper-display, block);
+  border-color: var(--kpi-datapoint-wrapper-border-color, #333);
+  border-radius: var(--kpi-datapoint-wrapper-border-radius, 10px);
+  width: var(--kpi-datapoint-wrapper-width, 100px);
+  height: var(--kpi-datapoint-wrapper, 70px);
+}
+
+.kpi-datapoint-label {
+  position: var(--kpi-datapoint-label-position, absolute);
+  top: var(--kpi-datapoint-label-top, 0);
+  left: var(--kpi-datapoint-label-left, 0);
+  width: var(--kpi-datapoint-wrapper-width, 100%);
+  height: var(--kpi-datapoint-wrapper, 15px);
+}
+
+.kpi-datapoint-label * {
+  text-align: left;
+  color: var(--kpi-datapoint-label-color, #333);
+  font-size: var(--kpi-dagtapoint-label-font-size: 14px);
+}
+
+.kpi-datapoint-value {
+  position: var(--kpi-datapoint-value-position, absolute);
+  top: var(--kpi-datapoint-value-top, 15px);
+  left: var(--kpi-datapoint-value-left, 0);
+  width: var(--kpi-datapoint-value-width, 65px);
+  height: var(--kpi-datapoint-value-height, 55px);
+}
+
+.kpi-datapoint-value * {
+  text-align: left;
+  color: var(--kpi-datapoint-value-color, #333);
+  font-size: var(--kpi-datapoint-value-font-size: 20px);
+  font-weight: var(--kpi-datapoint-value-font-weight: bold);
+}
+
+.kpi-datapoint-units {
+  position: var(--kpi-datapoint-units-position, absolute);
+  top: var(--kpi-datapoint-units-top, 15px);
+  left: var(--kpi-datapoint-units-left, 65px);
+  width: var(--kpi-datapoint-units-width, 35px);
+  height: var(--kpi-datapoint-value-height, 20px);
+}
+
+.kpi-datapoint-units * {
+  text-align: left;
+  color: var(--kpi-datapoint-units-color, #333);
+  font-size: var(--kpi-datapoint-units-font-size: 11px);
+  font-weight: var(--kpi-datapoint-units-font-weight: normal);
+}

@@ -3,6 +3,7 @@
 <link rel="import" href="../../bower_components/px-card/px-card.html">
 <link rel="import" href="../../bower_components/px-data-table/px-data-table.html">
 <link rel="import" href="../../bower_components/px-context-browser/px-context-browser.html">
+<link rel="import" href="../kpi-bar/kpi-bar.html">
 
 <dom-module id="rmd-view">
   <template>
@@ -11,6 +12,7 @@
       stuff goes here
     </px-card>
     <iron-ajax url="/api/predix-asset/group?filter=parent=/group/root" auto></iron-ajax>
+    <kpi-bar datapoints="[[kpiDatapoints]]"></kpi-bar>
   </template>
   <script>
     /**
@@ -26,9 +28,21 @@
     // };
     Polymer({
       is: 'rmd-view',
-      properties: {},
+      properties: {
+        kpiDatapoints: {
+          type: Array,
+          value: []
+        }
+      },
       ready: function() {
-        console.log('rmd-view ready()')
+        this.kpiDatapoints = [
+          { value: '0.05', label: 'OUTPUT (AVG)', units: 'm/s'},
+          { value: '2.749', label: 'CRANK-FRAME COMPRESSION', units: ''},
+          { value: '60.0', label: 'RELIABILITY', units: '%'},
+          { value: '85.0', label: 'AVAILABILITY', units: '%'},
+          { value: '85', label: 'KPI HEALTH', units: '%'}
+        ];
+        console.log('rmd-view ready()');
       }
     });
   </script>
