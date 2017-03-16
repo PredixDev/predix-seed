@@ -1,13 +1,19 @@
 <!-- import polymer -->
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
+<!-- import page level css -->
+<link rel="import" href="kpi-datapoint-styles.html">
+
 <dom-module id="kpi-datapoint">
   <template>
     <style include="kpi-datapoint-styles"></style>
     <div class="kpi-datapoint-wrapper">
       <div class="kpi-datapoint-label">[[label]]</div>
-      <div class="kpi-datapoint-value">[[value]]</div>
-      <div class="kpi-datapoint-units">[[units]]</div>
+      <div class="kpi-datapoint-value-units">
+        <span class="kpi-datapoint-value">[[value]]</span>
+        <span class="kpi-datapoint-units">[[units]]</span>
+      </div>
+      <div class$="kpi-datapoint-health kpi-datapoint-health-[[health]]"></div>
     <div>
   </template>
   <script>
@@ -25,10 +31,16 @@
       units: {
         type: String,
         value: ''
+      },
+      health: {
+        type: String,
+        value: ''
       }
     },
+
     ready: function(){
     }
+
   });
   </script>
 </dom-module>

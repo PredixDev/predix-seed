@@ -1,10 +1,9 @@
 @charset "UTF-8";
 
 :host {
-  font-family: "GE Inspira Sans", sans-serif !default;
+  font-family: "GE Inspira Sans", sans-serif, default;
 }
 
 .kpi-bar-wrapper {
-  background-color: var(--kpi-bar-wrapper-background-color, #aaa);
-  border-radius: var(--kpi-bar-wrapper-border-radius, 5px);
+  background-color: var(--kpi-bar-wrapper-background-color, transparent);
 }

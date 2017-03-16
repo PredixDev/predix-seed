@@ -12,7 +12,7 @@
     <style include="kpi-bar-styles"></style>
     <div class="kpi-bar-wrapper">
       <template is="dom-repeat" items="[[datapoints]]">
-        <kpi-datapoint label="[[item.label]]" value="[[item.value]]" units="[[item.units]]"></kpi-datapoint>
+        <kpi-datapoint label="[[item.label]]" value="[[item.value]]" units="[[item.units]]" health="[[item.health]]"></kpi-datapoint>
       </template>
     <div>
   </template>
