@@ -28,6 +28,7 @@
   height: var(--kpi-datapoint-wrapper, 15px);
   color: var(--kpi-datapoint-label-color, #fff);
   font-size: var(--kpi-dagtapoint-label-font-size, 14px);
+  font-weight: bold;
 }
 
 .kpi-datapoint-value-units {

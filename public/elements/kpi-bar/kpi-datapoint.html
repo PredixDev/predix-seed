@@ -1,13 +1,26 @@
 <!-- import polymer -->
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
+<link rel="import" href="../../bower_components/px-tooltip/px-tooltip.html">
 <!-- import page level css -->
 <link rel="import" href="kpi-datapoint-styles.html">
 
 <dom-module id="kpi-datapoint">
   <template>
     <style include="kpi-datapoint-styles"></style>
+    <style id="px-tooltip-custom-styles" is="custom-style">
+      :host {
+        --px-tooltip-background-color: #025580;
+      }
+    </style>
     <div class="kpi-datapoint-wrapper">
+      <px-tooltip
+        delay="50"
+        tooltip-message="[[label]]"
+        orientation="auto"
+        tooltip-style="dark"
+        orientation="top">
+      </px-tooltip>
       <div class="kpi-datapoint-label">[[label]]</div>
       <div class="kpi-datapoint-value-units">
         <span class="kpi-datapoint-value">[[value]]</span>
