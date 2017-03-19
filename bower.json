@@ -68,6 +68,8 @@
   "resolutions": {
     "px-polymer-font-awesome": "master",
     "px-context-browser": "master",
-    "app-route": "master"
+    "app-route": "master",
+    "px-vis": "^1.0.0",
+    "pxd3": "~4.4.0"
   }
 }

@@ -6,8 +6,7 @@ const htmlmin = require('gulp-htmlmin');
 module.exports = function(gulp) {
   return function() {
     return gulp.src([
-      'dist/loader.html',
-      'dist/bower_components/px-polymer-font-awesome/font-awesome-icons.html'
+      'dist/index.html'
     ], {base: 'dist/'})
     .pipe(htmlmin({
       collapseWhitespace: true,

@@ -10,6 +10,7 @@ var jsonServer = require('json-server'); // used for mock api responses
 var path = require('path');
 var cookieParser = require('cookie-parser'); // used for session cookie
 var bodyParser = require('body-parser');
+var compression = require('compression')
 var passport;  // only used if you have configured properties for UAA
 // simple in-memory session is used here. use connect-redis for production!!
 var session = require('express-session');
@@ -48,6 +49,10 @@ var app = express();
 
 app.set('trust proxy', 1);
 app.use(cookieParser('predixsample'));
+if(node_env !== 'development') {
+  // gzip
+  app.use(compression());
+}
 // Initializing default session store
 // *** Use this in-memory session store for development only. Use redis for prod. **
 app.use(session({
