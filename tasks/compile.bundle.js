@@ -1,7 +1,5 @@
 const del = require('del');
 const gulp = require('gulp');
-const gulpif = require('gulp-if');
-const debug = require('gulp-debug');
 const gulpIgnore = require('gulp-ignore');
 const mergeStream = require('merge-stream');
 const polymerBuild = require('polymer-build');
@@ -54,7 +52,6 @@ module.exports = function(gulp) {
         .pipe(gulpIgnore.include(dist_globs))
         .pipe(gulp.dest(buildDirectory));
 
-        console.log(dist_globs);
         return waitFor(buildStream);
       })
       .then(() => {
