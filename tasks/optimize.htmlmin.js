@@ -6,7 +6,7 @@ const htmlmin = require('gulp-htmlmin');
 module.exports = function(gulp) {
   return function() {
     return gulp.src([
-      'dist/index.html'
+      'dist/**/*.html'
     ], {base: 'dist/'})
     .pipe(htmlmin({
       collapseWhitespace: true,
