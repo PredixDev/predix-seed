@@ -29,7 +29,7 @@ gulp.task('watch:public', getTask('watch.public'));
 // -----------------------------------------------------------------------------
 gulp.task('dist:clean', getTask('dist.clean'));
 
-gulp.task('bundle', getTask('compile.vulcanize'));
+gulp.task('bundle', getTask('compile.bundle'));
 
 gulp.task('optimize', getTask('optimize.htmlmin'));
 
@@ -42,10 +42,12 @@ gulp.task('dist', gulp.series('dist:clean', 'compile:index', 'bundle', 'optimize
 // -----------------------------------------------------------------------------
 // Task: Serve : Start
 // -----------------------------------------------------------------------------
-gulp.task('serve:dev:start', gulp.series('compile:index', getTask('serve.dev.start')));
-gulp.task('serve:dist:start', gulp.series('dist', getTask('serve.dist.start')));
+gulp.task('serve:dev:start', getTask('serve.dev.start'));
+gulp.task('serve:dist:start', getTask('serve.dist.start'));
+gulp.task('serve:dev', gulp.series('compile:index', 'serve:dev:start'));
+gulp.task('serve:dist', gulp.series('dist', 'serve:dist:start'));
 
 // -----------------------------------------------------------------------------
 //  Task: Default (compile source, start server, watch for changes)
 // -----------------------------------------------------------------------------
-gulp.task('default', gulp.series(dev ? 'serve:dev:start' : 'serve:dist:start', 'watch:public'));
+gulp.task('default', gulp.series(dev ? 'serve:dev' : 'serve:dist', 'watch:public'));

@@ -27,6 +27,7 @@
     "gulp-ejs": "^1.2.2",
     "gulp-htmlmin": "^3.0.0",
     "gulp-if": "^2.0.2",
+    "gulp-ignore": "^2.0.2",
     "gulp-inline-source": "^2.1.0",
     "gulp-load-plugins": "^1.1.0",
     "gulp-nodemon": "^2.0.6",
