@@ -1,6 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/px-card/px-card.html">
-<link rel="import" href="../../bower_components/px-vis-timeseries/px-vis-timeseries.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
 <dom-module id="winddata-view">
@@ -57,7 +56,9 @@
           }
         }
       },
-
+      created: function() {
+        this.importHref(this.resolveUrl('../../bower_components/px-vis-timeseries/px-vis-timeseries.html'));
+      },
       _formatDataForChart: function(raw) {
         var series = [];
         var datapoints = raw.tags[0].results[0].values || raw.tags[0].results[0].datapoints;

@@ -1,6 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/px-card/px-card.html">
-<link rel="import" href="../../bower_components/px-vis-timeseries/px-vis-timeseries.html">
 <link rel="import" href="../../bower_components/px-rangepicker/px-rangepicker.html">
 <link rel="import" href="../../bower_components/px-vis/px-vis-data-converter.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
@@ -105,7 +104,9 @@ Polymer({
       observer: '_formatDataForChart'
     }
   },
-
+  created: function() {
+    this.importHref(this.resolveUrl('../../bower_components/px-vis-timeseries/px-vis-timeseries.html'));
+  },
   _formatDataForChart: function(raw) {
     // for px vis data converter
     // github.com/PredixDev/px-vis/blob/master/px-vis-data-converter.html#L21

@@ -1,10 +1,9 @@
 node_modules
-public/bower_components
-public/polymer-loader.vulcanized.html
+bower_components
 test-target
-public/index.html
-public/**/*-styles.html
-public/index-inline.css
+index.html
+**/*-styles.html
+index-inline.css
 main.min.css
 .idea
 npm-debug.log
