@@ -129,13 +129,6 @@ if (!uaaIsConfigured) { // no restrictions
     );
   }
 
-  //Use this route to make the entire app secure.  This forces login for any path in the entire app.
-  app.use('/', passport.authenticate('main', {
-    noredirect: false //Don't redirect a user to the authentication page, just show an error
-    }),
-    history(),
-    require('./static.js')
-  );
 
   //Or you can follow this pattern to create secure routes,
   // if only some portions of the app are secure.
@@ -147,15 +140,22 @@ if (!uaaIsConfigured) { // no restrictions
     res.send('<h2>This is a sample secure route.</h2>');
   });
 
-}
+  //logout route
+  app.get('/logout', function(req, res) {
+  	req.session.destroy();
+  	req.logout();
+    passportConfig.reset(); //reset auth tokens
+    res.redirect(config.uaaURL + '/logout?redirect=' + config.appURL);
+  });
 
-//logout route
-app.get('/logout', function(req, res) {
-	req.session.destroy();
-	req.logout();
-  passportConfig.reset(); //reset auth tokens
-  res.redirect(config.uaaURL + '/logout?redirect=' + config.appURL);
-});
+  //Use this route to make the entire app secure.  This forces login for any path in the entire app.
+  app.use('/', passport.authenticate('main', {
+    noredirect: true //Don't redirect a user to the authentication page, just show an error
+    }),
+    history(),
+    require('./static.js')
+  );
+}
 
 app.get('/favicon.ico', function (req, res) {
 	res.send('favicon.ico');
