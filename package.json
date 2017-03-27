@@ -10,7 +10,9 @@
     "email": "Predix.experience@ge.com"
   },
   "scripts": {
-    "start": "node server/app.js"
+    "start": "node server/app.js",
+    "dev": "gulp",
+    "dist": "gulp dist"
   },
   "keywords": [
     "predix-seed"
