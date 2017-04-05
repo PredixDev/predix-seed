@@ -1,30 +1,42 @@
-# Predix UI Scaffold
+# Predix UI Seed
 
-## What-is-this
-This repository serves as an app scaffolding structure for any new Predix UI based project based off the [predix seed app](https://github.com/PredixDev/predix-seed), with the following improvements for production ready apps:
+### IMPORTANT NOTE
 
- * Use global BEM styles to avoid redundant styles from each HTML element
- * Build a single HTML bundle file for better page load performance while HTTP2 is not widely adopted
- * Minimal `dist` version files
- * *Chinese* specific app-shell brand elements and font-stack
- * etc...
+On October 6, 2016 this project was switched to a new, simplified implementation that includes using Polymer instead of AngularJS and removes dependencies on micro-services.  For the previous implementation in AngularJS please refer to the 'develop-angular' and/or 'master-angular' branches.
 
+## What is the Predix UI Seed?
+The Predix UI Seed ("Seed") is a web application starter kit aimed to accelerate Predix application development.   It comes in the form of a simple web application, with code examples on features such as branding, theming, layout, navigation, responsiveness, organization of views, data presentation and micro-services integration, to name some.  These working code samples can be straightforwardly customized and adapted to specific application needs. Predix application projects can directly use, remove from or add to these features to achieve prototype or production state much faster than through building everything from scratch.  This speeds up application development, letting developers focus on functionality, instead of having to make boilerplate concerns work.
 
-## Where to start
+As its name indicates the Seed is built on [Polymer](http://www.polymer-project.org).  Based on the [Web Component API](https://developer.mozilla.org/en-US/docs/Web/Web_Components), Polymer is a component framework that prefers the browser's native capabilities over HTML and JavaScript enhancements, wherever possible.  And where there are differences in currently available features, polyfills are provided towards consistent cross-browser behavior.  By adopting the Polymer strategy the Seed ensures high consistency of application behavior across browsers, and the best chances of compatibility with future browser versions.
 
-```!bash
-  git clone --branch feature/scaffold --single-branch --depth 1 git@github.build.ge.com:foundry-sh/px-seed.git px-your-app
+Most of the frontend components provided in the Seed are from [Predix UI Components](http://predixdev.github.io/predix-ui/), which are also built on Polymer.  These re-usable UI building blocks have been researched and designed to address the most common UI patterns.  Both built upon Polymer, the Seed and Px Components work together out-of-the-box.  Px Components can be used independently, or in combination with one another and with the Seed.  This achieves consistent behavior, look-and-feel, and high code re-use.
 
-  cd px-your-app && rm -rf .git
+The backend of the Seed is now implemented as a NodeJS/Express web server.  It presently includes a minimal set of public modules and a couple of Predix-specific modules (for session and proxy concerns, for example).  Similar to the frontend, it is also straightforwardly customizable, even replaceable by another server application, if so desired.  [NodeJS](http://nodejs.org) is a server-side application framework based on JavaScript.  It enjoys strong growth and huge adoption in the server applications community.
+
+The features offered by the Seed are from open-source component projects, many of which are actively discussed and contributed to.  This provides developers with available documentation and help in using such components for their projects.
+
+## Getting Started
+
+### Get the source code
+Make a directory for your project.  Clone or download and extract the seed in that directory.
+```
+git clone https://github.com/PredixDev/predix-seed.git
+cd predix-seed
 ```
 
-## Install the dependencies
+### Install tools
+If you don't have them already, you'll need node, bower and gulp to be installed globally on your machine.
+
+1. Install [node](https://nodejs.org/en/download/).  This includes npm - the node package manager.
+2. Install [bower](https://bower.io/) globally `npm install bower -g`
+3. Install [gulp](http://gulpjs.com/) globally `npm install gulp-cli -g`
+
+### Install the dependencies
 Change directory into the new project you just cloned, then install dependencies.
 ```
 npm install
 bower install
 ```
-
 ## Running the app locally
 The default gulp task will start a local web server.  Just run this command:
 ```
@@ -135,3 +147,16 @@ In CF environment you can enable UAA simply by filling the following required fi
   - Add your UAA service instance's name under the `services` section, or manually bind with `cf bs <my-app> <my-uaa>`
   - Fill in `clientId` field in `env` section
   - Fill in `base64ClientCredential` field in `env` section
+
+## Support and Further Information
+
+Ask questions and file tickets on <a href="https://www.predix.io/community" target="_blank">https://www.predix.io/community</a>.
+
+# Copyright
+Copyright &copy; 2015, 2016 GE Global Research. All rights reserved.
+
+The copyright to the computer software herein is the property of
+GE Global Research. The software may be used and/or copied only
+with the written permission of GE Global Research or in accordance
+with the terms and conditions stipulated in the agreement/contract
+under which the software has been supplied.
