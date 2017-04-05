@@ -20,7 +20,7 @@
     "iron-pages": "~1.0.8",
     "px-view": "^1.0.3",
     "app-route": "PolymerElements/app-route#^0.9.3",
-    "px-polymer-font-awesome": "https://github.build.ge.com/foundry-sh/px-polymer-font-awesome.git#master",
+    "px-polymer-font-awesome": "^1.1.5",
     "px-overlay": "^0.4.0",
     "px-simple-line-chart": "^1.7.0",
     "px-simple-horizontal-bar-chart": "^0.8.0",
