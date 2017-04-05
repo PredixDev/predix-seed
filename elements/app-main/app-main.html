@@ -12,7 +12,7 @@
 
 <link rel="import" href="../ge-svg-logo/ge-svg-logo.html">
 <link rel="import" href="../predix-logo/predix-logo.html">
-<link rel="import" href="../seed-footer/seed-footer.html">
+<link rel="import" href="../app-footer/app-footer.html">
 
 <dom-module id="app-main">
   <template>
@@ -67,22 +67,11 @@
             </px-view>
           </template>
 
-          <!-- /simple-asset route and view -->
-          <app-route
-            route="[[_route]]"
-            pattern="/simple-asset"
-            active="{{_simple-assetActive}}">
-          </app-route>
-          <px-view
-            active="[[_simple-assetActive]]"
-            element-href="/elements/views/simple-asset-view.html">
-          </px-view>
-
         </main>
       </div>
     </div>
 
-    <seed-footer footer-links='[[footerLinks]]'></seed-footer>
+    <app-footer footer-links='[[footerLinks]]'></app-footer>
 
   </template>
   <script>
@@ -94,24 +83,26 @@
         _routePages: {
           type: Array,
           readOnly: true,
-          value: [
-            {
-              page: 'dashboards',
-              elementHref: '/elements/views/dashboards-view.html'
-            },
-            {
-              page: 'simple-asset',
-              elementHref: '/elements/views/simple-asset-view.html'
-            },
-            {
-              page: 'winddata',
-              elementHref: '/elements/views/winddata-view.html'
-            },
-            {
-              page: 'blankpage',
-              elementHref: '/elements/views/blankpage-view.html'
-            }
-          ]
+          value: function() {
+            return [
+              {
+                page: 'dashboards',
+                elementHref: '/elements/views/dashboards-view.html'
+              },
+              {
+                page: 'simple-asset',
+                elementHref: '/elements/views/simple-asset-view.html'
+              },
+              {
+                page: 'winddata',
+                elementHref: '/elements/views/winddata-view.html'
+              },
+              {
+                page: 'blankpage',
+                elementHref: '/elements/views/blankpage-view.html'
+              }
+            ];
+          }
         },
 
         //Global application object

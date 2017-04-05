@@ -82,9 +82,10 @@ The previous sections show how authentication can be added to specific routes in
 ```
 //Use this route to make the entire app secure.  This forces login for any path in the entire app.
 app.use('/', passport.authenticate('main', {
-  noredirect: false //Don't redirect a user to the authentication page, just show an error
-  }),
-  express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public'))
+	noredirect: true //Don't redirect a user to the authentication page, just show an error
+}),
+history(),
+require('./static.js')
 );
 ```
 

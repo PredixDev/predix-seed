@@ -39,7 +39,7 @@ You can run locally seed app web components docs/demo easily with the following 
 
 ```
 npm i -g polymer
-polymer serve --root public
+polymer serve --root .
 ```
 
 Then to view the component doc for, e.g. `px-vis`  locally:

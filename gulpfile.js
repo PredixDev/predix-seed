@@ -22,7 +22,7 @@ gulp.task('compile:index', gulp.series('compile:sass', getTask('compile.index'))
 // -----------------------------------------------------------------------------
 // Task: Watch : Source, Public, All
 // -----------------------------------------------------------------------------
-gulp.task('watch:public', getTask('watch.public'));
+gulp.task('watch:source', getTask('watch.source'));
 
 // -----------------------------------------------------------------------------
 // Task: Dist : Clean 'dist/'' folder
@@ -50,4 +50,4 @@ gulp.task('serve:dist', gulp.series('dist', 'serve:dist:start'));
 // -----------------------------------------------------------------------------
 //  Task: Default (compile source, start server, watch for changes)
 // -----------------------------------------------------------------------------
-gulp.task('default', gulp.series(dev ? 'serve:dev' : 'serve:dist', 'watch:public'));
+gulp.task('default', gulp.series(dev ? 'serve:dev' : 'serve:dist', 'watch:source'));

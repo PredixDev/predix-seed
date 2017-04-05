@@ -6,7 +6,6 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "public/bower_components",
     "test",
     "tests",
     "target",
@@ -60,7 +59,8 @@
     "px-headings-design": "^0.3.1",
     "px-buttons-design": "^1.1.2",
     "px-actionable-text-icons-design": "^1.1.1",
-    "px-spacing-design": "^0.4.1"
+    "px-spacing-design": "^0.4.1",
+    "web-component-tester": "^5.0.1"
   },
   "resolutions": {
     "px-polymer-font-awesome": "master",

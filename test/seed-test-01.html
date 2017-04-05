@@ -3,11 +3,11 @@
 <head>
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
   <title>seed-test-01</title>
-  <script src="../public/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-  <script src="../public/bower_components/web-component-tester/browser.js"></script>
+  <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../bower_components/web-component-tester/browser.js"></script>
 
   <!-- Import the element to test -->
-  <link rel="import" href="../public/elements/app-main/app-main.html">
+  <link rel="import" href="../elements/app-main/app-main.html">
 
 </head>
 <body>
@@ -26,8 +26,9 @@
         var home;
         var seedAppFixture;
 
-        setup(function() {
+        setup(function(done) {
           seedAppFixture = fixture('basic');
+          flush(done);
         });
 
         test('app-main object should be of type "app-main"', function() {
@@ -44,9 +45,9 @@
           assert(Array.isArray(footerLinks), 'footerLinks object has incorrect type: ' + typeof footerLinks);
         });
 
-        test('routesActive property should be defined', function() {
-          var routesActive = seedAppFixture.properties.routesActive;
-          assert(typeof routesActive === 'object', 'routesActive boolean has is undefined/null');
+        test('_routePages property should be defined', function() {
+          var pages = seedAppFixture.properties._routePages.value();
+          assert(Array.isArray(pages), '_routePages is not an array.');
         });
 
         test('global property should be defined', function() {
@@ -77,14 +78,14 @@
           assert(appLocation !== null, 'app-location element was not found');
         });
 
-        test('There should be initially 3 app-route elements', function() {
+        test('There should be initially 1 app-route elements', function() {
           var appRoutes = Polymer.dom(seedAppFixture.root).querySelectorAll('app-route');
-          assert(appRoutes.length === 3, 'app-route is not exactly 2 instances');
+          assert(appRoutes.length === 1, 'app-route is not exactly 1 instances');
         });
 
-        test('There should be initially 3 px-view elements', function() {
+        test('There should be initially 4 px-view elements', function() {
           var pxViews = Polymer.dom(seedAppFixture.root).querySelectorAll('px-view');
-          assert(pxViews.length === 3, 'px-view is not exactly 2 instances');
+          assert(pxViews.length === 4, 'px-view is not exactly 4 instances');
         });
 
         test('There should be a main element', function() {
@@ -110,13 +111,13 @@
         });
 
         test('Menu item for blank page should be configured correctly', function() {
-          var homeView = Polymer.dom(seedAppFixture.root).querySelector('px-view[element-href="/elements/views/blankpage-view.html"]');
-          assert(homeView !== null, 'blank page menu navigation menu item was not found');
+          var appNav = Polymer.dom(seedAppFixture.root).querySelector('px-app-nav');
+          assert(appNav.querySelectorAll('a[href~="/blankpage"]') !== null, 'blank page menu navigation menu item was not found');
         });
 
-        test('Menu item for dashboard should be configured correctly', function() {
-          var dashboardsView = Polymer.dom(seedAppFixture.root).querySelector('px-view[element-href="/elements/views/dashboards-view.html"]');
-          assert(dashboardsView !== null, 'dashboards menu navigation menu item was not found');
+        test('Menu item for dashboard should be configured correctly', function(done) {
+          var appNav = Polymer.dom(seedAppFixture.root).querySelector('px-app-nav');
+          assert(appNav.querySelectorAll('a[href~="/dashboards"]') !== null, 'dashboards menu navigation menu item was not found');
         });
 
       });
