@@ -1,0 +1,143 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/px-context-browser/px-context-browser.html">
+<link rel="import" href="../../bower_components/px-deck-selector/px-deck-selector.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../elements/seed-intro-card/seed-intro-card.html">
+<link rel="import" href="../../elements/data-table-card/data-table-card.html">
+<link rel="import" href="../../elements/three-widgets-card/three-widgets-card.html">
+<link rel="import" href="../../elements/time-series-card/time-series-card.html">
+
+<!-- local px-deck -->
+<link rel="import" href="../../elements/px-deck/px-deck-index.html">
+
+<dom-module id="dashboards-view">
+  <template>
+    <!-- decksIronAjax used to load data from local View Service API -->
+    <iron-ajax
+      id="decksIronAjax"
+      auto
+      url="[[_decksUrl]]"
+      last-response="{{_decksResponse}}">
+      <!-- auto -->
+    </iron-ajax>
+
+    <!-- px-context-browser element -->
+    <px-context-browser
+      id="contextBrowser"
+      label-field="name"
+      id-field="id"
+      browser-context="[[_rootAsset]]"
+      selected-item="{{_selectedAsset}}"
+      show-chevron="true">
+      <px-deck-selector
+        decks="[[_decks]]"
+        selected-deck="{{_selectedDeck}}">
+      </px-deck-selector>
+    </px-context-browser>
+
+    <px-deck-index
+      view-service-base-url="[[viewServiceBaseUrl]]"
+      deck-id="[[_selectedDeckId]]">
+    </px-deck-index>
+
+  </template>
+  <script>
+    Polymer({
+
+      is: 'dashboards-view',
+
+      properties: {
+        _decks: {
+          type: Array,
+          computed: '_getDecks(_decksResponse)'
+        },
+        _rootAsset: {
+          type: Object,
+        },
+        _decksUrl: {
+          type: String,
+          computed: '_getDecksUrl(_openedAsset)'
+        },
+        _openedAsset: {
+          type: Object
+        },
+        viewServiceBaseUrl: {
+          type: String,
+          value: '/api/view-service/'
+        },
+        assetServiceBaseUrl: {
+          type: String,
+          value: '/api/predix-asset'
+        },
+        _selectedDeckId: {
+          type: String,
+          computed: '_getSelectedDeckId(_selectedDeck)'
+        },
+        _selectedAsset: {
+          observer: '_onAssetSelected'
+        }
+      },
+
+      _getDecksUrl: function(asset) {
+        return this.viewServiceBaseUrl + "decks?tag=" + asset.id;
+      },
+      _getSelectedDeckId: function() {
+        if(this._selectedDeck) {
+          return this._selectedDeck.id;
+        }
+      },
+
+      ready: function ready() {
+        var _this = this;
+        this.$.contextBrowser.handlers = {
+          // getChildren fires when a node is 'selected'
+          getChildren: function(parent, newIndex) {
+            return _this._getChildren(parent);
+          },
+          // itemOpenHandler fires when a node's 'open' link is clicked
+          itemOpenHandler: this.openAsset.bind(this)
+        };
+
+        // Load root asset
+        fetch(this.assetServiceBaseUrl+'/root/root').then(function(res) {
+          return res.json();
+        }).then(function(rootAsset) {
+          _this.set('_rootAsset', rootAsset);
+        });
+      },
+
+      _getDecks: function() {
+        var decks = [];
+        if (this._decksResponse && this._decksResponse.length > 0) {
+          this._decksResponse.forEach(function(deck) {
+            decks.push({ name: deck.title, id: deck.id });
+          });
+        };
+        return decks;
+      },
+
+      _getRootAsset: function(_browserContext) {
+        return this._rootAsset || (this._rootAsset = _browserContext);
+      },
+
+      // "getChildren" handler for px-context-browser
+      // this function shall return a promise to the asset data
+      _getChildren: function(node) {
+        return fetch(this.assetServiceBaseUrl + node.uri).then(function(res) {
+          return res.json();
+        });
+      },
+      _onAssetSelected: function(asset) {
+        // handle opening initial asset on page load
+        if (!this._openedAsset && asset.id) {
+          this.openAsset(asset);
+        }
+      },
+      // An asset is opened,
+      openAsset: function(asset) {
+        this._openedAsset = asset;
+      }
+
+    });
+  </script>
+</dom-module>

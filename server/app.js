@@ -10,6 +10,7 @@ var jsonServer = require('json-server'); // used for mock api responses
 var path = require('path');
 var cookieParser = require('cookie-parser'); // used for session cookie
 var bodyParser = require('body-parser');
+var compression = require('compression')
 var passport;  // only used if you have configured properties for UAA
 // simple in-memory session is used here. use connect-redis for production!!
 var session = require('express-session');
@@ -18,6 +19,8 @@ var proxy = require('./proxy'); // used when requesting data from real services.
 var config = require('./predix-config');
 // configure passport for authentication with UAA
 var passportConfig = require('./passport-config');
+var history = require('connect-history-api-fallback');
+var rewrite = require('express-urlrewrite');
 
 // if running locally, we need to set up the proxy from local config file:
 var node_env = process.env.node_env || 'development';
@@ -27,7 +30,7 @@ if (node_env === 'development') {
 	proxy.setUaaConfig(devConfig);
 }
 
-var windServiceURL = devConfig ? devConfig.windServiceURL : process.env.windServiceURL;
+var windServiceURL = node_env === 'development' ? devConfig.windServiceURL: process.env.windServiceURL;
 
 console.log('************'+node_env+'******************');
 
@@ -46,6 +49,10 @@ var app = express();
 
 app.set('trust proxy', 1);
 app.use(cookieParser('predixsample'));
+if(node_env !== 'development') {
+  // gzip
+  app.use(compression());
+}
 // Initializing default session store
 // *** Use this in-memory session store for development only. Use redis for prod. **
 app.use(session({
@@ -69,6 +76,10 @@ var server = app.listen(process.env.VCAP_APP_PORT || 5000, function () {
 	console.log ('Server started on port: ' + server.address().port);
 });
 
+// Rewrite font files to local
+app.use(rewrite('/type/*', '/bower_components/px-typography-design/type/$1'));
+app.use(rewrite('/fontawesome/*', '/bower_components/font-awesome/fonts/$1'));
+
 /*******************************************************
 SET UP MOCK API ROUTES
 *******************************************************/
@@ -85,9 +96,9 @@ app.use('/api/time-series', jsonServer.router(timeSeriesRoutes));
 /****************************************************************************
 	SET UP EXPRESS ROUTES
 *****************************************************************************/
-
 if (!uaaIsConfigured) { // no restrictions
-  app.use(express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public')));
+  app.use(history());
+  app.use(require('./static.js'));
 } else {
   //login route redirect to predix uaa login page
   app.get('/login',passport.authenticate('predix', {'scope': ''}), function(req, res) {
@@ -97,19 +108,17 @@ if (!uaaIsConfigured) { // no restrictions
 
   // access real Predix services using this route.
   // the proxy will add UAA token and Predix Zone ID.
-  app.use('/predix-api',
-  	passport.authenticate('main', {
-  		noredirect: true
-  	}),
-  	proxy.router);
+  app.use('/predix-api', passport.authenticate('main', {
+    noredirect: true
+  }), proxy.router);
 
   //callback route redirects to secure route after login
   app.get('/callback', passport.authenticate('predix', {
-  	failureRedirect: '/'
+    failureRedirect: '/'
   }), function(req, res) {
-  	console.log('Redirecting to secure route...');
-  	res.redirect('/');
-    });
+    console.log('Redirecting to secure route...');
+    res.redirect('/');
+  });
 
   // example of calling a custom microservice.
   if (windServiceURL && windServiceURL.indexOf('https') === 0) {
@@ -120,12 +129,6 @@ if (!uaaIsConfigured) { // no restrictions
     );
   }
 
-  //Use this route to make the entire app secure.  This forces login for any path in the entire app.
-  app.use('/', passport.authenticate('main', {
-    noredirect: false //Don't redirect a user to the authentication page, just show an error
-    }),
-    express.static(path.join(__dirname, process.env['base-dir'] ? process.env['base-dir'] : '../public'))
-  );
 
   //Or you can follow this pattern to create secure routes,
   // if only some portions of the app are secure.
@@ -137,15 +140,22 @@ if (!uaaIsConfigured) { // no restrictions
     res.send('<h2>This is a sample secure route.</h2>');
   });
 
-}
+  //logout route
+  app.get('/logout', function(req, res) {
+  	req.session.destroy();
+  	req.logout();
+    passportConfig.reset(); //reset auth tokens
+    res.redirect(config.uaaURL + '/logout?redirect=' + config.appURL);
+  });
 
-//logout route
-app.get('/logout', function(req, res) {
-	req.session.destroy();
-	req.logout();
-  passportConfig.reset(); //reset auth tokens
-  res.redirect(config.uaaURL + '/logout?redirect=' + config.appURL);
-});
+  //Use this route to make the entire app secure.  This forces login for any path in the entire app.
+  app.use('/', passport.authenticate('main', {
+    noredirect: true //Don't redirect a user to the authentication page, just show an error
+    }),
+    history(),
+    require('./static.js')
+  );
+}
 
 app.get('/favicon.ico', function (req, res) {
 	res.send('favicon.ico');

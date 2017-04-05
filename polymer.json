@@ -1,0 +1,25 @@
+{
+  "entrypoint": "index.html",
+  "shell": "loader.html",
+  "fragments": [
+    "elements/views/blankpage-view.html",
+    "elements/views/dashboards-view.html",
+    "elements/views/simple-asset-view.html",
+    "elements/views/winddata-view.html",
+    "elements/seed-intro-card/seed-intro-card.html",
+    "elements/data-table-card/data-table-card.html",
+    "elements/three-widgets-card/three-widgets-card.html",
+    "elements/time-series-card/time-series-card.html",
+    "bower_components/px-vis-timeseries/px-vis-timeseries.html",
+    "bower_components/px-data-table/px-data-table.html"
+  ],
+  "source": [
+    "elements/**/*",
+    "images/**/*"
+  ],
+  "includeDependencies": [
+    "bower_components/webcomponentsjs/webcomponents-lite.min.js",
+    "bower_components/px-typography-design/type/*",
+    "bower_components/font-awesome/fonts/*"
+  ]
+}

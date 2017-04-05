@@ -1,0 +1,23 @@
+// Settings
+@import "px-defaults-design/_settings.defaults.scss";
+@import "px-colors-design/_settings.colors.scss";
+
+// Tools
+@import "px-mixins-design/_tools.mixins.scss";
+
+// theme variables
+$inuit-webfont-path: 'type';
+$fa-font-path: 'fontawesome';
+$predix-font-family: "GE Inspira Sans", "PingFang SC", "Heiti SC", "SimHei", "黑体", "Microsoft Yahei", "微软雅黑", sans-serif !default;
+$px-page-html-background-color: $gray9;
+$px-page-link-color: $gray5;
+$px-page-spine-border-color: $gray8;
+$px-page-spine-text-color: $white;
+$px-page-bold-text-color: $gray3;
+$px-page-card-border-color: $gray3;
+$px-page-card-background-color: $white;
+$px-page-card-text-color: $black;
+$px-page-card-paragraph-text-color: $gray5;
+$px-page-banner-text-color: $gray4;
+$px-page-banner-meatball-color : $gray4;
+$px-page-main-content-area-background-color: $graybg;

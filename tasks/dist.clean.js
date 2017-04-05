@@ -1,13 +1,12 @@
 'use strict';
-const clean = require('gulp-clean');
+const del = require('del');
 
 // ---------------------------
 //   Task: Clean 'dist' folder
 // ---------------------------
 
-module.exports = function(gulp) {
+module.exports = function(done) {
   return function() {
-    return gulp.src('dist', {read: false})
-      .pipe(clean());
+    return del(['./dist']);
   };
 };

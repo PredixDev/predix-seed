@@ -1,0 +1,188 @@
+<!-- import page level css -->
+<link rel="import" href="app-main-styles.html">
+
+<!-- app route -->
+<link rel="import" href="../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+
+<!-- px components -->
+<link rel="import" href="../../bower_components/px-app-nav/px-app-nav.html">
+<link rel="import" href="../../bower_components/px-view/px-view.html">
+<link rel="import" href="../../bower_components/px-polymer-font-awesome/px-polymer-font-awesome.html">
+
+<link rel="import" href="../ge-svg-logo/ge-svg-logo.html">
+<link rel="import" href="../predix-logo/predix-logo.html">
+<link rel="import" href="../app-footer/app-footer.html">
+
+<dom-module id="app-main">
+  <template>
+
+    <!-- apply imported seed app style module -->
+    <style include="app-main-styles"></style>
+
+    <header role="banner" class="flex flex--middle">
+      <div class="viewport flex">
+        <h3 class="flex__item app-title">
+          <ge-svg-logo class="u-mr--"></ge-svg-logo>
+          Predix Seed App
+        </h3>
+        <div class="flex__item">
+          <div class="flex" style="text-align:right;">
+            <h3 class="flex__item weight--normal logo">
+              Powered by <predix-logo style="display:inline-block; width: 82px;" class="flex__item"></predix-logo>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="viewport">
+
+      <div class="content-wrapper">
+        <px-app-nav
+          class="navbar"
+          nav-items="[[navItems]]"
+          path-prefix="[[pathPrefix]]">
+        </px-app-nav>
+
+        <main class="u-pt-- u-pr-- u-pl--" role="main">
+
+          <!-- app-location captures url and assigns _route value -->
+          <app-location
+            id="carbonLocation"
+            route="{{_route}}">
+          </app-location>
+
+          <app-route
+            route="[[_route]]"
+            pattern="/:page"
+            data="{{routeData}}">
+          </app-route>
+
+          <!-- child route render here -->
+          <template is="dom-repeat" items="[[_routePages]]">
+            <px-view
+              active="[[_equals(routeData.page, item.page)]]"
+              element-href="[[item.elementHref]]">
+            </px-view>
+          </template>
+
+        </main>
+      </div>
+    </div>
+
+    <app-footer footer-links='[[footerLinks]]'></app-footer>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'app-main',
+
+      properties: {
+        // route config
+        _routePages: {
+          type: Array,
+          readOnly: true,
+          value: function() {
+            return [
+              {
+                page: 'dashboards',
+                elementHref: '/elements/views/dashboards-view.html'
+              },
+              {
+                page: 'simple-asset',
+                elementHref: '/elements/views/simple-asset-view.html'
+              },
+              {
+                page: 'winddata',
+                elementHref: '/elements/views/winddata-view.html'
+              },
+              {
+                page: 'blankpage',
+                elementHref: '/elements/views/blankpage-view.html'
+              }
+            ];
+          }
+        },
+
+        //Global application object
+        global: {
+          type: Object,
+          value: function() {
+            return {
+              version: '0.1',
+              name: '',
+              session: {}
+            }
+          }
+        },
+
+        navItems: {
+          type: Array,
+          value: function() {
+            return [{
+              "label": "Dashboards",
+              "path": "dashboards",
+              "icon": "fa-tachometer"
+            }, {
+              "label": "Blank Page",
+              "path": "blankpage",
+              "icon": "fa-file"
+            },
+              {
+              "label": "Simple Asset",
+              "path": "simple-asset",
+              "icon": "fa-sitemap"
+            },
+              {
+              "label": "Wind Data",
+              "path": "winddata",
+              "icon": "fa-line-chart"
+            }
+            ]
+          }
+        },
+
+        footerLinks: {
+          type: Array,
+          value: function() {
+            return [{
+              "label": "Privacy",
+              "href": "http://www.ge.com/privacy",
+              "target": "_blank"
+            }, {
+              "label": "Terms",
+              "href": "http://www.ge.com/terms",
+              "target": "_blank"
+            }]
+          }
+        },
+
+        // Sets app default base URL for client-side routing
+        pathPrefix: {
+          type: String,
+          value: '/'
+        }
+      },
+
+      ready: function(){
+        this._checkForDefaultRoute();
+      },
+
+      _checkForDefaultRoute: function() {
+        // set default route to /dashboards
+        var l = window.location;
+        if (l.pathname === '/') {
+          // redirect to index
+          window.history.replaceState({}, null, '/dashboards');
+          window.dispatchEvent(new CustomEvent('location-changed'));
+        }
+      },
+
+      _equals: function(a, b) {
+        return a === b;
+      }
+
+    });
+  </script>
+</dom-module>

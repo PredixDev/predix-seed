@@ -8,6 +8,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const path = require('path');
 const importOnce = require('node-sass-import-once');
 const cssmin = require('gulp-cssmin');
+const merge = require('merge-stream');
 
 var getName = function(file) {
   return path.basename(file.path, path.extname(file.path));
@@ -23,19 +24,18 @@ var styleModuleDest = function(file) {
 module.exports = function(gulp, plugins) {
   return function() {
 
-    return gulp.src([
-        './public/*.scss',
-        './public/elements/*.scss',
-        './public/elements/**/*.scss'
+    const sassOptions = {
+      includePaths: 'bower_components',
+      importer: importOnce,
+      importOnce: {
+        index: true, bower: true
+      }
+    };
+
+    const elements = gulp.src([
+        'elements/**/*.scss'
       ])
-      .pipe(plugins.sass({
-          includePaths: './public/bower_components/',
-          importer: importOnce,
-          importOnce: {
-            index: true,
-            bower: true
-          }
-        })
+      .pipe(plugins.sass(sassOptions)
         .on('error', plugins.sass.logError))
       .pipe(autoprefixer())
       .pipe(cssmin())
@@ -52,5 +52,13 @@ module.exports = function(gulp, plugins) {
       }))
       .pipe(gulp.dest(styleModuleDest));
 
+    const inline = gulp.src('./index-inline.scss')
+      .pipe(plugins.sass(sassOptions)
+        .on('error', plugins.sass.logError))
+      .pipe(autoprefixer())
+      .pipe(cssmin())
+      .pipe(gulp.dest('.'));
+
+    return merge(elements, inline);
   };
 };

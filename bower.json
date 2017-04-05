@@ -1,12 +1,11 @@
 {
-  "name": "predix-seed",
+  "name": "predix-ui-app",
   "version": "3.1.0",
   "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
-    "public/bower_components",
     "test",
     "tests",
     "target",
@@ -15,29 +14,31 @@
     "tutorials"
   ],
   "dependencies": {
-    "es6-promise": "^3.3.1",
-    "lodash": "~4.16.2",
-    "q": "^1.0.0",
     "polymer": "^1.6.1",
     "iron-ajax": "~1.4.3",
     "iron-pages": "~1.0.8",
     "px-view": "^1.0.3",
-    "app-route": "PolymerElements/app-route#^0.9.1",
+    "app-route": "PolymerElements/app-route#^0.9.3",
+    "px-polymer-font-awesome": "^1.1.5",
     "px-overlay": "^0.4.0",
     "px-simple-line-chart": "^1.7.0",
     "px-simple-horizontal-bar-chart": "^0.8.0",
     "px-widget-cards": "^2.2.1",
     "px-simple-bar-chart": "^1.7.1",
     "px": "^1.4.3",
-    "px-app-nav": "^1.9.1",
-    "px-card": "^0.6.1",
-    "px-context-browser": "^1.4.5",
+    "px-app-nav": "^1.10.9",
+    "px-card": "^0.7.1",
+    "px-context-browser": "^1.6.11",
     "px-deck-selector": "^1.5.5",
-    "px-sample-cards": "^0.7.1",
+    "px-sample-cards": "^0.8.1",
     "px-theme": "^2.0.1",
-    "px-vis-timeseries": "^0.6.2",
-    "px-vis-xy-chart": "^0.3.0",
-    "px-view-header": "^0.2.0"
+    "px-dark-theme": "^1.0.1",
+    "px-vis-timeseries": "^1",
+    "px-vis-xy-chart": "^1",
+    "px-view-header": "^0.2.0",
+    "imd": "^1.0.0",
+    "fetch": "^2.0.1",
+    "es6-shim": "^0.35.3"
   },
   "devDependencies": {
     "px-forms-design": "^1.1.1",
@@ -58,6 +59,12 @@
     "px-headings-design": "^0.3.1",
     "px-buttons-design": "^1.1.2",
     "px-actionable-text-icons-design": "^1.1.1",
-    "px-spacing-design": "^0.4.1"
+    "px-spacing-design": "^0.4.1",
+    "web-component-tester": "^5.0.1"
+  },
+  "resolutions": {
+    "px-polymer-font-awesome": "master",
+    "px-card": "^0.7.1",
+    "px-dropdown": "^3.1.0"
   }
 }
