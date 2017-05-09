@@ -1,8 +1,16 @@
+# Project has moved
+This repo will no longer be updated.
+Please use the new version of the Seed app here:
+
+https://github.com/predixdev/predix-webapp-starter
+
+<a href="https://github.com/predixdev/predix-webapp-starter"><img src="moved.jpg" height="300"></img></a>
+
 # Predix UI Seed
 
-### IMPORTANT NOTE
+### NOTE - October 6, 2016
 
-On October 6, 2016 this project was switched to a new, simplified implementation that includes using Polymer instead of AngularJS and removes dependencies on micro-services.  For the previous implementation in AngularJS please refer to the 'develop-angular' and/or 'master-angular' branches.
+This project was switched to a new, simplified implementation that includes using Polymer instead of AngularJS and removes dependencies on micro-services.  For the previous implementation in AngularJS please refer to the 'develop-angular' and/or 'master-angular' branches.
 
 ## What is the Predix UI Seed?
 The Predix UI Seed ("Seed") is a web application starter kit aimed to accelerate Predix application development.   It comes in the form of a simple web application, with code examples on features such as branding, theming, layout, navigation, responsiveness, organization of views, data presentation and micro-services integration, to name some.  These working code samples can be straightforwardly customized and adapted to specific application needs. Predix application projects can directly use, remove from or add to these features to achieve prototype or production state much faster than through building everything from scratch.  This speeds up application development, letting developers focus on functionality, instead of having to make boilerplate concerns work.
@@ -98,14 +106,14 @@ The simplest way to push the Seed application to a cloud environment is by modif
 3. Access the cloud deployment of your Seed application
 
   The output of the **cf push** command includes the URL to which your application was deployed.  Below is an example:
-  
+
   API endpoint:   https://api.endpoint.svc.ice.ge.com (API version: 2.62.0)   
   User:           john.doe@ge.com   
   Org:            predix-org   
   Space:          predix-space   
 
   Access your Seed application by loading the **API Endpoint** above in a web browser
-  
+
 ## Support and Further Information
 
 Ask questions and file tickets on <a href="https://www.predix.io/community" target="_blank">https://www.predix.io/community</a>.
