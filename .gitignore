@@ -13,3 +13,4 @@ npm-debug.log
 temp
 dist
 .github/
+.vscode/
