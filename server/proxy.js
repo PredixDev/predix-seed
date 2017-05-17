@@ -136,9 +136,9 @@ var setProxyRoute = function(key, credentials) {
 // Use this middleware to proxy a request to a secure service, using a client token.
 var addClientTokenMiddleware = function(req, res, next) {
 	function errorHandler(errorString) {
-		// TODO: fix, so it doesn't return a status 200.
-		//  Tried sendStatus, but headers were already set.
-		res.send(errorString);
+		var err = new Error(errorString);
+    err.status = 500;
+		next(err);
 	}
 	// console.log('proxy root route');
 	if (req.session) {
