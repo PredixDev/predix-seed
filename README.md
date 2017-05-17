@@ -43,7 +43,7 @@ If you don't have them already, you'll need node, bower and gulp to be installed
 Change directory into the new project you just cloned, then install dependencies.
 ```
 npm install
-bower install
+bower install (Use `sudo bower install --allow-root` if you see permission issues") 
 ```
 ## Running the app locally
 The default gulp task will start a local web server.  Just run this command:
